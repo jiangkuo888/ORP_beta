@@ -1,0 +1,1780 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &100000
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 400000}
+  - 114: {fileID: 11400004}
+  - 114: {fileID: 11400002}
+  - 114: {fileID: 11400000}
+  m_Layer: 0
+  m_Name: DUGManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &400000
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -936388604, guid: 94b9a575b0009478a92055ed9640cd1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  editorVersionNumber: 1.6.0
+  editorBasePath: 
+  editorProjectName: 
+  currentSceneId: SCENE_2013:03:25:13:55:29:600
+  selectedLocaleIndex: 0
+  listLanguageCodes:
+  - default
+  - de_DE
+  listScenes:
+  - id: SCENE_2013:03:25:13:55:29:600
+    name: Room1
+    image: {fileID: 0}
+  - id: SCENE_2013:03:25:14:43:58:138
+    name: Room 2
+    image: {fileID: 0}
+  listActors:
+  - id: ACTOR_2013:03:25:13:55:39:168
+    name: Speaker
+    image: {fileID: 2800000, guid: c7bce3e9b86174527b1bf8d3b1c7f58c, type: 3}
+  listNodes:
+  - id: NODE_2013:03:25:13:56:18:695
+    name: Room1 / Node 0
+    image: {fileID: 0}
+    variableId: 
+    variableValue: 
+    variableOperationId: 0
+    type: 0
+    actorId: ACTOR_2013:03:25:13:55:39:168
+    sceneId: SCENE_2013:03:25:13:55:29:600
+    listEntries:
+    - id: NODE_ENTRY_2013:06:04:18:24:44:5793170
+      name: 
+      image: {fileID: 0}
+      variableId: 
+      variableValue: 
+      variableOperationId: 0
+      listLocales:
+      - languageCode: default
+        text: Welcome to DUNILOG. What you want to do?
+      - languageCode: de_DE
+        text: Willkommen bei DUNILOG. Was willst du machen?
+      followUpNodeId: NODE_2013:03:25:13:56:18:695
+      nodeId: NODE_2013:03:25:13:56:18:695
+      maxSelectCount: 1
+      startDisplayCount: 1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    - id: NODE_ENTRY_2013:06:10:23:26:01:7106660
+      name: 
+      image: {fileID: 0}
+      variableId: 
+      variableValue: 
+      variableOperationId: 0
+      listLocales:
+      - languageCode: default
+        text: Welcome again. Which choice next?
+      - languageCode: de_DE
+        text: Nochmals willkommen! Und jetzt?
+      followUpNodeId: NODE_2013:03:25:13:56:18:695
+      nodeId: NODE_2013:03:25:13:56:18:695
+      maxSelectCount: -1
+      startDisplayCount: 2
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    - id: NODE_ENTRY_2013:06:04:18:24:44:5793380
+      name: 
+      image: {fileID: 0}
+      variableId: 
+      variableValue: 
+      variableOperationId: 0
+      listLocales:
+      - languageCode: default
+        text: Open left door
+      - languageCode: de_DE
+        text: "Linke T\xFCr \xF6ffnen"
+      followUpNodeId: NODE_2013:03:25:13:58:58:684
+      nodeId: NODE_2013:03:25:13:56:18:695
+      maxSelectCount: 1
+      startDisplayCount: -1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    - id: NODE_ENTRY_2013:06:04:18:24:44:5793500
+      name: 
+      image: {fileID: 0}
+      variableId: 
+      variableValue: 
+      variableOperationId: 0
+      listLocales:
+      - languageCode: default
+        text: Open right door
+      - languageCode: de_DE
+        text: "Rechte T\xFCr \xF6ffnen"
+      followUpNodeId: NODE_2013:03:25:14:07:42:579
+      nodeId: NODE_2013:03:25:13:56:18:695
+      maxSelectCount: -1
+      startDisplayCount: -1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    messageMethodeName: 
+    messageMethodeValue: 
+    editorWindowRect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 250
+      height: 100
+    editorShowInDUGManagerActionList: 0
+  - id: NODE_2013:03:25:13:58:58:684
+    name: Room1 / Node 1
+    image: {fileID: 0}
+    variableId: 
+    variableValue: 
+    variableOperationId: 0
+    type: 0
+    actorId: ACTOR_2013:03:25:13:55:39:168
+    sceneId: SCENE_2013:03:25:13:55:29:600
+    listEntries:
+    - id: NODE_ENTRY_2013:06:04:18:24:44:5860480
+      name: 
+      image: {fileID: 0}
+      variableId: 
+      variableValue: 
+      variableOperationId: 0
+      listLocales:
+      - languageCode: default
+        text: The door is locked
+      - languageCode: de_DE
+        text: "Die T\xFCr ist geschlossen"
+      followUpNodeId: NODE_2013:03:25:13:59:42:080
+      nodeId: NODE_2013:03:25:13:58:58:684
+      maxSelectCount: -1
+      startDisplayCount: -1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    messageMethodeName: 
+    messageMethodeValue: 
+    editorWindowRect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 250
+      height: 100
+    editorShowInDUGManagerActionList: 0
+  - id: NODE_2013:03:25:13:59:42:080
+    name: Room1 / Node 2
+    image: {fileID: 0}
+    variableId: 
+    variableValue: 
+    variableOperationId: 0
+    type: 1
+    actorId: ACTOR_2013:03:25:13:55:39:168
+    sceneId: SCENE_2013:03:25:13:55:29:600
+    listEntries:
+    - id: NODE_ENTRY_2013:06:04:18:24:44:5909620
+      name: 
+      image: {fileID: 0}
+      variableId: 
+      variableValue: 
+      variableOperationId: 0
+      listLocales:
+      - languageCode: default
+        text: 
+      followUpNodeId: NODE_2013:03:25:13:56:18:695
+      nodeId: NODE_2013:03:25:13:59:42:080
+      maxSelectCount: -1
+      startDisplayCount: -1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    messageMethodeName: 
+    messageMethodeValue: 
+    editorWindowRect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 250
+      height: 100
+    editorShowInDUGManagerActionList: 0
+  - id: NODE_2013:03:25:14:07:42:579
+    name: Right door opens
+    image: {fileID: 0}
+    variableId: 
+    variableValue: 
+    variableOperationId: 0
+    type: 0
+    actorId: ACTOR_2013:03:25:13:55:39:168
+    sceneId: SCENE_2013:03:25:13:55:29:600
+    listEntries:
+    - id: NODE_ENTRY_2013:06:04:18:24:44:5929450
+      name: 
+      image: {fileID: 0}
+      variableId: 
+      variableValue: 
+      variableOperationId: 0
+      listLocales:
+      - languageCode: default
+        text: The door open now and you can see a safe. What you want to do?
+      - languageCode: de_DE
+        text: "Die T\xFCr ist jetzt offen und du siehst einen Tresor. Was willst du
+          jetzt machen?"
+      followUpNodeId: NODE_2013:03:25:14:07:42:579
+      nodeId: NODE_2013:03:25:14:07:42:579
+      maxSelectCount: 1
+      startDisplayCount: 1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    - id: NODE_ENTRY_2013:06:11:12:37:29:5634940
+      name: 
+      image: {fileID: 0}
+      variableId: 
+      variableValue: 
+      variableOperationId: 0
+      listLocales:
+      - languageCode: default
+        text: Try something else!
+      - languageCode: de_DE
+        text: Versuch was anderes!
+      followUpNodeId: NODE_2013:03:25:14:07:42:579
+      nodeId: NODE_2013:03:25:14:07:42:579
+      maxSelectCount: -1
+      startDisplayCount: 2
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    - id: NODE_ENTRY_2013:06:04:18:24:44:5929590
+      name: 
+      image: {fileID: 0}
+      variableId: 
+      variableValue: 
+      variableOperationId: 0
+      listLocales:
+      - languageCode: default
+        text: Open safe
+      - languageCode: de_DE
+        text: "Tresor \xF6ffnen"
+      followUpNodeId: NODE_2013:03:25:14:09:43:291
+      nodeId: NODE_2013:03:25:14:07:42:579
+      maxSelectCount: 1
+      startDisplayCount: -1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    - id: NODE_ENTRY_2013:06:04:18:24:44:5929710
+      name: 
+      image: {fileID: 0}
+      variableId: 
+      variableValue: 
+      variableOperationId: 0
+      listLocales:
+      - languageCode: default
+        text: Look around in room
+      - languageCode: de_DE
+        text: In Raum umsehen
+      followUpNodeId: NODE_2013:03:25:14:14:39:133
+      nodeId: NODE_2013:03:25:14:07:42:579
+      maxSelectCount: -1
+      startDisplayCount: -1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    messageMethodeName: 
+    messageMethodeValue: 
+    editorWindowRect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 250
+      height: 100
+    editorShowInDUGManagerActionList: 1
+  - id: NODE_2013:03:25:14:09:27:774
+    name: Select code
+    image: {fileID: 0}
+    variableId: 
+    variableValue: 
+    variableOperationId: 0
+    type: 0
+    actorId: ACTOR_2013:03:25:13:55:39:168
+    sceneId: SCENE_2013:03:25:13:55:29:600
+    listEntries:
+    - id: NODE_ENTRY_2013:06:04:18:24:44:5935720
+      name: 
+      image: {fileID: 0}
+      variableId: 
+      variableValue: 
+      variableOperationId: 0
+      listLocales:
+      - languageCode: default
+        text: Which combination is the right one?
+      - languageCode: de_DE
+        text: Welche Kombination ist die richtige?
+      followUpNodeId: NODE_2013:03:25:14:09:27:774
+      nodeId: NODE_2013:03:25:14:09:27:774
+      maxSelectCount: 2
+      startDisplayCount: 0
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    - id: NODE_ENTRY_2013:08:07:11:34:08:3941340
+      name: 
+      image: {fileID: 0}
+      variableId: 
+      variableValue: 
+      variableOperationId: 0
+      listLocales:
+      - languageCode: default
+        text: No the code was {var:Code}
+      - languageCode: de_DE
+        text: shduiash9udidu 38732g ewdge dadf bfjhsdb fjhdsb fbdsfb sdjhfbdsfduz
+          ew f8
+      followUpNodeId: NODE_2013:03:25:14:09:27:774
+      nodeId: NODE_2013:03:25:14:09:27:774
+      maxSelectCount: -1
+      startDisplayCount: 3
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    - id: NODE_ENTRY_2013:06:04:18:24:44:5935850
+      name: 
+      image: {fileID: 0}
+      variableId: 
+      variableValue: 
+      variableOperationId: 0
+      listLocales:
+      - languageCode: default
+        text: Try 1756
+      - languageCode: de_DE
+        text: Probiere 1756
+      followUpNodeId: NODE_2013:03:25:14:12:57:144
+      nodeId: NODE_2013:03:25:14:09:27:774
+      maxSelectCount: -1
+      startDisplayCount: -1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    - id: NODE_ENTRY_2013:06:04:18:24:44:5935960
+      name: 
+      image: {fileID: 0}
+      variableId: 
+      variableValue: 
+      variableOperationId: 0
+      listLocales:
+      - languageCode: default
+        text: Try 9883
+      - languageCode: de_DE
+        text: Probiere 9883
+      followUpNodeId: NODE_2013:03:25:14:12:57:144
+      nodeId: NODE_2013:03:25:14:09:27:774
+      maxSelectCount: -1
+      startDisplayCount: -1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    - id: NODE_ENTRY_2013:06:04:18:24:44:5936060
+      name: 
+      image: {fileID: 0}
+      variableId: 
+      variableValue: 
+      variableOperationId: 0
+      listLocales:
+      - languageCode: default
+        text: Try 3245
+      - languageCode: de_DE
+        text: Probiere 3245
+      followUpNodeId: NODE_2013:03:25:14:49:17:989
+      nodeId: NODE_2013:03:25:14:09:27:774
+      maxSelectCount: -1
+      startDisplayCount: -1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    messageMethodeName: 
+    messageMethodeValue: 
+    editorWindowRect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 250
+      height: 100
+    editorShowInDUGManagerActionList: 1
+  - id: NODE_2013:03:25:14:09:43:291
+    name: Room1 / Node 5
+    image: {fileID: 0}
+    variableId: VARIABLE_2013:03:25:14:09:30:770
+    variableValue: 3245
+    variableOperationId: 0
+    type: 3
+    actorId: 
+    sceneId: SCENE_2013:03:25:13:55:29:600
+    listEntries:
+    - id: NODE_ENTRY_2013:06:04:18:24:44:5942470
+      name: 
+      image: {fileID: 0}
+      variableId: 3245
+      variableValue: 3245
+      variableOperationId: 0
+      listLocales:
+      - languageCode: default
+        text: 
+      followUpNodeId: NODE_2013:03:25:14:09:27:774
+      nodeId: NODE_2013:03:25:14:09:43:291
+      maxSelectCount: -1
+      startDisplayCount: -1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    - id: NODE_ENTRY_2013:06:04:18:24:44:5942600
+      name: 
+      image: {fileID: 0}
+      variableId: 3245
+      variableValue: 3245
+      variableOperationId: 0
+      listLocales: []
+      followUpNodeId: NODE_2013:03:25:14:11:25:495
+      nodeId: NODE_2013:03:25:14:09:43:291
+      maxSelectCount: -1
+      startDisplayCount: -1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    messageMethodeName: 
+    messageMethodeValue: 
+    editorWindowRect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 250
+      height: 100
+    editorShowInDUGManagerActionList: 0
+  - id: NODE_2013:03:25:14:11:19:151
+    name: Room1 / Node 6
+    image: {fileID: 0}
+    variableId: 
+    variableValue: 
+    variableOperationId: 0
+    type: 1
+    actorId: ACTOR_2013:03:25:13:55:39:168
+    sceneId: SCENE_2013:03:25:13:55:29:600
+    listEntries:
+    - id: NODE_ENTRY_2013:06:04:18:24:44:5947220
+      name: 
+      image: {fileID: 0}
+      variableId: 
+      variableValue: 
+      variableOperationId: 0
+      listLocales:
+      - languageCode: default
+        text: 
+      followUpNodeId: NODE_2013:03:25:14:07:42:579
+      nodeId: NODE_2013:03:25:14:11:19:151
+      maxSelectCount: -1
+      startDisplayCount: -1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    messageMethodeName: 
+    messageMethodeValue: 
+    editorWindowRect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 250
+      height: 100
+    editorShowInDUGManagerActionList: 0
+  - id: NODE_2013:03:25:14:11:25:495
+    name: Room1 / Node 7
+    image: {fileID: 0}
+    variableId: 
+    variableValue: 
+    variableOperationId: 0
+    type: 0
+    actorId: ACTOR_2013:03:25:13:55:39:168
+    sceneId: SCENE_2013:03:25:13:55:29:600
+    listEntries:
+    - id: NODE_ENTRY_2013:06:04:18:24:44:5951780
+      name: 
+      image: {fileID: 0}
+      variableId: 
+      variableValue: 
+      variableOperationId: 0
+      listLocales:
+      - languageCode: default
+        text: The save is not openable without a code.
+      - languageCode: de_DE
+        text: "Man kann den Tresor nicht ohne geheim Zahl \xF6ffnen."
+      followUpNodeId: NODE_2013:03:25:14:11:19:151
+      nodeId: NODE_2013:03:25:14:11:25:495
+      maxSelectCount: -1
+      startDisplayCount: -1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    messageMethodeName: 
+    messageMethodeValue: 
+    editorWindowRect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 250
+      height: 100
+    editorShowInDUGManagerActionList: 0
+  - id: NODE_2013:03:25:14:12:57:144
+    name: Room1 / Node 8
+    image: {fileID: 0}
+    variableId: 
+    variableValue: 
+    variableOperationId: 0
+    type: 0
+    actorId: ACTOR_2013:03:25:13:55:39:168
+    sceneId: SCENE_2013:03:25:13:55:29:600
+    listEntries:
+    - id: NODE_ENTRY_2013:06:04:18:24:44:5956860
+      name: 
+      image: {fileID: 0}
+      variableId: 
+      variableValue: 
+      variableOperationId: 0
+      listLocales:
+      - languageCode: default
+        text: No. That did not work.
+      - languageCode: de_DE
+        text: Nein. Das hat nicht funktioniert.
+      followUpNodeId: NODE_2013:03:25:14:13:17:269
+      nodeId: NODE_2013:03:25:14:12:57:144
+      maxSelectCount: -1
+      startDisplayCount: -1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    messageMethodeName: 
+    messageMethodeValue: 
+    editorWindowRect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 250
+      height: 100
+    editorShowInDUGManagerActionList: 0
+  - id: NODE_2013:03:25:14:13:17:269
+    name: Room1 / Node 9
+    image: {fileID: 0}
+    variableId: 
+    variableValue: 
+    variableOperationId: 0
+    type: 1
+    actorId: ACTOR_2013:03:25:13:55:39:168
+    sceneId: SCENE_2013:03:25:13:55:29:600
+    listEntries:
+    - id: NODE_ENTRY_2013:06:04:18:24:44:5962050
+      name: 
+      image: {fileID: 0}
+      variableId: 
+      variableValue: 
+      variableOperationId: 0
+      listLocales:
+      - languageCode: default
+        text: 
+      followUpNodeId: NODE_2013:03:25:14:09:27:774
+      nodeId: NODE_2013:03:25:14:13:17:269
+      maxSelectCount: -1
+      startDisplayCount: -1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    messageMethodeName: 
+    messageMethodeValue: 
+    editorWindowRect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 250
+      height: 100
+    editorShowInDUGManagerActionList: 0
+  - id: NODE_2013:03:25:14:14:39:133
+    name: Look around
+    image: {fileID: 0}
+    variableId: 
+    variableValue: 
+    variableOperationId: 0
+    type: 0
+    actorId: ACTOR_2013:03:25:13:55:39:168
+    sceneId: SCENE_2013:03:25:13:55:29:600
+    listEntries:
+    - id: NODE_ENTRY_2013:06:04:18:24:44:5966850
+      name: 
+      image: {fileID: 0}
+      variableId: 
+      variableValue: 
+      variableOperationId: 0
+      listLocales:
+      - languageCode: default
+        text: "Let\xB4s see what we have here."
+      - languageCode: de_DE
+        text: Mal sehen was wir hier haben.
+      followUpNodeId: NODE_2013:03:25:14:14:39:133
+      nodeId: NODE_2013:03:25:14:14:39:133
+      maxSelectCount: -1
+      startDisplayCount: -1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    - id: NODE_ENTRY_2013:06:04:18:24:44:5966980
+      name: 
+      image: {fileID: 0}
+      variableId: 
+      variableValue: 
+      variableOperationId: 0
+      listLocales:
+      - languageCode: default
+        text: A couch to inspect
+      - languageCode: de_DE
+        text: Ein Sofa zu betrachten
+      followUpNodeId: NODE_2013:03:25:14:18:11:937
+      nodeId: NODE_2013:03:25:14:14:39:133
+      maxSelectCount: 1
+      startDisplayCount: -1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    - id: NODE_ENTRY_2013:06:04:18:24:44:5967090
+      name: 
+      image: {fileID: 0}
+      variableId: 
+      variableValue: 
+      variableOperationId: 0
+      listLocales:
+      - languageCode: default
+        text: And a fridge
+      - languageCode: de_DE
+        text: "Und ein K\xFChlschrank"
+      followUpNodeId: NODE_2013:03:25:14:47:13:458
+      nodeId: NODE_2013:03:25:14:14:39:133
+      maxSelectCount: -1
+      startDisplayCount: -1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    messageMethodeName: 
+    messageMethodeValue: 
+    editorWindowRect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 250
+      height: 100
+    editorShowInDUGManagerActionList: 1
+  - id: NODE_2013:03:25:14:18:11:937
+    name: Room1 / Node 11
+    image: {fileID: 0}
+    variableId: 
+    variableValue: 
+    variableOperationId: 0
+    type: 0
+    actorId: ACTOR_2013:03:25:13:55:39:168
+    sceneId: SCENE_2013:03:25:13:55:29:600
+    listEntries:
+    - id: NODE_ENTRY_2013:06:04:18:24:44:5979530
+      name: 
+      image: {fileID: 0}
+      variableId: 
+      variableValue: 
+      variableOperationId: 0
+      listLocales:
+      - languageCode: default
+        text: Lazy you... nothing to see here!
+      - languageCode: de_DE
+        text: Fauler Sack... hier gibt es nichts zu sehen!
+      followUpNodeId: NODE_2013:03:25:14:45:40:253
+      nodeId: NODE_2013:03:25:14:18:11:937
+      maxSelectCount: -1
+      startDisplayCount: -1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    messageMethodeName: 
+    messageMethodeValue: 
+    editorWindowRect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 250
+      height: 100
+    editorShowInDUGManagerActionList: 0
+  - id: NODE_2013:03:25:14:21:46:826
+    name: Inspect fridge
+    image: {fileID: 0}
+    variableId: 
+    variableValue: 
+    variableOperationId: 0
+    type: 0
+    actorId: ACTOR_2013:03:25:13:55:39:168
+    sceneId: SCENE_2013:03:25:13:55:29:600
+    listEntries:
+    - id: NODE_ENTRY_2013:06:04:18:24:44:5985080
+      name: 
+      image: {fileID: 0}
+      variableId: 
+      variableValue: 
+      variableOperationId: 0
+      listLocales:
+      - languageCode: default
+        text: Ah, a sticky note. It says {var:Code}. What should we do next.
+      - languageCode: de_DE
+        text: Ah, ein Zettel. Da steht 3245. Was machen wir jetzt?
+      followUpNodeId: NODE_2013:03:25:14:21:46:826
+      nodeId: NODE_2013:03:25:14:21:46:826
+      maxSelectCount: -1
+      startDisplayCount: -1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    - id: NODE_ENTRY_2013:06:04:18:24:44:5985220
+      name: 
+      image: {fileID: 0}
+      variableId: 
+      variableValue: 
+      variableOperationId: 0
+      listLocales:
+      - languageCode: default
+        text: Now we will check the couch.
+      - languageCode: de_DE
+        text: Jetzt sehen wir uns das Sofa an.
+      followUpNodeId: NODE_2013:03:25:14:24:53:257
+      nodeId: NODE_2013:03:25:14:21:46:826
+      maxSelectCount: 1
+      startDisplayCount: -1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    - id: NODE_ENTRY_2013:06:04:18:24:44:5985330
+      name: 
+      image: {fileID: 0}
+      variableId: 
+      variableValue: 
+      variableOperationId: 0
+      listLocales:
+      - languageCode: default
+        text: Open left door.
+      - languageCode: de_DE
+        text: "Linke T\xFCr \xF6ffnen."
+      followUpNodeId: NODE_2013:03:25:14:35:52:158
+      nodeId: NODE_2013:03:25:14:21:46:826
+      maxSelectCount: 1
+      startDisplayCount: -1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    - id: NODE_ENTRY_2013:06:04:18:24:44:5985430
+      name: 
+      image: {fileID: 0}
+      variableId: 
+      variableValue: 
+      variableOperationId: 0
+      listLocales:
+      - languageCode: default
+        text: Go to the safe.
+      - languageCode: de_DE
+        text: Gehe zum Tresor.
+      followUpNodeId: NODE_2013:03:25:14:37:53:772
+      nodeId: NODE_2013:03:25:14:21:46:826
+      maxSelectCount: -1
+      startDisplayCount: -1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    messageMethodeName: 
+    messageMethodeValue: 
+    editorWindowRect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 250
+      height: 100
+    editorShowInDUGManagerActionList: 1
+  - id: NODE_2013:03:25:14:24:53:257
+    name: Room1 / Node 13
+    image: {fileID: 0}
+    variableId: 
+    variableValue: 
+    variableOperationId: 0
+    type: 0
+    actorId: ACTOR_2013:03:25:13:55:39:168
+    sceneId: SCENE_2013:03:25:13:55:29:600
+    listEntries:
+    - id: NODE_ENTRY_2013:06:04:18:24:44:5992020
+      name: 
+      image: {fileID: 0}
+      variableId: 
+      variableValue: 
+      variableOperationId: 0
+      listLocales:
+      - languageCode: default
+        text: No, still no time to do this.
+      - languageCode: de_DE
+        text: "Nein, wir haben noch immer keine zeit daf\xFCr."
+      followUpNodeId: NODE_2013:03:25:14:34:27:858
+      nodeId: NODE_2013:03:25:14:24:53:257
+      maxSelectCount: -1
+      startDisplayCount: -1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    messageMethodeName: 
+    messageMethodeValue: 
+    editorWindowRect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 250
+      height: 100
+    editorShowInDUGManagerActionList: 0
+  - id: NODE_2013:03:25:14:34:27:858
+    name: Room1 / Node 14
+    image: {fileID: 0}
+    variableId: 
+    variableValue: 
+    variableOperationId: 0
+    type: 1
+    actorId: ACTOR_2013:03:25:13:55:39:168
+    sceneId: SCENE_2013:03:25:13:55:29:600
+    listEntries:
+    - id: NODE_ENTRY_2013:06:04:18:24:44:5997240
+      name: 
+      image: {fileID: 0}
+      variableId: 
+      variableValue: 
+      variableOperationId: 0
+      listLocales:
+      - languageCode: default
+        text: 
+      followUpNodeId: NODE_2013:03:25:14:21:46:826
+      nodeId: NODE_2013:03:25:14:34:27:858
+      maxSelectCount: -1
+      startDisplayCount: -1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    messageMethodeName: 
+    messageMethodeValue: 
+    editorWindowRect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 250
+      height: 100
+    editorShowInDUGManagerActionList: 0
+  - id: NODE_2013:03:25:14:35:52:158
+    name: Room1 / Node 15
+    image: {fileID: 0}
+    variableId: 
+    variableValue: 
+    variableOperationId: 0
+    type: 0
+    actorId: ACTOR_2013:03:25:13:55:39:168
+    sceneId: SCENE_2013:03:25:13:55:29:600
+    listEntries:
+    - id: NODE_ENTRY_2013:06:04:18:24:44:6002180
+      name: 
+      image: {fileID: 0}
+      variableId: 
+      variableValue: 
+      variableOperationId: 0
+      listLocales:
+      - languageCode: default
+        text: The door is still locked.
+      - languageCode: de_DE
+        text: "Die T\xFCr ist noch immer geschlossen."
+      followUpNodeId: NODE_2013:03:25:14:34:27:858
+      nodeId: NODE_2013:03:25:14:35:52:158
+      maxSelectCount: -1
+      startDisplayCount: -1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    messageMethodeName: 
+    messageMethodeValue: 
+    editorWindowRect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 250
+      height: 100
+    editorShowInDUGManagerActionList: 0
+  - id: NODE_2013:03:25:14:37:53:772
+    name: Room1 / Node 16
+    image: {fileID: 0}
+    variableId: 
+    variableValue: 
+    variableOperationId: 0
+    type: 1
+    actorId: ACTOR_2013:03:25:13:55:39:168
+    sceneId: SCENE_2013:03:25:13:55:29:600
+    listEntries:
+    - id: NODE_ENTRY_2013:06:04:18:24:44:6007480
+      name: 
+      image: {fileID: 0}
+      variableId: 
+      variableValue: 
+      variableOperationId: 0
+      listLocales:
+      - languageCode: default
+        text: 
+      followUpNodeId: NODE_2013:03:25:14:09:43:291
+      nodeId: NODE_2013:03:25:14:37:53:772
+      maxSelectCount: -1
+      startDisplayCount: -1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    messageMethodeName: 
+    messageMethodeValue: 
+    editorWindowRect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 250
+      height: 100
+    editorShowInDUGManagerActionList: 0
+  - id: NODE_2013:03:25:14:38:47:025
+    name: Safe opens
+    image: {fileID: 0}
+    variableId: 
+    variableValue: 
+    variableOperationId: 0
+    type: 0
+    actorId: ACTOR_2013:03:25:13:55:39:168
+    sceneId: SCENE_2013:03:25:13:55:29:600
+    listEntries:
+    - id: NODE_ENTRY_2013:06:04:18:24:44:6055980
+      name: 
+      image: {fileID: 0}
+      variableId: 
+      variableValue: 
+      variableOperationId: 0
+      listLocales:
+      - languageCode: default
+        text: Great. The safe door opens. And there is a key inside.
+      - languageCode: de_DE
+        text: "Super. Der Tresor \xF6ffnet sich und da befindet sich ein Schl\xFCssel."
+      followUpNodeId: NODE_2013:03:25:14:38:47:025
+      nodeId: NODE_2013:03:25:14:38:47:025
+      maxSelectCount: 1
+      startDisplayCount: -1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    - id: NODE_ENTRY_2013:06:04:18:24:44:6056190
+      name: 
+      image: {fileID: 0}
+      variableId: 
+      variableValue: 
+      variableOperationId: 0
+      listLocales:
+      - languageCode: default
+        text: Go to fridge
+      - languageCode: de_DE
+        text: "Geh zu K\xFChlschrank"
+      followUpNodeId: NODE_2013:03:25:14:40:57:773
+      nodeId: NODE_2013:03:25:14:38:47:025
+      maxSelectCount: 1
+      startDisplayCount: -1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    - id: NODE_ENTRY_2013:06:04:18:24:44:6056320
+      name: 
+      image: {fileID: 0}
+      variableId: 
+      variableValue: 
+      variableOperationId: 0
+      listLocales:
+      - languageCode: default
+        text: Try to open left door
+      - languageCode: de_DE
+        text: "Versuche linke T\xFCr zu \xF6ffnen."
+      followUpNodeId: NODE_2013:06:10:22:39:20:0712750
+      nodeId: NODE_2013:03:25:14:38:47:025
+      maxSelectCount: -1
+      startDisplayCount: -1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    messageMethodeName: 
+    messageMethodeValue: 
+    editorWindowRect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 250
+      height: 100
+    editorShowInDUGManagerActionList: 1
+  - id: NODE_2013:03:25:14:40:57:773
+    name: Room1 / Node 18
+    image: {fileID: 0}
+    variableId: 
+    variableValue: 
+    variableOperationId: 0
+    type: 0
+    actorId: ACTOR_2013:03:25:13:55:39:168
+    sceneId: SCENE_2013:03:25:13:55:29:600
+    listEntries:
+    - id: NODE_ENTRY_2013:06:04:18:24:44:6062390
+      name: 
+      image: {fileID: 0}
+      variableId: 
+      variableValue: 
+      variableOperationId: 0
+      listLocales:
+      - languageCode: default
+        text: You do not want to do this. Try to open the left door.
+      - languageCode: de_DE
+        text: "Du willst das nicht probieren. \xD6ffne doch die linke T\xFCr."
+      followUpNodeId: NODE_2013:06:10:22:39:20:0712750
+      nodeId: NODE_2013:03:25:14:40:57:773
+      maxSelectCount: -1
+      startDisplayCount: -1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    messageMethodeName: 
+    messageMethodeValue: 
+    editorWindowRect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 250
+      height: 100
+    editorShowInDUGManagerActionList: 0
+  - id: NODE_2013:03:25:14:41:22:061
+    name: Left door opens
+    image: {fileID: 0}
+    variableId: 
+    variableValue: 
+    variableOperationId: 0
+    type: 0
+    actorId: ACTOR_2013:03:25:13:55:39:168
+    sceneId: SCENE_2013:03:25:13:55:29:600
+    listEntries:
+    - id: NODE_ENTRY_2013:06:04:18:24:44:6067490
+      name: 
+      image: {fileID: 0}
+      variableId: 
+      variableValue: 
+      variableOperationId: 0
+      listLocales:
+      - languageCode: default
+        text: The door opens and you go to the next room.
+      - languageCode: de_DE
+        text: "Die T\xFCr \xF6ffnet sich und du gehst in den n\xE4chsten Raum."
+      followUpNodeId: NODE_2013:03:25:14:43:47:664
+      nodeId: NODE_2013:03:25:14:41:22:061
+      maxSelectCount: -1
+      startDisplayCount: -1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    messageMethodeName: 
+    messageMethodeValue: 
+    editorWindowRect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 250
+      height: 100
+    editorShowInDUGManagerActionList: 1
+  - id: NODE_2013:03:25:14:42:47:255
+    name: Room1 / Node 20
+    image: {fileID: 0}
+    variableId: VARIABLE_2013:03:25:13:57:34:136
+    variableValue: true
+    variableOperationId: 0
+    type: 3
+    actorId: 
+    sceneId: SCENE_2013:03:25:13:55:29:600
+    listEntries:
+    - id: NODE_ENTRY_2013:06:04:18:24:44:6072610
+      name: 
+      image: {fileID: 0}
+      variableId: true
+      variableValue: true
+      variableOperationId: 0
+      listLocales:
+      - languageCode: default
+        text: 
+      followUpNodeId: NODE_2013:03:25:14:41:22:061
+      nodeId: NODE_2013:03:25:14:42:47:255
+      maxSelectCount: -1
+      startDisplayCount: -1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    - id: NODE_ENTRY_2013:06:04:18:24:44:6072740
+      name: 
+      image: {fileID: 0}
+      variableId: true
+      variableValue: true
+      variableOperationId: 0
+      listLocales: []
+      followUpNodeId: NODE_2013:03:25:14:43:22:260
+      nodeId: NODE_2013:03:25:14:42:47:255
+      maxSelectCount: -1
+      startDisplayCount: -1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    messageMethodeName: 
+    messageMethodeValue: 
+    editorWindowRect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 250
+      height: 100
+    editorShowInDUGManagerActionList: 0
+  - id: NODE_2013:03:25:14:43:22:260
+    name: Room1 / Node 21
+    image: {fileID: 0}
+    variableId: 
+    variableValue: 
+    variableOperationId: 0
+    type: 0
+    actorId: ACTOR_2013:03:25:13:55:39:168
+    sceneId: SCENE_2013:03:25:13:55:29:600
+    listEntries:
+    - id: NODE_ENTRY_2013:06:04:18:24:44:6077380
+      name: 
+      image: {fileID: 0}
+      variableId: 
+      variableValue: 
+      variableOperationId: 0
+      listLocales:
+      - languageCode: default
+        text: It is not possible that you will ever reach this node ;)
+      - languageCode: de_DE
+        text: "Es ist unm\xF6glich diesen Knoten jemals zu erreichen."
+      followUpNodeId: NODE_2013:03:25:14:43:22:260
+      nodeId: NODE_2013:03:25:14:43:22:260
+      maxSelectCount: -1
+      startDisplayCount: -1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    messageMethodeName: 
+    messageMethodeValue: 
+    editorWindowRect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 250
+      height: 100
+    editorShowInDUGManagerActionList: 0
+  - id: NODE_2013:03:25:14:43:47:664
+    name: Room1 / Node 22
+    image: {fileID: 0}
+    variableId: 
+    variableValue: 
+    variableOperationId: 0
+    type: 1
+    actorId: ACTOR_2013:03:25:13:55:39:168
+    sceneId: SCENE_2013:03:25:13:55:29:600
+    listEntries:
+    - id: NODE_ENTRY_2013:06:04:18:24:44:6082440
+      name: 
+      image: {fileID: 0}
+      variableId: 
+      variableValue: 
+      variableOperationId: 0
+      listLocales:
+      - languageCode: default
+        text: 
+      followUpNodeId: NODE_2013:03:25:14:44:13:702
+      nodeId: NODE_2013:03:25:14:43:47:664
+      maxSelectCount: -1
+      startDisplayCount: -1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    messageMethodeName: 
+    messageMethodeValue: 
+    editorWindowRect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 250
+      height: 100
+    editorShowInDUGManagerActionList: 0
+  - id: NODE_2013:03:25:14:45:40:253
+    name: Room1 / Node 23
+    image: {fileID: 0}
+    variableId: 
+    variableValue: 
+    variableOperationId: 0
+    type: 1
+    actorId: ACTOR_2013:03:25:13:55:39:168
+    sceneId: SCENE_2013:03:25:13:55:29:600
+    listEntries:
+    - id: NODE_ENTRY_2013:06:04:18:24:44:6086940
+      name: 
+      image: {fileID: 0}
+      variableId: 
+      variableValue: 
+      variableOperationId: 0
+      listLocales:
+      - languageCode: default
+        text: 
+      followUpNodeId: NODE_2013:03:25:14:14:39:133
+      nodeId: NODE_2013:03:25:14:45:40:253
+      maxSelectCount: -1
+      startDisplayCount: -1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    messageMethodeName: 
+    messageMethodeValue: 
+    editorWindowRect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 250
+      height: 100
+    editorShowInDUGManagerActionList: 0
+  - id: NODE_2013:03:25:14:47:13:458
+    name: Room1 / Node 24
+    image: {fileID: 0}
+    variableId: VARIABLE_2013:03:25:14:09:30:770
+    variableValue: 3245
+    variableOperationId: 0
+    type: 2
+    actorId: 
+    sceneId: SCENE_2013:03:25:13:55:29:600
+    listEntries:
+    - id: NODE_ENTRY_2013:06:04:18:24:44:6091450
+      name: 
+      image: {fileID: 0}
+      variableId: 3245
+      variableValue: 3245
+      variableOperationId: 0
+      listLocales:
+      - languageCode: default
+        text: 
+      followUpNodeId: NODE_2013:03:25:14:21:46:826
+      nodeId: NODE_2013:03:25:14:47:13:458
+      maxSelectCount: -1
+      startDisplayCount: -1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    messageMethodeName: 
+    messageMethodeValue: 
+    editorWindowRect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 250
+      height: 100
+    editorShowInDUGManagerActionList: 0
+  - id: NODE_2013:03:25:14:49:17:989
+    name: Room1 / Node 25
+    image: {fileID: 0}
+    variableId: VARIABLE_2013:03:25:13:57:34:136
+    variableValue: true
+    variableOperationId: 0
+    type: 2
+    actorId: 
+    sceneId: SCENE_2013:03:25:13:55:29:600
+    listEntries:
+    - id: NODE_ENTRY_2013:06:04:18:24:44:6095930
+      name: 
+      image: {fileID: 0}
+      variableId: true
+      variableValue: true
+      variableOperationId: 0
+      listLocales:
+      - languageCode: default
+        text: 
+      followUpNodeId: NODE_2013:03:25:14:38:47:025
+      nodeId: NODE_2013:03:25:14:49:17:989
+      maxSelectCount: -1
+      startDisplayCount: -1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    messageMethodeName: 
+    messageMethodeValue: 
+    editorWindowRect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 250
+      height: 100
+    editorShowInDUGManagerActionList: 0
+  - id: NODE_2013:06:10:22:39:20:0712750
+    name: Room1 / Node 26
+    image: {fileID: 0}
+    variableId: VARIABLE_2013:03:25:13:57:34:136
+    variableValue: 
+    variableOperationId: 0
+    type: 5
+    actorId: ACTOR_2013:03:25:13:55:39:168
+    sceneId: SCENE_2013:03:25:13:55:29:600
+    listEntries:
+    - id: NODE_ENTRY_2013:06:10:22:39:20:0713120
+      name: 
+      image: {fileID: 0}
+      variableId: 
+      variableValue: 
+      variableOperationId: 0
+      listLocales: []
+      followUpNodeId: NODE_2013:03:25:14:42:47:255
+      nodeId: NODE_2013:06:10:22:39:20:0712750
+      maxSelectCount: -1
+      startDisplayCount: -1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    - id: NODE_ENTRY_2013:06:10:22:39:20:0713370
+      name: 
+      image: {fileID: 0}
+      variableId: 
+      variableValue: 
+      variableOperationId: 0
+      listLocales: []
+      followUpNodeId: NODE_2013:06:10:22:40:27:4533640
+      nodeId: NODE_2013:06:10:22:39:20:0712750
+      maxSelectCount: -1
+      startDisplayCount: -1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    - id: NODE_ENTRY_2013:07:30:18:09:59:5878910
+      name: 
+      image: {fileID: 0}
+      variableId: 
+      variableValue: 
+      variableOperationId: 0
+      listLocales: []
+      followUpNodeId: NODE_2013:06:10:22:39:20:0712750
+      nodeId: NODE_2013:06:10:22:39:20:0712750
+      maxSelectCount: -1
+      startDisplayCount: -1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    messageMethodeName: 
+    messageMethodeValue: 
+    editorWindowRect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 250
+      height: 100
+    editorShowInDUGManagerActionList: 0
+  - id: NODE_2013:06:10:22:40:27:4533640
+    name: Room1 / Node 27
+    image: {fileID: 0}
+    variableId: VARIABLE_2013:03:25:13:57:34:136
+    variableValue: 
+    variableOperationId: 0
+    type: 0
+    actorId: ACTOR_2013:03:25:13:55:39:168
+    sceneId: SCENE_2013:03:25:13:55:29:600
+    listEntries:
+    - id: NODE_ENTRY_2013:06:10:22:40:27:4533860
+      name: 
+      image: {fileID: 0}
+      variableId: 
+      variableValue: 
+      variableOperationId: 0
+      listLocales:
+      - languageCode: default
+        text: The door is rusty. Maybe I have to try again.
+      - languageCode: de_DE
+        text: "Die T\xFCre ist rostig. Ich muss es nochmals versuchen!"
+      followUpNodeId: NODE_2013:06:10:22:41:29:3891690
+      nodeId: NODE_2013:06:10:22:40:27:4533640
+      maxSelectCount: -1
+      startDisplayCount: -1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    messageMethodeName: 
+    messageMethodeValue: 
+    editorWindowRect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 250
+      height: 100
+    editorShowInDUGManagerActionList: 0
+  - id: NODE_2013:06:10:22:41:29:3891690
+    name: Room1 / Node 28
+    image: {fileID: 0}
+    variableId: VARIABLE_2013:03:25:13:57:34:136
+    variableValue: 
+    variableOperationId: 0
+    type: 1
+    actorId: ACTOR_2013:03:25:13:55:39:168
+    sceneId: SCENE_2013:03:25:13:55:29:600
+    listEntries:
+    - id: NODE_ENTRY_2013:06:10:22:41:29:3891940
+      name: 
+      image: {fileID: 0}
+      variableId: 
+      variableValue: 
+      variableOperationId: 0
+      listLocales: []
+      followUpNodeId: NODE_2013:03:25:14:38:47:025
+      nodeId: NODE_2013:06:10:22:41:29:3891690
+      maxSelectCount: -1
+      startDisplayCount: -1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    messageMethodeName: 
+    messageMethodeValue: 
+    editorWindowRect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 250
+      height: 100
+    editorShowInDUGManagerActionList: 0
+  - id: NODE_2013:03:25:14:44:13:702
+    name: Final
+    image: {fileID: 0}
+    variableId: 
+    variableValue: 
+    variableOperationId: 0
+    type: 0
+    actorId: ACTOR_2013:03:25:13:55:39:168
+    sceneId: SCENE_2013:03:25:14:43:58:138
+    listEntries:
+    - id: NODE_ENTRY_2013:06:04:18:24:44:6109710
+      name: 
+      image: {fileID: 0}
+      variableId: 
+      variableValue: 
+      variableOperationId: 0
+      listLocales:
+      - languageCode: default
+        text: 'The story is complete now.
+
+          Thanks for playing the DUNILOG Example.'
+      - languageCode: de_DE
+        text: 'Die Geschichte ist hier zu ende.
+
+          Danke das du DUNILOG getestet hast.'
+      followUpNodeId: NODE_2013:03:25:14:44:13:702
+      nodeId: NODE_2013:03:25:14:44:13:702
+      maxSelectCount: -1
+      startDisplayCount: -1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    messageMethodeName: 
+    messageMethodeValue: 
+    editorWindowRect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 250
+      height: 100
+    editorShowInDUGManagerActionList: 1
+  listVariables:
+  - id: VARIABLE_2013:03:25:13:57:34:136
+    name: Key
+    image: {fileID: 2800000, guid: 7a0eb526bd50841a7b27527f93de9feb, type: 3}
+    type: 0
+  - id: VARIABLE_2013:03:25:14:09:30:770
+    name: Code
+    image: {fileID: 2800000, guid: 6697db01f57694d97ba313db9fdde5ce, type: 3}
+    type: 2
+  runTimeCurrentNode:
+    id: 
+    name: 
+    image: {fileID: 0}
+    variableId: 
+    variableValue: 0
+    variableOperationId: 0
+    type: 0
+    actorId: 
+    sceneId: 
+    listEntries: []
+    messageMethodeName: 
+    messageMethodeValue: 
+    editorWindowRect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 250
+      height: 100
+    editorShowInDUGManagerActionList: 0
+  runTimeListPreviousNodes: []
+  runTimeListPreviousSelectedNodeEntryIds: []
+  listActions:
+  - name: Right door opens
+    nodeId: NODE_2013:03:25:14:07:42:579
+    type: 0
+    script: {fileID: 0}
+    instance: {fileID: 0}
+    listEntryActions:
+    - name: Entry0 Complete
+      nodeId: NODE_2013:03:25:14:07:42:579
+      entryId: NODE_ENTRY_2013:06:04:18:24:44:5929450
+      type: 4
+      script: {fileID: 0}
+      instance: {fileID: 0}
+    - name: Entry0 Start
+      nodeId: NODE_2013:03:25:14:07:42:579
+      entryId: NODE_ENTRY_2013:06:04:18:24:44:5929450
+      type: 2
+      script: {fileID: 0}
+      instance: {fileID: 0}
+    - name: Entry1 Start
+      nodeId: NODE_2013:03:25:14:07:42:579
+      entryId: NODE_ENTRY_2013:06:11:12:37:29:5634940
+      type: 2
+      script: {fileID: 0}
+      instance: {fileID: 0}
+    - name: Entry2 Select
+      nodeId: NODE_2013:03:25:14:07:42:579
+      entryId: NODE_ENTRY_2013:06:04:18:24:44:5929590
+      type: 3
+      script: {fileID: 0}
+      instance: {fileID: 0}
+    - name: Entry2 Complete
+      nodeId: NODE_2013:03:25:14:07:42:579
+      entryId: NODE_ENTRY_2013:06:04:18:24:44:5929590
+      type: 4
+      script: {fileID: 0}
+      instance: {fileID: 0}
+    - name: Entry3 Select
+      nodeId: NODE_2013:03:25:14:07:42:579
+      entryId: NODE_ENTRY_2013:06:04:18:24:44:5929710
+      type: 3
+      script: {fileID: 0}
+      instance: {fileID: 0}
+  - name: Select code
+    nodeId: NODE_2013:03:25:14:09:27:774
+    type: 0
+    script: {fileID: 0}
+    instance: {fileID: 0}
+    listEntryActions:
+    - name: Entry0 Complete
+      nodeId: NODE_2013:03:25:14:09:27:774
+      entryId: NODE_ENTRY_2013:06:04:18:24:44:5935720
+      type: 4
+      script: {fileID: 0}
+      instance: {fileID: 0}
+    - name: Entry0 Start
+      nodeId: NODE_2013:03:25:14:09:27:774
+      entryId: NODE_ENTRY_2013:06:04:18:24:44:5935720
+      type: 2
+      script: {fileID: 0}
+      instance: {fileID: 0}
+    - name: Entry1 Start
+      nodeId: NODE_2013:03:25:14:09:27:774
+      entryId: NODE_ENTRY_2013:08:07:11:34:08:3941340
+      type: 2
+      script: {fileID: 0}
+      instance: {fileID: 0}
+    - name: Entry2 Select
+      nodeId: NODE_2013:03:25:14:09:27:774
+      entryId: NODE_ENTRY_2013:06:04:18:24:44:5935850
+      type: 3
+      script: {fileID: 0}
+      instance: {fileID: 0}
+    - name: Entry3 Select
+      nodeId: NODE_2013:03:25:14:09:27:774
+      entryId: NODE_ENTRY_2013:06:04:18:24:44:5935960
+      type: 3
+      script: {fileID: 0}
+      instance: {fileID: 0}
+    - name: Entry4 Select
+      nodeId: NODE_2013:03:25:14:09:27:774
+      entryId: NODE_ENTRY_2013:06:04:18:24:44:5936060
+      type: 3
+      script: {fileID: 0}
+      instance: {fileID: 0}
+  - name: Look around
+    nodeId: NODE_2013:03:25:14:14:39:133
+    type: 0
+    script: {fileID: 0}
+    instance: {fileID: 0}
+    listEntryActions:
+    - name: Entry1 Select
+      nodeId: NODE_2013:03:25:14:14:39:133
+      entryId: NODE_ENTRY_2013:06:04:18:24:44:5966980
+      type: 3
+      script: {fileID: 0}
+      instance: {fileID: 0}
+    - name: Entry1 Complete
+      nodeId: NODE_2013:03:25:14:14:39:133
+      entryId: NODE_ENTRY_2013:06:04:18:24:44:5966980
+      type: 4
+      script: {fileID: 0}
+      instance: {fileID: 0}
+    - name: Entry2 Select
+      nodeId: NODE_2013:03:25:14:14:39:133
+      entryId: NODE_ENTRY_2013:06:04:18:24:44:5967090
+      type: 3
+      script: {fileID: 0}
+      instance: {fileID: 0}
+  - name: Inspect fridge
+    nodeId: NODE_2013:03:25:14:21:46:826
+    type: 0
+    script: {fileID: 0}
+    instance: {fileID: 0}
+    listEntryActions:
+    - name: Entry1 Select
+      nodeId: NODE_2013:03:25:14:21:46:826
+      entryId: NODE_ENTRY_2013:06:04:18:24:44:5985220
+      type: 3
+      script: {fileID: 0}
+      instance: {fileID: 0}
+    - name: Entry1 Complete
+      nodeId: NODE_2013:03:25:14:21:46:826
+      entryId: NODE_ENTRY_2013:06:04:18:24:44:5985220
+      type: 4
+      script: {fileID: 0}
+      instance: {fileID: 0}
+    - name: Entry2 Select
+      nodeId: NODE_2013:03:25:14:21:46:826
+      entryId: NODE_ENTRY_2013:06:04:18:24:44:5985330
+      type: 3
+      script: {fileID: 0}
+      instance: {fileID: 0}
+    - name: Entry2 Complete
+      nodeId: NODE_2013:03:25:14:21:46:826
+      entryId: NODE_ENTRY_2013:06:04:18:24:44:5985330
+      type: 4
+      script: {fileID: 0}
+      instance: {fileID: 0}
+    - name: Entry3 Select
+      nodeId: NODE_2013:03:25:14:21:46:826
+      entryId: NODE_ENTRY_2013:06:04:18:24:44:5985430
+      type: 3
+      script: {fileID: 0}
+      instance: {fileID: 0}
+  - name: Safe opens
+    nodeId: NODE_2013:03:25:14:38:47:025
+    type: 0
+    script: {fileID: 0}
+    instance: {fileID: 0}
+    listEntryActions:
+    - name: Entry0 Complete
+      nodeId: NODE_2013:03:25:14:38:47:025
+      entryId: NODE_ENTRY_2013:06:04:18:24:44:6055980
+      type: 4
+      script: {fileID: 0}
+      instance: {fileID: 0}
+    - name: Entry1 Select
+      nodeId: NODE_2013:03:25:14:38:47:025
+      entryId: NODE_ENTRY_2013:06:04:18:24:44:6056190
+      type: 3
+      script: {fileID: 0}
+      instance: {fileID: 0}
+    - name: Entry1 Complete
+      nodeId: NODE_2013:03:25:14:38:47:025
+      entryId: NODE_ENTRY_2013:06:04:18:24:44:6056190
+      type: 4
+      script: {fileID: 0}
+      instance: {fileID: 0}
+    - name: Entry2 Select
+      nodeId: NODE_2013:03:25:14:38:47:025
+      entryId: NODE_ENTRY_2013:06:04:18:24:44:6056320
+      type: 3
+      script: {fileID: 0}
+      instance: {fileID: 0}
+  - name: Left door opens
+    nodeId: NODE_2013:03:25:14:41:22:061
+    type: 0
+    script: {fileID: 0}
+    instance: {fileID: 0}
+    listEntryActions:
+    - name: Entry0 Select
+      nodeId: NODE_2013:03:25:14:41:22:061
+      entryId: NODE_ENTRY_2013:06:04:18:24:44:6067490
+      type: 3
+      script: {fileID: 0}
+      instance: {fileID: 0}
+  - name: Final
+    nodeId: NODE_2013:03:25:14:44:13:702
+    type: 0
+    script: {fileID: 0}
+    instance: {fileID: 0}
+    listEntryActions: []
+--- !u!114 &11400002
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -505150317, guid: 94b9a575b0009478a92055ed9640cd1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &11400004
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -890897668, guid: 94b9a575b0009478a92055ed9640cd1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  visible: 1
+  imageSize: 100
+  textWidth: 400
+  skin: {fileID: 0}
+  align: 7
+  offset:
+    m_Left: 0
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 0
+  showBackButton: 0
+  showSaveButton: 0
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 100000}
+  m_IsPrefabParent: 1
+  m_IsExploded: 1

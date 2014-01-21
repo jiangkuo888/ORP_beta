@@ -1,0 +1,5123 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!29 &1
+SceneSettings:
+  m_ObjectHideFlags: 0
+  m_PVSData: 
+  m_PVSObjectsArray: []
+  m_PVSPortalsArray: []
+  m_OcclusionBakeSettings:
+    smallestOccluder: 5
+    smallestHole: .25
+    backfaceThreshold: 100
+--- !u!104 &2
+RenderSettings:
+  m_Fog: 0
+  m_FogColor: {r: .5, g: .5, b: .5, a: 1}
+  m_FogMode: 3
+  m_FogDensity: .00999999978
+  m_LinearFogStart: 0
+  m_LinearFogEnd: 300
+  m_AmbientLight: {r: .798507452, g: .798507452, b: .798507452, a: 1}
+  m_SkyboxMaterial: {fileID: 0}
+  m_HaloStrength: .5
+  m_FlareStrength: 1
+  m_FlareFadeSpeed: 3
+  m_HaloTexture: {fileID: 0}
+  m_SpotCookie: {fileID: 0}
+  m_ObjectHideFlags: 0
+--- !u!127 &3
+LevelGameManager:
+  m_ObjectHideFlags: 0
+--- !u!157 &4
+LightmapSettings:
+  m_ObjectHideFlags: 0
+  m_LightProbes: {fileID: 0}
+  m_Lightmaps: []
+  m_LightmapsMode: 1
+  m_BakedColorSpace: 0
+  m_UseDualLightmapsInForward: 0
+  m_LightmapEditorSettings:
+    m_Resolution: 50
+    m_LastUsedResolution: 0
+    m_TextureWidth: 1024
+    m_TextureHeight: 1024
+    m_BounceBoost: 1
+    m_BounceIntensity: 1
+    m_SkyLightColor: {r: .860000014, g: .930000007, b: 1, a: 1}
+    m_SkyLightIntensity: 0
+    m_Quality: 0
+    m_Bounces: 1
+    m_FinalGatherRays: 1000
+    m_FinalGatherContrastThreshold: .0500000007
+    m_FinalGatherGradientThreshold: 0
+    m_FinalGatherInterpolationPoints: 15
+    m_AOAmount: 0
+    m_AOMaxDistance: .100000001
+    m_AOContrast: 1
+    m_LODSurfaceMappingDistance: 1
+    m_Padding: 0
+    m_TextureCompression: 0
+    m_LockAtlas: 0
+--- !u!196 &5
+NavMeshSettings:
+  m_ObjectHideFlags: 0
+  m_BuildSettings:
+    agentRadius: .5
+    agentHeight: 2
+    agentSlope: 45
+    agentClimb: .400000006
+    ledgeDropHeight: 0
+    maxJumpAcrossDistance: 0
+    accuratePlacement: 0
+    minRegionArea: 2
+    widthInaccuracy: 16.666666
+    heightInaccuracy: 10
+  m_NavMesh: {fileID: 0}
+--- !u!1 &164878855
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 100002, guid: dc9178c9226a644b7917a2dbeef845b1, type: 3}
+  m_PrefabInternal: {fileID: 1914978048}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 164878856}
+  - 33: {fileID: 164878858}
+  - 23: {fileID: 164878857}
+  m_Layer: 0
+  m_Name: room
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &164878856
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 400002, guid: dc9178c9226a644b7917a2dbeef845b1, type: 3}
+  m_PrefabInternal: {fileID: 1914978048}
+  m_GameObject: {fileID: 164878855}
+  m_LocalRotation: {x: -.706792533, y: .02107968, z: .0210796818, w: .706792474}
+  m_LocalPosition: {x: -.144977391, y: 0, z: -.565954208}
+  m_LocalScale: {x: 1.00000012, y: .99999994, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1631062710}
+--- !u!23 &164878857
+Renderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 2300000, guid: dc9178c9226a644b7917a2dbeef845b1,
+    type: 3}
+  m_PrefabInternal: {fileID: 1914978048}
+  m_GameObject: {fileID: 164878855}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_LightmapIndex: 255
+  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
+  m_Materials:
+  - {fileID: 2100000, guid: ea642feb21c474568a6ce40d10b9f41c, type: 2}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 0
+  m_LightProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_SortingLayerID: 0
+--- !u!33 &164878858
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 3300000, guid: dc9178c9226a644b7917a2dbeef845b1,
+    type: 3}
+  m_PrefabInternal: {fileID: 1914978048}
+  m_GameObject: {fileID: 164878855}
+  m_Mesh: {fileID: 4300010, guid: dc9178c9226a644b7917a2dbeef845b1, type: 3}
+--- !u!1 &209122488
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 209122489}
+  - 114: {fileID: 209122490}
+  m_Layer: 0
+  m_Name: DUGDataInstance
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &209122489
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 209122488}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+--- !u!114 &209122490
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 209122488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  editorBasePath: 2f55736572732f7261792f5a5f5261792f4465762f556e6974792f44554e494c4f472f44554e494c4f475f332e352f4173736574732f44554e494c4f472f4578616d706c6550726f6a6563742f
+  editorProjectName: 44554e494c4f475f4578616d706c6550726f6a656374
+  currentSceneId: 5343454e455f323031333a30333a32353a31333a35353a32393a363030
+  selectedLocaleIndex: 0
+  listLanguageCodes:
+  - 64656661756c74
+  - 64655f4445
+  listScenes:
+  - id: 5343454e455f323031333a30333a32353a31333a35353a32393a363030
+    name: 526f6f6d31
+    image: {fileID: 0}
+  - id: 5343454e455f323031333a30333a32353a31343a34333a35383a313338
+    name: 526f6f6d2032
+    image: {fileID: 0}
+  listActors:
+  - id: 4143544f525f323031333a30333a32353a31333a35353a33393a313638
+    name: 537065616b6572
+    image: {fileID: 2800000, guid: c7bce3e9b86174527b1bf8d3b1c7f58c, type: 3}
+  listNodes:
+  - id: 4e4f44455f323031333a30333a32353a31333a35363a31383a363935
+    name: 
+    image: {fileID: 0}
+    type: 0
+    actorId: 4143544f525f323031333a30333a32353a31333a35353a33393a313638
+    statusId: 
+    sceneId: 5343454e455f323031333a30333a32353a31333a35353a32393a363030
+    listEntries:
+    - id: 4e4f44455f454e5452595f323031333a30363a30343a31383a32343a34343a35373933313730
+      listLocales:
+      - languageCode: 64656661756c74
+        text: 57656c636f6d6520746f2044554e494c4f472e205768617420796f752077616e7420746f20646f3f
+      - languageCode: 64655f4445
+        text: 57696c6c6b6f6d6d656e206265692044554e494c4f472e205761732077696c6c7374206475206d616368656e3f
+      followUpNodeId: 4e4f44455f323031333a30333a32353a31333a35363a31383a363935
+      nodeId: 4e4f44455f323031333a30333a32353a31333a35363a31383a363935
+      maxUseCount: 1
+      startUseCount: -1
+    - id: 4e4f44455f454e5452595f323031333a30363a31303a32333a32363a30313a37313036363630
+      listLocales:
+      - languageCode: 64656661756c74
+        text: 57656c636f6d6520616761696e2e2057686963682063686f696365206e6578743f
+      - languageCode: 64655f4445
+        text: 4e6f63686d616c732077696c6c6b6f6d6d656e2120556e64206a65747a743f
+      followUpNodeId: 4e4f44455f323031333a30333a32353a31333a35363a31383a363935
+      nodeId: 4e4f44455f323031333a30333a32353a31333a35363a31383a363935
+      maxUseCount: -1
+      startUseCount: 2
+    - id: 4e4f44455f454e5452595f323031333a30363a30343a31383a32343a34343a35373933333830
+      listLocales:
+      - languageCode: 64656661756c74
+        text: 4f70656e206c65667420646f6f72
+      - languageCode: 64655f4445
+        text: 4c696e6b652054c3bc7220c3b666666e656e
+      followUpNodeId: 4e4f44455f323031333a30333a32353a31333a35383a35383a363834
+      nodeId: 4e4f44455f323031333a30333a32353a31333a35363a31383a363935
+      maxUseCount: 1
+      startUseCount: -1
+    - id: 4e4f44455f454e5452595f323031333a30363a30343a31383a32343a34343a35373933353030
+      listLocales:
+      - languageCode: 64656661756c74
+        text: 4f70656e20726967687420646f6f72
+      - languageCode: 64655f4445
+        text: 5265636874652054c3bc7220c3b666666e656e
+      followUpNodeId: 4e4f44455f323031333a30333a32353a31343a30373a34323a353739
+      nodeId: 4e4f44455f323031333a30333a32353a31333a35363a31383a363935
+      maxUseCount: -1
+      startUseCount: -1
+    showInDUGManagerExecutableList: 0
+    entryCountMax: 1
+    messageMethodeName: 
+    messageMethodeValue: 
+    editorWindowRect:
+      x: 10000
+      y: 10000
+      width: 288
+      height: 265
+  - id: 4e4f44455f323031333a30333a32353a31333a35383a35383a363834
+    name: 
+    image: {fileID: 0}
+    type: 0
+    actorId: 4143544f525f323031333a30333a32353a31333a35353a33393a313638
+    statusId: 
+    sceneId: 5343454e455f323031333a30333a32353a31333a35353a32393a363030
+    listEntries:
+    - id: 4e4f44455f454e5452595f323031333a30363a30343a31383a32343a34343a35383630343830
+      listLocales:
+      - languageCode: 64656661756c74
+        text: 54686520646f6f72206973206c6f636b6564
+      - languageCode: 64655f4445
+        text: 4469652054c3bc72206973742067657363686c6f7373656e
+      followUpNodeId: 4e4f44455f323031333a30333a32353a31333a35393a34323a303830
+      nodeId: 4e4f44455f323031333a30333a32353a31333a35383a35383a363834
+      maxUseCount: -1
+      startUseCount: -1
+    showInDUGManagerExecutableList: 0
+    entryCountMax: 1
+    messageMethodeName: 
+    messageMethodeValue: 
+    editorWindowRect:
+      x: 10327.79
+      y: 10036.4902
+      width: 244.207504
+      height: 145
+  - id: 4e4f44455f323031333a30333a32353a31333a35393a34323a303830
+    name: 
+    image: {fileID: 0}
+    type: 1
+    actorId: 4143544f525f323031333a30333a32353a31333a35353a33393a313638
+    statusId: 
+    sceneId: 5343454e455f323031333a30333a32353a31333a35353a32393a363030
+    listEntries:
+    - id: 4e4f44455f454e5452595f323031333a30363a30343a31383a32343a34343a35393039363230
+      listLocales:
+      - languageCode: 64656661756c74
+        text: 
+      followUpNodeId: 4e4f44455f323031333a30333a32353a31333a35363a31383a363935
+      nodeId: 4e4f44455f323031333a30333a32353a31333a35393a34323a303830
+      maxUseCount: -1
+      startUseCount: -1
+    showInDUGManagerExecutableList: 0
+    entryCountMax: 1
+    messageMethodeName: 
+    messageMethodeValue: 
+    editorWindowRect:
+      x: 10615.79
+      y: 10057.4902
+      width: 150
+      height: 90
+  - id: 4e4f44455f323031333a30333a32353a31343a30373a34323a353739
+    name: 526967687420646f6f72206f70656e73
+    image: {fileID: 0}
+    type: 0
+    actorId: 4143544f525f323031333a30333a32353a31333a35353a33393a313638
+    statusId: 
+    sceneId: 5343454e455f323031333a30333a32353a31333a35353a32393a363030
+    listEntries:
+    - id: 4e4f44455f454e5452595f323031333a30363a30343a31383a32343a34343a35393239343530
+      listLocales:
+      - languageCode: 64656661756c74
+        text: 54686520646f6f72206f70656e206e6f7720616e6420796f752063616e20736565206120736166652e205768617420796f752077616e7420746f20646f3f
+      - languageCode: 64655f4445
+        text: 4469652054c3bc7220697374206a65747a74206f6666656e20756e64206475207369656873742065696e656e20547265736f722e205761732077696c6c7374206475206a65747a74206d616368656e3f
+      followUpNodeId: 4e4f44455f323031333a30333a32353a31343a30373a34323a353739
+      nodeId: 4e4f44455f323031333a30333a32353a31343a30373a34323a353739
+      maxUseCount: 1
+      startUseCount: -1
+    - id: 4e4f44455f454e5452595f323031333a30363a31313a31323a33373a32393a35363334393430
+      listLocales:
+      - languageCode: 64656661756c74
+        text: 54727920736f6d657468696e6720656c736521
+      - languageCode: 64655f4445
+        text: 566572737563682077617320616e646572657321
+      followUpNodeId: 4e4f44455f323031333a30333a32353a31343a30373a34323a353739
+      nodeId: 4e4f44455f323031333a30333a32353a31343a30373a34323a353739
+      maxUseCount: -1
+      startUseCount: 2
+    - id: 4e4f44455f454e5452595f323031333a30363a30343a31383a32343a34343a35393239353930
+      listLocales:
+      - languageCode: 64656661756c74
+        text: 4f70656e2073616665
+      - languageCode: 64655f4445
+        text: 547265736f7220c3b666666e656e
+      followUpNodeId: 4e4f44455f323031333a30333a32353a31343a30393a34333a323931
+      nodeId: 4e4f44455f323031333a30333a32353a31343a30373a34323a353739
+      maxUseCount: 1
+      startUseCount: -1
+    - id: 4e4f44455f454e5452595f323031333a30363a30343a31383a32343a34343a35393239373130
+      listLocales:
+      - languageCode: 64656661756c74
+        text: 4c6f6f6b2061726f756e6420696e20726f6f6d
+      - languageCode: 64655f4445
+        text: 496e205261756d20756d736568656e
+      followUpNodeId: 4e4f44455f323031333a30333a32353a31343a31343a33393a313333
+      nodeId: 4e4f44455f323031333a30333a32353a31343a30373a34323a353739
+      maxUseCount: -1
+      startUseCount: -1
+    showInDUGManagerExecutableList: 1
+    entryCountMax: 1
+    messageMethodeName: 
+    messageMethodeValue: 
+    editorWindowRect:
+      x: 10331
+      y: 10190
+      width: 225
+      height: 278
+  - id: 4e4f44455f323031333a30333a32353a31343a30393a32373a373734
+    name: 53656c65637420636f6465
+    image: {fileID: 0}
+    type: 0
+    actorId: 4143544f525f323031333a30333a32353a31333a35353a33393a313638
+    statusId: 
+    sceneId: 5343454e455f323031333a30333a32353a31333a35353a32393a363030
+    listEntries:
+    - id: 4e4f44455f454e5452595f323031333a30363a30343a31383a32343a34343a35393335373230
+      listLocales:
+      - languageCode: 64656661756c74
+        text: 576869636820636f6d62696e6174696f6e20697320746865207269676874206f6e653f
+      - languageCode: 64655f4445
+        text: 57656c636865204b6f6d62696e6174696f6e20697374206469652072696368746967653f
+      followUpNodeId: 4e4f44455f323031333a30333a32353a31343a30393a32373a373734
+      nodeId: 4e4f44455f323031333a30333a32353a31343a30393a32373a373734
+      maxUseCount: -1
+      startUseCount: -1
+    - id: 4e4f44455f454e5452595f323031333a30363a30343a31383a32343a34343a35393335383530
+      listLocales:
+      - languageCode: 64656661756c74
+        text: 5472792031373536
+      - languageCode: 64655f4445
+        text: 50726f62696572652031373536
+      followUpNodeId: 4e4f44455f323031333a30333a32353a31343a31323a35373a313434
+      nodeId: 4e4f44455f323031333a30333a32353a31343a30393a32373a373734
+      maxUseCount: -1
+      startUseCount: -1
+    - id: 4e4f44455f454e5452595f323031333a30363a30343a31383a32343a34343a35393335393630
+      listLocales:
+      - languageCode: 64656661756c74
+        text: 5472792039383833
+      - languageCode: 64655f4445
+        text: 50726f62696572652039383833
+      followUpNodeId: 4e4f44455f323031333a30333a32353a31343a31323a35373a313434
+      nodeId: 4e4f44455f323031333a30333a32353a31343a30393a32373a373734
+      maxUseCount: -1
+      startUseCount: -1
+    - id: 4e4f44455f454e5452595f323031333a30363a30343a31383a32343a34343a35393336303630
+      listLocales:
+      - languageCode: 64656661756c74
+        text: 5472792033323435
+      - languageCode: 64655f4445
+        text: 50726f62696572652033323435
+      followUpNodeId: 4e4f44455f323031333a30343a30343a31363a30333a34303a343331
+      nodeId: 4e4f44455f323031333a30333a32353a31343a30393a32373a373734
+      maxUseCount: -1
+      startUseCount: -1
+    showInDUGManagerExecutableList: 1
+    entryCountMax: 1
+    messageMethodeName: 
+    messageMethodeValue: 
+    editorWindowRect:
+      x: 10839
+      y: 10130
+      width: 264
+      height: 265
+  - id: 4e4f44455f323031333a30333a32353a31343a30393a34333a323931
+    name: 
+    image: {fileID: 0}
+    type: 4
+    actorId: 
+    statusId: 5354415455535f323031333a30333a32353a31343a30393a33303a373730
+    sceneId: 5343454e455f323031333a30333a32353a31333a35353a32393a363030
+    listEntries:
+    - id: 4e4f44455f454e5452595f323031333a30363a30343a31383a32343a34343a35393432343730
+      listLocales:
+      - languageCode: 64656661756c74
+        text: 
+      followUpNodeId: 4e4f44455f323031333a30333a32353a31343a30393a32373a373734
+      nodeId: 4e4f44455f323031333a30333a32353a31343a30393a34333a323931
+      maxUseCount: -1
+      startUseCount: -1
+    - id: 4e4f44455f454e5452595f323031333a30363a30343a31383a32343a34343a35393432363030
+      listLocales: []
+      followUpNodeId: 4e4f44455f323031333a30333a32353a31343a31313a32353a343935
+      nodeId: 4e4f44455f323031333a30333a32353a31343a30393a34333a323931
+      maxUseCount: -1
+      startUseCount: -1
+    showInDUGManagerExecutableList: 0
+    entryCountMax: 1
+    messageMethodeName: 
+    messageMethodeValue: 
+    editorWindowRect:
+      x: 10624
+      y: 10256
+      width: 150
+      height: 138
+  - id: 4e4f44455f323031333a30333a32353a31343a31313a31393a313531
+    name: 
+    image: {fileID: 0}
+    type: 1
+    actorId: 4143544f525f323031333a30333a32353a31333a35353a33393a313638
+    statusId: 
+    sceneId: 5343454e455f323031333a30333a32353a31333a35353a32393a363030
+    listEntries:
+    - id: 4e4f44455f454e5452595f323031333a30363a30343a31383a32343a34343a35393437323230
+      listLocales:
+      - languageCode: 64656661756c74
+        text: 
+      followUpNodeId: 4e4f44455f323031333a30333a32353a31343a30373a34323a353739
+      nodeId: 4e4f44455f323031333a30333a32353a31343a31313a31393a313531
+      maxUseCount: -1
+      startUseCount: -1
+    showInDUGManagerExecutableList: 0
+    entryCountMax: 1
+    messageMethodeName: 
+    messageMethodeValue: 
+    editorWindowRect:
+      x: 11120.8398
+      y: 10437.7998
+      width: 150
+      height: 90
+  - id: 4e4f44455f323031333a30333a32353a31343a31313a32353a343935
+    name: 
+    image: {fileID: 0}
+    type: 0
+    actorId: 4143544f525f323031333a30333a32353a31333a35353a33393a313638
+    statusId: 
+    sceneId: 5343454e455f323031333a30333a32353a31333a35353a32393a363030
+    listEntries:
+    - id: 4e4f44455f454e5452595f323031333a30363a30343a31383a32343a34343a35393531373830
+      listLocales:
+      - languageCode: 64656661756c74
+        text: 5468652073617665206973206e6f74206f70656e61626c6520776974686f7574206120636f64652e
+      - languageCode: 64655f4445
+        text: 4d616e206b616e6e2064656e20547265736f72206e69636874206f686e652067656865696d205a61686c20c3b666666e656e2e
+      followUpNodeId: 4e4f44455f323031333a30333a32353a31343a31313a31393a313531
+      nodeId: 4e4f44455f323031333a30333a32353a31343a31313a32353a343935
+      maxUseCount: -1
+      startUseCount: -1
+    showInDUGManagerExecutableList: 0
+    entryCountMax: 1
+    messageMethodeName: 
+    messageMethodeValue: 
+    editorWindowRect:
+      x: 10837
+      y: 10410.3301
+      width: 250
+      height: 145
+  - id: 4e4f44455f323031333a30333a32353a31343a31323a35373a313434
+    name: 
+    image: {fileID: 0}
+    type: 0
+    actorId: 4143544f525f323031333a30333a32353a31333a35353a33393a313638
+    statusId: 
+    sceneId: 5343454e455f323031333a30333a32353a31333a35353a32393a363030
+    listEntries:
+    - id: 4e4f44455f454e5452595f323031333a30363a30343a31383a32343a34343a35393536383630
+      listLocales:
+      - languageCode: 64656661756c74
+        text: 4e6f2e205468617420646964206e6f7420776f726b2e
+      - languageCode: 64655f4445
+        text: 4e65696e2e2044617320686174206e696368742066756e6b74696f6e696572742e
+      followUpNodeId: 4e4f44455f323031333a30333a32353a31343a31333a31373a323639
+      nodeId: 4e4f44455f323031333a30333a32353a31343a31323a35373a313434
+      maxUseCount: -1
+      startUseCount: -1
+    showInDUGManagerExecutableList: 0
+    entryCountMax: 1
+    messageMethodeName: 
+    messageMethodeValue: 
+    editorWindowRect:
+      x: 11238
+      y: 10053
+      width: 250
+      height: 145
+  - id: 4e4f44455f323031333a30333a32353a31343a31333a31373a323639
+    name: 
+    image: {fileID: 0}
+    type: 1
+    actorId: 4143544f525f323031333a30333a32353a31333a35353a33393a313638
+    statusId: 
+    sceneId: 5343454e455f323031333a30333a32353a31333a35353a32393a363030
+    listEntries:
+    - id: 4e4f44455f454e5452595f323031333a30363a30343a31383a32343a34343a35393632303530
+      listLocales:
+      - languageCode: 64656661756c74
+        text: 
+      followUpNodeId: 4e4f44455f323031333a30333a32353a31343a30393a32373a373734
+      nodeId: 4e4f44455f323031333a30333a32353a31343a31333a31373a323639
+      maxUseCount: -1
+      startUseCount: -1
+    showInDUGManagerExecutableList: 0
+    entryCountMax: 1
+    messageMethodeName: 
+    messageMethodeValue: 
+    editorWindowRect:
+      x: 11535
+      y: 10074
+      width: 250
+      height: 90
+  - id: 4e4f44455f323031333a30333a32353a31343a31343a33393a313333
+    name: 4c6f6f6b2061726f756e64
+    image: {fileID: 0}
+    type: 0
+    actorId: 4143544f525f323031333a30333a32353a31333a35353a33393a313638
+    statusId: 
+    sceneId: 5343454e455f323031333a30333a32353a31333a35353a32393a363030
+    listEntries:
+    - id: 4e4f44455f454e5452595f323031333a30363a30343a31383a32343a34343a35393636383530
+      listLocales:
+      - languageCode: 64656661756c74
+        text: 4c6574c2b473207365652077686174207765206861766520686572652e
+      - languageCode: 64655f4445
+        text: 4d616c20736568656e2077617320776972206869657220686162656e2e
+      followUpNodeId: 4e4f44455f323031333a30333a32353a31343a31343a33393a313333
+      nodeId: 4e4f44455f323031333a30333a32353a31343a31343a33393a313333
+      maxUseCount: -1
+      startUseCount: -1
+    - id: 4e4f44455f454e5452595f323031333a30363a30343a31383a32343a34343a35393636393830
+      listLocales:
+      - languageCode: 64656661756c74
+        text: 4120636f75636820746f20696e7370656374
+      - languageCode: 64655f4445
+        text: 45696e20536f6661207a75206265747261636874656e
+      followUpNodeId: 4e4f44455f323031333a30333a32353a31343a31383a31313a393337
+      nodeId: 4e4f44455f323031333a30333a32353a31343a31343a33393a313333
+      maxUseCount: 1
+      startUseCount: -1
+    - id: 4e4f44455f454e5452595f323031333a30363a30343a31383a32343a34343a35393637303930
+      listLocales:
+      - languageCode: 64656661756c74
+        text: 416e64206120667269646765
+      - languageCode: 64655f4445
+        text: 556e642065696e204bc3bc686c73636872616e6b
+      followUpNodeId: 4e4f44455f323031333a30333a32353a31343a34373a31333a343538
+      nodeId: 4e4f44455f323031333a30333a32353a31343a31343a33393a313333
+      maxUseCount: -1
+      startUseCount: -1
+    showInDUGManagerExecutableList: 1
+    entryCountMax: 1
+    messageMethodeName: 
+    messageMethodeValue: 
+    editorWindowRect:
+      x: 10626
+      y: 10586.3301
+      width: 250
+      height: 225
+  - id: 4e4f44455f323031333a30333a32353a31343a31383a31313a393337
+    name: 
+    image: {fileID: 0}
+    type: 0
+    actorId: 4143544f525f323031333a30333a32353a31333a35353a33393a313638
+    statusId: 
+    sceneId: 5343454e455f323031333a30333a32353a31333a35353a32393a363030
+    listEntries:
+    - id: 4e4f44455f454e5452595f323031333a30363a30343a31383a32343a34343a35393739353330
+      listLocales:
+      - languageCode: 64656661756c74
+        text: 4c617a7920796f752e2e2e206e6f7468696e6720746f20736565206865726521
+      - languageCode: 64655f4445
+        text: 4661756c6572205361636b2e2e2e20686965722067696274206573206e6963687473207a7520736568656e21
+      followUpNodeId: 4e4f44455f323031333a30333a32353a31343a34353a34303a323533
+      nodeId: 4e4f44455f323031333a30333a32353a31343a31383a31313a393337
+      maxUseCount: -1
+      startUseCount: -1
+    showInDUGManagerExecutableList: 0
+    entryCountMax: 1
+    messageMethodeName: 
+    messageMethodeValue: 
+    editorWindowRect:
+      x: 10972.6699
+      y: 10657.2305
+      width: 250
+      height: 145
+  - id: 4e4f44455f323031333a30333a32353a31343a32313a34363a383236
+    name: 496e737065637420667269646765
+    image: {fileID: 0}
+    type: 0
+    actorId: 4143544f525f323031333a30333a32353a31333a35353a33393a313638
+    statusId: 
+    sceneId: 5343454e455f323031333a30333a32353a31333a35353a32393a363030
+    listEntries:
+    - id: 4e4f44455f454e5452595f323031333a30363a30343a31383a32343a34343a35393835303830
+      listLocales:
+      - languageCode: 64656661756c74
+        text: 41682c206120737469636b79206e6f74652e204974207361797320333234352e20576861742073686f756c6420776520646f206e6578742e
+      - languageCode: 64655f4445
+        text: 41682c2065696e205a657474656c2e20446120737465687420333234352e20576173206d616368656e20776972206a65747a743f
+      followUpNodeId: 4e4f44455f323031333a30333a32353a31343a32313a34363a383236
+      nodeId: 4e4f44455f323031333a30333a32353a31343a32313a34363a383236
+      maxUseCount: -1
+      startUseCount: -1
+    - id: 4e4f44455f454e5452595f323031333a30363a30343a31383a32343a34343a35393835323230
+      listLocales:
+      - languageCode: 64656661756c74
+        text: 4e6f772077652077696c6c20636865636b2074686520636f7563682e
+      - languageCode: 64655f4445
+        text: 4a65747a7420736568656e2077697220756e732064617320536f666120616e2e
+      followUpNodeId: 4e4f44455f323031333a30333a32353a31343a32343a35333a323537
+      nodeId: 4e4f44455f323031333a30333a32353a31343a32313a34363a383236
+      maxUseCount: 1
+      startUseCount: -1
+    - id: 4e4f44455f454e5452595f323031333a30363a30343a31383a32343a34343a35393835333330
+      listLocales:
+      - languageCode: 64656661756c74
+        text: 4f70656e206c65667420646f6f722e
+      - languageCode: 64655f4445
+        text: 4c696e6b652054c3bc7220c3b666666e656e2e
+      followUpNodeId: 4e4f44455f323031333a30333a32353a31343a33353a35323a313538
+      nodeId: 4e4f44455f323031333a30333a32353a31343a32313a34363a383236
+      maxUseCount: 1
+      startUseCount: -1
+    - id: 4e4f44455f454e5452595f323031333a30363a30343a31383a32343a34343a35393835343330
+      listLocales:
+      - languageCode: 64656661756c74
+        text: 476f20746f2074686520736166652e
+      - languageCode: 64655f4445
+        text: 47656865207a756d20547265736f722e
+      followUpNodeId: 4e4f44455f323031333a30333a32353a31343a33373a35333a373732
+      nodeId: 4e4f44455f323031333a30333a32353a31343a32313a34363a383236
+      maxUseCount: -1
+      startUseCount: -1
+    showInDUGManagerExecutableList: 1
+    entryCountMax: 1
+    messageMethodeName: 
+    messageMethodeValue: 
+    editorWindowRect:
+      x: 11141.6699
+      y: 10837.2305
+      width: 250
+      height: 278
+  - id: 4e4f44455f323031333a30333a32353a31343a32343a35333a323537
+    name: 
+    image: {fileID: 0}
+    type: 0
+    actorId: 4143544f525f323031333a30333a32353a31333a35353a33393a313638
+    statusId: 
+    sceneId: 5343454e455f323031333a30333a32353a31333a35353a32393a363030
+    listEntries:
+    - id: 4e4f44455f454e5452595f323031333a30363a30343a31383a32343a34343a35393932303230
+      listLocales:
+      - languageCode: 64656661756c74
+        text: 4e6f2c207374696c6c206e6f2074696d6520746f20646f20746869732e
+      - languageCode: 64655f4445
+        text: 4e65696e2c2077697220686162656e206e6f636820696d6d6572206b65696e65207a65697420646166c3bc722e
+      followUpNodeId: 4e4f44455f323031333a30333a32353a31343a33343a32373a383538
+      nodeId: 4e4f44455f323031333a30333a32353a31343a32343a35333a323537
+      maxUseCount: -1
+      startUseCount: -1
+    showInDUGManagerExecutableList: 0
+    entryCountMax: 1
+    messageMethodeName: 
+    messageMethodeValue: 
+    editorWindowRect:
+      x: 11438.6699
+      y: 10804.2305
+      width: 250
+      height: 145
+  - id: 4e4f44455f323031333a30333a32353a31343a33343a32373a383538
+    name: 
+    image: {fileID: 0}
+    type: 1
+    actorId: 4143544f525f323031333a30333a32353a31333a35353a33393a313638
+    statusId: 
+    sceneId: 5343454e455f323031333a30333a32353a31333a35353a32393a363030
+    listEntries:
+    - id: 4e4f44455f454e5452595f323031333a30363a30343a31383a32343a34343a35393937323430
+      listLocales:
+      - languageCode: 64656661756c74
+        text: 
+      followUpNodeId: 4e4f44455f323031333a30333a32353a31343a32313a34363a383236
+      nodeId: 4e4f44455f323031333a30333a32353a31343a33343a32373a383538
+      maxUseCount: -1
+      startUseCount: -1
+    showInDUGManagerExecutableList: 0
+    entryCountMax: 1
+    messageMethodeName: 
+    messageMethodeValue: 
+    editorWindowRect:
+      x: 11737.6699
+      y: 10839.2305
+      width: 250
+      height: 90
+  - id: 4e4f44455f323031333a30333a32353a31343a33353a35323a313538
+    name: 
+    image: {fileID: 0}
+    type: 0
+    actorId: 4143544f525f323031333a30333a32353a31333a35353a33393a313638
+    statusId: 
+    sceneId: 5343454e455f323031333a30333a32353a31333a35353a32393a363030
+    listEntries:
+    - id: 4e4f44455f454e5452595f323031333a30363a30343a31383a32343a34343a36303032313830
+      listLocales:
+      - languageCode: 64656661756c74
+        text: 54686520646f6f72206973207374696c6c206c6f636b65642e
+      - languageCode: 64655f4445
+        text: 4469652054c3bc7220697374206e6f636820696d6d65722067657363686c6f7373656e2e
+      followUpNodeId: 4e4f44455f323031333a30333a32353a31343a33343a32373a383538
+      nodeId: 4e4f44455f323031333a30333a32353a31343a33353a35323a313538
+      maxUseCount: -1
+      startUseCount: -1
+    showInDUGManagerExecutableList: 0
+    entryCountMax: 1
+    messageMethodeName: 
+    messageMethodeValue: 
+    editorWindowRect:
+      x: 11438.6699
+      y: 10956.2305
+      width: 250
+      height: 145
+  - id: 4e4f44455f323031333a30333a32353a31343a33373a35333a373732
+    name: 
+    image: {fileID: 0}
+    type: 1
+    actorId: 4143544f525f323031333a30333a32353a31333a35353a33393a313638
+    statusId: 
+    sceneId: 5343454e455f323031333a30333a32353a31333a35353a32393a363030
+    listEntries:
+    - id: 4e4f44455f454e5452595f323031333a30363a30343a31383a32343a34343a36303037343830
+      listLocales:
+      - languageCode: 64656661756c74
+        text: 
+      followUpNodeId: 4e4f44455f323031333a30333a32353a31343a30393a34333a323931
+      nodeId: 4e4f44455f323031333a30333a32353a31343a33373a35333a373732
+      maxUseCount: -1
+      startUseCount: -1
+    showInDUGManagerExecutableList: 0
+    entryCountMax: 1
+    messageMethodeName: 
+    messageMethodeValue: 
+    editorWindowRect:
+      x: 11437.6699
+      y: 11115.2305
+      width: 250
+      height: 90
+  - id: 4e4f44455f323031333a30333a32353a31343a33383a34373a303235
+    name: 53616665206f70656e73
+    image: {fileID: 0}
+    type: 0
+    actorId: 4143544f525f323031333a30333a32353a31333a35353a33393a313638
+    statusId: 
+    sceneId: 5343454e455f323031333a30333a32353a31333a35353a32393a363030
+    listEntries:
+    - id: 4e4f44455f454e5452595f323031333a30363a30343a31383a32343a34343a36303535393830
+      listLocales:
+      - languageCode: 64656661756c74
+        text: 47726561742e20546865207361666520646f6f72206f70656e732e20416e642074686572652069732061206b657920696e736964652e
+      - languageCode: 64655f4445
+        text: 53757065722e2044657220547265736f7220c3b666666e6574207369636820756e6420646120626566696e64657420736963682065696e205363686cc3bc7373656c2e
+      followUpNodeId: 4e4f44455f323031333a30333a32353a31343a33383a34373a303235
+      nodeId: 4e4f44455f323031333a30333a32353a31343a33383a34373a303235
+      maxUseCount: 1
+      startUseCount: -1
+    - id: 4e4f44455f454e5452595f323031333a30363a30343a31383a32343a34343a36303536313930
+      listLocales:
+      - languageCode: 64656661756c74
+        text: 476f20746f20667269646765
+      - languageCode: 64655f4445
+        text: 476568207a75204bc3bc686c73636872616e6b
+      followUpNodeId: 4e4f44455f323031333a30333a32353a31343a34303a35373a373733
+      nodeId: 4e4f44455f323031333a30333a32353a31343a33383a34373a303235
+      maxUseCount: 1
+      startUseCount: -1
+    - id: 4e4f44455f454e5452595f323031333a30363a30343a31383a32343a34343a36303536333230
+      listLocales:
+      - languageCode: 64656661756c74
+        text: 54727920746f206f70656e206c65667420646f6f72
+      - languageCode: 64655f4445
+        text: 5665727375636865206c696e6b652054c3bc72207a7520c3b666666e656e2e
+      followUpNodeId: 4e4f44455f323031333a30363a31303a32323a33393a32303a30373132373530
+      nodeId: 4e4f44455f323031333a30333a32353a31343a33383a34373a303235
+      maxUseCount: -1
+      startUseCount: -1
+    showInDUGManagerExecutableList: 1
+    entryCountMax: 1
+    messageMethodeName: 
+    messageMethodeValue: 
+    editorWindowRect:
+      x: 11627.5098
+      y: 10199
+      width: 250
+      height: 238
+  - id: 4e4f44455f323031333a30333a32353a31343a34303a35373a373733
+    name: 
+    image: {fileID: 0}
+    type: 0
+    actorId: 4143544f525f323031333a30333a32353a31333a35353a33393a313638
+    statusId: 
+    sceneId: 5343454e455f323031333a30333a32353a31333a35353a32393a363030
+    listEntries:
+    - id: 4e4f44455f454e5452595f323031333a30363a30343a31383a32343a34343a36303632333930
+      listLocales:
+      - languageCode: 64656661756c74
+        text: 596f7520646f206e6f742077616e7420746f20646f20746869732e2054727920746f206f70656e20746865206c65667420646f6f722e
+      - languageCode: 64655f4445
+        text: 44752077696c6c737420646173206e696368742070726f62696572656e2e20c39666666e6520646f636820646965206c696e6b652054c3bc722e
+      followUpNodeId: 4e4f44455f323031333a30363a31303a32323a33393a32303a30373132373530
+      nodeId: 4e4f44455f323031333a30333a32353a31343a34303a35373a373733
+      maxUseCount: -1
+      startUseCount: -1
+    showInDUGManagerExecutableList: 0
+    entryCountMax: 1
+    messageMethodeName: 
+    messageMethodeValue: 
+    editorWindowRect:
+      x: 11909.5098
+      y: 10193
+      width: 250
+      height: 158
+  - id: 4e4f44455f323031333a30333a32353a31343a34313a32323a303631
+    name: 4c65667420646f6f72206f70656e73
+    image: {fileID: 0}
+    type: 0
+    actorId: 4143544f525f323031333a30333a32353a31333a35353a33393a313638
+    statusId: 
+    sceneId: 5343454e455f323031333a30333a32353a31333a35353a32393a363030
+    listEntries:
+    - id: 4e4f44455f454e5452595f323031333a30363a30343a31383a32343a34343a36303637343930
+      listLocales:
+      - languageCode: 64656661756c74
+        text: 54686520646f6f72206f70656e7320616e6420796f7520676f20746f20746865206e65787420726f6f6d2e
+      - languageCode: 64655f4445
+        text: 4469652054c3bc7220c3b666666e6574207369636820756e6420647520676568737420696e2064656e206ec3a463687374656e205261756d2e
+      followUpNodeId: 4e4f44455f323031333a30333a32353a31343a34333a34373a363634
+      nodeId: 4e4f44455f323031333a30333a32353a31343a34313a32323a303631
+      maxUseCount: -1
+      startUseCount: -1
+    showInDUGManagerExecutableList: 1
+    entryCountMax: 1
+    messageMethodeName: 
+    messageMethodeValue: 
+    editorWindowRect:
+      x: 13004.4004
+      y: 10083.25
+      width: 250
+      height: 145
+  - id: 4e4f44455f323031333a30333a32353a31343a34323a34373a323535
+    name: 
+    image: {fileID: 0}
+    type: 4
+    actorId: 
+    statusId: 5354415455535f323031333a30333a32353a31333a35373a33343a313336
+    sceneId: 5343454e455f323031333a30333a32353a31333a35353a32393a363030
+    listEntries:
+    - id: 4e4f44455f454e5452595f323031333a30363a30343a31383a32343a34343a36303732363130
+      listLocales:
+      - languageCode: 64656661756c74
+        text: 
+      followUpNodeId: 4e4f44455f323031333a30343a30343a31363a30343a31373a363735
+      nodeId: 4e4f44455f323031333a30333a32353a31343a34323a34373a323535
+      maxUseCount: -1
+      startUseCount: -1
+    - id: 4e4f44455f454e5452595f323031333a30363a30343a31383a32343a34343a36303732373430
+      listLocales: []
+      followUpNodeId: 4e4f44455f323031333a30333a32353a31343a34333a32323a323630
+      nodeId: 4e4f44455f323031333a30333a32353a31343a34323a34373a323535
+      maxUseCount: -1
+      startUseCount: -1
+    showInDUGManagerExecutableList: 0
+    entryCountMax: 1
+    messageMethodeName: 
+    messageMethodeValue: 
+    editorWindowRect:
+      x: 12631.9502
+      y: 10093.1201
+      width: 150
+      height: 138
+  - id: 4e4f44455f323031333a30333a32353a31343a34333a32323a323630
+    name: 
+    image: {fileID: 0}
+    type: 0
+    actorId: 4143544f525f323031333a30333a32353a31333a35353a33393a313638
+    statusId: 
+    sceneId: 5343454e455f323031333a30333a32353a31333a35353a32393a363030
+    listEntries:
+    - id: 4e4f44455f454e5452595f323031333a30363a30343a31383a32343a34343a36303737333830
+      listLocales:
+      - languageCode: 64656661756c74
+        text: 4974206973206e6f7420706f737369626c65207468617420796f752077696c6c20657665722072656163682074686973206e6f6465203b29
+      - languageCode: 64655f4445
+        text: 45732069737420756e6dc3b6676c6963682064696573656e204b6e6f74656e206a656d616c73207a752065727265696368656e2e
+      followUpNodeId: 4e4f44455f323031333a30333a32353a31343a34333a32323a323630
+      nodeId: 4e4f44455f323031333a30333a32353a31343a34333a32323a323630
+      maxUseCount: -1
+      startUseCount: -1
+    showInDUGManagerExecutableList: 0
+    entryCountMax: 1
+    messageMethodeName: 
+    messageMethodeValue: 
+    editorWindowRect:
+      x: 12820.5098
+      y: 10253.8896
+      width: 250
+      height: 158
+  - id: 4e4f44455f323031333a30333a32353a31343a34333a34373a363634
+    name: 
+    image: {fileID: 0}
+    type: 1
+    actorId: 4143544f525f323031333a30333a32353a31333a35353a33393a313638
+    statusId: 
+    sceneId: 5343454e455f323031333a30333a32353a31333a35353a32393a363030
+    listEntries:
+    - id: 4e4f44455f454e5452595f323031333a30363a30343a31383a32343a34343a36303832343430
+      listLocales:
+      - languageCode: 64656661756c74
+        text: 
+      followUpNodeId: 4e4f44455f323031333a30333a32353a31343a34343a31333a373032
+      nodeId: 4e4f44455f323031333a30333a32353a31343a34333a34373a363634
+      maxUseCount: -1
+      startUseCount: -1
+    showInDUGManagerExecutableList: 0
+    entryCountMax: 1
+    messageMethodeName: 
+    messageMethodeValue: 
+    editorWindowRect:
+      x: 13287.3896
+      y: 10104.9199
+      width: 160
+      height: 90
+  - id: 4e4f44455f323031333a30333a32353a31343a34353a34303a323533
+    name: 
+    image: {fileID: 0}
+    type: 1
+    actorId: 4143544f525f323031333a30333a32353a31333a35353a33393a313638
+    statusId: 
+    sceneId: 5343454e455f323031333a30333a32353a31333a35353a32393a363030
+    listEntries:
+    - id: 4e4f44455f454e5452595f323031333a30363a30343a31383a32343a34343a36303836393430
+      listLocales:
+      - languageCode: 64656661756c74
+        text: 
+      followUpNodeId: 4e4f44455f323031333a30333a32353a31343a31343a33393a313333
+      nodeId: 4e4f44455f323031333a30333a32353a31343a34353a34303a323533
+      maxUseCount: -1
+      startUseCount: -1
+    showInDUGManagerExecutableList: 0
+    entryCountMax: 1
+    messageMethodeName: 
+    messageMethodeValue: 
+    editorWindowRect:
+      x: 11268.6699
+      y: 10693.2305
+      width: 160
+      height: 90
+  - id: 4e4f44455f323031333a30333a32353a31343a34373a31333a343538
+    name: 
+    image: {fileID: 0}
+    type: 2
+    actorId: 
+    statusId: 5354415455535f323031333a30333a32353a31343a30393a33303a373730
+    sceneId: 5343454e455f323031333a30333a32353a31333a35353a32393a363030
+    listEntries:
+    - id: 4e4f44455f454e5452595f323031333a30363a30343a31383a32343a34343a36303931343530
+      listLocales:
+      - languageCode: 64656661756c74
+        text: 
+      followUpNodeId: 4e4f44455f323031333a30333a32353a31343a32313a34363a383236
+      nodeId: 4e4f44455f323031333a30333a32353a31343a34373a31333a343538
+      maxUseCount: -1
+      startUseCount: -1
+    showInDUGManagerExecutableList: 0
+    entryCountMax: 1
+    messageMethodeName: 
+    messageMethodeValue: 
+    editorWindowRect:
+      x: 10960.5996
+      y: 10907.6904
+      width: 151
+      height: 80
+  - id: 4e4f44455f323031333a30333a32353a31343a34393a31373a393839
+    name: 
+    image: {fileID: 0}
+    type: 2
+    actorId: 
+    statusId: 5354415455535f323031333a30333a32353a31333a35373a33343a313336
+    sceneId: 5343454e455f323031333a30333a32353a31333a35353a32393a363030
+    listEntries:
+    - id: 4e4f44455f454e5452595f323031333a30363a30343a31383a32343a34343a36303935393330
+      listLocales:
+      - languageCode: 64656661756c74
+        text: 
+      followUpNodeId: 4e4f44455f323031333a30333a32353a31343a33383a34373a303235
+      nodeId: 4e4f44455f323031333a30333a32353a31343a34393a31373a393839
+      maxUseCount: -1
+      startUseCount: -1
+    showInDUGManagerExecutableList: 0
+    entryCountMax: 1
+    messageMethodeName: 
+    messageMethodeValue: 
+    editorWindowRect:
+      x: 11377.9297
+      y: 10275.46
+      width: 200
+      height: 80
+  - id: 4e4f44455f323031333a30343a30343a31363a30333a34303a343331
+    name: 
+    image: {fileID: 0}
+    type: 3
+    actorId: 
+    statusId: 5354415455535f323031333a30333a32353a31343a30393a33303a373730
+    sceneId: 5343454e455f323031333a30333a32353a31333a35353a32393a363030
+    listEntries:
+    - id: 4e4f44455f454e5452595f323031333a30363a30343a31383a32343a34343a36313030343730
+      listLocales:
+      - languageCode: 64656661756c74
+        text: 
+      followUpNodeId: 4e4f44455f323031333a30333a32353a31343a34393a31373a393839
+      nodeId: 4e4f44455f323031333a30343a30343a31363a30333a34303a343331
+      maxUseCount: -1
+      startUseCount: -1
+    showInDUGManagerExecutableList: 0
+    entryCountMax: 1
+    messageMethodeName: 
+    messageMethodeValue: 
+    editorWindowRect:
+      x: 11133.7803
+      y: 10275.9199
+      width: 200
+      height: 80
+  - id: 4e4f44455f323031333a30343a30343a31363a30343a31373a363735
+    name: 
+    image: {fileID: 0}
+    type: 3
+    actorId: 
+    statusId: 5354415455535f323031333a30333a32353a31333a35373a33343a313336
+    sceneId: 5343454e455f323031333a30333a32353a31333a35353a32393a363030
+    listEntries:
+    - id: 4e4f44455f454e5452595f323031333a30363a30343a31383a32343a34343a36313035303130
+      listLocales:
+      - languageCode: 64656661756c74
+        text: 
+      followUpNodeId: 4e4f44455f323031333a30333a32353a31343a34313a32323a303631
+      nodeId: 4e4f44455f323031333a30343a30343a31363a30343a31373a363735
+      maxUseCount: -1
+      startUseCount: -1
+    showInDUGManagerExecutableList: 0
+    entryCountMax: 1
+    messageMethodeName: 
+    messageMethodeValue: 
+    editorWindowRect:
+      x: 12814.1797
+      y: 10113.1299
+      width: 150
+      height: 80
+  - id: 4e4f44455f323031333a30363a31303a32323a33393a32303a30373132373530
+    name: 
+    image: {fileID: 0}
+    type: 5
+    actorId: 4143544f525f323031333a30333a32353a31333a35353a33393a313638
+    statusId: 5354415455535f323031333a30333a32353a31333a35373a33343a313336
+    sceneId: 5343454e455f323031333a30333a32353a31333a35353a32393a363030
+    listEntries:
+    - id: 4e4f44455f454e5452595f323031333a30363a31303a32323a33393a32303a30373133313230
+      listLocales: []
+      followUpNodeId: 4e4f44455f323031333a30333a32353a31343a34323a34373a323535
+      nodeId: 4e4f44455f323031333a30363a31303a32323a33393a32303a30373132373530
+      maxUseCount: -1
+      startUseCount: -1
+    - id: 4e4f44455f454e5452595f323031333a30363a31303a32323a33393a32303a30373133333730
+      listLocales: []
+      followUpNodeId: 4e4f44455f323031333a30363a31303a32323a34303a32373a34353333363430
+      nodeId: 4e4f44455f323031333a30363a31303a32323a33393a32303a30373132373530
+      maxUseCount: -1
+      startUseCount: -1
+    showInDUGManagerExecutableList: 0
+    entryCountMax: 2
+    messageMethodeName: 
+    messageMethodeValue: 
+    editorWindowRect:
+      x: 12215.2305
+      y: 10290.1104
+      width: 160
+      height: 138
+  - id: 4e4f44455f323031333a30363a31303a32323a34303a32373a34353333363430
+    name: 
+    image: {fileID: 0}
+    type: 0
+    actorId: 4143544f525f323031333a30333a32353a31333a35353a33393a313638
+    statusId: 5354415455535f323031333a30333a32353a31333a35373a33343a313336
+    sceneId: 5343454e455f323031333a30333a32353a31333a35353a32393a363030
+    listEntries:
+    - id: 4e4f44455f454e5452595f323031333a30363a31303a32323a34303a32373a34353333383630
+      listLocales:
+      - languageCode: 64656661756c74
+        text: 54686520646f6f722069732072757374792e204d617962652049206861766520746f2074727920616761696e2e
+      - languageCode: 64655f4445
+        text: 4469652054c3bc72652069737420726f737469672e20496368206d757373206573206e6f63686d616c732076657273756368656e21
+      followUpNodeId: 4e4f44455f323031333a30363a31303a32323a34313a32393a33383931363930
+      nodeId: 4e4f44455f323031333a30363a31303a32323a34303a32373a34353333363430
+      maxUseCount: -1
+      startUseCount: -1
+    showInDUGManagerExecutableList: 0
+    entryCountMax: 1
+    messageMethodeName: 
+    messageMethodeValue: 
+    editorWindowRect:
+      x: 12437.1396
+      y: 10377.04
+      width: 200
+      height: 158
+  - id: 4e4f44455f323031333a30363a31303a32323a34313a32393a33383931363930
+    name: 
+    image: {fileID: 0}
+    type: 1
+    actorId: 4143544f525f323031333a30333a32353a31333a35353a33393a313638
+    statusId: 5354415455535f323031333a30333a32353a31333a35373a33343a313336
+    sceneId: 5343454e455f323031333a30333a32353a31333a35353a32393a363030
+    listEntries:
+    - id: 4e4f44455f454e5452595f323031333a30363a31303a32323a34313a32393a33383931393430
+      listLocales: []
+      followUpNodeId: 4e4f44455f323031333a30333a32353a31343a33383a34373a303235
+      nodeId: 4e4f44455f323031333a30363a31303a32323a34313a32393a33383931363930
+      maxUseCount: -1
+      startUseCount: -1
+    showInDUGManagerExecutableList: 0
+    entryCountMax: 1
+    messageMethodeName: 
+    messageMethodeValue: 
+    editorWindowRect:
+      x: 12688.2402
+      y: 10479.04
+      width: 160
+      height: 90
+  - id: 4e4f44455f323031333a30333a32353a31343a34343a31333a373032
+    name: 46696e616c
+    image: {fileID: 0}
+    type: 0
+    actorId: 4143544f525f323031333a30333a32353a31333a35353a33393a313638
+    statusId: 
+    sceneId: 5343454e455f323031333a30333a32353a31343a34333a35383a313338
+    listEntries:
+    - id: 4e4f44455f454e5452595f323031333a30363a30343a31383a32343a34343a36313039373130
+      listLocales:
+      - languageCode: 64656661756c74
+        text: 5468652073746f727920697320636f6d706c657465206e6f772e0a5468616e6b7320666f7220706c6179696e67207468652044554e494c4f47204578616d706c652e
+      - languageCode: 64655f4445
+        text: 4469652047657363686963687465206973742068696572207a7520656e64652e0a44616e6b65206461732064752044554e494c4f4720676574657374657420686173742e
+      followUpNodeId: 4e4f44455f323031333a30333a32353a31343a34343a31333a373032
+      nodeId: 4e4f44455f323031333a30333a32353a31343a34343a31333a373032
+      maxUseCount: -1
+      startUseCount: -1
+    showInDUGManagerExecutableList: 1
+    entryCountMax: 1
+    messageMethodeName: 
+    messageMethodeValue: 
+    editorWindowRect:
+      x: 10000
+      y: 10000
+      width: 250
+      height: 153
+  listStatus:
+  - id: 5354415455535f323031333a30333a32353a31333a35373a33343a313336
+    name: 4b6579
+    image: {fileID: 2800000, guid: 7a0eb526bd50841a7b27527f93de9feb, type: 3}
+  - id: 5354415455535f323031333a30333a32353a31343a30393a33303a373730
+    name: 436f6465
+    image: {fileID: 2800000, guid: 6697db01f57694d97ba313db9fdde5ce, type: 3}
+  listExecutables: []
+--- !u!1 &218735973
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 218735974}
+  - 114: {fileID: 218735975}
+  m_Layer: 0
+  m_Name: DUGModel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &218735974
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 218735973}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+--- !u!114 &218735975
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 218735973}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -936388604, guid: 94b9a575b0009478a92055ed9640cd1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  editorVersionNumber: 1.7.0
+  editorBasePath: /Users/ray/Z_Ray/Dev/Unity/DUNILOG/DUNILOG_3.5/Assets/DUNILOG/ExampleProject/
+  editorProjectName: DUNILOG_ExampleProject
+  currentSceneId: SCENE_2013:03:25:13:55:29:600
+  selectedLocaleIndex: 0
+  listLanguageCodes:
+  - default
+  - de_DE
+  listScenes:
+  - id: SCENE_2013:03:25:13:55:29:600
+    name: Room1
+    image: {fileID: 0}
+  - id: SCENE_2013:03:25:14:43:58:138
+    name: Room 2
+    image: {fileID: 0}
+  listActors:
+  - id: ACTOR_2013:03:25:13:55:39:168
+    name: Speaker
+    image: {fileID: 2800000, guid: c7bce3e9b86174527b1bf8d3b1c7f58c, type: 3}
+  listNodes:
+  - id: NODE_2013:03:25:13:56:18:695
+    name: 
+    image: {fileID: 0}
+    variableId: 
+    variableValue: 
+    variableOperationId: 0
+    type: 0
+    actorId: ACTOR_2013:03:25:13:55:39:168
+    sceneId: SCENE_2013:03:25:13:55:29:600
+    listEntries:
+    - id: NODE_ENTRY_2013:06:04:18:24:44:5793170
+      name: 
+      image: {fileID: 0}
+      variableId: 
+      variableValue: 
+      variableOperationId: 0
+      listLocales:
+      - languageCode: default
+        text: Welcome to DUNILOG. What you want to do?
+      - languageCode: de_DE
+        text: Willkommen bei DUNILOG. Was willst du machen?
+      followUpNodeId: NODE_2013:03:25:13:56:18:695
+      nodeId: NODE_2013:03:25:13:56:18:695
+      maxSelectCount: 1
+      startDisplayCount: 1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 0
+    - id: NODE_ENTRY_2013:06:10:23:26:01:7106660
+      name: 
+      image: {fileID: 0}
+      variableId: 
+      variableValue: 
+      variableOperationId: 0
+      listLocales:
+      - languageCode: default
+        text: Welcome again. Which choice next?
+      - languageCode: de_DE
+        text: Nochmals willkommen! Und jetzt?
+      followUpNodeId: NODE_2013:03:25:13:56:18:695
+      nodeId: NODE_2013:03:25:13:56:18:695
+      maxSelectCount: -1
+      startDisplayCount: 2
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 0
+    - id: NODE_ENTRY_2013:06:04:18:24:44:5793380
+      name: 
+      image: {fileID: 0}
+      variableId: 
+      variableValue: 
+      variableOperationId: 0
+      listLocales:
+      - languageCode: default
+        text: Open left door
+      - languageCode: de_DE
+        text: "Linke T\xFCr \xF6ffnen"
+      followUpNodeId: NODE_2013:03:25:13:58:58:684
+      nodeId: NODE_2013:03:25:13:56:18:695
+      maxSelectCount: 1
+      startDisplayCount: -1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 0
+    - id: NODE_ENTRY_2013:06:04:18:24:44:5793500
+      name: 
+      image: {fileID: 0}
+      variableId: 
+      variableValue: 
+      variableOperationId: 0
+      listLocales:
+      - languageCode: default
+        text: Open right door
+      - languageCode: de_DE
+        text: "Rechte T\xFCr \xF6ffnen"
+      followUpNodeId: NODE_2013:03:25:14:07:42:579
+      nodeId: NODE_2013:03:25:13:56:18:695
+      maxSelectCount: -1
+      startDisplayCount: -1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    messageMethodeName: 
+    messageMethodeValue: 
+    editorWindowRect:
+      serializedVersion: 2
+      x: 10000
+      y: 10000
+      width: 288
+      height: 270
+    editorShowInDUGManagerActionList: 0
+  - id: NODE_2013:03:25:13:58:58:684
+    name: 
+    image: {fileID: 0}
+    variableId: 
+    variableValue: 
+    variableOperationId: 0
+    type: 0
+    actorId: ACTOR_2013:03:25:13:55:39:168
+    sceneId: SCENE_2013:03:25:13:55:29:600
+    listEntries:
+    - id: NODE_ENTRY_2013:06:04:18:24:44:5860480
+      name: 
+      image: {fileID: 0}
+      variableId: 
+      variableValue: 
+      variableOperationId: 0
+      listLocales:
+      - languageCode: default
+        text: The door is locked
+      - languageCode: de_DE
+        text: "Die T\xFCr ist geschlossen"
+      followUpNodeId: NODE_2013:03:25:13:59:42:080
+      nodeId: NODE_2013:03:25:13:58:58:684
+      maxSelectCount: -1
+      startDisplayCount: -1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    messageMethodeName: 
+    messageMethodeValue: 
+    editorWindowRect:
+      serializedVersion: 2
+      x: 10327.79
+      y: 10036.4902
+      width: 244.207504
+      height: 150
+    editorShowInDUGManagerActionList: 0
+  - id: NODE_2013:03:25:13:59:42:080
+    name: 
+    image: {fileID: 0}
+    variableId: 
+    variableValue: 
+    variableOperationId: 0
+    type: 1
+    actorId: ACTOR_2013:03:25:13:55:39:168
+    sceneId: SCENE_2013:03:25:13:55:29:600
+    listEntries:
+    - id: NODE_ENTRY_2013:06:04:18:24:44:5909620
+      name: 
+      image: {fileID: 0}
+      variableId: 
+      variableValue: 
+      variableOperationId: 0
+      listLocales:
+      - languageCode: default
+        text: 
+      followUpNodeId: NODE_2013:03:25:13:56:18:695
+      nodeId: NODE_2013:03:25:13:59:42:080
+      maxSelectCount: -1
+      startDisplayCount: -1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    messageMethodeName: 
+    messageMethodeValue: 
+    editorWindowRect:
+      serializedVersion: 2
+      x: 10615.79
+      y: 10057.4902
+      width: 150
+      height: 90
+    editorShowInDUGManagerActionList: 0
+  - id: NODE_2013:03:25:14:07:42:579
+    name: Right door opens
+    image: {fileID: 0}
+    variableId: 
+    variableValue: 
+    variableOperationId: 0
+    type: 0
+    actorId: ACTOR_2013:03:25:13:55:39:168
+    sceneId: SCENE_2013:03:25:13:55:29:600
+    listEntries:
+    - id: NODE_ENTRY_2013:06:04:18:24:44:5929450
+      name: 
+      image: {fileID: 0}
+      variableId: 
+      variableValue: 
+      variableOperationId: 0
+      listLocales:
+      - languageCode: default
+        text: The door open now and you can see a safe. What you want to do?
+      - languageCode: de_DE
+        text: "Die T\xFCr ist jetzt offen und du siehst einen Tresor. Was willst du
+          jetzt machen?"
+      followUpNodeId: NODE_2013:03:25:14:07:42:579
+      nodeId: NODE_2013:03:25:14:07:42:579
+      maxSelectCount: 1
+      startDisplayCount: 1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 0
+    - id: NODE_ENTRY_2013:06:11:12:37:29:5634940
+      name: 
+      image: {fileID: 0}
+      variableId: 
+      variableValue: 
+      variableOperationId: 0
+      listLocales:
+      - languageCode: default
+        text: Try something else!
+      - languageCode: de_DE
+        text: Versuch was anderes!
+      followUpNodeId: NODE_2013:03:25:14:07:42:579
+      nodeId: NODE_2013:03:25:14:07:42:579
+      maxSelectCount: -1
+      startDisplayCount: 2
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 0
+    - id: NODE_ENTRY_2013:06:04:18:24:44:5929590
+      name: 
+      image: {fileID: 0}
+      variableId: 
+      variableValue: 
+      variableOperationId: 0
+      listLocales:
+      - languageCode: default
+        text: Open safe
+      - languageCode: de_DE
+        text: "Tresor \xF6ffnen"
+      followUpNodeId: NODE_2013:03:25:14:09:43:291
+      nodeId: NODE_2013:03:25:14:07:42:579
+      maxSelectCount: 1
+      startDisplayCount: -1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 0
+    - id: NODE_ENTRY_2013:06:04:18:24:44:5929710
+      name: 
+      image: {fileID: 0}
+      variableId: 
+      variableValue: 
+      variableOperationId: 0
+      listLocales:
+      - languageCode: default
+        text: Look around in room
+      - languageCode: de_DE
+        text: In Raum umsehen
+      followUpNodeId: NODE_2013:03:25:14:14:39:133
+      nodeId: NODE_2013:03:25:14:07:42:579
+      maxSelectCount: -1
+      startDisplayCount: -1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    messageMethodeName: 
+    messageMethodeValue: 
+    editorWindowRect:
+      serializedVersion: 2
+      x: 10335
+      y: 10210
+      width: 225
+      height: 283
+    editorShowInDUGManagerActionList: 1
+  - id: NODE_2013:03:25:14:09:27:774
+    name: Select code
+    image: {fileID: 0}
+    variableId: 
+    variableValue: 
+    variableOperationId: 0
+    type: 0
+    actorId: ACTOR_2013:03:25:13:55:39:168
+    sceneId: SCENE_2013:03:25:13:55:29:600
+    listEntries:
+    - id: NODE_ENTRY_2013:06:04:18:24:44:5935720
+      name: 
+      image: {fileID: 0}
+      variableId: 
+      variableValue: 
+      variableOperationId: 0
+      listLocales:
+      - languageCode: default
+        text: Which combination is the right one?
+      - languageCode: de_DE
+        text: Welche Kombination ist die richtige?
+      followUpNodeId: NODE_2013:03:25:14:09:27:774
+      nodeId: NODE_2013:03:25:14:09:27:774
+      maxSelectCount: 2
+      startDisplayCount: 0
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 0
+    - id: NODE_ENTRY_2013:08:07:11:34:08:3941340
+      name: 
+      image: {fileID: 0}
+      variableId: 
+      variableValue: 
+      variableOperationId: 0
+      listLocales:
+      - languageCode: default
+        text: No the code was {var:Code}
+      - languageCode: de_DE
+        text: shduiash9udidu 38732g ewdge dadf bfjhsdb fjhdsb fbdsfb sdjhfbdsfduz
+          ew f8
+      followUpNodeId: NODE_2013:03:25:14:09:27:774
+      nodeId: NODE_2013:03:25:14:09:27:774
+      maxSelectCount: -1
+      startDisplayCount: 3
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 0
+    - id: NODE_ENTRY_2013:06:04:18:24:44:5935850
+      name: 
+      image: {fileID: 0}
+      variableId: 
+      variableValue: 
+      variableOperationId: 0
+      listLocales:
+      - languageCode: default
+        text: Try 1756
+      - languageCode: de_DE
+        text: Probiere 1756
+      followUpNodeId: NODE_2013:03:25:14:12:57:144
+      nodeId: NODE_2013:03:25:14:09:27:774
+      maxSelectCount: -1
+      startDisplayCount: -1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    - id: NODE_ENTRY_2013:06:04:18:24:44:5935960
+      name: 
+      image: {fileID: 0}
+      variableId: 
+      variableValue: 
+      variableOperationId: 0
+      listLocales:
+      - languageCode: default
+        text: Try 9883
+      - languageCode: de_DE
+        text: Probiere 9883
+      followUpNodeId: NODE_2013:03:25:14:12:57:144
+      nodeId: NODE_2013:03:25:14:09:27:774
+      maxSelectCount: -1
+      startDisplayCount: -1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    - id: NODE_ENTRY_2013:06:04:18:24:44:5936060
+      name: 
+      image: {fileID: 0}
+      variableId: 
+      variableValue: 
+      variableOperationId: 0
+      listLocales:
+      - languageCode: default
+        text: Try 3245
+      - languageCode: de_DE
+        text: Probiere 3245
+      followUpNodeId: NODE_2013:03:25:14:49:17:989
+      nodeId: NODE_2013:03:25:14:09:27:774
+      maxSelectCount: -1
+      startDisplayCount: -1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    messageMethodeName: 
+    messageMethodeValue: 
+    editorWindowRect:
+      serializedVersion: 2
+      x: 10829
+      y: 10059
+      width: 264
+      height: 310
+    editorShowInDUGManagerActionList: 1
+  - id: NODE_2013:03:25:14:09:43:291
+    name: 
+    image: {fileID: 0}
+    variableId: VARIABLE_2013:03:25:14:09:30:770
+    variableValue: 3245
+    variableOperationId: 0
+    type: 3
+    actorId: 
+    sceneId: SCENE_2013:03:25:13:55:29:600
+    listEntries:
+    - id: NODE_ENTRY_2013:06:04:18:24:44:5942470
+      name: 
+      image: {fileID: 0}
+      variableId: 3245
+      variableValue: 3245
+      variableOperationId: 0
+      listLocales:
+      - languageCode: default
+        text: 
+      followUpNodeId: NODE_2013:03:25:14:09:27:774
+      nodeId: NODE_2013:03:25:14:09:43:291
+      maxSelectCount: -1
+      startDisplayCount: -1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    - id: NODE_ENTRY_2013:06:04:18:24:44:5942600
+      name: 
+      image: {fileID: 0}
+      variableId: 3245
+      variableValue: 3245
+      variableOperationId: 0
+      listLocales: []
+      followUpNodeId: NODE_2013:03:25:14:11:25:495
+      nodeId: NODE_2013:03:25:14:09:43:291
+      maxSelectCount: -1
+      startDisplayCount: -1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    messageMethodeName: 
+    messageMethodeValue: 
+    editorWindowRect:
+      serializedVersion: 2
+      x: 10628
+      y: 10294
+      width: 150
+      height: 148
+    editorShowInDUGManagerActionList: 0
+  - id: NODE_2013:03:25:14:11:19:151
+    name: 
+    image: {fileID: 0}
+    variableId: 
+    variableValue: 
+    variableOperationId: 0
+    type: 1
+    actorId: ACTOR_2013:03:25:13:55:39:168
+    sceneId: SCENE_2013:03:25:13:55:29:600
+    listEntries:
+    - id: NODE_ENTRY_2013:06:04:18:24:44:5947220
+      name: 
+      image: {fileID: 0}
+      variableId: 
+      variableValue: 
+      variableOperationId: 0
+      listLocales:
+      - languageCode: default
+        text: 
+      followUpNodeId: NODE_2013:03:25:14:07:42:579
+      nodeId: NODE_2013:03:25:14:11:19:151
+      maxSelectCount: -1
+      startDisplayCount: -1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    messageMethodeName: 
+    messageMethodeValue: 
+    editorWindowRect:
+      serializedVersion: 2
+      x: 11120.8398
+      y: 10437.7998
+      width: 150
+      height: 90
+    editorShowInDUGManagerActionList: 0
+  - id: NODE_2013:03:25:14:11:25:495
+    name: 
+    image: {fileID: 0}
+    variableId: 
+    variableValue: 
+    variableOperationId: 0
+    type: 0
+    actorId: ACTOR_2013:03:25:13:55:39:168
+    sceneId: SCENE_2013:03:25:13:55:29:600
+    listEntries:
+    - id: NODE_ENTRY_2013:06:04:18:24:44:5951780
+      name: 
+      image: {fileID: 0}
+      variableId: 
+      variableValue: 
+      variableOperationId: 0
+      listLocales:
+      - languageCode: default
+        text: The save is not openable without a code.
+      - languageCode: de_DE
+        text: "Man kann den Tresor nicht ohne geheim Zahl \xF6ffnen."
+      followUpNodeId: NODE_2013:03:25:14:11:19:151
+      nodeId: NODE_2013:03:25:14:11:25:495
+      maxSelectCount: -1
+      startDisplayCount: -1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    messageMethodeName: 
+    messageMethodeValue: 
+    editorWindowRect:
+      serializedVersion: 2
+      x: 10837
+      y: 10410.3301
+      width: 250
+      height: 150
+    editorShowInDUGManagerActionList: 0
+  - id: NODE_2013:03:25:14:12:57:144
+    name: 
+    image: {fileID: 0}
+    variableId: 
+    variableValue: 
+    variableOperationId: 0
+    type: 0
+    actorId: ACTOR_2013:03:25:13:55:39:168
+    sceneId: SCENE_2013:03:25:13:55:29:600
+    listEntries:
+    - id: NODE_ENTRY_2013:06:04:18:24:44:5956860
+      name: 
+      image: {fileID: 0}
+      variableId: 
+      variableValue: 
+      variableOperationId: 0
+      listLocales:
+      - languageCode: default
+        text: No. That did not work.
+      - languageCode: de_DE
+        text: Nein. Das hat nicht funktioniert.
+      followUpNodeId: NODE_2013:03:25:14:13:17:269
+      nodeId: NODE_2013:03:25:14:12:57:144
+      maxSelectCount: -1
+      startDisplayCount: -1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    messageMethodeName: 
+    messageMethodeValue: 
+    editorWindowRect:
+      serializedVersion: 2
+      x: 11238
+      y: 10053
+      width: 250
+      height: 150
+    editorShowInDUGManagerActionList: 0
+  - id: NODE_2013:03:25:14:13:17:269
+    name: 
+    image: {fileID: 0}
+    variableId: 
+    variableValue: 
+    variableOperationId: 0
+    type: 1
+    actorId: ACTOR_2013:03:25:13:55:39:168
+    sceneId: SCENE_2013:03:25:13:55:29:600
+    listEntries:
+    - id: NODE_ENTRY_2013:06:04:18:24:44:5962050
+      name: 
+      image: {fileID: 0}
+      variableId: 
+      variableValue: 
+      variableOperationId: 0
+      listLocales:
+      - languageCode: default
+        text: 
+      followUpNodeId: NODE_2013:03:25:14:09:27:774
+      nodeId: NODE_2013:03:25:14:13:17:269
+      maxSelectCount: -1
+      startDisplayCount: -1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    messageMethodeName: 
+    messageMethodeValue: 
+    editorWindowRect:
+      serializedVersion: 2
+      x: 11535
+      y: 10074
+      width: 250
+      height: 90
+    editorShowInDUGManagerActionList: 0
+  - id: NODE_2013:03:25:14:14:39:133
+    name: Look around
+    image: {fileID: 0}
+    variableId: 
+    variableValue: 
+    variableOperationId: 0
+    type: 0
+    actorId: ACTOR_2013:03:25:13:55:39:168
+    sceneId: SCENE_2013:03:25:13:55:29:600
+    listEntries:
+    - id: NODE_ENTRY_2013:06:04:18:24:44:5966850
+      name: 
+      image: {fileID: 0}
+      variableId: 
+      variableValue: 
+      variableOperationId: 0
+      listLocales:
+      - languageCode: default
+        text: "Let\xB4s see what we have here."
+      - languageCode: de_DE
+        text: Mal sehen was wir hier haben.
+      followUpNodeId: NODE_2013:03:25:14:14:39:133
+      nodeId: NODE_2013:03:25:14:14:39:133
+      maxSelectCount: -1
+      startDisplayCount: -1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    - id: NODE_ENTRY_2013:06:04:18:24:44:5966980
+      name: 
+      image: {fileID: 0}
+      variableId: 
+      variableValue: 
+      variableOperationId: 0
+      listLocales:
+      - languageCode: default
+        text: A couch to inspect
+      - languageCode: de_DE
+        text: Ein Sofa zu betrachten
+      followUpNodeId: NODE_2013:03:25:14:18:11:937
+      nodeId: NODE_2013:03:25:14:14:39:133
+      maxSelectCount: 1
+      startDisplayCount: -1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 0
+    - id: NODE_ENTRY_2013:06:04:18:24:44:5967090
+      name: 
+      image: {fileID: 0}
+      variableId: 
+      variableValue: 
+      variableOperationId: 0
+      listLocales:
+      - languageCode: default
+        text: And a fridge
+      - languageCode: de_DE
+        text: "Und ein K\xFChlschrank"
+      followUpNodeId: NODE_2013:03:25:14:47:13:458
+      nodeId: NODE_2013:03:25:14:14:39:133
+      maxSelectCount: -1
+      startDisplayCount: -1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    messageMethodeName: 
+    messageMethodeValue: 
+    editorWindowRect:
+      serializedVersion: 2
+      x: 10626
+      y: 10586.3301
+      width: 250
+      height: 230
+    editorShowInDUGManagerActionList: 1
+  - id: NODE_2013:03:25:14:18:11:937
+    name: 
+    image: {fileID: 0}
+    variableId: 
+    variableValue: 
+    variableOperationId: 0
+    type: 0
+    actorId: ACTOR_2013:03:25:13:55:39:168
+    sceneId: SCENE_2013:03:25:13:55:29:600
+    listEntries:
+    - id: NODE_ENTRY_2013:06:04:18:24:44:5979530
+      name: 
+      image: {fileID: 0}
+      variableId: 
+      variableValue: 
+      variableOperationId: 0
+      listLocales:
+      - languageCode: default
+        text: Lazy you... nothing to see here!
+      - languageCode: de_DE
+        text: Fauler Sack... hier gibt es nichts zu sehen!
+      followUpNodeId: NODE_2013:03:25:14:45:40:253
+      nodeId: NODE_2013:03:25:14:18:11:937
+      maxSelectCount: -1
+      startDisplayCount: -1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    messageMethodeName: 
+    messageMethodeValue: 
+    editorWindowRect:
+      serializedVersion: 2
+      x: 10972.6699
+      y: 10657.2305
+      width: 250
+      height: 150
+    editorShowInDUGManagerActionList: 0
+  - id: NODE_2013:03:25:14:21:46:826
+    name: Inspect fridge
+    image: {fileID: 0}
+    variableId: 
+    variableValue: 
+    variableOperationId: 0
+    type: 0
+    actorId: ACTOR_2013:03:25:13:55:39:168
+    sceneId: SCENE_2013:03:25:13:55:29:600
+    listEntries:
+    - id: NODE_ENTRY_2013:06:04:18:24:44:5985080
+      name: 
+      image: {fileID: 0}
+      variableId: 
+      variableValue: 
+      variableOperationId: 0
+      listLocales:
+      - languageCode: default
+        text: Ah, a sticky note. It says {var:Code}. What should we do next.
+      - languageCode: de_DE
+        text: Ah, ein Zettel. Da steht 3245. Was machen wir jetzt?
+      followUpNodeId: NODE_2013:03:25:14:21:46:826
+      nodeId: NODE_2013:03:25:14:21:46:826
+      maxSelectCount: -1
+      startDisplayCount: -1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    - id: NODE_ENTRY_2013:06:04:18:24:44:5985220
+      name: 
+      image: {fileID: 0}
+      variableId: 
+      variableValue: 
+      variableOperationId: 0
+      listLocales:
+      - languageCode: default
+        text: Now we will check the couch.
+      - languageCode: de_DE
+        text: Jetzt sehen wir uns das Sofa an.
+      followUpNodeId: NODE_2013:03:25:14:24:53:257
+      nodeId: NODE_2013:03:25:14:21:46:826
+      maxSelectCount: 1
+      startDisplayCount: -1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 0
+    - id: NODE_ENTRY_2013:06:04:18:24:44:5985330
+      name: 
+      image: {fileID: 0}
+      variableId: 
+      variableValue: 
+      variableOperationId: 0
+      listLocales:
+      - languageCode: default
+        text: Open left door.
+      - languageCode: de_DE
+        text: "Linke T\xFCr \xF6ffnen."
+      followUpNodeId: NODE_2013:03:25:14:35:52:158
+      nodeId: NODE_2013:03:25:14:21:46:826
+      maxSelectCount: 1
+      startDisplayCount: -1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 0
+    - id: NODE_ENTRY_2013:06:04:18:24:44:5985430
+      name: 
+      image: {fileID: 0}
+      variableId: 
+      variableValue: 
+      variableOperationId: 0
+      listLocales:
+      - languageCode: default
+        text: Go to the safe.
+      - languageCode: de_DE
+        text: Gehe zum Tresor.
+      followUpNodeId: NODE_2013:03:25:14:37:53:772
+      nodeId: NODE_2013:03:25:14:21:46:826
+      maxSelectCount: -1
+      startDisplayCount: -1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    messageMethodeName: 
+    messageMethodeValue: 
+    editorWindowRect:
+      serializedVersion: 2
+      x: 11141.6699
+      y: 10837.2305
+      width: 250
+      height: 283
+    editorShowInDUGManagerActionList: 1
+  - id: NODE_2013:03:25:14:24:53:257
+    name: 
+    image: {fileID: 0}
+    variableId: 
+    variableValue: 
+    variableOperationId: 0
+    type: 0
+    actorId: ACTOR_2013:03:25:13:55:39:168
+    sceneId: SCENE_2013:03:25:13:55:29:600
+    listEntries:
+    - id: NODE_ENTRY_2013:06:04:18:24:44:5992020
+      name: 
+      image: {fileID: 0}
+      variableId: 
+      variableValue: 
+      variableOperationId: 0
+      listLocales:
+      - languageCode: default
+        text: No, still no time to do this.
+      - languageCode: de_DE
+        text: "Nein, wir haben noch immer keine zeit daf\xFCr."
+      followUpNodeId: NODE_2013:03:25:14:34:27:858
+      nodeId: NODE_2013:03:25:14:24:53:257
+      maxSelectCount: -1
+      startDisplayCount: -1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    messageMethodeName: 
+    messageMethodeValue: 
+    editorWindowRect:
+      serializedVersion: 2
+      x: 11438.6699
+      y: 10804.2305
+      width: 250
+      height: 150
+    editorShowInDUGManagerActionList: 0
+  - id: NODE_2013:03:25:14:34:27:858
+    name: 
+    image: {fileID: 0}
+    variableId: 
+    variableValue: 
+    variableOperationId: 0
+    type: 1
+    actorId: ACTOR_2013:03:25:13:55:39:168
+    sceneId: SCENE_2013:03:25:13:55:29:600
+    listEntries:
+    - id: NODE_ENTRY_2013:06:04:18:24:44:5997240
+      name: 
+      image: {fileID: 0}
+      variableId: 
+      variableValue: 
+      variableOperationId: 0
+      listLocales:
+      - languageCode: default
+        text: 
+      followUpNodeId: NODE_2013:03:25:14:21:46:826
+      nodeId: NODE_2013:03:25:14:34:27:858
+      maxSelectCount: -1
+      startDisplayCount: -1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    messageMethodeName: 
+    messageMethodeValue: 
+    editorWindowRect:
+      serializedVersion: 2
+      x: 11737.6699
+      y: 10839.2305
+      width: 250
+      height: 90
+    editorShowInDUGManagerActionList: 0
+  - id: NODE_2013:03:25:14:35:52:158
+    name: 
+    image: {fileID: 0}
+    variableId: 
+    variableValue: 
+    variableOperationId: 0
+    type: 0
+    actorId: ACTOR_2013:03:25:13:55:39:168
+    sceneId: SCENE_2013:03:25:13:55:29:600
+    listEntries:
+    - id: NODE_ENTRY_2013:06:04:18:24:44:6002180
+      name: 
+      image: {fileID: 0}
+      variableId: 
+      variableValue: 
+      variableOperationId: 0
+      listLocales:
+      - languageCode: default
+        text: The door is still locked.
+      - languageCode: de_DE
+        text: "Die T\xFCr ist noch immer geschlossen."
+      followUpNodeId: NODE_2013:03:25:14:34:27:858
+      nodeId: NODE_2013:03:25:14:35:52:158
+      maxSelectCount: -1
+      startDisplayCount: -1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    messageMethodeName: 
+    messageMethodeValue: 
+    editorWindowRect:
+      serializedVersion: 2
+      x: 11438.6699
+      y: 10956.2305
+      width: 250
+      height: 150
+    editorShowInDUGManagerActionList: 0
+  - id: NODE_2013:03:25:14:37:53:772
+    name: 
+    image: {fileID: 0}
+    variableId: 
+    variableValue: 
+    variableOperationId: 0
+    type: 1
+    actorId: ACTOR_2013:03:25:13:55:39:168
+    sceneId: SCENE_2013:03:25:13:55:29:600
+    listEntries:
+    - id: NODE_ENTRY_2013:06:04:18:24:44:6007480
+      name: 
+      image: {fileID: 0}
+      variableId: 
+      variableValue: 
+      variableOperationId: 0
+      listLocales:
+      - languageCode: default
+        text: 
+      followUpNodeId: NODE_2013:03:25:14:09:43:291
+      nodeId: NODE_2013:03:25:14:37:53:772
+      maxSelectCount: -1
+      startDisplayCount: -1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    messageMethodeName: 
+    messageMethodeValue: 
+    editorWindowRect:
+      serializedVersion: 2
+      x: 11437.6699
+      y: 11115.2305
+      width: 250
+      height: 90
+    editorShowInDUGManagerActionList: 0
+  - id: NODE_2013:03:25:14:38:47:025
+    name: Safe opens
+    image: {fileID: 0}
+    variableId: 
+    variableValue: 
+    variableOperationId: 0
+    type: 0
+    actorId: ACTOR_2013:03:25:13:55:39:168
+    sceneId: SCENE_2013:03:25:13:55:29:600
+    listEntries:
+    - id: NODE_ENTRY_2013:06:04:18:24:44:6055980
+      name: 
+      image: {fileID: 0}
+      variableId: 
+      variableValue: 
+      variableOperationId: 0
+      listLocales:
+      - languageCode: default
+        text: Great. The safe door opens. And there is a key inside.
+      - languageCode: de_DE
+        text: "Super. Der Tresor \xF6ffnet sich und da befindet sich ein Schl\xFCssel."
+      followUpNodeId: NODE_2013:03:25:14:38:47:025
+      nodeId: NODE_2013:03:25:14:38:47:025
+      maxSelectCount: 1
+      startDisplayCount: -1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 0
+    - id: NODE_ENTRY_2013:06:04:18:24:44:6056190
+      name: 
+      image: {fileID: 0}
+      variableId: 
+      variableValue: 
+      variableOperationId: 0
+      listLocales:
+      - languageCode: default
+        text: Go to fridge
+      - languageCode: de_DE
+        text: "Geh zu K\xFChlschrank"
+      followUpNodeId: NODE_2013:03:25:14:40:57:773
+      nodeId: NODE_2013:03:25:14:38:47:025
+      maxSelectCount: 1
+      startDisplayCount: -1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 0
+    - id: NODE_ENTRY_2013:06:04:18:24:44:6056320
+      name: 
+      image: {fileID: 0}
+      variableId: 
+      variableValue: 
+      variableOperationId: 0
+      listLocales:
+      - languageCode: default
+        text: Try to open left door
+      - languageCode: de_DE
+        text: "Versuche linke T\xFCr zu \xF6ffnen."
+      followUpNodeId: NODE_2013:06:10:22:39:20:0712750
+      nodeId: NODE_2013:03:25:14:38:47:025
+      maxSelectCount: -1
+      startDisplayCount: -1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    messageMethodeName: 
+    messageMethodeValue: 
+    editorWindowRect:
+      serializedVersion: 2
+      x: 11540.5098
+      y: 10194
+      width: 250
+      height: 243
+    editorShowInDUGManagerActionList: 1
+  - id: NODE_2013:03:25:14:40:57:773
+    name: 
+    image: {fileID: 0}
+    variableId: 
+    variableValue: 
+    variableOperationId: 0
+    type: 0
+    actorId: ACTOR_2013:03:25:13:55:39:168
+    sceneId: SCENE_2013:03:25:13:55:29:600
+    listEntries:
+    - id: NODE_ENTRY_2013:06:04:18:24:44:6062390
+      name: 
+      image: {fileID: 0}
+      variableId: 
+      variableValue: 
+      variableOperationId: 0
+      listLocales:
+      - languageCode: default
+        text: You do not want to do this. Try to open the left door.
+      - languageCode: de_DE
+        text: "Du willst das nicht probieren. \xD6ffne doch die linke T\xFCr."
+      followUpNodeId: NODE_2013:06:10:22:39:20:0712750
+      nodeId: NODE_2013:03:25:14:40:57:773
+      maxSelectCount: -1
+      startDisplayCount: -1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    messageMethodeName: 
+    messageMethodeValue: 
+    editorWindowRect:
+      serializedVersion: 2
+      x: 11881.5098
+      y: 10164
+      width: 250
+      height: 163
+    editorShowInDUGManagerActionList: 0
+  - id: NODE_2013:03:25:14:41:22:061
+    name: Left door opens
+    image: {fileID: 0}
+    variableId: 
+    variableValue: 
+    variableOperationId: 0
+    type: 0
+    actorId: ACTOR_2013:03:25:13:55:39:168
+    sceneId: SCENE_2013:03:25:13:55:29:600
+    listEntries:
+    - id: NODE_ENTRY_2013:06:04:18:24:44:6067490
+      name: 
+      image: {fileID: 0}
+      variableId: 
+      variableValue: 
+      variableOperationId: 0
+      listLocales:
+      - languageCode: default
+        text: The door opens and you go to the next room.
+      - languageCode: de_DE
+        text: "Die T\xFCr \xF6ffnet sich und du gehst in den n\xE4chsten Raum."
+      followUpNodeId: NODE_2013:03:25:14:43:47:664
+      nodeId: NODE_2013:03:25:14:41:22:061
+      maxSelectCount: -1
+      startDisplayCount: -1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    messageMethodeName: 
+    messageMethodeValue: 
+    editorWindowRect:
+      serializedVersion: 2
+      x: 13004.4004
+      y: 10083.25
+      width: 250
+      height: 150
+    editorShowInDUGManagerActionList: 1
+  - id: NODE_2013:03:25:14:42:47:255
+    name: 
+    image: {fileID: 0}
+    variableId: VARIABLE_2013:03:25:13:57:34:136
+    variableValue: true
+    variableOperationId: 0
+    type: 3
+    actorId: 
+    sceneId: SCENE_2013:03:25:13:55:29:600
+    listEntries:
+    - id: NODE_ENTRY_2013:06:04:18:24:44:6072610
+      name: 
+      image: {fileID: 0}
+      variableId: true
+      variableValue: true
+      variableOperationId: 0
+      listLocales:
+      - languageCode: default
+        text: 
+      followUpNodeId: NODE_2013:03:25:14:41:22:061
+      nodeId: NODE_2013:03:25:14:42:47:255
+      maxSelectCount: -1
+      startDisplayCount: -1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    - id: NODE_ENTRY_2013:06:04:18:24:44:6072740
+      name: 
+      image: {fileID: 0}
+      variableId: true
+      variableValue: true
+      variableOperationId: 0
+      listLocales: []
+      followUpNodeId: NODE_2013:03:25:14:43:22:260
+      nodeId: NODE_2013:03:25:14:42:47:255
+      maxSelectCount: -1
+      startDisplayCount: -1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    messageMethodeName: 
+    messageMethodeValue: 
+    editorWindowRect:
+      serializedVersion: 2
+      x: 12631.9502
+      y: 10093.1201
+      width: 150
+      height: 148
+    editorShowInDUGManagerActionList: 0
+  - id: NODE_2013:03:25:14:43:22:260
+    name: 
+    image: {fileID: 0}
+    variableId: 
+    variableValue: 
+    variableOperationId: 0
+    type: 0
+    actorId: ACTOR_2013:03:25:13:55:39:168
+    sceneId: SCENE_2013:03:25:13:55:29:600
+    listEntries:
+    - id: NODE_ENTRY_2013:06:04:18:24:44:6077380
+      name: 
+      image: {fileID: 0}
+      variableId: 
+      variableValue: 
+      variableOperationId: 0
+      listLocales:
+      - languageCode: default
+        text: It is not possible that you will ever reach this node ;)
+      - languageCode: de_DE
+        text: "Es ist unm\xF6glich diesen Knoten jemals zu erreichen."
+      followUpNodeId: NODE_2013:03:25:14:43:22:260
+      nodeId: NODE_2013:03:25:14:43:22:260
+      maxSelectCount: -1
+      startDisplayCount: -1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    messageMethodeName: 
+    messageMethodeValue: 
+    editorWindowRect:
+      serializedVersion: 2
+      x: 12820.5098
+      y: 10253.8896
+      width: 250
+      height: 163
+    editorShowInDUGManagerActionList: 0
+  - id: NODE_2013:03:25:14:43:47:664
+    name: 
+    image: {fileID: 0}
+    variableId: 
+    variableValue: 
+    variableOperationId: 0
+    type: 1
+    actorId: ACTOR_2013:03:25:13:55:39:168
+    sceneId: SCENE_2013:03:25:13:55:29:600
+    listEntries:
+    - id: NODE_ENTRY_2013:06:04:18:24:44:6082440
+      name: 
+      image: {fileID: 0}
+      variableId: 
+      variableValue: 
+      variableOperationId: 0
+      listLocales:
+      - languageCode: default
+        text: 
+      followUpNodeId: NODE_2013:03:25:14:44:13:702
+      nodeId: NODE_2013:03:25:14:43:47:664
+      maxSelectCount: -1
+      startDisplayCount: -1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    messageMethodeName: 
+    messageMethodeValue: 
+    editorWindowRect:
+      serializedVersion: 2
+      x: 13287.3896
+      y: 10104.9199
+      width: 160
+      height: 90
+    editorShowInDUGManagerActionList: 0
+  - id: NODE_2013:03:25:14:45:40:253
+    name: 
+    image: {fileID: 0}
+    variableId: 
+    variableValue: 
+    variableOperationId: 0
+    type: 1
+    actorId: ACTOR_2013:03:25:13:55:39:168
+    sceneId: SCENE_2013:03:25:13:55:29:600
+    listEntries:
+    - id: NODE_ENTRY_2013:06:04:18:24:44:6086940
+      name: 
+      image: {fileID: 0}
+      variableId: 
+      variableValue: 
+      variableOperationId: 0
+      listLocales:
+      - languageCode: default
+        text: 
+      followUpNodeId: NODE_2013:03:25:14:14:39:133
+      nodeId: NODE_2013:03:25:14:45:40:253
+      maxSelectCount: -1
+      startDisplayCount: -1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    messageMethodeName: 
+    messageMethodeValue: 
+    editorWindowRect:
+      serializedVersion: 2
+      x: 11268.6699
+      y: 10693.2305
+      width: 160
+      height: 90
+    editorShowInDUGManagerActionList: 0
+  - id: NODE_2013:03:25:14:47:13:458
+    name: 
+    image: {fileID: 0}
+    variableId: VARIABLE_2013:03:25:14:09:30:770
+    variableValue: 3245
+    variableOperationId: 0
+    type: 2
+    actorId: 
+    sceneId: SCENE_2013:03:25:13:55:29:600
+    listEntries:
+    - id: NODE_ENTRY_2013:06:04:18:24:44:6091450
+      name: 
+      image: {fileID: 0}
+      variableId: 3245
+      variableValue: 3245
+      variableOperationId: 0
+      listLocales:
+      - languageCode: default
+        text: 
+      followUpNodeId: NODE_2013:03:25:14:21:46:826
+      nodeId: NODE_2013:03:25:14:47:13:458
+      maxSelectCount: -1
+      startDisplayCount: -1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    messageMethodeName: 
+    messageMethodeValue: 
+    editorWindowRect:
+      serializedVersion: 2
+      x: 10960.5996
+      y: 10907.6904
+      width: 151
+      height: 95
+    editorShowInDUGManagerActionList: 0
+  - id: NODE_2013:03:25:14:49:17:989
+    name: 
+    image: {fileID: 0}
+    variableId: VARIABLE_2013:03:25:13:57:34:136
+    variableValue: true
+    variableOperationId: 0
+    type: 2
+    actorId: 
+    sceneId: SCENE_2013:03:25:13:55:29:600
+    listEntries:
+    - id: NODE_ENTRY_2013:06:04:18:24:44:6095930
+      name: 
+      image: {fileID: 0}
+      variableId: true
+      variableValue: true
+      variableOperationId: 0
+      listLocales:
+      - languageCode: default
+        text: 
+      followUpNodeId: NODE_2013:03:25:14:38:47:025
+      nodeId: NODE_2013:03:25:14:49:17:989
+      maxSelectCount: -1
+      startDisplayCount: -1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    messageMethodeName: 
+    messageMethodeValue: 
+    editorWindowRect:
+      serializedVersion: 2
+      x: 11254.9297
+      y: 10268.46
+      width: 200
+      height: 95
+    editorShowInDUGManagerActionList: 0
+  - id: NODE_2013:06:10:22:39:20:0712750
+    name: 
+    image: {fileID: 0}
+    variableId: VARIABLE_2013:03:25:13:57:34:136
+    variableValue: 
+    variableOperationId: 0
+    type: 5
+    actorId: ACTOR_2013:03:25:13:55:39:168
+    sceneId: SCENE_2013:03:25:13:55:29:600
+    listEntries:
+    - id: NODE_ENTRY_2013:06:10:22:39:20:0713120
+      name: 
+      image: {fileID: 0}
+      variableId: 
+      variableValue: 
+      variableOperationId: 0
+      listLocales: []
+      followUpNodeId: NODE_2013:03:25:14:42:47:255
+      nodeId: NODE_2013:06:10:22:39:20:0712750
+      maxSelectCount: -1
+      startDisplayCount: -1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    - id: NODE_ENTRY_2013:06:10:22:39:20:0713370
+      name: 
+      image: {fileID: 0}
+      variableId: 
+      variableValue: 
+      variableOperationId: 0
+      listLocales: []
+      followUpNodeId: NODE_2013:06:10:22:40:27:4533640
+      nodeId: NODE_2013:06:10:22:39:20:0712750
+      maxSelectCount: -1
+      startDisplayCount: -1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    - id: NODE_ENTRY_2013:07:30:18:09:59:5878910
+      name: 
+      image: {fileID: 0}
+      variableId: 
+      variableValue: 
+      variableOperationId: 0
+      listLocales: []
+      followUpNodeId: NODE_2013:06:10:22:39:20:0712750
+      nodeId: NODE_2013:06:10:22:39:20:0712750
+      maxSelectCount: -1
+      startDisplayCount: -1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    messageMethodeName: 
+    messageMethodeValue: 
+    editorWindowRect:
+      serializedVersion: 2
+      x: 12212.2305
+      y: 10284.1104
+      width: 160
+      height: 162
+    editorShowInDUGManagerActionList: 0
+  - id: NODE_2013:06:10:22:40:27:4533640
+    name: 
+    image: {fileID: 0}
+    variableId: VARIABLE_2013:03:25:13:57:34:136
+    variableValue: 
+    variableOperationId: 0
+    type: 0
+    actorId: ACTOR_2013:03:25:13:55:39:168
+    sceneId: SCENE_2013:03:25:13:55:29:600
+    listEntries:
+    - id: NODE_ENTRY_2013:06:10:22:40:27:4533860
+      name: 
+      image: {fileID: 0}
+      variableId: 
+      variableValue: 
+      variableOperationId: 0
+      listLocales:
+      - languageCode: default
+        text: The door is rusty. Maybe I have to try again.
+      - languageCode: de_DE
+        text: "Die T\xFCre ist rostig. Ich muss es nochmals versuchen!"
+      followUpNodeId: NODE_2013:06:10:22:41:29:3891690
+      nodeId: NODE_2013:06:10:22:40:27:4533640
+      maxSelectCount: -1
+      startDisplayCount: -1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    messageMethodeName: 
+    messageMethodeValue: 
+    editorWindowRect:
+      serializedVersion: 2
+      x: 12437.1396
+      y: 10377.04
+      width: 200
+      height: 163
+    editorShowInDUGManagerActionList: 0
+  - id: NODE_2013:06:10:22:41:29:3891690
+    name: 
+    image: {fileID: 0}
+    variableId: VARIABLE_2013:03:25:13:57:34:136
+    variableValue: 
+    variableOperationId: 0
+    type: 1
+    actorId: ACTOR_2013:03:25:13:55:39:168
+    sceneId: SCENE_2013:03:25:13:55:29:600
+    listEntries:
+    - id: NODE_ENTRY_2013:06:10:22:41:29:3891940
+      name: 
+      image: {fileID: 0}
+      variableId: 
+      variableValue: 
+      variableOperationId: 0
+      listLocales: []
+      followUpNodeId: NODE_2013:03:25:14:38:47:025
+      nodeId: NODE_2013:06:10:22:41:29:3891690
+      maxSelectCount: -1
+      startDisplayCount: -1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    messageMethodeName: 
+    messageMethodeValue: 
+    editorWindowRect:
+      serializedVersion: 2
+      x: 12688.2402
+      y: 10479.04
+      width: 160
+      height: 90
+    editorShowInDUGManagerActionList: 0
+  - id: NODE_2013:03:25:14:44:13:702
+    name: Final
+    image: {fileID: 0}
+    variableId: 
+    variableValue: 
+    variableOperationId: 0
+    type: 0
+    actorId: ACTOR_2013:03:25:13:55:39:168
+    sceneId: SCENE_2013:03:25:14:43:58:138
+    listEntries:
+    - id: NODE_ENTRY_2013:06:04:18:24:44:6109710
+      name: 
+      image: {fileID: 0}
+      variableId: 
+      variableValue: 
+      variableOperationId: 0
+      listLocales:
+      - languageCode: default
+        text: 'The story is complete now.
+
+          Thanks for playing the DUNILOG Example.'
+      - languageCode: de_DE
+        text: 'Die Geschichte ist hier zu ende.
+
+          Danke das du DUNILOG getestet hast.'
+      followUpNodeId: NODE_2013:03:25:14:44:13:702
+      nodeId: NODE_2013:03:25:14:44:13:702
+      maxSelectCount: -1
+      startDisplayCount: -1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    messageMethodeName: 
+    messageMethodeValue: 
+    editorWindowRect:
+      serializedVersion: 2
+      x: 10000
+      y: 10000
+      width: 250
+      height: 163
+    editorShowInDUGManagerActionList: 1
+  listVariables:
+  - id: VARIABLE_2013:03:25:13:57:34:136
+    name: Key
+    image: {fileID: 2800000, guid: 7a0eb526bd50841a7b27527f93de9feb, type: 3}
+    type: 0
+  - id: VARIABLE_2013:03:25:14:09:30:770
+    name: Code
+    image: {fileID: 2800000, guid: 6697db01f57694d97ba313db9fdde5ce, type: 3}
+    type: 2
+  runTimeCurrentNode:
+    id: 
+    name: 
+    image: {fileID: 0}
+    variableId: 
+    variableValue: 
+    variableOperationId: 0
+    type: 0
+    actorId: 
+    sceneId: 
+    listEntries: []
+    messageMethodeName: 
+    messageMethodeValue: 
+    editorWindowRect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 250
+      height: 100
+    editorShowInDUGManagerActionList: 0
+  runTimeListPreviousNodes: []
+  runTimeListPreviousSelectedNodeEntryIds: []
+  listActions: []
+--- !u!1 &263812628
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 100012, guid: dc9178c9226a644b7917a2dbeef845b1, type: 3}
+  m_PrefabInternal: {fileID: 1914978048}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 263812629}
+  - 33: {fileID: 263812631}
+  - 23: {fileID: 263812630}
+  m_Layer: 0
+  m_Name: key
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &263812629
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 400012, guid: dc9178c9226a644b7917a2dbeef845b1, type: 3}
+  m_PrefabInternal: {fileID: 1914978048}
+  m_GameObject: {fileID: 263812628}
+  m_LocalRotation: {x: -.706792533, y: .02107968, z: .0210796818, w: .706792474}
+  m_LocalPosition: {x: -4.07185125, y: .839868248, z: 1.60617828}
+  m_LocalScale: {x: 1.00000012, y: .99999994, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1631062710}
+--- !u!23 &263812630
+Renderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 2300010, guid: dc9178c9226a644b7917a2dbeef845b1,
+    type: 3}
+  m_PrefabInternal: {fileID: 1914978048}
+  m_GameObject: {fileID: 263812628}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_LightmapIndex: 255
+  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
+  m_Materials:
+  - {fileID: 2100000, guid: ea642feb21c474568a6ce40d10b9f41c, type: 2}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 0
+  m_LightProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_SortingLayerID: 0
+--- !u!33 &263812631
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 3300010, guid: dc9178c9226a644b7917a2dbeef845b1,
+    type: 3}
+  m_PrefabInternal: {fileID: 1914978048}
+  m_GameObject: {fileID: 263812628}
+  m_Mesh: {fileID: 4300000, guid: dc9178c9226a644b7917a2dbeef845b1, type: 3}
+--- !u!1 &519418043
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 100000, guid: a4abb594454924f249cb058f02dedc24, type: 2}
+  m_PrefabInternal: {fileID: 955111549}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 519418044}
+  - 114: {fileID: 519418047}
+  - 114: {fileID: 519418046}
+  - 114: {fileID: 519418045}
+  m_Layer: 0
+  m_Name: DUGManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &519418044
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 400000, guid: a4abb594454924f249cb058f02dedc24, type: 2}
+  m_PrefabInternal: {fileID: 955111549}
+  m_GameObject: {fileID: 519418043}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+--- !u!114 &519418045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400000, guid: a4abb594454924f249cb058f02dedc24,
+    type: 2}
+  m_PrefabInternal: {fileID: 955111549}
+  m_GameObject: {fileID: 519418043}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -936388604, guid: 94b9a575b0009478a92055ed9640cd1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  editorVersionNumber: 1.6.0
+  editorBasePath: 
+  editorProjectName: 
+  currentSceneId: SCENE_2013:03:25:13:55:29:600
+  selectedLocaleIndex: 0
+  listLanguageCodes:
+  - default
+  - de_DE
+  listScenes:
+  - id: SCENE_2013:03:25:13:55:29:600
+    name: Room1
+    image: {fileID: 0}
+  - id: SCENE_2013:03:25:14:43:58:138
+    name: Room 2
+    image: {fileID: 0}
+  listActors:
+  - id: ACTOR_2013:03:25:13:55:39:168
+    name: Speaker
+    image: {fileID: 2800000, guid: c7bce3e9b86174527b1bf8d3b1c7f58c, type: 3}
+  listNodes:
+  - id: NODE_2013:03:25:13:56:18:695
+    name: Room1 / Node 0
+    image: {fileID: 0}
+    variableId: 
+    variableValue: 
+    variableOperationId: 0
+    type: 0
+    actorId: ACTOR_2013:03:25:13:55:39:168
+    sceneId: SCENE_2013:03:25:13:55:29:600
+    listEntries:
+    - id: NODE_ENTRY_2013:06:04:18:24:44:5793170
+      name: 
+      image: {fileID: 0}
+      variableId: 
+      variableValue: 
+      variableOperationId: 0
+      listLocales:
+      - languageCode: default
+        text: Welcome to DUNILOG. What you want to do?
+      - languageCode: de_DE
+        text: Willkommen bei DUNILOG. Was willst du machen?
+      followUpNodeId: NODE_2013:03:25:13:56:18:695
+      nodeId: NODE_2013:03:25:13:56:18:695
+      maxSelectCount: 1
+      startDisplayCount: 1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    - id: NODE_ENTRY_2013:06:10:23:26:01:7106660
+      name: 
+      image: {fileID: 0}
+      variableId: 
+      variableValue: 
+      variableOperationId: 0
+      listLocales:
+      - languageCode: default
+        text: Welcome again. Which choice next?
+      - languageCode: de_DE
+        text: Nochmals willkommen! Und jetzt?
+      followUpNodeId: NODE_2013:03:25:13:56:18:695
+      nodeId: NODE_2013:03:25:13:56:18:695
+      maxSelectCount: -1
+      startDisplayCount: 2
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    - id: NODE_ENTRY_2013:06:04:18:24:44:5793380
+      name: 
+      image: {fileID: 0}
+      variableId: 
+      variableValue: 
+      variableOperationId: 0
+      listLocales:
+      - languageCode: default
+        text: Open left door
+      - languageCode: de_DE
+        text: "Linke T\xFCr \xF6ffnen"
+      followUpNodeId: NODE_2013:03:25:13:58:58:684
+      nodeId: NODE_2013:03:25:13:56:18:695
+      maxSelectCount: 1
+      startDisplayCount: -1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    - id: NODE_ENTRY_2013:06:04:18:24:44:5793500
+      name: 
+      image: {fileID: 0}
+      variableId: 
+      variableValue: 
+      variableOperationId: 0
+      listLocales:
+      - languageCode: default
+        text: Open right door
+      - languageCode: de_DE
+        text: "Rechte T\xFCr \xF6ffnen"
+      followUpNodeId: NODE_2013:03:25:14:07:42:579
+      nodeId: NODE_2013:03:25:13:56:18:695
+      maxSelectCount: -1
+      startDisplayCount: -1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    messageMethodeName: 
+    messageMethodeValue: 
+    editorWindowRect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 250
+      height: 100
+    editorShowInDUGManagerActionList: 0
+  - id: NODE_2013:03:25:13:58:58:684
+    name: Room1 / Node 1
+    image: {fileID: 0}
+    variableId: 
+    variableValue: 
+    variableOperationId: 0
+    type: 0
+    actorId: ACTOR_2013:03:25:13:55:39:168
+    sceneId: SCENE_2013:03:25:13:55:29:600
+    listEntries:
+    - id: NODE_ENTRY_2013:06:04:18:24:44:5860480
+      name: 
+      image: {fileID: 0}
+      variableId: 
+      variableValue: 
+      variableOperationId: 0
+      listLocales:
+      - languageCode: default
+        text: The door is locked
+      - languageCode: de_DE
+        text: "Die T\xFCr ist geschlossen"
+      followUpNodeId: NODE_2013:03:25:13:59:42:080
+      nodeId: NODE_2013:03:25:13:58:58:684
+      maxSelectCount: -1
+      startDisplayCount: -1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    messageMethodeName: 
+    messageMethodeValue: 
+    editorWindowRect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 250
+      height: 100
+    editorShowInDUGManagerActionList: 0
+  - id: NODE_2013:03:25:13:59:42:080
+    name: Room1 / Node 2
+    image: {fileID: 0}
+    variableId: 
+    variableValue: 
+    variableOperationId: 0
+    type: 1
+    actorId: ACTOR_2013:03:25:13:55:39:168
+    sceneId: SCENE_2013:03:25:13:55:29:600
+    listEntries:
+    - id: NODE_ENTRY_2013:06:04:18:24:44:5909620
+      name: 
+      image: {fileID: 0}
+      variableId: 
+      variableValue: 
+      variableOperationId: 0
+      listLocales:
+      - languageCode: default
+        text: 
+      followUpNodeId: NODE_2013:03:25:13:56:18:695
+      nodeId: NODE_2013:03:25:13:59:42:080
+      maxSelectCount: -1
+      startDisplayCount: -1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    messageMethodeName: 
+    messageMethodeValue: 
+    editorWindowRect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 250
+      height: 100
+    editorShowInDUGManagerActionList: 0
+  - id: NODE_2013:03:25:14:07:42:579
+    name: Right door opens
+    image: {fileID: 0}
+    variableId: 
+    variableValue: 
+    variableOperationId: 0
+    type: 0
+    actorId: ACTOR_2013:03:25:13:55:39:168
+    sceneId: SCENE_2013:03:25:13:55:29:600
+    listEntries:
+    - id: NODE_ENTRY_2013:06:04:18:24:44:5929450
+      name: 
+      image: {fileID: 0}
+      variableId: 
+      variableValue: 
+      variableOperationId: 0
+      listLocales:
+      - languageCode: default
+        text: The door open now and you can see a safe. What you want to do?
+      - languageCode: de_DE
+        text: "Die T\xFCr ist jetzt offen und du siehst einen Tresor. Was willst du
+          jetzt machen?"
+      followUpNodeId: NODE_2013:03:25:14:07:42:579
+      nodeId: NODE_2013:03:25:14:07:42:579
+      maxSelectCount: 1
+      startDisplayCount: 1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    - id: NODE_ENTRY_2013:06:11:12:37:29:5634940
+      name: 
+      image: {fileID: 0}
+      variableId: 
+      variableValue: 
+      variableOperationId: 0
+      listLocales:
+      - languageCode: default
+        text: Try something else!
+      - languageCode: de_DE
+        text: Versuch was anderes!
+      followUpNodeId: NODE_2013:03:25:14:07:42:579
+      nodeId: NODE_2013:03:25:14:07:42:579
+      maxSelectCount: -1
+      startDisplayCount: 2
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    - id: NODE_ENTRY_2013:06:04:18:24:44:5929590
+      name: 
+      image: {fileID: 0}
+      variableId: 
+      variableValue: 
+      variableOperationId: 0
+      listLocales:
+      - languageCode: default
+        text: Open safe
+      - languageCode: de_DE
+        text: "Tresor \xF6ffnen"
+      followUpNodeId: NODE_2013:03:25:14:09:43:291
+      nodeId: NODE_2013:03:25:14:07:42:579
+      maxSelectCount: 1
+      startDisplayCount: -1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    - id: NODE_ENTRY_2013:06:04:18:24:44:5929710
+      name: 
+      image: {fileID: 0}
+      variableId: 
+      variableValue: 
+      variableOperationId: 0
+      listLocales:
+      - languageCode: default
+        text: Look around in room
+      - languageCode: de_DE
+        text: In Raum umsehen
+      followUpNodeId: NODE_2013:03:25:14:14:39:133
+      nodeId: NODE_2013:03:25:14:07:42:579
+      maxSelectCount: -1
+      startDisplayCount: -1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    messageMethodeName: 
+    messageMethodeValue: 
+    editorWindowRect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 250
+      height: 100
+    editorShowInDUGManagerActionList: 1
+  - id: NODE_2013:03:25:14:09:27:774
+    name: Select code
+    image: {fileID: 0}
+    variableId: 
+    variableValue: 
+    variableOperationId: 0
+    type: 0
+    actorId: ACTOR_2013:03:25:13:55:39:168
+    sceneId: SCENE_2013:03:25:13:55:29:600
+    listEntries:
+    - id: NODE_ENTRY_2013:06:04:18:24:44:5935720
+      name: 
+      image: {fileID: 0}
+      variableId: 
+      variableValue: 
+      variableOperationId: 0
+      listLocales:
+      - languageCode: default
+        text: Which combination is the right one?
+      - languageCode: de_DE
+        text: Welche Kombination ist die richtige?
+      followUpNodeId: NODE_2013:03:25:14:09:27:774
+      nodeId: NODE_2013:03:25:14:09:27:774
+      maxSelectCount: 2
+      startDisplayCount: 0
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    - id: NODE_ENTRY_2013:08:07:11:34:08:3941340
+      name: 
+      image: {fileID: 0}
+      variableId: 
+      variableValue: 
+      variableOperationId: 0
+      listLocales:
+      - languageCode: default
+        text: No the code was {var:Code}
+      - languageCode: de_DE
+        text: shduiash9udidu 38732g ewdge dadf bfjhsdb fjhdsb fbdsfb sdjhfbdsfduz
+          ew f8
+      followUpNodeId: NODE_2013:03:25:14:09:27:774
+      nodeId: NODE_2013:03:25:14:09:27:774
+      maxSelectCount: -1
+      startDisplayCount: 3
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    - id: NODE_ENTRY_2013:06:04:18:24:44:5935850
+      name: 
+      image: {fileID: 0}
+      variableId: 
+      variableValue: 
+      variableOperationId: 0
+      listLocales:
+      - languageCode: default
+        text: Try 1756
+      - languageCode: de_DE
+        text: Probiere 1756
+      followUpNodeId: NODE_2013:03:25:14:12:57:144
+      nodeId: NODE_2013:03:25:14:09:27:774
+      maxSelectCount: -1
+      startDisplayCount: -1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    - id: NODE_ENTRY_2013:06:04:18:24:44:5935960
+      name: 
+      image: {fileID: 0}
+      variableId: 
+      variableValue: 
+      variableOperationId: 0
+      listLocales:
+      - languageCode: default
+        text: Try 9883
+      - languageCode: de_DE
+        text: Probiere 9883
+      followUpNodeId: NODE_2013:03:25:14:12:57:144
+      nodeId: NODE_2013:03:25:14:09:27:774
+      maxSelectCount: -1
+      startDisplayCount: -1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    - id: NODE_ENTRY_2013:06:04:18:24:44:5936060
+      name: 
+      image: {fileID: 0}
+      variableId: 
+      variableValue: 
+      variableOperationId: 0
+      listLocales:
+      - languageCode: default
+        text: Try 3245
+      - languageCode: de_DE
+        text: Probiere 3245
+      followUpNodeId: NODE_2013:03:25:14:49:17:989
+      nodeId: NODE_2013:03:25:14:09:27:774
+      maxSelectCount: -1
+      startDisplayCount: -1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    messageMethodeName: 
+    messageMethodeValue: 
+    editorWindowRect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 250
+      height: 100
+    editorShowInDUGManagerActionList: 1
+  - id: NODE_2013:03:25:14:09:43:291
+    name: Room1 / Node 5
+    image: {fileID: 0}
+    variableId: VARIABLE_2013:03:25:14:09:30:770
+    variableValue: 3245
+    variableOperationId: 0
+    type: 3
+    actorId: 
+    sceneId: SCENE_2013:03:25:13:55:29:600
+    listEntries:
+    - id: NODE_ENTRY_2013:06:04:18:24:44:5942470
+      name: 
+      image: {fileID: 0}
+      variableId: 3245
+      variableValue: 3245
+      variableOperationId: 0
+      listLocales:
+      - languageCode: default
+        text: 
+      followUpNodeId: NODE_2013:03:25:14:09:27:774
+      nodeId: NODE_2013:03:25:14:09:43:291
+      maxSelectCount: -1
+      startDisplayCount: -1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    - id: NODE_ENTRY_2013:06:04:18:24:44:5942600
+      name: 
+      image: {fileID: 0}
+      variableId: 3245
+      variableValue: 3245
+      variableOperationId: 0
+      listLocales: []
+      followUpNodeId: NODE_2013:03:25:14:11:25:495
+      nodeId: NODE_2013:03:25:14:09:43:291
+      maxSelectCount: -1
+      startDisplayCount: -1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    messageMethodeName: 
+    messageMethodeValue: 
+    editorWindowRect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 250
+      height: 100
+    editorShowInDUGManagerActionList: 0
+  - id: NODE_2013:03:25:14:11:19:151
+    name: Room1 / Node 6
+    image: {fileID: 0}
+    variableId: 
+    variableValue: 
+    variableOperationId: 0
+    type: 1
+    actorId: ACTOR_2013:03:25:13:55:39:168
+    sceneId: SCENE_2013:03:25:13:55:29:600
+    listEntries:
+    - id: NODE_ENTRY_2013:06:04:18:24:44:5947220
+      name: 
+      image: {fileID: 0}
+      variableId: 
+      variableValue: 
+      variableOperationId: 0
+      listLocales:
+      - languageCode: default
+        text: 
+      followUpNodeId: NODE_2013:03:25:14:07:42:579
+      nodeId: NODE_2013:03:25:14:11:19:151
+      maxSelectCount: -1
+      startDisplayCount: -1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    messageMethodeName: 
+    messageMethodeValue: 
+    editorWindowRect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 250
+      height: 100
+    editorShowInDUGManagerActionList: 0
+  - id: NODE_2013:03:25:14:11:25:495
+    name: Room1 / Node 7
+    image: {fileID: 0}
+    variableId: 
+    variableValue: 
+    variableOperationId: 0
+    type: 0
+    actorId: ACTOR_2013:03:25:13:55:39:168
+    sceneId: SCENE_2013:03:25:13:55:29:600
+    listEntries:
+    - id: NODE_ENTRY_2013:06:04:18:24:44:5951780
+      name: 
+      image: {fileID: 0}
+      variableId: 
+      variableValue: 
+      variableOperationId: 0
+      listLocales:
+      - languageCode: default
+        text: The save is not openable without a code.
+      - languageCode: de_DE
+        text: "Man kann den Tresor nicht ohne geheim Zahl \xF6ffnen."
+      followUpNodeId: NODE_2013:03:25:14:11:19:151
+      nodeId: NODE_2013:03:25:14:11:25:495
+      maxSelectCount: -1
+      startDisplayCount: -1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    messageMethodeName: 
+    messageMethodeValue: 
+    editorWindowRect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 250
+      height: 100
+    editorShowInDUGManagerActionList: 0
+  - id: NODE_2013:03:25:14:12:57:144
+    name: Room1 / Node 8
+    image: {fileID: 0}
+    variableId: 
+    variableValue: 
+    variableOperationId: 0
+    type: 0
+    actorId: ACTOR_2013:03:25:13:55:39:168
+    sceneId: SCENE_2013:03:25:13:55:29:600
+    listEntries:
+    - id: NODE_ENTRY_2013:06:04:18:24:44:5956860
+      name: 
+      image: {fileID: 0}
+      variableId: 
+      variableValue: 
+      variableOperationId: 0
+      listLocales:
+      - languageCode: default
+        text: No. That did not work.
+      - languageCode: de_DE
+        text: Nein. Das hat nicht funktioniert.
+      followUpNodeId: NODE_2013:03:25:14:13:17:269
+      nodeId: NODE_2013:03:25:14:12:57:144
+      maxSelectCount: -1
+      startDisplayCount: -1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    messageMethodeName: 
+    messageMethodeValue: 
+    editorWindowRect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 250
+      height: 100
+    editorShowInDUGManagerActionList: 0
+  - id: NODE_2013:03:25:14:13:17:269
+    name: Room1 / Node 9
+    image: {fileID: 0}
+    variableId: 
+    variableValue: 
+    variableOperationId: 0
+    type: 1
+    actorId: ACTOR_2013:03:25:13:55:39:168
+    sceneId: SCENE_2013:03:25:13:55:29:600
+    listEntries:
+    - id: NODE_ENTRY_2013:06:04:18:24:44:5962050
+      name: 
+      image: {fileID: 0}
+      variableId: 
+      variableValue: 
+      variableOperationId: 0
+      listLocales:
+      - languageCode: default
+        text: 
+      followUpNodeId: NODE_2013:03:25:14:09:27:774
+      nodeId: NODE_2013:03:25:14:13:17:269
+      maxSelectCount: -1
+      startDisplayCount: -1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    messageMethodeName: 
+    messageMethodeValue: 
+    editorWindowRect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 250
+      height: 100
+    editorShowInDUGManagerActionList: 0
+  - id: NODE_2013:03:25:14:14:39:133
+    name: Look around
+    image: {fileID: 0}
+    variableId: 
+    variableValue: 
+    variableOperationId: 0
+    type: 0
+    actorId: ACTOR_2013:03:25:13:55:39:168
+    sceneId: SCENE_2013:03:25:13:55:29:600
+    listEntries:
+    - id: NODE_ENTRY_2013:06:04:18:24:44:5966850
+      name: 
+      image: {fileID: 0}
+      variableId: 
+      variableValue: 
+      variableOperationId: 0
+      listLocales:
+      - languageCode: default
+        text: "Let\xB4s see what we have here."
+      - languageCode: de_DE
+        text: Mal sehen was wir hier haben.
+      followUpNodeId: NODE_2013:03:25:14:14:39:133
+      nodeId: NODE_2013:03:25:14:14:39:133
+      maxSelectCount: -1
+      startDisplayCount: -1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    - id: NODE_ENTRY_2013:06:04:18:24:44:5966980
+      name: 
+      image: {fileID: 0}
+      variableId: 
+      variableValue: 
+      variableOperationId: 0
+      listLocales:
+      - languageCode: default
+        text: A couch to inspect
+      - languageCode: de_DE
+        text: Ein Sofa zu betrachten
+      followUpNodeId: NODE_2013:03:25:14:18:11:937
+      nodeId: NODE_2013:03:25:14:14:39:133
+      maxSelectCount: 1
+      startDisplayCount: -1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    - id: NODE_ENTRY_2013:06:04:18:24:44:5967090
+      name: 
+      image: {fileID: 0}
+      variableId: 
+      variableValue: 
+      variableOperationId: 0
+      listLocales:
+      - languageCode: default
+        text: And a fridge
+      - languageCode: de_DE
+        text: "Und ein K\xFChlschrank"
+      followUpNodeId: NODE_2013:03:25:14:47:13:458
+      nodeId: NODE_2013:03:25:14:14:39:133
+      maxSelectCount: -1
+      startDisplayCount: -1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    messageMethodeName: 
+    messageMethodeValue: 
+    editorWindowRect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 250
+      height: 100
+    editorShowInDUGManagerActionList: 1
+  - id: NODE_2013:03:25:14:18:11:937
+    name: Room1 / Node 11
+    image: {fileID: 0}
+    variableId: 
+    variableValue: 
+    variableOperationId: 0
+    type: 0
+    actorId: ACTOR_2013:03:25:13:55:39:168
+    sceneId: SCENE_2013:03:25:13:55:29:600
+    listEntries:
+    - id: NODE_ENTRY_2013:06:04:18:24:44:5979530
+      name: 
+      image: {fileID: 0}
+      variableId: 
+      variableValue: 
+      variableOperationId: 0
+      listLocales:
+      - languageCode: default
+        text: Lazy you... nothing to see here!
+      - languageCode: de_DE
+        text: Fauler Sack... hier gibt es nichts zu sehen!
+      followUpNodeId: NODE_2013:03:25:14:45:40:253
+      nodeId: NODE_2013:03:25:14:18:11:937
+      maxSelectCount: -1
+      startDisplayCount: -1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    messageMethodeName: 
+    messageMethodeValue: 
+    editorWindowRect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 250
+      height: 100
+    editorShowInDUGManagerActionList: 0
+  - id: NODE_2013:03:25:14:21:46:826
+    name: Inspect fridge
+    image: {fileID: 0}
+    variableId: 
+    variableValue: 
+    variableOperationId: 0
+    type: 0
+    actorId: ACTOR_2013:03:25:13:55:39:168
+    sceneId: SCENE_2013:03:25:13:55:29:600
+    listEntries:
+    - id: NODE_ENTRY_2013:06:04:18:24:44:5985080
+      name: 
+      image: {fileID: 0}
+      variableId: 
+      variableValue: 
+      variableOperationId: 0
+      listLocales:
+      - languageCode: default
+        text: Ah, a sticky note. It says {var:Code}. What should we do next.
+      - languageCode: de_DE
+        text: Ah, ein Zettel. Da steht 3245. Was machen wir jetzt?
+      followUpNodeId: NODE_2013:03:25:14:21:46:826
+      nodeId: NODE_2013:03:25:14:21:46:826
+      maxSelectCount: -1
+      startDisplayCount: -1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    - id: NODE_ENTRY_2013:06:04:18:24:44:5985220
+      name: 
+      image: {fileID: 0}
+      variableId: 
+      variableValue: 
+      variableOperationId: 0
+      listLocales:
+      - languageCode: default
+        text: Now we will check the couch.
+      - languageCode: de_DE
+        text: Jetzt sehen wir uns das Sofa an.
+      followUpNodeId: NODE_2013:03:25:14:24:53:257
+      nodeId: NODE_2013:03:25:14:21:46:826
+      maxSelectCount: 1
+      startDisplayCount: -1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    - id: NODE_ENTRY_2013:06:04:18:24:44:5985330
+      name: 
+      image: {fileID: 0}
+      variableId: 
+      variableValue: 
+      variableOperationId: 0
+      listLocales:
+      - languageCode: default
+        text: Open left door.
+      - languageCode: de_DE
+        text: "Linke T\xFCr \xF6ffnen."
+      followUpNodeId: NODE_2013:03:25:14:35:52:158
+      nodeId: NODE_2013:03:25:14:21:46:826
+      maxSelectCount: 1
+      startDisplayCount: -1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    - id: NODE_ENTRY_2013:06:04:18:24:44:5985430
+      name: 
+      image: {fileID: 0}
+      variableId: 
+      variableValue: 
+      variableOperationId: 0
+      listLocales:
+      - languageCode: default
+        text: Go to the safe.
+      - languageCode: de_DE
+        text: Gehe zum Tresor.
+      followUpNodeId: NODE_2013:03:25:14:37:53:772
+      nodeId: NODE_2013:03:25:14:21:46:826
+      maxSelectCount: -1
+      startDisplayCount: -1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    messageMethodeName: 
+    messageMethodeValue: 
+    editorWindowRect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 250
+      height: 100
+    editorShowInDUGManagerActionList: 1
+  - id: NODE_2013:03:25:14:24:53:257
+    name: Room1 / Node 13
+    image: {fileID: 0}
+    variableId: 
+    variableValue: 
+    variableOperationId: 0
+    type: 0
+    actorId: ACTOR_2013:03:25:13:55:39:168
+    sceneId: SCENE_2013:03:25:13:55:29:600
+    listEntries:
+    - id: NODE_ENTRY_2013:06:04:18:24:44:5992020
+      name: 
+      image: {fileID: 0}
+      variableId: 
+      variableValue: 
+      variableOperationId: 0
+      listLocales:
+      - languageCode: default
+        text: No, still no time to do this.
+      - languageCode: de_DE
+        text: "Nein, wir haben noch immer keine zeit daf\xFCr."
+      followUpNodeId: NODE_2013:03:25:14:34:27:858
+      nodeId: NODE_2013:03:25:14:24:53:257
+      maxSelectCount: -1
+      startDisplayCount: -1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    messageMethodeName: 
+    messageMethodeValue: 
+    editorWindowRect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 250
+      height: 100
+    editorShowInDUGManagerActionList: 0
+  - id: NODE_2013:03:25:14:34:27:858
+    name: Room1 / Node 14
+    image: {fileID: 0}
+    variableId: 
+    variableValue: 
+    variableOperationId: 0
+    type: 1
+    actorId: ACTOR_2013:03:25:13:55:39:168
+    sceneId: SCENE_2013:03:25:13:55:29:600
+    listEntries:
+    - id: NODE_ENTRY_2013:06:04:18:24:44:5997240
+      name: 
+      image: {fileID: 0}
+      variableId: 
+      variableValue: 
+      variableOperationId: 0
+      listLocales:
+      - languageCode: default
+        text: 
+      followUpNodeId: NODE_2013:03:25:14:21:46:826
+      nodeId: NODE_2013:03:25:14:34:27:858
+      maxSelectCount: -1
+      startDisplayCount: -1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    messageMethodeName: 
+    messageMethodeValue: 
+    editorWindowRect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 250
+      height: 100
+    editorShowInDUGManagerActionList: 0
+  - id: NODE_2013:03:25:14:35:52:158
+    name: Room1 / Node 15
+    image: {fileID: 0}
+    variableId: 
+    variableValue: 
+    variableOperationId: 0
+    type: 0
+    actorId: ACTOR_2013:03:25:13:55:39:168
+    sceneId: SCENE_2013:03:25:13:55:29:600
+    listEntries:
+    - id: NODE_ENTRY_2013:06:04:18:24:44:6002180
+      name: 
+      image: {fileID: 0}
+      variableId: 
+      variableValue: 
+      variableOperationId: 0
+      listLocales:
+      - languageCode: default
+        text: The door is still locked.
+      - languageCode: de_DE
+        text: "Die T\xFCr ist noch immer geschlossen."
+      followUpNodeId: NODE_2013:03:25:14:34:27:858
+      nodeId: NODE_2013:03:25:14:35:52:158
+      maxSelectCount: -1
+      startDisplayCount: -1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    messageMethodeName: 
+    messageMethodeValue: 
+    editorWindowRect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 250
+      height: 100
+    editorShowInDUGManagerActionList: 0
+  - id: NODE_2013:03:25:14:37:53:772
+    name: Room1 / Node 16
+    image: {fileID: 0}
+    variableId: 
+    variableValue: 
+    variableOperationId: 0
+    type: 1
+    actorId: ACTOR_2013:03:25:13:55:39:168
+    sceneId: SCENE_2013:03:25:13:55:29:600
+    listEntries:
+    - id: NODE_ENTRY_2013:06:04:18:24:44:6007480
+      name: 
+      image: {fileID: 0}
+      variableId: 
+      variableValue: 
+      variableOperationId: 0
+      listLocales:
+      - languageCode: default
+        text: 
+      followUpNodeId: NODE_2013:03:25:14:09:43:291
+      nodeId: NODE_2013:03:25:14:37:53:772
+      maxSelectCount: -1
+      startDisplayCount: -1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    messageMethodeName: 
+    messageMethodeValue: 
+    editorWindowRect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 250
+      height: 100
+    editorShowInDUGManagerActionList: 0
+  - id: NODE_2013:03:25:14:38:47:025
+    name: Safe opens
+    image: {fileID: 0}
+    variableId: 
+    variableValue: 
+    variableOperationId: 0
+    type: 0
+    actorId: ACTOR_2013:03:25:13:55:39:168
+    sceneId: SCENE_2013:03:25:13:55:29:600
+    listEntries:
+    - id: NODE_ENTRY_2013:06:04:18:24:44:6055980
+      name: 
+      image: {fileID: 0}
+      variableId: 
+      variableValue: 
+      variableOperationId: 0
+      listLocales:
+      - languageCode: default
+        text: Great. The safe door opens. And there is a key inside.
+      - languageCode: de_DE
+        text: "Super. Der Tresor \xF6ffnet sich und da befindet sich ein Schl\xFCssel."
+      followUpNodeId: NODE_2013:03:25:14:38:47:025
+      nodeId: NODE_2013:03:25:14:38:47:025
+      maxSelectCount: 1
+      startDisplayCount: -1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    - id: NODE_ENTRY_2013:06:04:18:24:44:6056190
+      name: 
+      image: {fileID: 0}
+      variableId: 
+      variableValue: 
+      variableOperationId: 0
+      listLocales:
+      - languageCode: default
+        text: Go to fridge
+      - languageCode: de_DE
+        text: "Geh zu K\xFChlschrank"
+      followUpNodeId: NODE_2013:03:25:14:40:57:773
+      nodeId: NODE_2013:03:25:14:38:47:025
+      maxSelectCount: 1
+      startDisplayCount: -1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    - id: NODE_ENTRY_2013:06:04:18:24:44:6056320
+      name: 
+      image: {fileID: 0}
+      variableId: 
+      variableValue: 
+      variableOperationId: 0
+      listLocales:
+      - languageCode: default
+        text: Try to open left door
+      - languageCode: de_DE
+        text: "Versuche linke T\xFCr zu \xF6ffnen."
+      followUpNodeId: NODE_2013:06:10:22:39:20:0712750
+      nodeId: NODE_2013:03:25:14:38:47:025
+      maxSelectCount: -1
+      startDisplayCount: -1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    messageMethodeName: 
+    messageMethodeValue: 
+    editorWindowRect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 250
+      height: 100
+    editorShowInDUGManagerActionList: 1
+  - id: NODE_2013:03:25:14:40:57:773
+    name: Room1 / Node 18
+    image: {fileID: 0}
+    variableId: 
+    variableValue: 
+    variableOperationId: 0
+    type: 0
+    actorId: ACTOR_2013:03:25:13:55:39:168
+    sceneId: SCENE_2013:03:25:13:55:29:600
+    listEntries:
+    - id: NODE_ENTRY_2013:06:04:18:24:44:6062390
+      name: 
+      image: {fileID: 0}
+      variableId: 
+      variableValue: 
+      variableOperationId: 0
+      listLocales:
+      - languageCode: default
+        text: You do not want to do this. Try to open the left door.
+      - languageCode: de_DE
+        text: "Du willst das nicht probieren. \xD6ffne doch die linke T\xFCr."
+      followUpNodeId: NODE_2013:06:10:22:39:20:0712750
+      nodeId: NODE_2013:03:25:14:40:57:773
+      maxSelectCount: -1
+      startDisplayCount: -1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    messageMethodeName: 
+    messageMethodeValue: 
+    editorWindowRect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 250
+      height: 100
+    editorShowInDUGManagerActionList: 0
+  - id: NODE_2013:03:25:14:41:22:061
+    name: Left door opens
+    image: {fileID: 0}
+    variableId: 
+    variableValue: 
+    variableOperationId: 0
+    type: 0
+    actorId: ACTOR_2013:03:25:13:55:39:168
+    sceneId: SCENE_2013:03:25:13:55:29:600
+    listEntries:
+    - id: NODE_ENTRY_2013:06:04:18:24:44:6067490
+      name: 
+      image: {fileID: 0}
+      variableId: 
+      variableValue: 
+      variableOperationId: 0
+      listLocales:
+      - languageCode: default
+        text: The door opens and you go to the next room.
+      - languageCode: de_DE
+        text: "Die T\xFCr \xF6ffnet sich und du gehst in den n\xE4chsten Raum."
+      followUpNodeId: NODE_2013:03:25:14:43:47:664
+      nodeId: NODE_2013:03:25:14:41:22:061
+      maxSelectCount: -1
+      startDisplayCount: -1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    messageMethodeName: 
+    messageMethodeValue: 
+    editorWindowRect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 250
+      height: 100
+    editorShowInDUGManagerActionList: 1
+  - id: NODE_2013:03:25:14:42:47:255
+    name: Room1 / Node 20
+    image: {fileID: 0}
+    variableId: VARIABLE_2013:03:25:13:57:34:136
+    variableValue: true
+    variableOperationId: 0
+    type: 3
+    actorId: 
+    sceneId: SCENE_2013:03:25:13:55:29:600
+    listEntries:
+    - id: NODE_ENTRY_2013:06:04:18:24:44:6072610
+      name: 
+      image: {fileID: 0}
+      variableId: true
+      variableValue: true
+      variableOperationId: 0
+      listLocales:
+      - languageCode: default
+        text: 
+      followUpNodeId: NODE_2013:03:25:14:41:22:061
+      nodeId: NODE_2013:03:25:14:42:47:255
+      maxSelectCount: -1
+      startDisplayCount: -1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    - id: NODE_ENTRY_2013:06:04:18:24:44:6072740
+      name: 
+      image: {fileID: 0}
+      variableId: true
+      variableValue: true
+      variableOperationId: 0
+      listLocales: []
+      followUpNodeId: NODE_2013:03:25:14:43:22:260
+      nodeId: NODE_2013:03:25:14:42:47:255
+      maxSelectCount: -1
+      startDisplayCount: -1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    messageMethodeName: 
+    messageMethodeValue: 
+    editorWindowRect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 250
+      height: 100
+    editorShowInDUGManagerActionList: 0
+  - id: NODE_2013:03:25:14:43:22:260
+    name: Room1 / Node 21
+    image: {fileID: 0}
+    variableId: 
+    variableValue: 
+    variableOperationId: 0
+    type: 0
+    actorId: ACTOR_2013:03:25:13:55:39:168
+    sceneId: SCENE_2013:03:25:13:55:29:600
+    listEntries:
+    - id: NODE_ENTRY_2013:06:04:18:24:44:6077380
+      name: 
+      image: {fileID: 0}
+      variableId: 
+      variableValue: 
+      variableOperationId: 0
+      listLocales:
+      - languageCode: default
+        text: It is not possible that you will ever reach this node ;)
+      - languageCode: de_DE
+        text: "Es ist unm\xF6glich diesen Knoten jemals zu erreichen."
+      followUpNodeId: NODE_2013:03:25:14:43:22:260
+      nodeId: NODE_2013:03:25:14:43:22:260
+      maxSelectCount: -1
+      startDisplayCount: -1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    messageMethodeName: 
+    messageMethodeValue: 
+    editorWindowRect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 250
+      height: 100
+    editorShowInDUGManagerActionList: 0
+  - id: NODE_2013:03:25:14:43:47:664
+    name: Room1 / Node 22
+    image: {fileID: 0}
+    variableId: 
+    variableValue: 
+    variableOperationId: 0
+    type: 1
+    actorId: ACTOR_2013:03:25:13:55:39:168
+    sceneId: SCENE_2013:03:25:13:55:29:600
+    listEntries:
+    - id: NODE_ENTRY_2013:06:04:18:24:44:6082440
+      name: 
+      image: {fileID: 0}
+      variableId: 
+      variableValue: 
+      variableOperationId: 0
+      listLocales:
+      - languageCode: default
+        text: 
+      followUpNodeId: NODE_2013:03:25:14:44:13:702
+      nodeId: NODE_2013:03:25:14:43:47:664
+      maxSelectCount: -1
+      startDisplayCount: -1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    messageMethodeName: 
+    messageMethodeValue: 
+    editorWindowRect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 250
+      height: 100
+    editorShowInDUGManagerActionList: 0
+  - id: NODE_2013:03:25:14:45:40:253
+    name: Room1 / Node 23
+    image: {fileID: 0}
+    variableId: 
+    variableValue: 
+    variableOperationId: 0
+    type: 1
+    actorId: ACTOR_2013:03:25:13:55:39:168
+    sceneId: SCENE_2013:03:25:13:55:29:600
+    listEntries:
+    - id: NODE_ENTRY_2013:06:04:18:24:44:6086940
+      name: 
+      image: {fileID: 0}
+      variableId: 
+      variableValue: 
+      variableOperationId: 0
+      listLocales:
+      - languageCode: default
+        text: 
+      followUpNodeId: NODE_2013:03:25:14:14:39:133
+      nodeId: NODE_2013:03:25:14:45:40:253
+      maxSelectCount: -1
+      startDisplayCount: -1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    messageMethodeName: 
+    messageMethodeValue: 
+    editorWindowRect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 250
+      height: 100
+    editorShowInDUGManagerActionList: 0
+  - id: NODE_2013:03:25:14:47:13:458
+    name: Room1 / Node 24
+    image: {fileID: 0}
+    variableId: VARIABLE_2013:03:25:14:09:30:770
+    variableValue: 3245
+    variableOperationId: 0
+    type: 2
+    actorId: 
+    sceneId: SCENE_2013:03:25:13:55:29:600
+    listEntries:
+    - id: NODE_ENTRY_2013:06:04:18:24:44:6091450
+      name: 
+      image: {fileID: 0}
+      variableId: 3245
+      variableValue: 3245
+      variableOperationId: 0
+      listLocales:
+      - languageCode: default
+        text: 
+      followUpNodeId: NODE_2013:03:25:14:21:46:826
+      nodeId: NODE_2013:03:25:14:47:13:458
+      maxSelectCount: -1
+      startDisplayCount: -1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    messageMethodeName: 
+    messageMethodeValue: 
+    editorWindowRect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 250
+      height: 100
+    editorShowInDUGManagerActionList: 0
+  - id: NODE_2013:03:25:14:49:17:989
+    name: Room1 / Node 25
+    image: {fileID: 0}
+    variableId: VARIABLE_2013:03:25:13:57:34:136
+    variableValue: true
+    variableOperationId: 0
+    type: 2
+    actorId: 
+    sceneId: SCENE_2013:03:25:13:55:29:600
+    listEntries:
+    - id: NODE_ENTRY_2013:06:04:18:24:44:6095930
+      name: 
+      image: {fileID: 0}
+      variableId: true
+      variableValue: true
+      variableOperationId: 0
+      listLocales:
+      - languageCode: default
+        text: 
+      followUpNodeId: NODE_2013:03:25:14:38:47:025
+      nodeId: NODE_2013:03:25:14:49:17:989
+      maxSelectCount: -1
+      startDisplayCount: -1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    messageMethodeName: 
+    messageMethodeValue: 
+    editorWindowRect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 250
+      height: 100
+    editorShowInDUGManagerActionList: 0
+  - id: NODE_2013:06:10:22:39:20:0712750
+    name: Room1 / Node 26
+    image: {fileID: 0}
+    variableId: VARIABLE_2013:03:25:13:57:34:136
+    variableValue: 
+    variableOperationId: 0
+    type: 5
+    actorId: ACTOR_2013:03:25:13:55:39:168
+    sceneId: SCENE_2013:03:25:13:55:29:600
+    listEntries:
+    - id: NODE_ENTRY_2013:06:10:22:39:20:0713120
+      name: 
+      image: {fileID: 0}
+      variableId: 
+      variableValue: 
+      variableOperationId: 0
+      listLocales: []
+      followUpNodeId: NODE_2013:03:25:14:42:47:255
+      nodeId: NODE_2013:06:10:22:39:20:0712750
+      maxSelectCount: -1
+      startDisplayCount: -1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    - id: NODE_ENTRY_2013:06:10:22:39:20:0713370
+      name: 
+      image: {fileID: 0}
+      variableId: 
+      variableValue: 
+      variableOperationId: 0
+      listLocales: []
+      followUpNodeId: NODE_2013:06:10:22:40:27:4533640
+      nodeId: NODE_2013:06:10:22:39:20:0712750
+      maxSelectCount: -1
+      startDisplayCount: -1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    - id: NODE_ENTRY_2013:07:30:18:09:59:5878910
+      name: 
+      image: {fileID: 0}
+      variableId: 
+      variableValue: 
+      variableOperationId: 0
+      listLocales: []
+      followUpNodeId: NODE_2013:06:10:22:39:20:0712750
+      nodeId: NODE_2013:06:10:22:39:20:0712750
+      maxSelectCount: -1
+      startDisplayCount: -1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    messageMethodeName: 
+    messageMethodeValue: 
+    editorWindowRect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 250
+      height: 100
+    editorShowInDUGManagerActionList: 0
+  - id: NODE_2013:06:10:22:40:27:4533640
+    name: Room1 / Node 27
+    image: {fileID: 0}
+    variableId: VARIABLE_2013:03:25:13:57:34:136
+    variableValue: 
+    variableOperationId: 0
+    type: 0
+    actorId: ACTOR_2013:03:25:13:55:39:168
+    sceneId: SCENE_2013:03:25:13:55:29:600
+    listEntries:
+    - id: NODE_ENTRY_2013:06:10:22:40:27:4533860
+      name: 
+      image: {fileID: 0}
+      variableId: 
+      variableValue: 
+      variableOperationId: 0
+      listLocales:
+      - languageCode: default
+        text: The door is rusty. Maybe I have to try again.
+      - languageCode: de_DE
+        text: "Die T\xFCre ist rostig. Ich muss es nochmals versuchen!"
+      followUpNodeId: NODE_2013:06:10:22:41:29:3891690
+      nodeId: NODE_2013:06:10:22:40:27:4533640
+      maxSelectCount: -1
+      startDisplayCount: -1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    messageMethodeName: 
+    messageMethodeValue: 
+    editorWindowRect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 250
+      height: 100
+    editorShowInDUGManagerActionList: 0
+  - id: NODE_2013:06:10:22:41:29:3891690
+    name: Room1 / Node 28
+    image: {fileID: 0}
+    variableId: VARIABLE_2013:03:25:13:57:34:136
+    variableValue: 
+    variableOperationId: 0
+    type: 1
+    actorId: ACTOR_2013:03:25:13:55:39:168
+    sceneId: SCENE_2013:03:25:13:55:29:600
+    listEntries:
+    - id: NODE_ENTRY_2013:06:10:22:41:29:3891940
+      name: 
+      image: {fileID: 0}
+      variableId: 
+      variableValue: 
+      variableOperationId: 0
+      listLocales: []
+      followUpNodeId: NODE_2013:03:25:14:38:47:025
+      nodeId: NODE_2013:06:10:22:41:29:3891690
+      maxSelectCount: -1
+      startDisplayCount: -1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    messageMethodeName: 
+    messageMethodeValue: 
+    editorWindowRect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 250
+      height: 100
+    editorShowInDUGManagerActionList: 0
+  - id: NODE_2013:03:25:14:44:13:702
+    name: Final
+    image: {fileID: 0}
+    variableId: 
+    variableValue: 
+    variableOperationId: 0
+    type: 0
+    actorId: ACTOR_2013:03:25:13:55:39:168
+    sceneId: SCENE_2013:03:25:14:43:58:138
+    listEntries:
+    - id: NODE_ENTRY_2013:06:04:18:24:44:6109710
+      name: 
+      image: {fileID: 0}
+      variableId: 
+      variableValue: 
+      variableOperationId: 0
+      listLocales:
+      - languageCode: default
+        text: 'The story is complete now.
+
+          Thanks for playing the DUNILOG Example.'
+      - languageCode: de_DE
+        text: 'Die Geschichte ist hier zu ende.
+
+          Danke das du DUNILOG getestet hast.'
+      followUpNodeId: NODE_2013:03:25:14:44:13:702
+      nodeId: NODE_2013:03:25:14:44:13:702
+      maxSelectCount: -1
+      startDisplayCount: -1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    messageMethodeName: 
+    messageMethodeValue: 
+    editorWindowRect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 250
+      height: 100
+    editorShowInDUGManagerActionList: 1
+  listVariables:
+  - id: VARIABLE_2013:03:25:13:57:34:136
+    name: Key
+    image: {fileID: 2800000, guid: 7a0eb526bd50841a7b27527f93de9feb, type: 3}
+    type: 0
+  - id: VARIABLE_2013:03:25:14:09:30:770
+    name: Code
+    image: {fileID: 2800000, guid: 6697db01f57694d97ba313db9fdde5ce, type: 3}
+    type: 2
+  runTimeCurrentNode:
+    id: 
+    name: 
+    image: {fileID: 0}
+    variableId: 
+    variableValue: 0
+    variableOperationId: 0
+    type: 0
+    actorId: 
+    sceneId: 
+    listEntries: []
+    messageMethodeName: 
+    messageMethodeValue: 
+    editorWindowRect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 250
+      height: 100
+    editorShowInDUGManagerActionList: 0
+  runTimeListPreviousNodes: []
+  runTimeListPreviousSelectedNodeEntryIds: []
+  listActions:
+  - name: Right door opens
+    nodeId: NODE_2013:03:25:14:07:42:579
+    type: 0
+    script: {fileID: 11500000, guid: 59cfdded66c6843e6a70ca0567ad4b5f, type: 3}
+    instance: {fileID: 0}
+    listEntryActions:
+    - name: Entry0 Complete
+      nodeId: NODE_2013:03:25:14:07:42:579
+      entryId: NODE_ENTRY_2013:06:04:18:24:44:5929450
+      type: 4
+      script: {fileID: 0}
+      instance: {fileID: 0}
+    - name: Entry0 Start
+      nodeId: NODE_2013:03:25:14:07:42:579
+      entryId: NODE_ENTRY_2013:06:04:18:24:44:5929450
+      type: 2
+      script: {fileID: 0}
+      instance: {fileID: 0}
+    - name: Entry1 Start
+      nodeId: NODE_2013:03:25:14:07:42:579
+      entryId: NODE_ENTRY_2013:06:11:12:37:29:5634940
+      type: 2
+      script: {fileID: 0}
+      instance: {fileID: 0}
+    - name: Entry2 Select
+      nodeId: NODE_2013:03:25:14:07:42:579
+      entryId: NODE_ENTRY_2013:06:04:18:24:44:5929590
+      type: 3
+      script: {fileID: 0}
+      instance: {fileID: 0}
+    - name: Entry2 Complete
+      nodeId: NODE_2013:03:25:14:07:42:579
+      entryId: NODE_ENTRY_2013:06:04:18:24:44:5929590
+      type: 4
+      script: {fileID: 0}
+      instance: {fileID: 0}
+    - name: Entry3 Select
+      nodeId: NODE_2013:03:25:14:07:42:579
+      entryId: NODE_ENTRY_2013:06:04:18:24:44:5929710
+      type: 3
+      script: {fileID: 0}
+      instance: {fileID: 0}
+  - name: Select code
+    nodeId: NODE_2013:03:25:14:09:27:774
+    type: 0
+    script: {fileID: 11500000, guid: c78a5c4ab7df8433bb64a589cf3c4540, type: 3}
+    instance: {fileID: 0}
+    listEntryActions:
+    - name: Entry0 Complete
+      nodeId: NODE_2013:03:25:14:09:27:774
+      entryId: NODE_ENTRY_2013:06:04:18:24:44:5935720
+      type: 4
+      script: {fileID: 0}
+      instance: {fileID: 0}
+    - name: Entry0 Start
+      nodeId: NODE_2013:03:25:14:09:27:774
+      entryId: NODE_ENTRY_2013:06:04:18:24:44:5935720
+      type: 2
+      script: {fileID: 0}
+      instance: {fileID: 0}
+    - name: Entry1 Start
+      nodeId: NODE_2013:03:25:14:09:27:774
+      entryId: NODE_ENTRY_2013:08:07:11:34:08:3941340
+      type: 2
+      script: {fileID: 0}
+      instance: {fileID: 0}
+    - name: Entry2 Select
+      nodeId: NODE_2013:03:25:14:09:27:774
+      entryId: NODE_ENTRY_2013:06:04:18:24:44:5935850
+      type: 3
+      script: {fileID: 0}
+      instance: {fileID: 0}
+    - name: Entry3 Select
+      nodeId: NODE_2013:03:25:14:09:27:774
+      entryId: NODE_ENTRY_2013:06:04:18:24:44:5935960
+      type: 3
+      script: {fileID: 0}
+      instance: {fileID: 0}
+    - name: Entry4 Select
+      nodeId: NODE_2013:03:25:14:09:27:774
+      entryId: NODE_ENTRY_2013:06:04:18:24:44:5936060
+      type: 3
+      script: {fileID: 0}
+      instance: {fileID: 0}
+  - name: Look around
+    nodeId: NODE_2013:03:25:14:14:39:133
+    type: 0
+    script: {fileID: 11500000, guid: c15ef0624b0b246698420848c5c66ae8, type: 3}
+    instance: {fileID: 0}
+    listEntryActions:
+    - name: Entry1 Select
+      nodeId: NODE_2013:03:25:14:14:39:133
+      entryId: NODE_ENTRY_2013:06:04:18:24:44:5966980
+      type: 3
+      script: {fileID: 0}
+      instance: {fileID: 0}
+    - name: Entry1 Complete
+      nodeId: NODE_2013:03:25:14:14:39:133
+      entryId: NODE_ENTRY_2013:06:04:18:24:44:5966980
+      type: 4
+      script: {fileID: 0}
+      instance: {fileID: 0}
+    - name: Entry2 Select
+      nodeId: NODE_2013:03:25:14:14:39:133
+      entryId: NODE_ENTRY_2013:06:04:18:24:44:5967090
+      type: 3
+      script: {fileID: 0}
+      instance: {fileID: 0}
+  - name: Inspect fridge
+    nodeId: NODE_2013:03:25:14:21:46:826
+    type: 0
+    script: {fileID: 11500000, guid: bd834fc0c08904980b8040ddec8b7ce8, type: 3}
+    instance: {fileID: 0}
+    listEntryActions:
+    - name: Entry1 Select
+      nodeId: NODE_2013:03:25:14:21:46:826
+      entryId: NODE_ENTRY_2013:06:04:18:24:44:5985220
+      type: 3
+      script: {fileID: 0}
+      instance: {fileID: 0}
+    - name: Entry1 Complete
+      nodeId: NODE_2013:03:25:14:21:46:826
+      entryId: NODE_ENTRY_2013:06:04:18:24:44:5985220
+      type: 4
+      script: {fileID: 0}
+      instance: {fileID: 0}
+    - name: Entry2 Select
+      nodeId: NODE_2013:03:25:14:21:46:826
+      entryId: NODE_ENTRY_2013:06:04:18:24:44:5985330
+      type: 3
+      script: {fileID: 0}
+      instance: {fileID: 0}
+    - name: Entry2 Complete
+      nodeId: NODE_2013:03:25:14:21:46:826
+      entryId: NODE_ENTRY_2013:06:04:18:24:44:5985330
+      type: 4
+      script: {fileID: 0}
+      instance: {fileID: 0}
+    - name: Entry3 Select
+      nodeId: NODE_2013:03:25:14:21:46:826
+      entryId: NODE_ENTRY_2013:06:04:18:24:44:5985430
+      type: 3
+      script: {fileID: 0}
+      instance: {fileID: 0}
+  - name: Safe opens
+    nodeId: NODE_2013:03:25:14:38:47:025
+    type: 0
+    script: {fileID: 11500000, guid: e05f7685e109348c6b81cbfc2a1816ea, type: 3}
+    instance: {fileID: 0}
+    listEntryActions:
+    - name: Entry0 Complete
+      nodeId: NODE_2013:03:25:14:38:47:025
+      entryId: NODE_ENTRY_2013:06:04:18:24:44:6055980
+      type: 4
+      script: {fileID: 0}
+      instance: {fileID: 0}
+    - name: Entry1 Select
+      nodeId: NODE_2013:03:25:14:38:47:025
+      entryId: NODE_ENTRY_2013:06:04:18:24:44:6056190
+      type: 3
+      script: {fileID: 0}
+      instance: {fileID: 0}
+    - name: Entry1 Complete
+      nodeId: NODE_2013:03:25:14:38:47:025
+      entryId: NODE_ENTRY_2013:06:04:18:24:44:6056190
+      type: 4
+      script: {fileID: 0}
+      instance: {fileID: 0}
+    - name: Entry2 Select
+      nodeId: NODE_2013:03:25:14:38:47:025
+      entryId: NODE_ENTRY_2013:06:04:18:24:44:6056320
+      type: 3
+      script: {fileID: 0}
+      instance: {fileID: 0}
+  - name: Left door opens
+    nodeId: NODE_2013:03:25:14:41:22:061
+    type: 0
+    script: {fileID: 11500000, guid: 51d868a6e38244a378712f950d1f3d15, type: 3}
+    instance: {fileID: 0}
+    listEntryActions:
+    - name: Entry0 Select
+      nodeId: NODE_2013:03:25:14:41:22:061
+      entryId: NODE_ENTRY_2013:06:04:18:24:44:6067490
+      type: 3
+      script: {fileID: 0}
+      instance: {fileID: 0}
+  - name: Final
+    nodeId: NODE_2013:03:25:14:44:13:702
+    type: 0
+    script: {fileID: 11500000, guid: cf251b58d82ca4df58e21c7ceeb96089, type: 3}
+    instance: {fileID: 0}
+    listEntryActions: []
+--- !u!114 &519418046
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400002, guid: a4abb594454924f249cb058f02dedc24,
+    type: 2}
+  m_PrefabInternal: {fileID: 955111549}
+  m_GameObject: {fileID: 519418043}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -505150317, guid: 94b9a575b0009478a92055ed9640cd1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &519418047
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400004, guid: a4abb594454924f249cb058f02dedc24,
+    type: 2}
+  m_PrefabInternal: {fileID: 955111549}
+  m_GameObject: {fileID: 519418043}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -890897668, guid: 94b9a575b0009478a92055ed9640cd1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  visible: 1
+  imageSize: 80
+  textWidth: 500
+  skin: {fileID: 11400000, guid: f4c6f51e7cb534793bfc607330c2619f, type: 2}
+  align: 7
+  offset:
+    m_Left: 0
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 0
+  showBackButton: 0
+  showSaveButton: 0
+--- !u!1 &603815897
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 603815898}
+  - 20: {fileID: 603815899}
+  - 92: {fileID: 603815901}
+  - 124: {fileID: 603815902}
+  - 81: {fileID: 603815900}
+  m_Layer: 0
+  m_Name: Main Camera
+  m_TagString: MainCamera
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &603815898
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 603815897}
+  m_LocalRotation: {x: 0, y: -.707106888, z: 0, w: .707106769}
+  m_LocalPosition: {x: 0, y: 1.60000002, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+--- !u!20 &603815899
+Camera:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 603815897}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_ClearFlags: 1
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: .0196078438}
+  m_NormalizedViewPortRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+  near clip plane: .300000012
+  far clip plane: 1000
+  field of view: 60
+  orthographic: 0
+  orthographic size: 100
+  m_Depth: -1
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingPath: -1
+  m_TargetTexture: {fileID: 0}
+  m_HDR: 0
+  m_OcclusionCulling: 1
+--- !u!81 &603815900
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 603815897}
+  m_Enabled: 1
+--- !u!92 &603815901
+Behaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 603815897}
+  m_Enabled: 1
+--- !u!124 &603815902
+Behaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 603815897}
+  m_Enabled: 1
+--- !u!1 &670638804
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 100006, guid: dc9178c9226a644b7917a2dbeef845b1, type: 3}
+  m_PrefabInternal: {fileID: 1914978048}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 670638805}
+  - 33: {fileID: 670638807}
+  - 23: {fileID: 670638806}
+  m_Layer: 0
+  m_Name: leftDoor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &670638805
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 400006, guid: dc9178c9226a644b7917a2dbeef845b1, type: 3}
+  m_PrefabInternal: {fileID: 1914978048}
+  m_GameObject: {fileID: 670638804}
+  m_LocalRotation: {x: -.706792533, y: .02107968, z: .0210796818, w: .706792474}
+  m_LocalPosition: {x: -3.01559496, y: 2.48618364, z: -2.09856224}
+  m_LocalScale: {x: 1.00000012, y: .99999994, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1631062710}
+--- !u!23 &670638806
+Renderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 2300004, guid: dc9178c9226a644b7917a2dbeef845b1,
+    type: 3}
+  m_PrefabInternal: {fileID: 1914978048}
+  m_GameObject: {fileID: 670638804}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_LightmapIndex: 255
+  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
+  m_Materials:
+  - {fileID: 2100000, guid: ea642feb21c474568a6ce40d10b9f41c, type: 2}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 0
+  m_LightProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_SortingLayerID: 0
+--- !u!33 &670638807
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 3300004, guid: dc9178c9226a644b7917a2dbeef845b1,
+    type: 3}
+  m_PrefabInternal: {fileID: 1914978048}
+  m_GameObject: {fileID: 670638804}
+  m_Mesh: {fileID: 4300006, guid: dc9178c9226a644b7917a2dbeef845b1, type: 3}
+--- !u!1 &840881068
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 840881069}
+  - 108: {fileID: 840881070}
+  m_Layer: 0
+  m_Name: Directional light
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &840881069
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 840881068}
+  m_LocalRotation: {x: .678530037, y: -.237180889, z: .169162989, w: .674333811}
+  m_LocalPosition: {x: .501221657, y: 11.1261139, z: .0840358734}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+--- !u!108 &840881070
+Light:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 840881068}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Type: 1
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Intensity: .5
+  m_Range: 10
+  m_SpotAngle: 30
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 0
+    m_Resolution: -1
+    m_Strength: 1
+    m_Bias: .0500000007
+    m_Softness: 4
+    m_SoftnessFade: 1
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_ActuallyLightmapped: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_Lightmapping: 1
+  m_ShadowSamples: 1
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
+  m_IndirectIntensity: 1
+  m_AreaSize: {x: 1, y: 1}
+--- !u!1001 &955111549
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 400000, guid: a4abb594454924f249cb058f02dedc24, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: a4abb594454924f249cb058f02dedc24, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: a4abb594454924f249cb058f02dedc24, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: a4abb594454924f249cb058f02dedc24, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: a4abb594454924f249cb058f02dedc24, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: a4abb594454924f249cb058f02dedc24, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: a4abb594454924f249cb058f02dedc24, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: a4abb594454924f249cb058f02dedc24, type: 2}
+      propertyPath: listActions.Array.data[0].script
+      value: 
+      objectReference: {fileID: 11500000, guid: 59cfdded66c6843e6a70ca0567ad4b5f,
+        type: 3}
+    - target: {fileID: 11400000, guid: a4abb594454924f249cb058f02dedc24, type: 2}
+      propertyPath: listActions.Array.data[6].script
+      value: 
+      objectReference: {fileID: 11500000, guid: cf251b58d82ca4df58e21c7ceeb96089,
+        type: 3}
+    - target: {fileID: 11400000, guid: a4abb594454924f249cb058f02dedc24, type: 2}
+      propertyPath: listActions.Array.data[5].script
+      value: 
+      objectReference: {fileID: 11500000, guid: 51d868a6e38244a378712f950d1f3d15,
+        type: 3}
+    - target: {fileID: 11400000, guid: a4abb594454924f249cb058f02dedc24, type: 2}
+      propertyPath: listActions.Array.data[4].script
+      value: 
+      objectReference: {fileID: 11500000, guid: e05f7685e109348c6b81cbfc2a1816ea,
+        type: 3}
+    - target: {fileID: 11400000, guid: a4abb594454924f249cb058f02dedc24, type: 2}
+      propertyPath: listActions.Array.data[2].script
+      value: 
+      objectReference: {fileID: 11500000, guid: c15ef0624b0b246698420848c5c66ae8,
+        type: 3}
+    - target: {fileID: 11400000, guid: a4abb594454924f249cb058f02dedc24, type: 2}
+      propertyPath: listActions.Array.data[3].script
+      value: 
+      objectReference: {fileID: 11500000, guid: bd834fc0c08904980b8040ddec8b7ce8,
+        type: 3}
+    - target: {fileID: 11400000, guid: a4abb594454924f249cb058f02dedc24, type: 2}
+      propertyPath: listActions.Array.data[1].script
+      value: 
+      objectReference: {fileID: 11500000, guid: c78a5c4ab7df8433bb64a589cf3c4540,
+        type: 3}
+    - target: {fileID: 11400004, guid: a4abb594454924f249cb058f02dedc24, type: 2}
+      propertyPath: skin
+      value: 
+      objectReference: {fileID: 11400000, guid: f4c6f51e7cb534793bfc607330c2619f,
+        type: 2}
+    - target: {fileID: 11400004, guid: a4abb594454924f249cb058f02dedc24, type: 2}
+      propertyPath: imageSize
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400004, guid: a4abb594454924f249cb058f02dedc24, type: 2}
+      propertyPath: textWidth
+      value: 500
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: a4abb594454924f249cb058f02dedc24, type: 2}
+  m_RootGameObject: {fileID: 519418043}
+  m_IsPrefabParent: 0
+  m_IsExploded: 1
+--- !u!1 &1631062709
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 100000, guid: dc9178c9226a644b7917a2dbeef845b1, type: 3}
+  m_PrefabInternal: {fileID: 1914978048}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1631062710}
+  - 111: {fileID: 1631062711}
+  m_Layer: 0
+  m_Name: room
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1631062710
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 400000, guid: dc9178c9226a644b7917a2dbeef845b1, type: 3}
+  m_PrefabInternal: {fileID: 1914978048}
+  m_GameObject: {fileID: 1631062709}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1865587549}
+  - {fileID: 263812629}
+  - {fileID: 670638805}
+  - {fileID: 1673397813}
+  - {fileID: 164878856}
+  - {fileID: 1957358503}
+  m_Father: {fileID: 0}
+--- !u!111 &1631062711
+Animation:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11100000, guid: dc9178c9226a644b7917a2dbeef845b1,
+    type: 3}
+  m_PrefabInternal: {fileID: 1914978048}
+  m_GameObject: {fileID: 1631062709}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: dc9178c9226a644b7917a2dbeef845b1, type: 3}
+  m_Animations:
+  - {fileID: 7400000, guid: dc9178c9226a644b7917a2dbeef845b1, type: 3}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
+--- !u!1 &1673397812
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 100008, guid: dc9178c9226a644b7917a2dbeef845b1, type: 3}
+  m_PrefabInternal: {fileID: 1914978048}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1673397813}
+  - 33: {fileID: 1673397815}
+  - 23: {fileID: 1673397814}
+  m_Layer: 0
+  m_Name: rightDoor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1673397813
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 400008, guid: dc9178c9226a644b7917a2dbeef845b1, type: 3}
+  m_PrefabInternal: {fileID: 1914978048}
+  m_GameObject: {fileID: 1673397812}
+  m_LocalRotation: {x: -.706792533, y: .02107968, z: .0210796818, w: .706792474}
+  m_LocalPosition: {x: -3.01685286, y: 2.48618364, z: 2.101969}
+  m_LocalScale: {x: 1.00000012, y: .99999994, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1631062710}
+--- !u!23 &1673397814
+Renderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 2300006, guid: dc9178c9226a644b7917a2dbeef845b1,
+    type: 3}
+  m_PrefabInternal: {fileID: 1914978048}
+  m_GameObject: {fileID: 1673397812}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_LightmapIndex: 255
+  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
+  m_Materials:
+  - {fileID: 2100000, guid: ea642feb21c474568a6ce40d10b9f41c, type: 2}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 0
+  m_LightProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_SortingLayerID: 0
+--- !u!33 &1673397815
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 3300006, guid: dc9178c9226a644b7917a2dbeef845b1,
+    type: 3}
+  m_PrefabInternal: {fileID: 1914978048}
+  m_GameObject: {fileID: 1673397812}
+  m_Mesh: {fileID: 4300004, guid: dc9178c9226a644b7917a2dbeef845b1, type: 3}
+--- !u!1 &1865587548
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 100004, guid: dc9178c9226a644b7917a2dbeef845b1, type: 3}
+  m_PrefabInternal: {fileID: 1914978048}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1865587549}
+  - 33: {fileID: 1865587551}
+  - 23: {fileID: 1865587550}
+  m_Layer: 0
+  m_Name: ceiling
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1865587549
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 400004, guid: dc9178c9226a644b7917a2dbeef845b1, type: 3}
+  m_PrefabInternal: {fileID: 1914978048}
+  m_GameObject: {fileID: 1865587548}
+  m_LocalRotation: {x: -.706792533, y: .02107968, z: .0210796818, w: .706792474}
+  m_LocalPosition: {x: -.144977391, y: 0, z: -.565954208}
+  m_LocalScale: {x: 1.00000012, y: .99999994, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1631062710}
+--- !u!23 &1865587550
+Renderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 2300002, guid: dc9178c9226a644b7917a2dbeef845b1,
+    type: 3}
+  m_PrefabInternal: {fileID: 1914978048}
+  m_GameObject: {fileID: 1865587548}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_LightmapIndex: 255
+  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
+  m_Materials:
+  - {fileID: 2100000, guid: ea642feb21c474568a6ce40d10b9f41c, type: 2}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 0
+  m_LightProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_SortingLayerID: 0
+--- !u!33 &1865587551
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 3300002, guid: dc9178c9226a644b7917a2dbeef845b1,
+    type: 3}
+  m_PrefabInternal: {fileID: 1914978048}
+  m_GameObject: {fileID: 1865587548}
+  m_Mesh: {fileID: 4300008, guid: dc9178c9226a644b7917a2dbeef845b1, type: 3}
+--- !u!1001 &1914978048
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 400000, guid: dc9178c9226a644b7917a2dbeef845b1, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: dc9178c9226a644b7917a2dbeef845b1, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: dc9178c9226a644b7917a2dbeef845b1, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: dc9178c9226a644b7917a2dbeef845b1, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: dc9178c9226a644b7917a2dbeef845b1, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: dc9178c9226a644b7917a2dbeef845b1, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: dc9178c9226a644b7917a2dbeef845b1, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: dc9178c9226a644b7917a2dbeef845b1, type: 3}
+  m_RootGameObject: {fileID: 1631062709}
+  m_IsPrefabParent: 0
+  m_IsExploded: 1
+--- !u!1 &1957358502
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 100010, guid: dc9178c9226a644b7917a2dbeef845b1, type: 3}
+  m_PrefabInternal: {fileID: 1914978048}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1957358503}
+  - 33: {fileID: 1957358505}
+  - 23: {fileID: 1957358504}
+  m_Layer: 0
+  m_Name: safe
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1957358503
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 400010, guid: dc9178c9226a644b7917a2dbeef845b1, type: 3}
+  m_PrefabInternal: {fileID: 1914978048}
+  m_GameObject: {fileID: 1957358502}
+  m_LocalRotation: {x: -.706792533, y: .02107968, z: .0210796818, w: .706792474}
+  m_LocalPosition: {x: -.144977391, y: 0, z: -.565954208}
+  m_LocalScale: {x: 1.00000012, y: .99999994, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1631062710}
+--- !u!23 &1957358504
+Renderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 2300008, guid: dc9178c9226a644b7917a2dbeef845b1,
+    type: 3}
+  m_PrefabInternal: {fileID: 1914978048}
+  m_GameObject: {fileID: 1957358502}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_LightmapIndex: 255
+  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
+  m_Materials:
+  - {fileID: 2100000, guid: ea642feb21c474568a6ce40d10b9f41c, type: 2}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 0
+  m_LightProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_SortingLayerID: 0
+--- !u!33 &1957358505
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 3300008, guid: dc9178c9226a644b7917a2dbeef845b1,
+    type: 3}
+  m_PrefabInternal: {fileID: 1914978048}
+  m_GameObject: {fileID: 1957358502}
+  m_Mesh: {fileID: 4300002, guid: dc9178c9226a644b7917a2dbeef845b1, type: 3}
