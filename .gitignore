@@ -1,10 +1,27 @@
 # =============== #
 # Unity generated #
 # =============== #
-Temp/
+Temp/*
+Library/*
+Build/*
 Obj/
 UnityGenerated/
  
+# ========================================================== #
+# Un-ignore metadata folder and other files from the library #
+# ========================================================== #
+!Library/*.asset
+!Library/AssetImportState
+!Library/AssetVersioning.db
+!Library/BuildPlayer.prefs
+!Library/ScriptMapper
+!Library/assetservercachev3
+!Library/expandedItems
+!Library/guidmapper
+!Library/unity default resources
+!Library/unity editor resources
+!Library/metadata/
+
 # ===================================== #
 # Visual Studio / MonoDevelop generated #
 # ===================================== #
@@ -19,6 +36,7 @@ ExportedObj/
 *.unityproj
 *.booproj
 *.exe 
+
 # ============ #
 # OS generated #
 # ============ #
