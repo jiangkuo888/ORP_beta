@@ -55,7 +55,7 @@ public class SeekSteer : MonoBehaviour
 	protected void Update()
 	{
 		
-		if (NPCstate.FsmVariables.GetFsmBool("stateFinished").Value != true) {
+	if (NPCstate.FsmVariables.GetFsmBool("stateFinished").Value != true) {
 			if (targetwaypoint == 0)
 				return;
 			else {
