@@ -88,7 +88,7 @@ GameObject:
   - 136: {fileID: 13600000}
   m_Layer: 0
   m_Name: NPC_Male_A
-  m_TagString: Untagged
+  m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -744,9 +744,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100010}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: -1.04308128e-07}
-  m_LocalPosition: {x: 3.55273819, y: -4.55457592, z: 8.29236221}
-  m_LocalScale: {x: 1.20640004, y: 1.20640004, z: 1.20640004}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: -1.62920685e-07}
+  m_LocalPosition: {x: 3.55273819, y: -4.70407867, z: 4.29758835}
+  m_LocalScale: {x: 1.43079698, y: 1.43079698, z: 1.43079698}
   m_Children:
   - {fileID: 400058}
   - {fileID: 400028}
@@ -757,7 +757,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100012}
-  m_LocalRotation: {x: .599344492, y: -.28973785, z: .0295378547, w: .745631158}
+  m_LocalRotation: {x: .599344492, y: -.28973785, z: .0295378454, w: .745631158}
   m_LocalPosition: {x: -.0304125212, y: .0185436253, z: -.0426789448}
   m_LocalScale: {x: .99999994, y: 1.00000036, z: .999999821}
   m_Children:
@@ -1658,15 +1658,65 @@ MonoBehaviour:
         - stopOnExit
         paramDataPos: 00000000050000000d00000000000000000000000e00000012000000170000001f0000001f000000
         paramByteDataSize: 05000000080000000100000000000000000000000400000005000000080000000000000001000000
+    - name: Stop
+      description: 
+      colorIndex: 0
+      position:
+        serializedVersion: 2
+        x: 170
+        y: 258
+        width: 100
+        height: 16
+      isBreakpoint: 0
+      isSequence: 0
+      hideUnused: 0
+      transitions: []
+      actionData:
+        actionNames: []
+        customNames: []
+        actionEnabled: 
+        actionIsOpen: 
+        actionStartIndex: 
+        actionHashCodes: 
+        unityObjectParams: []
+        fsmGameObjectParams: []
+        fsmOwnerDefaultParams: []
+        animationCurveParams: []
+        functionCallParams: []
+        fsmTemplateControlParams: []
+        fsmEventTargetParams: []
+        fsmPropertyParams: []
+        layoutOptionParams: []
+        fsmStringParams: []
+        fsmObjectParams: []
+        fsmVarParams: []
+        byteData: 
+        arrayParamSizes: 
+        arrayParamTypes: []
+        customTypeSizes: 
+        customTypeNames: []
+        paramDataType: 
+        paramName: []
+        paramDataPos: 
+        paramByteDataSize: 
     events:
     - name: FINISHED
       isSystemEvent: 1
+      isGlobal: 0
+    - name: IN_DIALOGUE
+      isSystemEvent: 0
       isGlobal: 0
     globalTransitions: []
     variables:
       floatVariables: []
       intVariables: []
-      boolVariables: []
+      boolVariables:
+      - useVariable: 1
+        name: stop_to_talk
+        tooltip: 
+        showInInspector: 0
+        networkSync: 0
+        value: 0
       stringVariables: []
       vector2Variables: []
       vector3Variables: []

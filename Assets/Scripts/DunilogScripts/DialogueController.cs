@@ -58,7 +58,7 @@ public class DialogueController : MonoBehaviour {
 			this.GetComponent<DUGModel>().GetVariableByName("EventName").SetValue("Life_SignageEvent");
 			break;
 		
-		case "CustomerNPC":
+		case "NPC_Male_A":
 			this.GetComponent<DUGModel>().GetVariableByName("EventName").SetValue("CustomerEvent");
 			break;
 		default:

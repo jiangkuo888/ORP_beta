@@ -68,18 +68,17 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 400008}
-  - 114: {fileID: 11400014}
-  - 114: {fileID: 11400016}
   - 114: {fileID: 11400018}
+  - 114: {fileID: 11400016}
+  - 114: {fileID: 11400014}
   - 114: {fileID: 11400012}
-  - 114: {fileID: 11400022}
   m_Layer: 0
   m_Name: DUGManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &100010
 GameObject:
   m_ObjectHideFlags: 1
@@ -1191,7 +1190,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100066}
-  m_LocalRotation: {x: .0114588561, y: -.0649436116, z: -.00997915585, w: .99777323}
+  m_LocalRotation: {x: .011458857, y: -.0649436191, z: -.00997915678, w: .99777329}
   m_LocalPosition: {x: -.153966367, y: -.000122542377, z: -2.96115877e-06}
   m_LocalScale: {x: 1.00000024, y: 1, z: 1.00000012}
   m_Children:
@@ -1448,40 +1447,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   activeDialogue: 
 --- !u!114 &11400014
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100008}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -890897668, guid: 94b9a575b0009478a92055ed9640cd1c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  visible: 1
-  imageSize: 100
-  textWidth: 400
-  skin: {fileID: 11400000, guid: f4c6f51e7cb534793bfc607330c2619f, type: 2}
-  align: 7
-  offset:
-    m_Left: 0
-    m_Right: 0
-    m_Top: 0
-    m_Bottom: 0
-  showBackButton: 0
-  showSaveButton: 0
---- !u!114 &11400016
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100008}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -505150317, guid: 94b9a575b0009478a92055ed9640cd1c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &11400018
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -3344,7 +3309,7 @@ MonoBehaviour:
       variableOperationId: 0
       listLocales:
       - languageCode: default
-        text: "Hi, how may I help you? \r\n"
+        text: "Hi, how may I help you? \n"
       followUpNodeId: NODE_2014:01:16:11:12:23:7511750
       nodeId: NODE_2014:01:16:11:12:23:7511750
       maxSelectCount: -1
@@ -3412,7 +3377,7 @@ MonoBehaviour:
       listLocales:
       - languageCode: default
         text: Continue
-      followUpNodeId: NODE_2014:01:16:11:18:54:0419680
+      followUpNodeId: NODE_2014:02:11:09:43:51:9855800
       nodeId: NODE_2014:01:16:11:17:54:7450740
       maxSelectCount: -1
       startDisplayCount: -1
@@ -3461,6 +3426,396 @@ MonoBehaviour:
       width: 250
       height: 100
     editorShowInDUGManagerActionList: 0
+  - id: NODE_2014:02:11:09:43:51:9855800
+    name: Customer_Dialogue / Node 3
+    image: {fileID: 0}
+    variableId: VARIABLE_2013:12:26:15:43:44:8226818
+    variableValue: 
+    variableOperationId: 0
+    type: 0
+    actorId: ACTOR_2013:12:26:15:43:33:0380078
+    sceneId: SCENE_2014:01:16:11:12:08:9405830
+    listEntries:
+    - id: NODE_ENTRY_2014:02:11:09:43:51:9856430
+      name: 
+      image: {fileID: 0}
+      variableId: 
+      variableValue: 
+      variableOperationId: 0
+      listLocales:
+      - languageCode: default
+        text: 'What type of loan are you looking for, sir? '
+      followUpNodeId: NODE_2014:02:11:09:43:51:9855800
+      nodeId: NODE_2014:02:11:09:43:51:9855800
+      maxSelectCount: -1
+      startDisplayCount: -1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    - id: NODE_ENTRY_2014:02:11:09:44:07:9666030
+      name: 
+      image: {fileID: 0}
+      variableId: 
+      variableValue: 
+      variableOperationId: 0
+      listLocales:
+      - languageCode: default
+        text: Continue
+      followUpNodeId: NODE_2014:02:11:09:44:57:6767020
+      nodeId: NODE_2014:02:11:09:43:51:9855800
+      maxSelectCount: -1
+      startDisplayCount: -1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    messageMethodeName: 
+    messageMethodeValue: 
+    editorWindowRect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 250
+      height: 100
+    editorShowInDUGManagerActionList: 1
+  - id: NODE_2014:02:11:09:44:57:6767020
+    name: Customer_Dialogue / Node 4
+    image: {fileID: 0}
+    variableId: VARIABLE_2013:12:26:15:43:44:8226818
+    variableValue: 
+    variableOperationId: 0
+    type: 0
+    actorId: ACTOR_2014:01:16:11:17:42:9996180
+    sceneId: SCENE_2014:01:16:11:12:08:9405830
+    listEntries:
+    - id: NODE_ENTRY_2014:02:11:09:44:57:6767330
+      name: 
+      image: {fileID: 0}
+      variableId: 
+      variableValue: 
+      variableOperationId: 0
+      listLocales:
+      - languageCode: default
+        text: 'I am looking for a housing loan. '
+      followUpNodeId: NODE_2014:02:11:09:44:57:6767020
+      nodeId: NODE_2014:02:11:09:44:57:6767020
+      maxSelectCount: -1
+      startDisplayCount: -1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    - id: NODE_ENTRY_2014:02:11:09:45:30:0799800
+      name: 
+      image: {fileID: 0}
+      variableId: 
+      variableValue: 
+      variableOperationId: 0
+      listLocales:
+      - languageCode: default
+        text: Continue
+      followUpNodeId: NODE_2014:02:11:09:46:01:8566590
+      nodeId: NODE_2014:02:11:09:44:57:6767020
+      maxSelectCount: -1
+      startDisplayCount: -1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    messageMethodeName: 
+    messageMethodeValue: 
+    editorWindowRect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 250
+      height: 100
+    editorShowInDUGManagerActionList: 1
+  - id: NODE_2014:02:11:09:46:01:8566590
+    name: Customer_Dialogue / Node 5
+    image: {fileID: 0}
+    variableId: VARIABLE_2013:12:26:15:43:44:8226818
+    variableValue: 
+    variableOperationId: 0
+    type: 0
+    actorId: ACTOR_2013:12:26:15:43:33:0380078
+    sceneId: SCENE_2014:01:16:11:12:08:9405830
+    listEntries:
+    - id: NODE_ENTRY_2014:02:11:09:46:01:8567020
+      name: 
+      image: {fileID: 0}
+      variableId: 
+      variableValue: 
+      variableOperationId: 0
+      listLocales:
+      - languageCode: default
+        text: 'Select a sale pitch below. '
+      followUpNodeId: NODE_2014:02:11:09:46:01:8566590
+      nodeId: NODE_2014:02:11:09:46:01:8566590
+      maxSelectCount: -1
+      startDisplayCount: -1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    - id: NODE_ENTRY_2014:02:11:09:46:44:8278590
+      name: 
+      image: {fileID: 0}
+      variableId: 
+      variableValue: 
+      variableOperationId: 0
+      listLocales:
+      - languageCode: default
+        text: 'Sale Pitch 1 '
+      followUpNodeId: NODE_2014:02:11:09:47:17:6459480
+      nodeId: NODE_2014:02:11:09:46:01:8566590
+      maxSelectCount: -1
+      startDisplayCount: -1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    - id: NODE_ENTRY_2014:02:11:09:46:50:8415050
+      name: 
+      image: {fileID: 0}
+      variableId: 
+      variableValue: 
+      variableOperationId: 0
+      listLocales:
+      - languageCode: default
+        text: Sale Pitch 2
+      followUpNodeId: NODE_2014:02:11:09:47:48:3816730
+      nodeId: NODE_2014:02:11:09:46:01:8566590
+      maxSelectCount: -1
+      startDisplayCount: -1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    - id: NODE_ENTRY_2014:02:11:09:46:55:9549840
+      name: 
+      image: {fileID: 0}
+      variableId: 
+      variableValue: 
+      variableOperationId: 0
+      listLocales:
+      - languageCode: default
+        text: Sale Pitch 3
+      followUpNodeId: NODE_2014:02:11:09:47:50:2515170
+      nodeId: NODE_2014:02:11:09:46:01:8566590
+      maxSelectCount: -1
+      startDisplayCount: -1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    messageMethodeName: 
+    messageMethodeValue: 
+    editorWindowRect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 250
+      height: 100
+    editorShowInDUGManagerActionList: 1
+  - id: NODE_2014:02:11:09:47:17:6459480
+    name: Customer_Dialogue / Node 6
+    image: {fileID: 0}
+    variableId: VARIABLE_2013:12:26:15:43:44:8226818
+    variableValue: 
+    variableOperationId: 0
+    type: 0
+    actorId: ACTOR_2014:01:16:11:17:42:9996180
+    sceneId: SCENE_2014:01:16:11:12:08:9405830
+    listEntries:
+    - id: NODE_ENTRY_2014:02:11:09:47:17:6459770
+      name: 
+      image: {fileID: 0}
+      variableId: 
+      variableValue: 
+      variableOperationId: 0
+      listLocales:
+      - languageCode: default
+        text: 'That is exactly what I am looking for. I will take up that loan. '
+      followUpNodeId: NODE_2014:02:11:09:47:17:6459480
+      nodeId: NODE_2014:02:11:09:47:17:6459480
+      maxSelectCount: -1
+      startDisplayCount: -1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    - id: NODE_ENTRY_2014:02:11:09:47:40:5176860
+      name: 
+      image: {fileID: 0}
+      variableId: 
+      variableValue: 
+      variableOperationId: 0
+      listLocales:
+      - languageCode: default
+        text: Continue
+      followUpNodeId: NODE_2014:02:11:09:49:28:3966510
+      nodeId: NODE_2014:02:11:09:47:17:6459480
+      maxSelectCount: -1
+      startDisplayCount: -1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    messageMethodeName: 
+    messageMethodeValue: 
+    editorWindowRect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 250
+      height: 100
+    editorShowInDUGManagerActionList: 1
+  - id: NODE_2014:02:11:09:47:48:3816730
+    name: Customer_Dialogue / Node 7
+    image: {fileID: 0}
+    variableId: VARIABLE_2013:12:26:15:43:44:8226818
+    variableValue: 
+    variableOperationId: 0
+    type: 0
+    actorId: ACTOR_2014:01:16:11:17:42:9996180
+    sceneId: SCENE_2014:01:16:11:12:08:9405830
+    listEntries:
+    - id: NODE_ENTRY_2014:02:11:09:47:48:3822430
+      name: 
+      image: {fileID: 0}
+      variableId: 
+      variableValue: 
+      variableOperationId: 0
+      listLocales:
+      - languageCode: default
+        text: 'That sounds quite close to what I am looking for.. do you have other
+          type of loans available? '
+      followUpNodeId: NODE_2014:02:11:09:47:48:3816730
+      nodeId: NODE_2014:02:11:09:47:48:3816730
+      maxSelectCount: -1
+      startDisplayCount: -1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    - id: NODE_ENTRY_2014:02:11:09:47:48:3825220
+      name: 
+      image: {fileID: 0}
+      variableId: 
+      variableValue: 
+      variableOperationId: 0
+      listLocales:
+      - languageCode: default
+        text: Continue
+      followUpNodeId: NODE_2014:02:11:09:46:01:8566590
+      nodeId: NODE_2014:02:11:09:47:48:3816730
+      maxSelectCount: -1
+      startDisplayCount: -1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    messageMethodeName: 
+    messageMethodeValue: 
+    editorWindowRect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 250
+      height: 100
+    editorShowInDUGManagerActionList: 1
+  - id: NODE_2014:02:11:09:47:50:2515170
+    name: Customer_Dialogue / Node 8
+    image: {fileID: 0}
+    variableId: VARIABLE_2013:12:26:15:43:44:8226818
+    variableValue: 
+    variableOperationId: 0
+    type: 0
+    actorId: ACTOR_2014:01:16:11:17:42:9996180
+    sceneId: SCENE_2014:01:16:11:12:08:9405830
+    listEntries:
+    - id: NODE_ENTRY_2014:02:11:09:47:50:2515820
+      name: 
+      image: {fileID: 0}
+      variableId: 
+      variableValue: 
+      variableOperationId: 0
+      listLocales:
+      - languageCode: default
+        text: 'Thanks, but that is not what I am looking for. '
+      followUpNodeId: NODE_2014:02:11:09:47:50:2515170
+      nodeId: NODE_2014:02:11:09:47:50:2515170
+      maxSelectCount: -1
+      startDisplayCount: -1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    - id: NODE_ENTRY_2014:02:11:09:47:50:2516180
+      name: 
+      image: {fileID: 0}
+      variableId: 
+      variableValue: 
+      variableOperationId: 0
+      listLocales:
+      - languageCode: default
+        text: Continue
+      followUpNodeId: NODE_2014:01:16:11:18:54:0419680
+      nodeId: NODE_2014:02:11:09:47:50:2515170
+      maxSelectCount: -1
+      startDisplayCount: -1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    messageMethodeName: 
+    messageMethodeValue: 
+    editorWindowRect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 250
+      height: 100
+    editorShowInDUGManagerActionList: 1
+  - id: NODE_2014:02:11:09:49:28:3966510
+    name: Customer_Dialogue / Node 9
+    image: {fileID: 0}
+    variableId: VARIABLE_2013:12:26:15:43:44:8226818
+    variableValue: 
+    variableOperationId: 0
+    type: 0
+    actorId: ACTOR_2013:12:26:15:43:33:0380078
+    sceneId: SCENE_2014:01:16:11:12:08:9405830
+    listEntries:
+    - id: NODE_ENTRY_2014:02:11:09:49:28:3967060
+      name: 
+      image: {fileID: 0}
+      variableId: 
+      variableValue: 
+      variableOperationId: 0
+      listLocales:
+      - languageCode: default
+        text: 'Kindly follow me to my desk to fill up the application for the loan. '
+      followUpNodeId: NODE_2014:02:11:09:49:28:3966510
+      nodeId: NODE_2014:02:11:09:49:28:3966510
+      maxSelectCount: -1
+      startDisplayCount: -1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    - id: NODE_ENTRY_2014:02:11:09:51:31:3274130
+      name: 
+      image: {fileID: 0}
+      variableId: 
+      variableValue: 
+      variableOperationId: 0
+      listLocales:
+      - languageCode: default
+        text: Continue
+      followUpNodeId: NODE_2014:01:16:11:18:54:0419680
+      nodeId: NODE_2014:02:11:09:49:28:3966510
+      maxSelectCount: -1
+      startDisplayCount: -1
+      rangeStart: 0
+      rangeEnd: 0
+      editorDisplayAlways: 1
+    messageMethodeName: 
+    messageMethodeValue: 
+    editorWindowRect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 250
+      height: 100
+    editorShowInDUGManagerActionList: 1
   listVariables:
   - id: VARIABLE_2013:12:26:15:43:44:8226818
     name: EventName
@@ -3749,6 +4104,136 @@ MonoBehaviour:
       type: 3
       script: {fileID: 0}
       instance: {fileID: 0}
+  - name: Customer_Dialogue / Node 3
+    nodeId: NODE_2014:02:11:09:43:51:9855800
+    type: 0
+    script: {fileID: 0}
+    instance: {fileID: 0}
+    listEntryActions:
+    - name: Entry1 Select
+      nodeId: NODE_2014:02:11:09:43:51:9855800
+      entryId: NODE_ENTRY_2014:02:11:09:44:07:9666030
+      type: 3
+      script: {fileID: 0}
+      instance: {fileID: 0}
+  - name: Customer_Dialogue / Node 4
+    nodeId: NODE_2014:02:11:09:44:57:6767020
+    type: 0
+    script: {fileID: 0}
+    instance: {fileID: 0}
+    listEntryActions:
+    - name: Entry1 Select
+      nodeId: NODE_2014:02:11:09:44:57:6767020
+      entryId: NODE_ENTRY_2014:02:11:09:45:30:0799800
+      type: 3
+      script: {fileID: 0}
+      instance: {fileID: 0}
+  - name: Customer_Dialogue / Node 5
+    nodeId: NODE_2014:02:11:09:46:01:8566590
+    type: 0
+    script: {fileID: 0}
+    instance: {fileID: 0}
+    listEntryActions:
+    - name: Entry1 Select
+      nodeId: NODE_2014:02:11:09:46:01:8566590
+      entryId: NODE_ENTRY_2014:02:11:09:46:44:8278590
+      type: 3
+      script: {fileID: 0}
+      instance: {fileID: 0}
+    - name: Entry2 Select
+      nodeId: NODE_2014:02:11:09:46:01:8566590
+      entryId: NODE_ENTRY_2014:02:11:09:46:50:8415050
+      type: 3
+      script: {fileID: 0}
+      instance: {fileID: 0}
+    - name: Entry3 Select
+      nodeId: NODE_2014:02:11:09:46:01:8566590
+      entryId: NODE_ENTRY_2014:02:11:09:46:55:9549840
+      type: 3
+      script: {fileID: 0}
+      instance: {fileID: 0}
+  - name: Customer_Dialogue / Node 6
+    nodeId: NODE_2014:02:11:09:47:17:6459480
+    type: 0
+    script: {fileID: 0}
+    instance: {fileID: 0}
+    listEntryActions:
+    - name: Entry1 Select
+      nodeId: NODE_2014:02:11:09:47:17:6459480
+      entryId: NODE_ENTRY_2014:02:11:09:47:40:5176860
+      type: 3
+      script: {fileID: 0}
+      instance: {fileID: 0}
+  - name: Customer_Dialogue / Node 7
+    nodeId: NODE_2014:02:11:09:47:48:3816730
+    type: 0
+    script: {fileID: 0}
+    instance: {fileID: 0}
+    listEntryActions:
+    - name: Entry1 Select
+      nodeId: NODE_2014:02:11:09:47:48:3816730
+      entryId: NODE_ENTRY_2014:02:11:09:47:48:3825220
+      type: 3
+      script: {fileID: 0}
+      instance: {fileID: 0}
+  - name: Customer_Dialogue / Node 8
+    nodeId: NODE_2014:02:11:09:47:50:2515170
+    type: 0
+    script: {fileID: 0}
+    instance: {fileID: 0}
+    listEntryActions:
+    - name: Entry1 Select
+      nodeId: NODE_2014:02:11:09:47:50:2515170
+      entryId: NODE_ENTRY_2014:02:11:09:47:50:2516180
+      type: 3
+      script: {fileID: 0}
+      instance: {fileID: 0}
+  - name: Customer_Dialogue / Node 9
+    nodeId: NODE_2014:02:11:09:49:28:3966510
+    type: 0
+    script: {fileID: 0}
+    instance: {fileID: 0}
+    listEntryActions:
+    - name: Entry1 Select
+      nodeId: NODE_2014:02:11:09:49:28:3966510
+      entryId: NODE_ENTRY_2014:02:11:09:51:31:3274130
+      type: 3
+      script: {fileID: 0}
+      instance: {fileID: 0}
+--- !u!114 &11400016
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -505150317, guid: 94b9a575b0009478a92055ed9640cd1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &11400018
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -890897668, guid: 94b9a575b0009478a92055ed9640cd1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  visible: 1
+  imageSize: 100
+  textWidth: 400
+  skin: {fileID: 0}
+  align: 7
+  offset:
+    m_Left: 0
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 0
+  showBackButton: 0
+  showSaveButton: 0
 --- !u!114 &11400020
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3768,26 +4253,6 @@ MonoBehaviour:
   currentHitObj: {fileID: 0}
   mouseClick: 0
   enteredDialog: 0
---- !u!114 &11400022
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100008}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  subId: 0
-  ownerId: 0
-  group: 0
-  prefixBackup: -1
-  observed: {fileID: 0}
-  synchronization: 0
-  onSerializeTransformOption: 3
-  onSerializeRigidBodyOption: 2
-  instantiationId: -1
 --- !u!137 &13700000
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
