@@ -52,13 +52,13 @@ public class DialogueController : MonoBehaviour {
 		case "ObstacleBox":
 			this.GetComponent<DUGModel>().GetVariableByName("EventName").SetValue("Obstruction_BoxesEvent");
 			break;
-
-
 		case "SignStand":
 			this.GetComponent<DUGModel>().GetVariableByName("EventName").SetValue("Life_SignageEvent");
 			break;
-		
 		case "NPC_Male_A":
+			this.GetComponent<DUGModel>().GetVariableByName("EventName").SetValue("CustomerEvent");
+			break;
+		case "NPC_Male_B":
 			this.GetComponent<DUGModel>().GetVariableByName("EventName").SetValue("CustomerEvent");
 			break;
 		default:
