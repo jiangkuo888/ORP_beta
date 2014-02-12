@@ -21,7 +21,18 @@ public class DeskMode : MonoBehaviour {
 	public int FileModeFileIndex;
 	public int FileModeMaxIndex;
 	public Light highlight;
-	
+
+	public Texture buttongui;
+	public Texture previousbuttongui;
+	public Texture nextbuttongui;
+	public Texture sendemailgui;
+	public Texture checkemailgui;
+	public Texture exitpcgui;
+	public Texture exitdocgui;
+	public Texture backgui;
+
+
+
 	float lightOffset;
 	float cameraOffset;
 	
@@ -57,8 +68,7 @@ public class DeskMode : MonoBehaviour {
 		{
 			
 			
-			
-			if(GUI.Button( new LTRect(w - 200f, .9f*h - 50f, 100f, 50f ).rect, "Next"))
+			if(GUI.Button( new LTRect(w - 200f, .9f*h - 50f, 100f, 50f ).rect, nextbuttongui, "Next"))
 			{
 				if(FileModeFileIndex<FileModeMaxIndex)
 				{
@@ -84,7 +94,7 @@ public class DeskMode : MonoBehaviour {
 				}
 				
 			}
-			if(GUI.Button( new LTRect(100f, .9f*h - 50f, 100f, 50f ).rect, "Back"))
+			if(GUI.Button( new LTRect(100f, .9f*h - 50f, 100f, 50f ).rect,previousbuttongui, "Back"))
 			{
 				if(FileModeFileIndex>1)
 				{
@@ -111,7 +121,7 @@ public class DeskMode : MonoBehaviour {
 				}
 				
 			}
-			if(GUI.Button( new LTRect(w - 200f, .1f*h - 50f, 100f, 50f ).rect, "Back to DeskMode"))
+			if(GUI.Button( new LTRect(w - 200f, .1f*h - 50f, 100f, 50f ).rect,exitdocgui, "Back to DeskMode"))
 			{
 				mode = DeskModeSubMode.None;
 				moveCameraToDesk();
@@ -130,12 +140,12 @@ public class DeskMode : MonoBehaviour {
 			
 			if(!sending && !checking)
 			{
-				if(GUI.Button( new LTRect(0.6f*w, .5f*h - 50f, 100f, 50f ).rect, "Send Email"))
+				if(GUI.Button( new LTRect(0.2f*w, .2f*h - 50f, 100f, 50f ).rect,sendemailgui, "Send Email"))
 				{
 					sending = true;
 				}
 				
-				if(GUI.Button( new LTRect(0.6f*w, .7f*h - 50f, 100f, 50f ).rect, "Check Email"))
+				if(GUI.Button( new LTRect(0.2f*w, .4f*h - 50f, 100f, 50f ).rect,checkemailgui, "Check Email"))
 				{
 					checking = true;
 				}
@@ -203,7 +213,7 @@ public class DeskMode : MonoBehaviour {
 			}
 			
 			
-			if(GUI.Button( new LTRect(1.0f*w - 100f, 1.0f*h - 50f, 100f, 50f ).rect, "Back to DeskMode"))
+			if(GUI.Button( new LTRect(1.0f*w - 100f, 1.0f*h - 50f, 100f, 50f ).rect,exitpcgui, "Back to DeskMode"))
 			{
 				mode = DeskModeSubMode.None;
 				moveCameraToDesk();
@@ -214,7 +224,7 @@ public class DeskMode : MonoBehaviour {
 		}
 		case DeskModeSubMode.None:
 		{
-			if(GUI.Button( new LTRect(1.0f*w - 100f, 1.0f*h - 50f, 100f, 50f ).rect, "Quit DeskMode"))
+			if(GUI.Button( new LTRect(1.0f*w - 100f, 1.0f*h - 50f, 100f, 50f ).rect,backgui, "Quit DeskMode"))
 			{
 
 
