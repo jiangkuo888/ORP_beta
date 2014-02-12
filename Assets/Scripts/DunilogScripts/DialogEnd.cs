@@ -1,16 +1,25 @@
 ﻿using UnityEngine;
 using System.Collections;
+using HutongGames.PlayMaker;
 
 public class DialogEnd : MonoBehaviour {
 
-	void Start(){
+	private PlayMakerFSM getState; //get variable from FSM
 
+	void Start(){
+		//Debug.Log("Here is: " + transform.parent);
 		transform.GetComponent<DUGView>().visible = false;
 
 		string hitColliderName = transform.GetComponent<DialogueController>().activeDialogue;
 
-
-
+		//trying to get gameObj FSM -- added by Kris
+		getState = GameObject.Find(hitColliderName).GetComponent<PlayMakerFSM>();
+		if(getState != null)
+		if (getState.FsmVariables.GetFsmBool("stop_to_talk").Value == true)
+		{
+			getState.FsmVariables.GetFsmBool("stop_to_talk").Value = false;
+			
+		}
 
 
 		transform.parent.GetComponent<DetectObjects>().moveCameraToPlayer();

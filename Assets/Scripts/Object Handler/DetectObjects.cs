@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using System.Collections;
+using HutongGames.PlayMaker;
 
 public class DetectObjects : Photon.MonoBehaviour {
 	
@@ -8,6 +8,8 @@ public class DetectObjects : Photon.MonoBehaviour {
 	public Texture2D cursorTextureTalk;
 	CursorMode cursorMode = CursorMode.Auto;
 	public Vector2 hotSpot = new Vector2(100,0);
+
+	private PlayMakerFSM getState;
 
 	PhotonView hitObjPhotonView;
 	
@@ -113,6 +115,17 @@ public class DetectObjects : Photon.MonoBehaviour {
 							mouseClick = true;
 							enteredDialog = true;
 							
+								//if(getState == null)
+								getState = hit.collider.gameObject.GetComponent<PlayMakerFSM>();
+
+								if(getState != null)
+								if (getState.FsmVariables.GetFsmBool("stop_to_talk").Value != true)
+								{
+									getState.FsmVariables.GetFsmBool("stop_to_talk").Value = true;
+
+								}
+
+
 							if(enteredDialog && mouseClick)
 							{
 								//currentHitObj.renderer.material.shader = originalShader;
