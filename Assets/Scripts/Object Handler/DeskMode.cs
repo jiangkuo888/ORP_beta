@@ -30,6 +30,16 @@ public class DeskMode : MonoBehaviour {
 	public Texture exitpcgui;
 	public Texture exitdocgui;
 	public Texture backgui;
+	public Texture acceptbuttongui;
+	public Texture rejectbuttongui;
+	public Texture phonegui;
+	public Texture exitphonegui;
+	public Texture facilitiesbuttongui;
+	public Texture securitybuttongui;
+
+
+	public bool callingfacility;
+	public bool callingsecurity;
 
 
 
@@ -45,7 +55,9 @@ public class DeskMode : MonoBehaviour {
 		w = Screen.width;
 		h = Screen.height;
 		mode = DeskModeSubMode.None;
-		
+
+		callingfacility = false;	
+		callingsecurity = false;	
 		sending = false;
 		checking = false;
 		computerIsOn = false;
@@ -64,10 +76,13 @@ public class DeskMode : MonoBehaviour {
 	void OnGUI(){
 		switch (mode)
 		{
+
 		case DeskModeSubMode.FileMode:
 		{
-			
-			
+			//nofunction added
+			GUI.Button( new LTRect(100f, .3f*h - 50f, 100f, 50f ).rect, acceptbuttongui, "Accept");
+			GUI.Button( new LTRect(w-200f, .3f*h - 50f, 100f, 50f ).rect, rejectbuttongui, "Reject");
+			//functions in use
 			if(GUI.Button( new LTRect(w - 200f, .9f*h - 50f, 100f, 50f ).rect, nextbuttongui, "Next"))
 			{
 				if(FileModeFileIndex<FileModeMaxIndex)
@@ -133,6 +148,24 @@ public class DeskMode : MonoBehaviour {
 		}
 		case DeskModeSubMode.PhoneMode:
 		{
+			GUI.Box(new Rect(0,0,w,h),phonegui);
+			if(GUI.Button( new LTRect(0.2f*w, .3f*h - 50f, 200f, 50f ).rect, facilitiesbuttongui, "facilities"))
+			{callingfacility=true;
+			}
+			if(GUI.Button( new LTRect(0.2f*w, .4f*h - 50f, 200f, 50f ).rect, securitybuttongui, "security"))
+			{callingsecurity=true;
+			}
+			if (callingfacility==true ){ GUI.Label(new Rect(0.5f*w,.5f*h,400,30),"talking with facility");callingsecurity=false;}
+			if (callingsecurity==true ){ GUI.Label(new Rect(0.5f*w,.5f*h,400,30),"talking with security");callingfacility=false;}
+
+
+			if(GUI.Button( new LTRect(w - 200f, .1f*h - 50f, 100f, 50f ).rect,exitphonegui, "Back to DeskMode"))
+			{
+				mode = DeskModeSubMode.None;
+				moveCameraToDesk();
+				
+			}
+
 			break;
 		}
 		case DeskModeSubMode.PCMode:

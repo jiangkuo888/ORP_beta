@@ -11,8 +11,8 @@ public class inventory : MonoBehaviour {
 	public Vector3 inventoryObjectOriginalScale;
 
 	public Texture2D option1_texture;
-	public Texture2D option2_texture;
-	public Texture2D option3_texture;
+	//public Texture2D option2_texture;
+	//public Texture2D option3_texture;
 	public Texture2D option4_texture;
 	
 	private float w;
@@ -20,8 +20,8 @@ public class inventory : MonoBehaviour {
 	
 
 	private LTRect option1;
-	private LTRect option2;
-	private LTRect option3;
+	//private LTRect option2;
+	//private LTRect option3;
 	private LTRect option4;
 
 	private bool optionIsOn;
@@ -56,8 +56,8 @@ public class inventory : MonoBehaviour {
 
 	void initOptions(){
 		option1 = new LTRect(1.1f*w - option1_texture.width*0.2f, 1.1f*h - option1_texture.height*0.2f, option1_texture.width*.2f, option1_texture.height*.2f );
-		option2 = new LTRect(1.1f*w - option1_texture.width*0.2f, 1.1f*h - option1_texture.height*0.2f, option1_texture.width*.2f, option1_texture.height*.2f );
-		option3 = new LTRect(1.1f*w - option1_texture.width*0.2f, 1.1f*h - option1_texture.height*0.2f, option1_texture.width*.2f, option1_texture.height*.2f );
+		//option2 = new LTRect(1.1f*w - option1_texture.width*0.2f, 1.1f*h - option1_texture.height*0.2f, option1_texture.width*.2f, option1_texture.height*.2f );
+		//option3 = new LTRect(1.1f*w - option1_texture.width*0.2f, 1.1f*h - option1_texture.height*0.2f, option1_texture.width*.2f, option1_texture.height*.2f );
 		option4 = new LTRect(1.1f*w - option1_texture.width*0.2f, 1.1f*h - option1_texture.height*0.2f, option1_texture.width*.2f, option1_texture.height*.2f );
 	}
 	// Update is called once per frame
@@ -89,18 +89,18 @@ public class inventory : MonoBehaviour {
 
 
 		}
-		if(GUI.Button( option2.rect, option2_texture))
-			{
-				initOptions();
-				optionIsOn = false;
-				animationIsOn = false;
-			}
-		if(GUI.Button( option3.rect, option3_texture))
-			{
-				initOptions();
-				optionIsOn = false;
-				animationIsOn = false;
-			}
+//		if(GUI.Button( option2.rect, option2_texture))
+//			{
+//				initOptions();
+//				optionIsOn = false;
+//				animationIsOn = false;
+//			}
+//		if(GUI.Button( option3.rect, option3_texture))
+//			{
+//				initOptions();
+//				optionIsOn = false;
+//				animationIsOn = false;
+//			}
 		if(GUI.Button( option4.rect, option4_texture))
 			{
 				initOptions();
@@ -114,8 +114,8 @@ public class inventory : MonoBehaviour {
 
 			optionIsOn = true;
 			LeanTween.move(option1,new Vector2(0.92f*w,0.7f*h),1.0f).setEase(LeanTweenType.easeOutElastic);
-			LeanTween.move(option2,new Vector2(0.84f*w,0.73f*h),1.0f).setDelay(.05f).setEase(LeanTweenType.easeOutElastic);
-			LeanTween.move(option3,new Vector2(0.78f*w,0.8f*h),1.0f).setDelay(.1f).setEase(LeanTweenType.easeOutElastic);
+//			LeanTween.move(option2,new Vector2(0.84f*w,0.73f*h),1.0f).setDelay(.05f).setEase(LeanTweenType.easeOutElastic);
+//			LeanTween.move(option3,new Vector2(0.78f*w,0.8f*h),1.0f).setDelay(.1f).setEase(LeanTweenType.easeOutElastic);
 			LeanTween.move(option4,new Vector2(0.76f*w,0.90f*h),1.0f).setDelay(.15f).setEase(LeanTweenType.easeOutElastic);
 
 			animationIsOn = false;

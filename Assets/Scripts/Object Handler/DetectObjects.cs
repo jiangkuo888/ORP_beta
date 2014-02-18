@@ -233,6 +233,43 @@ public class DetectObjects : Photon.MonoBehaviour {
 						}
 						
 					}
+//						else if (hit.collider.gameObject.name == "Cube")
+//						{
+//							
+//							
+//							
+//							if(hit.collider.gameObject.renderer.material.shader != null)
+//							{
+//								// set the cursor and shader 
+//								Cursor.SetCursor(cursorTextureInteract, hotSpot, cursorMode);	
+//								hit.collider.gameObject.renderer.material.shader = Shader.Find("Toon/Basic");
+//							}
+//							
+//							
+//							
+//							
+//							
+//							//hit.transform.renderer.material.color = Color.green;
+//							
+//							if (Input.GetKeyUp (KeyCode.Mouse0)) {
+//								mouseClick = true;
+//								
+//								
+//								if( mouseClick)
+//								{
+//									
+//									hit.collider.transform.parent.parent.parent.GetComponent<DoorHandler>().clicked = true;
+//									
+//									currentHitObj.renderer.material.shader = originalShader;
+//									Cursor.SetCursor(null, Vector2.zero, cursorMode);
+//									mouseClick = !mouseClick;
+//									
+//								}
+//								
+//								
+//							}
+//							
+//						}
 					
 					
 					
