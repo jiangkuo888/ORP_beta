@@ -34,6 +34,8 @@ namespace PixelCrushers.DialogueSystem.Editors {
 		private Stage stage = Stage.Database;
 		
 		private string[] stageLabels = new string[] { "Database", "UI", "Localization", "Subtitles", "Cutscenes", "Input", "Alerts", "Review" };
+
+		private bool createNewDatabase = false;
 		
 		/// <summary>
 		/// Draws the window.
@@ -41,6 +43,15 @@ namespace PixelCrushers.DialogueSystem.Editors {
 		void OnGUI() {
 			DrawProgressIndicator();
 			DrawCurrentStage();
+			CheckCreateNewDatabase();
+		}
+
+		private void CheckCreateNewDatabase() {
+			if (createNewDatabase) {
+				createNewDatabase = false;
+				DialogueManager.Instance.initialDatabase = DialogueSystemMenuItems.CreateDialogueDatabaseInstance();
+				DialogueSystemMenuItems.CreateAsset(DialogueManager.Instance.initialDatabase, "Dialogue Database");
+			}
 		}
 		
 		private void DrawProgressIndicator() {
@@ -98,10 +109,7 @@ namespace PixelCrushers.DialogueSystem.Editors {
 			DialogueManager.Instance.initialDatabase = EditorGUILayout.ObjectField("Database", DialogueManager.Instance.initialDatabase, typeof(DialogueDatabase), false) as DialogueDatabase;
 			bool disabled = (DialogueManager.Instance.initialDatabase != null);
 			EditorGUI.BeginDisabledGroup(disabled);
-			if (GUILayout.Button("Create New", GUILayout.Width (100))) {
-				DialogueManager.Instance.initialDatabase = DialogueSystemMenuItems.CreateDialogueDatabaseInstance();
-				DialogueSystemMenuItems.CreateAsset(DialogueManager.Instance.initialDatabase, "Dialogue Database");
-			}
+			if (GUILayout.Button("Create New", GUILayout.Width (100))) createNewDatabase = true;
 			EditorGUI.EndDisabledGroup();
 			EditorGUILayout.EndHorizontal();
 			EditorWindowTools.EndIndentedSection();
@@ -167,8 +175,13 @@ namespace PixelCrushers.DialogueSystem.Editors {
 			EditorGUILayout.HelpBox("Min Seconds below is the guaranteed minimum amount of time that a subtitle will be displayed (if its corresponding checkbox is ticked).", MessageType.None);
 			EditorGUILayout.EndHorizontal();
 			EditorGUILayout.BeginHorizontal();
-			DialogueManager.Instance.displaySettings.subtitleSettings.waitForContinueButton = EditorGUILayout.Toggle("Use Continue Button", DialogueManager.Instance.displaySettings.subtitleSettings.waitForContinueButton);
-			EditorGUILayout.HelpBox("Tick if your UI requires the player to click a continue button to progress past each subtitle. If left unticked, the conversation will automatically move to the next stage when the subtitle is done.", MessageType.None);
+			DialogueManager.Instance.displaySettings.subtitleSettings.continueButton = (DisplaySettings.SubtitleSettings.ContinueButtonMode) EditorGUILayout.EnumPopup("Continue Button", DialogueManager.Instance.displaySettings.subtitleSettings.continueButton);
+				//.waitForContinueButton = EditorGUILayout.Toggle("Use Continue Button", DialogueManager.Instance.displaySettings.subtitleSettings.waitForContinueButton);
+			EditorGUILayout.HelpBox("- Never: Conversation automatically moves to next stage when subtitle is done." +
+			                        "\n- Always: Requires player to click a continue button to progress past each subtitle." +
+			                        "\n- Optional Before Response Menu: If player response menu is next, shows but doesn't require clicking." +
+			                        "\n- Never Before Response Menu: If player response menu is next, doesn't show." +
+			                        "\nFor any setting other than Never, your UI must contain continue button(s).", MessageType.None);
 			EditorGUILayout.EndHorizontal();
 			EditorGUILayout.BeginHorizontal();
 			DialogueManager.Instance.displaySettings.subtitleSettings.richTextEmphases = EditorGUILayout.Toggle("Rich Text", DialogueManager.Instance.displaySettings.subtitleSettings.richTextEmphases);

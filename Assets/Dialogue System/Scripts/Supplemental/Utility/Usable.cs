@@ -23,45 +23,7 @@ namespace PixelCrushers.DialogueSystem.Examples {
 		/// The max distance at which the object can be used.
 		/// </summary>
 		public float maxUseDistance = 5f;
-
-
-		public Transform[] responseToPlayers;
-
-		public void OnUse(Transform actorTransform){
-
-
-
-			PlayerPrefs.SetString("LocalActor",actorTransform.name);
-			PlayerPrefs.SetString("OnUsedObj",this.name);
-
-
-			
-		}
-
-
-
-
-//		public void OnConversationStart(Transform actor) {
-//			DialogueLua.SetVariable("Actor", actor.tag.ToString());
-//			print(DialogueLua.GetVariable("Actor").AsString);
-//		}
-
-		public bool checkInList(Transform tr)
-		{
-			foreach ( Transform TR in responseToPlayers)
-			{
-
-
-				if( TR.tag == tr.tag)
-					return true;
-
-
-			}
-
-			return false;
-		}
+		
 	}
-
-
 
 }

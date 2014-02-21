@@ -229,7 +229,7 @@ namespace PixelCrushers.DialogueSystem.Examples {
 				}
 			}
 		}
-
+		
 	}
-	
+
 }
