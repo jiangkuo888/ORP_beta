@@ -1,0 +1,2214 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1097633651, guid: b5a7519e94754fb4a8ea0c272031db78, type: 3}
+  m_Name: Data_SM
+  m_EditorClassIdentifier: 
+  version: 1.5.1.0
+  author: SGI
+  description: Scenario for ORILE project.
+  globalUserScript: 
+  emphasisSettings:
+  - color: {r: 1, g: 0, b: 0, a: 1}
+    bold: 1
+    italic: 0
+    underline: 0
+  - color: {r: .266666681, g: .713725507, b: .203921571, a: 1}
+    bold: 1
+    italic: 0
+    underline: 0
+  - color: {r: .274509817, g: .533333361, b: .90196079, a: 1}
+    bold: 1
+    italic: 0
+    underline: 0
+  - color: {r: .800000012, g: .800000012, b: .800000012, a: 1}
+    bold: 1
+    italic: 0
+    underline: 0
+  actors:
+  - id: 1
+    fields:
+    - title: Name
+      value: Sales Manager
+      type: 0
+    - title: Pictures
+      value: '[]'
+      type: 3
+    - title: Description
+      value: The player character.
+      type: 0
+    - title: IsPlayer
+      value: True
+      type: 2
+    portrait: {fileID: 0}
+  - id: 3
+    fields:
+    - title: Name
+      value: LPU Officer
+      type: 0
+    - title: Pictures
+      value: '[]'
+      type: 3
+    - title: Description
+      value: Loan Processing Unit Officer 1
+      type: 0
+    - title: IsPlayer
+      value: True
+      type: 2
+    portrait: {fileID: 0}
+  - id: 2
+    fields:
+    - title: Name
+      value: LPU Manager
+      type: 0
+    - title: Pictures
+      value: '[]'
+      type: 3
+    - title: Description
+      value: Loan Processing Unit Manager
+      type: 0
+    - title: IsPlayer
+      value: True
+      type: 2
+    portrait: {fileID: 0}
+  - id: 4
+    fields:
+    - title: Name
+      value: Credit Risk
+      type: 0
+    - title: Pictures
+      value: '[]'
+      type: 3
+    - title: Description
+      value: 'Credit Risk Assessment '
+      type: 0
+    - title: IsPlayer
+      value: True
+      type: 2
+    portrait: {fileID: 0}
+  - id: 5
+    fields:
+    - title: Name
+      value: Customer 1
+      type: 0
+    - title: Pictures
+      value: '[]'
+      type: 3
+    - title: Description
+      value: Normal Customer coming to enquire on some loans.
+      type: 0
+    - title: IsPlayer
+      value: False
+      type: 2
+    portrait: {fileID: 0}
+  - id: 6
+    fields:
+    - title: Name
+      value: Receptionist
+      type: 0
+    - title: Pictures
+      value: '[]'
+      type: 3
+    - title: Description
+      value: Receptionist at the Counter
+      type: 0
+    - title: IsPlayer
+      value: False
+      type: 2
+    portrait: {fileID: 0}
+  - id: 7
+    fields:
+    - title: Name
+      value: Fire Extinguisher Box
+      type: 0
+    - title: Pictures
+      value: '[]'
+      type: 3
+    - title: Description
+      value: Container for the fire Extinguisher in the LPU floor
+      type: 0
+    - title: IsPlayer
+      value: False
+      type: 2
+    portrait: {fileID: 0}
+  - id: 8
+    fields:
+    - title: Name
+      value: Player
+      type: 0
+    - title: Pictures
+      value: '[]'
+      type: 3
+    - title: Description
+      value: Generic Player Actor
+      type: 0
+    - title: IsPlayer
+      value: True
+      type: 2
+    portrait: {fileID: 0}
+  - id: 9
+    fields:
+    - title: Name
+      value: Security
+      type: 0
+    - title: Pictures
+      value: '[]'
+      type: 3
+    - title: Description
+      value: 
+      type: 0
+    - title: IsPlayer
+      value: False
+      type: 2
+    portrait: {fileID: 0}
+  - id: 10
+    fields:
+    - title: Name
+      value: Obstructing Boxes
+      type: 0
+    - title: Pictures
+      value: '[]'
+      type: 3
+    - title: Description
+      value: 
+      type: 0
+    - title: IsPlayer
+      value: False
+      type: 2
+    portrait: {fileID: 0}
+  - id: 11
+    fields:
+    - title: Name
+      value: John
+      type: 0
+    - title: Pictures
+      value: '[]'
+      type: 3
+    - title: Description
+      value: 'A LPU officer hanging out in the pantry. '
+      type: 0
+    - title: IsPlayer
+      value: False
+      type: 2
+    portrait: {fileID: 0}
+  - id: 12
+    fields:
+    - title: Name
+      value: Customer in panic
+      type: 0
+    - title: Pictures
+      value: '[]'
+      type: 3
+    - title: Description
+      value: 
+      type: 0
+    - title: IsPlayer
+      value: False
+      type: 2
+    portrait: {fileID: 0}
+  - id: 13
+    fields:
+    - title: Name
+      value: Microwave
+      type: 0
+    - title: Pictures
+      value: '[]'
+      type: 3
+    - title: Description
+      value: 
+      type: 0
+    - title: IsPlayer
+      value: False
+      type: 2
+    portrait: {fileID: 0}
+  items:
+  - id: 1
+    fields:
+    - title: Name
+      value: Missing Fire Extinguisher
+      type: 0
+    - title: Description
+      value: 
+      type: 0
+    - title: Success Description
+      value: You have succeeded in identifying the missing fire extinguisher.
+      type: 0
+    - title: Failure Description
+      value: 
+      type: 0
+    - title: State
+      value: unassigned
+      type: 0
+    - title: Is Item
+      value: False
+      type: 2
+  - id: 2
+    fields:
+    - title: Name
+      value: Fire Escape Blockage
+      type: 0
+    - title: Description
+      value: Quest where some boxes are obstructing the path towards the fire escape
+        route.
+      type: 0
+    - title: Success Description
+      value: 
+      type: 0
+    - title: Failure Description
+      value: 
+      type: 0
+    - title: State
+      value: unassigned
+      type: 0
+    - title: Is Item
+      value: False
+      type: 2
+  - id: 3
+    fields:
+    - title: Name
+      value: Get to Work!
+      type: 0
+    - title: Description
+      value: 
+      type: 0
+    - title: Success Description
+      value: 
+      type: 0
+    - title: Failure Description
+      value: 
+      type: 0
+    - title: State
+      value: unassigned
+      type: 0
+    - title: Is Item
+      value: False
+      type: 2
+  - id: 4
+    fields:
+    - title: Name
+      value: Expired Fire Ext
+      type: 0
+    - title: Description
+      value: Expired fire extinguisher in sales floor to be discovered by player.
+      type: 0
+    - title: Success Description
+      value: 'The expired fire extinguisher has been replaced. '
+      type: 0
+    - title: Failure Description
+      value: 
+      type: 0
+    - title: State
+      value: unassigned
+      type: 0
+    - title: Is Item
+      value: False
+      type: 2
+  locations:
+  - id: 1
+    fields:
+    - title: Name
+      value: New Location
+      type: 0
+    - title: Pictures
+      value: '[]'
+      type: 3
+    - title: Description
+      value: 
+      type: 0
+  variables:
+  - id: 0
+    fields:
+    - title: Name
+      value: Alert
+      type: 0
+    - title: Initial Value
+      value: 
+      type: 0
+    - title: Description
+      value: Show alert messages during gameplay by setting this variable.
+      type: 0
+  conversations:
+  - id: 1
+    fields:
+    - title: Title
+      value: Loan Enquiry
+      type: 0
+    - title: Description
+      value: Customer asking for loans.
+      type: 0
+    - title: Actor
+      value: 1
+      type: 5
+    - title: Conversant
+      value: 5
+      type: 5
+    nodeColor: Red
+    dialogueEntries:
+    - id: 0
+      fields:
+      - title: Title
+        value: START
+        type: 0
+      - title: Actor
+        value: 1
+        type: 5
+      - title: Conversant
+        value: 5
+        type: 5
+      - title: Menu Text
+        value: 
+        type: 0
+      - title: Dialogue Text
+        value: 
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: None()
+        type: 0
+      conversationID: 1
+      isRoot: 1
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 1
+        originDialogueID: 0
+        destinationConversationID: 1
+        destinationDialogueID: 1
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+    - id: 1
+      fields:
+      - title: Title
+        value: Hello
+        type: 0
+      - title: Actor
+        value: 1
+        type: 5
+      - title: Conversant
+        value: 5
+        type: 5
+      - title: Menu Text
+        value: 
+        type: 0
+      - title: Dialogue Text
+        value: "Hi, how may I help you? \n"
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 1
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 1
+        originDialogueID: 1
+        destinationConversationID: 1
+        destinationDialogueID: 2
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+    - id: 2
+      fields:
+      - title: Title
+        value: House Loan
+        type: 0
+      - title: Actor
+        value: 5
+        type: 5
+      - title: Conversant
+        value: 1
+        type: 5
+      - title: Menu Text
+        value: 
+        type: 0
+      - title: Dialogue Text
+        value: 'Hi, I am looking for information on housing loans. '
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 1
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 1
+        originDialogueID: 2
+        destinationConversationID: 1
+        destinationDialogueID: 3
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+    - id: 3
+      fields:
+      - title: Title
+        value: Sales Pitch
+        type: 0
+      - title: Actor
+        value: 5
+        type: 5
+      - title: Conversant
+        value: 1
+        type: 5
+      - title: Sequence
+        value: None()
+        type: 0
+      conversationID: 1
+      isRoot: 0
+      isGroup: 1
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 1
+        originDialogueID: 3
+        destinationConversationID: 1
+        destinationDialogueID: 6
+        isConnector: 0
+        priority: 2
+      - originConversationID: 1
+        originDialogueID: 3
+        destinationConversationID: 1
+        destinationDialogueID: 7
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+    - id: 6
+      fields:
+      - title: Title
+        value: Sale Pitch 1
+        type: 0
+      - title: Actor
+        value: 1
+        type: 5
+      - title: Conversant
+        value: 5
+        type: 5
+      - title: Menu Text
+        value: Sale Pitch 1
+        type: 0
+      - title: Dialogue Text
+        value: Details for Sale Pitch 1
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 1
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 1
+        originDialogueID: 6
+        destinationConversationID: 1
+        destinationDialogueID: 8
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+    - id: 7
+      fields:
+      - title: Title
+        value: Sale Pitch 2
+        type: 0
+      - title: Actor
+        value: 1
+        type: 5
+      - title: Conversant
+        value: 5
+        type: 5
+      - title: Menu Text
+        value: Sale Pitch 2
+        type: 0
+      - title: Dialogue Text
+        value: Details for Sale Pitch 2
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 1
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 1
+        originDialogueID: 7
+        destinationConversationID: 1
+        destinationDialogueID: 9
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+    - id: 8
+      fields:
+      - title: Title
+        value: Hmmm
+        type: 0
+      - title: Actor
+        value: 5
+        type: 5
+      - title: Conversant
+        value: 1
+        type: 5
+      - title: Menu Text
+        value: 
+        type: 0
+      - title: Dialogue Text
+        value: That is not what I am looking for.
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 1
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 1
+        originDialogueID: 8
+        destinationConversationID: 1
+        destinationDialogueID: 3
+        isConnector: 1
+        priority: 2
+      conditionsString: 
+      userScript: 
+    - id: 9
+      fields:
+      - title: Title
+        value: Yes!
+        type: 0
+      - title: Actor
+        value: 5
+        type: 5
+      - title: Conversant
+        value: 1
+        type: 5
+      - title: Menu Text
+        value: 
+        type: 0
+      - title: Dialogue Text
+        value: 'Yes, that is what I am looking for. '
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 1
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 1
+        originDialogueID: 9
+        destinationConversationID: 1
+        destinationDialogueID: 10
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+    - id: 10
+      fields:
+      - title: Title
+        value: Follow Me
+        type: 0
+      - title: Actor
+        value: 1
+        type: 5
+      - title: Conversant
+        value: 5
+        type: 5
+      - title: Menu Text
+        value: 
+        type: 0
+      - title: Dialogue Text
+        value: 'Great, follow me and I will help you fill up the documents for the
+          loan. '
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 1
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: 
+  - id: 2
+    fields:
+    - title: Title
+      value: Receptionist
+      type: 0
+    - title: Description
+      value: 
+      type: 0
+    - title: Actor
+      value: 1
+      type: 5
+    - title: Conversant
+      value: 6
+      type: 5
+    nodeColor: Red
+    dialogueEntries:
+    - id: 0
+      fields:
+      - title: Title
+        value: START
+        type: 0
+      - title: Actor
+        value: 1
+        type: 5
+      - title: Conversant
+        value: 6
+        type: 5
+      - title: Menu Text
+        value: 
+        type: 0
+      - title: Dialogue Text
+        value: 
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: None()
+        type: 0
+      conversationID: 2
+      isRoot: 1
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 2
+        originDialogueID: 0
+        destinationConversationID: 2
+        destinationDialogueID: 1
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+    - id: 1
+      fields:
+      - title: Title
+        value: Good Morning
+        type: 0
+      - title: Actor
+        value: 6
+        type: 5
+      - title: Conversant
+        value: 1
+        type: 5
+      - title: Menu Text
+        value: 
+        type: 0
+      - title: Dialogue Text
+        value: 'Hi, Sales Manager. What is the matter? '
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 2
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 2
+        originDialogueID: 1
+        destinationConversationID: 2
+        destinationDialogueID: 2
+        isConnector: 0
+        priority: 2
+      - originConversationID: 2
+        originDialogueID: 1
+        destinationConversationID: 2
+        destinationDialogueID: 3
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+    - id: 2
+      fields:
+      - title: Title
+        value: Greet
+        type: 0
+      - title: Actor
+        value: 1
+        type: 5
+      - title: Conversant
+        value: 6
+        type: 5
+      - title: Menu Text
+        value: How's your day coming along?
+        type: 0
+      - title: Dialogue Text
+        value: 
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 2
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: 
+    - id: 3
+      fields:
+      - title: Title
+        value: Check
+        type: 0
+      - title: Actor
+        value: 1
+        type: 5
+      - title: Conversant
+        value: 6
+        type: 5
+      - title: Menu Text
+        value: How's the customers' feedback for today?
+        type: 0
+      - title: Dialogue Text
+        value: 
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 2
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: 
+  - id: 3
+    fields:
+    - title: Title
+      value: Missing Fire Extinguisher
+      type: 0
+    - title: Description
+      value: 
+      type: 0
+    - title: Actor
+      value: 8
+      type: 5
+    - title: Conversant
+      value: 7
+      type: 5
+    nodeColor: Red
+    dialogueEntries:
+    - id: 0
+      fields:
+      - title: Title
+        value: START
+        type: 0
+      - title: Actor
+        value: 8
+        type: 5
+      - title: Conversant
+        value: 7
+        type: 5
+      - title: Menu Text
+        value: 
+        type: 0
+      - title: Dialogue Text
+        value: 
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: None()
+        type: 0
+      conversationID: 3
+      isRoot: 1
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 3
+        originDialogueID: 0
+        destinationConversationID: 3
+        destinationDialogueID: 5
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+    - id: 1
+      fields:
+      - title: Title
+        value: 
+        type: 0
+      - title: Actor
+        value: 8
+        type: 5
+      - title: Conversant
+        value: 7
+        type: 5
+      - title: Menu Text
+        value: Check
+        type: 0
+      - title: Dialogue Text
+        value: 'Checking Case. . .
+
+
+'
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 3
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 3
+        originDialogueID: 1
+        destinationConversationID: 3
+        destinationDialogueID: 3
+        isConnector: 0
+        priority: 2
+      - originConversationID: 3
+        originDialogueID: 1
+        destinationConversationID: 3
+        destinationDialogueID: 4
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+    - id: 2
+      fields:
+      - title: Title
+        value: 
+        type: 0
+      - title: Actor
+        value: 8
+        type: 5
+      - title: Conversant
+        value: 7
+        type: 5
+      - title: Menu Text
+        value: Leave
+        type: 0
+      - title: Dialogue Text
+        value: 
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 3
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: 
+    - id: 3
+      fields:
+      - title: Title
+        value: 
+        type: 0
+      - title: Actor
+        value: 7
+        type: 5
+      - title: Conversant
+        value: 8
+        type: 5
+      - title: Menu Text
+        value: 
+        type: 0
+      - title: Dialogue Text
+        value: 'The case is empty.
+
+'
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 3
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 3
+        originDialogueID: 3
+        destinationConversationID: 3
+        destinationDialogueID: 6
+        isConnector: 0
+        priority: 2
+      conditionsString: Item["Missing_Fire_Extinguisher"].State ~= "success";
+      userScript: 
+    - id: 4
+      fields:
+      - title: Title
+        value: 
+        type: 0
+      - title: Actor
+        value: 7
+        type: 5
+      - title: Conversant
+        value: 8
+        type: 5
+      - title: Menu Text
+        value: 
+        type: 0
+      - title: Dialogue Text
+        value: 'There is a fire extinguisher in the casing. '
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 3
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: Item["Missing_Fire_Extinguisher"].State == "success";
+      userScript: 
+    - id: 5
+      fields:
+      - title: Title
+        value: 
+        type: 0
+      - title: Actor
+        value: 7
+        type: 5
+      - title: Conversant
+        value: 8
+        type: 5
+      - title: Menu Text
+        value: 
+        type: 0
+      - title: Dialogue Text
+        value: This is a fire extinguisher case.
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 3
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 3
+        originDialogueID: 5
+        destinationConversationID: 3
+        destinationDialogueID: 1
+        isConnector: 0
+        priority: 2
+      - originConversationID: 3
+        originDialogueID: 5
+        destinationConversationID: 3
+        destinationDialogueID: 2
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+    - id: 6
+      fields:
+      - title: Title
+        value: Active Fire Extinguisher Quest
+        type: 0
+      - title: Actor
+        value: 8
+        type: 5
+      - title: Conversant
+        value: 7
+        type: 5
+      - title: Menu Text
+        value: 
+        type: 0
+      - title: Dialogue Text
+        value: 
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 3
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: Item["Missing_Fire_Extinguisher"].State = "active";
+  - id: 4
+    fields:
+    - title: Title
+      value: Phone Call with Security
+      type: 0
+    - title: Description
+      value: 
+      type: 0
+    - title: Actor
+      value: 8
+      type: 5
+    - title: Conversant
+      value: 9
+      type: 5
+    nodeColor: Red
+    dialogueEntries:
+    - id: 0
+      fields:
+      - title: Title
+        value: START
+        type: 0
+      - title: Actor
+        value: 8
+        type: 5
+      - title: Conversant
+        value: 9
+        type: 5
+      - title: Menu Text
+        value: 
+        type: 0
+      - title: Dialogue Text
+        value: 
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: None()
+        type: 0
+      conversationID: 4
+      isRoot: 1
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 4
+        originDialogueID: 0
+        destinationConversationID: 4
+        destinationDialogueID: 1
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+    - id: 1
+      fields:
+      - title: Title
+        value: 
+        type: 0
+      - title: Actor
+        value: 9
+        type: 5
+      - title: Conversant
+        value: 8
+        type: 5
+      - title: Menu Text
+        value: 
+        type: 0
+      - title: Dialogue Text
+        value: 'Hi, this is building Security, how may I help you? '
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 4
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 4
+        originDialogueID: 1
+        destinationConversationID: 4
+        destinationDialogueID: 2
+        isConnector: 0
+        priority: 2
+      - originConversationID: 4
+        originDialogueID: 1
+        destinationConversationID: 4
+        destinationDialogueID: 6
+        isConnector: 0
+        priority: 2
+      - originConversationID: 4
+        originDialogueID: 1
+        destinationConversationID: 4
+        destinationDialogueID: 4
+        isConnector: 0
+        priority: 2
+      - originConversationID: 4
+        originDialogueID: 1
+        destinationConversationID: 4
+        destinationDialogueID: 5
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+    - id: 2
+      fields:
+      - title: Title
+        value: 
+        type: 0
+      - title: Actor
+        value: 8
+        type: 5
+      - title: Conversant
+        value: 9
+        type: 5
+      - title: Menu Text
+        value: 'I have a missing fire extinguisher at Level 12. '
+        type: 0
+      - title: Dialogue Text
+        value: "I have a missing fire extinguisher on Level 12, can you get someone
+          to replace it. Thanks. \n"
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 4
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 4
+        originDialogueID: 2
+        destinationConversationID: 4
+        destinationDialogueID: 3
+        isConnector: 0
+        priority: 2
+      conditionsString: Item["Missing_Fire_Extinguisher"].State == "active";
+      userScript: 
+    - id: 3
+      fields:
+      - title: Title
+        value: 
+        type: 0
+      - title: Actor
+        value: 9
+        type: 5
+      - title: Conversant
+        value: 8
+        type: 5
+      - title: Menu Text
+        value: 
+        type: 0
+      - title: Dialogue Text
+        value: 'Alright, I will get it replaced. Thanks for the notice. '
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 4
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: Item["Missing_Fire_Extinguisher"].State = "success";
+    - id: 4
+      fields:
+      - title: Title
+        value: 
+        type: 0
+      - title: Actor
+        value: 8
+        type: 5
+      - title: Conversant
+        value: 9
+        type: 5
+      - title: Menu Text
+        value: Nothing.
+        type: 0
+      - title: Dialogue Text
+        value: 
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 4
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: 
+    - id: 5
+      fields:
+      - title: Title
+        value: 
+        type: 0
+      - title: Actor
+        value: 8
+        type: 5
+      - title: Conversant
+        value: 9
+        type: 5
+      - title: Menu Text
+        value: Leave
+        type: 0
+      - title: Dialogue Text
+        value: 
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 4
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: 
+    - id: 6
+      fields:
+      - title: Title
+        value: 
+        type: 0
+      - title: Actor
+        value: 8
+        type: 5
+      - title: Conversant
+        value: 9
+        type: 5
+      - title: Menu Text
+        value: Expired fire extinguisher
+        type: 0
+      - title: Dialogue Text
+        value: I have an expired fire extinguisher on the Sale Floor. Can you get
+          it replaced? Thanks.
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 4
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 4
+        originDialogueID: 6
+        destinationConversationID: 4
+        destinationDialogueID: 7
+        isConnector: 0
+        priority: 2
+      conditionsString: Item["Expired_Fire_Ext"].State == "active";
+      userScript: 
+    - id: 7
+      fields:
+      - title: Title
+        value: 
+        type: 0
+      - title: Actor
+        value: 9
+        type: 5
+      - title: Conversant
+        value: 8
+        type: 5
+      - title: Menu Text
+        value: 
+        type: 0
+      - title: Dialogue Text
+        value: 'Noted. I will get it replaced as soon as possible. '
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 4
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: Item["Expired_Fire_Ext"].State = "success";
+  - id: 5
+    fields:
+    - title: Title
+      value: Fire Escape Blockage
+      type: 0
+    - title: Description
+      value: 
+      type: 0
+    - title: Actor
+      value: 8
+      type: 5
+    - title: Conversant
+      value: 10
+      type: 5
+    nodeColor: Red
+    dialogueEntries:
+    - id: 0
+      fields:
+      - title: Title
+        value: START
+        type: 0
+      - title: Actor
+        value: 8
+        type: 5
+      - title: Conversant
+        value: 10
+        type: 5
+      - title: Menu Text
+        value: 
+        type: 0
+      - title: Dialogue Text
+        value: 
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: None()
+        type: 0
+      conversationID: 5
+      isRoot: 1
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 5
+        originDialogueID: 0
+        destinationConversationID: 5
+        destinationDialogueID: 4
+        isConnector: 0
+        priority: 2
+      - originConversationID: 5
+        originDialogueID: 0
+        destinationConversationID: 5
+        destinationDialogueID: 1
+        isConnector: 0
+        priority: 2
+      - originConversationID: 5
+        originDialogueID: 0
+        destinationConversationID: 5
+        destinationDialogueID: 2
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+    - id: 1
+      fields:
+      - title: Title
+        value: 
+        type: 0
+      - title: Actor
+        value: 10
+        type: 5
+      - title: Conversant
+        value: 8
+        type: 5
+      - title: Menu Text
+        value: Check
+        type: 0
+      - title: Dialogue Text
+        value: 
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 5
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 5
+        originDialogueID: 1
+        destinationConversationID: 5
+        destinationDialogueID: 3
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+    - id: 2
+      fields:
+      - title: Title
+        value: 
+        type: 0
+      - title: Actor
+        value: 10
+        type: 5
+      - title: Conversant
+        value: 8
+        type: 5
+      - title: Menu Text
+        value: Leave
+        type: 0
+      - title: Dialogue Text
+        value: 
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 5
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: 
+    - id: 3
+      fields:
+      - title: Title
+        value: Active Blockage Quest
+        type: 0
+      - title: Actor
+        value: 8
+        type: 5
+      - title: Conversant
+        value: 10
+        type: 5
+      - title: Menu Text
+        value: 
+        type: 0
+      - title: Dialogue Text
+        value: 'A bunch of boxes filled with heavy archival documents in front of
+          the stairwell.
+
+'
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 5
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: 
+    - id: 4
+      fields:
+      - title: Title
+        value: 
+        type: 0
+      - title: Actor
+        value: 10
+        type: 5
+      - title: Conversant
+        value: 8
+        type: 5
+      - title: Menu Text
+        value: Pick up
+        type: 0
+      - title: Dialogue Text
+        value: 
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 5
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: Variable["Alert"] = "Pick up the Box";
+  - id: 7
+    fields:
+    - title: Title
+      value: Expired Fire Extinguisher
+      type: 0
+    - title: Description
+      value: Expired Fire Extinguisher in Sales floor
+      type: 0
+    - title: Actor
+      value: 8
+      type: 5
+    - title: Conversant
+      value: 7
+      type: 5
+    nodeColor: Red
+    dialogueEntries:
+    - id: 0
+      fields:
+      - title: Title
+        value: START
+        type: 0
+      - title: Actor
+        value: 8
+        type: 5
+      - title: Conversant
+        value: 7
+        type: 5
+      - title: Menu Text
+        value: 
+        type: 0
+      - title: Dialogue Text
+        value: 
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: None()
+        type: 0
+      conversationID: 7
+      isRoot: 1
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 7
+        originDialogueID: 0
+        destinationConversationID: 7
+        destinationDialogueID: 5
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+    - id: 1
+      fields:
+      - title: Title
+        value: 
+        type: 0
+      - title: Actor
+        value: 8
+        type: 5
+      - title: Conversant
+        value: 7
+        type: 5
+      - title: Menu Text
+        value: Check
+        type: 0
+      - title: Dialogue Text
+        value: 
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 7
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 7
+        originDialogueID: 1
+        destinationConversationID: 7
+        destinationDialogueID: 4
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+    - id: 2
+      fields:
+      - title: Title
+        value: 
+        type: 0
+      - title: Actor
+        value: 8
+        type: 5
+      - title: Conversant
+        value: 7
+        type: 5
+      - title: Menu Text
+        value: Leave
+        type: 0
+      - title: Dialogue Text
+        value: 
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 7
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: 
+    - id: 4
+      fields:
+      - title: Title
+        value: 
+        type: 0
+      - title: Actor
+        value: 7
+        type: 5
+      - title: Conversant
+        value: 8
+        type: 5
+      - title: Menu Text
+        value: 
+        type: 0
+      - title: Dialogue Text
+        value: 'There is a fire extinguisher in the casing. '
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 7
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 7
+        originDialogueID: 4
+        destinationConversationID: 7
+        destinationDialogueID: 3
+        isConnector: 0
+        priority: 2
+      - originConversationID: 7
+        originDialogueID: 4
+        destinationConversationID: 7
+        destinationDialogueID: 6
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+    - id: 5
+      fields:
+      - title: Title
+        value: 
+        type: 0
+      - title: Actor
+        value: 7
+        type: 5
+      - title: Conversant
+        value: 8
+        type: 5
+      - title: Menu Text
+        value: 
+        type: 0
+      - title: Dialogue Text
+        value: This is a fire extinguisher case.
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 7
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 7
+        originDialogueID: 5
+        destinationConversationID: 7
+        destinationDialogueID: 1
+        isConnector: 0
+        priority: 2
+      - originConversationID: 7
+        originDialogueID: 5
+        destinationConversationID: 7
+        destinationDialogueID: 2
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+    - id: 3
+      fields:
+      - title: Title
+        value: 
+        type: 0
+      - title: Actor
+        value: 8
+        type: 5
+      - title: Conversant
+        value: 7
+        type: 5
+      - title: Menu Text
+        value: Check Fire Extinguisher
+        type: 0
+      - title: Dialogue Text
+        value: 
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 7
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 7
+        originDialogueID: 3
+        destinationConversationID: 7
+        destinationDialogueID: 7
+        isConnector: 0
+        priority: 2
+      conditionsString: Item["Expired_Fire_Ext"].State ~= "success";
+      userScript: 
+    - id: 6
+      fields:
+      - title: Title
+        value: 
+        type: 0
+      - title: Actor
+        value: 8
+        type: 5
+      - title: Conversant
+        value: 7
+        type: 5
+      - title: Menu Text
+        value: Leave
+        type: 0
+      - title: Dialogue Text
+        value: 
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 7
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: 
+    - id: 7
+      fields:
+      - title: Title
+        value: 
+        type: 0
+      - title: Actor
+        value: 7
+        type: 5
+      - title: Conversant
+        value: 8
+        type: 5
+      - title: Menu Text
+        value: 
+        type: 0
+      - title: Dialogue Text
+        value: This is a foam-based fire extinguisher. The expiry-date is stated 21
+          Dec 2012.
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 7
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: Item["Expired_Fire_Ext"].State = "active";
+  - id: 8
+    fields:
+    - title: Title
+      value: Customer in distress
+      type: 0
+    - title: Description
+      value: 
+      type: 0
+    - title: Actor
+      value: 1
+      type: 5
+    - title: Conversant
+      value: 12
+      type: 5
+    nodeColor: Red
+    dialogueEntries:
+    - id: 0
+      fields:
+      - title: Title
+        value: START
+        type: 0
+      - title: Actor
+        value: 1
+        type: 5
+      - title: Conversant
+        value: 12
+        type: 5
+      - title: Menu Text
+        value: 
+        type: 0
+      - title: Dialogue Text
+        value: 
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: None()
+        type: 0
+      conversationID: 8
+      isRoot: 1
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 8
+        originDialogueID: 0
+        destinationConversationID: 8
+        destinationDialogueID: 1
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+    - id: 1
+      fields:
+      - title: Title
+        value: 
+        type: 0
+      - title: Actor
+        value: 12
+        type: 5
+      - title: Conversant
+        value: 1
+        type: 5
+      - title: Menu Text
+        value: 
+        type: 0
+      - title: Dialogue Text
+        value: 'awww... I don''t like water.... '
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 8
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 8
+        originDialogueID: 1
+        destinationConversationID: 8
+        destinationDialogueID: 2
+        isConnector: 0
+        priority: 2
+      - originConversationID: 8
+        originDialogueID: 1
+        destinationConversationID: 8
+        destinationDialogueID: 4
+        isConnector: 0
+        priority: 2
+      - originConversationID: 8
+        originDialogueID: 1
+        destinationConversationID: 8
+        destinationDialogueID: 3
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+    - id: 2
+      fields:
+      - title: Title
+        value: 
+        type: 0
+      - title: Actor
+        value: 1
+        type: 5
+      - title: Conversant
+        value: 12
+        type: 5
+      - title: Menu Text
+        value: Calm down
+        type: 0
+      - title: Dialogue Text
+        value: Calm down sir and follow me. I will escort you to the exit safely.
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 8
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: 
+    - id: 3
+      fields:
+      - title: Title
+        value: 
+        type: 0
+      - title: Actor
+        value: 1
+        type: 5
+      - title: Conversant
+        value: 12
+        type: 5
+      - title: Menu Text
+        value: Walk away
+        type: 0
+      - title: Dialogue Text
+        value: '...
+
+'
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 8
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: 
+    - id: 4
+      fields:
+      - title: Title
+        value: 
+        type: 0
+      - title: Actor
+        value: 1
+        type: 5
+      - title: Conversant
+        value: 12
+        type: 5
+      - title: Menu Text
+        value: Shout
+        type: 0
+      - title: Dialogue Text
+        value: 'SIR, You have to follow me now !! Hurry Up!
+
+'
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 8
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: 

@@ -144,27 +144,28 @@ public class GameManagerVik : Photon.MonoBehaviour {
 				{
 				case "Sales Manager":
 					spawnPosition = randomSpawnPosition(managerSpawnPositionList);
-					PhotonNetwork.Instantiate(playerPrefabList[i].name, spawnPosition, Quaternion.identity, 0, objs);
+					GameObject a = PhotonNetwork.Instantiate(playerPrefabList[i].name, spawnPosition, Quaternion.identity, 0, objs);
 
+					a.name = "Sales Manager";
 
 
 					break;
 				case "LPU Officer":
 					spawnPosition = randomSpawnPosition(ITSpawnPositionList);
-					PhotonNetwork.Instantiate(playerPrefabList[i].name, spawnPosition, Quaternion.identity, 0, objs);
-
+					GameObject b = PhotonNetwork.Instantiate(playerPrefabList[i].name, spawnPosition, Quaternion.identity, 0, objs);
+					b.name = "LPU Officer";
 
 					break;
 				case "LPU Manager":
 					spawnPosition = randomSpawnPosition(customerSpawnPositionList);
-					PhotonNetwork.Instantiate(playerPrefabList[i].name, spawnPosition, Quaternion.identity, 0, objs);
-
+					GameObject c = PhotonNetwork.Instantiate(playerPrefabList[i].name, spawnPosition, Quaternion.identity, 0, objs);
+					c.name = "LPU Manager";
 
 					break;
 				case "Credit Risk":
 					spawnPosition = randomSpawnPosition(officerSpawnPositionList);
-					PhotonNetwork.Instantiate(playerPrefabList[i].name, spawnPosition, Quaternion.identity, 0, objs);
-
+					GameObject d = PhotonNetwork.Instantiate(playerPrefabList[i].name, spawnPosition, Quaternion.identity, 0, objs);
+					d.name = "Credit Risk";
 
 					break;
 				default:

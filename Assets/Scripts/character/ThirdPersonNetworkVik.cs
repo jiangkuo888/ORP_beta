@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using PixelCrushers.DialogueSystem.Examples;
 
 public class ThirdPersonNetworkVik : Photon.MonoBehaviour
 {
@@ -47,7 +48,7 @@ public class ThirdPersonNetworkVik : Photon.MonoBehaviour
 			
 			gameObject.GetComponent<ClickMove>().enabled = true;
 			gameObject.GetComponent<CharacterMotor>().enabled = true;
-			gameObject.GetComponent<DetectObjects>().enabled = true;
+//			gameObject.GetComponent<DetectObjects>().enabled = true;
 			
         }
         else
@@ -64,8 +65,8 @@ public class ThirdPersonNetworkVik : Photon.MonoBehaviour
 			playerRotationScript.enabled = false;
 			gameObject.GetComponent<ClickMove>().enabled = false;
 			gameObject.GetComponent<CharacterMotor>().enabled = false;
-			gameObject.GetComponent<DetectObjects>().enabled = false;
-		
+		//	gameObject.GetComponent<DetectObjects>().enabled = false;
+			gameObject.GetComponent<Selector>().enabled = false;
           //  controllerScript.enabled = true;
 
         }
@@ -76,7 +77,7 @@ public class ThirdPersonNetworkVik : Photon.MonoBehaviour
 
     
 
-        gameObject.name = gameObject.name + photonView.viewID;
+       
     }
 
     void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
