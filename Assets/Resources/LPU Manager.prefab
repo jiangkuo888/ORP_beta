@@ -255,12 +255,10 @@ GameObject:
   - 114: {fileID: 11400008}
   - 114: {fileID: 11400000}
   - 114: {fileID: 11400010}
-  - 114: {fileID: 11400014}
-  - 114: {fileID: 11400016}
-  - 114: {fileID: 11400018}
+  - 114: {fileID: 11400012}
   m_Layer: 0
   m_Name: LPU Manager
-  m_TagString: LM
+  m_TagString: manager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1300,7 +1298,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce6adbb2f61fd4d4abfd48099bcb9190, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameOn: 0
   smooth: 2
   arrowPrefab: {fileID: 100000, guid: 73fece1052b063041bce306fcc184c31, type: 2}
   targetPosition: {x: 0, y: 0, z: 0}
@@ -1405,7 +1402,7 @@ MonoBehaviour:
     slidingSpeed: 15
     sidewaysControl: 1
     speedControl: .400000006
---- !u!114 &11400014
+--- !u!114 &11400012
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -1413,82 +1410,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 100032}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 624654ff0a68ee844994f728ddf3d991, type: 3}
+  m_Script: {fileID: 11500000, guid: bd5b99cd7173dff4097218335b960438, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  layerMask:
-    serializedVersion: 2
-    m_Bits: 1
-  selectAt: 1
-  distanceFrom: 0
-  maxSelectionDistance: 30
-  useDefaultGUI: 1
-  guiSkin: {fileID: 0}
-  inRangeColor: {r: 1, g: .921568632, b: .0156862754, a: 1}
-  outOfRangeColor: {r: .5, g: .5, b: .5, a: 1}
-  reticle:
-    inRange: {fileID: 0}
-    outOfRange: {fileID: 0}
-    width: 64
-    height: 64
-  useKey: 323
-  useButton: Fire1
-  defaultUseMessage: (Left Click to interact)
-  broadcastToChildren: 1
---- !u!114 &11400016
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100032}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -479791062, guid: b5a7519e94754fb4a8ea0c272031db78, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  trigger: 2
-  once: 0
-  onStart:
-  - condition:
-      luaConditions: []
-      questConditions: []
-      acceptedTags: []
-      acceptedGameObjects: []
-    target: {fileID: 11400014}
-    state: 1
-  - condition:
-      luaConditions: []
-      questConditions: []
-      acceptedTags: []
-      acceptedGameObjects: []
-    target: {fileID: 11400002}
-    state: 1
-  onEnd:
-  - condition:
-      luaConditions: []
-      questConditions: []
-      acceptedTags: []
-      acceptedGameObjects: []
-    target: {fileID: 11400014}
-    state: 0
-  - condition:
-      luaConditions: []
-      questConditions: []
-      acceptedTags: []
-      acceptedGameObjects: []
-    target: {fileID: 11400002}
-    state: 0
---- !u!114 &11400018
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100032}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -855550762, guid: b5a7519e94754fb4a8ea0c272031db78, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  cursorTextureInteract: {fileID: 2800000, guid: ce8bc546e2bf7a44ea834e51dd196ee1,
+    type: 3}
+  cursorTextureTalk: {fileID: 2800000, guid: ce8bc546e2bf7a44ea834e51dd196ee1, type: 3}
+  hotSpot: {x: 100, y: 0}
+  currentHitObj: {fileID: 0}
+  mouseClick: 0
+  enteredDialog: 0
 --- !u!137 &13700000
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
