@@ -382,7 +382,7 @@ MonoBehaviour:
         type: 0
       - title: Dialogue Text
         value: 
-        type: 4
+        type: 0
       - title: Video File
         value: 
         type: 0
@@ -954,7 +954,7 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Sequence
-        value: 
+        value: Camera(Closeup Wall);
         type: 0
       conversationID: 3
       isRoot: 0
@@ -977,7 +977,7 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: Item["Missing_Fire_Extinguisher"].State = "active";
     - id: 2
       fields:
       - title: Title
@@ -999,7 +999,7 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Sequence
-        value: 
+        value: Camera(Closeup Wall);
         type: 0
       conversationID: 3
       isRoot: 0
@@ -1034,7 +1034,7 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Sequence
-        value: 
+        value: Camera(Closeup Wall);
         type: 0
       conversationID: 3
       isRoot: 0
@@ -1043,13 +1043,7 @@ MonoBehaviour:
       delaySimStatus: 0
       falseConditionAction: Block
       conditionPriority: 2
-      outgoingLinks:
-      - originConversationID: 3
-        originDialogueID: 3
-        destinationConversationID: 3
-        destinationDialogueID: 6
-        isConnector: 0
-        priority: 2
+      outgoingLinks: []
       conditionsString: Item["Missing_Fire_Extinguisher"].State ~= "success";
       userScript: 
     - id: 4
@@ -1073,7 +1067,7 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Sequence
-        value: 
+        value: Camera(Closeup Wall);
         type: 0
       conversationID: 3
       isRoot: 0
@@ -1106,7 +1100,7 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Sequence
-        value: 
+        value: Camera(Closeup Wall);
         type: 0
       conversationID: 3
       isRoot: 0
@@ -1130,39 +1124,6 @@ MonoBehaviour:
         priority: 2
       conditionsString: 
       userScript: 
-    - id: 6
-      fields:
-      - title: Title
-        value: Active Fire Extinguisher Quest
-        type: 0
-      - title: Actor
-        value: 8
-        type: 5
-      - title: Conversant
-        value: 7
-        type: 5
-      - title: Menu Text
-        value: 
-        type: 0
-      - title: Dialogue Text
-        value: 
-        type: 4
-      - title: Video File
-        value: 
-        type: 0
-      - title: Sequence
-        value: 
-        type: 0
-      conversationID: 3
-      isRoot: 0
-      isGroup: 0
-      nodeColor: White
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks: []
-      conditionsString: 
-      userScript: Item["Missing_Fire_Extinguisher"].State = "active";
   - id: 4
     fields:
     - title: Title
@@ -2777,12 +2738,12 @@ MonoBehaviour:
         type: 0
       - title: Dialogue Text
         value: 
-        type: 4
+        type: 0
       - title: Video File
         value: 
         type: 0
       - title: Sequence
-        value: None()
+        value: Camera(Closeup, listener)
         type: 0
       conversationID: 6
       isRoot: 1
@@ -2816,7 +2777,7 @@ MonoBehaviour:
         type: 0
       - title: Dialogue Text
         value: 'Hi Sir, how may I help you? '
-        type: 4
+        type: 0
       - title: Video File
         value: 
         type: 0
@@ -2855,12 +2816,12 @@ MonoBehaviour:
         type: 0
       - title: Dialogue Text
         value: 'I am looking for a bank loan to invest in some business. '
-        type: 4
+        type: 0
       - title: Video File
         value: 
         type: 0
       - title: Sequence
-        value: 
+        value: Camera(Closeup,listener);
         type: 0
       conversationID: 6
       isRoot: 0
@@ -2931,12 +2892,12 @@ MonoBehaviour:
       - title: Dialogue Text
         value: 'Hi Sir, let me introduce to you the bank loan with low interest rate,
           I am sure you will like what I have to offer. '
-        type: 4
+        type: 0
       - title: Video File
         value: 
         type: 0
       - title: Sequence
-        value: 
+        value: Camera(Closeup,listener);
         type: 0
       conversationID: 6
       isRoot: 0
@@ -2975,7 +2936,7 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Sequence
-        value: 
+        value: Camera(Closeup,listener);
         type: 0
       conversationID: 6
       isRoot: 0
@@ -3009,12 +2970,12 @@ MonoBehaviour:
         type: 0
       - title: Dialogue Text
         value: 'This is not what I am looking for. '
-        type: 4
+        type: 0
       - title: Video File
         value: 
         type: 0
       - title: Sequence
-        value: 
+        value: Camera(Closeup,listener);
         type: 0
       conversationID: 6
       isRoot: 0
@@ -3047,7 +3008,7 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Sequence
-        value: 
+        value: Camera(Closeup,listener);
         type: 0
       conversationID: 6
       isRoot: 0
@@ -3092,7 +3053,7 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Sequence
-        value: 
+        value: Camera(Closeup,listener);
         type: 0
       conversationID: 6
       isRoot: 0
@@ -3131,7 +3092,7 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Sequence
-        value: 
+        value: Camera(Closeup,listener);
         type: 0
       conversationID: 6
       isRoot: 0
@@ -3170,7 +3131,7 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Sequence
-        value: 
+        value: Camera(Closeup,listener);
         type: 0
       conversationID: 6
       isRoot: 0
@@ -3203,7 +3164,7 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Sequence
-        value: 
+        value: Camera(Closeup,listener);
         type: 0
       conversationID: 6
       isRoot: 0
