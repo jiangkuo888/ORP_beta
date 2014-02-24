@@ -86,9 +86,13 @@ GameObject:
   - 111: {fileID: 11100000}
   - 114: {fileID: 11400000}
   - 136: {fileID: 13600000}
+  - 114: {fileID: 11400008}
+  - 114: {fileID: 11400006}
+  - 114: {fileID: 11400004}
+  - 114: {fileID: 11400002}
   m_Layer: 0
   m_Name: NPC_Male_A
-  m_TagString: NPC
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -685,7 +689,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
-  m_LocalRotation: {x: 1.29804745e-08, y: 2.70843739e-08, z: -.316999257, w: .94842577}
+  m_LocalRotation: {x: 1.29804754e-08, y: 2.70843756e-08, z: -.316999286, w: .948425829}
   m_LocalPosition: {x: -.0483040623, y: 0, z: 0}
   m_LocalScale: {x: 1.00000012, y: 1.00000012, z: 1}
   m_Children: []
@@ -745,8 +749,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100010}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: -1.62920685e-07}
-  m_LocalPosition: {x: 3.55273819, y: -4.70407867, z: 4.29758835}
-  m_LocalScale: {x: 1.43079698, y: 1.43079698, z: 1.43079698}
+  m_LocalPosition: {x: -5.34303093, y: -5.96939468, z: 25.9214363}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400058}
   - {fileID: 400028}
@@ -757,7 +761,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100012}
-  m_LocalRotation: {x: .599344492, y: -.28973785, z: .0295378324, w: .745631158}
+  m_LocalRotation: {x: .599344432, y: -.289737821, z: .0295378286, w: .745631099}
   m_LocalPosition: {x: -.0304125212, y: .0185436253, z: -.0426789448}
   m_LocalScale: {x: .99999994, y: 1.00000036, z: .999999821}
   m_Children:
@@ -854,7 +858,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100028}
-  m_LocalRotation: {x: -.707106829, y: 6.18172322e-08, z: 6.18172464e-08, w: .707106709}
+  m_LocalRotation: {x: -.707106888, y: 6.18172393e-08, z: 6.18172535e-08, w: .707106769}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -999,7 +1003,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100052}
-  m_LocalRotation: {x: -.287678868, y: .957258642, z: -.0299317781, w: .000905218301}
+  m_LocalRotation: {x: -.287678897, y: .957258701, z: -.02993178, w: .00090521836}
   m_LocalPosition: {x: .131303176, y: .0345330574, z: -.0790409297}
   m_LocalScale: {x: .99999994, y: 1.00000012, z: .999999881}
   m_Children:
@@ -1060,7 +1064,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100062}
-  m_LocalRotation: {x: 1.90334376e-07, y: 3.75399622e-07, z: -.85453546, w: .519393027}
+  m_LocalRotation: {x: 1.9033439e-07, y: 3.75399651e-07, z: -.85453552, w: .519393086}
   m_LocalPosition: {x: -.0776756182, y: .123889707, z: 0}
   m_LocalScale: {x: 1.00000012, y: 1, z: 1}
   m_Children: []
@@ -1255,9 +1259,9 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 98
+        x: 66
         y: 164
-        width: 104
+        width: 159
         height: 48
       isBreakpoint: 0
       isSequence: 0
@@ -1272,7 +1276,7 @@ MonoBehaviour:
         linkConstraint: 0
         colorIndex: 0
       - fsmEvent:
-          name: IN_DIALOGUE
+          name: OnConversationStart
           isSystemEvent: 0
           isGlobal: 0
         toState: Stop
@@ -1283,15 +1287,13 @@ MonoBehaviour:
         actionNames:
         - HutongGames.PlayMaker.Actions.iTweenMoveTo
         - HutongGames.PlayMaker.Actions.PlayAnimation
-        - HutongGames.PlayMaker.Actions.BoolTest
         customNames:
         - 
         - 
-        - 
-        actionEnabled: 010101
-        actionIsOpen: 010101
-        actionStartIndex: 000000001900000020000000
-        actionHashCodes: f0ad926e6e06efc03334d172
+        actionEnabled: 0101
+        actionIsOpen: 0000
+        actionStartIndex: 0000000019000000
+        actionHashCodes: f0ad926e6e06efc0
         unityObjectParams: []
         fsmGameObjectParams:
         - useVariable: 0
@@ -1344,14 +1346,14 @@ MonoBehaviour:
           value: MaleA_Walk
         fsmObjectParams: []
         fsmVarParams: []
-        byteData: 000000000000000000000000010000a040000000000000000000000100000000150000000000000001000000000000000000000000000100000000010000000001000000000001000046494e4953484544000001000100040000009a99993e0046494e495348454400000173746f705f746f5f74616c6b494e5f4449414c4f47554501
+        byteData: 000000000000000000000000010000a040000000000000000000000100000000150000000000000001000000000000000000000000000100000000010000000001000000000001000046494e4953484544000001000100040000009a99993e0046494e495348454400
         arrayParamSizes: 0000000000000000
         arrayParamTypes:
         - HutongGames.PlayMaker.FsmGameObject
         - HutongGames.PlayMaker.FsmVector3
         customTypeSizes: 
         customTypeNames: []
-        paramDataType: 1400000012000000130000001c0000000f0000000f0000000f00000007000000070000000700000011000000130000001c0000000f00000007000000110000000f0000000c0000000c0000001100000017000000170000001100000011000000110000001400000012000000070000000f00000017000000170000000100000011000000170000001700000001000000
+        paramDataType: 1400000012000000130000001c0000000f0000000f0000000f00000007000000070000000700000011000000130000001c0000000f00000007000000110000000f0000000c0000000c0000001100000017000000170000001100000011000000110000001400000012000000070000000f000000170000001700000001000000
         paramName:
         - gameObject
         - id
@@ -1385,20 +1387,16 @@ MonoBehaviour:
         - finishEvent
         - loopEvent
         - stopOnExit
-        - boolVariable
-        - isTrue
-        - isFalse
-        - everyFrame
-        paramDataPos: 000000000000000000000000000000000d00000012000000170000001c000000200000002400000028000000010000002a000000370000003c000000400000004200000000000000010000004700000049000000490000005100000053000000550000000100000001000000570000005b00000060000000680000006800000069000000770000008200000082000000
-        paramByteDataSize: 0000000000000000000000000d00000005000000050000000500000004000000040000000400000002000000000000000d000000050000000400000002000000050000000000000000000000020000000000000008000000020000000200000002000000000000000000000004000000050000000800000000000000010000000e0000000b0000000000000001000000
+        paramDataPos: 000000000000000000000000000000000d00000012000000170000001c000000200000002400000028000000010000002a000000370000003c000000400000004200000000000000010000004700000049000000490000005100000053000000550000000100000001000000570000005b000000600000006800000068000000
+        paramByteDataSize: 0000000000000000000000000d00000005000000050000000500000004000000040000000400000002000000000000000d00000005000000040000000200000005000000000000000000000002000000000000000800000002000000020000000200000000000000000000000400000005000000080000000000000001000000
     - name: Idle
       description: 
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 57.9921875
-        y: 243
-        width: 104
+        x: 58.984375
+        y: 292
+        width: 159
         height: 48
       isBreakpoint: 0
       isSequence: 0
@@ -1413,7 +1411,7 @@ MonoBehaviour:
         linkConstraint: 0
         colorIndex: 0
       - fsmEvent:
-          name: IN_DIALOGUE
+          name: OnConversationStart
           isSystemEvent: 0
           isGlobal: 0
         toState: Stop 2
@@ -1424,15 +1422,13 @@ MonoBehaviour:
         actionNames:
         - HutongGames.PlayMaker.Actions.Wait
         - HutongGames.PlayMaker.Actions.PlayAnimation
-        - HutongGames.PlayMaker.Actions.BoolTest
         customNames:
         - 
         - 
-        - 
-        actionEnabled: 010101
-        actionIsOpen: 010101
-        actionStartIndex: 00000000030000000a000000
-        actionHashCodes: 3708ec1a6e06efc03334d172
+        actionEnabled: 0101
+        actionIsOpen: 0101
+        actionStartIndex: 0000000003000000
+        actionHashCodes: 3708ec1a6e06efc0
         unityObjectParams: []
         fsmGameObjectParams: []
         fsmOwnerDefaultParams:
@@ -1459,12 +1455,12 @@ MonoBehaviour:
           value: MaleA_Idle
         fsmObjectParams: []
         fsmVarParams: []
-        byteData: 0000a0400046494e495348454400040000009a99993e0046494e495348454401000173746f705f746f5f74616c6b494e5f4449414c4f47554501
+        byteData: 0000a0400046494e495348454400040000009a99993e0046494e495348454401
         arrayParamSizes: 
         arrayParamTypes: []
         customTypeSizes: 
         customTypeNames: []
-        paramDataType: 0f00000017000000010000001400000012000000070000000f00000017000000170000000100000011000000170000001700000001000000
+        paramDataType: 0f00000017000000010000001400000012000000070000000f000000170000001700000001000000
         paramName:
         - time
         - finishEvent
@@ -1476,20 +1472,16 @@ MonoBehaviour:
         - finishEvent
         - loopEvent
         - stopOnExit
-        - boolVariable
-        - isTrue
-        - isFalse
-        - everyFrame
-        paramDataPos: 00000000050000000d00000000000000000000000e00000012000000170000001f0000001f000000200000002e0000003900000039000000
-        paramByteDataSize: 050000000800000001000000000000000000000004000000050000000800000000000000010000000e0000000b0000000000000001000000
+        paramDataPos: 00000000050000000d00000000000000000000000e00000012000000170000001f0000001f000000
+        paramByteDataSize: 05000000080000000100000000000000000000000400000005000000080000000000000001000000
     - name: MoveTo_Wp 2
       description: 
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 256.507812
-        y: 267
-        width: 106
+        x: 302.507812
+        y: 298
+        width: 159
         height: 48
       isBreakpoint: 0
       isSequence: 0
@@ -1504,7 +1496,7 @@ MonoBehaviour:
         linkConstraint: 0
         colorIndex: 0
       - fsmEvent:
-          name: IN_DIALOGUE
+          name: OnConversationStart
           isSystemEvent: 0
           isGlobal: 0
         toState: Stop 3
@@ -1515,15 +1507,13 @@ MonoBehaviour:
         actionNames:
         - HutongGames.PlayMaker.Actions.iTweenMoveTo
         - HutongGames.PlayMaker.Actions.PlayAnimation
-        - HutongGames.PlayMaker.Actions.BoolTest
         customNames:
         - 
         - 
-        - 
-        actionEnabled: 010101
-        actionIsOpen: 010101
-        actionStartIndex: 000000001900000020000000
-        actionHashCodes: f0ad926e6e06efc03334d172
+        actionEnabled: 0101
+        actionIsOpen: 0101
+        actionStartIndex: 0000000019000000
+        actionHashCodes: f0ad926e6e06efc0
         unityObjectParams: []
         fsmGameObjectParams:
         - useVariable: 0
@@ -1576,14 +1566,14 @@ MonoBehaviour:
           value: MaleA_Walk
         fsmObjectParams: []
         fsmVarParams: []
-        byteData: 000000000000000000000000010000a040000000000000000000000100000000150000000000000001000000000000000000000000000100000000010000000001000000000001000046494e4953484544000001000100040000009a99993e0046494e495348454400000173746f705f746f5f74616c6b494e5f4449414c4f47554501
+        byteData: 000000000000000000000000010000a040000000000000000000000100000000150000000000000001000000000000000000000000000100000000010000000001000000000001000046494e4953484544000001000100040000009a99993e0046494e495348454400
         arrayParamSizes: 0000000000000000
         arrayParamTypes:
         - HutongGames.PlayMaker.FsmGameObject
         - HutongGames.PlayMaker.FsmVector3
         customTypeSizes: 
         customTypeNames: []
-        paramDataType: 1400000012000000130000001c0000000f0000000f0000000f00000007000000070000000700000011000000130000001c0000000f00000007000000110000000f0000000c0000000c0000001100000017000000170000001100000011000000110000001400000012000000070000000f00000017000000170000000100000011000000170000001700000001000000
+        paramDataType: 1400000012000000130000001c0000000f0000000f0000000f00000007000000070000000700000011000000130000001c0000000f00000007000000110000000f0000000c0000000c0000001100000017000000170000001100000011000000110000001400000012000000070000000f000000170000001700000001000000
         paramName:
         - gameObject
         - id
@@ -1617,20 +1607,16 @@ MonoBehaviour:
         - finishEvent
         - loopEvent
         - stopOnExit
-        - boolVariable
-        - isTrue
-        - isFalse
-        - everyFrame
-        paramDataPos: 000000000000000000000000000000000d00000012000000170000001c000000200000002400000028000000010000002a000000370000003c000000400000004200000000000000010000004700000049000000490000005100000053000000550000000100000001000000570000005b00000060000000680000006800000069000000770000008200000082000000
-        paramByteDataSize: 0000000000000000000000000d00000005000000050000000500000004000000040000000400000002000000000000000d000000050000000400000002000000050000000000000000000000020000000000000008000000020000000200000002000000000000000000000004000000050000000800000000000000010000000e0000000b0000000000000001000000
+        paramDataPos: 000000000000000000000000000000000d00000012000000170000001c000000200000002400000028000000010000002a000000370000003c000000400000004200000000000000010000004700000049000000490000005100000053000000550000000100000001000000570000005b000000600000006800000068000000
+        paramByteDataSize: 0000000000000000000000000d00000005000000050000000500000004000000040000000400000002000000000000000d00000005000000040000000200000005000000000000000000000002000000000000000800000002000000020000000200000000000000000000000400000005000000080000000000000001000000
     - name: Idle 2
       description: 
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 254.507812
-        y: 201
-        width: 104
+        x: 306.507812
+        y: 220
+        width: 159
         height: 48
       isBreakpoint: 0
       isSequence: 0
@@ -1645,7 +1631,7 @@ MonoBehaviour:
         linkConstraint: 0
         colorIndex: 0
       - fsmEvent:
-          name: IN_DIALOGUE
+          name: OnConversationStart
           isSystemEvent: 0
           isGlobal: 0
         toState: Stop 4
@@ -1656,15 +1642,13 @@ MonoBehaviour:
         actionNames:
         - HutongGames.PlayMaker.Actions.Wait
         - HutongGames.PlayMaker.Actions.PlayAnimation
-        - HutongGames.PlayMaker.Actions.BoolTest
         customNames:
         - 
         - 
-        - 
-        actionEnabled: 010101
-        actionIsOpen: 010101
-        actionStartIndex: 00000000030000000a000000
-        actionHashCodes: 3708ec1a6e06efc03334d172
+        actionEnabled: 0101
+        actionIsOpen: 0101
+        actionStartIndex: 0000000003000000
+        actionHashCodes: 3708ec1a6e06efc0
         unityObjectParams: []
         fsmGameObjectParams: []
         fsmOwnerDefaultParams:
@@ -1691,12 +1675,12 @@ MonoBehaviour:
           value: MaleA_Idle
         fsmObjectParams: []
         fsmVarParams: []
-        byteData: 0000a0400046494e495348454400040000009a99993e0046494e495348454401000173746f705f746f5f74616c6b494e5f4449414c4f47554501
+        byteData: 0000a0400046494e495348454400040000009a99993e0046494e495348454401
         arrayParamSizes: 
         arrayParamTypes: []
         customTypeSizes: 
         customTypeNames: []
-        paramDataType: 0f00000017000000010000001400000012000000070000000f00000017000000170000000100000011000000170000001700000001000000
+        paramDataType: 0f00000017000000010000001400000012000000070000000f000000170000001700000001000000
         paramName:
         - time
         - finishEvent
@@ -1708,28 +1692,24 @@ MonoBehaviour:
         - finishEvent
         - loopEvent
         - stopOnExit
-        - boolVariable
-        - isTrue
-        - isFalse
-        - everyFrame
-        paramDataPos: 00000000050000000d00000000000000000000000e00000012000000170000001f0000001f000000200000002e0000003900000039000000
-        paramByteDataSize: 050000000800000001000000000000000000000004000000050000000800000000000000010000000e0000000b0000000000000001000000
+        paramDataPos: 00000000050000000d00000000000000000000000e00000012000000170000001f0000001f000000
+        paramByteDataSize: 05000000080000000100000000000000000000000400000005000000080000000000000001000000
     - name: Stop
       description: 
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 250
-        y: 108.992188
-        width: 100
+        x: 348
+        y: 104.992188
+        width: 150
         height: 32
       isBreakpoint: 0
       isSequence: 0
       hideUnused: 0
       transitions:
       - fsmEvent:
-          name: FINISHED
-          isSystemEvent: 1
+          name: OnConversationEnd
+          isSystemEvent: 0
           isGlobal: 0
         toState: MoveTo_Wp
         linkStyle: 0
@@ -1738,14 +1718,12 @@ MonoBehaviour:
       actionData:
         actionNames:
         - HutongGames.PlayMaker.Actions.PlayAnimation
-        - HutongGames.PlayMaker.Actions.BoolTest
         customNames:
         - 
-        - 
-        actionEnabled: 0101
-        actionIsOpen: 0101
-        actionStartIndex: 0000000007000000
-        actionHashCodes: 6e06efc03334d172
+        actionEnabled: 01
+        actionIsOpen: 01
+        actionStartIndex: 00000000
+        actionHashCodes: 6e06efc0
         unityObjectParams: []
         fsmGameObjectParams: []
         fsmOwnerDefaultParams:
@@ -1772,12 +1750,12 @@ MonoBehaviour:
           value: MaleA_Idle
         fsmObjectParams: []
         fsmVarParams: []
-        byteData: 040000009a99993e0000000173746f705f746f5f74616c6b46494e495348454401
+        byteData: 040000009a99993e0000
         arrayParamSizes: 
         arrayParamTypes: []
         customTypeSizes: 
         customTypeNames: []
-        paramDataType: 1400000012000000070000000f00000017000000170000000100000011000000170000001700000001000000
+        paramDataType: 1400000012000000070000000f000000170000001700000001000000
         paramName:
         - gameObject
         - animName
@@ -1786,28 +1764,24 @@ MonoBehaviour:
         - finishEvent
         - loopEvent
         - stopOnExit
-        - boolVariable
-        - isTrue
-        - isFalse
-        - everyFrame
-        paramDataPos: 000000000000000000000000040000000900000009000000090000000a000000180000001800000020000000
-        paramByteDataSize: 000000000000000004000000050000000000000000000000010000000e000000000000000800000001000000
+        paramDataPos: 00000000000000000000000004000000090000000900000009000000
+        paramByteDataSize: 00000000000000000400000005000000000000000000000001000000
     - name: Stop 2
       description: 
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 52.71875
-        y: 325.171875
-        width: 100
+        x: 66.71875
+        y: 364.171875
+        width: 150
         height: 32
       isBreakpoint: 0
       isSequence: 0
       hideUnused: 0
       transitions:
       - fsmEvent:
-          name: FINISHED
-          isSystemEvent: 1
+          name: OnConversationEnd
+          isSystemEvent: 0
           isGlobal: 0
         toState: Idle
         linkStyle: 0
@@ -1816,14 +1790,12 @@ MonoBehaviour:
       actionData:
         actionNames:
         - HutongGames.PlayMaker.Actions.PlayAnimation
-        - HutongGames.PlayMaker.Actions.BoolTest
         customNames:
         - 
-        - 
-        actionEnabled: 0101
-        actionIsOpen: 0101
-        actionStartIndex: 0000000007000000
-        actionHashCodes: 6e06efc03334d172
+        actionEnabled: 01
+        actionIsOpen: 01
+        actionStartIndex: 00000000
+        actionHashCodes: 6e06efc0
         unityObjectParams: []
         fsmGameObjectParams: []
         fsmOwnerDefaultParams:
@@ -1850,12 +1822,12 @@ MonoBehaviour:
           value: MaleA_Idle
         fsmObjectParams: []
         fsmVarParams: []
-        byteData: 040000009a99993e0000000173746f705f746f5f74616c6b46494e495348454401
+        byteData: 040000009a99993e0000
         arrayParamSizes: 
         arrayParamTypes: []
         customTypeSizes: 
         customTypeNames: []
-        paramDataType: 1400000012000000070000000f00000017000000170000000100000011000000170000001700000001000000
+        paramDataType: 1400000012000000070000000f000000170000001700000001000000
         paramName:
         - gameObject
         - animName
@@ -1864,28 +1836,24 @@ MonoBehaviour:
         - finishEvent
         - loopEvent
         - stopOnExit
-        - boolVariable
-        - isTrue
-        - isFalse
-        - everyFrame
-        paramDataPos: 000000000000000000000000040000000900000009000000090000000a000000180000001800000020000000
-        paramByteDataSize: 000000000000000004000000050000000000000000000000010000000e000000000000000800000001000000
+        paramDataPos: 00000000000000000000000004000000090000000900000009000000
+        paramByteDataSize: 00000000000000000400000005000000000000000000000001000000
     - name: Stop 3
       description: 
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 251.734375
-        y: 335.171875
-        width: 100
+        x: 309.734375
+        y: 372.171875
+        width: 150
         height: 32
       isBreakpoint: 0
       isSequence: 0
       hideUnused: 0
       transitions:
       - fsmEvent:
-          name: FINISHED
-          isSystemEvent: 1
+          name: OnConversationEnd
+          isSystemEvent: 0
           isGlobal: 0
         toState: MoveTo_Wp 2
         linkStyle: 0
@@ -1894,14 +1862,12 @@ MonoBehaviour:
       actionData:
         actionNames:
         - HutongGames.PlayMaker.Actions.PlayAnimation
-        - HutongGames.PlayMaker.Actions.BoolTest
         customNames:
         - 
-        - 
-        actionEnabled: 0101
-        actionIsOpen: 0101
-        actionStartIndex: 0000000007000000
-        actionHashCodes: 6e06efc03334d172
+        actionEnabled: 01
+        actionIsOpen: 01
+        actionStartIndex: 00000000
+        actionHashCodes: 6e06efc0
         unityObjectParams: []
         fsmGameObjectParams: []
         fsmOwnerDefaultParams:
@@ -1928,12 +1894,12 @@ MonoBehaviour:
           value: MaleA_Idle
         fsmObjectParams: []
         fsmVarParams: []
-        byteData: 040000009a99993e0000000173746f705f746f5f74616c6b46494e495348454401
+        byteData: 040000009a99993e0000
         arrayParamSizes: 
         arrayParamTypes: []
         customTypeSizes: 
         customTypeNames: []
-        paramDataType: 1400000012000000070000000f00000017000000170000000100000011000000170000001700000001000000
+        paramDataType: 1400000012000000070000000f000000170000001700000001000000
         paramName:
         - gameObject
         - animName
@@ -1942,28 +1908,24 @@ MonoBehaviour:
         - finishEvent
         - loopEvent
         - stopOnExit
-        - boolVariable
-        - isTrue
-        - isFalse
-        - everyFrame
-        paramDataPos: 000000000000000000000000040000000900000009000000090000000a000000180000001800000020000000
-        paramByteDataSize: 000000000000000004000000050000000000000000000000010000000e000000000000000800000001000000
+        paramDataPos: 00000000000000000000000004000000090000000900000009000000
+        paramByteDataSize: 00000000000000000400000005000000000000000000000001000000
     - name: Stop 4
       description: 
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 418.773438
-        y: 208.171875
-        width: 100
+        x: 565.773438
+        y: 221.171875
+        width: 150
         height: 32
       isBreakpoint: 0
       isSequence: 0
       hideUnused: 0
       transitions:
       - fsmEvent:
-          name: FINISHED
-          isSystemEvent: 1
+          name: OnConversationEnd
+          isSystemEvent: 0
           isGlobal: 0
         toState: Idle 2
         linkStyle: 0
@@ -1972,14 +1934,12 @@ MonoBehaviour:
       actionData:
         actionNames:
         - HutongGames.PlayMaker.Actions.PlayAnimation
-        - HutongGames.PlayMaker.Actions.BoolTest
         customNames:
         - 
-        - 
-        actionEnabled: 0101
-        actionIsOpen: 0101
-        actionStartIndex: 0000000007000000
-        actionHashCodes: 6e06efc03334d172
+        actionEnabled: 01
+        actionIsOpen: 01
+        actionStartIndex: 00000000
+        actionHashCodes: 6e06efc0
         unityObjectParams: []
         fsmGameObjectParams: []
         fsmOwnerDefaultParams:
@@ -2006,12 +1966,12 @@ MonoBehaviour:
           value: MaleA_Idle
         fsmObjectParams: []
         fsmVarParams: []
-        byteData: 040000009a99993e0000000173746f705f746f5f74616c6b46494e495348454401
+        byteData: 040000009a99993e0000
         arrayParamSizes: 
         arrayParamTypes: []
         customTypeSizes: 
         customTypeNames: []
-        paramDataType: 1400000012000000070000000f00000017000000170000000100000011000000170000001700000001000000
+        paramDataType: 1400000012000000070000000f000000170000001700000001000000
         paramName:
         - gameObject
         - animName
@@ -2020,17 +1980,19 @@ MonoBehaviour:
         - finishEvent
         - loopEvent
         - stopOnExit
-        - boolVariable
-        - isTrue
-        - isFalse
-        - everyFrame
-        paramDataPos: 000000000000000000000000040000000900000009000000090000000a000000180000001800000020000000
-        paramByteDataSize: 000000000000000004000000050000000000000000000000010000000e000000000000000800000001000000
+        paramDataPos: 00000000000000000000000004000000090000000900000009000000
+        paramByteDataSize: 00000000000000000400000005000000000000000000000001000000
     events:
     - name: FINISHED
       isSystemEvent: 1
       isGlobal: 0
-    - name: IN_DIALOGUE
+    - name: On
+      isSystemEvent: 0
+      isGlobal: 0
+    - name: OnConversationEnd
+      isSystemEvent: 0
+      isGlobal: 0
+    - name: OnConversationStart
       isSystemEvent: 0
       isGlobal: 0
     globalTransitions: []
@@ -2061,11 +2023,73 @@ MonoBehaviour:
     watermark: 
     version: 0
     ExposedEvents: []
-    RestartOnEnable: 1
+    RestartOnEnable: 0
     EnableDebugFlow: 0
     StepFrame: 0
     activeStateName: 
   fsmTemplate: {fileID: 0}
+--- !u!114 &11400002
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a308b4aa4fc5394d80474e70a6ce7bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FSMs:
+  - {fileID: 11400000}
+--- !u!114 &11400004
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1005983785, guid: b5a7519e94754fb4a8ea0c272031db78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  overrideActorName: 
+--- !u!114 &11400006
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 274b80ab5b659c646ba9338870d14625, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  overrideName: 
+  overrideUseMessage: 
+  maxUseDistance: 5
+--- !u!114 &11400008
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 567319595, guid: b5a7519e94754fb4a8ea0c272031db78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  once: 0
+  conversation: Loan Enquiry
+  condition:
+    luaConditions: []
+    questConditions: []
+    acceptedTags: []
+    acceptedGameObjects: []
+  skipIfNoValidEntries: 0
+  conversant: {fileID: 0}
+  actor: {fileID: 0}
+  trigger: 32
+  stopConversationOnTriggerExit: 0
 --- !u!136 &13600000
 CapsuleCollider:
   m_ObjectHideFlags: 1
