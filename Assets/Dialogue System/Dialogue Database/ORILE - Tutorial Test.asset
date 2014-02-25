@@ -250,7 +250,7 @@ MonoBehaviour:
       value: Missing Fire Extinguisher
       type: 0
     - title: Description
-      value: 
+      value: 'The fire extinguisher seems to be missing. How can I get it replaced? '
       type: 0
     - title: Success Description
       value: You have succeeded in identifying the missing fire extinguisher.
@@ -420,13 +420,13 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Dialogue Text
-        value: "Hi, how may I help you? \n"
+        value: Hi, how may I help you?
         type: 4
       - title: Video File
         value: 
         type: 0
       - title: Sequence
-        value: 
+        value: Camera(Closeup)
         type: 0
       conversationID: 1
       isRoot: 0
@@ -785,7 +785,7 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Sequence
-        value: 
+        value: Camera(Closeup)
         type: 0
       conversationID: 2
       isRoot: 0
@@ -977,7 +977,7 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: Item["Missing_Fire_Extinguisher"].State = "active";
+      userScript: 
     - id: 2
       fields:
       - title: Title
@@ -1043,7 +1043,13 @@ MonoBehaviour:
       delaySimStatus: 0
       falseConditionAction: Block
       conditionPriority: 2
-      outgoingLinks: []
+      outgoingLinks:
+      - originConversationID: 3
+        originDialogueID: 3
+        destinationConversationID: 3
+        destinationDialogueID: 6
+        isConnector: 0
+        priority: 2
       conditionsString: Item["Missing_Fire_Extinguisher"].State ~= "success";
       userScript: 
     - id: 4
@@ -1124,6 +1130,39 @@ MonoBehaviour:
         priority: 2
       conditionsString: 
       userScript: 
+    - id: 6
+      fields:
+      - title: Title
+        value: 
+        type: 0
+      - title: Actor
+        value: 8
+        type: 5
+      - title: Conversant
+        value: 7
+        type: 5
+      - title: Menu Text
+        value: 
+        type: 0
+      - title: Dialogue Text
+        value: 
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 3
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: Dialog[6].SimStatus ~= "WasDisplayed"
+      userScript: Item["Missing_Fire_Extinguisher"].State = "active";
   - id: 4
     fields:
     - title: Title
@@ -1200,7 +1239,7 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Sequence
-        value: 
+        value: Camera(Closeup Wall)
         type: 0
       conversationID: 4
       isRoot: 0
@@ -2055,7 +2094,7 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Sequence
-        value: 
+        value: Camera(Closeup)
         type: 0
       conversationID: 8
       isRoot: 0
@@ -2270,7 +2309,7 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Sequence
-        value: 
+        value: Camera(Closeup)
         type: 0
       conversationID: 9
       isRoot: 0
@@ -2576,7 +2615,7 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Sequence
-        value: 
+        value: Camera(Closeup)
         type: 0
       conversationID: 9
       isRoot: 0
@@ -2782,7 +2821,7 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Sequence
-        value: 
+        value: Camera(Closeup)
         type: 0
       conversationID: 6
       isRoot: 0

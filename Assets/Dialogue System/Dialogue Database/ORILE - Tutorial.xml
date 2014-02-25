@@ -293,7 +293,7 @@
           </Field>
           <Field Hint="A description of this item or quest." Type="Text">
             <Title>Description</Title>
-            <Value />
+            <Value>The fire extinguisher seems to be missing. How can I get it replaced? </Value>
           </Field>
           <Field Hint="The description of the quest when the player has completed it successfully." Type="Text">
             <Title>Success Description</Title>
@@ -496,8 +496,7 @@
               </Field>
               <Field Hint="The text that is spoken by the actor." Type="Localization">
                 <Title>Dialogue Text</Title>
-                <Value>Hi, how may I help you? 
-</Value>
+                <Value>Hi, how may I help you?</Value>
               </Field>
               <Field Hint="A WMV video file to be played for this dialogue." Type="Text">
                 <Title>Video File</Title>
@@ -505,7 +504,7 @@
               </Field>
               <Field Hint="Dialogue System for Unity cutscene sequence" Type="Text">
                 <Title>Sequence</Title>
-                <Value />
+                <Value>Camera(Closeup)</Value>
               </Field>
             </Fields>
             <ReviewerNotes />
@@ -861,7 +860,7 @@
               </Field>
               <Field Hint="Dialogue System for Unity cutscene sequence" Type="Text">
                 <Title>Sequence</Title>
-                <Value />
+                <Value>Camera(Closeup)</Value>
               </Field>
             </Fields>
             <ReviewerNotes />
@@ -1048,7 +1047,7 @@
               <Link OriginConvoID="3" DestinationConvoID="3" OriginDialogID="1" DestinationDialogID="4" IsConnector="false" />
             </OutgoingLinks>
             <ConditionsString />
-            <UserScript>Item["Missing_Fire_Extinguisher"].State = "active";</UserScript>
+            <UserScript />
           </DialogEntry>
           <DialogEntry ID="2" IsRoot="false" IsGroup="false" NodeColor="White" DelaySimStatus="false" FalseCondtionAction="Block" ConditionPriority="Normal">
             <Fields>
@@ -1121,7 +1120,9 @@
             </Fields>
             <ReviewerNotes />
             <ReviewerStatus>None</ReviewerStatus>
-            <OutgoingLinks />
+            <OutgoingLinks>
+              <Link OriginConvoID="3" DestinationConvoID="3" OriginDialogID="3" DestinationDialogID="6" IsConnector="false" />
+            </OutgoingLinks>
             <ConditionsString>Item["Missing_Fire_Extinguisher"].State ~= "success";</ConditionsString>
             <UserScript />
           </DialogEntry>
@@ -1201,6 +1202,43 @@
             </OutgoingLinks>
             <ConditionsString />
             <UserScript />
+          </DialogEntry>
+          <DialogEntry ID="6" IsRoot="false" IsGroup="false" NodeColor="White" DelaySimStatus="false" FalseCondtionAction="Block" ConditionPriority="Normal">
+            <Fields>
+              <Field Hint="The title of this dialogue." Type="Text">
+                <Title>Title</Title>
+                <Value />
+              </Field>
+              <Field Hint="The actor who is talking." Type="Actor">
+                <Title>Actor</Title>
+                <Value>8</Value>
+              </Field>
+              <Field Hint="The actor who is listening." Type="Actor">
+                <Title>Conversant</Title>
+                <Value>7</Value>
+              </Field>
+              <Field Hint="The text that is displayed to the player in a list as a dialogue option." Type="Text">
+                <Title>Menu Text</Title>
+                <Value />
+              </Field>
+              <Field Hint="The text that is spoken by the actor." Type="Localization">
+                <Title>Dialogue Text</Title>
+                <Value />
+              </Field>
+              <Field Hint="A WMV video file to be played for this dialogue." Type="Text">
+                <Title>Video File</Title>
+                <Value />
+              </Field>
+              <Field Hint="Dialogue System for Unity cutscene sequence" Type="Text">
+                <Title>Sequence</Title>
+                <Value />
+              </Field>
+            </Fields>
+            <ReviewerNotes />
+            <ReviewerStatus>None</ReviewerStatus>
+            <OutgoingLinks />
+            <ConditionsString>Dialog[6].SimStatus ~= "WasDisplayed"</ConditionsString>
+            <UserScript>Item["Missing_Fire_Extinguisher"].State = "active";</UserScript>
           </DialogEntry>
         </DialogEntries>
       </Conversation>
@@ -1291,7 +1329,7 @@
               </Field>
               <Field Hint="Dialogue System for Unity cutscene sequence" Type="Text">
                 <Title>Sequence</Title>
-                <Value />
+                <Value>Camera(Closeup Wall)</Value>
               </Field>
             </Fields>
             <ReviewerNotes />
@@ -2165,7 +2203,7 @@
               </Field>
               <Field Hint="Dialogue System for Unity cutscene sequence" Type="Text">
                 <Title>Sequence</Title>
-                <Value />
+                <Value>Camera(Closeup)</Value>
               </Field>
             </Fields>
             <ReviewerNotes />
@@ -2381,7 +2419,7 @@
               </Field>
               <Field Hint="Dialogue System for Unity cutscene sequence" Type="Text">
                 <Title>Sequence</Title>
-                <Value />
+                <Value>Camera(Closeup)</Value>
               </Field>
             </Fields>
             <ReviewerNotes />
@@ -2688,7 +2726,7 @@
               </Field>
               <Field Hint="Dialogue System for Unity cutscene sequence" Type="Text">
                 <Title>Sequence</Title>
-                <Value />
+                <Value>Camera(Closeup)</Value>
               </Field>
             </Fields>
             <ReviewerNotes />
@@ -2902,7 +2940,7 @@
               </Field>
               <Field Hint="Dialogue System for Unity cutscene sequence" Type="Text">
                 <Title>Sequence</Title>
-                <Value />
+                <Value>Camera(Closeup)</Value>
               </Field>
             </Fields>
             <ReviewerNotes />

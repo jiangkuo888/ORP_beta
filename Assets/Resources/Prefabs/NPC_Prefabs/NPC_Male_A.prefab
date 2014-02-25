@@ -84,12 +84,14 @@ GameObject:
   m_Component:
   - 4: {fileID: 400010}
   - 111: {fileID: 11100000}
-  - 114: {fileID: 11400000}
   - 136: {fileID: 13600000}
   - 114: {fileID: 11400008}
   - 114: {fileID: 11400006}
   - 114: {fileID: 11400004}
   - 114: {fileID: 11400002}
+  - 114: {fileID: 11400012}
+  - 114: {fileID: 11400010}
+  - 114: {fileID: 11400000}
   m_Layer: 0
   m_Name: NPC_Male_A
   m_TagString: Untagged
@@ -1230,7 +1232,7 @@ Animation:
   m_GameObject: {fileID: 100010}
   m_Enabled: 1
   serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: 9c025a43424f2ec45a154b3251cd110d, type: 3}
+  m_Animation: {fileID: 0}
   m_Animations:
   - {fileID: 7400000, guid: 9c025a43424f2ec45a154b3251cd110d, type: 3}
   - {fileID: 7400000, guid: a33abe67d792dce4b9cb214d18abac5e, type: 3}
@@ -1246,21 +1248,152 @@ MonoBehaviour:
   m_GameObject: {fileID: 100010}
   m_Enabled: 1
   m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  subId: 0
+  ownerId: 0
+  group: 0
+  prefixBackup: -1
+  observed: {fileID: 11400010}
+  synchronization: 1
+  onSerializeTransformOption: 3
+  onSerializeRigidBodyOption: 2
+  instantiationId: 0
+--- !u!114 &11400002
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a308b4aa4fc5394d80474e70a6ce7bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FSMs:
+  - {fileID: 0}
+--- !u!114 &11400004
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1005983785, guid: b5a7519e94754fb4a8ea0c272031db78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  overrideActorName: 
+--- !u!114 &11400006
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 274b80ab5b659c646ba9338870d14625, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  overrideName: John
+  overrideUseMessage: Customer
+  maxUseDistance: 2
+--- !u!114 &11400008
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 567319595, guid: b5a7519e94754fb4a8ea0c272031db78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  once: 0
+  conversation: Big Sales Prospect
+  condition:
+    luaConditions: []
+    questConditions: []
+    acceptedTags: []
+    acceptedGameObjects: []
+  skipIfNoValidEntries: 0
+  conversant: {fileID: 0}
+  actor: {fileID: 0}
+  trigger: 32
+  stopConversationOnTriggerExit: 0
+--- !u!114 &11400010
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
   m_Script: {fileID: 1384774831, guid: e743331561ef77147ae48cda9bcb8209, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   fsm:
     usedInTemplate: {fileID: 0}
-    name: FSM
-    startState: MoveTo_Wp
+    name: Photon Network Synch FSM
+    startState: Wait
     states:
+    - name: Wait
+      description: 
+      colorIndex: 0
+      position:
+        serializedVersion: 2
+        x: 56
+        y: 102
+        width: 193
+        height: 32
+      isBreakpoint: 0
+      isSequence: 0
+      hideUnused: 0
+      transitions:
+      - fsmEvent:
+          name: PHOTON / JOINED ROOM
+          isSystemEvent: 0
+          isGlobal: 1
+        toState: MoveTo_Wp
+        linkStyle: 0
+        linkConstraint: 0
+        colorIndex: 0
+      actionData:
+        actionNames: []
+        customNames: []
+        actionEnabled: 
+        actionIsOpen: 
+        actionStartIndex: 
+        actionHashCodes: 
+        unityObjectParams: []
+        fsmGameObjectParams: []
+        fsmOwnerDefaultParams: []
+        animationCurveParams: []
+        functionCallParams: []
+        fsmTemplateControlParams: []
+        fsmEventTargetParams: []
+        fsmPropertyParams: []
+        layoutOptionParams: []
+        fsmStringParams: []
+        fsmObjectParams: []
+        fsmVarParams: []
+        byteData: 
+        arrayParamSizes: 
+        arrayParamTypes: []
+        customTypeSizes: 
+        customTypeNames: []
+        paramDataType: 
+        paramName: []
+        paramDataPos: 
+        paramByteDataSize: 
     - name: MoveTo_Wp
       description: 
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 66
-        y: 164
+        x: 72.515625
+        y: 162.507812
         width: 159
         height: 48
       isBreakpoint: 0
@@ -1394,8 +1527,8 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 58.984375
-        y: 292
+        x: 65.5
+        y: 290.507812
         width: 159
         height: 48
       isBreakpoint: 0
@@ -1479,8 +1612,8 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 302.507812
-        y: 298
+        x: 309.023438
+        y: 296.507812
         width: 159
         height: 48
       isBreakpoint: 0
@@ -1614,8 +1747,8 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 306.507812
-        y: 220
+        x: 313.023438
+        y: 218.507812
         width: 159
         height: 48
       isBreakpoint: 0
@@ -1699,8 +1832,8 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 348
-        y: 104.992188
+        x: 354.515625
+        y: 103.5
         width: 150
         height: 32
       isBreakpoint: 0
@@ -1771,8 +1904,8 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 66.71875
-        y: 364.171875
+        x: 73.234375
+        y: 362.679688
         width: 150
         height: 32
       isBreakpoint: 0
@@ -1843,8 +1976,8 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 309.734375
-        y: 372.171875
+        x: 316.25
+        y: 370.679688
         width: 150
         height: 32
       isBreakpoint: 0
@@ -1915,8 +2048,8 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 565.773438
-        y: 221.171875
+        x: 572.289062
+        y: 219.679688
         width: 150
         height: 32
       isBreakpoint: 0
@@ -1986,26 +2119,20 @@ MonoBehaviour:
     - name: FINISHED
       isSystemEvent: 1
       isGlobal: 0
-    - name: On
-      isSystemEvent: 0
-      isGlobal: 0
     - name: OnConversationEnd
       isSystemEvent: 0
       isGlobal: 0
     - name: OnConversationStart
       isSystemEvent: 0
       isGlobal: 0
+    - name: PHOTON / JOINED ROOM
+      isSystemEvent: 0
+      isGlobal: 1
     globalTransitions: []
     variables:
       floatVariables: []
       intVariables: []
-      boolVariables:
-      - useVariable: 1
-        name: stop_to_talk
-        tooltip: 
-        showInInspector: 0
-        networkSync: 0
-        value: 0
+      boolVariables: []
       stringVariables: []
       vector2Variables: []
       vector3Variables: []
@@ -2016,19 +2143,20 @@ MonoBehaviour:
       objectVariables: []
       materialVariables: []
       textureVariables: []
-    description: 
+    description: This FSM is ready to accept variables that are synched across the
+      network.
     docUrl: 
     showStateLabel: 1
     maxLoopCount: 0
     watermark: 
     version: 0
     ExposedEvents: []
-    RestartOnEnable: 0
+    RestartOnEnable: 1
     EnableDebugFlow: 0
     StepFrame: 0
     activeStateName: 
   fsmTemplate: {fileID: 0}
---- !u!114 &11400002
+--- !u!114 &11400012
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -2036,60 +2164,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 100010}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a308b4aa4fc5394d80474e70a6ce7bb, type: 3}
+  m_Script: {fileID: 11500000, guid: 19a21220299d849abaffd33cc04a657b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FSMs:
-  - {fileID: 11400000}
---- !u!114 &11400004
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100010}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1005983785, guid: b5a7519e94754fb4a8ea0c272031db78, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  overrideActorName: 
---- !u!114 &11400006
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100010}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 274b80ab5b659c646ba9338870d14625, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  overrideName: 
-  overrideUseMessage: 
-  maxUseDistance: 5
---- !u!114 &11400008
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100010}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 567319595, guid: b5a7519e94754fb4a8ea0c272031db78, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  once: 0
-  conversation: Loan Enquiry
-  condition:
-    luaConditions: []
-    questConditions: []
-    acceptedTags: []
-    acceptedGameObjects: []
-  skipIfNoValidEntries: 0
-  conversant: {fileID: 0}
-  actor: {fileID: 0}
-  trigger: 32
-  stopConversationOnTriggerExit: 0
 --- !u!136 &13600000
 CapsuleCollider:
   m_ObjectHideFlags: 1
