@@ -45,11 +45,26 @@ public class DeskObjectHandler : MonoBehaviour {
 		switch(this.name)
 		{
 			
-		case "File":
+		case "DocumentHolder":
 		{
-			GameObject target = GameObject.Find ("File1");
+
+
+				
+
+
+
+
+
+			Transform [] t = this.GetComponent<documentData>().fileModeObj.GetComponentsInChildren<Transform>();
+			
+			// find the first child
+			GameObject target = t[1].gameObject;
+			
+			
 			if(target.GetComponent<ObjectViewer>() == null)
-			target.AddComponent<ObjectViewer>();
+				target.AddComponent<ObjectViewer>();
+
+
 			float objXmid = (target.collider.bounds.max.x + target.collider.bounds.min.x)/2;
 			float objYmid = (target.collider.bounds.max.y + target.collider.bounds.min.y)/2;
 			float objZmid = (target.collider.bounds.max.z + target.collider.bounds.min.z)/2;
@@ -60,7 +75,7 @@ public class DeskObjectHandler : MonoBehaviour {
 			Camera.main.transform.localEulerAngles = new Vector3(90,0,0);
 			
 			GameObject.Find (tableName).GetComponent<DeskMode>().mode = DeskMode.DeskModeSubMode.FileMode;
-			GameObject.Find (tableName).GetComponent<DeskMode>().FileModeFileIndex = 1;
+			GameObject.Find (tableName).GetComponent<DeskMode>().currentDocumentIndex = 1;
 			break;
 		}
 		case "Monitor":

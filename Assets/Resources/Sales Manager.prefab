@@ -260,6 +260,7 @@ GameObject:
   - 114: {fileID: 11400000}
   - 114: {fileID: 11400010}
   - 114: {fileID: 11400020}
+  - 114: {fileID: 11400022}
   m_Layer: 2
   m_Name: Sales Manager
   m_TagString: manager
@@ -4253,6 +4254,36 @@ MonoBehaviour:
   currentHitObj: {fileID: 0}
   mouseClick: 0
   enteredDialog: 0
+--- !u!114 &11400022
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 624654ff0a68ee844994f728ddf3d991, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  selectAt: 0
+  distanceFrom: 0
+  maxSelectionDistance: 30
+  useDefaultGUI: 1
+  guiSkin: {fileID: 0}
+  inRangeColor: {r: 1, g: .921568632, b: .0156862754, a: 1}
+  outOfRangeColor: {r: .5, g: .5, b: .5, a: 1}
+  reticle:
+    inRange: {fileID: 0}
+    outOfRange: {fileID: 0}
+    width: 64
+    height: 64
+  useKey: 32
+  useButton: Fire2
+  defaultUseMessage: (spacebar to interact)
+  broadcastToChildren: 1
 --- !u!137 &13700000
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

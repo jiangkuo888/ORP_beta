@@ -13,36 +13,24 @@ public class DeskMode : MonoBehaviour {
 	public GameObject TelephoneMode;
 	
 	
+	public int currentDocumentIndex;
+	public int currentPageIndex;
 	
 	Vector3 FileModeOriginalPosition;
 	Vector3 PCModeOriginalPosition;
 	Vector3 TelephoneModeOriginalPosition;
 	
-	public int FileModeFileIndex;
-	public int FileModeMaxIndex;
+	
 	public Light highlight;
-
-	public Texture buttongui;
-	public Texture previousbuttongui;
-	public Texture nextbuttongui;
-	public Texture sendemailgui;
-	public Texture checkemailgui;
-	public Texture exitpcgui;
-	public Texture exitdocgui;
-	public Texture backgui;
-	public Texture acceptbuttongui;
-	public Texture rejectbuttongui;
-	public Texture phonegui;
-	public Texture exitphonegui;
-	public Texture facilitiesbuttongui;
-	public Texture securitybuttongui;
-
-
+	
+	
+	
+	
 	public bool callingfacility;
 	public bool callingsecurity;
-
-
-
+	public bool pageMode;
+	
+	
 	float lightOffset;
 	float cameraOffset;
 	
@@ -52,10 +40,11 @@ public class DeskMode : MonoBehaviour {
 	bool computerIsOn;
 	// Use this for initialization
 	void Start () {
+		pageMode = false;
 		w = Screen.width;
 		h = Screen.height;
 		mode = DeskModeSubMode.None;
-
+		
 		callingfacility = false;	
 		callingsecurity = false;	
 		sending = false;
@@ -66,210 +55,275 @@ public class DeskMode : MonoBehaviour {
 		//PCModeOriginalPosition = PCMode.transform.position;
 		//TelephoneModeOriginalPosition = TelephoneMode.transform.position;
 		
-		FileModeFileIndex=1;
+		currentDocumentIndex=1;
+		currentPageIndex=1;
+		
+		
+		
 		lightOffset = 0.32f;
 		cameraOffset = 0.47f;
 		
 		enableChildren();
+		
+		
+		
+		if(this.transform.Find ("DocumentHolder").GetComponent<documentData>().enabled == false)
+			this.transform.Find ("DocumentHolder").GetComponent<documentData>().enabled = true;
 	}
 	
 	void OnGUI(){
-		switch (mode)
+		
+		if(!pageMode)
 		{
-
-		case DeskModeSubMode.FileMode:
-		{
-			//nofunction added
-			GUI.Button( new LTRect(100f, .3f*h - 50f, 100f, 50f ).rect, acceptbuttongui, "Accept");
-			GUI.Button( new LTRect(w-200f, .3f*h - 50f, 100f, 50f ).rect, rejectbuttongui, "Reject");
-			//functions in use
-			if(GUI.Button( new LTRect(w - 200f, .9f*h - 50f, 100f, 50f ).rect, nextbuttongui, "Next"))
+			switch (mode)
 			{
-				if(FileModeFileIndex<FileModeMaxIndex)
-				{
-					// remove viewer for current obj
-					if(GameObject.Find("File"+FileModeFileIndex).GetComponent<ObjectViewer>())
-						Destroy(GameObject.Find("File"+FileModeFileIndex).GetComponent<ObjectViewer>());
-					// add viewer for next obj
-					FileModeFileIndex++;
-					Transform nextTr = GameObject.Find ("File"+FileModeFileIndex).transform;
-					nextTr.gameObject.AddComponent<ObjectViewer>();
-					
-					// calculate the next obj mid point
-					float midX = (nextTr.renderer.bounds.max.x + nextTr.renderer.bounds.min.x)/2;
-					float midY = (nextTr.renderer.bounds.max.y + nextTr.renderer.bounds.min.y)/2;
-					float midZ = (nextTr.renderer.bounds.max.z + nextTr.renderer.bounds.min.z)/2;
-					
-					LeanTween.move(Camera.main.gameObject,new Vector3(midX,midY+cameraOffset,midZ),.6f).setEase(LeanTweenType.easeOutQuint);
-					LeanTween.move(highlight.gameObject,new Vector3(midX,midY+lightOffset,midZ),.6f).setEase(LeanTweenType.easeOutQuint);
-					
-				}
-				else{
-					
-				}
 				
-			}
-			if(GUI.Button( new LTRect(100f, .9f*h - 50f, 100f, 50f ).rect,previousbuttongui, "Back"))
+			case DeskModeSubMode.FileMode:
 			{
-				if(FileModeFileIndex>1)
+				//nofunction added
+				GUI.Button( new LTRect(100f, .3f*h - 50f, 100f, 50f ).rect, "Accept");
+				GUI.Button( new LTRect(w-200f, .3f*h - 50f, 100f, 50f ).rect, "Reject");
+
+				if(GUI.Button(new LTRect(w - 300f, .9f*h - 50f, 100f, 50f ).rect, "Read"))
 				{
-					// remove viewer for current obj
-					if(GameObject.Find("File"+FileModeFileIndex).GetComponent<ObjectViewer>())
-						Destroy(GameObject.Find("File"+FileModeFileIndex).GetComponent<ObjectViewer>());
-					// add viewer for next obj
-					FileModeFileIndex--;
-					Transform nextTr = GameObject.Find ("File"+FileModeFileIndex).transform;
-					nextTr.gameObject.AddComponent<ObjectViewer>();
-					
-					
-					
-					float midX = (nextTr.renderer.bounds.max.x + nextTr.renderer.bounds.min.x)/2;
-					float midY = (nextTr.renderer.bounds.max.y + nextTr.renderer.bounds.min.y)/2;
-					float midZ = (nextTr.renderer.bounds.max.z + nextTr.renderer.bounds.min.z)/2;
-					
-					LeanTween.move(Camera.main.gameObject,new Vector3(midX,midY+cameraOffset,midZ),.6f).setEase(LeanTweenType.easeOutQuint);
-					LeanTween.move(highlight.gameObject,new Vector3(midX,midY+lightOffset,midZ),.6f).setEase(LeanTweenType.easeOutQuint);
-					
+					this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].GetComponent<ObjectViewer>().readDocument();
+					pageMode = true;
+
 				}
-				else{
-					
-				}
-				
-			}
-			if(GUI.Button( new LTRect(w - 200f, .1f*h - 50f, 100f, 50f ).rect,exitdocgui, "Back to DeskMode"))
-			{
-				mode = DeskModeSubMode.None;
-				moveCameraToDesk();
-				
-			}
-			
-			break;
-			
-		}
-		case DeskModeSubMode.PhoneMode:
-		{
-			GUI.Box(new Rect(0,0,w,h),phonegui);
-			if(GUI.Button( new LTRect(0.2f*w, .3f*h - 50f, 200f, 50f ).rect, facilitiesbuttongui, "facilities"))
-			{callingfacility=true;
-			}
-			if(GUI.Button( new LTRect(0.2f*w, .4f*h - 50f, 200f, 50f ).rect, securitybuttongui, "security"))
-			{callingsecurity=true;
-			}
-			if (callingfacility==true ){ GUI.Label(new Rect(0.5f*w,.5f*h,400,30),"talking with facility");callingsecurity=false;}
-			if (callingsecurity==true ){ GUI.Label(new Rect(0.5f*w,.5f*h,400,30),"talking with security");callingfacility=false;}
 
-
-			if(GUI.Button( new LTRect(w - 200f, .1f*h - 50f, 100f, 50f ).rect,exitphonegui, "Back to DeskMode"))
-			{
-				mode = DeskModeSubMode.None;
-				moveCameraToDesk();
-				
-			}
-
-			break;
-		}
-		case DeskModeSubMode.PCMode:
-		{
-			
-			if(!sending && !checking)
-			{
-				if(GUI.Button( new LTRect(0.2f*w, .2f*h - 50f, 100f, 50f ).rect,sendemailgui, "Send Email"))
+				//functions in use
+				if(GUI.Button( new LTRect(w - 200f, .9f*h - 50f, 100f, 50f ).rect, "Next"))
 				{
-					sending = true;
-				}
-				
-				if(GUI.Button( new LTRect(0.2f*w, .4f*h - 50f, 100f, 50f ).rect,checkemailgui, "Check Email"))
-				{
-					checking = true;
-				}
-			}
-			else if (sending)
-			{
-
-				string[] EmailsToSend = GameObject.Find("EmailIcon").GetComponent<Email>().EmailsToBeSend;
-				string[] Receivers = GameObject.Find ("EmailIcon").GetComponent<Email>().EmailReceivers;
-				string[] Sender = GameObject.Find ("EmailIcon").GetComponent<Email>().EmailSenders;
-
-				for ( int i =0;i<EmailsToSend.Length; i++)
-				{
-
-					if(Sender[i] == PhotonNetwork.playerName)
+					
+					
+					
+					
+					int documentIndex = this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents.Length;
+					
+					
+					
+					
+					if(currentDocumentIndex<documentIndex)
 					{
-
-						if(GUI.Button( new LTRect(0.3f*w, (0.2f+i*.1f)*h, 300f,30f).rect, EmailsToSend[i]))
+						// remove viewer for current obj
+						if(this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].GetComponent<ObjectViewer>())
 						{
-						
-						// RPC call to display email
-						PhotonView photonView = this.gameObject.GetPhotonView();
-						
-						
-						photonView.RPC ("receiveEmail",PhotonTargets.OthersBuffered, EmailsToSend[i] , Receivers[i] ,PhotonNetwork.playerName);
-						
-							print(PhotonNetwork.playerName + " send: " + EmailsToSend[i] + " to " + Receivers[i]);
-						
-						
-						
+							this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].GetComponent<ObjectViewer>().resetDocumentPosition();
+							Destroy(this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].GetComponent<ObjectViewer>());
 						}
+						// add viewer for next obj
+						currentDocumentIndex++;
+						Transform nextTr = this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].transform;
+						nextTr.gameObject.AddComponent<ObjectViewer>();
+						
+						// calculate the next obj mid point
+						float midX = (nextTr.renderer.bounds.max.x + nextTr.renderer.bounds.min.x)/2;
+						float midY = (nextTr.renderer.bounds.max.y + nextTr.renderer.bounds.min.y)/2;
+						float midZ = (nextTr.renderer.bounds.max.z + nextTr.renderer.bounds.min.z)/2;
+						
+						LeanTween.move(Camera.main.gameObject,new Vector3(midX,midY+cameraOffset,midZ),.6f).setEase(LeanTweenType.easeOutQuint);
+						LeanTween.move(highlight.gameObject,new Vector3(midX,midY+lightOffset,midZ),.6f).setEase(LeanTweenType.easeOutQuint);
+						
 					}
-
+					else{
+						
+					}
+					
 				}
-
-			
-			
-			}
-			else if (checking)
-			{
-
-				string[] receivedEmails = GameObject.Find("EmailIcon").GetComponent<Email>().EmailsReceived;
-				string[] Senders = GameObject.Find ("EmailIcon").GetComponent<Email>().EmailSenders;
-				// to be decided later
-				for ( int i =0;i<receivedEmails.Length; i++)
+				if(GUI.Button( new LTRect(100f, .9f*h - 50f, 100f, 50f ).rect, "Back"))
 				{
 					
-					if(GameObject.Find ("EmailIcon").GetComponent<Email>().EmailHasBeenReceived[i] == true)
+					
+					
+					
+					
+					
+					
+					if(currentDocumentIndex>1)
+					{
+						// remove viewer for current obj
+						if(this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].GetComponent<ObjectViewer>())
+						{
+							this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].GetComponent<ObjectViewer>().resetDocumentPosition();
+							Destroy(this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].GetComponent<ObjectViewer>());
+						}
+						// add viewer for next obj
+						currentDocumentIndex--;
+						Transform nextTr = this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].transform;
+						nextTr.gameObject.AddComponent<ObjectViewer>();
+						
+						// calculate the next obj mid point
+						float midX = (nextTr.renderer.bounds.max.x + nextTr.renderer.bounds.min.x)/2;
+						float midY = (nextTr.renderer.bounds.max.y + nextTr.renderer.bounds.min.y)/2;
+						float midZ = (nextTr.renderer.bounds.max.z + nextTr.renderer.bounds.min.z)/2;
+						
+						LeanTween.move(Camera.main.gameObject,new Vector3(midX,midY+cameraOffset,midZ),.6f).setEase(LeanTweenType.easeOutQuint);
+						LeanTween.move(highlight.gameObject,new Vector3(midX,midY+lightOffset,midZ),.6f).setEase(LeanTweenType.easeOutQuint);
+						
+					}
+					else{
+						
+					}
+					
+				}
+				if(GUI.Button( new LTRect(w - 200f, .1f*h - 50f, 100f, 50f ).rect, "Back to DeskMode"))
+				{
+					mode = DeskModeSubMode.None;
+					moveCameraToDesk();
+					
+				}
+				
+				break;
+				
+			}
+			case DeskModeSubMode.PhoneMode:
+			{
+				//GUI.Box(new Rect(0,0,w,h),);
+				if(GUI.Button( new LTRect(0.2f*w, .3f*h - 50f, 200f, 50f ).rect, "facilities"))
+				{callingfacility=true;
+				}
+				if(GUI.Button( new LTRect(0.2f*w, .4f*h - 50f, 200f, 50f ).rect, "security"))
+				{callingsecurity=true;
+				}
+				if (callingfacility==true ){ GUI.Label(new Rect(0.5f*w,.5f*h,400,30),"talking with facility");callingsecurity=false;}
+				if (callingsecurity==true ){ GUI.Label(new Rect(0.5f*w,.5f*h,400,30),"talking with security");callingfacility=false;}
+				
+				
+				if(GUI.Button( new LTRect(w - 200f, .1f*h - 50f, 100f, 50f ).rect, "Back to DeskMode"))
+				{
+					mode = DeskModeSubMode.None;
+					moveCameraToDesk();
+					
+				}
+				
+				break;
+			}
+			case DeskModeSubMode.PCMode:
+			{
+				
+				if(!sending && !checking)
+				{
+					if(GUI.Button( new LTRect(0.2f*w, .2f*h - 50f, 100f, 50f ).rect, "Send Email"))
+					{
+						sending = true;
+					}
+					
+					if(GUI.Button( new LTRect(0.2f*w, .4f*h - 50f, 100f, 50f ).rect, "Check Email"))
+					{
+						checking = true;
+					}
+				}
+				else if (sending)
+				{
+					
+					string[] EmailsToSend = GameObject.Find("EmailIcon").GetComponent<Email>().EmailsToBeSend;
+					string[] Receivers = GameObject.Find ("EmailIcon").GetComponent<Email>().EmailReceivers;
+					string[] Sender = GameObject.Find ("EmailIcon").GetComponent<Email>().EmailSenders;
+					
+					for ( int i =0;i<EmailsToSend.Length; i++)
 					{
 						
-						if(GUI.Button( new LTRect(0.3f*w, (0.2f+i*.1f)*h, 300f,30f).rect, Senders[i] +" : " +receivedEmails[i]))
+						if(Sender[i] == PhotonNetwork.playerName)
 						{
 							
-							// call to clear email
-							
-							
-						 GameObject.Find ("EmailIcon").GetComponent<Email>().clearNewEmail();
-							
+							if(GUI.Button( new LTRect(0.3f*w, (0.2f+i*.1f)*h, 300f,30f).rect, EmailsToSend[i]))
+							{
+								
+								// RPC call to display email
+								PhotonView photonView = this.gameObject.GetPhotonView();
+								
+								
+								photonView.RPC ("receiveEmail",PhotonTargets.OthersBuffered, EmailsToSend[i] , Receivers[i] ,PhotonNetwork.playerName);
+								
+								print(PhotonNetwork.playerName + " send: " + EmailsToSend[i] + " to " + Receivers[i]);
+								
+								
+								
+							}
 						}
+						
 					}
-
+					
+					
+					
+				}
+				else if (checking)
+				{
+					
+					string[] receivedEmails = GameObject.Find("EmailIcon").GetComponent<Email>().EmailsReceived;
+					string[] Senders = GameObject.Find ("EmailIcon").GetComponent<Email>().EmailSenders;
+					// to be decided later
+					for ( int i =0;i<receivedEmails.Length; i++)
+					{
+						
+						if(GameObject.Find ("EmailIcon").GetComponent<Email>().EmailHasBeenReceived[i] == true)
+						{
+							
+							if(GUI.Button( new LTRect(0.3f*w, (0.2f+i*.1f)*h, 300f,30f).rect, Senders[i] +" : " +receivedEmails[i]))
+							{
+								
+								// call to clear email
+								
+								
+								GameObject.Find ("EmailIcon").GetComponent<Email>().clearNewEmail();
+								
+							}
+						}
+						
+						
+					}
 					
 				}
 				
+				
+				if(GUI.Button( new LTRect(1.0f*w - 100f, 1.0f*h - 50f, 100f, 50f ).rect, "Back to DeskMode"))
+				{
+					mode = DeskModeSubMode.None;
+					moveCameraToDesk();
+					
+				}
+				
+				break;
 			}
-			
-			
-			if(GUI.Button( new LTRect(1.0f*w - 100f, 1.0f*h - 50f, 100f, 50f ).rect,exitpcgui, "Back to DeskMode"))
+			case DeskModeSubMode.None:
 			{
-				mode = DeskModeSubMode.None;
-				moveCameraToDesk();
+				if(GUI.Button( new LTRect(1.0f*w - 100f, 1.0f*h - 50f, 100f, 50f ).rect, "Quit DeskMode"))
+				{
+					
+					
+					StartCoroutine(WaitAndQuit(0.3f));
+					
+				}
+				break;
+			}
 				
 			}
-			
-			break;
 		}
-		case DeskModeSubMode.None:
+		else // pageMode is on
 		{
-			if(GUI.Button( new LTRect(1.0f*w - 100f, 1.0f*h - 50f, 100f, 50f ).rect,backgui, "Quit DeskMode"))
+			if(GUI.Button( new LTRect(w - 200f, .9f*h - 50f, 100f, 50f ).rect, "Next Page"))
 			{
-
-
-				StartCoroutine(WaitAndQuit(0.3f));
-				
 			}
-			break;
+
+
+			if(GUI.Button( new LTRect(100f, .9f*h - 50f, 100f, 50f ).rect, "Previous Page"))
+			{
+			}
+
+			if(GUI.Button( new LTRect(w - 200f, .1f*h - 50f, 100f, 50f ).rect, "Back to Documents"))
+			{
+				pageMode = false;
+				this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].GetComponent<ObjectViewer>().playCloseFileAnim();
+				this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].GetComponent<ObjectViewer>().resetDocumentPosition();
+
+			}
+
 		}
-			
-		}
+
+
+
 	}
-
+	
 	[RPC]
 	void receiveEmail(string content, string receiverName, string senderName){
 		if(PhotonNetwork.playerName == receiverName)
@@ -284,9 +338,9 @@ public class DeskMode : MonoBehaviour {
 		
 		
 	}
-
-
-
+	
+	
+	
 	void enableChildren(){
 		foreach(Transform child in transform)
 		{
@@ -309,45 +363,45 @@ public class DeskMode : MonoBehaviour {
 		Camera.main.transform.parent = null;
 		//Camera.main.transform.localPosition = new Vector3(cameraX,cameraY,cameraZ);
 		//Camera.main.transform.localEulerAngles = new Vector3(90f,-90f,0);
-
+		
 		Camera.main.transform.localPosition = newPosition;
 		Camera.main.transform.LookAt(this.transform);
 		Camera.main.transform.localEulerAngles = new Vector3(Camera.main.transform.localEulerAngles.x-37f,Camera.main.transform.localEulerAngles.y,Camera.main.transform.localEulerAngles.z);
-
+		
 	}
 	// Update is called once per frame
 	void Update () {
 		if(!transform.GetComponentInChildren<DeskObjectHandler>())
 			enableChildren();
 	}
-
-
-
-
+	
+	
+	
+	
 	IEnumerator WaitAndQuit(float sec){
-
-
+		
+		
 		GameObject.Find ("Inventory").GetComponent<inventory>().mouseOnGUIButton = true;
-//		print ("111");
+		//		print ("111");
 		disableChildren();
 		GameObject.Find(deskOwner).GetComponent<DetectObjects>().moveCameraToPlayer();
 		GameObject.Find(deskOwner).GetComponent<DetectObjects>().enableCameraAndMotor();
 		GameObject.Find(deskOwner).GetComponent<DetectObjects>().enteredDialog = false;
 		
 		GetComponent<DeskMode>().enabled = false;
-
+		
 		yield return new WaitForSeconds (sec);
-
+		
 		GameObject.Find ("Inventory").GetComponent<inventory>().mouseOnGUIButton = false;
-
+		
 	}
 	// -----------------------------------------------------------------------------------------------
-//	public void OnDrawGizmos()
-//	{
-//		Gizmos.color = Color.red;
-//
-//		Gizmos.DrawLine(this.transform.position,Vector3.forward);
-//			
-//
-//	}
+	//	public void OnDrawGizmos()
+	//	{
+	//		Gizmos.color = Color.red;
+	//
+	//		Gizmos.DrawLine(this.transform.position,Vector3.forward);
+	//			
+	//
+	//	}
 }
