@@ -151,6 +151,9 @@ public class DetectObjects : Photon.MonoBehaviour {
 						if (hit.collider.gameObject.name.Contains(PhotonNetwork.playerName))
 						{
 
+								//if(hit.collider.gameObject.transform.Find ("DocumentHolder").GetComponent<documentData>().enabled == false)
+								//	hit.collider.gameObject.transform.Find ("DocumentHolder").GetComponent<documentData>().enabled = true;
+
 							hit.collider.gameObject.GetComponent<DeskMode>().deskOwner = this.gameObject.name;
 
 							if(hit.collider.gameObject.renderer.material.shader != null && enteredDialog == false)

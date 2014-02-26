@@ -3,7 +3,7 @@ using System.Collections;
 
 public class DeskMode : MonoBehaviour {
 	public string deskOwner;
-	float w,h;
+
 	public enum DeskModeSubMode: int{FileMode,PCMode,PhoneMode,None};
 	
 	public DeskModeSubMode mode;
@@ -16,31 +16,33 @@ public class DeskMode : MonoBehaviour {
 	public int currentDocumentIndex;
 	public int currentPageIndex;
 	
-	Vector3 FileModeOriginalPosition;
-	Vector3 PCModeOriginalPosition;
-	Vector3 TelephoneModeOriginalPosition;
+
 	
 	
 	public Light highlight;
 	
 	
 	
-	
+	public bool sending;
+	public bool checking;
 	public bool callingfacility;
 	public bool callingsecurity;
 	public bool pageMode;
 	
-	
+	float w,h;
 	float lightOffset;
 	float cameraOffset;
+
+	Vector3 FileModeOriginalPosition;
+	Vector3 PCModeOriginalPosition;
+	Vector3 TelephoneModeOriginalPosition;
 	
-	public bool sending;
-	public bool checking;
+
 	// email content flags
 	bool computerIsOn;
 	// Use this for initialization
 	void Start () {
-		pageMode = false;
+
 		w = Screen.width;
 		h = Screen.height;
 		mode = DeskModeSubMode.None;
@@ -50,6 +52,7 @@ public class DeskMode : MonoBehaviour {
 		sending = false;
 		checking = false;
 		computerIsOn = false;
+		pageMode = false;
 		
 		FileModeOriginalPosition = FileMode.transform.position;
 		//PCModeOriginalPosition = PCMode.transform.position;
@@ -66,31 +69,43 @@ public class DeskMode : MonoBehaviour {
 		enableChildren();
 		
 		
-		
-		if(this.transform.Find ("DocumentHolder").GetComponent<documentData>().enabled == false)
-			this.transform.Find ("DocumentHolder").GetComponent<documentData>().enabled = true;
 	}
 	
 	void OnGUI(){
 		
-		if(!pageMode)
+		if(!pageMode) // check if in page mode
 		{
-			switch (mode)
+			switch (mode) // check which sub mode
 			{
 				
 			case DeskModeSubMode.FileMode:
 			{
 				//nofunction added
-				GUI.Button( new LTRect(100f, .3f*h - 50f, 100f, 50f ).rect, "Accept");
-				GUI.Button( new LTRect(w-200f, .3f*h - 50f, 100f, 50f ).rect, "Reject");
-
-				if(GUI.Button(new LTRect(w - 300f, .9f*h - 50f, 100f, 50f ).rect, "Read"))
+				if(GUI.Button( new LTRect(w/2 - 50f, .9f*h - 100f, 100f, 30f ).rect, "Send"))
 				{
+
+					// RPC call to display email
+					PhotonView photonView = this.gameObject.GetPhotonView();
+					
+					
+					photonView.RPC ("sendDocument",PhotonTargets.AllBuffered,"Sales Manager","LPU Officer");
+					                
+					                
+					                // accept the document
+				}
+				if(GUI.Button( new LTRect(w/2 - 50f, .9f*h - 50f, 100f, 30f ).rect, "Reject"))
+				{
+					// reject the document
+				}
+				
+				if(GUI.Button(new LTRect(w/2 - 50f, .9f*h - 150f, 100f, 30f ).rect, "Read"))
+				{
+					// read the document
 					this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].GetComponent<ObjectViewer>().readDocument();
 					pageMode = true;
-
+					
 				}
-
+				
 				//functions in use
 				if(GUI.Button( new LTRect(w - 200f, .9f*h - 50f, 100f, 50f ).rect, "Next"))
 				{
@@ -166,7 +181,7 @@ public class DeskMode : MonoBehaviour {
 					}
 					
 				}
-				if(GUI.Button( new LTRect(w - 200f, .1f*h - 50f, 100f, 50f ).rect, "Back to DeskMode"))
+				if(GUI.Button( new LTRect(1.0f*w - 100f, 1.0f*h - 50f, 100f, 50f ).rect, "Back to DeskMode"))
 				{
 					mode = DeskModeSubMode.None;
 					moveCameraToDesk();
@@ -189,7 +204,7 @@ public class DeskMode : MonoBehaviour {
 				if (callingsecurity==true ){ GUI.Label(new Rect(0.5f*w,.5f*h,400,30),"talking with security");callingfacility=false;}
 				
 				
-				if(GUI.Button( new LTRect(w - 200f, .1f*h - 50f, 100f, 50f ).rect, "Back to DeskMode"))
+				if(GUI.Button( new LTRect(1.0f*w - 100f, 1.0f*h - 50f, 100f, 50f ).rect, "Back to DeskMode"))
 				{
 					mode = DeskModeSubMode.None;
 					moveCameraToDesk();
@@ -303,25 +318,27 @@ public class DeskMode : MonoBehaviour {
 		{
 			if(GUI.Button( new LTRect(w - 200f, .9f*h - 50f, 100f, 50f ).rect, "Next Page"))
 			{
+				this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].GetComponent<pageData>().showNextPage();
 			}
-
-
+			
+			
 			if(GUI.Button( new LTRect(100f, .9f*h - 50f, 100f, 50f ).rect, "Previous Page"))
 			{
+				this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].GetComponent<pageData>().showPreviousPage();
 			}
-
-			if(GUI.Button( new LTRect(w - 200f, .1f*h - 50f, 100f, 50f ).rect, "Back to Documents"))
+			
+			if(GUI.Button( new LTRect(1.0f*w - 100f, 1.0f*h - 50f, 100f, 50f ).rect, "Back to Documents"))
 			{
 				pageMode = false;
 				this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].GetComponent<ObjectViewer>().playCloseFileAnim();
 				this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].GetComponent<ObjectViewer>().resetDocumentPosition();
-
+				
 			}
-
+			
 		}
-
-
-
+		
+		
+		
 	}
 	
 	[RPC]
@@ -337,6 +354,24 @@ public class DeskMode : MonoBehaviour {
 		}
 		
 		
+	}
+
+	[RPC]
+
+	void sendDocument(string sender, string receiver){
+
+
+		if(PhotonNetwork.playerName == receiver)
+		{
+			GameObject document = this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1];
+			this.transform.Find ("DocumentHolder").GetComponent<documentData>().addDocument(this.gameObject);
+		}
+		if(PhotonNetwork.playerName == sender)
+		{
+
+			GameObject document = this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1];
+			this.transform.Find ("DocumentHolder").GetComponent<documentData>().removeDocument(document);
+		}
 	}
 	
 	

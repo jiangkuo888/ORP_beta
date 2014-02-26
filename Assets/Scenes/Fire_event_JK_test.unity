@@ -3692,8 +3692,6 @@ MonoBehaviour:
   overrideName: 
   overrideUseMessage: 
   maxUseDistance: 5
-  responseToPlayers:
-  - {fileID: 400032, guid: a1a76564c97b26a4381d30d03f58d3ae, type: 2}
 --- !u!143 &93204876
 CharacterController:
   m_ObjectHideFlags: 0
@@ -4692,7 +4690,6 @@ MonoBehaviour:
   overrideName: 
   overrideUseMessage: 
   maxUseDistance: 5
-  responseToPlayers: []
 --- !u!114 &116281690
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15667,27 +15664,14 @@ MonoBehaviour:
   FileMode: {fileID: 1095185}
   PCMode: {fileID: 0}
   TelephoneMode: {fileID: 0}
-  FileModeFileIndex: 0
-  FileModeMaxIndex: 4
+  currentDocumentIndex: 0
+  currentPageIndex: 0
   highlight: {fileID: 1450923224}
-  buttongui: {fileID: 0}
-  previousbuttongui: {fileID: 0}
-  nextbuttongui: {fileID: 0}
-  sendemailgui: {fileID: 0}
-  checkemailgui: {fileID: 0}
-  exitpcgui: {fileID: 0}
-  exitdocgui: {fileID: 0}
-  backgui: {fileID: 0}
-  acceptbuttongui: {fileID: 0}
-  rejectbuttongui: {fileID: 0}
-  phonegui: {fileID: 0}
-  exitphonegui: {fileID: 0}
-  facilitiesbuttongui: {fileID: 0}
-  securitybuttongui: {fileID: 0}
-  callingfacility: 0
-  callingsecurity: 0
   sending: 0
   checking: 0
+  callingfacility: 0
+  callingsecurity: 0
+  pageMode: 0
 --- !u!64 &383625403
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -33750,27 +33734,14 @@ MonoBehaviour:
   FileMode: {fileID: 1095185}
   PCMode: {fileID: 0}
   TelephoneMode: {fileID: 0}
-  FileModeFileIndex: 0
-  FileModeMaxIndex: 4
+  currentDocumentIndex: 0
+  currentPageIndex: 0
   highlight: {fileID: 1450923224}
-  buttongui: {fileID: 0}
-  previousbuttongui: {fileID: 0}
-  nextbuttongui: {fileID: 0}
-  sendemailgui: {fileID: 0}
-  checkemailgui: {fileID: 0}
-  exitpcgui: {fileID: 0}
-  exitdocgui: {fileID: 0}
-  backgui: {fileID: 0}
-  acceptbuttongui: {fileID: 0}
-  rejectbuttongui: {fileID: 0}
-  phonegui: {fileID: 0}
-  exitphonegui: {fileID: 0}
-  facilitiesbuttongui: {fileID: 0}
-  securitybuttongui: {fileID: 0}
-  callingfacility: 0
-  callingsecurity: 0
   sending: 0
   checking: 0
+  callingfacility: 0
+  callingsecurity: 0
+  pageMode: 0
 --- !u!64 &842806184
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -49439,7 +49410,6 @@ MonoBehaviour:
   overrideName: 
   overrideUseMessage: 
   maxUseDistance: 5
-  responseToPlayers: []
 --- !u!143 &1231293960
 CharacterController:
   m_ObjectHideFlags: 0
@@ -51063,7 +51033,6 @@ MonoBehaviour:
   overrideName: 
   overrideUseMessage: 
   maxUseDistance: 5
-  responseToPlayers: []
 --- !u!114 &1277487718
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -51367,7 +51336,7 @@ MonoBehaviour:
   m_Script: {fileID: -1229025713, guid: b5a7519e94754fb4a8ea0c272031db78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialDatabase: {fileID: 11400000, guid: 997ddd694ff0cf14d8594b803acfca5a, type: 2}
+  initialDatabase: {fileID: 11400000, guid: 60415c74a5b41bd429e274a5fa59ebe1, type: 2}
   displaySettings:
     dialogueUI: {fileID: 100022, guid: 306f787f24196f240b528be08a4f3096, type: 2}
     localizationSettings:
@@ -51379,8 +51348,7 @@ MonoBehaviour:
       showPCSubtitlesDuringLine: 0
       subtitleCharsPerSecond: 30
       minSubtitleSeconds: 2
-      waitForContinueButton: 0
-      skipContinueOnResponseMenu: 0
+      continueButton: 0
       richTextEmphases: 0
     cameraSettings:
       sequencerCamera: {fileID: 0}
@@ -55693,7 +55661,6 @@ MonoBehaviour:
   overrideName: 
   overrideUseMessage: 
   maxUseDistance: 5
-  responseToPlayers: []
 --- !u!114 &1390820241
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -84073,7 +84040,6 @@ MonoBehaviour:
   overrideName: 
   overrideUseMessage: 
   maxUseDistance: 5
-  responseToPlayers: []
 --- !u!114 &2122083767
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -11,7 +11,7 @@ public class ObjectViewer : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		originalShader = this.renderer.material.shader;
+//		originalShader = this.renderer.material.shader;
 		GUIisOn = false;
 		Enlarge = false;
 
@@ -47,8 +47,8 @@ public class ObjectViewer : MonoBehaviour {
 		if(!Enlarge)
 		{
 
-			LeanTween.move (this.gameObject, new Vector3(this.transform.position.x+.1f,this.transform.position.y + .1f,this.transform.position.z),0.5f).setEase(LeanTweenType.easeOutQuint);
-			Enlarge = true;
+			LeanTween.move (this.gameObject, new Vector3(this.transform.position.x,this.transform.position.y + .2f,this.transform.position.z),0.5f).setEase(LeanTweenType.easeOutQuint);
+
 
 			showPage();
 		}
@@ -60,24 +60,28 @@ public class ObjectViewer : MonoBehaviour {
 		playOpenFileAnim();
 
 
-		
+		Enlarge = true;
 
 		}
 	
 
 	public void playOpenFileAnim(){
-
-
+		if(Enlarge == false)
+		this.GetComponent<Animation>().CrossFade("folder_open");
 	}
 
 	public void playCloseFileAnim(){
+		if(Enlarge == true)
+		 this.GetComponent<Animation>().CrossFade("folder_close");
 
 	}
 
 	public void resetDocumentPosition(){
-
+		Enlarge = false;
 		LeanTween.move (this.gameObject, originalPosition,0.5f).setEase(LeanTweenType.easeOutQuint);
 
 	}
+
+
 	                   
 }

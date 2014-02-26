@@ -8,6 +8,8 @@ public class DeskObjectHandler : MonoBehaviour {
 
 	public string tableName;
 	Shader originalShader;
+
+
 	
 	
 	
@@ -22,7 +24,7 @@ public class DeskObjectHandler : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+
 		
 	}
 	
@@ -55,14 +57,10 @@ public class DeskObjectHandler : MonoBehaviour {
 
 
 
-			Transform [] t = this.GetComponent<documentData>().fileModeObj.GetComponentsInChildren<Transform>();
+
 			
-			// find the first child
-			GameObject target = t[1].gameObject;
-			
-			
-			if(target.GetComponent<ObjectViewer>() == null)
-				target.AddComponent<ObjectViewer>();
+			GameObject target = GameObject.Find ("documentHidden");
+
 
 
 			float objXmid = (target.collider.bounds.max.x + target.collider.bounds.min.x)/2;
@@ -76,6 +74,14 @@ public class DeskObjectHandler : MonoBehaviour {
 			
 			GameObject.Find (tableName).GetComponent<DeskMode>().mode = DeskMode.DeskModeSubMode.FileMode;
 			GameObject.Find (tableName).GetComponent<DeskMode>().currentDocumentIndex = 1;
+
+
+			foreach (Transform tr in GameObject.Find ("FileMode").transform)
+			{
+			if(tr.gameObject.GetComponent<ObjectViewer>() == null)
+				tr.gameObject.AddComponent<ObjectViewer>();
+			}
+
 			break;
 		}
 		case "Monitor":

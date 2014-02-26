@@ -30,4 +30,17 @@ public class documentData : MonoBehaviour {
 	void Update () {
 	
 	}
+
+	public void addDocument(GameObject toBeAdd){
+
+		System.Collections.Generic.List<GameObject> list = new System.Collections.Generic.List<GameObject>(documents);
+		list.Add(toBeAdd);
+		documents = list.ToArray();
+	}
+
+	public void removeDocument(GameObject toBeDelete){
+		System.Collections.Generic.List<GameObject> list = new System.Collections.Generic.List<GameObject>(documents);
+		list.Remove(toBeDelete);
+		documents = list.ToArray();
+	}
 }
