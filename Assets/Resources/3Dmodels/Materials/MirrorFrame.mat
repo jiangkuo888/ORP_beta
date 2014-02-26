@@ -6,8 +6,8 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: PictureFrameGlass
-  m_Shader: {fileID: 4800000, guid: 7d40dae25e9eec74ea39efd0c327b32f, type: 3}
+  m_Name: MirrorFrame
+  m_Shader: {fileID: 3, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: []
   m_CustomRenderQueue: -1
   m_SavedProperties:
@@ -20,24 +20,17 @@ Material:
           m_Texture: {fileID: 0}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
-      data:
-        first:
-          name: _Cube
-        second:
-          m_Texture: {fileID: 8900000, guid: 3ee0a7a7315a0684c9f3035d25acded6, type: 2}
-          m_Scale: {x: 1, y: 1}
-          m_Offset: {x: 0, y: 0}
     m_Floats:
       data:
         first:
-          name: _FresnelPower
-        second: 5
+          name: _Shininess
+        second: .078125
     m_Colors:
       data:
         first:
           name: _Color
-        second: {r: .970588207, g: 1, b: .998782933, a: 1}
+        second: {r: .485294104, g: .485294104, b: .485294104, a: 1}
       data:
         first:
-          name: _ReflectColor
-        second: {r: .102941155, g: .102941155, b: .102941155, a: .501960814}
+          name: _SpecColor
+        second: {r: .852941155, g: .852941155, b: .852941155, a: 1}
