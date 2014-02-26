@@ -325,6 +325,26 @@ MonoBehaviour:
     - title: Is Item
       value: False
       type: 2
+  - id: 5
+    fields:
+    - title: Name
+      value: Potential Sales
+      type: 0
+    - title: Description
+      value: 
+      type: 0
+    - title: Success Description
+      value: 
+      type: 0
+    - title: Failure Description
+      value: 
+      type: 0
+    - title: State
+      value: unassigned
+      type: 0
+    - title: Is Item
+      value: False
+      type: 2
   locations:
   - id: 1
     fields:
@@ -2878,7 +2898,7 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: Item["Potential_Sales"].State = "active";
     - id: 3
       fields:
       - title: Title
@@ -2953,7 +2973,7 @@ MonoBehaviour:
         destinationDialogueID: 6
         isConnector: 0
         priority: 2
-      conditionsString: 
+      conditionsString: Dialog[4].SimStatus ~= "WasDisplayed"
       userScript: 
     - id: 5
       fields:
@@ -3026,7 +3046,7 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
-      userScript: 
+      userScript: Item["Potential_Sales"].State = "failure";
     - id: 7
       fields:
       - title: Title
@@ -3165,7 +3185,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Dialogue Text
-        value: This sounds excellent. I will take it.
+        value: 'This sounds excellent. Let me go back to think about it and I will
+          call you back.
+
+'
         type: 4
       - title: Video File
         value: 
@@ -3182,7 +3205,7 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
-      userScript: 
+      userScript: Item["Potential_Sales"].State = "success";
     - id: 11
       fields:
       - title: Title

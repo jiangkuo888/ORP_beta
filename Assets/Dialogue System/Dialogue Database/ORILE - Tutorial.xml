@@ -397,6 +397,34 @@
           </Field>
         </Fields>
       </Item>
+      <Item ID="5">
+        <Fields>
+          <Field Hint="A name to reference this item or quest. Use underscores instead of spaces so simulator Lua code works." Type="Text">
+            <Title>Name</Title>
+            <Value>Potential Sales</Value>
+          </Field>
+          <Field Hint="A description of this item or quest." Type="Text">
+            <Title>Description</Title>
+            <Value />
+          </Field>
+          <Field Hint="The description of the quest when the player has completed it successfully." Type="Text">
+            <Title>Success Description</Title>
+            <Value />
+          </Field>
+          <Field Hint="The description of the quest when the player has completed it in failure." Type="Text">
+            <Title>Failure Description</Title>
+            <Value />
+          </Field>
+          <Field Hint="The state of the quest: unassigned, active, success, or failure" Type="Text">
+            <Title>State</Title>
+            <Value>unassigned</Value>
+          </Field>
+          <Field Hint="When using the quest system, set this True to mark the item as an actual item rather than a quest." Type="Boolean">
+            <Title>Is Item</Title>
+            <Value>False</Value>
+          </Field>
+        </Fields>
+      </Item>
     </Items>
     <Locations>
       <Location ID="1">
@@ -2988,7 +3016,7 @@
               <Link OriginConvoID="6" DestinationConvoID="6" OriginDialogID="2" DestinationDialogID="3" IsConnector="false" />
             </OutgoingLinks>
             <ConditionsString />
-            <UserScript />
+            <UserScript>Item["Potential_Sales"].State = "active";</UserScript>
           </DialogEntry>
           <DialogEntry ID="3" IsRoot="false" IsGroup="true" NodeColor="White" DelaySimStatus="false" FalseCondtionAction="Block" ConditionPriority="Normal">
             <Fields>
@@ -3050,7 +3078,7 @@
             <OutgoingLinks>
               <Link OriginConvoID="6" DestinationConvoID="6" OriginDialogID="4" DestinationDialogID="6" IsConnector="false" />
             </OutgoingLinks>
-            <ConditionsString />
+            <ConditionsString>Dialog[4].SimStatus ~= "WasDisplayed"</ConditionsString>
             <UserScript />
           </DialogEntry>
           <DialogEntry ID="5" IsRoot="false" IsGroup="false" NodeColor="White" DelaySimStatus="false" FalseCondtionAction="Block" ConditionPriority="Normal">
@@ -3127,7 +3155,7 @@
             <ReviewerStatus>None</ReviewerStatus>
             <OutgoingLinks />
             <ConditionsString />
-            <UserScript />
+            <UserScript>Item["Potential_Sales"].State = "failure";</UserScript>
           </DialogEntry>
           <DialogEntry ID="7" IsRoot="false" IsGroup="false" NodeColor="White" DelaySimStatus="false" FalseCondtionAction="Block" ConditionPriority="Normal">
             <Fields>
@@ -3267,7 +3295,8 @@
               </Field>
               <Field Hint="The text that is spoken by the actor." Type="Localization">
                 <Title>Dialogue Text</Title>
-                <Value>This sounds excellent. I will take it.</Value>
+                <Value>This sounds excellent. Let me go back to think about it and I will call you back.
+</Value>
               </Field>
               <Field Hint="A WMV video file to be played for this dialogue." Type="Text">
                 <Title>Video File</Title>
@@ -3282,7 +3311,7 @@
             <ReviewerStatus>None</ReviewerStatus>
             <OutgoingLinks />
             <ConditionsString />
-            <UserScript />
+            <UserScript>Item["Potential_Sales"].State = "success";</UserScript>
           </DialogEntry>
           <DialogEntry ID="11" IsRoot="false" IsGroup="false" NodeColor="White" DelaySimStatus="false" FalseCondtionAction="Block" ConditionPriority="Normal">
             <Fields>
