@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections;
 
 namespace PixelCrushers.DialogueSystem.Examples {
-
+	
 	/// <summary>
 	/// This component indicates that the game object is usable. This component works in
 	/// conjunction with the Selector component.
@@ -24,6 +24,22 @@ namespace PixelCrushers.DialogueSystem.Examples {
 		/// </summary>
 		public float maxUseDistance = 5f;
 		
-	}
+		public void OnUse(Transform actorTransform){
 
+			PlayerPrefs.SetString("LocalActor",actorTransform.name);
+			PlayerPrefs.SetString("OnUsedObj",this.name);
+
+		}
+		
+		
+			
+		public void OnConversationStart(Transform actor) {
+			DialogueLua.SetVariable("Actor", actor.name);				
+			print(DialogueLua.GetVariable("Actor").AsString);
+		}
+	
+	}
+	
+	
+	
 }
