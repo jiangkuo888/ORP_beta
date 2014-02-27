@@ -59,7 +59,9 @@ public class RPCresponseHandler : MonoBehaviour {
 	[RPC]
 	
 	void enableRenderer(){
-		
+
+		//Debug.Log("I am here");
+
 		Renderer[] renderers = this.GetComponentsInChildren<Renderer>();
 		
 		foreach ( Renderer r in renderers)
@@ -68,7 +70,7 @@ public class RPCresponseHandler : MonoBehaviour {
 				r.enabled = true;
 		}
 	}
-	
+
 	[RPC]
 	void enableCollider(){
 		
@@ -88,4 +90,23 @@ public class RPCresponseHandler : MonoBehaviour {
 			this.gameObject.AddComponent<Rigidbody>();
 		
 	}
+
+	[RPC]
+	
+	void enableGameObject(){
+		
+		Debug.Log("Turn me on!");
+		
+		this.gameObject.SetActive(true);
+	}
+	
+	[RPC]
+	
+	void disableGameObject(){
+		
+		Debug.Log("Turn me off...");
+		
+		this.gameObject.SetActive(false);
+	}
+
 }

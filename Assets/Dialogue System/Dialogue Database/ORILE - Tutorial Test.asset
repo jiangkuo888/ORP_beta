@@ -228,6 +228,21 @@ MonoBehaviour:
       value: False
       type: 2
     portrait: {fileID: 0}
+  - id: 14
+    fields:
+    - title: Name
+      value: Abdul Ali
+      type: 0
+    - title: Pictures
+      value: '[]'
+      type: 3
+    - title: Description
+      value: Rich man from Dubai
+      type: 0
+    - title: IsPlayer
+      value: False
+      type: 2
+    portrait: {fileID: 0}
   items:
   - id: 1
     fields:
@@ -235,7 +250,7 @@ MonoBehaviour:
       value: Missing Fire Extinguisher
       type: 0
     - title: Description
-      value: 
+      value: 'The fire extinguisher seems to be missing. How can I get it replaced? '
       type: 0
     - title: Success Description
       value: You have succeeded in identifying the missing fire extinguisher.
@@ -279,10 +294,10 @@ MonoBehaviour:
       value: 
       type: 0
     - title: Success Description
-      value: 
+      value: My Manager is a nice person.
       type: 0
     - title: Failure Description
-      value: 
+      value: My Manager is so scary!
       type: 0
     - title: State
       value: unassigned
@@ -300,6 +315,26 @@ MonoBehaviour:
       type: 0
     - title: Success Description
       value: 'The expired fire extinguisher has been replaced. '
+      type: 0
+    - title: Failure Description
+      value: 
+      type: 0
+    - title: State
+      value: unassigned
+      type: 0
+    - title: Is Item
+      value: False
+      type: 2
+  - id: 5
+    fields:
+    - title: Name
+      value: Potential Sales
+      type: 0
+    - title: Description
+      value: 
+      type: 0
+    - title: Success Description
+      value: 
       type: 0
     - title: Failure Description
       value: 
@@ -344,10 +379,10 @@ MonoBehaviour:
       value: Customer asking for loans.
       type: 0
     - title: Actor
-      value: 1
+      value: 5
       type: 5
     - title: Conversant
-      value: 5
+      value: 1
       type: 5
     nodeColor: Red
     dialogueEntries:
@@ -357,10 +392,10 @@ MonoBehaviour:
         value: START
         type: 0
       - title: Actor
-        value: 1
+        value: 5
         type: 5
       - title: Conversant
-        value: 5
+        value: 1
         type: 5
       - title: Menu Text
         value: 
@@ -405,13 +440,13 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Dialogue Text
-        value: "Hi, how may I help you? \n"
+        value: Hi, how may I help you?
         type: 4
       - title: Video File
         value: 
         type: 0
       - title: Sequence
-        value: 
+        value: Camera(Closeup)
         type: 0
       conversationID: 1
       isRoot: 0
@@ -770,7 +805,7 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Sequence
-        value: 
+        value: Camera(Closeup)
         type: 0
       conversationID: 2
       isRoot: 0
@@ -1091,7 +1126,7 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Sequence
-        value: 
+        value: Camera(Closeup Wall);
         type: 0
       conversationID: 3
       isRoot: 0
@@ -1118,7 +1153,7 @@ MonoBehaviour:
     - id: 6
       fields:
       - title: Title
-        value: Active Fire Extinguisher Quest
+        value: 
         type: 0
       - title: Actor
         value: 8
@@ -1146,7 +1181,7 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks: []
-      conditionsString: 
+      conditionsString: Dialog[6].SimStatus ~= "WasDisplayed"
       userScript: Item["Missing_Fire_Extinguisher"].State = "active";
   - id: 4
     fields:
@@ -1224,7 +1259,7 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Sequence
-        value: 
+        value: Camera(Closeup Wall)
         type: 0
       conversationID: 4
       isRoot: 0
@@ -1680,211 +1715,6 @@ MonoBehaviour:
       outgoingLinks: []
       conditionsString: 
       userScript: 
-  - id: 6
-    fields:
-    - title: Title
-      value: Caught in Pantry
-      type: 0
-    - title: Description
-      value: Manager tells off NPC hanging out in Pantry
-      type: 0
-    - title: Actor
-      value: 2
-      type: 5
-    - title: Conversant
-      value: 11
-      type: 5
-    nodeColor: Red
-    dialogueEntries:
-    - id: 0
-      fields:
-      - title: Title
-        value: START
-        type: 0
-      - title: Actor
-        value: 2
-        type: 5
-      - title: Conversant
-        value: 11
-        type: 5
-      - title: Menu Text
-        value: 
-        type: 0
-      - title: Dialogue Text
-        value: 
-        type: 4
-      - title: Video File
-        value: 
-        type: 0
-      - title: Sequence
-        value: None()
-        type: 0
-      conversationID: 6
-      isRoot: 1
-      isGroup: 0
-      nodeColor: White
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks:
-      - originConversationID: 6
-        originDialogueID: 0
-        destinationConversationID: 6
-        destinationDialogueID: 1
-        isConnector: 0
-        priority: 2
-      conditionsString: 
-      userScript: 
-    - id: 1
-      fields:
-      - title: Title
-        value: 
-        type: 0
-      - title: Actor
-        value: 11
-        type: 5
-      - title: Conversant
-        value: 2
-        type: 5
-      - title: Menu Text
-        value: 
-        type: 0
-      - title: Dialogue Text
-        value: 'Hi, sir. Would you like some coffee? '
-        type: 4
-      - title: Video File
-        value: 
-        type: 0
-      - title: Sequence
-        value: 
-        type: 0
-      conversationID: 6
-      isRoot: 0
-      isGroup: 0
-      nodeColor: White
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks:
-      - originConversationID: 6
-        originDialogueID: 1
-        destinationConversationID: 6
-        destinationDialogueID: 2
-        isConnector: 0
-        priority: 2
-      - originConversationID: 6
-        originDialogueID: 1
-        destinationConversationID: 6
-        destinationDialogueID: 3
-        isConnector: 0
-        priority: 2
-      conditionsString: Item["Get_to_Work!"].State == "unassigned";
-      userScript: 
-    - id: 2
-      fields:
-      - title: Title
-        value: 
-        type: 0
-      - title: Actor
-        value: 2
-        type: 5
-      - title: Conversant
-        value: 11
-        type: 5
-      - title: Menu Text
-        value: 'Why are you not at work? '
-        type: 0
-      - title: Dialogue Text
-        value: 
-        type: 4
-      - title: Video File
-        value: 
-        type: 0
-      - title: Sequence
-        value: 
-        type: 0
-      conversationID: 6
-      isRoot: 0
-      isGroup: 0
-      nodeColor: White
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks:
-      - originConversationID: 6
-        originDialogueID: 2
-        destinationConversationID: 6
-        destinationDialogueID: 4
-        isConnector: 0
-        priority: 2
-      conditionsString: 
-      userScript: 
-    - id: 3
-      fields:
-      - title: Title
-        value: 
-        type: 0
-      - title: Actor
-        value: 2
-        type: 5
-      - title: Conversant
-        value: 11
-        type: 5
-      - title: Menu Text
-        value: 'Yes, sure. Thanks. '
-        type: 0
-      - title: Dialogue Text
-        value: 
-        type: 4
-      - title: Video File
-        value: 
-        type: 0
-      - title: Sequence
-        value: 
-        type: 0
-      conversationID: 6
-      isRoot: 0
-      isGroup: 0
-      nodeColor: White
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks: []
-      conditionsString: 
-      userScript: 
-    - id: 4
-      fields:
-      - title: Title
-        value: 
-        type: 0
-      - title: Actor
-        value: 11
-        type: 5
-      - title: Conversant
-        value: 2
-        type: 5
-      - title: Menu Text
-        value: 
-        type: 0
-      - title: Dialogue Text
-        value: 'Sorry, sir. I will get back to work right away! '
-        type: 4
-      - title: Video File
-        value: 
-        type: 0
-      - title: Sequence
-        value: 
-        type: 0
-      conversationID: 6
-      isRoot: 0
-      isGroup: 0
-      nodeColor: White
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks: []
-      conditionsString: 
-      userScript: Item["Get_to_Work!"].State = "success";
   - id: 7
     fields:
     - title: Title
@@ -2284,7 +2114,7 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Sequence
-        value: 
+        value: Camera(Closeup)
         type: 0
       conversationID: 8
       isRoot: 0
@@ -2426,7 +2256,7 @@ MonoBehaviour:
       value: 
       type: 0
     - title: Actor
-      value: 3
+      value: 8
       type: 5
     - title: Conversant
       value: 11
@@ -2439,7 +2269,7 @@ MonoBehaviour:
         value: START
         type: 0
       - title: Actor
-        value: 3
+        value: 8
         type: 5
       - title: Conversant
         value: 11
@@ -2470,6 +2300,12 @@ MonoBehaviour:
         destinationDialogueID: 1
         isConnector: 0
         priority: 2
+      - originConversationID: 9
+        originDialogueID: 0
+        destinationConversationID: 9
+        destinationDialogueID: 10
+        isConnector: 0
+        priority: 2
       conditionsString: 
       userScript: 
     - id: 1
@@ -2487,13 +2323,13 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Dialogue Text
-        value: 'Hey, how''s your day? '
+        value: 'Hey [lua(Variable["Actor"])], how''s your day? '
         type: 4
       - title: Video File
         value: 
         type: 0
       - title: Sequence
-        value: 
+        value: Camera(Closeup)
         type: 0
       conversationID: 9
       isRoot: 0
@@ -2527,7 +2363,8 @@ MonoBehaviour:
         destinationDialogueID: 7
         isConnector: 0
         priority: 2
-      conditionsString: 
+      conditionsString: Item["Get_to_Work!"].State == "unassigned" and Variable["Actor"]
+        ~= "LPU Manager"
       userScript: 
     - id: 2
       fields:
@@ -2776,5 +2613,635 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks: []
+      conditionsString: 
+      userScript: 
+    - id: 10
+      fields:
+      - title: Title
+        value: 
+        type: 0
+      - title: Actor
+        value: 11
+        type: 5
+      - title: Conversant
+        value: 2
+        type: 5
+      - title: Menu Text
+        value: 
+        type: 0
+      - title: Dialogue Text
+        value: 'Hi, [lua(Variable["Actor"])]. Would you like some coffee? '
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: Camera(Closeup)
+        type: 0
+      conversationID: 9
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 9
+        originDialogueID: 10
+        destinationConversationID: 9
+        destinationDialogueID: 11
+        isConnector: 0
+        priority: 2
+      - originConversationID: 9
+        originDialogueID: 10
+        destinationConversationID: 9
+        destinationDialogueID: 13
+        isConnector: 0
+        priority: 2
+      conditionsString: Item["Get_to_Work!"].State == "unassigned" and Variable["Actor"]
+        == "LPU Manager"
+      userScript: 
+    - id: 11
+      fields:
+      - title: Title
+        value: 
+        type: 0
+      - title: Actor
+        value: 2
+        type: 5
+      - title: Conversant
+        value: 11
+        type: 5
+      - title: Menu Text
+        value: 'Why are you not at work? '
+        type: 0
+      - title: Dialogue Text
+        value: 
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 9
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 9
+        originDialogueID: 11
+        destinationConversationID: 9
+        destinationDialogueID: 12
+        isConnector: 0
+        priority: 2
+      conditionsString: Dialog[11].SimStatus ~= "WasDisplayed"
+      userScript: 
+    - id: 12
+      fields:
+      - title: Title
+        value: 
+        type: 0
+      - title: Actor
+        value: 11
+        type: 5
+      - title: Conversant
+        value: 2
+        type: 5
+      - title: Menu Text
+        value: 
+        type: 0
+      - title: Dialogue Text
+        value: 'Sorry, sir. I will get back to work right away! '
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 9
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: Item["Get_to_Work!"].State = "failure";
+    - id: 13
+      fields:
+      - title: Title
+        value: 
+        type: 0
+      - title: Actor
+        value: 2
+        type: 5
+      - title: Conversant
+        value: 11
+        type: 5
+      - title: Menu Text
+        value: 'Yes, sure. Thanks. '
+        type: 0
+      - title: Dialogue Text
+        value: 
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 9
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: Dialog[13].SimStatus ~= "WasDisplayed"
+      userScript: Item["Get_to_Work!"].State = "failure";
+  - id: 6
+    fields:
+    - title: Title
+      value: Big Sales Prospect
+      type: 0
+    - title: Description
+      value: 
+      type: 0
+    - title: Actor
+      value: 14
+      type: 5
+    - title: Conversant
+      value: 1
+      type: 5
+    nodeColor: Red
+    dialogueEntries:
+    - id: 0
+      fields:
+      - title: Title
+        value: START
+        type: 0
+      - title: Actor
+        value: 14
+        type: 5
+      - title: Conversant
+        value: 1
+        type: 5
+      - title: Menu Text
+        value: 
+        type: 0
+      - title: Dialogue Text
+        value: 
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: None()
+        type: 0
+      conversationID: 6
+      isRoot: 1
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 6
+        originDialogueID: 0
+        destinationConversationID: 6
+        destinationDialogueID: 1
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+    - id: 1
+      fields:
+      - title: Title
+        value: 
+        type: 0
+      - title: Actor
+        value: 1
+        type: 5
+      - title: Conversant
+        value: 14
+        type: 5
+      - title: Menu Text
+        value: 
+        type: 0
+      - title: Dialogue Text
+        value: 'Hi Sir, how may I help you? '
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: Camera(Closeup)
+        type: 0
+      conversationID: 6
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 6
+        originDialogueID: 1
+        destinationConversationID: 6
+        destinationDialogueID: 2
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+    - id: 2
+      fields:
+      - title: Title
+        value: 
+        type: 0
+      - title: Actor
+        value: 14
+        type: 5
+      - title: Conversant
+        value: 1
+        type: 5
+      - title: Menu Text
+        value: 
+        type: 0
+      - title: Dialogue Text
+        value: 'I am looking for a bank loan to invest in some business. '
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 6
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 6
+        originDialogueID: 2
+        destinationConversationID: 6
+        destinationDialogueID: 3
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: Item["Potential_Sales"].State = "active";
+    - id: 3
+      fields:
+      - title: Title
+        value: Type of Bank Loans
+        type: 0
+      - title: Actor
+        value: 14
+        type: 5
+      - title: Conversant
+        value: 1
+        type: 5
+      - title: Sequence
+        value: None()
+        type: 0
+      conversationID: 6
+      isRoot: 0
+      isGroup: 1
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 6
+        originDialogueID: 3
+        destinationConversationID: 6
+        destinationDialogueID: 4
+        isConnector: 0
+        priority: 2
+      - originConversationID: 6
+        originDialogueID: 3
+        destinationConversationID: 6
+        destinationDialogueID: 5
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+    - id: 4
+      fields:
+      - title: Title
+        value: 
+        type: 0
+      - title: Actor
+        value: 1
+        type: 5
+      - title: Conversant
+        value: 14
+        type: 5
+      - title: Menu Text
+        value: Aggressive Sales Pitch
+        type: 0
+      - title: Dialogue Text
+        value: 'Hi Sir, let me introduce to you the bank loan with low interest rate,
+          I am sure you will like what I have to offer. '
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 6
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 6
+        originDialogueID: 4
+        destinationConversationID: 6
+        destinationDialogueID: 6
+        isConnector: 0
+        priority: 2
+      conditionsString: Dialog[4].SimStatus ~= "WasDisplayed"
+      userScript: 
+    - id: 5
+      fields:
+      - title: Title
+        value: 
+        type: 0
+      - title: Actor
+        value: 1
+        type: 5
+      - title: Conversant
+        value: 14
+        type: 5
+      - title: Menu Text
+        value: Enquire for more information
+        type: 0
+      - title: Dialogue Text
+        value: Hi Sir, what kind of bank loans are you looking for?
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 6
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 6
+        originDialogueID: 5
+        destinationConversationID: 6
+        destinationDialogueID: 7
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+    - id: 6
+      fields:
+      - title: Title
+        value: 
+        type: 0
+      - title: Actor
+        value: 14
+        type: 5
+      - title: Conversant
+        value: 1
+        type: 5
+      - title: Menu Text
+        value: 
+        type: 0
+      - title: Dialogue Text
+        value: 'This is not what I am looking for. '
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 6
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: Item["Potential_Sales"].State = "failure";
+    - id: 7
+      fields:
+      - title: Title
+        value: 
+        type: 0
+      - title: Actor
+        value: 14
+        type: 5
+      - title: Conversant
+        value: 1
+        type: 5
+      - title: Menu Text
+        value: 
+        type: 0
+      - title: Dialogue Text
+        value: 'I am looking for house loan. '
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 6
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 6
+        originDialogueID: 7
+        destinationConversationID: 6
+        destinationDialogueID: 8
+        isConnector: 0
+        priority: 2
+      - originConversationID: 6
+        originDialogueID: 7
+        destinationConversationID: 6
+        destinationDialogueID: 9
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+    - id: 8
+      fields:
+      - title: Title
+        value: 
+        type: 0
+      - title: Actor
+        value: 1
+        type: 5
+      - title: Conversant
+        value: 14
+        type: 5
+      - title: Menu Text
+        value: House Loan 1 Pitch
+        type: 0
+      - title: Dialogue Text
+        value: 'May I recommend this loan. '
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 6
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 6
+        originDialogueID: 8
+        destinationConversationID: 6
+        destinationDialogueID: 10
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+    - id: 9
+      fields:
+      - title: Title
+        value: 
+        type: 0
+      - title: Actor
+        value: 1
+        type: 5
+      - title: Conversant
+        value: 14
+        type: 5
+      - title: Menu Text
+        value: House loan 2 pitch
+        type: 0
+      - title: Dialogue Text
+        value: Let me recommend you this loan.
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 6
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 6
+        originDialogueID: 9
+        destinationConversationID: 6
+        destinationDialogueID: 11
+        isConnector: 0
+        priority: 2
+      conditionsString: Dialog[9].SimStatus ~= "WasDisplayed"
+      userScript: 
+    - id: 10
+      fields:
+      - title: Title
+        value: 
+        type: 0
+      - title: Actor
+        value: 14
+        type: 5
+      - title: Conversant
+        value: 1
+        type: 5
+      - title: Menu Text
+        value: 
+        type: 0
+      - title: Dialogue Text
+        value: 'This sounds excellent. Let me go back to think about it and I will
+          call you back.
+
+'
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 6
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: Item["Potential_Sales"].State = "success";
+    - id: 11
+      fields:
+      - title: Title
+        value: 
+        type: 0
+      - title: Actor
+        value: 14
+        type: 5
+      - title: Conversant
+        value: 1
+        type: 5
+      - title: Menu Text
+        value: 
+        type: 0
+      - title: Dialogue Text
+        value: This is not ideal for me. Do you have any other offer?
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 6
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 6
+        originDialogueID: 11
+        destinationConversationID: 6
+        destinationDialogueID: 7
+        isConnector: 1
+        priority: 2
       conditionsString: 
       userScript: 
