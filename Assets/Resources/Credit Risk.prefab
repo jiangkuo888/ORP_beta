@@ -250,7 +250,7 @@ GameObject:
   - 114: {fileID: 11400014}
   m_Layer: 0
   m_Name: Credit Risk
-  m_TagString: manager
+  m_TagString: CR
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2343,14 +2343,15 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100032}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bd5b99cd7173dff4097218335b960438, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   gameOn: 0
-  cursorTextureInteract: {fileID: 0}
-  cursorTextureTalk: {fileID: 0}
+  cursorTextureInteract: {fileID: 2800000, guid: ce8bc546e2bf7a44ea834e51dd196ee1,
+    type: 3}
+  cursorTextureTalk: {fileID: 2800000, guid: ce8bc546e2bf7a44ea834e51dd196ee1, type: 3}
   hotSpot: {x: 100, y: 0}
   currentHitObj: {fileID: 0}
   mouseClick: 0
@@ -2401,6 +2402,13 @@ MonoBehaviour:
       acceptedGameObjects: []
     target: {fileID: 11400000}
     state: 1
+  - condition:
+      luaConditions: []
+      questConditions: []
+      acceptedTags: []
+      acceptedGameObjects: []
+    target: {fileID: 11400010}
+    state: 1
   onEnd:
   - condition:
       luaConditions: []
@@ -2422,6 +2430,13 @@ MonoBehaviour:
       acceptedTags: []
       acceptedGameObjects: []
     target: {fileID: 11400000}
+    state: 0
+  - condition:
+      luaConditions: []
+      questConditions: []
+      acceptedTags: []
+      acceptedGameObjects: []
+    target: {fileID: 11400010}
     state: 0
 --- !u!114 &11400018
 MonoBehaviour:
