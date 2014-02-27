@@ -147,6 +147,8 @@ public class GameManagerVik : Photon.MonoBehaviour {
 					GameObject a = PhotonNetwork.Instantiate(playerPrefabList[i].name, spawnPosition, Quaternion.identity, 0, objs);
 
 					a.name = "Sales Manager";
+					if(GameObject.Find (a.name+" Table").gameObject.transform.Find ("DocumentHolder").GetComponent<documentData>().enabled == false)
+						GameObject.Find (a.name+" Table").gameObject.transform.Find ("DocumentHolder").GetComponent<documentData>().enabled = true;
 
 
 					break;
@@ -154,12 +156,16 @@ public class GameManagerVik : Photon.MonoBehaviour {
 					spawnPosition = randomSpawnPosition(ITSpawnPositionList);
 					GameObject b = PhotonNetwork.Instantiate(playerPrefabList[i].name, spawnPosition, Quaternion.identity, 0, objs);
 					b.name = "LPU Officer";
+					if(GameObject.Find (b.name+" Table").gameObject.transform.Find ("DocumentHolder").GetComponent<documentData>().enabled == false)
+						GameObject.Find (b.name+" Table").gameObject.transform.Find ("DocumentHolder").GetComponent<documentData>().enabled = true;
 
 					break;
 				case "LPU Manager":
 					spawnPosition = randomSpawnPosition(customerSpawnPositionList);
 					GameObject c = PhotonNetwork.Instantiate(playerPrefabList[i].name, spawnPosition, Quaternion.identity, 0, objs);
 					c.name = "LPU Manager";
+					if(GameObject.Find (c.name+" Table").gameObject.transform.Find ("DocumentHolder").GetComponent<documentData>().enabled == false)
+						GameObject.Find (c.name+" Table").gameObject.transform.Find ("DocumentHolder").GetComponent<documentData>().enabled = true;
 
 					break;
 				case "Credit Risk":
@@ -167,10 +173,13 @@ public class GameManagerVik : Photon.MonoBehaviour {
 					GameObject d = PhotonNetwork.Instantiate(playerPrefabList[i].name, spawnPosition, Quaternion.identity, 0, objs);
 					d.name = "Credit Risk";
 
+					if(GameObject.Find (d.name+" Table").gameObject.transform.Find ("DocumentHolder").GetComponent<documentData>().enabled == false)
+						GameObject.Find (d.name+" Table").gameObject.transform.Find ("DocumentHolder").GetComponent<documentData>().enabled = true;
+
 					break;
 				default:
 					break;
-					
+
 					
 				}
 	       		

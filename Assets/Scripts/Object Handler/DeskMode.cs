@@ -80,29 +80,40 @@ public class DeskMode : MonoBehaviour {
 				
 			case DeskModeSubMode.FileMode:
 			{
+
+				GameObject.Find ("EmailIcon").GetComponent<Email>().clearNewEmail();
 				//nofunction added
 				if(GUI.Button( new LTRect(w/2 - 50f, .9f*h - 100f, 100f, 30f ).rect, "Send"))
 				{
-
+					if(this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents.Length>0)
+					{
 					// RPC call to display email
 					PhotonView photonView = this.gameObject.GetPhotonView();
 					
 					
-					photonView.RPC ("sendDocument",PhotonTargets.AllBuffered,"Sales Manager","LPU Officer");
-					                
+						photonView.RPC ("sendDocument",PhotonTargets.AllBuffered,"Sales Manager","LPU Officer",this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].name);
+					}            
 					                
 					                // accept the document
 				}
 				if(GUI.Button( new LTRect(w/2 - 50f, .9f*h - 50f, 100f, 30f ).rect, "Reject"))
 				{
+					if(this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents.Length>0)
+					{
+
+
+					}
 					// reject the document
 				}
 				
 				if(GUI.Button(new LTRect(w/2 - 50f, .9f*h - 150f, 100f, 30f ).rect, "Read"))
 				{
 					// read the document
+					if(this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents.Length>0)
+					{
 					this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].GetComponent<ObjectViewer>().readDocument();
 					pageMode = true;
+					}
 					
 				}
 				
@@ -358,19 +369,47 @@ public class DeskMode : MonoBehaviour {
 
 	[RPC]
 
-	void sendDocument(string sender, string receiver){
+	void sendDocument(string sender, string receiver,string documentName){
 
-
+		// receiver action
 		if(PhotonNetwork.playerName == receiver)
 		{
-			GameObject document = this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1];
-			this.transform.Find ("DocumentHolder").GetComponent<documentData>().addDocument(this.gameObject);
+		
+			GameObject document = GameObject.Find (documentName);
+
+			if(document)
+				print (document.name);
+
+			if(GameObject.Find (receiver+" Table").gameObject.transform.Find ("DocumentHolder").GetComponent<documentData>())
+				print ("got data");
+
+
+			GameObject.Find (receiver+" Table").gameObject.transform.Find ("DocumentHolder").GetComponent<documentData>().addDocument(document);
+
+
+
+			// notify the receiver 
+			GameObject.Find ("EmailIcon").GetComponent<Email>().hasNewDocument(sender);
 		}
+
+		// document sender action
 		if(PhotonNetwork.playerName == sender)
 		{
 
 			GameObject document = this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1];
 			this.transform.Find ("DocumentHolder").GetComponent<documentData>().removeDocument(document);
+			// move the document out of the table
+			document.transform.parent = GameObject.Find ("AllDocuments").transform;
+			document.transform.localPosition = new Vector3(0,0,0);
+			// move the first document position to next document
+
+			if(this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents.Length >0)
+			GameObject.Find ("documentHidden").transform.position = this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[0].transform.position;
+
+
+			// quit the deskMode
+			mode = DeskModeSubMode.None;
+			moveCameraToDesk();
 		}
 	}
 	

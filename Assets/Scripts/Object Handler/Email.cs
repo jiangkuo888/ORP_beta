@@ -4,6 +4,7 @@ using System.Collections;
 public class Email : MonoBehaviour {
 	public GUIText emailShort;
 	public Texture2D emailIcon;
+	public Texture2D documentIcon;
 
 	public string[] EmailsToBeSend;
 	public string[] EmailsReceived;
@@ -41,9 +42,22 @@ public class Email : MonoBehaviour {
 
 	}
 
+	public void hasNewDocument(string sender){
+		this.GetComponent<GUITexture>().texture = documentIcon;
+		this.GetComponent<GUITexture>().enabled = true;
+		emailShort.text = "You have new document from "+ sender+" on your desk.";
+		
+
+		
+	}
+
+
+
 	public void clearNewEmail(){
 		this.GetComponent<GUITexture>().texture = null;
 		this.GetComponent<GUITexture>().enabled = false;
 		emailShort.text = null;
 	}
+
+
 }
