@@ -246,7 +246,7 @@ GameObject:
   - 114: {fileID: 11400012}
   m_Layer: 2
   m_Name: Sales Manager
-  m_TagString: manager
+  m_TagString: SM
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1441,6 +1441,13 @@ MonoBehaviour:
       acceptedGameObjects: []
     target: {fileID: 11400000}
     state: 1
+  - condition:
+      luaConditions: []
+      questConditions: []
+      acceptedTags: []
+      acceptedGameObjects: []
+    target: {fileID: 11400010}
+    state: 1
   onEnd:
   - condition:
       luaConditions: []
@@ -1462,6 +1469,13 @@ MonoBehaviour:
       acceptedTags: []
       acceptedGameObjects: []
     target: {fileID: 11400000}
+    state: 0
+  - condition:
+      luaConditions: []
+      questConditions: []
+      acceptedTags: []
+      acceptedGameObjects: []
+    target: {fileID: 11400010}
     state: 0
 --- !u!114 &11400014
 MonoBehaviour:
