@@ -13,8 +13,8 @@ public class DropAreaController : MonoBehaviour {
 	void Start () {
 		AreaActivated = false;
 		DropTaskFinished = false;
-		if(DropObj == null)
-			Debug.Log(this.name + " has no drop object, please attach one.");
+		//if(DropObj == null)
+//			Debug.Log(this.name + " has no drop object, please attach one.");
 	}
 	
 	// Update is called once per frame

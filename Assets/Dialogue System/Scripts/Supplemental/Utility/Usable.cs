@@ -35,7 +35,7 @@ namespace PixelCrushers.DialogueSystem.Examples {
 			
 		public void OnConversationStart(Transform actor) {
 			DialogueLua.SetVariable("Actor", actor.name);				
-			print(DialogueLua.GetVariable("Actor").AsString);
+//			print(DialogueLua.GetVariable("Actor").AsString);
 		}
 	
 	}

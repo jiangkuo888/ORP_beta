@@ -134,7 +134,7 @@ public class PlayMakerPhotonProxy : Photon.MonoBehaviour
 		
 		// now make sure all fsm with network synchronized variable have a photonView attached
 		ArrayList fsmsToObserve = GetFsmsWithNetworkSynchedVariables(go);
-		Debug.Log("found fsm to observe : "+fsmsToObserve.Count);
+//		Debug.Log("found fsm to observe : "+fsmsToObserve.Count);
 		foreach(PlayMakerFSM fsm in fsmsToObserve)
 		{		
 			bool ok = false;
@@ -161,13 +161,13 @@ public class PlayMakerPhotonProxy : Photon.MonoBehaviour
 		// now inject PlayMakerPhotonView where required.
 		foreach(PhotonView photonView in allPhotonViews)
 		{	
-			Debug.Log(" photon view observing : "+photonView.observed+" "+photonView.viewID);
+//			Debug.Log(" photon view observing : "+photonView.observed+" "+photonView.viewID);
 			
 			if ( photonView.observed is PlayMakerFSM)
 			{
 				PlayMakerFSM fsm =  (PlayMakerFSM)photonView.observed;
 				PlayMakerPhotonView synchProxy = photonView.gameObject.AddComponent<PlayMakerPhotonView>();
-				Debug.Log("switching observed");
+//				Debug.Log("switching observed");
 				synchProxy.observed = fsm;
 				
 				photonView.observed = synchProxy;
@@ -520,9 +520,9 @@ public class PlayMakerPhotonProxy : Photon.MonoBehaviour
 	{
 
 		if (lastConnectionState != PhotonNetwork.connectionState) {
-			if (debug) {
-				Debug.Log ("PhotonNetwork.connectionState changed from '" + lastConnectionState + "' to '" + PhotonNetwork.connectionState + "'");
-			}
+			//if (debug) {
+			//	Debug.Log ("PhotonNetwork.connectionState changed from '" + lastConnectionState + "' to '" + PhotonNetwork.connectionState + "'");
+			//}
 			
 			lastConnectionState = PhotonNetwork.connectionState;
 			
@@ -627,7 +627,7 @@ public class PlayMakerPhotonProxy : Photon.MonoBehaviour
 		
 	 	PlayMakerPhotonProxy.BroadCastToAll("PHOTON / JOINED ROOM");
 			
-		Debug.Log("post PHOTON / JOINED ROOM broadcasting");
+//		Debug.Log("post PHOTON / JOINED ROOM broadcasting");
 	}
 
 	/// <summary>
@@ -736,9 +736,9 @@ public class PlayMakerPhotonProxy : Photon.MonoBehaviour
 	/// </summary>
 	void OnConnectedToPhoton ()
 	{
-		if (debug) {
-			Debug.Log ("PLayMaker Photon proxy:OnConnectedToPhoton");
-		}
+		//if (debug) {
+		//	Debug.Log ("PLayMaker Photon proxy:OnConnectedToPhoton");
+	//	}
 		
 		PlayMakerFSM.BroadcastEvent ("PHOTON / CONNECTED TO PHOTON");
 	}

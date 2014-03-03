@@ -132,7 +132,7 @@ public class GameManagerVik : Photon.MonoBehaviour {
 
 
 
-
+		GameObject.Find ("QuestLogButton").GetComponent<GUITexture>().enabled = true;
 
 
 		// instantiate prefab based on the name
