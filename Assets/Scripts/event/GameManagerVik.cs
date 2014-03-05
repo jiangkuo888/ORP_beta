@@ -131,8 +131,9 @@ public class GameManagerVik : Photon.MonoBehaviour {
 		string playerName = PlayerPrefs.GetString("playerName");
 
 
-
+		// start drawing GUI elements
 		GameObject.Find ("QuestLogButton").GetComponent<GUITexture>().enabled = true;
+		GameObject.Find ("phoneButton").GetComponent<GUITexture>().enabled = true;
 
 
 		// instantiate prefab based on the name
