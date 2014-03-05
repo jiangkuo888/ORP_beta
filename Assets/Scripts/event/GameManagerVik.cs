@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections;
 using HutongGames.PlayMaker;
 using System.Collections.Generic;
+using dbConnect;
 
 public class GameManagerVik : Photon.MonoBehaviour {
 
@@ -17,8 +18,7 @@ public class GameManagerVik : Photon.MonoBehaviour {
 	HashSet<string> selectedPlayerList = new HashSet<string>();
 	bool roleSelected = false;
 	public PlayMakerFSM EventManager;
-
-
+	
     void OnJoinedRoom()
     {
 
@@ -132,7 +132,7 @@ public class GameManagerVik : Photon.MonoBehaviour {
 
 
 
-		GameObject.Find ("QuestLogButton").GetComponent<GUITexture>().enabled = true;
+		//GameObject.Find ("QuestLogButton").GetComponent<GUITexture>().enabled = true;
 
 
 		// instantiate prefab based on the name
@@ -149,7 +149,6 @@ public class GameManagerVik : Photon.MonoBehaviour {
 					a.name = "Sales Manager";
 					if(GameObject.Find (a.name+" Table").gameObject.transform.Find ("DocumentHolder").GetComponent<documentData>().enabled == false)
 						GameObject.Find (a.name+" Table").gameObject.transform.Find ("DocumentHolder").GetComponent<documentData>().enabled = true;
-
 
 					break;
 				case "LPU Officer":
@@ -182,7 +181,18 @@ public class GameManagerVik : Photon.MonoBehaviour {
 
 					
 				}
-	       		
+
+				//add to db
+				dbClass db = new dbClass();
+				db.addFunction("playerActionLog");
+				db.addValues("playerName", "yang");
+				db.addValues("playerActionType", "JOIN");
+				string info = "join a game#room " + PhotonNetwork.room.name;
+				db.addValues("actionInfo", info);
+				string dbReturn = db.connectToDb();
+				print (dbReturn);
+				//end add to db
+				
 			}
 		}
 

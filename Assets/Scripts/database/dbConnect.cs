@@ -69,7 +69,7 @@ namespace dbConnect {
 				formData["send"] = sendJSON.ToString();
 				byte[] responseBytes = webClient.UploadValues(this.url, "POST", formData);
 				string responsefromserver = Encoding.UTF8.GetString(responseBytes);
-				//Debug.Log(responsefromserver);
+				Debug.Log(responsefromserver);
 
 				//parse the return values
 				var returnValue = JSONNode.Parse(responsefromserver);
@@ -113,6 +113,42 @@ namespace dbConnect {
 
 			switch (error) 
 			{
+				case 400:
+					errorString = "Internal error: variable(s) has/have empty value";
+					break;
+
+				case 404:
+					errorString = "Internal error: variable(s) not passed to backend";
+					break;
+
+				case 500:
+					errorString = "Internal error: cannot connect to db";
+					break;
+
+				case 501:
+					errorString = "Internal error: create table error";
+					break;
+
+				case 502:
+					errorString = "Internal error: insert table error";
+					break;
+
+				case 503:
+					errorString = "Internal error: select table error";
+					break;
+
+				case 504:
+					errorString = "Internal error: update table error";
+					break;
+
+				case 505:
+					errorString = "Internal error: delete table error";
+					break;
+
+				case 506:
+					errorString = "Internal error: no result from table";
+					break;
+
 				case 600:
 					errorString = "Player name exists in table; cannot create player";
 					break;
