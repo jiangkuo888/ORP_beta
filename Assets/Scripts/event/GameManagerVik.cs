@@ -198,9 +198,6 @@ public class GameManagerVik : Photon.MonoBehaviour {
 				//add roomID
 				this.roomID = db.getReturnValueInt("roomID");
 				//end add to db
-
-					
-				}
 	       		
 			}
 
