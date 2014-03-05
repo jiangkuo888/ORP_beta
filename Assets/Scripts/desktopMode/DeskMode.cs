@@ -88,10 +88,16 @@ public class DeskMode : MonoBehaviour {
 					if(this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents.Length>0)
 					{
 					// RPC call to display email
-					PhotonView photonView = this.gameObject.GetPhotonView();
+					    PhotonView photonView = this.gameObject.GetPhotonView();
 					
 					
-						photonView.RPC ("sendDocument",PhotonTargets.AllBuffered,"Sales Manager","LPU Officer",this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].name);
+
+						if(PhotonNetwork.playerName == "LPU Officer")
+							photonView.RPC ("sendDocument",PhotonTargets.AllBuffered,"LPU Officer","LPU Manager",this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].name);
+						if(PhotonNetwork.playerName == "LPU Manager")
+							photonView.RPC ("sendDocument",PhotonTargets.AllBuffered,"LPU Manager","Credit Risk",this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].name);
+						if(PhotonNetwork.playerName == "Credit Risk")
+							photonView.RPC ("sendDocument",PhotonTargets.AllBuffered,"Credit Risk","LPU Manager",this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].name);
 					}            
 					                
 					                // accept the document
@@ -113,9 +119,17 @@ public class DeskMode : MonoBehaviour {
 					{
 					this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].GetComponent<ObjectViewer>().readDocument();
 					pageMode = true;
+
+
+						if(this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].GetComponent<pageData>().currentPage == 
+							this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].GetComponent<pageData>().pageTextures.Length - 1)
+							this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].GetComponent<pageData>().lastPage = true;
 					}
 					
 				}
+
+
+
 				
 				//functions in use
 				if(GUI.Button( new LTRect(w - 200f, .9f*h - 50f, 100f, 50f ).rect, "Next"))
@@ -341,8 +355,29 @@ public class DeskMode : MonoBehaviour {
 			if(GUI.Button( new LTRect(1.0f*w - 100f, 1.0f*h - 50f, 100f, 50f ).rect, "Back to Documents"))
 			{
 				pageMode = false;
+
+				this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].GetComponent<pageData>().lastPage = false;
 				this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].GetComponent<ObjectViewer>().playCloseFileAnim();
 				this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].GetComponent<ObjectViewer>().resetDocumentPosition();
+				
+			}
+
+
+
+			if(GUI.Button( new LTRect(.5f*w - 50f, .9f*h - 50f, 100f, 50f ).rect, "Verify"))
+			{
+				
+				Transform thisTr = this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].transform;
+				GameObject pc = GameObject.Find ("PCMode").gameObject;
+				LeanTween.move(pc, new Vector3(thisTr.position.x + .45f, thisTr.position.y , thisTr.position.z),.6f).setEase(LeanTweenType.easeOutQuint);
+				
+				
+				float midX = (pc.transform.renderer.bounds.max.x + thisTr.renderer.bounds.min.x)/2 - .05f;
+				float midY = (pc.transform.renderer.bounds.max.y + pc.transform.renderer.bounds.min.y)/2;
+				float midZ = (pc.transform.renderer.bounds.max.z + pc.transform.renderer.bounds.min.z)/2;
+				
+				
+				LeanTween.move(Camera.main.gameObject,new Vector3(midX,midY+cameraOffset,midZ),.6f).setEase(LeanTweenType.easeOutQuint);
 				
 			}
 			
@@ -377,11 +412,11 @@ public class DeskMode : MonoBehaviour {
 		
 			GameObject document = GameObject.Find (documentName);
 
-			if(document)
-				print (document.name);
-
-			if(GameObject.Find (receiver+" Table").gameObject.transform.Find ("DocumentHolder").GetComponent<documentData>())
-				print ("got data");
+//			if(document)
+//				print (document.name);
+//
+//			if(GameObject.Find (receiver+" Table").gameObject.transform.Find ("DocumentHolder").GetComponent<documentData>())
+//				print ("got data");
 
 
 			GameObject.Find (receiver+" Table").gameObject.transform.Find ("DocumentHolder").GetComponent<documentData>().addDocument(document);

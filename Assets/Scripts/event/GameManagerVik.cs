@@ -19,7 +19,7 @@ public class GameManagerVik : Photon.MonoBehaviour {
 	bool roleSelected = false;
 	public PlayMakerFSM EventManager;
 	public int roomID = -1;
-	
+
     void OnJoinedRoom()
     {
 
@@ -132,8 +132,9 @@ public class GameManagerVik : Photon.MonoBehaviour {
 		string playerName = PlayerPrefs.GetString("playerName");
 
 
-
-		//GameObject.Find ("QuestLogButton").GetComponent<GUITexture>().enabled = true;
+		// start drawing GUI elements
+		GameObject.Find ("QuestLogButton").GetComponent<GUITexture>().enabled = true;
+		GameObject.Find ("phoneButton").GetComponent<GUITexture>().enabled = true;
 
 
 		// instantiate prefab based on the name
@@ -150,6 +151,7 @@ public class GameManagerVik : Photon.MonoBehaviour {
 					a.name = "Sales Manager";
 					if(GameObject.Find (a.name+" Table").gameObject.transform.Find ("DocumentHolder").GetComponent<documentData>().enabled == false)
 						GameObject.Find (a.name+" Table").gameObject.transform.Find ("DocumentHolder").GetComponent<documentData>().enabled = true;
+
 
 					break;
 				case "LPU Officer":
@@ -180,7 +182,6 @@ public class GameManagerVik : Photon.MonoBehaviour {
 				default:
 					break;
 
-
 				}
 				
 			}
@@ -197,6 +198,10 @@ public class GameManagerVik : Photon.MonoBehaviour {
 				//add roomID
 				this.roomID = db.getReturnValueInt("roomID");
 				//end add to db
+
+					
+				}
+	       		
 			}
 
 
