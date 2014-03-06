@@ -117,7 +117,7 @@
         <Fields>
           <Field Hint="The title of this conversation." Type="Text">
             <Title>Title</Title>
-            <Value>Flood Announcement</Value>
+            <Value>Facilities</Value>
           </Field>
           <Field Hint="A short description of what happens in this conversation." Type="Text">
             <Title>Description</Title>
@@ -200,7 +200,7 @@
               </Field>
               <Field Hint="Dialogue System for Unity cutscene sequence" Type="Text">
                 <Title>Sequence</Title>
-                <Value />
+                <Value>Camera(Closeup);</Value>
               </Field>
             </Fields>
             <ReviewerNotes />
@@ -231,7 +231,7 @@
               </Field>
               <Field Hint="The text that is spoken by the actor." Type="Localization">
                 <Title>Dialogue Text</Title>
-                <Value>Hi, this is the Facilities Manager. I have some notification announcements for you. </Value>
+                <Value>Hi, I am the Facilities Manager.</Value>
               </Field>
               <Field Hint="A WMV video file to be played for this dialogue." Type="Text">
                 <Title>Video File</Title>
@@ -246,6 +246,7 @@
             <ReviewerStatus>None</ReviewerStatus>
             <OutgoingLinks>
               <Link OriginConvoID="1" DestinationConvoID="1" OriginDialogID="2" DestinationDialogID="3" IsConnector="false" />
+              <Link OriginConvoID="1" DestinationConvoID="1" OriginDialogID="2" DestinationDialogID="4" IsConnector="false" />
             </OutgoingLinks>
             <ConditionsString />
             <UserScript />
@@ -266,11 +267,11 @@
               </Field>
               <Field Hint="The text that is displayed to the player in a list as a dialogue option." Type="Text">
                 <Title>Menu Text</Title>
-                <Value />
+                <Value>I need your attention</Value>
               </Field>
               <Field Hint="The text that is spoken by the actor." Type="Localization">
                 <Title>Dialogue Text</Title>
-                <Value>Yes I am listening. </Value>
+                <Value />
               </Field>
               <Field Hint="A WMV video file to be played for this dialogue." Type="Text">
                 <Title>Video File</Title>
@@ -283,9 +284,7 @@
             </Fields>
             <ReviewerNotes />
             <ReviewerStatus>None</ReviewerStatus>
-            <OutgoingLinks>
-              <Link OriginConvoID="1" DestinationConvoID="1" OriginDialogID="3" DestinationDialogID="4" IsConnector="false" />
-            </OutgoingLinks>
+            <OutgoingLinks />
             <ConditionsString />
             <UserScript />
           </DialogEntry>
@@ -297,19 +296,19 @@
               </Field>
               <Field Hint="The actor who is talking." Type="Actor">
                 <Title>Actor</Title>
-                <Value>2</Value>
+                <Value>1</Value>
               </Field>
               <Field Hint="The actor who is listening." Type="Actor">
                 <Title>Conversant</Title>
-                <Value>1</Value>
+                <Value>2</Value>
               </Field>
               <Field Hint="The text that is displayed to the player in a list as a dialogue option." Type="Text">
                 <Title>Menu Text</Title>
-                <Value />
+                <Value>Sorry, nothing's up.</Value>
               </Field>
               <Field Hint="The text that is spoken by the actor." Type="Localization">
                 <Title>Dialogue Text</Title>
-                <Value>There is a high chance that the Sales Branch might get flooded within the next hour or so. Please kindly advice the customers to come back another day if they do not have any issues of grave importance. </Value>
+                <Value />
               </Field>
               <Field Hint="A WMV video file to be played for this dialogue." Type="Text">
                 <Title>Video File</Title>

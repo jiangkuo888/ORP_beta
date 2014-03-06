@@ -125,7 +125,11 @@ namespace dbConnect {
 					errorString = "Internal error: variable(s) has/have empty value";
 					break;
 
-				case 404:
+				case 401:
+					errorString = "Internal error: variable(s) is not a number when it should be";
+					break;
+
+				case 402:
 					errorString = "Internal error: variable(s) not passed to backend";
 					break;
 
