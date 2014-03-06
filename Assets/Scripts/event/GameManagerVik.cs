@@ -19,6 +19,7 @@ public class GameManagerVik : Photon.MonoBehaviour {
 	bool roleSelected = false;
 	public PlayMakerFSM EventManager;
 	public int roomID = -1;
+	public string loginName = "";
 
     void OnJoinedRoom()
     {
@@ -133,8 +134,8 @@ public class GameManagerVik : Photon.MonoBehaviour {
 
 
 		// start drawing GUI elements
-		GameObject.Find ("QuestLogButton").GetComponent<GUITexture>().enabled = true;
-		GameObject.Find ("phoneButton").GetComponent<GUITexture>().enabled = true;
+		//GameObject.Find ("QuestLogButton").GetComponent<GUITexture>().enabled = true;
+		//GameObject.Find ("phoneButton").GetComponent<GUITexture>().enabled = true;
 
 
 		// instantiate prefab based on the name

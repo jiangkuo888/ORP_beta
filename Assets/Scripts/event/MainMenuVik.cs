@@ -95,6 +95,11 @@ public class MainMenuVik : MonoBehaviour
 					if (dbReturn == "SUCCESS NO RETURN")
 					{
 						isLogin = false;
+
+						//add playerName
+						GameObject gameManager = GameObject.Find("GameManager");  
+						GameManagerVik vikky = gameManager.GetComponent<GameManagerVik>();
+						vikky.loginName = playerName;
 					}
 					//if not successful print error string
 					else {
@@ -221,6 +226,10 @@ public class MainMenuVik : MonoBehaviour
 				db.addFunction("roomCreate");
 				db.addValues("roomName", roomName);
 				string dbReturn = db.connectToDb();
+
+				if (dbReturn != "SUCCESS") {
+					print (dbReturn);
+				}
 
 				//add roomID
 				GameObject gameManager = GameObject.Find("GameManager");  
