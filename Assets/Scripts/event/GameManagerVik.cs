@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections;
 using HutongGames.PlayMaker;
 using System.Collections.Generic;
+using dbConnect;
 
 public class GameManagerVik : Photon.MonoBehaviour {
 
@@ -17,7 +18,7 @@ public class GameManagerVik : Photon.MonoBehaviour {
 	HashSet<string> selectedPlayerList = new HashSet<string>();
 	bool roleSelected = false;
 	public PlayMakerFSM EventManager;
-
+	public int roomID = -1;
 
     void OnJoinedRoom()
     {
@@ -181,10 +182,26 @@ public class GameManagerVik : Photon.MonoBehaviour {
 				default:
 					break;
 
-					
 				}
+				
+			}
+		
+			//update roomID if needed
+			if (this.roomID == -1)
+			{
+				//add to db
+				dbClass db = new dbClass();
+				db.addFunction("getRoomID");
+				db.addValues("roomName", PhotonNetwork.room.name);
+				string dbReturn = db.connectToDb();
+				
+				//add roomID
+				this.roomID = db.getReturnValueInt("roomID");
+				//end add to db
 	       		
 			}
+
+
 		}
 
 
