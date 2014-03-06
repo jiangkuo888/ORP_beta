@@ -204,7 +204,25 @@ namespace PixelCrushers.DialogueSystem.Examples {
 				return new Vector3(Screen.width / 2, Screen.height / 2);
 			}
 		}
+		public void OnConversationStart(){
+			//print ("disable"+ GameObject.Find (PhotonNetwork.playerName).transform.name);
+
+
+//			GameObject.Find ("Dialogue Manager").GetComponent<SetEnabledOnDialogueEvent>().TryStartActions(GameObject.Find (PhotonNetwork.playerName).transform);
+		}
 		
+		public void OnConversationEnd(){
+//			print ("enable");
+			this.GetComponent<ClickMove>().enabled = true;
+			this.GetComponent<ClickMove>().targetPosition = GameObject.Find (PhotonNetwork.playerName).transform.position;
+			this.GetComponent<DetectObjects>().enabled = true;
+			this.GetComponent<MouseCamera>().enabled =true;
+
+			this.GetComponent<CharacterMotor>().enabled = true;
+
+			this.GetComponent<CharacterMotor>().inputMoveDirection = Vector3.zero;
+		}
+
 		/// <summary>
 		/// If useDefaultGUI is <c>true</c> and a usable object has been targeted, this method
 		/// draws a selection message and targeting reticle.

@@ -4,7 +4,7 @@ using System.Collections;
 public class DeskMode : MonoBehaviour {
 	public string deskOwner;
 	
-	public enum DeskModeSubMode: int{FileMode,PCMode,pageMode,None};
+	public enum DeskModeSubMode: int{FileMode,PCMode,pageMode,InfoMode,None};
 	
 	public DeskModeSubMode mode;
 	
@@ -27,8 +27,8 @@ public class DeskMode : MonoBehaviour {
 	public bool checking;
 	public bool callingfacility;
 	public bool callingsecurity;
-	public bool pcModeIsOn;
-	
+
+
 	float w,h;
 	float lightOffset;
 	float cameraOffset;
@@ -36,10 +36,9 @@ public class DeskMode : MonoBehaviour {
 	Vector3 FileModeOriginalPosition;
 	Vector3 PCModeOriginalPosition;
 	Vector3 TelephoneModeOriginalPosition;
-	
-	
-	// email content flags
-	bool computerIsOn;
+	public Vector3 CameraOriginalPosition;
+
+
 	// Use this for initialization
 	void Start () {
 		
@@ -51,12 +50,12 @@ public class DeskMode : MonoBehaviour {
 		callingsecurity = false;	
 		sending = false;
 		checking = false;
-		computerIsOn = false;
+	
 		
-		pcModeIsOn = false;
+		PCMode = GameObject.Find ("PCMode").gameObject;
 		
 		FileModeOriginalPosition = FileMode.transform.position;
-		//PCModeOriginalPosition = PCMode.transform.position;
+		PCModeOriginalPosition = PCMode.transform.position;
 		//TelephoneModeOriginalPosition = TelephoneMode.transform.position;
 		
 		currentDocumentIndex=1;
@@ -117,6 +116,9 @@ public class DeskMode : MonoBehaviour {
 				// read the document
 				if(this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents.Length>0)
 				{
+
+					CameraOriginalPosition = Camera.main.gameObject.transform.position;
+
 					this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].GetComponent<ObjectViewer>().readDocument();
 					mode = DeskModeSubMode.pageMode;
 					
@@ -237,7 +239,7 @@ public class DeskMode : MonoBehaviour {
 				if(GUI.Button( new LTRect(1.0f*w - 100f, 1.0f*h - 50f, 100f, 50f ).rect, "Back to Documents"))
 				{
 					
-					
+				mode = DeskModeSubMode.FileMode;
 					this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].GetComponent<pageData>().lastPage = false;
 					this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].GetComponent<ObjectViewer>().playCloseFileAnim();
 					this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].GetComponent<ObjectViewer>().resetDocumentPosition();
@@ -262,7 +264,7 @@ public class DeskMode : MonoBehaviour {
 				
 				
 				LeanTween.move(Camera.main.gameObject,new Vector3(midX,midY+cameraOffset,midZ),.6f).setEase(LeanTweenType.easeOutQuint).setOnComplete(enablePCmode);
-				
+
 			}
 			
 			
@@ -271,28 +273,85 @@ public class DeskMode : MonoBehaviour {
 		}
 		case DeskModeSubMode.PCMode:
 		{
+
+
+			GameObject.Find("PCscreen").GetComponent<pcMode>().deskTop = this.gameObject;
+
+
+
+			if(GUI.Button( new LTRect(w - 200f, .9f*h - 50f, 100f, 50f ).rect, "Next Page"))
+			{
+				this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].GetComponent<pageData>().showNextPage();
+			}
 			
+			
+			if(GUI.Button( new LTRect(100f, .9f*h - 50f, 100f, 50f ).rect, "Previous Page"))
+			{
+				this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].GetComponent<pageData>().showPreviousPage();
+			}
+
+
 			if(GUI.Button( new LTRect(1.0f*w - 100f, 1.0f*h - 50f, 100f, 50f ).rect, "Back to read page"))
 			{
-				pcModeIsOn = false;
+
 				if(GameObject.Find("PCscreen").GetComponent<pcMode>().enabled == true)
 					GameObject.Find ("PCscreen").GetComponent<pcMode>().enabled = false;
 				
 				if(this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents.Length>0)
 				{
-					//this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].GetComponent<ObjectViewer>().readDocument();
-					mode = DeskModeSubMode.pageMode;
-					
-					
-					//if(this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].GetComponent<pageData>().currentPage == 
-					//   this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].GetComponent<pageData>().pageTextures.Length - 1)
-					//	this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].GetComponent<pageData>().lastPage = true;
+					if(this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents.Length>0)
+					{
+						LeanTween.move(Camera.main.gameObject,CameraOriginalPosition,.6f).setEase(LeanTweenType.easeOutQuint);
+						mode = DeskModeSubMode.pageMode;
+
+						
+						if(this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].GetComponent<pageData>().currentPage == 
+						   this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].GetComponent<pageData>().pageTextures.Length - 1)
+							this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].GetComponent<pageData>().lastPage = true;
+
+						LeanTween.move(PCMode,PCModeOriginalPosition,.6f).setEase(LeanTweenType.easeOutQuint);
+					}
 				}
 				
 			}
 			
 			break;
 		}
+
+
+
+
+		case DeskModeSubMode.InfoMode:
+		{
+			if(GUI.Button( new LTRect(1.0f*w - 100f, 1.0f*h - 50f, 100f, 50f ).rect, "Back to Compare mode"))
+			{
+
+				Transform thisTr = this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].transform;
+				GameObject pc = GameObject.Find ("PCMode").gameObject;
+				pc.transform.position = new Vector3(thisTr.position.x + .45f, thisTr.position.y , thisTr.position.z);
+				
+				
+				float midX = (pc.transform.renderer.bounds.max.x + thisTr.renderer.bounds.min.x)/2 - .05f;
+				float midY = (pc.transform.renderer.bounds.max.y + pc.transform.renderer.bounds.min.y)/2;
+				float midZ = (pc.transform.renderer.bounds.max.z + pc.transform.renderer.bounds.min.z)/2;
+				
+
+				if(GameObject.Find("PCscreen").GetComponent<pcMode>().enabled == true)
+					GameObject.Find ("PCscreen").GetComponent<pcMode>().enabled = false;
+
+
+				
+				LeanTween.move(Camera.main.gameObject,new Vector3(midX,midY+cameraOffset,midZ),.6f).setEase(LeanTweenType.easeOutQuint).setOnComplete(enablePCmode);
+
+
+
+
+
+				
+			}
+			break;
+		}
+
 		case DeskModeSubMode.None:
 		{
 			if(GUI.Button( new LTRect(1.0f*w - 100f, 1.0f*h - 50f, 100f, 50f ).rect, "Quit DeskMode"))
@@ -320,7 +379,9 @@ public class DeskMode : MonoBehaviour {
 		if(GameObject.Find("PCscreen").GetComponent<pcMode>().enabled == false)
 			GameObject.Find ("PCscreen").GetComponent<pcMode>().enabled = true;
 		
-		pcModeIsOn = true;
+		mode = DeskModeSubMode.PCMode;
+		GameObject.Find("PCscreen").GetComponent<pcMode>().InfoModeIsOn = false;
+
 	}
 	
 	
