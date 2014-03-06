@@ -76,7 +76,7 @@ public class DoorHandler : Photon.MonoBehaviour {
 	//Activate the Main function when player is near the door
 	void OnTriggerEnter (Collider Co){
 		//Debug.Log("name: " + other.gameObject.transform.name);
-		if(Co.gameObject.tag == "manager" && Co.GetComponent<PhotonView>().isMine)
+		if(Co.gameObject.tag == "SM" || Co.gameObject.tag == "LM" || Co.gameObject.tag == "LO" || Co.gameObject.tag == "CR" && Co.GetComponent<PhotonView>().isMine)
 			enter = true;
 	}
 	
