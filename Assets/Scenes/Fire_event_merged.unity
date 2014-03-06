@@ -4389,8 +4389,8 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: 29040262fe80f9147a2e455c5bb9fd37, type: 2}
-  - {fileID: 2100000, guid: e81041ea77ebb4e4e91f5ca64687d232, type: 2}
+  - {fileID: 2100000, guid: 6acbf108337f1d7459a89fb1f345e9a0, type: 2}
+  - {fileID: 2100000, guid: ed42efcbefed203408d0a7b7a9c3dd6f, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -4626,8 +4626,8 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: 29040262fe80f9147a2e455c5bb9fd37, type: 2}
-  - {fileID: 2100000, guid: e81041ea77ebb4e4e91f5ca64687d232, type: 2}
+  - {fileID: 2100000, guid: 6acbf108337f1d7459a89fb1f345e9a0, type: 2}
+  - {fileID: 2100000, guid: ed42efcbefed203408d0a7b7a9c3dd6f, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -29275,7 +29275,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: 88a2b78003fb09e4ab211434b7be936c, type: 2}
+  - {fileID: 2100000, guid: e874aa260702ea94c8a46e697446e19c, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -31740,7 +31740,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: 88a2b78003fb09e4ab211434b7be936c, type: 2}
+  - {fileID: 2100000, guid: e874aa260702ea94c8a46e697446e19c, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -33378,14 +33378,17 @@ MonoBehaviour:
         actionNames:
         - HutongGames.PlayMaker.Actions.GetTimeInfo
         - HutongGames.PlayMaker.Actions.FloatCompare
+        - PixelCrushers.DialogueSystem.PlayMaker.AddDialogueDatabase
         customNames:
         - 
         - 
-        actionEnabled: 0101
-        actionIsOpen: 0101
-        actionStartIndex: 0000000003000000
-        actionHashCodes: e371af8b53489ed1
-        unityObjectParams: []
+        - 
+        actionEnabled: 010101
+        actionIsOpen: 010101
+        actionStartIndex: 00000000030000000a000000
+        actionHashCodes: e371af8b53489ed1bd677783
+        unityObjectParams:
+        - {fileID: 11400000, guid: 8c988bd4102e3e841bdf5202f57bfe5b, type: 2}
         fsmGameObjectParams: []
         fsmOwnerDefaultParams: []
         animationCurveParams: []
@@ -33402,7 +33405,7 @@ MonoBehaviour:
         arrayParamTypes: []
         customTypeSizes: 
         customTypeNames: []
-        paramDataType: 070000000f000000010000000f0000000f0000000f00000017000000170000001700000001000000
+        paramDataType: 070000000f000000010000000f0000000f0000000f0000001700000017000000170000000100000005000000
         paramName:
         - getInfo
         - storeValue
@@ -33414,8 +33417,9 @@ MonoBehaviour:
         - lessThan
         - greaterThan
         - everyFrame
-        paramDataPos: 0000000004000000130000001400000023000000280000002d000000380000003800000043000000
-        paramByteDataSize: 040000000f000000010000000f00000005000000050000000b000000000000000b00000001000000
+        - database
+        paramDataPos: 0000000004000000130000001400000023000000280000002d00000038000000380000004300000000000000
+        paramByteDataSize: 040000000f000000010000000f00000005000000050000000b000000000000000b0000000100000000000000
     - name: MissionRuning
       description: 
       colorIndex: 0
@@ -33666,13 +33670,7 @@ MonoBehaviour:
     globalTransitions: []
     variables:
       floatVariables: []
-      intVariables:
-      - useVariable: 1
-        name: playerNum
-        tooltip: 
-        showInInspector: 0
-        networkSync: 0
-        value: 0
+      intVariables: []
       boolVariables:
       - useVariable: 1
         name: isInRoom
@@ -39193,8 +39191,8 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: 29040262fe80f9147a2e455c5bb9fd37, type: 2}
-  - {fileID: 2100000, guid: e81041ea77ebb4e4e91f5ca64687d232, type: 2}
+  - {fileID: 2100000, guid: 6acbf108337f1d7459a89fb1f345e9a0, type: 2}
+  - {fileID: 2100000, guid: ed42efcbefed203408d0a7b7a9c3dd6f, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -52919,8 +52917,8 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: 29040262fe80f9147a2e455c5bb9fd37, type: 2}
-  - {fileID: 2100000, guid: e81041ea77ebb4e4e91f5ca64687d232, type: 2}
+  - {fileID: 2100000, guid: 6acbf108337f1d7459a89fb1f345e9a0, type: 2}
+  - {fileID: 2100000, guid: ed42efcbefed203408d0a7b7a9c3dd6f, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -62690,7 +62688,7 @@ Renderer:
   m_Materials:
   - {fileID: 2100000, guid: 1b27f78fe82948b4b9fe4302e2715c02, type: 2}
   - {fileID: 2100000, guid: ff2628c8dd23ac74e9dfabba921cafc2, type: 2}
-  - {fileID: 2100000, guid: 2dffbacb72256a9479a0bd6406d474d3, type: 2}
+  - {fileID: 2100000, guid: 02ba20903eff74e4eb6f1a73fed4fbda, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -64960,7 +64958,7 @@ Renderer:
   m_Materials:
   - {fileID: 2100000, guid: 1b27f78fe82948b4b9fe4302e2715c02, type: 2}
   - {fileID: 2100000, guid: ff2628c8dd23ac74e9dfabba921cafc2, type: 2}
-  - {fileID: 2100000, guid: 2dffbacb72256a9479a0bd6406d474d3, type: 2}
+  - {fileID: 2100000, guid: 02ba20903eff74e4eb6f1a73fed4fbda, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
