@@ -69,7 +69,7 @@ namespace dbConnect {
 				formData["send"] = sendJSON.ToString();
 				byte[] responseBytes = webClient.UploadValues(this.url, "POST", formData);
 				string responsefromserver = Encoding.UTF8.GetString(responseBytes);
-				Debug.Log(responsefromserver);
+				//Debug.Log(responsefromserver);
 
 				//parse the return values
 				var returnValue = JSONNode.Parse(responsefromserver);
@@ -84,8 +84,8 @@ namespace dbConnect {
 				} else {
 
 					//if no error, return "SUCCESS NO RETURN" if only "TRUE" is returned by backend
-					this.jsonReturn = returnValue["result"][0];
-					if (String.Compare(this.jsonReturn, "TRUE") == 0)
+					this.jsonReturn = returnValue["result"][0].ToString();
+					if (String.Compare(this.jsonReturn, "\"TRUE\"") == 0)
 					{
 						return "SUCCESS NO RETURN";
 					} else {
@@ -100,11 +100,19 @@ namespace dbConnect {
 			return "you did not insert a function/parameter/value";
 		}
 
-		//return a value based on the paramter
-		public string getValue(string parameter)
+		//return a value based on the paramter (string)
+		public string getReturnValue(string parameter)
 		{
 			var returnArray = JSONNode.Parse(this.jsonReturn);
 			return returnArray[parameter];
+		}
+
+		//return a value based on the paramter (int)
+		public int getReturnValueInt(string parameter)
+		{
+			var returnArray = JSONNode.Parse(this.jsonReturn);
+			int returnValue = Convert.ToInt32(returnArray[parameter]);
+			return returnValue;
 		}
 
 		private string parseError(int error)

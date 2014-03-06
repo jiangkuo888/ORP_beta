@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections;
 using dbConnect;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 //using System;
 
 
@@ -87,7 +88,7 @@ public class MainMenuVik : MonoBehaviour
 					db.addValues("playerName", playerName);
 					db.addValues("password", password);
 					string dbReturn = db.connectToDb();
-					print (dbReturn);
+					//print (dbReturn);
 					//end add to db
 
 					//if successful;, means login success
@@ -150,7 +151,7 @@ public class MainMenuVik : MonoBehaviour
 						db.addValues("playerName", playerName);
 						db.addValues("password", password);
 						string dbReturn = db.connectToDb();
-						print (dbReturn);
+						//print (dbReturn);
 						//end add to db
 						
 						//if successful;, means login success
@@ -214,6 +215,18 @@ public class MainMenuVik : MonoBehaviour
 			roomName = GUILayout.TextField (roomName);
 			if (GUILayout.Button ("START")) {
 				PhotonNetwork.CreateRoom (roomName, true, true, 10);
+
+				//add to db
+				dbClass db = new dbClass();
+				db.addFunction("roomCreate");
+				db.addValues("roomName", roomName);
+				string dbReturn = db.connectToDb();
+
+				//add roomID
+				GameObject gameManager = GameObject.Find("GameManager");  
+				GameManagerVik vikky = gameManager.GetComponent<GameManagerVik>();
+				vikky.roomID = db.getReturnValueInt("roomID");
+				//end add to db
 			}
 			GUILayout.EndHorizontal ();
 			

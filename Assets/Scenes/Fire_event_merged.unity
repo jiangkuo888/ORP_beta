@@ -144,6 +144,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ae63a6c5483c484083fa20d07b97f21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isLogin: 1
+  isCreate: 0
+  isMessage: 0
+  message: 
+  playerName: 
+  password: 
+  reEnter: 
   roomName: Roomjk
 --- !u!114 &41
 MonoBehaviour:
@@ -30348,6 +30355,10 @@ Prefab:
       propertyPath: fsm.states.Array.data[0].actionData.actionIsOpen.Array.data[0]
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11400004, guid: 08d36e03bc28c4a03b3e4327f59bd129, type: 2}
+      propertyPath: conversation
+      value: Receptionist
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 08d36e03bc28c4a03b3e4327f59bd129, type: 2}
   m_RootGameObject: {fileID: 1050800272}
@@ -31676,6 +31687,7 @@ GameObject:
   - 4: {fileID: 812462950}
   - 33: {fileID: 812462953}
   - 23: {fileID: 812462952}
+  - 64: {fileID: 812462954}
   - 95: {fileID: 812462951}
   m_Layer: 0
   m_Name: SmallCubicle
@@ -31741,6 +31753,20 @@ MeshFilter:
     type: 3}
   m_PrefabInternal: {fileID: 1809727912}
   m_GameObject: {fileID: 812462949}
+  m_Mesh: {fileID: 4300000, guid: efad6ec490641064f92b036942f14548, type: 3}
+--- !u!64 &812462954
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 6400000, guid: efad6ec490641064f92b036942f14548,
+    type: 3}
+  m_PrefabInternal: {fileID: 1809727912}
+  m_GameObject: {fileID: 812462949}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_SmoothSphereCollisions: 0
+  m_Convex: 0
   m_Mesh: {fileID: 4300000, guid: efad6ec490641064f92b036942f14548, type: 3}
 --- !u!1 &813497982
 GameObject:
@@ -41322,7 +41348,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   once: 1
-  conversation: Loan Enquiry
+  conversation: Receptionist
   condition:
     luaConditions: []
     questConditions: []
@@ -52346,14 +52372,14 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1516384197}
-  - {fileID: 969234995}
   - {fileID: 2137761640}
+  - {fileID: 969234995}
   - {fileID: 1561866873}
-  - {fileID: 50866887}
   - {fileID: 785893404}
+  - {fileID: 50866887}
   - {fileID: 608214162}
-  - {fileID: 68624878}
   - {fileID: 1501931343}
+  - {fileID: 68624878}
   - {fileID: 1116378119}
   - {fileID: 363605811}
   m_Father: {fileID: 1566956151}
@@ -74178,6 +74204,7 @@ GameObject:
   - 4: {fileID: 1771254259}
   - 33: {fileID: 1771254262}
   - 23: {fileID: 1771254261}
+  - 64: {fileID: 1771254263}
   - 95: {fileID: 1771254260}
   m_Layer: 0
   m_Name: SmallCubicle
@@ -74243,6 +74270,20 @@ MeshFilter:
     type: 3}
   m_PrefabInternal: {fileID: 381650106}
   m_GameObject: {fileID: 1771254258}
+  m_Mesh: {fileID: 4300000, guid: efad6ec490641064f92b036942f14548, type: 3}
+--- !u!64 &1771254263
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 6400000, guid: efad6ec490641064f92b036942f14548,
+    type: 3}
+  m_PrefabInternal: {fileID: 381650106}
+  m_GameObject: {fileID: 1771254258}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_SmoothSphereCollisions: 0
+  m_Convex: 0
   m_Mesh: {fileID: 4300000, guid: efad6ec490641064f92b036942f14548, type: 3}
 --- !u!1 &1771553755
 GameObject:
@@ -75127,6 +75168,7 @@ GameObject:
   - 4: {fileID: 1797321650}
   - 33: {fileID: 1797321653}
   - 23: {fileID: 1797321652}
+  - 64: {fileID: 1797321654}
   - 95: {fileID: 1797321651}
   m_Layer: 0
   m_Name: SmallCubicle
@@ -75192,6 +75234,20 @@ MeshFilter:
     type: 3}
   m_PrefabInternal: {fileID: 1645366346}
   m_GameObject: {fileID: 1797321649}
+  m_Mesh: {fileID: 4300000, guid: efad6ec490641064f92b036942f14548, type: 3}
+--- !u!64 &1797321654
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 6400000, guid: efad6ec490641064f92b036942f14548,
+    type: 3}
+  m_PrefabInternal: {fileID: 1645366346}
+  m_GameObject: {fileID: 1797321649}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_SmoothSphereCollisions: 0
+  m_Convex: 0
   m_Mesh: {fileID: 4300000, guid: efad6ec490641064f92b036942f14548, type: 3}
 --- !u!1 &1797695359
 GameObject:
