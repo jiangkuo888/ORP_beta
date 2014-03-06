@@ -197,6 +197,10 @@ public class GameManagerVik : Photon.MonoBehaviour {
 				db.addFunction("getRoomID");
 				db.addValues("roomName", PhotonNetwork.room.name);
 				string dbReturn = db.connectToDb();
+
+				if (dbReturn != "SUCCESS") {
+					print (dbReturn);
+				}
 				
 				//add roomID
 				this.roomID = db.getReturnValueInt("roomID");
