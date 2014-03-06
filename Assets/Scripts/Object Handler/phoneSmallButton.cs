@@ -17,7 +17,8 @@ public class phoneSmallButton : MonoBehaviour {
 	public Texture down;
 
 
-	public GameObject dialogueDatabase;
+
+	public string dialogueName;
 	
 	
 	void Awake()
@@ -83,7 +84,7 @@ public class phoneSmallButton : MonoBehaviour {
 	void OnMouseDown(){
 		myGUITexture.texture = down;
 		
-		dialogueDatabase.GetComponent<DialogueSystemController>().StartConversation("Loan Enquiry",GameObject.Find (PhotonNetwork.playerName).transform,GameObject.Find (PhotonNetwork.playerName).transform);
+		GameObject.Find ("Dialogue Manager").GetComponent<DialogueSystemController>().StartConversation(dialogueName,GameObject.Find (PhotonNetwork.playerName).transform,GameObject.Find (PhotonNetwork.playerName).transform);
 		
 		print ("111");
 

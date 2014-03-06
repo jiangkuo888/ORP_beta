@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using PixelCrushers.DialogueSystem.UnityGUI;
+using PixelCrushers.DialogueSystem;
 
 
 public class phoneButton : MonoBehaviour {
@@ -8,15 +9,20 @@ public class phoneButton : MonoBehaviour {
 	public float x_offset;
 	public float y_offset;
 	public bool enabled;
+	public bool OnCalling;
 	
 	private GUITexture myGUITexture;
 
 	public Texture normal;
 	public Texture hover;
 	public Texture down;
-	public Texture isOFF;
+	public Texture isOnCall;
 
-	
+
+	string conversationName;
+	string playerName;
+
+
 	void Awake()
 	{
 
@@ -35,6 +41,8 @@ public class phoneButton : MonoBehaviour {
 	// Use this for initialization
 	void Start()
 	{
+
+		OnCalling = false;
 		// Position the billboard in the center, 
 		// but respect the picture aspect ratio
 		float textureHeight = myGUITexture.texture.height;
@@ -70,6 +78,12 @@ public class phoneButton : MonoBehaviour {
 			new Rect(xPosition, yPosition, 
 			         scaledWidth, scaledHeight);
 	}
+
+	void Update(){
+
+
+
+	}
 	
 	void OnMouseEnter(){
 		
@@ -84,14 +98,19 @@ public class phoneButton : MonoBehaviour {
 	void OnMouseDown(){
 		myGUITexture.texture = down;
 
+		if(OnCalling)
+		{
+			if(PhotonNetwork.playerName == playerName)
+				GameObject.Find("Dialogue Manager").GetComponent<DialogueSystemController>().StartConversation(conversationName,GameObject.Find (PhotonNetwork.playerName).transform);
 
-
-
-
-
+			OnCalling = false;
+		}
+		else
+		{
 		GameObject.Find ("phoneSmallButton1").GetComponent<GUITexture>().enabled = true;
 		GameObject.Find ("phoneSmallButton2").GetComponent<GUITexture>().enabled = true;
 		GameObject.Find ("phoneSmallButton3").GetComponent<GUITexture>().enabled = true;
+		}
 		
 	}
 	
@@ -108,6 +127,17 @@ public class phoneButton : MonoBehaviour {
 
 		myGUITexture.texture = normal;
 	}
+
+
+	public void OnCall(string player, string conversation){
+		OnCalling = true;
+		playerName = player;
+		conversationName = conversation;
+
+		myGUITexture.texture = isOnCall;
+
+	}
+
 
 
 	

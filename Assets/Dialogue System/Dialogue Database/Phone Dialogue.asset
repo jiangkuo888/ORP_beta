@@ -9,7 +9,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: -1097633651, guid: b5a7519e94754fb4a8ea0c272031db78, type: 3}
-  m_Name: ORILE Phone Dialogue
+  m_Name: Phone Dialogue
   m_EditorClassIdentifier: 
   version: 1.5.1.0
   author: SGI
@@ -127,7 +127,7 @@ MonoBehaviour:
   - id: 1
     fields:
     - title: Title
-      value: Flood Announcement
+      value: Facilities
       type: 0
     - title: Description
       value: 
@@ -200,7 +200,7 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Sequence
-        value: 
+        value: Camera(Closeup);
         type: 0
       conversationID: 1
       isRoot: 0
@@ -233,8 +233,7 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Dialogue Text
-        value: 'Hi, this is the Facilities Manager. I have some notification announcements
-          for you. '
+        value: Hi, I am the Facilities Manager.
         type: 4
       - title: Video File
         value: 
@@ -256,6 +255,12 @@ MonoBehaviour:
         destinationDialogueID: 3
         isConnector: 0
         priority: 2
+      - originConversationID: 1
+        originDialogueID: 2
+        destinationConversationID: 1
+        destinationDialogueID: 4
+        isConnector: 0
+        priority: 2
       conditionsString: 
       userScript: 
     - id: 3
@@ -270,10 +275,10 @@ MonoBehaviour:
         value: 2
         type: 5
       - title: Menu Text
-        value: 
+        value: I need your attention
         type: 0
       - title: Dialogue Text
-        value: 'Yes I am listening. '
+        value: 
         type: 4
       - title: Video File
         value: 
@@ -288,13 +293,7 @@ MonoBehaviour:
       delaySimStatus: 0
       falseConditionAction: Block
       conditionPriority: 2
-      outgoingLinks:
-      - originConversationID: 1
-        originDialogueID: 3
-        destinationConversationID: 1
-        destinationDialogueID: 4
-        isConnector: 0
-        priority: 2
+      outgoingLinks: []
       conditionsString: 
       userScript: 
     - id: 4
@@ -303,18 +302,16 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 2
-        type: 5
-      - title: Conversant
         value: 1
         type: 5
+      - title: Conversant
+        value: 2
+        type: 5
       - title: Menu Text
-        value: 
+        value: Sorry, nothing's up.
         type: 0
       - title: Dialogue Text
-        value: 'There is a high chance that the Sales Branch might get flooded within
-          the next hour or so. Please kindly advice the customers to come back another
-          day if they do not have any issues of grave importance. '
+        value: 
         type: 4
       - title: Video File
         value: 
