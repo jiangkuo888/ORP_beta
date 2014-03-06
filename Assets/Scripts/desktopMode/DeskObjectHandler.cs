@@ -103,22 +103,7 @@ public class DeskObjectHandler : MonoBehaviour {
 			
 			break;
 		}
-		case "Desk_phone":
-		{
-			GameObject target = GameObject.Find ("Phone_mode");
-
-			float objXmid = (target.collider.bounds.max.x + target.collider.bounds.min.x)/2;
-			float objYmid = (target.collider.bounds.max.y + target.collider.bounds.min.y)/2;
-			float objZmid = (target.collider.bounds.max.z + target.collider.bounds.min.z)/2;
-
-			
-			Camera.main.transform.position = new Vector3(objXmid,objYmid+ 0.47f,objZmid);
-			Camera.main.transform.localEulerAngles = new Vector3(90,0,0);
-			
-			GameObject.Find (tableName).GetComponent<DeskMode>().mode = DeskMode.DeskModeSubMode.PhoneMode;
-
-			break;
-		}
+		
 		default:
 			break;
 			//LeanTween.rotate(this.gameObject,new Vector3(Camera.main.transform.localEulerAngles.x+270f,Camera.main.transform.localEulerAngles.y,Camera.main.transform.localEulerAngles.z),1f).setEase(LeanTweenType.easeOutQuint);
