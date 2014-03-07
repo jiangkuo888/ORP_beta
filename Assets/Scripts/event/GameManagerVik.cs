@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections;
 using HutongGames.PlayMaker;
 using System.Collections.Generic;
+using dbConnect;
 
 public class GameManagerVik : Photon.MonoBehaviour {
 
@@ -17,7 +18,8 @@ public class GameManagerVik : Photon.MonoBehaviour {
 	HashSet<string> selectedPlayerList = new HashSet<string>();
 	bool roleSelected = false;
 	public PlayMakerFSM EventManager;
-
+	public int roomID = -1;
+	public string loginName = "";
 
     void OnJoinedRoom()
     {
@@ -116,6 +118,8 @@ public class GameManagerVik : Photon.MonoBehaviour {
     {
 
 		print ("Now we have: "+PhotonNetwork.playerList.Length+" players in total.");
+
+
 		EventManager.FsmVariables.GetFsmInt("playerNum").Value = PhotonNetwork.playerList.Length;
         Camera.main.farClipPlane = 1000; //Main menu set this to 0.4 for a nicer BG    
 
@@ -131,8 +135,9 @@ public class GameManagerVik : Photon.MonoBehaviour {
 		string playerName = PlayerPrefs.GetString("playerName");
 
 
-
-
+		// start drawing GUI elements
+		GameObject.Find ("QuestLogButton").GetComponent<GUITexture>().enabled = true;
+		GameObject.Find ("phoneButton").GetComponent<GUITexture>().enabled = true;
 
 
 		// instantiate prefab based on the name
@@ -144,36 +149,66 @@ public class GameManagerVik : Photon.MonoBehaviour {
 				{
 				case "Sales Manager":
 					spawnPosition = randomSpawnPosition(managerSpawnPositionList);
-					PhotonNetwork.Instantiate(playerPrefabList[i].name, spawnPosition, Quaternion.identity, 0, objs);
+					GameObject a = PhotonNetwork.Instantiate(playerPrefabList[i].name, spawnPosition, Quaternion.identity, 0, objs);
 
+					a.name = "Sales Manager";
+					if(GameObject.Find (a.name+" Table").gameObject.transform.Find ("DocumentHolder").GetComponent<documentData>().enabled == false)
+						GameObject.Find (a.name+" Table").gameObject.transform.Find ("DocumentHolder").GetComponent<documentData>().enabled = true;
 
 
 					break;
 				case "LPU Officer":
 					spawnPosition = randomSpawnPosition(ITSpawnPositionList);
-					PhotonNetwork.Instantiate(playerPrefabList[i].name, spawnPosition, Quaternion.identity, 0, objs);
-
+					GameObject b = PhotonNetwork.Instantiate(playerPrefabList[i].name, spawnPosition, Quaternion.identity, 0, objs);
+					b.name = "LPU Officer";
+					if(GameObject.Find (b.name+" Table").gameObject.transform.Find ("DocumentHolder").GetComponent<documentData>().enabled == false)
+						GameObject.Find (b.name+" Table").gameObject.transform.Find ("DocumentHolder").GetComponent<documentData>().enabled = true;
 
 					break;
 				case "LPU Manager":
 					spawnPosition = randomSpawnPosition(customerSpawnPositionList);
-					PhotonNetwork.Instantiate(playerPrefabList[i].name, spawnPosition, Quaternion.identity, 0, objs);
-
+					GameObject c = PhotonNetwork.Instantiate(playerPrefabList[i].name, spawnPosition, Quaternion.identity, 0, objs);
+					c.name = "LPU Manager";
+					if(GameObject.Find (c.name+" Table").gameObject.transform.Find ("DocumentHolder").GetComponent<documentData>().enabled == false)
+						GameObject.Find (c.name+" Table").gameObject.transform.Find ("DocumentHolder").GetComponent<documentData>().enabled = true;
 
 					break;
 				case "Credit Risk":
 					spawnPosition = randomSpawnPosition(officerSpawnPositionList);
-					PhotonNetwork.Instantiate(playerPrefabList[i].name, spawnPosition, Quaternion.identity, 0, objs);
+					GameObject d = PhotonNetwork.Instantiate(playerPrefabList[i].name, spawnPosition, Quaternion.identity, 0, objs);
+					d.name = "Credit Risk";
 
+					if(GameObject.Find (d.name+" Table").gameObject.transform.Find ("DocumentHolder").GetComponent<documentData>().enabled == false)
+						GameObject.Find (d.name+" Table").gameObject.transform.Find ("DocumentHolder").GetComponent<documentData>().enabled = true;
 
 					break;
 				default:
 					break;
-					
-					
+
 				}
+				
+			}
+		
+			//update roomID if needed
+			if (this.roomID == -1)
+			{
+				//add to db
+				dbClass db = new dbClass();
+				db.addFunction("getRoomID");
+				db.addValues("roomName", PhotonNetwork.room.name);
+				string dbReturn = db.connectToDb();
+
+				if (dbReturn != "SUCCESS") {
+					print (dbReturn);
+				}
+				
+				//add roomID
+				this.roomID = db.getReturnValueInt("roomID");
+				//end add to db
 	       		
 			}
+
+
 		}
 
 

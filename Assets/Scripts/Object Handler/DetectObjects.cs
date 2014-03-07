@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using System.Collections;
+using HutongGames.PlayMaker;
 
 public class DetectObjects : Photon.MonoBehaviour {
 	
@@ -8,6 +8,8 @@ public class DetectObjects : Photon.MonoBehaviour {
 	public Texture2D cursorTextureTalk;
 	CursorMode cursorMode = CursorMode.Auto;
 	public Vector2 hotSpot = new Vector2(100,0);
+
+	private PlayMakerFSM getState;
 
 	PhotonView hitObjPhotonView;
 	
@@ -113,6 +115,17 @@ public class DetectObjects : Photon.MonoBehaviour {
 							mouseClick = true;
 							enteredDialog = true;
 							
+								//if(getState == null)
+								getState = hit.collider.gameObject.GetComponent<PlayMakerFSM>();
+
+								if(getState != null)
+								if (getState.FsmVariables.GetFsmBool("stop_to_talk").Value != true)
+								{
+									getState.FsmVariables.GetFsmBool("stop_to_talk").Value = true;
+
+								}
+
+
 							if(enteredDialog && mouseClick)
 							{
 								//currentHitObj.renderer.material.shader = originalShader;
@@ -138,6 +151,8 @@ public class DetectObjects : Photon.MonoBehaviour {
 						if (hit.collider.gameObject.name.Contains(PhotonNetwork.playerName))
 						{
 
+
+
 							hit.collider.gameObject.GetComponent<DeskMode>().deskOwner = this.gameObject.name;
 
 							if(hit.collider.gameObject.renderer.material.shader != null && enteredDialog == false)
@@ -157,6 +172,18 @@ public class DetectObjects : Photon.MonoBehaviour {
 								mouseClick = true;
 								enteredDialog = true;
 								
+		                        // disable quest log and phone and inventoty
+									GameObject.Find ("Inventory").GetComponent<GUITexture>().enabled = false;
+									GameObject.Find ("phoneButton").GetComponent<GUITexture>().enabled = false;
+									GameObject.Find ("phoneSmallButton1").GetComponent<GUITexture>().enabled = false;
+									GameObject.Find ("phoneSmallButton2").GetComponent<GUITexture>().enabled = false;
+									GameObject.Find ("phoneSmallButton3").GetComponent<GUITexture>().enabled = false;
+									GameObject.Find ("QuestLogButton").GetComponent<GUITexture>().enabled = false;
+
+
+
+
+
 								if(enteredDialog && mouseClick)
 								{
 									currentHitObj.renderer.material.shader = originalShader;
@@ -220,6 +247,43 @@ public class DetectObjects : Photon.MonoBehaviour {
 						}
 						
 					}
+//						else if (hit.collider.gameObject.name == "Cube")
+//						{
+//							
+//							
+//							
+//							if(hit.collider.gameObject.renderer.material.shader != null)
+//							{
+//								// set the cursor and shader 
+//								Cursor.SetCursor(cursorTextureInteract, hotSpot, cursorMode);	
+//								hit.collider.gameObject.renderer.material.shader = Shader.Find("Toon/Basic");
+//							}
+//							
+//							
+//							
+//							
+//							
+//							//hit.transform.renderer.material.color = Color.green;
+//							
+//							if (Input.GetKeyUp (KeyCode.Mouse0)) {
+//								mouseClick = true;
+//								
+//								
+//								if( mouseClick)
+//								{
+//									
+//									hit.collider.transform.parent.parent.parent.GetComponent<DoorHandler>().clicked = true;
+//									
+//									currentHitObj.renderer.material.shader = originalShader;
+//									Cursor.SetCursor(null, Vector2.zero, cursorMode);
+//									mouseClick = !mouseClick;
+//									
+//								}
+//								
+//								
+//							}
+//							
+//						}
 					
 					
 					
