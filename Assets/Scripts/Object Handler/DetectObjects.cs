@@ -172,6 +172,18 @@ public class DetectObjects : Photon.MonoBehaviour {
 								mouseClick = true;
 								enteredDialog = true;
 								
+		                        // disable quest log and phone and inventoty
+									GameObject.Find ("Inventory").GetComponent<GUITexture>().enabled = false;
+									GameObject.Find ("phoneButton").GetComponent<GUITexture>().enabled = false;
+									GameObject.Find ("phoneSmallButton1").GetComponent<GUITexture>().enabled = false;
+									GameObject.Find ("phoneSmallButton2").GetComponent<GUITexture>().enabled = false;
+									GameObject.Find ("phoneSmallButton3").GetComponent<GUITexture>().enabled = false;
+									GameObject.Find ("QuestLogButton").GetComponent<GUITexture>().enabled = false;
+
+
+
+
+
 								if(enteredDialog && mouseClick)
 								{
 									currentHitObj.renderer.material.shader = originalShader;

@@ -8,7 +8,8 @@ public class pcMode : MonoBehaviour {
 	float w,h;
 	public float x_offset;
 	public float y_offset;
-	public Texture2D customerList;
+	public string[] customerNames;
+	public Texture2D[] customerImages;
 	
 	public GameObject deskTop;
 
@@ -16,9 +17,9 @@ public class pcMode : MonoBehaviour {
 	
 	public bool InfoModeIsOn;
 	
+	Texture2D currentImage;
 	
-	
-	
+	public Texture2D pcWallPaper;
 	
 	
 	
@@ -44,14 +45,16 @@ public class pcMode : MonoBehaviour {
 
 		if(!InfoModeIsOn)
 		{
-		scrollPosition = GUI.BeginScrollView(new Rect(.4f * w, .2f * h, .5f * w, .6f * h), scrollPosition, new Rect(0, 0, .45f*w, 2000));
+		scrollPosition = GUI.BeginScrollView(new Rect(.46f * w, .2f * h, .5f * w, .6f * h), scrollPosition, new Rect(0, 0, .45f*w, 2000));
 		
-		GUI.DrawTexture (new Rect(0, 0, .5f*w, 2000), customerList);
-		for (int i = 0; i < 30; i++) {
-			if(GUI.Button (new Rect (.1f*w, 40*i, 300, 30), "Customer "+i+" details"))
+			GUI.DrawTexture (new Rect(0, 0, .5f*w, 2000), pcWallPaper);
+		for (int i = 0; i < customerNames.Length; i++) {
+			if(GUI.Button (new Rect (.1f*w, 40*i, 300, 30), customerNames[i]))
 			{
 				if(deskTop != null)
 				{
+					
+					currentImage = customerImages[i];
 
 					GameObject pc = GameObject.Find ("PCMode").gameObject;
 
@@ -80,10 +83,10 @@ public class pcMode : MonoBehaviour {
 
 			scrollPosition = GUI.BeginScrollView(new Rect(.11f * w, .1f* h, .8f * w, .8f * h), scrollPosition, new Rect(0, 0, .78f*w, 3000));
 			
-			GUI.DrawTexture (new Rect(0, 0, .78f*w, 3000), customerList);
+			GUI.DrawTexture (new Rect(0, 0, .78f*w, 3000), currentImage);
 		
 			
-			
+
 			GUI.EndScrollView();
 
 		}

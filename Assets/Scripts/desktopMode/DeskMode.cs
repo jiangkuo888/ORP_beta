@@ -254,16 +254,16 @@ public class DeskMode : MonoBehaviour {
 				
 				Transform thisTr = this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].transform;
 				GameObject pc = GameObject.Find ("PCMode").gameObject;
-				pc.transform.position = new Vector3(thisTr.position.x + .45f, thisTr.position.y , thisTr.position.z);
+				pc.transform.position = new Vector3(thisTr.position.x + .35f, thisTr.position.y-.1f , thisTr.position.z);
 				
 				
-				float midX = (pc.transform.renderer.bounds.max.x + thisTr.renderer.bounds.min.x)/2 - .05f;
+				float midX = (pc.transform.renderer.bounds.max.x + thisTr.renderer.bounds.min.x)/2 - .15f;
 				float midY = (pc.transform.renderer.bounds.max.y + pc.transform.renderer.bounds.min.y)/2;
 				float midZ = (pc.transform.renderer.bounds.max.z + pc.transform.renderer.bounds.min.z)/2;
 				
 				
 				
-				LeanTween.move(Camera.main.gameObject,new Vector3(midX,midY+cameraOffset,midZ),.6f).setEase(LeanTweenType.easeOutQuint).setOnComplete(enablePCmode);
+				LeanTween.move(Camera.main.gameObject,new Vector3(midX,midY+cameraOffset-.05f,midZ),.6f).setEase(LeanTweenType.easeOutQuint).setOnComplete(enablePCmode);
 
 			}
 			
@@ -328,10 +328,10 @@ public class DeskMode : MonoBehaviour {
 
 				Transform thisTr = this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].transform;
 				GameObject pc = GameObject.Find ("PCMode").gameObject;
-				pc.transform.position = new Vector3(thisTr.position.x + .45f, thisTr.position.y , thisTr.position.z);
+
 				
 				
-				float midX = (pc.transform.renderer.bounds.max.x + thisTr.renderer.bounds.min.x)/2 - .05f;
+				float midX = (pc.transform.renderer.bounds.max.x + thisTr.renderer.bounds.min.x)/2 - .15f;
 				float midY = (pc.transform.renderer.bounds.max.y + pc.transform.renderer.bounds.min.y)/2;
 				float midZ = (pc.transform.renderer.bounds.max.z + pc.transform.renderer.bounds.min.z)/2;
 				
@@ -341,7 +341,15 @@ public class DeskMode : MonoBehaviour {
 
 
 				
-				LeanTween.move(Camera.main.gameObject,new Vector3(midX,midY+cameraOffset,midZ),.6f).setEase(LeanTweenType.easeOutQuint).setOnComplete(enablePCmode);
+				LeanTween.move(Camera.main.gameObject,new Vector3(midX,midY+cameraOffset-.05f,midZ),.6f).setEase(LeanTweenType.easeOutQuint).setOnComplete(enablePCmode);
+
+				
+
+
+
+
+				
+
 
 
 
@@ -356,7 +364,11 @@ public class DeskMode : MonoBehaviour {
 		{
 			if(GUI.Button( new LTRect(1.0f*w - 100f, 1.0f*h - 50f, 100f, 50f ).rect, "Quit DeskMode"))
 			{
-				
+				if(GameObject.Find ("Inventory").GetComponent<inventory>().inventoryObject !=null)
+					GameObject.Find ("Inventory").GetComponent<GUITexture>().enabled = true;
+
+				GameObject.Find ("phoneButton").GetComponent<GUITexture>().enabled = true;
+				GameObject.Find ("QuestLogButton").GetComponent<GUITexture>().enabled = true;
 				
 				StartCoroutine(WaitAndQuit(0.3f));
 				

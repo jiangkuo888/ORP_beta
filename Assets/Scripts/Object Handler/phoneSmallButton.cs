@@ -86,7 +86,7 @@ public class phoneSmallButton : MonoBehaviour {
 		
 		GameObject.Find ("Dialogue Manager").GetComponent<DialogueSystemController>().StartConversation(dialogueName,GameObject.Find (PhotonNetwork.playerName).transform,GameObject.Find (PhotonNetwork.playerName).transform);
 		
-		print ("111");
+		//print ("111");
 
 
 		GameObject.Find ("phoneSmallButton1").GetComponent<GUITexture>().enabled = false;
