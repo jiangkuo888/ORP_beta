@@ -33803,7 +33803,7 @@ MonoBehaviour:
         - 
         - 
         - 
-        actionEnabled: 010101
+        actionEnabled: 010100
         actionIsOpen: 010101
         actionStartIndex: 00000000030000000a000000
         actionHashCodes: e371af8b53489ed1bd677783
@@ -45618,7 +45618,7 @@ MonoBehaviour:
       - fsmEvent:
           name: PHOTON / JOINED ROOM
           isSystemEvent: 0
-          isGlobal: 1
+          isGlobal: 0
         toState: MoveTo_Wp
         linkStyle: 0
         linkConstraint: 0
@@ -45663,7 +45663,7 @@ MonoBehaviour:
       isGlobal: 0
     - name: PHOTON / JOINED ROOM
       isSystemEvent: 0
-      isGlobal: 1
+      isGlobal: 0
     globalTransitions: []
     variables:
       floatVariables: []
@@ -45744,7 +45744,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   once: 0
-  conversation: Facilities
+  conversation: Customer in distress
   condition:
     luaConditions: []
     questConditions: []
@@ -53600,9 +53600,9 @@ Transform:
   - {fileID: 413030051}
   - {fileID: 1455559148}
   - {fileID: 2038799470}
+  - {fileID: 553474787}
   - {fileID: 1247242708}
   - {fileID: 1017606524}
-  - {fileID: 553474787}
   - {fileID: 1979925239}
   - {fileID: 717236156}
   - {fileID: 1339344617}
@@ -83043,6 +83043,7 @@ GameObject:
   - 114: {fileID: 1810243315}
   - 114: {fileID: 1810243317}
   - 114: {fileID: 1810243316}
+  - 114: {fileID: 1810243318}
   m_Layer: 0
   m_Name: Dialogue Manager
   m_TagString: Untagged
@@ -83884,12 +83885,14 @@ MonoBehaviour:
       actionData:
         actionNames:
         - HutongGames.PlayMaker.Actions.CallMethod
+        - HutongGames.PlayMaker.Actions.CallMethod
         customNames:
         - 
-        actionEnabled: 01
-        actionIsOpen: 01
-        actionStartIndex: 00000000
-        actionHashCodes: a391d932
+        - 
+        actionEnabled: 0101
+        actionIsOpen: 0101
+        actionStartIndex: 0000000008000000
+        actionHashCodes: a391d932a391d932
         unityObjectParams: []
         fsmGameObjectParams: []
         fsmOwnerDefaultParams: []
@@ -83905,6 +83908,12 @@ MonoBehaviour:
           tooltip: 
           showInInspector: 0
           networkSync: 0
+          value: addToPlayerActionLog
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
           value: sendRPC
         fsmObjectParams:
         - useVariable: 0
@@ -83913,8 +83922,51 @@ MonoBehaviour:
           showInInspector: 0
           networkSync: 0
           typeName: UnityEngine.MonoBehaviour
+          value: {fileID: 1810243318}
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          typeName: UnityEngine.MonoBehaviour
           value: {fileID: 1810243315}
         fsmVarParams:
+        - variableName: 
+          useVariable: 0
+          type: 4
+          floatValue: 0
+          intValue: 0
+          boolValue: 0
+          stringValue: FIRE SAFETY
+          vector4Value: {x: 0, y: 0, z: 0, w: 0}
+          objectReference: {fileID: 0}
+        - variableName: 
+          useVariable: 0
+          type: 4
+          floatValue: 0
+          intValue: 0
+          boolValue: 0
+          stringValue: POSITIVE
+          vector4Value: {x: 0, y: 0, z: 0, w: 0}
+          objectReference: {fileID: 0}
+        - variableName: 
+          useVariable: 0
+          type: 4
+          floatValue: 0
+          intValue: 0
+          boolValue: 0
+          stringValue: Missing Fire Extinguisher Found
+          vector4Value: {x: 0, y: 0, z: 0, w: 0}
+          objectReference: {fileID: 0}
+        - variableName: 
+          useVariable: 1
+          type: 0
+          floatValue: 0
+          intValue: 0
+          boolValue: 0
+          stringValue: 
+          vector4Value: {x: 0, y: 0, z: 0, w: 0}
+          objectReference: {fileID: 0}
         - variableName: 
           useVariable: 0
           type: 4
@@ -83933,22 +83985,31 @@ MonoBehaviour:
           stringValue: 
           vector4Value: {x: 0, y: 0, z: 0, w: 0}
           objectReference: {fileID: 0}
-        byteData: 00
-        arrayParamSizes: 01000000
+        byteData: 0000
+        arrayParamSizes: 0300000001000000
         arrayParamTypes:
+        - HutongGames.PlayMaker.FsmVar
         - HutongGames.PlayMaker.FsmVar
         customTypeSizes: 
         customTypeNames: []
-        paramDataType: 18000000120000000c000000270000002700000001000000
+        paramDataType: 18000000120000000c000000270000002700000027000000270000000100000018000000120000000c000000270000002700000001000000
         paramName:
+        - behaviour
+        - methodName
+        - parameters
+        - 
+        - 
+        - 
+        - storeResult
+        - everyFrame
         - behaviour
         - methodName
         - parameters
         - 
         - storeResult
         - everyFrame
-        paramDataPos: 000000000000000000000000000000000100000000000000
-        paramByteDataSize: 000000000000000000000000000000000000000001000000
+        paramDataPos: 0000000000000000000000000000000001000000020000000300000000000000010000000100000001000000040000000500000001000000
+        paramByteDataSize: 0000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000001000000
     - name: SyncFET 2
       description: 
       colorIndex: 0
@@ -83973,12 +84034,14 @@ MonoBehaviour:
       actionData:
         actionNames:
         - HutongGames.PlayMaker.Actions.CallMethod
+        - HutongGames.PlayMaker.Actions.CallMethod
         customNames:
         - 
-        actionEnabled: 01
-        actionIsOpen: 01
-        actionStartIndex: 00000000
-        actionHashCodes: a391d932
+        - 
+        actionEnabled: 0101
+        actionIsOpen: 0101
+        actionStartIndex: 0000000006000000
+        actionHashCodes: a391d932a391d932
         unityObjectParams: []
         fsmGameObjectParams: []
         fsmOwnerDefaultParams: []
@@ -83995,6 +84058,12 @@ MonoBehaviour:
           showInInspector: 0
           networkSync: 0
           value: sendRPC
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: addToPlayerActionLog
         fsmObjectParams:
         - useVariable: 0
           name: 
@@ -84003,6 +84072,13 @@ MonoBehaviour:
           networkSync: 0
           typeName: UnityEngine.MonoBehaviour
           value: {fileID: 1810243315}
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          typeName: UnityEngine.MonoBehaviour
+          value: {fileID: 1810243318}
         fsmVarParams:
         - variableName: 
           useVariable: 0
@@ -84022,13 +84098,50 @@ MonoBehaviour:
           stringValue: 
           vector4Value: {x: 0, y: 0, z: 0, w: 0}
           objectReference: {fileID: 0}
-        byteData: 00
-        arrayParamSizes: 01000000
+        - variableName: 
+          useVariable: 0
+          type: 4
+          floatValue: 0
+          intValue: 0
+          boolValue: 0
+          stringValue: WORK
+          vector4Value: {x: 0, y: 0, z: 0, w: 0}
+          objectReference: {fileID: 0}
+        - variableName: 
+          useVariable: 0
+          type: 4
+          floatValue: 0
+          intValue: 0
+          boolValue: 0
+          stringValue: NEGATIVE
+          vector4Value: {x: 0, y: 0, z: 0, w: 0}
+          objectReference: {fileID: 0}
+        - variableName: 
+          useVariable: 0
+          type: 4
+          floatValue: 0
+          intValue: 0
+          boolValue: 0
+          stringValue: Scold Worker
+          vector4Value: {x: 0, y: 0, z: 0, w: 0}
+          objectReference: {fileID: 0}
+        - variableName: 
+          useVariable: 1
+          type: 0
+          floatValue: 0
+          intValue: 0
+          boolValue: 0
+          stringValue: 
+          vector4Value: {x: 0, y: 0, z: 0, w: 0}
+          objectReference: {fileID: 0}
+        byteData: 0000
+        arrayParamSizes: 0100000003000000
         arrayParamTypes:
+        - HutongGames.PlayMaker.FsmVar
         - HutongGames.PlayMaker.FsmVar
         customTypeSizes: 
         customTypeNames: []
-        paramDataType: 18000000120000000c000000270000002700000001000000
+        paramDataType: 18000000120000000c00000027000000270000000100000018000000120000000c0000002700000027000000270000002700000001000000
         paramName:
         - behaviour
         - methodName
@@ -84036,8 +84149,16 @@ MonoBehaviour:
         - 
         - storeResult
         - everyFrame
-        paramDataPos: 000000000000000000000000000000000100000000000000
-        paramByteDataSize: 000000000000000000000000000000000000000001000000
+        - behaviour
+        - methodName
+        - parameters
+        - 
+        - 
+        - 
+        - storeResult
+        - everyFrame
+        paramDataPos: 0000000000000000000000000000000001000000000000000100000001000000010000000200000003000000040000000500000001000000
+        paramByteDataSize: 0000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000001000000
     - name: SyncFET 3
       description: 
       colorIndex: 0
@@ -84062,12 +84183,14 @@ MonoBehaviour:
       actionData:
         actionNames:
         - HutongGames.PlayMaker.Actions.CallMethod
+        - HutongGames.PlayMaker.Actions.CallMethod
         customNames:
         - 
-        actionEnabled: 01
-        actionIsOpen: 01
-        actionStartIndex: 00000000
-        actionHashCodes: a391d932
+        - 
+        actionEnabled: 0101
+        actionIsOpen: 0101
+        actionStartIndex: 0000000006000000
+        actionHashCodes: a391d932a391d932
         unityObjectParams: []
         fsmGameObjectParams: []
         fsmOwnerDefaultParams: []
@@ -84084,6 +84207,12 @@ MonoBehaviour:
           showInInspector: 0
           networkSync: 0
           value: sendRPC
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: addToPlayerActionLog
         fsmObjectParams:
         - useVariable: 0
           name: 
@@ -84092,6 +84221,13 @@ MonoBehaviour:
           networkSync: 0
           typeName: UnityEngine.MonoBehaviour
           value: {fileID: 1810243315}
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          typeName: UnityEngine.MonoBehaviour
+          value: {fileID: 1810243318}
         fsmVarParams:
         - variableName: 
           useVariable: 0
@@ -84111,13 +84247,50 @@ MonoBehaviour:
           stringValue: 
           vector4Value: {x: 0, y: 0, z: 0, w: 0}
           objectReference: {fileID: 0}
-        byteData: 00
-        arrayParamSizes: 01000000
+        - variableName: 
+          useVariable: 0
+          type: 4
+          floatValue: 0
+          intValue: 0
+          boolValue: 0
+          stringValue: SALES
+          vector4Value: {x: 0, y: 0, z: 0, w: 0}
+          objectReference: {fileID: 0}
+        - variableName: 
+          useVariable: 0
+          type: 4
+          floatValue: 0
+          intValue: 0
+          boolValue: 0
+          stringValue: NEGATIVE
+          vector4Value: {x: 0, y: 0, z: 0, w: 0}
+          objectReference: {fileID: 0}
+        - variableName: 
+          useVariable: 0
+          type: 4
+          floatValue: 0
+          intValue: 0
+          boolValue: 0
+          stringValue: Unhappy Customer
+          vector4Value: {x: 0, y: 0, z: 0, w: 0}
+          objectReference: {fileID: 0}
+        - variableName: 
+          useVariable: 1
+          type: 0
+          floatValue: 0
+          intValue: 0
+          boolValue: 0
+          stringValue: 
+          vector4Value: {x: 0, y: 0, z: 0, w: 0}
+          objectReference: {fileID: 0}
+        byteData: 0000
+        arrayParamSizes: 0100000003000000
         arrayParamTypes:
+        - HutongGames.PlayMaker.FsmVar
         - HutongGames.PlayMaker.FsmVar
         customTypeSizes: 
         customTypeNames: []
-        paramDataType: 18000000120000000c000000270000002700000001000000
+        paramDataType: 18000000120000000c00000027000000270000000100000018000000120000000c0000002700000027000000270000002700000001000000
         paramName:
         - behaviour
         - methodName
@@ -84125,8 +84298,16 @@ MonoBehaviour:
         - 
         - storeResult
         - everyFrame
-        paramDataPos: 000000000000000000000000000000000100000000000000
-        paramByteDataSize: 000000000000000000000000000000000000000001000000
+        - behaviour
+        - methodName
+        - parameters
+        - 
+        - 
+        - 
+        - storeResult
+        - everyFrame
+        paramDataPos: 0000000000000000000000000000000001000000000000000100000001000000010000000200000003000000040000000500000001000000
+        paramByteDataSize: 0000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000001000000
     events:
     - name: FINISHED
       isSystemEvent: 1
@@ -84233,6 +84414,17 @@ MonoBehaviour:
   onSerializeTransformOption: 3
   onSerializeRigidBodyOption: 2
   instantiationId: 0
+--- !u!114 &1810243318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1810243310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b53f2faa5391f74419f8760dbadf3a95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1810826477
 GameObject:
   m_ObjectHideFlags: 0
@@ -92753,11 +92945,11 @@ Transform:
   - {fileID: 697084591}
   - {fileID: 872098724}
   - {fileID: 896917840}
-  - {fileID: 322032332}
   - {fileID: 1398114845}
-  - {fileID: 2123479088}
   - {fileID: 1522493790}
+  - {fileID: 322032332}
   - {fileID: 1805267625}
+  - {fileID: 2123479088}
   - {fileID: 1858570826}
   - {fileID: 713522452}
   - {fileID: 823290878}
