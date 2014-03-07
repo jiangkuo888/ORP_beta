@@ -15,9 +15,6 @@ public class PlayerActionLog : MonoBehaviour {
 		string playerName = vikky.loginName;
 		string playerRole = PlayerPrefs.GetString("playerName");
 
-		print (roomID);
-		print (playerName);
-		print (playerRole);
 		//add to db
 		dbClass db = new dbClass();
 		db.addFunction("playerActionLog");
