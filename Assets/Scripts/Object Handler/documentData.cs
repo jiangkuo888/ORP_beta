@@ -34,11 +34,14 @@ public class documentData : MonoBehaviour {
 	public void addDocument(GameObject toBeAdd){
 
 		System.Collections.Generic.List<GameObject> list = new System.Collections.Generic.List<GameObject>(documents);
+
+		if(!list.Contains(toBeAdd))
 		list.Add(toBeAdd);
+
 		documents = list.ToArray();
 
-		foreach(GameObject a in documents)
-			print (a.name);
+//		foreach(GameObject a in documents)
+//			print (a.name);
 
 		// re allocate the position of documents
 		if(documents.Length != 0)

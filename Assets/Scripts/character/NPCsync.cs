@@ -1,18 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class NPCsync : MonoBehaviour {
+public class NPCsync: MonoBehaviour {
+
+	public PlayMakerFSM targetFSM;
 
 
-	public string syncEvent;
-	public PlayMakerFSM myFSM;
 	// Use this for initialization
 	void Start () {
 	
-		PhotonView photonView = this.gameObject.GetPhotonView();
-		
-		
-		photonView.RPC ("syncNPCstate",PhotonTargets.OthersBuffered);
+
 
 
 	}
@@ -22,13 +19,27 @@ public class NPCsync : MonoBehaviour {
 	
 	}
 
+	public void sendRPC(string syncEvent)
+	{
 
+		PhotonView photonView = this.gameObject.GetPhotonView();
+		
+		if(photonView == null)
+			print ("no photonView on" + this.gameObject.name);
+		else
+		{
+		photonView.RPC ("syncNPCstate",PhotonTargets.OthersBuffered,syncEvent);
+		print ("111");
+		}
+		
+	}
 	 
 	
 	[RPC]
-	void syncNPCstate(){
-		print ("111");
-		myFSM.Fsm.Event(syncEvent);
+	void syncNPCstate(string myEvent){
+
+
+		targetFSM.Fsm.Event(myEvent);
 		
 	}
 }
