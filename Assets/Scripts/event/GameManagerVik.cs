@@ -118,6 +118,8 @@ public class GameManagerVik : Photon.MonoBehaviour {
     {
 
 		print ("Now we have: "+PhotonNetwork.playerList.Length+" players in total.");
+
+
 		EventManager.FsmVariables.GetFsmInt("playerNum").Value = PhotonNetwork.playerList.Length;
         Camera.main.farClipPlane = 1000; //Main menu set this to 0.4 for a nicer BG    
 
@@ -134,8 +136,8 @@ public class GameManagerVik : Photon.MonoBehaviour {
 
 
 		// start drawing GUI elements
-		//GameObject.Find ("QuestLogButton").GetComponent<GUITexture>().enabled = true;
-		//GameObject.Find ("phoneButton").GetComponent<GUITexture>().enabled = true;
+		GameObject.Find ("QuestLogButton").GetComponent<GUITexture>().enabled = true;
+		GameObject.Find ("phoneButton").GetComponent<GUITexture>().enabled = true;
 
 
 		// instantiate prefab based on the name
