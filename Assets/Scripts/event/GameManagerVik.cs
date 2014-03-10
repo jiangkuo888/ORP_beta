@@ -10,10 +10,10 @@ public class GameManagerVik : Photon.MonoBehaviour {
     // read the documentation for info how to spawn dynamically loaded game objects at runtime (not using Resources folders)
 	public GameObject[] playerPrefabList;
 	public string[] playerList;
-	public Transform[] managerSpawnPositionList;
-	public Transform[] ITSpawnPositionList;
-	public Transform[] customerSpawnPositionList;
-	public Transform[] officerSpawnPositionList;
+	public Transform[] SMSpawnPositionList;
+	public Transform[] LOSpawnPositionList;
+	public Transform[] LMSpawnPositionList;
+	public Transform[] CRSpawnPositionList;
 	private Vector3 spawnPosition;
 	HashSet<string> selectedPlayerList = new HashSet<string>();
 	bool roleSelected = false;
@@ -152,7 +152,7 @@ public class GameManagerVik : Photon.MonoBehaviour {
 				switch(playerName)
 				{
 				case "Sales Manager":
-					spawnPosition = randomSpawnPosition(managerSpawnPositionList);
+					spawnPosition = randomSpawnPosition(SMSpawnPositionList);
 					GameObject a = PhotonNetwork.Instantiate(playerPrefabList[i].name, spawnPosition, Quaternion.identity, 0, objs);
 
 					a.name = "Sales Manager";
@@ -162,7 +162,7 @@ public class GameManagerVik : Photon.MonoBehaviour {
 
 					break;
 				case "LPU Officer":
-					spawnPosition = randomSpawnPosition(ITSpawnPositionList);
+					spawnPosition = randomSpawnPosition(LOSpawnPositionList);
 					GameObject b = PhotonNetwork.Instantiate(playerPrefabList[i].name, spawnPosition, Quaternion.identity, 0, objs);
 					b.name = "LPU Officer";
 					if(GameObject.Find (b.name+" Table").gameObject.transform.Find ("DocumentHolder").GetComponent<documentData>().enabled == false)
@@ -170,7 +170,7 @@ public class GameManagerVik : Photon.MonoBehaviour {
 
 					break;
 				case "LPU Manager":
-					spawnPosition = randomSpawnPosition(customerSpawnPositionList);
+					spawnPosition = randomSpawnPosition(LMSpawnPositionList);
 					GameObject c = PhotonNetwork.Instantiate(playerPrefabList[i].name, spawnPosition, Quaternion.identity, 0, objs);
 					c.name = "LPU Manager";
 					if(GameObject.Find (c.name+" Table").gameObject.transform.Find ("DocumentHolder").GetComponent<documentData>().enabled == false)
@@ -178,7 +178,7 @@ public class GameManagerVik : Photon.MonoBehaviour {
 
 					break;
 				case "Credit Risk":
-					spawnPosition = randomSpawnPosition(officerSpawnPositionList);
+					spawnPosition = randomSpawnPosition(CRSpawnPositionList);
 					GameObject d = PhotonNetwork.Instantiate(playerPrefabList[i].name, spawnPosition, Quaternion.identity, 0, objs);
 					d.name = "Credit Risk";
 
