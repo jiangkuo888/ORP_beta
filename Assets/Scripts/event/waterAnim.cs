@@ -17,7 +17,7 @@ public class waterAnim : MonoBehaviour {
 
 
 	public void waterGoUp(){
-		print ("111");
+		print ("water is coming!");
 		LeanTween.move(this.gameObject, new Vector3(this.gameObject.transform.position.x,waterLevel,this.gameObject.transform.position.z),10f/speed).setEase(LeanTweenType.easeOutQuad);
 
 	}

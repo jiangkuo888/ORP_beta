@@ -4,7 +4,7 @@ using PixelCrushers.DialogueSystem.UnityGUI;
 using PixelCrushers.DialogueSystem;
 
 
-public class phoneSmallButton : MonoBehaviour {
+public class phoneShowPlayerButton : MonoBehaviour {
 	
 	public float x_offset;
 	public float y_offset;
@@ -15,15 +15,19 @@ public class phoneSmallButton : MonoBehaviour {
 	public Texture normal;
 	public Texture hover;
 	public Texture down;
-
-
-
-	public string dialogueName;
 	
+	
+	
+	public string targetPlayer;
+
+	bool ListOn;
+	float w,h;
 	
 	void Awake()
 	{
-		
+		w = Screen.width;
+		h = Screen.height;
+		ListOn = false;
 		this.gameObject.GetComponent<GUITexture>().texture = normal;
 		
 		
@@ -31,6 +35,8 @@ public class phoneSmallButton : MonoBehaviour {
 		
 		
 	}
+	
+
 	
 	// Use this for initialization
 	void Start()
@@ -82,18 +88,13 @@ public class phoneSmallButton : MonoBehaviour {
 	}
 	
 	void OnMouseDown(){
+		
+		
 		myGUITexture.texture = down;
 		
-		GameObject.Find ("Dialogue Manager").GetComponent<DialogueSystemController>().StartConversation(dialogueName,GameObject.Find (PhotonNetwork.playerName).transform,GameObject.Find (PhotonNetwork.playerName).transform);
+		VOIP(targetPlayer);
 		
-		//print ("111");
-
-
-		GameObject.Find ("phoneSmallButton1").GetComponent<GUITexture>().enabled = false;
-		GameObject.Find ("phoneSmallButton2").GetComponent<GUITexture>().enabled = false;
-		GameObject.Find ("phoneSmallButton3").GetComponent<GUITexture>().enabled = false;
-
-
+		
 	}
 	
 	void OnMouseUpAsButton (){
@@ -105,10 +106,19 @@ public class phoneSmallButton : MonoBehaviour {
 	void OnMouseExit(){
 		GameObject.Find(PhotonNetwork.playerName).GetComponent<DetectObjects>().enabled = true;
 		GameObject.Find(PhotonNetwork.playerName).GetComponent<ClickMove>().enabled = true;	
-
+		
 		
 		myGUITexture.texture = normal;
 	}
+	
+
+	void VOIP(string target){
+
+		GameObject.Find("Dialogue Manager").GetComponent<DialogueSystemController>().ShowAlert("You are now chating with "+target+"....");
+
+	}
+	
+
 	
 	
 	

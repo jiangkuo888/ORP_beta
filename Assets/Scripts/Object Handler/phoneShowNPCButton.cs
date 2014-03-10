@@ -4,45 +4,69 @@ using PixelCrushers.DialogueSystem.UnityGUI;
 using PixelCrushers.DialogueSystem;
 
 
-public class phoneButton : MonoBehaviour {
+public class phoneShowNPCButton : MonoBehaviour {
 	
 	public float x_offset;
 	public float y_offset;
-	public bool enabled;
-	public bool OnCalling;
+	
 	
 	private GUITexture myGUITexture;
-
+	
 	public Texture normal;
 	public Texture hover;
 	public Texture down;
-	public Texture isOnCall;
+	
+	
+	
+	public string[] dialogueNames;
 
-	bool smallButtonOn;
-	string conversationName;
-	string playerName;
-
-
+	public string[] NPCnames;
+	
+	
+	public Vector2 scrollPosition = Vector2.zero;
+	bool ListOn;
+	float w,h;
+	
 	void Awake()
 	{
-		smallButtonOn = false;
-		enabled = true;
-
+		w = Screen.width;
+		h = Screen.height;
+		ListOn = false;
 		this.gameObject.GetComponent<GUITexture>().texture = normal;
-
-
-
-
+		
+		
 		myGUITexture = this.gameObject.GetComponent("GUITexture") as GUITexture;
+		
+		
+	}
 	
+	void OnGUI(){
+		if(ListOn)
+		{
+			scrollPosition = GUI.BeginScrollView(new Rect(.1f * w, .5f * h, 120, .3f * h), scrollPosition, new Rect(0, 0, 100, NPCnames.Length*80f));
+			
+			GUI.DrawTexture (new Rect(0, 0, 110, 2000), null);
+			
+			
+			for (int i = 0; i < NPCnames.Length; i++) {
+				if(GUI.Button (new Rect (0, 80*i, 100, 60), NPCnames[i]))
+				{
+					if(dialogueNames[i] !=null)
+						talkTo(dialogueNames[i]);
+					
+				}
+			}
+			
+			GUI.EndScrollView();
+		}
+		
+		
 		
 	}
 	
 	// Use this for initialization
 	void Start()
 	{
-
-		OnCalling = false;
 		// Position the billboard in the center, 
 		// but respect the picture aspect ratio
 		float textureHeight = myGUITexture.texture.height;
@@ -78,12 +102,6 @@ public class phoneButton : MonoBehaviour {
 			new Rect(xPosition, yPosition, 
 			         scaledWidth, scaledHeight);
 	}
-
-	void Update(){
-
-
-
-	}
 	
 	void OnMouseEnter(){
 		
@@ -96,60 +114,22 @@ public class phoneButton : MonoBehaviour {
 	}
 	
 	void OnMouseDown(){
-
-
-		if(OnCalling)
+		myGUITexture.texture = down;
+		if(ListOn)
 		{
-			if(PhotonNetwork.playerName == playerName)
-				GameObject.Find("Dialogue Manager").GetComponent<DialogueSystemController>().StartConversation(conversationName,GameObject.Find (PhotonNetwork.playerName).transform);
-			
-			OnCalling = false;
+			ListOn = false;
 		}
 		else
 		{
-
 		
-
-
-
-
-
-
-
-		myGUITexture.texture = down;
-
-
-
-
-
-
-		if(smallButtonOn)
-		{
-
-				GameObject.Find ("phoneSmallButton1").GetComponent<GUITexture>().enabled = false;
-				GameObject.Find ("phoneSmallButton2").GetComponent<GUITexture>().enabled = false;
-				GameObject.Find ("phoneSmallButton3").GetComponent<GUITexture>().enabled = false;
-				GameObject.Find ("phoneSmallButton4").GetComponent<GUITexture>().enabled = false;
-				smallButtonOn = false;
+			ListOn = true;
+		
 		}
-			else
-			{
-				GameObject.Find ("phoneSmallButton1").GetComponent<GUITexture>().enabled = true;
-				GameObject.Find ("phoneSmallButton2").GetComponent<GUITexture>().enabled = true;
-				GameObject.Find ("phoneSmallButton3").GetComponent<GUITexture>().enabled = true;
-				GameObject.Find ("phoneSmallButton4").GetComponent<GUITexture>().enabled = true;
-				smallButtonOn = true;
-
-			}
-		
-
-		}
-		
 		
 	}
 	
 	void OnMouseUpAsButton (){
-
+		
 		
 		myGUITexture.texture = hover;
 	}
@@ -157,28 +137,31 @@ public class phoneButton : MonoBehaviour {
 	void OnMouseExit(){
 		GameObject.Find(PhotonNetwork.playerName).GetComponent<DetectObjects>().enabled = true;
 		GameObject.Find(PhotonNetwork.playerName).GetComponent<ClickMove>().enabled = true;	
-
-
+		
+		
 		myGUITexture.texture = normal;
 	}
+	
+	
 
-
-	public void OnCall(string player, string conversation){
-		OnCalling = true;
-		playerName = player;
-
-
-
-		conversationName = conversation;
-
-
-		if(PhotonNetwork.playerName == player)
-		myGUITexture.texture = isOnCall;
-
+	
+	
+	void talkTo(string dialogueName)
+	{
+		
+		GameObject.Find ("Dialogue Manager").GetComponent<DialogueSystemController>().StartConversation(dialogueName,GameObject.Find (PhotonNetwork.playerName).transform,GameObject.Find (PhotonNetwork.playerName).transform);
+		
+		//print ("111");
+		
+		
+		GameObject.Find ("phoneSmallButton1").GetComponent<GUITexture>().enabled = false;
+		GameObject.Find ("phoneSmallButton2").GetComponent<GUITexture>().enabled = false;
+		GameObject.Find ("phoneSmallButton3").GetComponent<GUITexture>().enabled = false;
+		GameObject.Find ("phoneSmallButton4").GetComponent<GUITexture>().enabled = false;
+		ListOn = false;
+		// disable list
 	}
-
-
-
+	
 	
 	
 	

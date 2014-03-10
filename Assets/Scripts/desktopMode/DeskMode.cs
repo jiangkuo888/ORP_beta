@@ -364,8 +364,15 @@ public class DeskMode : MonoBehaviour {
 		{
 			if(GUI.Button( new LTRect(1.0f*w - 100f, 1.0f*h - 50f, 100f, 50f ).rect, "Quit DeskMode"))
 			{
-				if(GameObject.Find ("Inventory").GetComponent<inventory>().inventoryObject !=null)
-					GameObject.Find ("Inventory").GetComponent<GUITexture>().enabled = true;
+				if(GameObject.Find ("InventoryObj").GetComponent<inventory>().inventoryObject !=null)
+					GameObject.Find ("InventoryObj").GetComponent<GUITexture>().enabled = true;
+
+
+
+				GameObject.Find ("InventoryContainer").GetComponent<GUITexture>().enabled = true;
+				GameObject.Find ("InventoryButton1").GetComponent<GUITexture>().enabled = true;
+				GameObject.Find ("InventoryButton2").GetComponent<GUITexture>().enabled = true;
+
 
 				GameObject.Find ("phoneButton").GetComponent<GUITexture>().enabled = true;
 				GameObject.Find ("QuestLogButton").GetComponent<GUITexture>().enabled = true;
@@ -501,7 +508,7 @@ public class DeskMode : MonoBehaviour {
 	IEnumerator WaitAndQuit(float sec){
 		
 		
-		GameObject.Find ("Inventory").GetComponent<inventory>().mouseOnGUIButton = true;
+
 		//		print ("111");
 		disableChildren();
 		GameObject.Find(deskOwner).GetComponent<DetectObjects>().moveCameraToPlayer();
@@ -512,7 +519,7 @@ public class DeskMode : MonoBehaviour {
 		
 		yield return new WaitForSeconds (sec);
 		
-		GameObject.Find ("Inventory").GetComponent<inventory>().mouseOnGUIButton = false;
+
 		
 	}
 	// -----------------------------------------------------------------------------------------------
