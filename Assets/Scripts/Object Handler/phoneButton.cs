@@ -21,7 +21,7 @@ public class phoneButton : MonoBehaviour {
 	bool smallButtonOn;
 	string conversationName;
 	string playerName;
-
+	int count = 0;
 
 	void Awake()
 	{
@@ -80,6 +80,10 @@ public class phoneButton : MonoBehaviour {
 	}
 
 	void Update(){
+		if(OnCalling)
+		{
+			blinking ();
+		}
 
 
 
@@ -94,16 +98,31 @@ public class phoneButton : MonoBehaviour {
 		myGUITexture.texture = hover;
 		
 	}
-	
+	void blinking(){
+
+		if(count%50<25)
+		{
+		myGUITexture.texture = isOnCall;
+
+		}
+		else{
+
+			myGUITexture.texture = normal;
+		}
+
+		count++;
+
+	}
 	void OnMouseDown(){
 
 
 		if(OnCalling)
 		{
-			if(PhotonNetwork.playerName == playerName)
-				GameObject.Find("Dialogue Manager").GetComponent<DialogueSystemController>().StartConversation(conversationName,GameObject.Find (PhotonNetwork.playerName).transform);
+			// start conversation
+			GameObject.Find("Dialogue Manager").GetComponent<DialogueSystemController>().StartConversation(conversationName,GameObject.Find (PhotonNetwork.playerName).transform);
 			
 			OnCalling = false;
+			myGUITexture.texture = normal;
 		}
 		else
 		{
@@ -165,6 +184,10 @@ public class phoneButton : MonoBehaviour {
 
 
 	public void OnCall(string player, string conversation){
+
+
+		if(PhotonNetwork.playerName == player){
+
 		OnCalling = true;
 		playerName = player;
 
@@ -173,8 +196,9 @@ public class phoneButton : MonoBehaviour {
 		conversationName = conversation;
 
 
-		if(PhotonNetwork.playerName == player)
-		myGUITexture.texture = isOnCall;
+
+		
+		}
 
 	}
 
