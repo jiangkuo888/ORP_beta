@@ -83,13 +83,14 @@ public class MainMenuVik : MonoBehaviour
 				if (playerName != "" && password != "")
 				{
 					//add to db dbClass 
-					dbClass db = new dbClass();
+					/*dbClass db = new dbClass();
 					db.addFunction("playerLogin");
 					db.addValues("playerName", playerName);
 					db.addValues("password", password);
 					string dbReturn = db.connectToDb();
-					//print (dbReturn);
+					//print (dbReturn);*/
 					//end add to db
+					string dbReturn = "SUCCESS NO RETURN";
 
 					//if successful;, means login success
 					if (dbReturn == "SUCCESS NO RETURN")
@@ -151,13 +152,14 @@ public class MainMenuVik : MonoBehaviour
 					{
 
 						//add to db dbClass 
-						dbClass db = new dbClass();
+						/*dbClass db = new dbClass();
 						db.addFunction("playerCreate");
 						db.addValues("playerName", playerName);
 						db.addValues("password", password);
-						string dbReturn = db.connectToDb();
+						string dbReturn = db.connectToDb();*/
 						//print (dbReturn);
 						//end add to db
+						string dbReturn = "SUCCESS NO RETURN";
 						
 						//if successful;, means login success
 						if (dbReturn == "SUCCESS NO RETURN")
@@ -222,7 +224,7 @@ public class MainMenuVik : MonoBehaviour
 				PhotonNetwork.CreateRoom (roomName, true, true, 10);
 
 				//add to db
-				dbClass db = new dbClass();
+				/*dbClass db = new dbClass();
 				db.addFunction("roomCreate");
 				db.addValues("roomName", roomName);
 				string dbReturn = db.connectToDb();
@@ -234,7 +236,7 @@ public class MainMenuVik : MonoBehaviour
 				//add roomID
 				GameObject gameManager = GameObject.Find("GameManager");  
 				GameManagerVik vikky = gameManager.GetComponent<GameManagerVik>();
-				vikky.roomID = db.getReturnValueInt("roomID");
+				vikky.roomID = db.getReturnValueInt("roomID");*/
 				//end add to db
 			}
 			GUILayout.EndHorizontal ();
