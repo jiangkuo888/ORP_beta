@@ -131,7 +131,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &100016
 GameObject:
   m_ObjectHideFlags: 1
@@ -230,7 +230,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &100028
 GameObject:
   m_ObjectHideFlags: 0
@@ -259,6 +259,22 @@ GameObject:
   - 114: {fileID: 11400020}
   m_Layer: 0
   m_Name: Alert
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &100032
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 400032}
+  - 114: {fileID: 11400048}
+  m_Layer: 0
+  m_Name: Continue Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -357,6 +373,7 @@ Transform:
   - {fileID: 400008}
   - {fileID: 400006}
   - {fileID: 400004}
+  - {fileID: 400032}
   - {fileID: 400000}
   - {fileID: 400012}
   - {fileID: 400020}
@@ -455,6 +472,17 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 400018}
+--- !u!4 &400032
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100032}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 400014}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1700,13 +1728,13 @@ MonoBehaviour:
       line: {fileID: 11400012}
       portraitImage: {fileID: 11400030}
       portraitName: {fileID: 11400000}
-      continueButton: {fileID: 0}
+      continueButton: {fileID: 11400048}
     pcSubtitle:
       panel: {fileID: 0}
       line: {fileID: 11400012}
       portraitImage: {fileID: 11400030}
       portraitName: {fileID: 11400000}
-      continueButton: {fileID: 0}
+      continueButton: {fileID: 11400048}
     responseMenu:
       buttonAlignment: 0
       showUnusedButtons: 0
@@ -1901,6 +1929,148 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trigger: 0
   interval: .5
+--- !u!114 &11400048
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -125749421, guid: b5a7519e94754fb4a8ea0c272031db78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  depth: 0
+  depthSortChildren: 0
+  scaledRect:
+    origin: 8
+    alignment: 8
+    x:
+      scale: 0
+      value: 0
+    y:
+      scale: 0
+      value: 0
+    width:
+      scale: 0
+      value: 160
+    height:
+      scale: 0
+      value: 32
+    minPixelWidth: 0
+    minPixelHeight: 0
+  autoSize:
+    autoSizeWidth: 0
+    autoSizeHeight: 0
+    maxWidth:
+      scale: 1
+      value: 1
+    maxHeight:
+      scale: 1
+      value: 1
+    padding:
+      m_Left: 0
+      m_Right: 0
+      m_Top: 0
+      m_Bottom: 0
+  fit:
+    above: {fileID: 0}
+    below: {fileID: 0}
+    leftOf: {fileID: 0}
+    rightOf: {fileID: 0}
+    expandToFit: 1
+  navigation:
+    enabled: 0
+    focusFirstControlOnEnable: 1
+    jumpToMousePosition: 1
+    order: []
+    previous: 273
+    next: 274
+    axis: Vertical
+    axisRepeatDelay: 1
+  visible: 1
+  clipChildren: 1
+  text: Continue
+  guiStyleName: 
+  clickable: 1
+  disabled:
+    pixelRect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    texture: {fileID: 0}
+    useTexCoords: 0
+    texCoords:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 1
+      height: 1
+    scaleMode: 2
+    alphaBlend: 1
+    aspect: 0
+  normal:
+    pixelRect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    texture: {fileID: 0}
+    useTexCoords: 0
+    texCoords:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 1
+      height: 1
+    scaleMode: 2
+    alphaBlend: 1
+    aspect: 0
+  hover:
+    pixelRect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    texture: {fileID: 0}
+    useTexCoords: 0
+    texCoords:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 1
+      height: 1
+    scaleMode: 2
+    alphaBlend: 1
+    aspect: 0
+  pressed:
+    pixelRect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    texture: {fileID: 0}
+    useTexCoords: 0
+    texCoords:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 1
+      height: 1
+    scaleMode: 2
+    alphaBlend: 1
+    aspect: 0
+  trigger:
+    key: 0
+    buttonName: 
+  message: OnContinue
+  parameter: 
+  target: {fileID: 400028}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
