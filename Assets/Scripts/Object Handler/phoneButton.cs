@@ -132,8 +132,13 @@ public class phoneButton : MonoBehaviour {
 	public void OnCall(string player, string conversation){
 		OnCalling = true;
 		playerName = player;
+
+
+
 		conversationName = conversation;
 
+
+		if(PhotonNetwork.playerName == player)
 		myGUITexture.texture = isOnCall;
 
 	}
