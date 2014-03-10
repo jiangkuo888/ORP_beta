@@ -106,7 +106,7 @@ public class ClickMove : MonoBehaviour
 		{
 		if (!motor.grounded)
 			targetPosition = transform.position;
-		else if(!GameObject.Find ("Inventory").GetComponent<inventory>().mouseOnGUIButton){
+		else {
 			
 			RaycastHit hit;
 			

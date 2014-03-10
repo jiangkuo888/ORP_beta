@@ -99,6 +99,7 @@ public class GameManagerVik : Photon.MonoBehaviour {
             yield return 0;
 		Application.LoadLevel(Application.loadedLevel);
 
+
     }
 
 
@@ -138,6 +139,9 @@ public class GameManagerVik : Photon.MonoBehaviour {
 		// start drawing GUI elements
 		GameObject.Find ("QuestLogButton").GetComponent<GUITexture>().enabled = true;
 		GameObject.Find ("phoneButton").GetComponent<GUITexture>().enabled = true;
+		GameObject.Find ("InventoryContainer").GetComponent<GUITexture>().enabled = true;
+		GameObject.Find ("InventoryButton1").GetComponent<GUITexture>().enabled = true;
+		GameObject.Find ("InventoryButton2").GetComponent<GUITexture>().enabled = true;
 
 
 		// instantiate prefab based on the name

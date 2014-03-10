@@ -42,8 +42,7 @@ public class DetectObjects : Photon.MonoBehaviour {
 		Ray ray= Camera.main.ScreenPointToRay (Input.mousePosition);
 		RaycastHit hit;
 		
-		if(!GameObject.Find ("Inventory").GetComponent<inventory>().mouseOnGUIButton)
-		{
+		
 			if (Physics.Raycast (ray, out hit, 100)) {
 				// display word hint
 				displayHint(hit.collider.name);
@@ -325,7 +324,7 @@ public class DetectObjects : Photon.MonoBehaviour {
 				
 				
 			}  
-		}
+		
 	}
 
 	}
