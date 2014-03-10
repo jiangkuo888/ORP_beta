@@ -190,7 +190,7 @@ public class GameManagerVik : Photon.MonoBehaviour {
 			}
 		
 			//update roomID if needed
-			if (this.roomID == -1)
+			/*if (this.roomID == -1)
 			{
 				//add to db
 				dbClass db = new dbClass();
@@ -206,7 +206,7 @@ public class GameManagerVik : Photon.MonoBehaviour {
 				this.roomID = db.getReturnValueInt("roomID");
 				//end add to db
 	       		
-			}
+			}*/
 
 
 		}

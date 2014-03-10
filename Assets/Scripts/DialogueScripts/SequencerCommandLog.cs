@@ -38,7 +38,7 @@ public class SequencerCommandLog : SequencerCommand  {
 	public void  addToPlayerActionLog(string playerActionType, string outcome, string actionInfo) {
 		
 		//get roomID & playerName
-		GameObject gameManager = GameObject.Find("GameManager");  
+		/*GameObject gameManager = GameObject.Find("GameManager");  
 		GameManagerVik vikky = gameManager.GetComponent<GameManagerVik>();
 		string roomID = vikky.roomID.ToString ();
 		string playerName = vikky.loginName;
@@ -60,7 +60,7 @@ public class SequencerCommandLog : SequencerCommand  {
 			print (roomID);
 			print (playerName);
 			print (playerRole);
-		}
+		}*/
 		
 		//end add to db
 		
