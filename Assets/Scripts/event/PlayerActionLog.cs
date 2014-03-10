@@ -9,7 +9,7 @@ public class PlayerActionLog : MonoBehaviour {
 	public void  addToPlayerActionLog(string actionRefID, string actionInfo) {
 
 		//get roomID & playerName
-		/*GameObject gameManager = GameObject.Find("GameManager");  
+		GameObject gameManager = GameObject.Find("GameManager");  
 		GameManagerVik vikky = gameManager.GetComponent<GameManagerVik>();
 		string sessionID = vikky.sessionID.ToString ();
 		string playerName = vikky.loginName;
@@ -20,9 +20,8 @@ public class PlayerActionLog : MonoBehaviour {
 		db.addFunction("playerActionLog");
 		db.addValues("playerName", playerName);
 		db.addValues("playerRole", playerRole);
-		db.addValues("roomID", roomID);
-		db.addValues("playerActionType", playerActionType);
-		db.addValues("outcome", outcome);
+		db.addValues("sessionID", sessionID);
+		db.addValues("actionRefID", actionRefID);
 		db.addValues("actionInfo", actionInfo);
 		string dbReturn = db.connectToDb();
 
@@ -30,7 +29,7 @@ public class PlayerActionLog : MonoBehaviour {
 			print (dbReturn);
 		}
 
-		//end add to db*/
+		//end add to db
 
 	}
 }

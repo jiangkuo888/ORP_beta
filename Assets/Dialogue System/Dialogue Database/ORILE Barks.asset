@@ -48,6 +48,21 @@ MonoBehaviour:
       value: True
       type: 2
     portrait: {fileID: 0}
+  - id: 5
+    fields:
+    - title: Name
+      value: NPC
+      type: 0
+    - title: Pictures
+      value: '[]'
+      type: 3
+    - title: Description
+      value: 
+      type: 0
+    - title: IsPlayer
+      value: False
+      type: 2
+    portrait: {fileID: 0}
   items:
   - id: 1
     fields:
@@ -93,11 +108,22 @@ MonoBehaviour:
     - title: Description
       value: Show alert messages during gameplay by setting this variable.
       type: 0
+  - id: 1
+    fields:
+    - title: Name
+      value: Line
+      type: 0
+    - title: Initial Value
+      value: 
+      type: 0
+    - title: Description
+      value: 
+      type: 0
   conversations:
   - id: 1
     fields:
     - title: Title
-      value: Bark Test
+      value: Unsettled Customers
       type: 0
     - title: Description
       value: 
@@ -106,7 +132,7 @@ MonoBehaviour:
       value: 1
       type: 5
     - title: Conversant
-      value: 1
+      value: 5
       type: 5
     nodeColor: Red
     dialogueEntries:
@@ -119,7 +145,7 @@ MonoBehaviour:
         value: 1
         type: 5
       - title: Conversant
-        value: 1
+        value: 5
         type: 5
       - title: Menu Text
         value: 
@@ -153,15 +179,21 @@ MonoBehaviour:
         destinationDialogueID: 2
         isConnector: 0
         priority: 2
+      - originConversationID: 1
+        originDialogueID: 0
+        destinationConversationID: 1
+        destinationDialogueID: 3
+        isConnector: 0
+        priority: 2
       conditionsString: 
       userScript: 
     - id: 1
       fields:
       - title: Title
-        value: 
+        value: Johnny
         type: 0
       - title: Actor
-        value: 1
+        value: 5
         type: 5
       - title: Conversant
         value: 1
@@ -191,10 +223,10 @@ MonoBehaviour:
     - id: 2
       fields:
       - title: Title
-        value: Bark Test
+        value: 
         type: 0
       - title: Actor
-        value: 1
+        value: 5
         type: 5
       - title: Conversant
         value: 1
@@ -204,6 +236,39 @@ MonoBehaviour:
         type: 0
       - title: Dialogue Text
         value: Test 2
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 1
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: 
+    - id: 3
+      fields:
+      - title: Title
+        value: 
+        type: 0
+      - title: Actor
+        value: 5
+        type: 5
+      - title: Conversant
+        value: 1
+        type: 5
+      - title: Menu Text
+        value: 
+        type: 0
+      - title: Dialogue Text
+        value: Test 3
         type: 4
       - title: Video File
         value: 
