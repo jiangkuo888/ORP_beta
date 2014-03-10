@@ -6,12 +6,12 @@ using System;
 public class PlayerActionLog : MonoBehaviour {
 	
 	// Update is called once per frame
-	public void  addToPlayerActionLog(string playerActionType, string outcome, string actionInfo) {
+	public void  addToPlayerActionLog(string actionRefID, string actionInfo) {
 
 		//get roomID & playerName
-		GameObject gameManager = GameObject.Find("GameManager");  
+		/*GameObject gameManager = GameObject.Find("GameManager");  
 		GameManagerVik vikky = gameManager.GetComponent<GameManagerVik>();
-		string roomID = vikky.roomID.ToString ();
+		string sessionID = vikky.sessionID.ToString ();
 		string playerName = vikky.loginName;
 		string playerRole = PlayerPrefs.GetString("playerName");
 
@@ -30,7 +30,7 @@ public class PlayerActionLog : MonoBehaviour {
 			print (dbReturn);
 		}
 
-		//end add to db
+		//end add to db*/
 
 	}
 }
