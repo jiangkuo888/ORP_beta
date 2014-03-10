@@ -18,7 +18,7 @@ public class GameManagerVik : Photon.MonoBehaviour {
 	HashSet<string> selectedPlayerList = new HashSet<string>();
 	bool roleSelected = false;
 	public PlayMakerFSM EventManager;
-	public int roomID = -1;
+	public int sessionID = -1;
 	public string loginName = "";
 
     void OnJoinedRoom()
@@ -190,11 +190,11 @@ public class GameManagerVik : Photon.MonoBehaviour {
 			}
 		
 			//update roomID if needed
-			/*if (this.roomID == -1)
+			if (this.sessionID == -1)
 			{
 				//add to db
 				dbClass db = new dbClass();
-				db.addFunction("getRoomID");
+				db.addFunction("getSessionID");
 				db.addValues("roomName", PhotonNetwork.room.name);
 				string dbReturn = db.connectToDb();
 
@@ -203,10 +203,10 @@ public class GameManagerVik : Photon.MonoBehaviour {
 				}
 				
 				//add roomID
-				this.roomID = db.getReturnValueInt("roomID");
+				this.sessionID = db.getReturnValueInt("sessionID");
 				//end add to db
 	       		
-			}*/
+			}
 
 
 		}

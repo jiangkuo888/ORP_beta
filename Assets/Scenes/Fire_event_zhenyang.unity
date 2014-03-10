@@ -206,7 +206,7 @@ MonoBehaviour:
   officerSpawnPositionList:
   - {fileID: 1993655148}
   EventManager: {fileID: 782975865}
-  roomID: -1
+  sessionID: -1
   loginName: 
 --- !u!114 &43
 MonoBehaviour:
@@ -45626,7 +45626,7 @@ MonoBehaviour:
       - fsmEvent:
           name: PHOTON / JOINED ROOM
           isSystemEvent: 0
-          isGlobal: 0
+          isGlobal: 1
         toState: MoveTo_Wp
         linkStyle: 0
         linkConstraint: 0
@@ -45671,7 +45671,7 @@ MonoBehaviour:
       isGlobal: 0
     - name: PHOTON / JOINED ROOM
       isSystemEvent: 0
-      isGlobal: 0
+      isGlobal: 1
     globalTransitions: []
     variables:
       floatVariables: []
@@ -83899,7 +83899,7 @@ MonoBehaviour:
         - 
         actionEnabled: 0101
         actionIsOpen: 0101
-        actionStartIndex: 0000000008000000
+        actionStartIndex: 0000000007000000
         actionHashCodes: a391d932a391d932
         unityObjectParams: []
         fsmGameObjectParams: []
@@ -83945,7 +83945,7 @@ MonoBehaviour:
           floatValue: 0
           intValue: 0
           boolValue: 0
-          stringValue: FIRE SAFETY
+          stringValue: 3
           vector4Value: {x: 0, y: 0, z: 0, w: 0}
           objectReference: {fileID: 0}
         - variableName: 
@@ -83954,16 +83954,7 @@ MonoBehaviour:
           floatValue: 0
           intValue: 0
           boolValue: 0
-          stringValue: POSITIVE
-          vector4Value: {x: 0, y: 0, z: 0, w: 0}
-          objectReference: {fileID: 0}
-        - variableName: 
-          useVariable: 0
-          type: 4
-          floatValue: 0
-          intValue: 0
-          boolValue: 0
-          stringValue: Missing Fire Extinguisher Found
+          stringValue: call somebody
           vector4Value: {x: 0, y: 0, z: 0, w: 0}
           objectReference: {fileID: 0}
         - variableName: 
@@ -83994,20 +83985,19 @@ MonoBehaviour:
           vector4Value: {x: 0, y: 0, z: 0, w: 0}
           objectReference: {fileID: 0}
         byteData: 0000
-        arrayParamSizes: 0300000001000000
+        arrayParamSizes: 0200000001000000
         arrayParamTypes:
         - HutongGames.PlayMaker.FsmVar
         - HutongGames.PlayMaker.FsmVar
         customTypeSizes: 
         customTypeNames: []
-        paramDataType: 18000000120000000c000000270000002700000027000000270000000100000018000000120000000c000000270000002700000001000000
+        paramDataType: 18000000120000000c0000002700000027000000270000000100000018000000120000000c000000270000002700000001000000
         paramName:
         - behaviour
         - methodName
         - parameters
         - 
         - 
-        - 
         - storeResult
         - everyFrame
         - behaviour
@@ -84016,8 +84006,8 @@ MonoBehaviour:
         - 
         - storeResult
         - everyFrame
-        paramDataPos: 0000000000000000000000000000000001000000020000000300000000000000010000000100000001000000040000000500000001000000
-        paramByteDataSize: 0000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000001000000
+        paramDataPos: 00000000000000000000000000000000010000000200000000000000010000000100000001000000030000000400000001000000
+        paramByteDataSize: 00000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000001000000
     - name: SyncFET 2
       description: 
       colorIndex: 0
@@ -92452,7 +92442,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previewOnGUI: 1
   enableGUILayout: 1
-  drawStateLabels: 1
+  drawStateLabels: 0
   GUITextureStateLabels: 1
   GUITextStateLabels: 1
   filterLabelsWithDistance: 0
