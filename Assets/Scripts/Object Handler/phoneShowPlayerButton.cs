@@ -81,8 +81,7 @@ public class phoneShowPlayerButton : MonoBehaviour {
 		
 		
 		GameObject.Find(PhotonNetwork.playerName).GetComponent<DetectObjects>().enabled = false;
-		GameObject.Find(PhotonNetwork.playerName).GetComponent<ClickMove>().enabled = false;
-		GameObject.Find(PhotonNetwork.playerName).GetComponent<CharacterMotor>().inputMoveDirection = Vector3.zero;
+		GameObject.Find(PhotonNetwork.playerName).GetComponent<ClickMove>().OnGUI = true;
 		myGUITexture.texture = hover;
 		
 	}
@@ -105,7 +104,7 @@ public class phoneShowPlayerButton : MonoBehaviour {
 	
 	void OnMouseExit(){
 		GameObject.Find(PhotonNetwork.playerName).GetComponent<DetectObjects>().enabled = true;
-		GameObject.Find(PhotonNetwork.playerName).GetComponent<ClickMove>().enabled = true;	
+		GameObject.Find(PhotonNetwork.playerName).GetComponent<ClickMove>().OnGUI = false;
 		
 		
 		myGUITexture.texture = normal;

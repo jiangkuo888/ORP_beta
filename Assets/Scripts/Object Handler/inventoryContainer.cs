@@ -5,7 +5,11 @@ using PixelCrushers.DialogueSystem;
 
 
 public class inventoryContainer : MonoBehaviour {
-	
+
+	public bool isDropButton;
+	public bool isPassButton;
+	public bool isBackground;
+
 	public float x_offset;
 	public float y_offset;
 	public float scaleX;
@@ -87,36 +91,54 @@ public class inventoryContainer : MonoBehaviour {
 	}
 	
 	void OnMouseEnter(){
-		
+		if(isBackground)
+		{
+		}
+		else{
 		GameObject.Find(PhotonNetwork.playerName).GetComponent<DetectObjects>().enabled = false;
-		GameObject.Find(PhotonNetwork.playerName).GetComponent<ClickMove>().enabled = false;
-		GameObject.Find(PhotonNetwork.playerName).GetComponent<CharacterMotor>().inputMoveDirection = Vector3.zero;
+		GameObject.Find(PhotonNetwork.playerName).GetComponent<ClickMove>().OnGUI = true;
 
 		myGUITexture.texture = normal;
-		
+		}
 	}
 
 	void OnMouseExit(){
+		if(isBackground)
+		{
+		}
+		else{
 		myGUITexture.texture = normal;
 		GameObject.Find(PhotonNetwork.playerName).GetComponent<DetectObjects>().enabled = true;
-		GameObject.Find(PhotonNetwork.playerName).GetComponent<ClickMove>().enabled = true;
-		GameObject.Find(PhotonNetwork.playerName).GetComponent<CharacterMotor>().inputMoveDirection = Vector3.zero;
+		GameObject.Find(PhotonNetwork.playerName).GetComponent<ClickMove>().OnGUI = false;
+		}
 	}
 	
 	void OnMouseDown(){
-
+		if(isBackground)
+		{
+		}
+		else{
 		myGUITexture.texture = hover;
 
 
+		if(isDropButton)
 		GameObject.Find ("InventoryObj").GetComponent<inventory>().Drop();
+		if(isPassButton)
+			//pass function
+			print ("pass ");
 
+		}
 		
 	}
 	
 	void OnMouseUpAsButton (){
-
+		if(isBackground)
+		{
+		}
+		else{
 		
 		myGUITexture.texture = normal;
+		}
 	}
 
 

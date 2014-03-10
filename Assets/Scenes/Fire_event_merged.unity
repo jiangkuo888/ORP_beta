@@ -23067,7 +23067,7 @@ GameObject:
   - 64: {fileID: 530808083}
   m_Layer: 0
   m_Name: Level2Floor
-  m_TagString: Untagged
+  m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -30281,7 +30281,7 @@ GameObject:
   - 23: {fileID: 701852532}
   m_Layer: 0
   m_Name: Plane
-  m_TagString: Untagged
+  m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -30750,7 +30750,7 @@ GameObject:
   - 64: {fileID: 711813496}
   m_Layer: 0
   m_Name: Level1Floor
-  m_TagString: Untagged
+  m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -36010,7 +36010,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 830059171}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.16653442, y: -1.29225779, z: -2.32484818}
+  m_LocalPosition: {x: -5.18966484, y: -1.29225779, z: 1.59893799}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1334965118}
@@ -45587,7 +45587,7 @@ MonoBehaviour:
       - fsmEvent:
           name: PHOTON / JOINED ROOM
           isSystemEvent: 0
-          isGlobal: 0
+          isGlobal: 1
         toState: MoveTo_Wp
         linkStyle: 0
         linkConstraint: 0
@@ -45632,7 +45632,7 @@ MonoBehaviour:
       isGlobal: 0
     - name: PHOTON / JOINED ROOM
       isSystemEvent: 0
-      isGlobal: 0
+      isGlobal: 1
     globalTransitions: []
     variables:
       floatVariables: []
@@ -50769,6 +50769,10 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 06496a25b20f85e4ab4f463abb6b05e0, type: 2}
+    - target: {fileID: 100000, guid: 60855c547f4c35d4ea0c1396c5ea70e9, type: 3}
+      propertyPath: m_TagString
+      value: ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 60855c547f4c35d4ea0c1396c5ea70e9, type: 3}
   m_RootGameObject: {fileID: 701852530}
@@ -53972,6 +53976,10 @@ MonoBehaviour:
   inventoryObjectOriginalScale: {x: 0, y: 0, z: 0}
   option1_texture: {fileID: 2800000, guid: 93b0e47d556904748ac07a101c4273c6, type: 3}
   option4_texture: {fileID: 2800000, guid: 52f8f09ae7b424347b85cd7b825f9784, type: 3}
+  x_offset: .870000005
+  y_offset: -.479999989
+  scaleX: .119999997
+  scaleY: .180000007
   mouseOnGUIButton: 0
 --- !u!131 &1221759723
 GUITexture:
@@ -53979,7 +53987,7 @@ GUITexture:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1221759720}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Texture: {fileID: 2800000, guid: 2d61ee8c0b6418e4781ccc4fd4ff10c1, type: 3}
   m_Color: {r: .5, g: .5, b: .5, a: .5}
   m_PixelInset:
@@ -54213,6 +54221,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1684c54d97792a9418bb596aac5abcdf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isDropButton: 0
+  isPassButton: 1
+  isBackground: 0
   x_offset: 1
   y_offset: -.829999983
   scaleX: .119999997
@@ -58572,6 +58583,14 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: bd6c842166fe1c240a483ab779214e06, type: 2}
+    - target: {fileID: 100020, guid: abb7345795738d5408006f1071333b53, type: 3}
+      propertyPath: m_TagString
+      value: ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 100010, guid: abb7345795738d5408006f1071333b53, type: 3}
+      propertyPath: m_TagString
+      value: ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: abb7345795738d5408006f1071333b53, type: 3}
   m_RootGameObject: {fileID: 1341182376}
@@ -64088,7 +64107,7 @@ Renderer:
   m_Materials:
   - {fileID: 2100000, guid: 1b27f78fe82948b4b9fe4302e2715c02, type: 2}
   - {fileID: 2100000, guid: ff2628c8dd23ac74e9dfabba921cafc2, type: 2}
-  - {fileID: 2100000, guid: 02ba20903eff74e4eb6f1a73fed4fbda, type: 2}
+  - {fileID: 2100000, guid: 2dffbacb72256a9479a0bd6406d474d3, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -66507,7 +66526,7 @@ Renderer:
   m_Materials:
   - {fileID: 2100000, guid: 1b27f78fe82948b4b9fe4302e2715c02, type: 2}
   - {fileID: 2100000, guid: ff2628c8dd23ac74e9dfabba921cafc2, type: 2}
-  - {fileID: 2100000, guid: 02ba20903eff74e4eb6f1a73fed4fbda, type: 2}
+  - {fileID: 2100000, guid: 2dffbacb72256a9479a0bd6406d474d3, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -83500,7 +83519,7 @@ MonoBehaviour:
       allowAlertsDuringConversations: 0
       alertCheckFrequency: 0
   debugLevel: 2
-  dontDestroyOnLoad: 1
+  dontDestroyOnLoad: 0
   allowOnlyOneInstance: 0
 --- !u!4 &1810243312
 Transform:
@@ -87450,6 +87469,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1684c54d97792a9418bb596aac5abcdf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isDropButton: 0
+  isPassButton: 0
+  isBackground: 1
   x_offset: 1
   y_offset: -.439999998
   scaleX: .25
@@ -94305,6 +94327,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1684c54d97792a9418bb596aac5abcdf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isDropButton: 1
+  isPassButton: 0
+  isBackground: 0
   x_offset: .74000001
   y_offset: -.829999983
   scaleX: .119999997
@@ -95267,7 +95292,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previewOnGUI: 1
   enableGUILayout: 1
-  drawStateLabels: 1
+  drawStateLabels: 0
   GUITextureStateLabels: 1
   GUITextStateLabels: 1
   filterLabelsWithDistance: 0

@@ -17,7 +17,13 @@ public class inventory : MonoBehaviour {
 	
 	private float w;
 	private float h;
-	
+	public float x_offset;
+	public float y_offset;
+	public float scaleX;
+	public float scaleY;
+
+
+
 
 	private LTRect option1;
 	//private LTRect option2;
@@ -46,8 +52,16 @@ public class inventory : MonoBehaviour {
 		this.GetComponent<GUITexture>().pixelInset= new Rect(.5f*w - 150, -(.5f*h)+40, 100 ,100);
 	}
 	
+	void OnMouseEnter(){
 
+		GameObject.Find(PhotonNetwork.playerName).GetComponent<DetectObjects>().enabled = false;
+		GameObject.Find(PhotonNetwork.playerName).GetComponent<ClickMove>().OnGUI = true;
+	}
+	void OnMouseExit(){
 
+		GameObject.Find(PhotonNetwork.playerName).GetComponent<DetectObjects>().enabled = true;
+		GameObject.Find(PhotonNetwork.playerName).GetComponent<ClickMove>().OnGUI = false;
+	}
 //	void initOptions(){
 //		option1 = new LTRect(1.1f*w - option1_texture.width*0.2f, 1.1f*h - option1_texture.height*0.2f, option1_texture.width*.2f, option1_texture.height*.2f );
 //		//option2 = new LTRect(1.1f*w - option1_texture.width*0.2f, 1.1f*h - option1_texture.height*0.2f, option1_texture.width*.2f, option1_texture.height*.2f );
@@ -142,6 +156,30 @@ public class inventory : MonoBehaviour {
 		inventoryObject = obj;
 		string texture = "Assets/Resources/Textures/"+obj.name+".png";
 		inventoryObjectTexture = (Texture)Resources.LoadAssetAtPath(texture, typeof(Texture));
+
+		float scaledHeight,scaledWidth;
+
+		scaledWidth = w*scaleX;
+		scaledHeight = h*scaleY;
+
+		float xPosition = w / 2 * x_offset - scaledWidth;
+		float yPosition = h / 2 * y_offset - scaledHeight;
+		
+		this.GetComponent<GUITexture>().pixelInset=
+			new Rect(xPosition, yPosition, 
+			         scaledWidth, scaledHeight);
+
+
+
+
+
+
+
+
+
+
+
+
 	}
 
 	public void clearInventory(){
@@ -161,8 +199,17 @@ public class inventory : MonoBehaviour {
 		// Distance from your player    
 		//float distance   = 3;     
 		
-		// Transforms a forward position relative to your player into the world space    
-		Vector3 throwPos = new Vector3(GameObject.Find ("ClickArrow(Clone)").transform.position.x,GameObject.Find ("ClickArrow(Clone)").transform.position.y+ 1f,GameObject.Find ("ClickArrow(Clone)").transform.position.z);
+		// Transforms a forward position relative to your player into the world space  
+
+		
+
+
+			Transform player = GameObject.Find (PhotonNetwork.playerName).transform;
+
+
+			Vector3 throwPos = player.position +Camera.main.transform.forward;
+
+		//Vector3 throwPos = new Vector3(GameObject.Find ("ClickArrow(Clone)").transform.position.x,GameObject.Find ("ClickArrow(Clone)").transform.position.y+ 1f,GameObject.Find ("ClickArrow(Clone)").transform.position.z);
 
 		GameObject.Find ("DropArea_"+inventoryObject.name).GetComponent<DropAreaController>().AreaActivated = false;
 
