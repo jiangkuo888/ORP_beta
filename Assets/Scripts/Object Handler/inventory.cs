@@ -151,7 +151,7 @@ public class inventory : MonoBehaviour {
 
 
 	public void updateInventoryObject(GameObject obj){
-
+		if(GameObject.Find ("DropArea_"+obj.name))
 		GameObject.Find ("DropArea_"+obj.name).GetComponent<DropAreaController>().AreaActivated = true;
 		inventoryObject = obj;
 		string texture = "Assets/Resources/Textures/"+obj.name+".png";
@@ -210,7 +210,7 @@ public class inventory : MonoBehaviour {
 			Vector3 throwPos = player.position +Camera.main.transform.forward;
 
 		//Vector3 throwPos = new Vector3(GameObject.Find ("ClickArrow(Clone)").transform.position.x,GameObject.Find ("ClickArrow(Clone)").transform.position.y+ 1f,GameObject.Find ("ClickArrow(Clone)").transform.position.z);
-
+			if(GameObject.Find ("DropArea_"+inventoryObject.name))
 		GameObject.Find ("DropArea_"+inventoryObject.name).GetComponent<DropAreaController>().AreaActivated = false;
 
 		inventoryObject.transform.parent = null;
