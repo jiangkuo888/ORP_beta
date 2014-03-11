@@ -97,7 +97,7 @@ MonoBehaviour:
       value: 
       type: 0
   variables:
-  - id: 0
+  - id: 1
     fields:
     - title: Name
       value: Alert
@@ -108,7 +108,7 @@ MonoBehaviour:
     - title: Description
       value: Show alert messages during gameplay by setting this variable.
       type: 0
-  - id: 1
+  - id: 2
     fields:
     - title: Name
       value: Line
@@ -123,7 +123,7 @@ MonoBehaviour:
   - id: 1
     fields:
     - title: Title
-      value: Unsettled Customers
+      value: Sales Talk in Cubicle
       type: 0
     - title: Description
       value: 
@@ -185,12 +185,30 @@ MonoBehaviour:
         destinationDialogueID: 3
         isConnector: 0
         priority: 2
+      - originConversationID: 1
+        originDialogueID: 0
+        destinationConversationID: 1
+        destinationDialogueID: 4
+        isConnector: 0
+        priority: 2
+      - originConversationID: 1
+        originDialogueID: 0
+        destinationConversationID: 1
+        destinationDialogueID: 5
+        isConnector: 0
+        priority: 2
+      - originConversationID: 1
+        originDialogueID: 0
+        destinationConversationID: 1
+        destinationDialogueID: 6
+        isConnector: 0
+        priority: 2
       conditionsString: 
       userScript: 
     - id: 1
       fields:
       - title: Title
-        value: Johnny
+        value: 
         type: 0
       - title: Actor
         value: 5
@@ -202,13 +220,13 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Dialogue Text
-        value: Test 1
+        value: 'We have a very good loan package deal now. '
         type: 4
       - title: Video File
         value: 
         type: 0
       - title: Sequence
-        value: 
+        value: SendMessage(OnUse,,Ken)@3
         type: 0
       conversationID: 1
       isRoot: 0
@@ -218,8 +236,8 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks: []
-      conditionsString: 
-      userScript: 
+      conditionsString: Variable["Line"] == 1;
+      userScript: Variable["Line"] = 2;
     - id: 2
       fields:
       - title: Title
@@ -235,13 +253,13 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Dialogue Text
-        value: Test 2
+        value: 'What is the interest rate of the loan package deal? '
         type: 4
       - title: Video File
         value: 
         type: 0
       - title: Sequence
-        value: 
+        value: SendMessage(OnUse,,Cindy)@3
         type: 0
       conversationID: 1
       isRoot: 0
@@ -251,8 +269,8 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks: []
-      conditionsString: 
-      userScript: 
+      conditionsString: Variable["Line"] == 2;
+      userScript: Variable["Line"] = 3;
     - id: 3
       fields:
       - title: Title
@@ -268,7 +286,107 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Dialogue Text
-        value: Test 3
+        value: 'The interest rate is 1% now! You should get it while the offer is
+          still on. '
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: SendMessage(OnUse,,Ken)@3
+        type: 0
+      conversationID: 1
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: Variable["Line"] == 3;
+      userScript: Variable["Line"] = 4;
+    - id: 4
+      fields:
+      - title: Title
+        value: 
+        type: 0
+      - title: Actor
+        value: 5
+        type: 5
+      - title: Conversant
+        value: 1
+        type: 5
+      - title: Menu Text
+        value: 
+        type: 0
+      - title: Dialogue Text
+        value: 'Is it really 1% ?? '
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: SendMessage(OnUse,,Cindy)@3
+        type: 0
+      conversationID: 1
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: Variable["Line"] == 4;
+      userScript: Variable["Line"] = 5;
+    - id: 5
+      fields:
+      - title: Title
+        value: 
+        type: 0
+      - title: Actor
+        value: 5
+        type: 5
+      - title: Conversant
+        value: 1
+        type: 5
+      - title: Menu Text
+        value: 
+        type: 0
+      - title: Dialogue Text
+        value: 'Yes! '
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: SendMessage(OnUse,,Ken)@3
+        type: 0
+      conversationID: 1
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: Variable["Line"] == 5;
+      userScript: Variable["Line"] = 6;
+    - id: 6
+      fields:
+      - title: Title
+        value: 
+        type: 0
+      - title: Actor
+        value: 5
+        type: 5
+      - title: Conversant
+        value: 1
+        type: 5
+      - title: Menu Text
+        value: 
+        type: 0
+      - title: Dialogue Text
+        value: 'Ok, I''ll take it! '
         type: 4
       - title: Video File
         value: 
@@ -284,5 +402,5 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks: []
-      conditionsString: 
-      userScript: 
+      conditionsString: Variable["Line"] == 6;
+      userScript: Variable["Line"] = 7;
