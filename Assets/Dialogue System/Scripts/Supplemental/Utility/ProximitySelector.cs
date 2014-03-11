@@ -144,7 +144,7 @@ namespace PixelCrushers.DialogueSystem.Examples {
 		/// The 2D trigger collider.
 		/// </param>
 		void OnTriggerEnter2D(Collider2D other) {
-			CheckTriggerExit(other.gameObject);
+			CheckTriggerEnter(other.gameObject);
 		}
 		
 		/// <summary>

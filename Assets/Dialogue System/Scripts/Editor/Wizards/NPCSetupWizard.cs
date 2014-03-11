@@ -266,6 +266,7 @@ namespace PixelCrushers.DialogueSystem.Editors {
 		}
 		
 		private void DrawTargetingStage() {
+			DrawOverrideNameSubsection(npcObject);
 			EditorGUILayout.LabelField("Targeting", EditorStyles.boldLabel);
 			EditorWindowTools.StartIndentedSection();
 			ConversationTrigger conversationTrigger = npcObject.GetComponentInChildren<ConversationTrigger>();
@@ -325,7 +326,7 @@ namespace PixelCrushers.DialogueSystem.Editors {
 				EditorGUILayout.LabelField("'Usable' Customization", EditorStyles.boldLabel);
 				EditorWindowTools.StartIndentedSection();
 				usable.maxUseDistance = EditorGUILayout.FloatField("Max Usable Distance", usable.maxUseDistance);
-				usable.overrideName = EditorGUILayout.TextField("Override Actor Name", usable.overrideName);
+				usable.overrideName = EditorGUILayout.TextField("Override Actor Name (leave blank to use main override)", usable.overrideName);
 				usable.overrideUseMessage = EditorGUILayout.TextField("Override Use Message", usable.overrideUseMessage);
 				EditorWindowTools.EndIndentedSection();
 			} else {
@@ -344,6 +345,25 @@ namespace PixelCrushers.DialogueSystem.Editors {
 			}
 			return true;
 		}		
+
+		public static void DrawOverrideNameSubsection(GameObject character) {
+			EditorGUILayout.LabelField("Override Actor Name", EditorStyles.boldLabel);
+			OverrideActorName overrideActorName = character.GetComponent<OverrideActorName>();
+			EditorWindowTools.StartIndentedSection();
+			EditorGUILayout.HelpBox(string.Format("By default, the dialogue UI will use the name of the GameObject ({0}). You can override it below.", character.name), MessageType.Info);
+			EditorGUILayout.BeginHorizontal();
+			bool hasOverrideActorName = EditorGUILayout.Toggle((overrideActorName != null), GUILayout.Width(ToggleWidth));
+			EditorGUILayout.LabelField("Override actor name", EditorStyles.boldLabel);
+			EditorGUILayout.EndHorizontal();
+			if (hasOverrideActorName) {
+				if (overrideActorName == null) overrideActorName = character.AddComponent<OverrideActorName>();
+				overrideActorName.overrideName = EditorGUILayout.TextField("Actor Name", overrideActorName.overrideName);
+			} else {
+				DestroyImmediate(overrideActorName);
+			}
+			EditorWindowTools.EndIndentedSection();
+			EditorWindowTools.DrawHorizontalLine();
+		}
 		
 		private void DrawPersistenceStage() {
 			EditorGUILayout.LabelField("Persistence", EditorStyles.boldLabel);
@@ -357,7 +377,7 @@ namespace PixelCrushers.DialogueSystem.Editors {
 			if (hasPersistentPosition) {
 				if (persistentPositionData == null) persistentPositionData = npcObject.AddComponent<PersistentPositionData>();
 				if (string.IsNullOrEmpty(persistentPositionData.overrideActorName)) {
-					EditorGUILayout.HelpBox(string.Format("Position data will be saved to the Actor['{0}'] (the name of the NPC GameObject). You can override the name below.", npcObject.name), MessageType.None);
+					EditorGUILayout.HelpBox(string.Format("Position data will be saved to the Actor['{0}'] (the name of the NPC GameObject) or the Override Actor Name if defined. You can override the name below.", npcObject.name), MessageType.None);
 				} else {
 					EditorGUILayout.HelpBox(string.Format("Position data will be saved to the Actor['{0}']. To use the name of the NPC GameObject instead, clear the field below.", persistentPositionData.overrideActorName), MessageType.None);
 				}
