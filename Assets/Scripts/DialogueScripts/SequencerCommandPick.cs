@@ -36,7 +36,7 @@ public class SequencerCommandPick : SequencerCommand {
 		
 
 
-		if( GameObject.Find("Inventory").GetComponent<inventory>().inventoryObject == null)
+		if( GameObject.Find("InventoryObj").GetComponent<inventory>().inventoryObject == null)
 		{
 			PhotonView photonView = onUsedObj.GetPhotonView();
 			
@@ -69,7 +69,7 @@ public class SequencerCommandPick : SequencerCommand {
 		
 		GameObject obj  = GameObject.Find (objName);
 		
-		GameObject.Find ("Inventory").GetComponent<inventory>().inventoryObjectOriginalScale = obj.transform.lossyScale;
+		GameObject.Find ("InventoryObj").GetComponent<inventory>().inventoryObjectOriginalScale = obj.transform.lossyScale;
 		
 		obj.transform.position = actor.transform.position;
 		obj.transform.parent = actor.transform;
@@ -130,10 +130,11 @@ public class SequencerCommandPick : SequencerCommand {
 	}
 	void enableInventory(GameObject obj){
 		
-		GameObject.Find ("Inventory").GetComponent<GUITexture>().enabled = true;
+		GameObject.Find ("InventoryObj").GetComponent<GUITexture>().enabled = true;
 
 
-		GameObject.Find ("Inventory").GetComponent<inventory>().updateInventoryObject(obj);
+
+		GameObject.Find ("InventoryObj").GetComponent<inventory>().updateInventoryObject(obj);
 		
 	}
 	

@@ -10,15 +10,15 @@ public class GameManagerVik : Photon.MonoBehaviour {
     // read the documentation for info how to spawn dynamically loaded game objects at runtime (not using Resources folders)
 	public GameObject[] playerPrefabList;
 	public string[] playerList;
-	public Transform[] managerSpawnPositionList;
-	public Transform[] ITSpawnPositionList;
-	public Transform[] customerSpawnPositionList;
-	public Transform[] officerSpawnPositionList;
+	public Transform[] SMSpawnPositionList;
+	public Transform[] LOSpawnPositionList;
+	public Transform[] LMSpawnPositionList;
+	public Transform[] CRSpawnPositionList;
 	private Vector3 spawnPosition;
 	HashSet<string> selectedPlayerList = new HashSet<string>();
 	bool roleSelected = false;
 	public PlayMakerFSM EventManager;
-	public int roomID = -1;
+	public int sessionID = -1;
 	public string loginName = "";
 
     void OnJoinedRoom()
@@ -99,6 +99,7 @@ public class GameManagerVik : Photon.MonoBehaviour {
             yield return 0;
 		Application.LoadLevel(Application.loadedLevel);
 
+
     }
 
 
@@ -138,6 +139,9 @@ public class GameManagerVik : Photon.MonoBehaviour {
 		// start drawing GUI elements
 		GameObject.Find ("QuestLogButton").GetComponent<GUITexture>().enabled = true;
 		GameObject.Find ("phoneButton").GetComponent<GUITexture>().enabled = true;
+		GameObject.Find ("InventoryContainer").GetComponent<GUITexture>().enabled = true;
+		GameObject.Find ("InventoryButton1").GetComponent<GUITexture>().enabled = true;
+		GameObject.Find ("InventoryButton2").GetComponent<GUITexture>().enabled = true;
 
 
 		// instantiate prefab based on the name
@@ -148,7 +152,7 @@ public class GameManagerVik : Photon.MonoBehaviour {
 				switch(playerName)
 				{
 				case "Sales Manager":
-					spawnPosition = randomSpawnPosition(managerSpawnPositionList);
+					spawnPosition = randomSpawnPosition(SMSpawnPositionList);
 					GameObject a = PhotonNetwork.Instantiate(playerPrefabList[i].name, spawnPosition, Quaternion.identity, 0, objs);
 
 					a.name = "Sales Manager";
@@ -158,7 +162,7 @@ public class GameManagerVik : Photon.MonoBehaviour {
 
 					break;
 				case "LPU Officer":
-					spawnPosition = randomSpawnPosition(ITSpawnPositionList);
+					spawnPosition = randomSpawnPosition(LOSpawnPositionList);
 					GameObject b = PhotonNetwork.Instantiate(playerPrefabList[i].name, spawnPosition, Quaternion.identity, 0, objs);
 					b.name = "LPU Officer";
 					if(GameObject.Find (b.name+" Table").gameObject.transform.Find ("DocumentHolder").GetComponent<documentData>().enabled == false)
@@ -166,7 +170,7 @@ public class GameManagerVik : Photon.MonoBehaviour {
 
 					break;
 				case "LPU Manager":
-					spawnPosition = randomSpawnPosition(customerSpawnPositionList);
+					spawnPosition = randomSpawnPosition(LMSpawnPositionList);
 					GameObject c = PhotonNetwork.Instantiate(playerPrefabList[i].name, spawnPosition, Quaternion.identity, 0, objs);
 					c.name = "LPU Manager";
 					if(GameObject.Find (c.name+" Table").gameObject.transform.Find ("DocumentHolder").GetComponent<documentData>().enabled == false)
@@ -174,7 +178,7 @@ public class GameManagerVik : Photon.MonoBehaviour {
 
 					break;
 				case "Credit Risk":
-					spawnPosition = randomSpawnPosition(officerSpawnPositionList);
+					spawnPosition = randomSpawnPosition(CRSpawnPositionList);
 					GameObject d = PhotonNetwork.Instantiate(playerPrefabList[i].name, spawnPosition, Quaternion.identity, 0, objs);
 					d.name = "Credit Risk";
 
@@ -190,11 +194,11 @@ public class GameManagerVik : Photon.MonoBehaviour {
 			}
 		
 			//update roomID if needed
-			if (this.roomID == -1)
+			if (this.sessionID == -1)
 			{
 				//add to db
 				dbClass db = new dbClass();
-				db.addFunction("getRoomID");
+				db.addFunction("getSessionID");
 				db.addValues("roomName", PhotonNetwork.room.name);
 				string dbReturn = db.connectToDb();
 
@@ -203,7 +207,7 @@ public class GameManagerVik : Photon.MonoBehaviour {
 				}
 				
 				//add roomID
-				this.roomID = db.getReturnValueInt("roomID");
+				this.sessionID = db.getReturnValueInt("sessionID");
 				//end add to db
 	       		
 			}

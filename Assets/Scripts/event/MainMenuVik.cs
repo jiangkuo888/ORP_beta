@@ -223,7 +223,7 @@ public class MainMenuVik : MonoBehaviour
 
 				//add to db
 				dbClass db = new dbClass();
-				db.addFunction("roomCreate");
+				db.addFunction("sessionCreate");
 				db.addValues("roomName", roomName);
 				string dbReturn = db.connectToDb();
 
@@ -234,7 +234,7 @@ public class MainMenuVik : MonoBehaviour
 				//add roomID
 				GameObject gameManager = GameObject.Find("GameManager");  
 				GameManagerVik vikky = gameManager.GetComponent<GameManagerVik>();
-				vikky.roomID = db.getReturnValueInt("roomID");
+				vikky.sessionID = db.getReturnValueInt("sessionID");
 				//end add to db
 			}
 			GUILayout.EndHorizontal ();

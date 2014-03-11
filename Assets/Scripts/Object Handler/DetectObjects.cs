@@ -42,8 +42,7 @@ public class DetectObjects : Photon.MonoBehaviour {
 		Ray ray= Camera.main.ScreenPointToRay (Input.mousePosition);
 		RaycastHit hit;
 		
-		if(!GameObject.Find ("Inventory").GetComponent<inventory>().mouseOnGUIButton)
-		{
+		
 			if (Physics.Raycast (ray, out hit, 100)) {
 				// display word hint
 				displayHint(hit.collider.name);
@@ -172,6 +171,23 @@ public class DetectObjects : Photon.MonoBehaviour {
 								mouseClick = true;
 								enteredDialog = true;
 								
+		                        // disable quest log and phone and inventoty
+									GameObject.Find ("InventoryContainer").GetComponent<GUITexture>().enabled = false;
+									GameObject.Find ("InventoryButton1").GetComponent<GUITexture>().enabled = false;
+									GameObject.Find ("InventoryButton2").GetComponent<GUITexture>().enabled = false;
+									GameObject.Find ("InventoryObj").GetComponent<GUITexture>().enabled = false;
+
+
+									GameObject.Find ("phoneButton").GetComponent<GUITexture>().enabled = false;
+									GameObject.Find ("phoneSmallButton1").GetComponent<GUITexture>().enabled = false;
+									GameObject.Find ("phoneSmallButton2").GetComponent<GUITexture>().enabled = false;
+									GameObject.Find ("phoneSmallButton3").GetComponent<GUITexture>().enabled = false;
+									GameObject.Find ("QuestLogButton").GetComponent<GUITexture>().enabled = false;
+
+
+
+
+
 								if(enteredDialog && mouseClick)
 								{
 									currentHitObj.renderer.material.shader = originalShader;
@@ -313,7 +329,7 @@ public class DetectObjects : Photon.MonoBehaviour {
 				
 				
 			}  
-		}
+		
 	}
 
 	}
