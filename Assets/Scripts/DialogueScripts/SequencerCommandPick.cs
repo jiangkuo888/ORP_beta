@@ -70,7 +70,9 @@ public class SequencerCommandPick : SequencerCommand {
 		GameObject obj  = GameObject.Find (objName);
 		
 		GameObject.Find ("InventoryObj").GetComponent<inventory>().inventoryObjectOriginalScale = obj.transform.lossyScale;
-		
+
+		//print (actor.name);
+
 		obj.transform.position = actor.transform.position;
 		obj.transform.parent = actor.transform;
 		
