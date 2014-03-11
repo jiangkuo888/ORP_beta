@@ -27,6 +27,8 @@ public class SequencerCommandDeposit : SequencerCommand {
 			GameObject.Find ("Dialogue Manager").GetComponent<DialogueSystemController>().ShowAlert("Deposit "+ GameObject.Find ("InventoryObj").GetComponent<inventory>().inventoryObject.name +" successful");
 
 			GameObject.Find ("InventoryObj").GetComponent<inventory>().clearInventory();
+
+			DialogueLua.SetVariable("Has_Document",false);
 			}
 
 

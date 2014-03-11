@@ -92,13 +92,17 @@ public class DeskMode : MonoBehaviour {
 					PhotonView photonView = this.gameObject.GetPhotonView();
 					
 					
-					
+					if(PhotonNetwork.playerName == "Sales Manager")
+						photonView.RPC ("sendDocument",PhotonTargets.AllBuffered,"Sales Manager","LPU Officer",this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].name);
+
 					if(PhotonNetwork.playerName == "LPU Officer")
 						photonView.RPC ("sendDocument",PhotonTargets.AllBuffered,"LPU Officer","LPU Manager",this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].name);
 					if(PhotonNetwork.playerName == "LPU Manager")
 						photonView.RPC ("sendDocument",PhotonTargets.AllBuffered,"LPU Manager","Credit Risk",this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].name);
 					if(PhotonNetwork.playerName == "Credit Risk")
 						photonView.RPC ("sendDocument",PhotonTargets.AllBuffered,"Credit Risk","LPU Manager",this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].name);
+				
+				
 				}            
 				
 				// accept the document
