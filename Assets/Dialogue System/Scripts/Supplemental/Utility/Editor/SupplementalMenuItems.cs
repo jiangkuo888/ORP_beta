@@ -49,6 +49,11 @@ namespace PixelCrushers.DialogueSystem.Editors {
 			DialogueSystemMenuItems.AddComponentToSelection<ConversationLogger>();
 		}
 		
+		[MenuItem("Window/Dialogue System/Component/Supplemental/Quest Tracker", false, 306)]
+		public static void AddComponentQuestTracker() {
+			DialogueSystemMenuItems.AddComponentToSelection<QuestTracker>();
+		}
+		
 		[MenuItem("Window/Dialogue System/Component/Supplemental/Unity Community/Smooth Camera With Bumper", false, 353)]
 		public static void AddComponentSmoothCameraWithBumper() {
 			DialogueSystemMenuItems.AddComponentToSelection<SmoothCameraWithBumper>();

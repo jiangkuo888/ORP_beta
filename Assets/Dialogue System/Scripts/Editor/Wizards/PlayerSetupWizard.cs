@@ -232,8 +232,10 @@ namespace PixelCrushers.DialogueSystem.Editors {
 				DrawNoSelector();
 				break;
 			}
-			if (GUILayout.Button("Select Player", GUILayout.Width(100))) Selection.activeGameObject = pcObject;
 			EditorWindowTools.EndIndentedSection();
+			EditorWindowTools.DrawHorizontalLine();
+			DrawOverrideNameSubsection();
+			if (GUILayout.Button("Select Player", GUILayout.Width(100))) Selection.activeGameObject = pcObject;
 			DrawNavigationButtons(true, true, false);
 		}
 		
@@ -318,6 +320,10 @@ namespace PixelCrushers.DialogueSystem.Editors {
 			selector.useButton = EditorGUILayout.TextField("'Use' Button", selector.useButton);
 			EditorGUILayout.HelpBox("Click Select Player Inspect to customize the Selector.", MessageType.None);
 			EditorWindowTools.EndIndentedSection();
+		}
+
+		private void DrawOverrideNameSubsection() {
+			NPCSetupWizard.DrawOverrideNameSubsection(pcObject);
 		}
 
 		private void DrawTransitionStage() {
@@ -439,7 +445,7 @@ namespace PixelCrushers.DialogueSystem.Editors {
 					persistentPositionData.overrideActorName = "Player";
 				}
 				if (string.IsNullOrEmpty(persistentPositionData.overrideActorName)) {
-					EditorGUILayout.HelpBox(string.Format("Position data will be saved to the Actor['{0}'] (the name of the GameObject). You can override the name below.", pcObject.name), MessageType.None);
+					EditorGUILayout.HelpBox(string.Format("Position data will be saved to the Actor['{0}'] (the name of the GameObject) or the Override Actor Name if defined. You can override the name below.", pcObject.name), MessageType.None);
 				} else {
 					EditorGUILayout.HelpBox(string.Format("Position data will be saved to the Actor['{0}']. To use the name of the GameObject instead, clear the field below.", persistentPositionData.overrideActorName), MessageType.None);
 				}
