@@ -81,7 +81,9 @@ public class DeskMode : MonoBehaviour {
 			
 		case DeskModeSubMode.FileMode:
 		{
-			
+
+
+
 			GameObject.Find ("EmailIcon").GetComponent<Email>().clearNewEmail();
 			//nofunction added
 			if(GUI.Button( new LTRect(w/2 - 50f, .9f*h - 100f, 100f, 30f ).rect, "Send"))
@@ -144,7 +146,7 @@ public class DeskMode : MonoBehaviour {
 
 					}
 
-					
+					mode = DeskModeSubMode.None;
 					
 					GameObject.Find ("InventoryContainer").GetComponent<GUITexture>().enabled = true;
 					GameObject.Find ("InventoryButton1").GetComponent<GUITexture>().enabled = true;
@@ -174,7 +176,7 @@ public class DeskMode : MonoBehaviour {
 
 					this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].GetComponent<ObjectViewer>().readDocument();
 					mode = DeskModeSubMode.pageMode;
-					
+					Camera.main.GetComponent<magnify>().enableZoom();
 					
 					if(this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].GetComponent<pageData>().currentPage == 
 					   this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].GetComponent<pageData>().pageTextures.Length - 1)
@@ -565,14 +567,15 @@ public class DeskMode : MonoBehaviour {
 		//		print ("111");
 		disableChildren();
 		GameObject.Find(deskOwner).GetComponent<DetectObjects>().moveCameraToPlayer();
-		GameObject.Find(deskOwner).GetComponent<DetectObjects>().enableCameraAndMotor();
-		GameObject.Find(deskOwner).GetComponent<DetectObjects>().enteredDialog = false;
+
+
 		
 		GetComponent<DeskMode>().enabled = false;
 		
 		yield return new WaitForSeconds (sec);
 		
-
+		GameObject.Find(deskOwner).GetComponent<DetectObjects>().enableCameraAndMotor();
+		GameObject.Find(deskOwner).GetComponent<DetectObjects>().enteredDialog = false;
 		
 	}
 	// -----------------------------------------------------------------------------------------------

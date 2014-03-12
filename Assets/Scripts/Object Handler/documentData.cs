@@ -59,6 +59,17 @@ public class documentData : MonoBehaviour {
 		System.Collections.Generic.List<GameObject> list = new System.Collections.Generic.List<GameObject>(documents);
 		list.Remove(toBeDelete);
 		documents = list.ToArray();
+
+
+		if(documents.Length != 0)
+			for(int i =0; i < documents.Length; i ++)
+		{
+			
+			documents[i].transform.parent = fileModeObj.transform;
+			
+			
+			documents[i].transform.localPosition = new Vector3(-0.2275543f +i*0.35f,0,-0.03671265f);
+		}
 	}
 
 
