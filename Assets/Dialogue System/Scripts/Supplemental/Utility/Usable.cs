@@ -33,6 +33,14 @@ namespace PixelCrushers.DialogueSystem.Examples {
 			}
 		}
 
+
+		public void OnUse (Transform actor){
+
+			PlayerPrefs.SetString("LocalActor",actor.name);
+			PlayerPrefs.SetString("OnUsedObj",this.transform.name);
+
+		}
+
 	}
 
 }
