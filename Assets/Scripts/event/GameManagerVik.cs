@@ -3,6 +3,7 @@ using System.Collections;
 using HutongGames.PlayMaker;
 using System.Collections.Generic;
 using dbConnect;
+using System.IO;
 
 public class GameManagerVik : Photon.MonoBehaviour {
 
@@ -20,6 +21,8 @@ public class GameManagerVik : Photon.MonoBehaviour {
 	public PlayMakerFSM EventManager;
 	public int sessionID = -1;
 	public string loginName = "";
+	public bool isAdmin; 
+	public bool playback = false;
 
     void OnJoinedRoom()
     {
@@ -39,11 +42,23 @@ public class GameManagerVik : Photon.MonoBehaviour {
 		photonView.RPC ("setRoleAvailable",PhotonTargets.AllBuffered,PlayerPrefs.GetString("playerName"));
 		PhotonNetwork.LeaveRoom();
 
+
+		//
+		EZReplayManager.get.stop ();
+
+		//create folder for 
+
+		string filePath = "playback/" + sessionID.ToString();
+		EZReplayManager.get.saveToFile(filePath);
+		//EZReplayManager.get.play (0);
+		//EZReplayManager.get.loadFromFile(sessionID.ToString());
+		//this.playback = true;
+
 	}
 
 	void OnGUI(){
 
-		if (PhotonNetwork.room == null) return;
+		if (PhotonNetwork.room == null || playback) return;
 
 
 		// quit button GUI
@@ -53,6 +68,12 @@ public class GameManagerVik : Photon.MonoBehaviour {
 
 		}
 
+		if (isAdmin && !roleSelected)
+		{
+			StartGameAdmin();
+			roleSelected = true;
+			//return;
+		}
 
 		// if role selection not completed, draw GUI
 		if(!roleSelected)
@@ -113,6 +134,30 @@ public class GameManagerVik : Photon.MonoBehaviour {
 		print ("Now we have: "+PhotonNetwork.playerList.Length+" players in total.");
 		EventManager.FsmVariables.GetFsmInt("playerNum").Value = PhotonNetwork.playerList.Length;
 
+	}
+
+	void StartGameAdmin()
+	{
+		GameObject a = PhotonNetwork.Instantiate("Admin", new Vector3(-19.0f, 3.5f, 57.0f), Quaternion.identity, 0);
+
+		//update roomID if needed
+		if (this.sessionID == -1)
+		{
+			//add to db
+			dbClass db = new dbClass();
+			db.addFunction("getSessionID");
+			db.addValues("roomName", PhotonNetwork.room.name);
+			string dbReturn = db.connectToDb();
+			
+			if (dbReturn != "SUCCESS") {
+				print (dbReturn);
+			}
+			
+			//add roomID
+			this.sessionID = db.getReturnValueInt("sessionID");
+			//end add to db
+			
+		}
 	}
 
     void StartGame()
@@ -216,6 +261,7 @@ public class GameManagerVik : Photon.MonoBehaviour {
 		}
 
 
+		EZReplayManager.get.record();
 
 
     }

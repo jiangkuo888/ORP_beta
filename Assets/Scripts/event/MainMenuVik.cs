@@ -3,6 +3,7 @@ using System.Collections;
 using dbConnect;
 using System.Collections.Generic;
 using System.Collections.Specialized;
+using System.IO;
 //using System;
 
 
@@ -28,6 +29,9 @@ public class MainMenuVik : MonoBehaviour
 	public bool isLogin = true;
 	public bool isCreate = false;
 	public bool isMessage = false;
+	public bool isPlaybackList = false;
+	public bool isPlayback = false;
+	public bool isChoose = false;
 	public string message = "";
 	public string playerName = "";
 	public string password = "";
@@ -42,30 +46,36 @@ public class MainMenuVik : MonoBehaviour
             ShowConnectingGUI();
             return;   //Wait for a connection
         }
+		if (isPlayback)
+		{
+			return;   //Wait for a connection
+		}
 
+		GameObject gameManager = GameObject.Find("GameManager");  
+		GameManagerVik vikky = gameManager.GetComponent<GameManagerVik>();
+		bool playback = vikky.playback;
 
-        if (PhotonNetwork.room != null)
+		if (PhotonNetwork.room != null || playback)
             return; //Only when we're not in a Room
 
 		if (isMessage) {
 
 			GUILayout.BeginArea (new Rect ((Screen.width - 400) / 2, (Screen.height - 300) / 2, 600, 300));
 
-			GUILayout.Box(message,  GUILayout.Width (300),  GUILayout.Height (200));
-			if (GUILayout.Button ("OK", GUILayout.Width (80)))
-			{
-				isMessage = false;
+			GUILayout.Box (message, GUILayout.Width (300), GUILayout.Height (200));
+			if (GUILayout.Button ("OK", GUILayout.Width (80))) {
+					isMessage = false;
 			}
 
 			GUILayout.EndArea ();
 
 
 		} else if (isLogin) {
-		
+
 			//login page call at start of game
-			
+
 			GUILayout.BeginArea (new Rect ((Screen.width - 400) / 2, (Screen.height - 300) / 2, 600, 300));
-			
+
 			GUILayout.Label ("Login Menu");
 			GUILayout.Space (15);
 
@@ -73,32 +83,30 @@ public class MainMenuVik : MonoBehaviour
 			GUILayout.Space (15);
 
 			GUILayout.Label ("Player Name:", GUILayout.Width (150));
-			playerName = GUILayout.TextField(playerName, 25, GUILayout.Width (150));
+			playerName = GUILayout.TextField (playerName, 25, GUILayout.Width (150));
 			GUILayout.Label ("Password:", GUILayout.Width (150));
-			password = GUILayout.PasswordField(password, "*"[0], 25, GUILayout.Width (150));
+			password = GUILayout.PasswordField (password, "*" [0], 25, GUILayout.Width (150));
 
 			//if 'login' button is pressed, see if can login into game
-			if (GUILayout.Button ("LOGIN", GUILayout.Width (80)))
-			{
-				if (playerName != "" && password != "")
-				{
-					//add to db dbClass 
-					dbClass db = new dbClass();
-					db.addFunction("playerLogin");
-					db.addValues("playerName", playerName);
-					db.addValues("password", password);
-					string dbReturn = db.connectToDb();
+			if (GUILayout.Button ("LOGIN", GUILayout.Width (80))) {
+
+				if (playerName != "" && password != "") {
+						//add to db dbClass 
+					dbClass db = new dbClass ();
+					db.addFunction ("playerLogin");
+					db.addValues ("playerName", playerName);
+					db.addValues ("password", password);
+					string dbReturn = db.connectToDb ();
 					//print (dbReturn);
 					//end add to db
 
 					//if successful;, means login success
-					if (dbReturn == "SUCCESS NO RETURN")
-					{
+					if (dbReturn == "SUCCESS NO RETURN") {
 						isLogin = false;
 
 						//add playerName
-						GameObject gameManager = GameObject.Find("GameManager");  
-						GameManagerVik vikky = gameManager.GetComponent<GameManagerVik>();
+						//GameObject gameManager = GameObject.Find("GameManager");  
+						//GameManagerVik vikky = gameManager.GetComponent<GameManagerVik>();
 						vikky.loginName = playerName;
 					}
 					//if not successful print error string
@@ -109,59 +117,55 @@ public class MainMenuVik : MonoBehaviour
 
 				} else {
 
-					isMessage = true;
-					message = "Please type in your playerName or password.";
+						isMessage = true;
+						message = "Please type in your playerName or password.";
 
 				}
-				
+		
 			}
 
 			// create account
 			GUILayout.Label ("Do not have a account yet? Register here.");
-			if (GUILayout.Button ("CREATE", GUILayout.Width (80)))
-			{
-				isCreate = true;
-				isLogin = false;
+			if (GUILayout.Button ("CREATE", GUILayout.Width (80))) {
+					isCreate = true;
+					isLogin = false;
 			}
 			GUILayout.EndArea ();
 
-						
+				
 		} else if (isCreate) {
 
 			//create player page
 			GUILayout.BeginArea (new Rect ((Screen.width - 400) / 2, (Screen.height - 300) / 2, 600, 300));
-			
+
 			GUILayout.Label ("Create new player");
 			GUILayout.Space (15);
-			
-			GUILayout.Label ("Player Name:", GUILayout.Width (150));
-			playerName = GUILayout.TextField(playerName, GUILayout.Width (150));
-			GUILayout.Label ("Password:", GUILayout.Width (150));
-			password = GUILayout.PasswordField(password, "*"[0], GUILayout.Width (150));
-			GUILayout.Label ("Re-enter Password:", GUILayout.Width (150));
-			reEnter = GUILayout.PasswordField(reEnter, "*"[0], GUILayout.Width (150));
-			
-			//if 'login' button is pressed, see if can login into game
-			if (GUILayout.Button ("CREATE", GUILayout.Width (80)))
-			{
-				if (playerName != "" && password != "")
-				{
 
-					if (password.Equals(reEnter)) 
-					{
+			GUILayout.Label ("Player Name:", GUILayout.Width (150));
+			playerName = GUILayout.TextField (playerName, GUILayout.Width (150));
+			GUILayout.Label ("Password:", GUILayout.Width (150));
+			password = GUILayout.PasswordField (password, "*" [0], GUILayout.Width (150));
+			GUILayout.Label ("Re-enter Password:", GUILayout.Width (150));
+			reEnter = GUILayout.PasswordField (reEnter, "*" [0], GUILayout.Width (150));
+
+			//if 'login' button is pressed, see if can login into game
+			if (GUILayout.Button ("CREATE", GUILayout.Width (80))) {
+
+				if (playerName != "" && password != "") {
+
+					if (password.Equals (reEnter)) {
 
 						//add to db dbClass 
-						dbClass db = new dbClass();
-						db.addFunction("playerCreate");
-						db.addValues("playerName", playerName);
-						db.addValues("password", password);
-						string dbReturn = db.connectToDb();
+						dbClass db = new dbClass ();
+						db.addFunction ("playerCreate");
+						db.addValues ("playerName", playerName);
+						db.addValues ("password", password);
+						string dbReturn = db.connectToDb ();
 						//print (dbReturn);
 						//end add to db
-						
+
 						//if successful;, means login success
-						if (dbReturn == "SUCCESS NO RETURN")
-						{
+						if (dbReturn == "SUCCESS NO RETURN") {
 							isCreate = false;
 							isLogin = true;
 							isMessage = true;
@@ -169,7 +173,7 @@ public class MainMenuVik : MonoBehaviour
 						}
 						//if not successful print error string
 						else {
-							
+	
 							isMessage = true;
 							message = dbReturn;
 						}
@@ -188,10 +192,42 @@ public class MainMenuVik : MonoBehaviour
 				}
 			}
 
-			if (GUILayout.Button ("back", GUILayout.Width (80)))
-			{
-				isCreate = false;
-				isLogin = true;
+			if (GUILayout.Button ("back", GUILayout.Width (80))) {
+					isCreate = false;
+					isLogin = true;
+			}
+
+			GUILayout.EndArea ();
+
+		} else if (isPlaybackList) {	
+
+			//bring them to the playback menu
+			GUILayout.BeginArea (new Rect ((Screen.width - 400) / 2, (Screen.height - 300) / 2, 600, 300));
+
+			GUILayout.Label ("Playback Menu");
+			GUILayout.Space (15);
+			GUILayout.Label ("Select the one you want to playback");
+			GUILayout.Space (15);
+			//GUILayout.Box ("", GUILayout.Width (300), GUILayout.Height (200));
+			//if (GUILayout.Button ("OK", GUILayout.Width (80))) {
+			//	isMessage = false;
+			//}
+
+			DirectoryInfo dir = new DirectoryInfo(@"C:\Users\srinivas\Documents\GitHub\ORP_beta\playback\");
+			FileInfo[] fileinfo = dir.GetFiles();
+			//Debug.Log(fileinfo.ToString());
+			foreach (FileInfo getfile in fileinfo) {
+				if (GUILayout.Button (getfile.Name, GUILayout.Width (80))) {
+					isPlayback = true;
+					isPlaybackList = false;
+					string filePath = "playback/" + getfile.Name;
+					EZReplayManager.get.loadFromFile(filePath);
+				}
+			}
+			GUILayout.Space (15);
+
+			if (GUILayout.Button ("back", GUILayout.Width (80))) {
+				isPlaybackList = false;
 			}
 
 			GUILayout.EndArea ();
@@ -232,8 +268,8 @@ public class MainMenuVik : MonoBehaviour
 				}
 
 				//add roomID
-				GameObject gameManager = GameObject.Find("GameManager");  
-				GameManagerVik vikky = gameManager.GetComponent<GameManagerVik>();
+				//GameObject gameManager = GameObject.Find("GameManager");  
+				//GameManagerVik vikky = gameManager.GetComponent<GameManagerVik>();
 				vikky.sessionID = db.getReturnValueInt("sessionID");
 				//end add to db
 			}
@@ -268,6 +304,17 @@ public class MainMenuVik : MonoBehaviour
 				}
 				GUILayout.EndScrollView ();
 			}
+
+			//video playback
+			GUILayout.Space (20);
+			GUILayout.BeginHorizontal ();
+			GUILayout.Label ("See previous replay?", GUILayout.Width (150));
+			if (GUILayout.Button ("Go Here")) {
+
+				isPlaybackList = true;
+
+			}
+			GUILayout.EndHorizontal ();
 			
 			GUILayout.EndArea ();
 
