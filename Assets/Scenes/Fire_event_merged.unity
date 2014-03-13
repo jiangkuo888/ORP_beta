@@ -141,6 +141,8 @@ Transform:
   m_Children:
   - {fileID: 810791413}
   - {fileID: 479485994}
+  - {fileID: 997855100}
+  - {fileID: 1806080901}
   - {fileID: 1253216792}
   - {fileID: 745690824}
   - {fileID: 1100816104}
@@ -7715,7 +7717,7 @@ Transform:
   m_PrefabInternal: {fileID: 470971729}
   m_GameObject: {fileID: 146917067}
   m_LocalRotation: {x: -.0704679787, y: .703586757, z: .703586757, w: .0704679787}
-  m_LocalPosition: {x: 4.05755997, y: -9.84062958, z: -7.10208511}
+  m_LocalPosition: {x: 4.26248264, y: -9.84062958, z: -6.54631424}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1205694706}
@@ -12843,8 +12845,14 @@ GameObject:
   - 23: {fileID: 259259779}
   - 64: {fileID: 259259778}
   - 95: {fileID: 259259777}
+  - 114: {fileID: 259259783}
+  - 114: {fileID: 259259782}
+  - 114: {fileID: 259259781}
+  - 65: {fileID: 259259784}
+  - 114: {fileID: 259259786}
+  - 114: {fileID: 259259785}
   m_Layer: 0
-  m_Name: FireDoor
+  m_Name: FireDoor_Evac
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12857,11 +12865,11 @@ Transform:
   m_PrefabInternal: {fileID: 343463652}
   m_GameObject: {fileID: 259259775}
   m_LocalRotation: {x: 1.41894873e-07, y: -.707106829, z: 1.41894873e-07, w: .707106829}
-  m_LocalPosition: {x: 9.09584427, y: -9.84062958, z: -7.18309021}
+  m_LocalPosition: {x: -3.69879341, y: 2.78835297, z: 58.6256256}
   m_LocalScale: {x: 106.350639, y: 110.270523, z: 110.270523}
   m_Children:
   - {fileID: 1192525015}
-  m_Father: {fileID: 1205694706}
+  m_Father: {fileID: 2078506735}
 --- !u!95 &259259777
 Animator:
   serializedVersion: 2
@@ -12921,6 +12929,318 @@ MeshFilter:
   m_PrefabInternal: {fileID: 343463652}
   m_GameObject: {fileID: 259259775}
   m_Mesh: {fileID: 4300004, guid: 95280ae78029d5f4aa599bf946a6ce13, type: 3}
+--- !u!114 &259259781
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 259259775}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 274b80ab5b659c646ba9338870d14625, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  overrideName: 
+  overrideUseMessage: Use
+  maxUseDistance: 3
+--- !u!114 &259259782
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 259259775}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1810267305, guid: b5a7519e94754fb4a8ea0c272031db78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  overrideName: Fire Door
+--- !u!114 &259259783
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 259259775}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 567319595, guid: b5a7519e94754fb4a8ea0c272031db78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  once: 0
+  conversation: Fire Door Level 1
+  condition:
+    luaConditions: []
+    questConditions: []
+    acceptedTags: []
+    acceptedGameObjects: []
+  skipIfNoValidEntries: 0
+  conversant: {fileID: 0}
+  actor: {fileID: 0}
+  trigger: 32
+  stopConversationOnTriggerExit: 0
+--- !u!65 &259259784
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 259259775}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: .0123400595, y: .0208996069, z: .00136291573}
+  m_Center: {x: .00617002044, y: .0104498062, z: -.000681456761}
+--- !u!114 &259259785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 259259775}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a308b4aa4fc5394d80474e70a6ce7bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FSMs:
+  - {fileID: 259259786}
+--- !u!114 &259259786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 259259775}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1384774831, guid: e743331561ef77147ae48cda9bcb8209, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fsm:
+    usedInTemplate: {fileID: 0}
+    name: FSM
+    startState: root
+    states:
+    - name: root
+      description: 
+      colorIndex: 0
+      position:
+        serializedVersion: 2
+        x: 50
+        y: 100
+        width: 150
+        height: 32
+      isBreakpoint: 0
+      isSequence: 0
+      hideUnused: 0
+      transitions:
+      - fsmEvent:
+          name: OnConversationEnd
+          isSystemEvent: 0
+          isGlobal: 0
+        toState: Check
+        linkStyle: 0
+        linkConstraint: 0
+        colorIndex: 0
+      actionData:
+        actionNames: []
+        customNames: []
+        actionEnabled: 
+        actionIsOpen: 
+        actionStartIndex: 
+        actionHashCodes: 
+        unityObjectParams: []
+        fsmGameObjectParams: []
+        fsmOwnerDefaultParams: []
+        animationCurveParams: []
+        functionCallParams: []
+        fsmTemplateControlParams: []
+        fsmEventTargetParams: []
+        fsmPropertyParams: []
+        layoutOptionParams: []
+        fsmStringParams: []
+        fsmObjectParams: []
+        fsmVarParams: []
+        byteData: 
+        arrayParamSizes: 
+        arrayParamTypes: []
+        customTypeSizes: 
+        customTypeNames: []
+        paramDataType: 
+        paramName: []
+        paramDataPos: 
+        paramByteDataSize: 
+    - name: Check
+      description: 
+      colorIndex: 0
+      position:
+        serializedVersion: 2
+        x: 374
+        y: 147
+        width: 138
+        height: 48
+      isBreakpoint: 0
+      isSequence: 0
+      hideUnused: 0
+      transitions:
+      - fsmEvent:
+          name: FINISHED
+          isSystemEvent: 1
+          isGlobal: 0
+        toState: root
+        linkStyle: 0
+        linkConstraint: 0
+        colorIndex: 0
+      - fsmEvent:
+          name: QUEST_SUCCESS
+          isSystemEvent: 0
+          isGlobal: 0
+        toState: Move to Level 12
+        linkStyle: 0
+        linkConstraint: 0
+        colorIndex: 0
+      actionData:
+        actionNames:
+        - PixelCrushers.DialogueSystem.PlayMaker.GetQuestState
+        customNames:
+        - 
+        actionEnabled: 01
+        actionIsOpen: 01
+        actionStartIndex: 00000000
+        actionHashCodes: 78e3c45c
+        unityObjectParams: []
+        fsmGameObjectParams: []
+        fsmOwnerDefaultParams: []
+        animationCurveParams: []
+        functionCallParams: []
+        fsmTemplateControlParams: []
+        fsmEventTargetParams: []
+        fsmPropertyParams: []
+        layoutOptionParams: []
+        fsmStringParams:
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: Evacuate to Level 12
+        - useVariable: 1
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 
+        fsmObjectParams: []
+        fsmVarParams: []
+        byteData: 46494e495348454446494e495348454451554553545f5355434345535346494e4953484544
+        arrayParamSizes: 
+        arrayParamTypes: []
+        customTypeSizes: 
+        customTypeNames: []
+        paramDataType: 120000001200000017000000170000001700000017000000
+        paramName:
+        - questName
+        - storeResult
+        - unassignedStateEvent
+        - activeStateEvent
+        - successStateEvent
+        - failureStateEvent
+        paramDataPos: 00000000010000000000000008000000100000001d000000
+        paramByteDataSize: 000000000000000008000000080000000d00000008000000
+    - name: Move to Level 12
+      description: 
+      colorIndex: 0
+      position:
+        serializedVersion: 2
+        x: 422
+        y: 261
+        width: 134
+        height: 16
+      isBreakpoint: 0
+      isSequence: 0
+      hideUnused: 0
+      transitions: []
+      actionData:
+        actionNames:
+        - HutongGames.PlayMaker.Actions.SetPosition
+        customNames:
+        - 
+        actionEnabled: 01
+        actionIsOpen: 01
+        actionStartIndex: 00000000
+        actionHashCodes: 8b80e9a5
+        unityObjectParams: []
+        fsmGameObjectParams: []
+        fsmOwnerDefaultParams:
+        - ownerOption: 1
+          gameObject:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: {fileID: 100032, guid: 862638506a814af458833c5504c756cd, type: 2}
+        animationCurveParams: []
+        functionCallParams: []
+        fsmTemplateControlParams: []
+        fsmEventTargetParams: []
+        fsmPropertyParams: []
+        layoutOptionParams: []
+        fsmStringParams: []
+        fsmObjectParams: []
+        fsmVarParams: []
+        byteData: 000000000000000000000000010000b0c0000000c040000000704200000000000000
+        arrayParamSizes: 
+        arrayParamTypes: []
+        customTypeSizes: 
+        customTypeNames: []
+        paramDataType: 140000001c0000000f0000000f0000000f000000070000000100000001000000
+        paramName:
+        - gameObject
+        - vector
+        - x
+        - y
+        - z
+        - space
+        - everyFrame
+        - lateUpdate
+        paramDataPos: 00000000000000000d00000012000000170000001c0000002000000021000000
+        paramByteDataSize: 000000000d000000050000000500000005000000040000000100000001000000
+    events:
+    - name: FINISHED
+      isSystemEvent: 1
+      isGlobal: 0
+    - name: OnConversationEnd
+      isSystemEvent: 0
+      isGlobal: 0
+    - name: QUEST_SUCCESS
+      isSystemEvent: 0
+      isGlobal: 0
+    globalTransitions: []
+    variables:
+      floatVariables: []
+      intVariables: []
+      boolVariables: []
+      stringVariables: []
+      vector2Variables: []
+      vector3Variables: []
+      colorVariables: []
+      rectVariables: []
+      quaternionVariables: []
+      gameObjectVariables: []
+      objectVariables: []
+      materialVariables: []
+      textureVariables: []
+    description: 
+    docUrl: 
+    showStateLabel: 0
+    maxLoopCount: 0
+    watermark: 
+    version: 0
+    ExposedEvents: []
+    RestartOnEnable: 1
+    EnableDebugFlow: 0
+    StepFrame: 0
+    activeStateName: 
+  fsmTemplate: {fileID: 0}
 --- !u!1 &262057000
 GameObject:
   m_ObjectHideFlags: 0
@@ -17421,19 +17741,19 @@ Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 1205694706}
+    m_TransformParent: {fileID: 2078506735}
     m_Modifications:
     - target: {fileID: 400000, guid: 95280ae78029d5f4aa599bf946a6ce13, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 9.09584427
+      value: -3.69879341
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 95280ae78029d5f4aa599bf946a6ce13, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -9.84062958
+      value: 2.78835297
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 95280ae78029d5f4aa599bf946a6ce13, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -7.18309021
+      value: 58.6256256
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 95280ae78029d5f4aa599bf946a6ce13, type: 3}
       propertyPath: m_LocalRotation.x
@@ -17454,6 +17774,10 @@ Prefab:
     - target: {fileID: 400000, guid: 95280ae78029d5f4aa599bf946a6ce13, type: 3}
       propertyPath: m_LocalScale.x
       value: 106.350639
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 95280ae78029d5f4aa599bf946a6ce13, type: 3}
+      propertyPath: m_Name
+      value: FireDoor_Evac
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 95280ae78029d5f4aa599bf946a6ce13, type: 3}
@@ -18012,6 +18336,79 @@ MeshFilter:
   m_PrefabInternal: {fileID: 996960}
   m_GameObject: {fileID: 349736085}
   m_Mesh: {fileID: 4300000, guid: 5dfd2ed910972d74baa6c1af1b265c7d, type: 3}
+--- !u!1 &350437096
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 100002, guid: 24cfa55081619ea4b84b3bc9dd3789dc, type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 350437097}
+  - 33: {fileID: 350437100}
+  - 23: {fileID: 350437099}
+  - 64: {fileID: 350437098}
+  m_Layer: 0
+  m_Name: FireExtinguisherBoxDoor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &350437097
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 400002, guid: 24cfa55081619ea4b84b3bc9dd3789dc, type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 350437096}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -.00228242623, y: -.00412851991, z: .00229814043}
+  m_LocalScale: {x: 1.01473439, y: 1.02284884, z: 1.1356771}
+  m_Children: []
+  m_Father: {fileID: 2126033546}
+--- !u!64 &350437098
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 6400002, guid: 24cfa55081619ea4b84b3bc9dd3789dc,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 350437096}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_SmoothSphereCollisions: 0
+  m_Convex: 0
+  m_Mesh: {fileID: 4300154, guid: 0c03246bf26f643468027cfbf82df69d, type: 3}
+--- !u!23 &350437099
+Renderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 2300002, guid: 24cfa55081619ea4b84b3bc9dd3789dc,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 350437096}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_LightmapIndex: 255
+  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
+  m_Materials:
+  - {fileID: 2100000, guid: 43108e64b23c8834b9bc7adfc3fd58ae, type: 2}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 0
+  m_LightProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_SortingLayerID: 0
+--- !u!33 &350437100
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 3300002, guid: 24cfa55081619ea4b84b3bc9dd3789dc,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 350437096}
+  m_Mesh: {fileID: 4300154, guid: 0c03246bf26f643468027cfbf82df69d, type: 3}
 --- !u!1 &350480016
 GameObject:
   m_ObjectHideFlags: 0
@@ -24476,7 +24873,7 @@ MonoBehaviour:
 
       It also implements a watcher for the photon state, so when the '
     docUrl: 
-    showStateLabel: 1
+    showStateLabel: 0
     maxLoopCount: 0
     watermark: 
     version: 0
@@ -24573,7 +24970,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400000, guid: 5dfd2ed910972d74baa6c1af1b265c7d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.05755997
+      value: 4.26248264
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 5dfd2ed910972d74baa6c1af1b265c7d, type: 3}
       propertyPath: m_LocalPosition.y
@@ -24581,7 +24978,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 5dfd2ed910972d74baa6c1af1b265c7d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -7.10208511
+      value: -6.54631424
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 5dfd2ed910972d74baa6c1af1b265c7d, type: 3}
       propertyPath: m_LocalRotation.x
@@ -36779,7 +37176,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &719664728
 Transform:
   m_ObjectHideFlags: 0
@@ -37431,6 +37828,8 @@ GameObject:
   - 114: {fileID: 732818771}
   - 114: {fileID: 732818770}
   - 114: {fileID: 732818769}
+  - 114: {fileID: 732818777}
+  - 114: {fileID: 732818778}
   m_Layer: 0
   m_Name: Jenny
   m_TagString: Untagged
@@ -37471,7 +37870,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 732818767}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 567319595, guid: b5a7519e94754fb4a8ea0c272031db78, type: 3}
   m_Name: 
@@ -38334,7 +38733,7 @@ MonoBehaviour:
     description: This FSM is ready to accept variables that are synched across the
       network.
     docUrl: 
-    showStateLabel: 1
+    showStateLabel: 0
     maxLoopCount: 0
     watermark: 
     version: 0
@@ -38402,6 +38801,267 @@ CapsuleCollider:
   m_Height: 1.5
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
+--- !u!114 &732818777
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 732818767}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 567319595, guid: b5a7519e94754fb4a8ea0c272031db78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  once: 0
+  conversation: Customer Jenny
+  condition:
+    luaConditions: []
+    questConditions: []
+    acceptedTags: []
+    acceptedGameObjects: []
+  skipIfNoValidEntries: 0
+  conversant: {fileID: 0}
+  actor: {fileID: 0}
+  trigger: 32
+  stopConversationOnTriggerExit: 0
+--- !u!114 &732818778
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 732818767}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1384774831, guid: e743331561ef77147ae48cda9bcb8209, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fsm:
+    usedInTemplate: {fileID: 0}
+    name: Run Jenny Run
+    startState: Run to Sofa
+    states:
+    - name: Run to Sofa
+      description: 
+      colorIndex: 0
+      position:
+        serializedVersion: 2
+        x: 50
+        y: 100
+        width: 100
+        height: 32
+      isBreakpoint: 0
+      isSequence: 0
+      hideUnused: 0
+      transitions:
+      - fsmEvent:
+          name: FINISHED
+          isSystemEvent: 1
+          isGlobal: 0
+        toState: Stuck
+        linkStyle: 0
+        linkConstraint: 0
+        colorIndex: 0
+      actionData:
+        actionNames:
+        - HutongGames.PlayMaker.Actions.iTweenMoveTo
+        - HutongGames.PlayMaker.Actions.PlayAnimation
+        customNames:
+        - 
+        - 
+        actionEnabled: 0101
+        actionIsOpen: 0101
+        actionStartIndex: 0000000019000000
+        actionHashCodes: f0ad926e6e06efc0
+        unityObjectParams: []
+        fsmGameObjectParams:
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: {fileID: 1806080900}
+        - useVariable: 1
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: {fileID: 0}
+        fsmOwnerDefaultParams:
+        - ownerOption: 0
+          gameObject:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: {fileID: 0}
+        - ownerOption: 0
+          gameObject:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: {fileID: 0}
+        animationCurveParams: []
+        functionCallParams: []
+        fsmTemplateControlParams: []
+        fsmEventTargetParams: []
+        fsmPropertyParams: []
+        layoutOptionParams: []
+        fsmStringParams:
+        - useVariable: 1
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: FemaleB_run
+        fsmObjectParams: []
+        fsmVarParams: []
+        byteData: 0000000000000000000000000100004040000000000000000000000100000000150000000000000001000000000000000000000000000100000000010000000001000000000001000046494e4953484544000001000100040000009a99993e0046494e495348454400
+        arrayParamSizes: 0000000000000000
+        arrayParamTypes:
+        - HutongGames.PlayMaker.FsmGameObject
+        - HutongGames.PlayMaker.FsmVector3
+        customTypeSizes: 
+        customTypeNames: []
+        paramDataType: 1400000012000000130000001c0000000f0000000f0000000f00000007000000070000000700000011000000130000001c0000000f00000007000000110000000f0000000c0000000c0000001100000017000000170000001100000011000000110000001400000012000000070000000f000000170000001700000001000000
+        paramName:
+        - gameObject
+        - id
+        - transformPosition
+        - vectorPosition
+        - time
+        - delay
+        - speed
+        - space
+        - easeType
+        - loopType
+        - orientToPath
+        - lookAtObject
+        - lookAtVector
+        - lookTime
+        - axis
+        - moveToPath
+        - lookAhead
+        - transforms
+        - vectors
+        - reverse
+        - startEvent
+        - finishEvent
+        - realTime
+        - stopOnExit
+        - loopDontFinish
+        - gameObject
+        - animName
+        - playMode
+        - blendTime
+        - finishEvent
+        - loopEvent
+        - stopOnExit
+        paramDataPos: 000000000000000000000000000000000d00000012000000170000001c000000200000002400000028000000010000002a000000370000003c000000400000004200000000000000010000004700000049000000490000005100000053000000550000000100000001000000570000005b000000600000006800000068000000
+        paramByteDataSize: 0000000000000000000000000d00000005000000050000000500000004000000040000000400000002000000000000000d00000005000000040000000200000005000000000000000000000002000000000000000800000002000000020000000200000000000000000000000400000005000000080000000000000001000000
+    - name: Stuck
+      description: 
+      colorIndex: 0
+      position:
+        serializedVersion: 2
+        x: 283
+        y: 100
+        width: 100
+        height: 16
+      isBreakpoint: 0
+      isSequence: 0
+      hideUnused: 0
+      transitions: []
+      actionData:
+        actionNames:
+        - HutongGames.PlayMaker.Actions.PlayAnimation
+        customNames:
+        - 
+        actionEnabled: 01
+        actionIsOpen: 01
+        actionStartIndex: 00000000
+        actionHashCodes: 6e06efc0
+        unityObjectParams: []
+        fsmGameObjectParams: []
+        fsmOwnerDefaultParams:
+        - ownerOption: 0
+          gameObject:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: {fileID: 0}
+        animationCurveParams: []
+        functionCallParams: []
+        fsmTemplateControlParams: []
+        fsmEventTargetParams: []
+        fsmPropertyParams: []
+        layoutOptionParams: []
+        fsmStringParams:
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: FemaleB_idle
+        fsmObjectParams: []
+        fsmVarParams: []
+        byteData: 040000009a99993e0000
+        arrayParamSizes: 
+        arrayParamTypes: []
+        customTypeSizes: 
+        customTypeNames: []
+        paramDataType: 1400000012000000070000000f000000170000001700000001000000
+        paramName:
+        - gameObject
+        - animName
+        - playMode
+        - blendTime
+        - finishEvent
+        - loopEvent
+        - stopOnExit
+        paramDataPos: 00000000000000000000000004000000090000000900000009000000
+        paramByteDataSize: 00000000000000000400000005000000000000000000000001000000
+    events:
+    - name: FINISHED
+      isSystemEvent: 1
+      isGlobal: 0
+    globalTransitions: []
+    variables:
+      floatVariables: []
+      intVariables: []
+      boolVariables: []
+      stringVariables: []
+      vector2Variables: []
+      vector3Variables: []
+      colorVariables: []
+      rectVariables: []
+      quaternionVariables: []
+      gameObjectVariables: []
+      objectVariables: []
+      materialVariables: []
+      textureVariables: []
+    description: 
+    docUrl: 
+    showStateLabel: 0
+    maxLoopCount: 0
+    watermark: 
+    version: 0
+    ExposedEvents: []
+    RestartOnEnable: 1
+    EnableDebugFlow: 0
+    StepFrame: 0
+    activeStateName: 
+  fsmTemplate: {fileID: 0}
 --- !u!1 &737351635
 GameObject:
   m_ObjectHideFlags: 0
@@ -40444,7 +41104,7 @@ MonoBehaviour:
       textureVariables: []
     description: 
     docUrl: 
-    showStateLabel: 1
+    showStateLabel: 0
     maxLoopCount: 0
     watermark: 
     version: 0
@@ -40976,7 +41636,7 @@ MonoBehaviour:
       textureVariables: []
     description: 
     docUrl: 
-    showStateLabel: 1
+    showStateLabel: 0
     maxLoopCount: 0
     watermark: 
     version: 0
@@ -45828,7 +46488,7 @@ MonoBehaviour:
     description: This FSM is ready to accept variables that are synched across the
       network.
     docUrl: 
-    showStateLabel: 1
+    showStateLabel: 0
     maxLoopCount: 0
     watermark: 
     version: 0
@@ -46351,13 +47011,13 @@ MonoBehaviour:
   x_offset: 0
   y_offset: 0
   customerNames:
-  - A
-  - B
-  - C
+  - LD011191 - John
+  - LD011192 - Peter
+  - LD011193 - Jenny
   customerImages:
-  - {fileID: 2800000, guid: d8d25c391c308a14cb21c1d1a05d169b, type: 3}
-  - {fileID: 2800000, guid: 6179a20d2fd72ce4d99e14bc5d081e47, type: 3}
-  - {fileID: 2800000, guid: e7fbd96fe5de48d43a741e6746e245d5, type: 3}
+  - {fileID: 2800000, guid: 91a11e4dd12d5364eae34cf9ba4c5e73, type: 3}
+  - {fileID: 2800000, guid: 89d9340d413953546a09fae5738fe7de, type: 3}
+  - {fileID: 2800000, guid: 31ef5a51f39ee3b4082b50a7ec8184ec, type: 3}
   deskTop: {fileID: 0}
   scrollPosition: {x: 0, y: 0}
   InfoModeIsOn: 0
@@ -56283,6 +56943,76 @@ MeshFilter:
   m_PrefabInternal: {fileID: 1296707531}
   m_GameObject: {fileID: 997388667}
   m_Mesh: {fileID: 4300018, guid: abb7345795738d5408006f1071333b53, type: 3}
+--- !u!1 &997855099
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 997855100}
+  - 33: {fileID: 997855103}
+  - 136: {fileID: 997855102}
+  - 23: {fileID: 997855101}
+  m_Layer: 0
+  m_Name: Female_A_Wp_Run_02
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &997855100
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 997855099}
+  m_LocalRotation: {x: 0, y: .707106829, z: 0, w: .707106829}
+  m_LocalPosition: {x: -11.2428102, y: -4.40284395, z: -12.1493378}
+  m_LocalScale: {x: .5, y: .5, z: .5}
+  m_Children: []
+  m_Father: {fileID: 1549136}
+--- !u!23 &997855101
+Renderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 997855099}
+  m_Enabled: 0
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_LightmapIndex: 255
+  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
+  m_Materials:
+  - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 0
+  m_LightProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_SortingLayerID: 0
+--- !u!136 &997855102
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 997855099}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  m_Radius: .5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!33 &997855103
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 997855099}
+  m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1001 &1000868035
 Prefab:
   m_ObjectHideFlags: 0
@@ -67435,11 +68165,9 @@ Transform:
   - {fileID: 994336387}
   - {fileID: 1922477955}
   - {fileID: 1129151508}
-  - {fileID: 259259776}
   - {fileID: 93716085}
   - {fileID: 2141993759}
   - {fileID: 1832209261}
-  - {fileID: 2126033546}
   - {fileID: 1124700139}
   - {fileID: 1049539775}
   - {fileID: 1527978274}
@@ -69360,7 +70088,7 @@ MonoBehaviour:
       textureVariables: []
     description: 
     docUrl: 
-    showStateLabel: 1
+    showStateLabel: 0
     maxLoopCount: 0
     watermark: 
     version: 0
@@ -69809,15 +70537,25 @@ MonoBehaviour:
         - HutongGames.PlayMaker.Actions.CreateObject
         - HutongGames.PlayMaker.Actions.CallMethod
         - HutongGames.PlayMaker.Actions.ActivateGameObject
+        - HutongGames.PlayMaker.Actions.EnableBehaviour
+        - HutongGames.PlayMaker.Actions.EnableBehaviour
+        - HutongGames.PlayMaker.Actions.EnableFSM
+        - HutongGames.PlayMaker.Actions.EnableFSM
         customNames:
         - 
         - 
         - 
-        actionEnabled: 010101
-        actionIsOpen: 010101
-        actionStartIndex: 00000000070000000c000000
-        actionHashCodes: ac65eef1a391d932b4797e4a
-        unityObjectParams: []
+        - 
+        - 
+        - 
+        - 
+        actionEnabled: 01010101010101
+        actionIsOpen: 00000001010101
+        actionStartIndex: 00000000070000000c00000011000000160000001b0000001f000000
+        actionHashCodes: ac65eef1a391d932b4797e4ac3496645c3496645c3addc63c3addc63
+        unityObjectParams:
+        - {fileID: 732818770}
+        - {fileID: 732818777}
         fsmGameObjectParams:
         - useVariable: 0
           name: 
@@ -69846,6 +70584,38 @@ MonoBehaviour:
             showInInspector: 0
             networkSync: 0
             value: {fileID: 1045290925}
+        - ownerOption: 1
+          gameObject:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: {fileID: 732818767}
+        - ownerOption: 1
+          gameObject:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: {fileID: 732818767}
+        - ownerOption: 1
+          gameObject:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: {fileID: 732818767}
+        - ownerOption: 1
+          gameObject:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: {fileID: 732818767}
         animationCurveParams: []
         functionCallParams: []
         fsmTemplateControlParams: []
@@ -69859,6 +70629,30 @@ MonoBehaviour:
           showInInspector: 0
           networkSync: 0
           value: waterGoUp
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: PixelCrushers.DialogueSystem.ConversationTrigger
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: PixelCrushers.DialogueSystem.ConversationTrigger
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: Run Jenny Run
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: Photon Network Synch FSM
         fsmObjectParams:
         - useVariable: 0
           name: 
@@ -69877,13 +70671,13 @@ MonoBehaviour:
           stringValue: 
           vector4Value: {x: 0, y: 0, z: 0, w: 0}
           objectReference: {fileID: 0}
-        byteData: 00000000000000000000000000000000000000000000000000000000000000000000010001000000
+        byteData: 0000000000000000000000000000000000000000000000000000000000000000000001000100000001000000000000000100000000000000
         arrayParamSizes: 00000000
         arrayParamTypes:
         - HutongGames.PlayMaker.FsmVar
         customTypeSizes: 
         customTypeNames: []
-        paramDataType: 13000000130000001c0000001c00000013000000110000001000000018000000120000000c00000027000000010000001400000011000000110000000100000001000000
+        paramDataType: 13000000130000001c0000001c00000013000000110000001000000018000000120000000c00000027000000010000001400000011000000110000000100000001000000140000001200000005000000110000001100000014000000120000000500000011000000110000001400000012000000110000001100000014000000120000001100000011000000
         paramName:
         - gameObject
         - spawnPoint
@@ -69902,15 +70696,33 @@ MonoBehaviour:
         - recursive
         - resetOnExit
         - everyFrame
-        paramDataPos: 0000000001000000000000000d000000020000001a0000001c00000000000000000000000000000000000000210000000000000022000000240000002600000027000000
-        paramByteDataSize: 00000000000000000d0000000d00000000000000020000000500000000000000000000000000000000000000010000000000000002000000020000000100000001000000
+        - gameObject
+        - behaviour
+        - component
+        - enable
+        - resetOnExit
+        - gameObject
+        - behaviour
+        - component
+        - enable
+        - resetOnExit
+        - gameObject
+        - fsmName
+        - enable
+        - resetOnExit
+        - gameObject
+        - fsmName
+        - enable
+        - resetOnExit
+        paramDataPos: 0000000001000000000000000d000000020000001a0000001c00000000000000000000000000000000000000210000000000000022000000240000002600000027000000010000000100000000000000280000002a0000000200000002000000010000002c0000002e0000000300000003000000300000003200000004000000040000003400000036000000
+        paramByteDataSize: 00000000000000000d0000000d00000000000000020000000500000000000000000000000000000000000000010000000000000002000000020000000100000001000000000000000000000000000000020000000200000000000000000000000000000002000000020000000000000000000000020000000200000000000000000000000200000002000000
     - name: Announcement to Evacuate
       description: 
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 441
-        y: 302
+        x: 420
+        y: 358
         width: 198
         height: 32
       isBreakpoint: 0
@@ -70303,8 +71115,8 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 136.835938
-        y: 478.5
+        x: 133.835938
+        y: 468.5
         width: 164
         height: 16
       isBreakpoint: 0
@@ -73435,19 +74247,19 @@ Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 2043749540}
+    m_TransformParent: {fileID: 2078506735}
     m_Modifications:
     - target: {fileID: 400016, guid: e67b6cd49f154bc4aafe8888f2ab0441, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -10.8465977
+      value: -23.6412354
       objectReference: {fileID: 0}
     - target: {fileID: 400016, guid: e67b6cd49f154bc4aafe8888f2ab0441, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -6.74890041
+      value: 5.88008213
       objectReference: {fileID: 0}
     - target: {fileID: 400016, guid: e67b6cd49f154bc4aafe8888f2ab0441, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -16.8004036
+      value: 49.0083122
       objectReference: {fileID: 0}
     - target: {fileID: 400016, guid: e67b6cd49f154bc4aafe8888f2ab0441, type: 2}
       propertyPath: m_LocalRotation.x
@@ -73480,6 +74292,14 @@ Prefab:
     - target: {fileID: 6500000, guid: e67b6cd49f154bc4aafe8888f2ab0441, type: 2}
       propertyPath: m_Size.x
       value: .0250000004
+      objectReference: {fileID: 0}
+    - target: {fileID: 100016, guid: e67b6cd49f154bc4aafe8888f2ab0441, type: 2}
+      propertyPath: m_Name
+      value: DoorPrefab_Locked
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400002, guid: e67b6cd49f154bc4aafe8888f2ab0441, type: 2}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e67b6cd49f154bc4aafe8888f2ab0441, type: 2}
@@ -80044,8 +80864,9 @@ GameObject:
   - 64: {fileID: 1413688205}
   - 114: {fileID: 1413688204}
   - 114: {fileID: 1413688203}
+  - 65: {fileID: 1413688208}
   m_Layer: 0
-  m_Name: FET
+  m_Name: Fire Extinguisher
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -80144,6 +80965,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1413688201}
   m_Mesh: {fileID: 4300156, guid: 0c03246bf26f643468027cfbf82df69d, type: 3}
+--- !u!65 &1413688208
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1413688201}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: .00539020263, y: .00909080356, z: .00454012258}
+  m_Center: {x: -1.28056854e-09, y: -4.65661287e-10, z: -3.7252903e-09}
 --- !u!1 &1414085855
 GameObject:
   m_ObjectHideFlags: 0
@@ -82610,7 +83443,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1472687542
 Transform:
   m_ObjectHideFlags: 0
@@ -82621,8 +83454,8 @@ Transform:
   m_LocalPosition: {x: -3.61168551, y: 11.7397366, z: 62.2332687}
   m_LocalScale: {x: 1.20576489, y: 1.20576489, z: 1.20576489}
   m_Children:
-  - {fileID: 1518294723}
   - {fileID: 96434558}
+  - {fileID: 1518294723}
   m_Father: {fileID: 2078506735}
 --- !u!95 &1472687543
 Animator:
@@ -93238,7 +94071,7 @@ MonoBehaviour:
     description: This FSM checks at the end of each conversation the Quest states
       of all Quest items
     docUrl: 
-    showStateLabel: 1
+    showStateLabel: 0
     maxLoopCount: 0
     watermark: 
     version: 0
@@ -94537,6 +95370,8 @@ GameObject:
   - 114: {fileID: 1702414323}
   - 114: {fileID: 1702414327}
   - 114: {fileID: 1702414326}
+  - 114: {fileID: 1702414329}
+  - 114: {fileID: 1702414328}
   m_Layer: 0
   m_Name: Microphone
   m_TagString: Untagged
@@ -94822,18 +95657,29 @@ MonoBehaviour:
       transitions: []
       actionData:
         actionNames:
+        - HutongGames.PlayMaker.Actions.EnableBehaviour
         - HutongGames.PlayMaker.Actions.ActivateGameObject
         - HutongGames.PlayMaker.Actions.ActivateGameObject
         customNames:
         - 
         - 
-        actionEnabled: 0101
-        actionIsOpen: 0101
-        actionStartIndex: 0000000005000000
-        actionHashCodes: b4797e4ab4797e4a
-        unityObjectParams: []
+        - 
+        actionEnabled: 010000
+        actionIsOpen: 010101
+        actionStartIndex: 00000000050000000a000000
+        actionHashCodes: c3496645b4797e4ab4797e4a
+        unityObjectParams:
+        - {fileID: 0}
         fsmGameObjectParams: []
         fsmOwnerDefaultParams:
+        - ownerOption: 1
+          gameObject:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: {fileID: 1805267624}
         - ownerOption: 1
           gameObject:
             useVariable: 0
@@ -94856,17 +95702,28 @@ MonoBehaviour:
         fsmEventTargetParams: []
         fsmPropertyParams: []
         layoutOptionParams: []
-        fsmStringParams: []
+        fsmStringParams:
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: DoorHandler
         fsmObjectParams: []
         fsmVarParams: []
-        byteData: 010001000000010001000000
+        byteData: 01000000010001000000010001000000
         arrayParamSizes: 
         arrayParamTypes: []
         customTypeSizes: 
         customTypeNames: []
-        paramDataType: 14000000110000001100000001000000010000001400000011000000110000000100000001000000
+        paramDataType: 140000001200000005000000110000001100000014000000110000001100000001000000010000001400000011000000110000000100000001000000
         paramName:
         - gameObject
+        - behaviour
+        - component
+        - enable
+        - resetOnExit
+        - gameObject
         - activate
         - recursive
         - resetOnExit
@@ -94876,8 +95733,8 @@ MonoBehaviour:
         - recursive
         - resetOnExit
         - everyFrame
-        paramDataPos: 00000000000000000200000004000000050000000100000006000000080000000a0000000b000000
-        paramByteDataSize: 00000000020000000200000001000000010000000000000002000000020000000100000001000000
+        paramDataPos: 00000000000000000000000000000000020000000100000004000000060000000800000009000000020000000a0000000c0000000e0000000f000000
+        paramByteDataSize: 000000000000000000000000020000000200000000000000020000000200000001000000010000000000000002000000020000000100000001000000
     - name: Sync
       description: 
       colorIndex: 0
@@ -95047,7 +95904,7 @@ MonoBehaviour:
       textureVariables: []
     description: 
     docUrl: 
-    showStateLabel: 1
+    showStateLabel: 0
     maxLoopCount: 0
     watermark: 
     version: 0
@@ -95480,7 +96337,7 @@ MonoBehaviour:
       textureVariables: []
     description: 
     docUrl: 
-    showStateLabel: 1
+    showStateLabel: 0
     maxLoopCount: 0
     watermark: 
     version: 0
@@ -95513,6 +96370,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetFSM: {fileID: 1702414323}
+--- !u!114 &1702414328
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1702414315}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19a21220299d849abaffd33cc04a657b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1702414329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1702414315}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  subId: 27
+  ownerId: 0
+  group: 0
+  prefixBackup: -1
+  observed: {fileID: 0}
+  synchronization: 0
+  onSerializeTransformOption: 3
+  onSerializeRigidBodyOption: 2
+  instantiationId: 0
 --- !u!1 &1703822216
 GameObject:
   m_ObjectHideFlags: 0
@@ -96225,19 +97113,19 @@ Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 1205694706}
+    m_TransformParent: {fileID: 2078506735}
     m_Modifications:
     - target: {fileID: 400000, guid: f25a6bcaee254804a8fbec38aac2cd8b, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 9.05507755
+      value: -3.73956108
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: f25a6bcaee254804a8fbec38aac2cd8b, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -8.47549057
+      value: 4.15349197
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: f25a6bcaee254804a8fbec38aac2cd8b, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -8.52519608
+      value: 57.2835197
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: f25a6bcaee254804a8fbec38aac2cd8b, type: 2}
       propertyPath: m_LocalRotation.x
@@ -96254,6 +97142,10 @@ Prefab:
     - target: {fileID: 400000, guid: f25a6bcaee254804a8fbec38aac2cd8b, type: 2}
       propertyPath: m_LocalRotation.w
       value: .707106829
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: f25a6bcaee254804a8fbec38aac2cd8b, type: 2}
+      propertyPath: m_Name
+      value: Fire Extinguisher
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f25a6bcaee254804a8fbec38aac2cd8b, type: 2}
@@ -97584,6 +98476,10 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400002, guid: 9b9a57edc50934a459fe9fbe6cdb6f5c, type: 2}
       propertyPath: LogMessageInfo
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 9b9a57edc50934a459fe9fbe6cdb6f5c, type: 2}
+      propertyPath: fsm.showStateLabel
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -100645,7 +101541,7 @@ GameObject:
   - 114: {fileID: 1805267627}
   - 114: {fileID: 1805267626}
   m_Layer: 2
-  m_Name: DoorPrefab
+  m_Name: DoorPrefab_Locked
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -100658,11 +101554,11 @@ Transform:
   m_PrefabInternal: {fileID: 1301371352}
   m_GameObject: {fileID: 1805267624}
   m_LocalRotation: {x: 0, y: .707107008, z: 0, w: .70710665}
-  m_LocalPosition: {x: -10.8465977, y: -6.74890041, z: -16.8004036}
+  m_LocalPosition: {x: -23.6412354, y: 5.88008213, z: 49.0083122}
   m_LocalScale: {x: 108.423119, y: 108.423058, z: 108.423119}
   m_Children:
   - {fileID: 1184386890}
-  m_Father: {fileID: 2043749540}
+  m_Father: {fileID: 2078506735}
 --- !u!114 &1805267626
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -100703,7 +101599,7 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 1301371352}
   m_GameObject: {fileID: 1805267624}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4a5f7353ebd1ed84b8d15dd50c5da4ae, type: 3}
   m_Name: 
@@ -100793,6 +101689,76 @@ Transform:
   m_Children:
   - {fileID: 996278687}
   m_Father: {fileID: 1282624023}
+--- !u!1 &1806080900
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1806080901}
+  - 33: {fileID: 1806080904}
+  - 136: {fileID: 1806080903}
+  - 23: {fileID: 1806080902}
+  m_Layer: 0
+  m_Name: Female_A_Wp_Run_01
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1806080901
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1806080900}
+  m_LocalRotation: {x: 0, y: .707106829, z: 0, w: .707106829}
+  m_LocalPosition: {x: -10.1780443, y: -5.35200405, z: -12.4391136}
+  m_LocalScale: {x: .5, y: .5, z: .5}
+  m_Children: []
+  m_Father: {fileID: 1549136}
+--- !u!23 &1806080902
+Renderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1806080900}
+  m_Enabled: 0
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_LightmapIndex: 255
+  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
+  m_Materials:
+  - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 0
+  m_LightProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_SortingLayerID: 0
+--- !u!136 &1806080903
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1806080900}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  m_Radius: .5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!33 &1806080904
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1806080900}
+  m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1806877234
 GameObject:
   m_ObjectHideFlags: 0
@@ -106486,7 +107452,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1940074218
 Transform:
   m_ObjectHideFlags: 0
@@ -110576,7 +111542,6 @@ Transform:
   - {fileID: 1522493790}
   - {fileID: 322032332}
   - {fileID: 1653405429}
-  - {fileID: 1805267625}
   - {fileID: 2123479088}
   - {fileID: 1858570826}
   - {fileID: 713522452}
@@ -112161,6 +113126,9 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 1805267625}
+  - {fileID: 2126033546}
+  - {fileID: 259259776}
   - {fileID: 1841405979}
   - {fileID: 78514054}
   - {fileID: 1472687542}
@@ -114486,8 +115454,13 @@ GameObject:
   - 33: {fileID: 2126033549}
   - 23: {fileID: 2126033548}
   - 95: {fileID: 2126033547}
+  - 64: {fileID: 2126033554}
+  - 65: {fileID: 2126033553}
+  - 114: {fileID: 2126033552}
+  - 114: {fileID: 2126033551}
+  - 114: {fileID: 2126033550}
   m_Layer: 0
-  m_Name: FireExtinguisherBox
+  m_Name: Fire Extinguisher
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -114500,10 +115473,11 @@ Transform:
   m_PrefabInternal: {fileID: 1717594932}
   m_GameObject: {fileID: 2126033545}
   m_LocalRotation: {x: 0, y: -.707106829, z: 0, w: .707106829}
-  m_LocalPosition: {x: 9.05507755, y: -8.47549057, z: -8.52519608}
+  m_LocalPosition: {x: -3.73956108, y: 4.15349197, z: 57.2835197}
   m_LocalScale: {x: 58.5668983, y: 58.5668983, z: 58.5668983}
-  m_Children: []
-  m_Father: {fileID: 1205694706}
+  m_Children:
+  - {fileID: 350437097}
+  m_Father: {fileID: 2078506735}
 --- !u!95 &2126033547
 Animator:
   serializedVersion: 2
@@ -114548,6 +115522,80 @@ MeshFilter:
     type: 2}
   m_PrefabInternal: {fileID: 1717594932}
   m_GameObject: {fileID: 2126033545}
+  m_Mesh: {fileID: 4300000, guid: be144e4e9c530bf45a20b627b3807a3a, type: 3}
+--- !u!114 &2126033550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2126033545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 274b80ab5b659c646ba9338870d14625, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  overrideName: 
+  overrideUseMessage: Use
+  maxUseDistance: 3
+--- !u!114 &2126033551
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2126033545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1810267305, guid: b5a7519e94754fb4a8ea0c272031db78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  overrideName: Fire Extinguisher Case
+--- !u!114 &2126033552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2126033545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 567319595, guid: b5a7519e94754fb4a8ea0c272031db78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  once: 0
+  conversation: Expired Fire Extinguisher
+  condition:
+    luaConditions: []
+    questConditions: []
+    acceptedTags: []
+    acceptedGameObjects: []
+  skipIfNoValidEntries: 0
+  conversant: {fileID: 0}
+  actor: {fileID: 0}
+  trigger: 32
+  stopConversationOnTriggerExit: 0
+--- !u!65 &2126033553
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2126033545}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: .00539020402, y: .00909080356, z: .00454012351}
+  m_Center: {x: -6.08852133e-08, y: -4.65661287e-10, z: -7.4505806e-09}
+--- !u!64 &2126033554
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2126033545}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_SmoothSphereCollisions: 0
+  m_Convex: 0
   m_Mesh: {fileID: 4300000, guid: be144e4e9c530bf45a20b627b3807a3a, type: 3}
 --- !u!1 &2129743062
 GameObject:
