@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
+using PixelCrushers.DialogueSystem;
+using PixelCrushers.DialogueSystem.ChatMapper;
 
 public class DeskMode : MonoBehaviour {
 	public string deskOwner;
@@ -79,7 +81,9 @@ public class DeskMode : MonoBehaviour {
 			
 		case DeskModeSubMode.FileMode:
 		{
-			
+
+
+
 			GameObject.Find ("EmailIcon").GetComponent<Email>().clearNewEmail();
 			//nofunction added
 			if(GUI.Button( new LTRect(w/2 - 50f, .9f*h - 100f, 100f, 30f ).rect, "Send"))
@@ -90,13 +94,17 @@ public class DeskMode : MonoBehaviour {
 					PhotonView photonView = this.gameObject.GetPhotonView();
 					
 					
-					
+					if(PhotonNetwork.playerName == "Sales Manager")
+						photonView.RPC ("sendDocument",PhotonTargets.AllBuffered,"Sales Manager","LPU Officer",this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].name);
+
 					if(PhotonNetwork.playerName == "LPU Officer")
 						photonView.RPC ("sendDocument",PhotonTargets.AllBuffered,"LPU Officer","LPU Manager",this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].name);
 					if(PhotonNetwork.playerName == "LPU Manager")
 						photonView.RPC ("sendDocument",PhotonTargets.AllBuffered,"LPU Manager","Credit Risk",this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].name);
 					if(PhotonNetwork.playerName == "Credit Risk")
 						photonView.RPC ("sendDocument",PhotonTargets.AllBuffered,"Credit Risk","LPU Manager",this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].name);
+				
+				
 				}            
 				
 				// accept the document
@@ -110,6 +118,53 @@ public class DeskMode : MonoBehaviour {
 				}
 				// reject the document
 			}
+
+
+			if(GUI.Button( new LTRect(w/2 - 50f, .9f*h, 100f, 30f ).rect, "Pick up"))
+			{
+				if(this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents.Length>0)
+				{
+					GameObject targetDocument = this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].gameObject;
+					if(GameObject.Find ("InventoryObj").GetComponent<inventory>().inventoryObject !=null)
+					{
+						GameObject.Find ("InventoryObj").GetComponent<GUITexture>().enabled = true;
+						print (" you have grabbed other object, please drop them first");
+					}
+					else{
+
+						GameObject.Find ("InventoryObj").GetComponent<inventory>().updateInventoryObject(targetDocument);
+						GameObject.Find ("InventoryObj").GetComponent<GUITexture>().enabled = true;
+						// remove document from his table
+
+						this.transform.Find ("DocumentHolder").GetComponent<documentData>().removeDocument(targetDocument);
+						// move the document out of the table
+						targetDocument.transform.parent = GameObject.Find ("AllDocuments").transform;
+						targetDocument.transform.localPosition = new Vector3(0,0,0);
+
+						// set safe variable to true
+						DialogueLua.SetVariable("Has_Document",true);
+
+					}
+
+					mode = DeskModeSubMode.None;
+					
+					GameObject.Find ("InventoryContainer").GetComponent<GUITexture>().enabled = true;
+					GameObject.Find ("InventoryButton1").GetComponent<GUITexture>().enabled = true;
+					GameObject.Find ("InventoryButton2").GetComponent<GUITexture>().enabled = true;
+					
+					
+					GameObject.Find ("phoneButton").GetComponent<GUITexture>().enabled = true;
+					GameObject.Find ("QuestLogButton").GetComponent<GUITexture>().enabled = true;
+					
+					StartCoroutine(WaitAndQuit(0.3f));
+				}
+				// reject the document
+			}
+
+	
+
+
+
 			
 			if(GUI.Button(new LTRect(w/2 - 50f, .9f*h - 150f, 100f, 30f ).rect, "Read"))
 			{
@@ -121,7 +176,7 @@ public class DeskMode : MonoBehaviour {
 
 					this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].GetComponent<ObjectViewer>().readDocument();
 					mode = DeskModeSubMode.pageMode;
-					
+					Camera.main.GetComponent<magnify>().enableZoom();
 					
 					if(this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].GetComponent<pageData>().currentPage == 
 					   this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].GetComponent<pageData>().pageTextures.Length - 1)
@@ -512,14 +567,15 @@ public class DeskMode : MonoBehaviour {
 		//		print ("111");
 		disableChildren();
 		GameObject.Find(deskOwner).GetComponent<DetectObjects>().moveCameraToPlayer();
-		GameObject.Find(deskOwner).GetComponent<DetectObjects>().enableCameraAndMotor();
-		GameObject.Find(deskOwner).GetComponent<DetectObjects>().enteredDialog = false;
+
+
 		
 		GetComponent<DeskMode>().enabled = false;
 		
 		yield return new WaitForSeconds (sec);
 		
-
+		GameObject.Find(deskOwner).GetComponent<DetectObjects>().enableCameraAndMotor();
+		GameObject.Find(deskOwner).GetComponent<DetectObjects>().enteredDialog = false;
 		
 	}
 	// -----------------------------------------------------------------------------------------------

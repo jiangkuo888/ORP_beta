@@ -245,6 +245,7 @@ GameObject:
   - 114: {fileID: 11400014}
   - 114: {fileID: 11400012}
   - 114: {fileID: 11400018}
+  - 114: {fileID: 11400022}
   m_Layer: 2
   m_Name: Sales Manager
   m_TagString: SM
@@ -1306,7 +1307,7 @@ MonoBehaviour:
   smooth: 2
   arrowPrefab: {fileID: 100000, guid: 73fece1052b063041bce306fcc184c31, type: 2}
   targetPosition: {x: 0, y: 0, z: 0}
-  speed: 10
+  speed: 20
   heightOffset: .899999976
   OnGUI: 0
 --- !u!114 &11400004
@@ -1538,9 +1539,9 @@ MonoBehaviour:
     questConditions: []
     acceptedTags: []
     acceptedGameObjects: []
-  questName: Delivery from Courier
+  questName: Workdesk Mode
   questState: 2
-  alertMessage: You have a delivery. Go to the front desk to collect the package.
+  alertMessage: 'Try clicking on your desk to enter workdesk mode. '
 --- !u!114 &11400020
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1560,6 +1561,17 @@ MonoBehaviour:
   currentHitObj: {fileID: 0}
   mouseClick: 0
   enteredDialog: 0
+--- !u!114 &11400022
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100032}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3b9018c883248d4fae50640634821d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!137 &13700000
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
