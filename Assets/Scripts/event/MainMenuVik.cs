@@ -25,7 +25,8 @@ public class MainMenuVik : MonoBehaviour
         Camera.main.farClipPlane = Camera.main.nearClipPlane + 0.1f;
 
     }
-
+	public GUISkin customSkin;
+	public Texture2D background;
 	public bool isLogin = true;
 	public bool isCreate = false;
 	public bool isMessage = false;
@@ -41,6 +42,10 @@ public class MainMenuVik : MonoBehaviour
 
     void OnGUI()
     {
+
+		GUI.skin = customSkin;
+
+
         if (!PhotonNetwork.connected)
         {
             ShowConnectingGUI();
@@ -61,6 +66,8 @@ public class MainMenuVik : MonoBehaviour
 		if (isMessage) {
 
 			GUILayout.BeginArea (new Rect ((Screen.width - 400) / 2, (Screen.height - 300) / 2, 600, 300));
+			GUI.DrawTexture(new Rect(0,0,Screen.width,Screen.height),background);
+
 
 			GUILayout.Box (message, GUILayout.Width (300), GUILayout.Height (200));
 			if (GUILayout.Button ("OK", GUILayout.Width (80))) {
@@ -74,21 +81,49 @@ public class MainMenuVik : MonoBehaviour
 
 			//login page call at start of game
 
-			GUILayout.BeginArea (new Rect ((Screen.width - 400) / 2, (Screen.height - 300) / 2, 600, 300));
+			GUILayout.BeginArea (new Rect(0,0,Screen.width,Screen.height));
+			GUI.DrawTexture(new Rect(0,0,Screen.width,Screen.height),background);
+
+			GUILayout.BeginArea (new Rect (Screen.width/4, Screen.height*.1f, Screen.width/2, Screen.height*.8f));
+
+			
+			
+			
+			
+			
+			
+			GUILayout.Label ("ORILE","Title");
+			
+			GUILayout.Space (45);
 
 			GUILayout.Label ("Login Menu");
-			GUILayout.Space (15);
 
-			GUILayout.Label ("Welcome to ORILE! Hope you have a great time. :)");
-			GUILayout.Space (15);
 
-			GUILayout.Label ("Player Name:", GUILayout.Width (150));
-			playerName = GUILayout.TextField (playerName, 25, GUILayout.Width (150));
-			GUILayout.Label ("Password:", GUILayout.Width (150));
-			password = GUILayout.PasswordField (password, "*" [0], 25, GUILayout.Width (150));
 
+
+			GUILayout.BeginArea (new Rect (0, Screen.height*.275f, Screen.width/2, Screen.height*.5f));
+
+			GUILayout.BeginHorizontal();
+			GUILayout.Label ("Player Name:", "labelText");
+			playerName = GUILayout.TextField (playerName, 25, GUILayout.Width (200));
+			GUILayout.EndHorizontal();
+
+            
+
+
+			GUILayout.BeginHorizontal();
+			GUILayout.Label ("Password:", "labelText");
+			password = GUILayout.PasswordField (password, "*" [0], 25, GUILayout.Width (200));
+
+			GUILayout.EndHorizontal();
+
+			GUILayout.Space(20);
+
+
+			GUILayout.BeginHorizontal();
+			GUILayout.Label("",GUILayout.Width (200));
 			//if 'login' button is pressed, see if can login into game
-			if (GUILayout.Button ("LOGIN", GUILayout.Width (80))) {
+			if (GUILayout.Button ("Login", GUILayout.Width (100))) {
 
 				if (playerName != "" && password != "") {
 						//add to db dbClass 
@@ -123,20 +158,49 @@ public class MainMenuVik : MonoBehaviour
 				}
 		
 			}
-
-			// create account
-			GUILayout.Label ("Do not have a account yet? Register here.");
-			if (GUILayout.Button ("CREATE", GUILayout.Width (80))) {
+			if (GUILayout.Button ("Create", GUILayout.Width (100))) {
 					isCreate = true;
 					isLogin = false;
 			}
+			GUILayout.EndHorizontal();
+
+
+
+			GUILayout.Space(20);
+
+			GUILayout.BeginHorizontal();
+			// create account
+
+
+
+
+
+			GUILayout.EndHorizontal();
+
+			GUILayout.EndArea();
+			GUILayout.EndArea();
 			GUILayout.EndArea ();
 
 				
 		} else if (isCreate) {
 
+
+
+			GUILayout.BeginArea (new Rect(0,0,Screen.width,Screen.height));
+			GUI.DrawTexture(new Rect(0,0,Screen.width,Screen.height),background);
+
 			//create player page
-			GUILayout.BeginArea (new Rect ((Screen.width - 400) / 2, (Screen.height - 300) / 2, 600, 300));
+			GUILayout.BeginArea (new Rect (Screen.width/4, Screen.height*.1f, Screen.width/2, Screen.height*.8f));
+
+			
+			
+			
+			
+			
+			
+			GUILayout.Label ("ORILE","Title");
+			
+			GUILayout.Space (45);
 
 			GUILayout.Label ("Create new player");
 			GUILayout.Space (15);
@@ -198,11 +262,18 @@ public class MainMenuVik : MonoBehaviour
 			}
 
 			GUILayout.EndArea ();
+			GUILayout.EndArea();
 
 		} else if (isPlaybackList) {	
 
+
+			GUILayout.BeginArea (new Rect(0,0,Screen.width,Screen.height));
+			GUI.DrawTexture(new Rect(0,0,Screen.width,Screen.height),background);
 			//bring them to the playback menu
 			GUILayout.BeginArea (new Rect ((Screen.width - 400) / 2, (Screen.height - 300) / 2, 600, 300));
+
+
+
 
 			GUILayout.Label ("Playback Menu");
 			GUILayout.Space (15);
@@ -231,30 +302,54 @@ public class MainMenuVik : MonoBehaviour
 			}
 
 			GUILayout.EndArea ();
+			GUILayout.EndArea();
 
 		} else {
 
-			GUILayout.BeginArea (new Rect ((Screen.width - 400) / 2, (Screen.height - 300) / 2, 600, 300));
+
+			GUILayout.BeginArea (new Rect(0,0,Screen.width,Screen.height));
+			GUI.DrawTexture(new Rect(0,0,Screen.width,Screen.height),background);
+
+			GUILayout.BeginArea (new Rect (Screen.width/4, Screen.height*.1f, Screen.width/2, Screen.height*.8f));
+
+
+
+
+
+
+
+			GUILayout.Label ("ORILE","Title");
+
+			GUILayout.Space (45);
+			
+
+
 			
 			GUILayout.Label ("Main Menu");
-			
 			GUILayout.Space (15);
 			
 			
+			
+
 			//Join room by title
 			GUILayout.BeginHorizontal ();
-			GUILayout.Label ("JOIN ROOM:", GUILayout.Width (150));
-			roomName = GUILayout.TextField (roomName);
-			if (GUILayout.Button ("JOIN")) {
+			GUILayout.Label ("Join Room:", "labelText");
+			roomName = GUILayout.TextField (roomName,GUILayout.Width(Screen.width/5));
+			if (GUILayout.Button ("Join",GUILayout.Width(100))) {
 				PhotonNetwork.JoinRoom (roomName);
 			}
 			GUILayout.EndHorizontal ();
-			
+			GUILayout.Space (15);
+
+
+
+
+
 			//Create a room (fails if exist!)
 			GUILayout.BeginHorizontal ();
-			GUILayout.Label ("CREATE ROOM:", GUILayout.Width (150));
-			roomName = GUILayout.TextField (roomName);
-			if (GUILayout.Button ("START")) {
+			GUILayout.Label ("Create Room:", "labelText");
+			roomName = GUILayout.TextField (roomName,GUILayout.Width(Screen.width/5));
+			if (GUILayout.Button ("Start",GUILayout.Width(100))) {
 				PhotonNetwork.CreateRoom (roomName, true, true, 10);
 
 				//add to db
@@ -274,30 +369,42 @@ public class MainMenuVik : MonoBehaviour
 				//end add to db
 			}
 			GUILayout.EndHorizontal ();
-			
+			GUILayout.Space (15);
+
+
+
+
 			//Join random room
-			GUILayout.BeginHorizontal ();
-			GUILayout.Label ("JOIN RANDOM ROOM:", GUILayout.Width (150));
-			if (PhotonNetwork.GetRoomList ().Length == 0) {
-				GUILayout.Label ("..no games available...");
-			} else {
-				if (GUILayout.Button ("JOIN")) {
-					PhotonNetwork.JoinRandomRoom ();
-				}
-			}
-			GUILayout.EndHorizontal ();
-			
+//			GUILayout.BeginHorizontal ();
+//			GUILayout.Label ("Join Random Room:", "labelText");
+//			if (PhotonNetwork.GetRoomList ().Length == 0) {
+//				GUILayout.Label ("No rooms available...");
+//			} else {
+//				if (GUILayout.Button ("Join")) {
+//					PhotonNetwork.JoinRandomRoom ();
+//				}
+//			}
+//			GUILayout.EndHorizontal ();
+			GUILayout.Space (15);
+
+
+
+
 			GUILayout.Space (30);
-			GUILayout.Label ("ROOM LISTING:");
+			GUILayout.Label ("Room Listing");
+			GUILayout.Space (15);
+
 			if (PhotonNetwork.GetRoomList ().Length == 0) {
 				GUILayout.Label ("..no games available..");
 			} else {
 				//Room listing: simply call GetRoomList: no need to fetch/poll whatever!
+
+
 				scrollPos = GUILayout.BeginScrollView (scrollPos);
 				foreach (RoomInfo game in PhotonNetwork.GetRoomList()) {
 					GUILayout.BeginHorizontal ();
-					GUILayout.Label (game.name + " " + game.playerCount + "/" + game.maxPlayers);
-					if (GUILayout.Button ("JOIN")) {
+					GUILayout.Label (game.name + " " + game.playerCount + "/" + game.maxPlayers,GUILayout.Width(Screen.width/5+200));
+					if (GUILayout.Button ("Join",GUILayout.Width(100))) {
 						PhotonNetwork.JoinRoom (game.name);
 					}
 					GUILayout.EndHorizontal ();
@@ -305,11 +412,14 @@ public class MainMenuVik : MonoBehaviour
 				GUILayout.EndScrollView ();
 			}
 
+
+
 			//video playback
-			GUILayout.Space (20);
+			GUILayout.Space (45);
+			GUILayout.Label ("Watch Replay");
 			GUILayout.BeginHorizontal ();
-			GUILayout.Label ("See previous replay?", GUILayout.Width (150));
-			if (GUILayout.Button ("Go Here")) {
+
+			if (GUILayout.Button ("Watch")) {
 
 				isPlaybackList = true;
 
@@ -317,6 +427,7 @@ public class MainMenuVik : MonoBehaviour
 			GUILayout.EndHorizontal ();
 			
 			GUILayout.EndArea ();
+			GUILayout.EndArea();
 
 		}
     }
