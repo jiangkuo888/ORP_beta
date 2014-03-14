@@ -4037,6 +4037,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f302ac60ef6fab478f1c90783f3b97a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  customSkin: {fileID: 11400000, guid: a1668ec14eec0d8438e522ff791219a4, type: 2}
   deskOwner: 
   mode: 0
   FileMode: {fileID: 1527659188}
@@ -4590,6 +4591,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f302ac60ef6fab478f1c90783f3b97a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  customSkin: {fileID: 11400000, guid: a1668ec14eec0d8438e522ff791219a4, type: 2}
   deskOwner: 
   mode: 0
   FileMode: {fileID: 1527659188}
@@ -9503,8 +9505,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previewOnGUI: 1
   enableGUILayout: 1
-  drawStateLabels: 1
-  GUITextureStateLabels: 1
+  drawStateLabels: 0
+  GUITextureStateLabels: 0
   GUITextStateLabels: 1
   filterLabelsWithDistance: 0
   maxLabelDistance: 10
@@ -11426,9 +11428,10 @@ MonoBehaviour:
   documentName: Bank doc 1
   pagePrototype: {fileID: 1817239430}
   pageTextures:
-  - {fileID: 2800000, guid: 3944b5d818ca5cd49b325419fa6f1bd5, type: 3}
-  - {fileID: 2800000, guid: 31ef5a51f39ee3b4082b50a7ec8184ec, type: 3}
-  - {fileID: 2800000, guid: 95744472c8988264a84e296f55644d0a, type: 3}
+  - {fileID: 2800000, guid: 6d3cb7e67bbfcbc4a968e3911d0050d0, type: 3}
+  - {fileID: 2800000, guid: 75df0825e6d45e24797cf66964f47acb, type: 3}
+  - {fileID: 2800000, guid: fd15721ea84e59e4d853c0070931b0e0, type: 3}
+  - {fileID: 2800000, guid: 9da1646793b7e44428c052f95f12650c, type: 3}
   LO_signature: {fileID: 1638950652}
   LM_signature: {fileID: 1158681198}
   CR_signature: {fileID: 787198978}
@@ -53478,6 +53481,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f302ac60ef6fab478f1c90783f3b97a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  customSkin: {fileID: 11400000, guid: a1668ec14eec0d8438e522ff791219a4, type: 2}
   deskOwner: 
   mode: 0
   FileMode: {fileID: 1527659188}
@@ -68830,6 +68834,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f302ac60ef6fab478f1c90783f3b97a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  customSkin: {fileID: 11400000, guid: a1668ec14eec0d8438e522ff791219a4, type: 2}
   deskOwner: 
   mode: 0
   FileMode: {fileID: 1527659188}
@@ -73761,9 +73766,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ae63a6c5483c484083fa20d07b97f21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isLogin: 0
+  customSkin: {fileID: 11400000, guid: a1668ec14eec0d8438e522ff791219a4, type: 2}
+  background: {fileID: 2800000, guid: e9d01666bb9270041b66f83aab979a68, type: 3}
+  isLogin: 1
   isCreate: 0
   isMessage: 0
+  isPlaybackList: 0
+  isPlayback: 0
+  isChoose: 0
   message: 
   playerName: 
   password: 
@@ -73821,6 +73831,8 @@ MonoBehaviour:
   EventManager: {fileID: 1245184160}
   sessionID: -1
   loginName: 
+  isAdmin: 0
+  playback: 0
 --- !u!4 &1293804914
 Transform:
   m_ObjectHideFlags: 0

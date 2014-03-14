@@ -523,7 +523,7 @@ MonoBehaviour:
       value: 
       type: 0
   conversations:
-  - id: 2
+  - id: 3
     fields:
     - title: Title
       value: Receptionist
@@ -532,10 +532,10 @@ MonoBehaviour:
       value: 
       type: 0
     - title: Actor
-      value: 8
+      value: 1
       type: 5
     - title: Conversant
-      value: 21
+      value: 5
       type: 5
     nodeColor: Red
     dialogueEntries:
@@ -545,176 +545,10 @@ MonoBehaviour:
         value: START
         type: 0
       - title: Actor
-        value: 1
-        type: 5
-      - title: Conversant
         value: 6
         type: 5
-      - title: Menu Text
-        value: 
-        type: 0
-      - title: Dialogue Text
-        value: 
-        type: 4
-      - title: Video File
-        value: 
-        type: 0
-      - title: Sequence
-        value: None()
-        type: 0
-      conversationID: 2
-      isRoot: 1
-      isGroup: 0
-      nodeColor: White
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks:
-      - originConversationID: 2
-        originDialogueID: 0
-        destinationConversationID: 2
-        destinationDialogueID: 1
-        isConnector: 0
-        priority: 2
-      conditionsString: 
-      userScript: 
-    - id: 1
-      fields:
-      - title: Title
-        value: Good Morning
-        type: 0
-      - title: Actor
-        value: 21
-        type: 5
       - title: Conversant
-        value: 8
-        type: 5
-      - title: Menu Text
-        value: 
-        type: 0
-      - title: Dialogue Text
-        value: 'Hi, Sales Manager. What is the matter? '
-        type: 4
-      - title: Video File
-        value: 
-        type: 0
-      - title: Sequence
-        value: Camera(Closeup)
-        type: 0
-      conversationID: 2
-      isRoot: 0
-      isGroup: 0
-      nodeColor: White
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks:
-      - originConversationID: 2
-        originDialogueID: 1
-        destinationConversationID: 2
-        destinationDialogueID: 2
-        isConnector: 0
-        priority: 2
-      - originConversationID: 2
-        originDialogueID: 1
-        destinationConversationID: 2
-        destinationDialogueID: 3
-        isConnector: 0
-        priority: 2
-      conditionsString: 
-      userScript: 
-    - id: 2
-      fields:
-      - title: Title
-        value: Greet
-        type: 0
-      - title: Actor
-        value: 8
-        type: 5
-      - title: Conversant
-        value: 21
-        type: 5
-      - title: Menu Text
-        value: How's your day coming along?
-        type: 0
-      - title: Dialogue Text
-        value: 
-        type: 4
-      - title: Video File
-        value: 
-        type: 0
-      - title: Sequence
-        value: 
-        type: 0
-      conversationID: 2
-      isRoot: 0
-      isGroup: 0
-      nodeColor: White
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks: []
-      conditionsString: 
-      userScript: 
-    - id: 3
-      fields:
-      - title: Title
-        value: Check
-        type: 0
-      - title: Actor
-        value: 8
-        type: 5
-      - title: Conversant
-        value: 21
-        type: 5
-      - title: Menu Text
-        value: How's the customers' feedback for today?
-        type: 0
-      - title: Dialogue Text
-        value: 
-        type: 4
-      - title: Video File
-        value: 
-        type: 0
-      - title: Sequence
-        value: 
-        type: 0
-      conversationID: 2
-      isRoot: 0
-      isGroup: 0
-      nodeColor: White
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks: []
-      conditionsString: 
-      userScript: 
-  - id: 3
-    fields:
-    - title: Title
-      value: Missing Fire Extinguisher
-      type: 0
-    - title: Description
-      value: 
-      type: 0
-    - title: Actor
-      value: 8
-      type: 5
-    - title: Conversant
-      value: 7
-      type: 5
-    nodeColor: Red
-    dialogueEntries:
-    - id: 0
-      fields:
-      - title: Title
-        value: START
-        type: 0
-      - title: Actor
-        value: 8
-        type: 5
-      - title: Conversant
-        value: 7
+        value: 11
         type: 5
       - title: Menu Text
         value: 
@@ -739,6 +573,172 @@ MonoBehaviour:
       - originConversationID: 3
         originDialogueID: 0
         destinationConversationID: 3
+        destinationDialogueID: 1
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+    - id: 1
+      fields:
+      - title: Title
+        value: Good Morning
+        type: 0
+      - title: Actor
+        value: 5
+        type: 5
+      - title: Conversant
+        value: 1
+        type: 5
+      - title: Menu Text
+        value: 
+        type: 0
+      - title: Dialogue Text
+        value: 'Hi, Sales Manager. What is the matter? '
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: Camera(Closeup)
+        type: 0
+      conversationID: 3
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 3
+        originDialogueID: 1
+        destinationConversationID: 3
+        destinationDialogueID: 2
+        isConnector: 0
+        priority: 2
+      - originConversationID: 3
+        originDialogueID: 1
+        destinationConversationID: 3
+        destinationDialogueID: 3
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+    - id: 2
+      fields:
+      - title: Title
+        value: Greet
+        type: 0
+      - title: Actor
+        value: 1
+        type: 5
+      - title: Conversant
+        value: 5
+        type: 5
+      - title: Menu Text
+        value: How's your day coming along?
+        type: 0
+      - title: Dialogue Text
+        value: 
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 3
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: 
+    - id: 3
+      fields:
+      - title: Title
+        value: Check
+        type: 0
+      - title: Actor
+        value: 1
+        type: 5
+      - title: Conversant
+        value: 5
+        type: 5
+      - title: Menu Text
+        value: How's the customers' feedback for today?
+        type: 0
+      - title: Dialogue Text
+        value: 
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 3
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: 
+  - id: 4
+    fields:
+    - title: Title
+      value: Missing Fire Extinguisher
+      type: 0
+    - title: Description
+      value: 
+      type: 0
+    - title: Actor
+      value: 1
+      type: 5
+    - title: Conversant
+      value: 12
+      type: 5
+    nodeColor: Red
+    dialogueEntries:
+    - id: 0
+      fields:
+      - title: Title
+        value: START
+        type: 0
+      - title: Actor
+        value: 1
+        type: 5
+      - title: Conversant
+        value: 12
+        type: 5
+      - title: Menu Text
+        value: 
+        type: 0
+      - title: Dialogue Text
+        value: 
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: None()
+        type: 0
+      conversationID: 4
+      isRoot: 1
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 4
+        originDialogueID: 0
+        destinationConversationID: 4
         destinationDialogueID: 5
         isConnector: 0
         priority: 2
@@ -750,10 +750,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 8
+        value: 1
         type: 5
       - title: Conversant
-        value: 7
+        value: 12
         type: 5
       - title: Menu Text
         value: Check
@@ -770,7 +770,7 @@ MonoBehaviour:
       - title: Sequence
         value: Log(1, fire ext. stuffs);
         type: 0
-      conversationID: 3
+      conversationID: 4
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -778,15 +778,15 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 3
+      - originConversationID: 4
         originDialogueID: 1
-        destinationConversationID: 3
+        destinationConversationID: 4
         destinationDialogueID: 3
         isConnector: 0
         priority: 2
-      - originConversationID: 3
+      - originConversationID: 4
         originDialogueID: 1
-        destinationConversationID: 3
+        destinationConversationID: 4
         destinationDialogueID: 4
         isConnector: 0
         priority: 2
@@ -798,10 +798,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 8
+        value: 1
         type: 5
       - title: Conversant
-        value: 7
+        value: 12
         type: 5
       - title: Menu Text
         value: Leave
@@ -815,7 +815,7 @@ MonoBehaviour:
       - title: Sequence
         value: 
         type: 0
-      conversationID: 3
+      conversationID: 4
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -831,10 +831,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 7
+        value: 12
         type: 5
       - title: Conversant
-        value: 8
+        value: 1
         type: 5
       - title: Menu Text
         value: 
@@ -850,7 +850,7 @@ MonoBehaviour:
       - title: Sequence
         value: 
         type: 0
-      conversationID: 3
+      conversationID: 4
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -867,10 +867,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 7
+        value: 12
         type: 5
       - title: Conversant
-        value: 8
+        value: 1
         type: 5
       - title: Menu Text
         value: 
@@ -884,7 +884,7 @@ MonoBehaviour:
       - title: Sequence
         value: 
         type: 0
-      conversationID: 3
+      conversationID: 4
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -900,10 +900,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 7
+        value: 12
         type: 5
       - title: Conversant
-        value: 8
+        value: 1
         type: 5
       - title: Menu Text
         value: 
@@ -917,7 +917,7 @@ MonoBehaviour:
       - title: Sequence
         value: Camera(Closeup Wall);
         type: 0
-      conversationID: 3
+      conversationID: 4
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -925,21 +925,21 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 3
+      - originConversationID: 4
         originDialogueID: 5
-        destinationConversationID: 3
+        destinationConversationID: 4
         destinationDialogueID: 1
         isConnector: 0
         priority: 2
-      - originConversationID: 3
+      - originConversationID: 4
         originDialogueID: 5
-        destinationConversationID: 3
+        destinationConversationID: 4
         destinationDialogueID: 2
         isConnector: 0
         priority: 2
       conditionsString: 
       userScript: 
-  - id: 4
+  - id: 5
     fields:
     - title: Title
       value: Phone Call with Security
@@ -948,10 +948,10 @@ MonoBehaviour:
       value: 
       type: 0
     - title: Actor
-      value: 8
+      value: 1
       type: 5
     - title: Conversant
-      value: 9
+      value: 13
       type: 5
     nodeColor: Red
     dialogueEntries:
@@ -961,10 +961,10 @@ MonoBehaviour:
         value: START
         type: 0
       - title: Actor
-        value: 8
+        value: 1
         type: 5
       - title: Conversant
-        value: 9
+        value: 13
         type: 5
       - title: Menu Text
         value: 
@@ -978,7 +978,7 @@ MonoBehaviour:
       - title: Sequence
         value: None()
         type: 0
-      conversationID: 4
+      conversationID: 5
       isRoot: 1
       isGroup: 0
       nodeColor: White
@@ -986,9 +986,9 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 4
+      - originConversationID: 5
         originDialogueID: 0
-        destinationConversationID: 4
+        destinationConversationID: 5
         destinationDialogueID: 1
         isConnector: 0
         priority: 2
@@ -1000,10 +1000,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 9
+        value: 13
         type: 5
       - title: Conversant
-        value: 8
+        value: 1
         type: 5
       - title: Menu Text
         value: 
@@ -1017,7 +1017,7 @@ MonoBehaviour:
       - title: Sequence
         value: Camera(Closeup Wall)
         type: 0
-      conversationID: 4
+      conversationID: 5
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -1025,27 +1025,27 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 4
+      - originConversationID: 5
         originDialogueID: 1
-        destinationConversationID: 4
+        destinationConversationID: 5
         destinationDialogueID: 2
         isConnector: 0
         priority: 2
-      - originConversationID: 4
+      - originConversationID: 5
         originDialogueID: 1
-        destinationConversationID: 4
+        destinationConversationID: 5
         destinationDialogueID: 6
         isConnector: 0
         priority: 2
-      - originConversationID: 4
+      - originConversationID: 5
         originDialogueID: 1
-        destinationConversationID: 4
+        destinationConversationID: 5
         destinationDialogueID: 4
         isConnector: 0
         priority: 2
-      - originConversationID: 4
+      - originConversationID: 5
         originDialogueID: 1
-        destinationConversationID: 4
+        destinationConversationID: 5
         destinationDialogueID: 5
         isConnector: 0
         priority: 2
@@ -1057,10 +1057,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 8
+        value: 1
         type: 5
       - title: Conversant
-        value: 9
+        value: 13
         type: 5
       - title: Menu Text
         value: 'I have a missing fire extinguisher at Level 12. '
@@ -1075,7 +1075,7 @@ MonoBehaviour:
       - title: Sequence
         value: 
         type: 0
-      conversationID: 4
+      conversationID: 5
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -1083,9 +1083,9 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 4
+      - originConversationID: 5
         originDialogueID: 2
-        destinationConversationID: 4
+        destinationConversationID: 5
         destinationDialogueID: 3
         isConnector: 0
         priority: 2
@@ -1097,10 +1097,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 9
+        value: 13
         type: 5
       - title: Conversant
-        value: 8
+        value: 1
         type: 5
       - title: Menu Text
         value: 
@@ -1114,7 +1114,7 @@ MonoBehaviour:
       - title: Sequence
         value: 
         type: 0
-      conversationID: 4
+      conversationID: 5
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -1130,10 +1130,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 8
+        value: 1
         type: 5
       - title: Conversant
-        value: 9
+        value: 13
         type: 5
       - title: Menu Text
         value: Nothing.
@@ -1147,7 +1147,7 @@ MonoBehaviour:
       - title: Sequence
         value: 
         type: 0
-      conversationID: 4
+      conversationID: 5
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -1163,10 +1163,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 8
+        value: 1
         type: 5
       - title: Conversant
-        value: 9
+        value: 13
         type: 5
       - title: Menu Text
         value: Leave
@@ -1180,7 +1180,7 @@ MonoBehaviour:
       - title: Sequence
         value: 
         type: 0
-      conversationID: 4
+      conversationID: 5
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -1196,10 +1196,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 8
+        value: 1
         type: 5
       - title: Conversant
-        value: 9
+        value: 13
         type: 5
       - title: Menu Text
         value: Expired fire extinguisher
@@ -1214,7 +1214,7 @@ MonoBehaviour:
       - title: Sequence
         value: 
         type: 0
-      conversationID: 4
+      conversationID: 5
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -1222,9 +1222,9 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 4
+      - originConversationID: 5
         originDialogueID: 6
-        destinationConversationID: 4
+        destinationConversationID: 5
         destinationDialogueID: 7
         isConnector: 0
         priority: 2
@@ -1236,10 +1236,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 9
+        value: 13
         type: 5
       - title: Conversant
-        value: 8
+        value: 1
         type: 5
       - title: Menu Text
         value: 
@@ -1253,7 +1253,7 @@ MonoBehaviour:
       - title: Sequence
         value: 
         type: 0
-      conversationID: 4
+      conversationID: 5
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -1263,7 +1263,7 @@ MonoBehaviour:
       outgoingLinks: []
       conditionsString: 
       userScript: Item["Expired_Fire_Ext"].State = "success";
-  - id: 5
+  - id: 6
     fields:
     - title: Title
       value: Fire Escape Blockage
@@ -1272,10 +1272,10 @@ MonoBehaviour:
       value: 
       type: 0
     - title: Actor
-      value: 8
+      value: 1
       type: 5
     - title: Conversant
-      value: 10
+      value: 14
       type: 5
     nodeColor: Red
     dialogueEntries:
@@ -1285,10 +1285,10 @@ MonoBehaviour:
         value: START
         type: 0
       - title: Actor
-        value: 8
+        value: 1
         type: 5
       - title: Conversant
-        value: 10
+        value: 14
         type: 5
       - title: Menu Text
         value: 
@@ -1302,7 +1302,7 @@ MonoBehaviour:
       - title: Sequence
         value: None()
         type: 0
-      conversationID: 5
+      conversationID: 6
       isRoot: 1
       isGroup: 0
       nodeColor: White
@@ -1310,21 +1310,21 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 5
+      - originConversationID: 6
         originDialogueID: 0
-        destinationConversationID: 5
+        destinationConversationID: 6
         destinationDialogueID: 4
         isConnector: 0
         priority: 2
-      - originConversationID: 5
+      - originConversationID: 6
         originDialogueID: 0
-        destinationConversationID: 5
+        destinationConversationID: 6
         destinationDialogueID: 1
         isConnector: 0
         priority: 2
-      - originConversationID: 5
+      - originConversationID: 6
         originDialogueID: 0
-        destinationConversationID: 5
+        destinationConversationID: 6
         destinationDialogueID: 2
         isConnector: 0
         priority: 2
@@ -1336,10 +1336,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 8
+        value: 1
         type: 5
       - title: Conversant
-        value: 10
+        value: 14
         type: 5
       - title: Menu Text
         value: Check
@@ -1353,7 +1353,7 @@ MonoBehaviour:
       - title: Sequence
         value: 
         type: 0
-      conversationID: 5
+      conversationID: 6
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -1361,9 +1361,9 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 5
+      - originConversationID: 6
         originDialogueID: 1
-        destinationConversationID: 5
+        destinationConversationID: 6
         destinationDialogueID: 3
         isConnector: 0
         priority: 2
@@ -1375,10 +1375,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 8
+        value: 1
         type: 5
       - title: Conversant
-        value: 10
+        value: 14
         type: 5
       - title: Menu Text
         value: Leave
@@ -1392,7 +1392,7 @@ MonoBehaviour:
       - title: Sequence
         value: 
         type: 0
-      conversationID: 5
+      conversationID: 6
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -1408,10 +1408,10 @@ MonoBehaviour:
         value: Active Blockage Quest
         type: 0
       - title: Actor
-        value: 10
+        value: 14
         type: 5
       - title: Conversant
-        value: 8
+        value: 1
         type: 5
       - title: Menu Text
         value: 
@@ -1428,7 +1428,7 @@ MonoBehaviour:
       - title: Sequence
         value: 
         type: 0
-      conversationID: 5
+      conversationID: 6
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -1444,10 +1444,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 8
+        value: 1
         type: 5
       - title: Conversant
-        value: 10
+        value: 14
         type: 5
       - title: Menu Text
         value: Pick up
@@ -1461,7 +1461,7 @@ MonoBehaviour:
       - title: Sequence
         value: Pick();
         type: 0
-      conversationID: 5
+      conversationID: 6
       isRoot: 0
       isGroup: 0
       nodeColor: White
