@@ -4,11 +4,17 @@ using dbConnect;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.IO;
+using System.Net;
+using System.Linq;
+using System.Text;
+using System.Text.RegularExpressions;
+using SimpleJSON;
 //using System;
 
 
 public class MainMenuVik : MonoBehaviour
 {
+	public string fileList;
 
     void Awake()
     {
@@ -24,6 +30,14 @@ public class MainMenuVik : MonoBehaviour
         //Set camera clipping for nicer "main menu" background
         Camera.main.farClipPlane = Camera.main.nearClipPlane + 0.1f;
 
+		//get list of games from server
+		//get list of directory
+		WWWForm sendForm = new WWWForm();
+		sendForm.AddField("load", "LIST");
+		WWW w = new WWW("http://www.sgi-singapore.com/projects/ORILE/loadFiles.php", sendForm);
+		StartCoroutine(WaitForList(w));
+		//fileList = w.data;
+		//Debug.Log(fileList);
     }
 	public GUISkin customSkin;
 	public Texture2D background;
@@ -279,22 +293,49 @@ public class MainMenuVik : MonoBehaviour
 			GUILayout.Space (15);
 			GUILayout.Label ("Select the one you want to playback");
 			GUILayout.Space (15);
-			//GUILayout.Box ("", GUILayout.Width (300), GUILayout.Height (200));
-			//if (GUILayout.Button ("OK", GUILayout.Width (80))) {
-			//	isMessage = false;
-			//}
 
-			DirectoryInfo dir = new DirectoryInfo(@"C:\Users\srinivas\Documents\GitHub\ORP_beta\playback\");
-			FileInfo[] fileinfo = dir.GetFiles();
-			//Debug.Log(fileinfo.ToString());
-			foreach (FileInfo getfile in fileinfo) {
-				if (GUILayout.Button (getfile.Name, GUILayout.Width (80))) {
-					isPlayback = true;
-					isPlaybackList = false;
-					string filePath = "playback/" + getfile.Name;
-					EZReplayManager.get.loadFromFile(filePath);
+			//parse the json string
+			string[] listArray = this.fileList.Split(',');
+			foreach (string capture in listArray)
+			{	
+				string fileName = "";
+				Debug.Log(capture);
+
+				if (capture.IndexOf("[") == 0)
+				{
+					fileName = capture.Substring(2,capture.Length-3);
+					Debug.Log(fileName);
 				}
+				else if (capture.IndexOf("]") == capture.Length-1)
+				{
+					fileName = capture.Substring(1,capture.Length-3);
+					Debug.Log(fileName);
+				}
+				else
+				{
+					fileName = capture.Substring(1,capture.Length-2);
+					Debug.Log(fileName);
+				}
+
+				if (fileName != "." && fileName != "..")
+				{
+					if (GUILayout.Button (fileName, GUILayout.Width (80))) {
+
+						isPlayback = true;
+						isPlaybackList = false;
+
+						//download files
+						WWWForm sendForm = new WWWForm();
+						sendForm.AddField("fileName", fileName);
+						sendForm.AddField("load", "DOWN");
+						WWW w = new WWW("http://www.sgi-singapore.com/projects/ORILE/loadFiles.php", sendForm);
+						StartCoroutine(WaitForDownload(w, fileName));
+
+					}
+				}
+
 			}
+
 			GUILayout.Space (15);
 
 			if (GUILayout.Button ("back", GUILayout.Width (80))) {
@@ -432,10 +473,47 @@ public class MainMenuVik : MonoBehaviour
 		}
     }
 
+	IEnumerator WaitForDownload(WWW www, string fileName)
+	{
+		yield return www;
+			
+		// check for errors
+		if (www.error == null)
+		{
+			//put the data into a file
+			//Debug.Log(www.bytes.Length);
+			//Debug.Log(www.data);
+			string currentDir = Directory.GetCurrentDirectory ();
+			Debug.Log (currentDir + "\\playback\\" + fileName);
+			Directory.CreateDirectory (currentDir + "\\playback");
+			File.WriteAllBytes(currentDir + "\\playback\\" + fileName, www.bytes);
 
-    void ShowConnectingGUI()
-    {
-        GUILayout.BeginArea(new Rect((Screen.width - 400) / 2, (Screen.height - 300) / 2, 400, 300));
+			string filePath = "playback/" + fileName;
+			EZReplayManager.get.loadFromFile(filePath);
+
+		} else {
+			Debug.Log("WWW Error: "+ www.error);
+		}    
+	}
+
+	IEnumerator WaitForList(WWW www)
+	{
+		yield return www;
+		
+		// check for errors
+		if (www.error == null)
+		{
+
+			this.fileList = www.data;
+			Debug.Log(this.fileList);
+		} else {
+			Debug.Log("WWW Error: "+ www.error);
+		}    
+	}
+	
+	void ShowConnectingGUI()
+	{
+		GUILayout.BeginArea(new Rect((Screen.width - 400) / 2, (Screen.height - 300) / 2, 400, 300));
 
         GUILayout.Label("Connecting to Photon server.");
         GUILayout.Label("Hint: This demo uses a settings file and logs the server address to the console.");
