@@ -23,7 +23,7 @@ public class DetectObjects : Photon.MonoBehaviour {
 	public bool mouseClick;
 	public bool enteredDialog;
 	
-	Transform dugManager;
+	//Transform dugManager;
 	Shader originalShader;
 	
 	void Start()
@@ -70,7 +70,7 @@ public class DetectObjects : Photon.MonoBehaviour {
 						
 
 
-						dugManager = transform.Find("DUGManager");
+						//dugManager = transform.Find("DUGManager");
 						
 						hitObjPhotonView = PhotonView.Get(hit.collider.gameObject);
 						
@@ -84,9 +84,9 @@ public class DetectObjects : Photon.MonoBehaviour {
 							{
 								currentHitObj.renderer.material.shader = originalShader;
 								Cursor.SetCursor(null, Vector2.zero, cursorMode);
-								dugManager.GetComponent<DUGView>().visible = true;
+								//dugManager.GetComponent<DUGView>().visible = true;
 								//							print(hit.collider.name);
-								dugManager.GetComponent<DialogueController>().setActiveDialogue(hit.collider.name);
+								//dugManager.GetComponent<DialogueController>().setActiveDialogue(hit.collider.name);
 								disableCameraAndMotor();
 								moveCameraToObject(hit.collider.gameObject);
 								mouseClick = !mouseClick;
@@ -104,7 +104,7 @@ public class DetectObjects : Photon.MonoBehaviour {
 						// change mouse cursor to talk
 						//Cursor.SetCursor(cursorTextureTalk, hotSpot, cursorMode);
 						
-						dugManager = transform.Find("DUGManager");
+						//dugManager = transform.Find("DUGManager");
 						
 						hitObjPhotonView = PhotonView.Get(hit.collider.gameObject);
 						
@@ -133,9 +133,9 @@ public class DetectObjects : Photon.MonoBehaviour {
 								Cursor.SetCursor(null, Vector2.zero, cursorMode);
 								
 								
-								dugManager.GetComponent<DUGView>().visible = true;
+								//dugManager.GetComponent<DUGView>().visible = true;
 								print(hit.collider.name);
-								dugManager.GetComponent<DialogueController>().setActiveDialogue(hit.collider.name);
+								//dugManager.GetComponent<DialogueController>().setActiveDialogue(hit.collider.name);
 								disableCameraAndMotor();
 								moveCameraToObject(hit.collider.gameObject);
 								mouseClick = !mouseClick;
