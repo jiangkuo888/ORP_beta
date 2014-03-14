@@ -1573,7 +1573,7 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
-      userScript: Item["Loan_Enquiry_Peter"].State = "active"
+      userScript: Item["Loan_Enquiry_Peter"].State = "success"
     - id: 1
       fields:
       - title: Title
@@ -1589,7 +1589,8 @@ MonoBehaviour:
         value: 'That''s all I need. '
         type: 0
       - title: Dialogue Text
-        value: 
+        value: 'Ok Sir, I have all the information I need. I will check on the status
+          of your loan process and call you back. Will that be alright? '
         type: 4
       - title: Video File
         value: 
@@ -1646,7 +1647,7 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
-      userScript: Item["Loan_Enquiry_Peter"].State = "active"
+      userScript: Item["Loan_Enquiry_Peter"].State = "failure"
   - id: 23
     fields:
     - title: Title
