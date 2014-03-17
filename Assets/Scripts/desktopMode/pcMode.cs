@@ -78,7 +78,7 @@ public class pcMode : MonoBehaviour {
 
 			scrollPosition = GUI.BeginScrollView(new Rect(.46f * w, .2f * h, .5f * w, .6f * h), scrollPosition, new Rect(0, 0, .45f*w, 2000));
 			
-			GUI.DrawTexture (new Rect(0, 0, .5f*w, 2000), currentImage);	
+			GUI.DrawTexture (new Rect(0, 0, .5f*w, 2000), currentImage, ScaleMode.ScaleToFit);	
 		
 			
 
