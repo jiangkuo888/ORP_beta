@@ -16,7 +16,7 @@ public class magnify : MonoBehaviour
 	private bool dragging =false;
 	private Vector2 mouseDownPos;
 	private Vector2 mouseDragPos;
-	private Vector2 lastPos;
+
 	private Vector2 MouseMovement;
 	private float deltaX,deltaZ;
 	private Vector3 originalPos;
@@ -41,15 +41,15 @@ public class magnify : MonoBehaviour
 			{
 				dragging = true;
 				mouseDownPos = Input.mousePosition;
-				lastPos = mouseDownPos;
+		
 			}
 			
 			if(dragging)
 			{
 				
 				mouseDragPos = Input.mousePosition;
-				MouseMovement = mouseDragPos - lastPos;
-				lastPos = mouseDragPos;
+				MouseMovement = mouseDragPos - mouseDownPos;
+				mouseDownPos = mouseDragPos;
 			}
 			
 			if(Input.GetButtonUp ("Fire2"))
@@ -67,17 +67,14 @@ public class magnify : MonoBehaviour
 			
 			 deltaX = deltaX + (MouseMovement.x)/(Screen.width/horizontalSpeed);
 			 deltaZ = deltaZ + (MouseMovement.y)/(Screen.height/verticalSpeed);
-			
-			transform.localPosition = new Vector3(transform.localPosition.x*(1+deltaX),transform.localPosition.y,transform.localPosition.z*(1+deltaZ));
-			
-			
+
+
+			transform.localPosition = transform.localPosition - new Vector3(deltaX,0,deltaZ);
+
 		}
 	}
 	public void enableZoom(){
-		if(originalPos == Vector3.zero)
-			originalPos= transform.localPosition;
-		else
-		transform.localPosition = originalPos;
+		originalPos = transform.localPosition;
 
 
 		enabled = true;
@@ -88,7 +85,7 @@ public class magnify : MonoBehaviour
 	
 	public void disableZoom(){
 		enabled = false;
-
+		transform.localPosition = originalPos;
 	}
 	
 	
