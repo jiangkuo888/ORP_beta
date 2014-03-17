@@ -1656,7 +1656,7 @@
             <ReviewerStatus>None</ReviewerStatus>
             <OutgoingLinks />
             <ConditionsString />
-            <UserScript>Item["Loan_Enquiry_Peter"].State = "active"</UserScript>
+            <UserScript>Item["Loan_Enquiry_Peter"].State = "success"</UserScript>
           </DialogEntry>
           <DialogEntry ID="1" IsRoot="false" IsGroup="false" NodeColor="White" DelaySimStatus="false" FalseCondtionAction="Block" ConditionPriority="Normal">
             <Fields>
@@ -1678,7 +1678,7 @@
               </Field>
               <Field Hint="The text that is spoken by the actor." Type="Localization">
                 <Title>Dialogue Text</Title>
-                <Value />
+                <Value>Ok Sir, I have all the information I need. I will check on the status of your loan process and call you back. Will that be alright? </Value>
               </Field>
               <Field Hint="A WMV video file to be played for this dialogue." Type="Text">
                 <Title>Video File</Title>
@@ -1732,7 +1732,7 @@
             <ReviewerStatus>None</ReviewerStatus>
             <OutgoingLinks />
             <ConditionsString />
-            <UserScript>Item["Loan_Enquiry_Peter"].State = "active"</UserScript>
+            <UserScript>Item["Loan_Enquiry_Peter"].State = "failure"</UserScript>
           </DialogEntry>
         </DialogEntries>
       </Conversation>

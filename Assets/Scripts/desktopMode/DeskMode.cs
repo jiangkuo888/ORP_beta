@@ -221,6 +221,9 @@ public class DeskMode : MonoBehaviour {
 					float midZ = (nextTr.renderer.bounds.max.z + nextTr.renderer.bounds.min.z)/2;
 					
 					LeanTween.move(Camera.main.gameObject,new Vector3(midX,midY+cameraOffset,midZ),.6f).setEase(LeanTweenType.easeOutQuint);
+
+					//Camera.main.gameObject.transform.position = new Vector3(midX,midY+cameraOffset,midZ);
+
 					LeanTween.move(highlight.gameObject,new Vector3(midX,midY+lightOffset,midZ),.6f).setEase(LeanTweenType.easeOutQuint);
 					
 				}
@@ -295,7 +298,7 @@ public class DeskMode : MonoBehaviour {
 
 				if(GUI.Button( new LTRect(1.0f*w - 100f, 1.0f*h - 50f, 100f, 50f ).rect, "Back to Documents"))
 				{
-					
+				Camera.main.GetComponent<magnify>().disableZoom();
 				mode = DeskModeSubMode.FileMode;
 					this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].GetComponent<pageData>().lastPage = false;
 					this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].GetComponent<ObjectViewer>().playCloseFileAnim();
@@ -308,7 +311,9 @@ public class DeskMode : MonoBehaviour {
 			
 			if(GUI.Button( new LTRect(.5f*w - 50f, .9f*h - 50f, 100f, 50f ).rect, "Verify",customSkin.button))
 			{
-				
+				Camera.main.GetComponent<magnify>().disableZoom();
+
+
 				Transform thisTr = this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].transform;
 				GameObject pc = GameObject.Find ("PCMode").gameObject;
 				pc.transform.position = new Vector3(thisTr.position.x + .35f, thisTr.position.y-.1f , thisTr.position.z);
@@ -350,6 +355,10 @@ public class DeskMode : MonoBehaviour {
 
 			if(GUI.Button( new LTRect(1.0f*w - 100f, 1.0f*h - 50f, 100f, 50f ).rect, "Back to read page",customSkin.button))
 			{
+
+				Camera.main.transform.position = CameraOriginalPosition;
+
+				Camera.main.GetComponent<magnify>().enableZoom();
 
 				if(GameObject.Find("PCscreen").GetComponent<pcMode>().enabled == true)
 					GameObject.Find ("PCscreen").GetComponent<pcMode>().enabled = false;
