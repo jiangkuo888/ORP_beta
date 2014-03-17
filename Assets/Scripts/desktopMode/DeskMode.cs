@@ -221,6 +221,9 @@ public class DeskMode : MonoBehaviour {
 					float midZ = (nextTr.renderer.bounds.max.z + nextTr.renderer.bounds.min.z)/2;
 					
 					LeanTween.move(Camera.main.gameObject,new Vector3(midX,midY+cameraOffset,midZ),.6f).setEase(LeanTweenType.easeOutQuint);
+
+					//Camera.main.gameObject.transform.position = new Vector3(midX,midY+cameraOffset,midZ);
+
 					LeanTween.move(highlight.gameObject,new Vector3(midX,midY+lightOffset,midZ),.6f).setEase(LeanTweenType.easeOutQuint);
 					
 				}
@@ -352,7 +355,11 @@ public class DeskMode : MonoBehaviour {
 
 			if(GUI.Button( new LTRect(1.0f*w - 100f, 1.0f*h - 50f, 100f, 50f ).rect, "Back to read page",customSkin.button))
 			{
+
+				Camera.main.transform.position = CameraOriginalPosition;
+
 				Camera.main.GetComponent<magnify>().enableZoom();
+
 				if(GameObject.Find("PCscreen").GetComponent<pcMode>().enabled == true)
 					GameObject.Find ("PCscreen").GetComponent<pcMode>().enabled = false;
 				
