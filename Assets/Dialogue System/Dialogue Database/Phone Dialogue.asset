@@ -48,7 +48,7 @@ MonoBehaviour:
       value: True
       type: 2
     portrait: {fileID: 0}
-  - id: 25
+  - id: 24
     fields:
     - title: Name
       value: Facilities Manager
@@ -63,7 +63,7 @@ MonoBehaviour:
       value: False
       type: 2
     portrait: {fileID: 0}
-  - id: 26
+  - id: 25
     fields:
     - title: Name
       value: Phone
@@ -78,7 +78,7 @@ MonoBehaviour:
       value: True
       type: 2
     portrait: {fileID: 0}
-  - id: 23
+  - id: 22
     fields:
     - title: Name
       value: Courier
@@ -93,7 +93,7 @@ MonoBehaviour:
       value: False
       type: 2
     portrait: {fileID: 0}
-  - id: 27
+  - id: 26
     fields:
     - title: Name
       value: Customer - John
@@ -108,7 +108,7 @@ MonoBehaviour:
       value: False
       type: 2
     portrait: {fileID: 0}
-  - id: 28
+  - id: 27
     fields:
     - title: Name
       value: Customer - Peter
@@ -123,10 +123,25 @@ MonoBehaviour:
       value: False
       type: 2
     portrait: {fileID: 0}
-  - id: 29
+  - id: 28
     fields:
     - title: Name
       value: Valuer
+      type: 0
+    - title: Pictures
+      value: '[]'
+      type: 3
+    - title: Description
+      value: 
+      type: 0
+    - title: IsPlayer
+      value: False
+      type: 2
+    portrait: {fileID: 0}
+  - id: 29
+    fields:
+    - title: Name
+      value: Fire Door
       type: 0
     - title: Pictures
       value: '[]'
@@ -259,6 +274,26 @@ MonoBehaviour:
     - title: Is Item
       value: False
       type: 2
+  - id: 14
+    fields:
+    - title: Name
+      value: Evacuate to Level 12
+      type: 0
+    - title: Description
+      value: 
+      type: 0
+    - title: Success Description
+      value: 
+      type: 0
+    - title: Failure Description
+      value: 
+      type: 0
+    - title: State
+      value: unassigned
+      type: 0
+    - title: Is Item
+      value: False
+      type: 2
   locations:
   - id: 1
     fields:
@@ -284,7 +319,7 @@ MonoBehaviour:
       value: Show alert messages during gameplay by setting this variable.
       type: 0
   conversations:
-  - id: 18
+  - id: 17
     fields:
     - title: Title
       value: Facilities
@@ -294,6 +329,172 @@ MonoBehaviour:
       type: 0
     - title: Actor
       value: 1
+      type: 5
+    - title: Conversant
+      value: 24
+      type: 5
+    nodeColor: Red
+    dialogueEntries:
+    - id: 0
+      fields:
+      - title: Title
+        value: START
+        type: 0
+      - title: Actor
+        value: 1
+        type: 5
+      - title: Conversant
+        value: 24
+        type: 5
+      - title: Menu Text
+        value: 
+        type: 0
+      - title: Dialogue Text
+        value: 
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: None()
+        type: 0
+      conversationID: 17
+      isRoot: 1
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 17
+        originDialogueID: 0
+        destinationConversationID: 17
+        destinationDialogueID: 2
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+    - id: 2
+      fields:
+      - title: Title
+        value: 
+        type: 0
+      - title: Actor
+        value: 24
+        type: 5
+      - title: Conversant
+        value: 1
+        type: 5
+      - title: Menu Text
+        value: 
+        type: 0
+      - title: Dialogue Text
+        value: Hi, I am the Facilities Manager.
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 17
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 17
+        originDialogueID: 2
+        destinationConversationID: 17
+        destinationDialogueID: 3
+        isConnector: 0
+        priority: 2
+      - originConversationID: 17
+        originDialogueID: 2
+        destinationConversationID: 17
+        destinationDialogueID: 4
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+    - id: 3
+      fields:
+      - title: Title
+        value: 
+        type: 0
+      - title: Actor
+        value: 1
+        type: 5
+      - title: Conversant
+        value: 24
+        type: 5
+      - title: Menu Text
+        value: I need your attention
+        type: 0
+      - title: Dialogue Text
+        value: 
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 17
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: 
+    - id: 4
+      fields:
+      - title: Title
+        value: 
+        type: 0
+      - title: Actor
+        value: 1
+        type: 5
+      - title: Conversant
+        value: 24
+        type: 5
+      - title: Menu Text
+        value: Sorry, nothing's up.
+        type: 0
+      - title: Dialogue Text
+        value: 
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 17
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: 
+  - id: 18
+    fields:
+    - title: Title
+      value: Courier Delay
+      type: 0
+    - title: Description
+      value: 
+      type: 0
+    - title: Actor
+      value: 22
       type: 5
     - title: Conversant
       value: 25
@@ -306,7 +507,7 @@ MonoBehaviour:
         value: START
         type: 0
       - title: Actor
-        value: 1
+        value: 22
         type: 5
       - title: Conversant
         value: 25
@@ -334,12 +535,12 @@ MonoBehaviour:
       - originConversationID: 18
         originDialogueID: 0
         destinationConversationID: 18
-        destinationDialogueID: 2
+        destinationDialogueID: 1
         isConnector: 0
         priority: 2
       conditionsString: 
       userScript: 
-    - id: 2
+    - id: 1
       fields:
       - title: Title
         value: 
@@ -348,13 +549,13 @@ MonoBehaviour:
         value: 25
         type: 5
       - title: Conversant
-        value: 1
+        value: 22
         type: 5
       - title: Menu Text
         value: 
         type: 0
       - title: Dialogue Text
-        value: Hi, I am the Facilities Manager.
+        value: 'Hi, is this the Courier? '
         type: 4
       - title: Video File
         value: 
@@ -371,68 +572,29 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks:
       - originConversationID: 18
-        originDialogueID: 2
+        originDialogueID: 1
         destinationConversationID: 18
-        destinationDialogueID: 3
-        isConnector: 0
-        priority: 2
-      - originConversationID: 18
-        originDialogueID: 2
-        destinationConversationID: 18
-        destinationDialogueID: 4
+        destinationDialogueID: 2
         isConnector: 0
         priority: 2
       conditionsString: 
       userScript: 
-    - id: 3
+    - id: 2
       fields:
       - title: Title
         value: 
         type: 0
       - title: Actor
-        value: 1
+        value: 22
         type: 5
       - title: Conversant
         value: 25
         type: 5
       - title: Menu Text
-        value: I need your attention
+        value: 
         type: 0
       - title: Dialogue Text
-        value: 
-        type: 4
-      - title: Video File
-        value: 
-        type: 0
-      - title: Sequence
-        value: 
-        type: 0
-      conversationID: 18
-      isRoot: 0
-      isGroup: 0
-      nodeColor: White
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks: []
-      conditionsString: 
-      userScript: 
-    - id: 4
-      fields:
-      - title: Title
-        value: 
-        type: 0
-      - title: Actor
-        value: 1
-        type: 5
-      - title: Conversant
-        value: 25
-        type: 5
-      - title: Menu Text
-        value: Sorry, nothing's up.
-        type: 0
-      - title: Dialogue Text
-        value: 
+        value: 'Yes, this is the Courier. '
         type: 4
       - title: Video File
         value: 
@@ -453,143 +615,16 @@ MonoBehaviour:
   - id: 19
     fields:
     - title: Title
-      value: Courier Delay
-      type: 0
-    - title: Description
-      value: 
-      type: 0
-    - title: Actor
-      value: 23
-      type: 5
-    - title: Conversant
-      value: 26
-      type: 5
-    nodeColor: Red
-    dialogueEntries:
-    - id: 0
-      fields:
-      - title: Title
-        value: START
-        type: 0
-      - title: Actor
-        value: 23
-        type: 5
-      - title: Conversant
-        value: 26
-        type: 5
-      - title: Menu Text
-        value: 
-        type: 0
-      - title: Dialogue Text
-        value: 
-        type: 4
-      - title: Video File
-        value: 
-        type: 0
-      - title: Sequence
-        value: None()
-        type: 0
-      conversationID: 19
-      isRoot: 1
-      isGroup: 0
-      nodeColor: White
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks:
-      - originConversationID: 19
-        originDialogueID: 0
-        destinationConversationID: 19
-        destinationDialogueID: 1
-        isConnector: 0
-        priority: 2
-      conditionsString: 
-      userScript: 
-    - id: 1
-      fields:
-      - title: Title
-        value: 
-        type: 0
-      - title: Actor
-        value: 26
-        type: 5
-      - title: Conversant
-        value: 23
-        type: 5
-      - title: Menu Text
-        value: 
-        type: 0
-      - title: Dialogue Text
-        value: 'Hi, is this the Courier? '
-        type: 4
-      - title: Video File
-        value: 
-        type: 0
-      - title: Sequence
-        value: 
-        type: 0
-      conversationID: 19
-      isRoot: 0
-      isGroup: 0
-      nodeColor: White
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks:
-      - originConversationID: 19
-        originDialogueID: 1
-        destinationConversationID: 19
-        destinationDialogueID: 2
-        isConnector: 0
-        priority: 2
-      conditionsString: 
-      userScript: 
-    - id: 2
-      fields:
-      - title: Title
-        value: 
-        type: 0
-      - title: Actor
-        value: 23
-        type: 5
-      - title: Conversant
-        value: 26
-        type: 5
-      - title: Menu Text
-        value: 
-        type: 0
-      - title: Dialogue Text
-        value: 'Yes, this is the Courier. '
-        type: 4
-      - title: Video File
-        value: 
-        type: 0
-      - title: Sequence
-        value: 
-        type: 0
-      conversationID: 19
-      isRoot: 0
-      isGroup: 0
-      nodeColor: White
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks: []
-      conditionsString: 
-      userScript: 
-  - id: 20
-    fields:
-    - title: Title
       value: John Call
       type: 0
     - title: Description
       value: 
       type: 0
     - title: Actor
-      value: 26
+      value: 25
       type: 5
     - title: Conversant
-      value: 27
+      value: 26
       type: 5
     nodeColor: Red
     dialogueEntries:
@@ -599,10 +634,10 @@ MonoBehaviour:
         value: START
         type: 0
       - title: Actor
-        value: 26
+        value: 25
         type: 5
       - title: Conversant
-        value: 27
+        value: 26
         type: 5
       - title: Menu Text
         value: 
@@ -616,7 +651,7 @@ MonoBehaviour:
       - title: Sequence
         value: None()
         type: 0
-      conversationID: 20
+      conversationID: 19
       isRoot: 1
       isGroup: 0
       nodeColor: White
@@ -624,9 +659,9 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 20
+      - originConversationID: 19
         originDialogueID: 0
-        destinationConversationID: 20
+        destinationConversationID: 19
         destinationDialogueID: 2
         isConnector: 0
         priority: 2
@@ -638,10 +673,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 27
+        value: 26
         type: 5
       - title: Conversant
-        value: 26
+        value: 25
         type: 5
       - title: Menu Text
         value: 
@@ -657,6 +692,135 @@ MonoBehaviour:
       - title: Sequence
         value: 
         type: 0
+      conversationID: 19
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 19
+        originDialogueID: 2
+        destinationConversationID: 19
+        destinationDialogueID: 3
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+    - id: 3
+      fields:
+      - title: Title
+        value: 
+        type: 0
+      - title: Actor
+        value: 25
+        type: 5
+      - title: Conversant
+        value: 26
+        type: 5
+      - title: Menu Text
+        value: 
+        type: 0
+      - title: Dialogue Text
+        value: 'Ok, noted. I will get it done as soon as I received the documents. '
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 19
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: Item["Sales_Call_from_John"].State = "success"
+  - id: 20
+    fields:
+    - title: Title
+      value: Evacuation Notice
+      type: 0
+    - title: Description
+      value: 
+      type: 0
+    - title: Actor
+      value: 25
+      type: 5
+    - title: Conversant
+      value: 24
+      type: 5
+    nodeColor: Red
+    dialogueEntries:
+    - id: 0
+      fields:
+      - title: Title
+        value: START
+        type: 0
+      - title: Actor
+        value: 25
+        type: 5
+      - title: Conversant
+        value: 24
+        type: 5
+      - title: Menu Text
+        value: 
+        type: 0
+      - title: Dialogue Text
+        value: 
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: None()
+        type: 0
+      conversationID: 20
+      isRoot: 1
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 20
+        originDialogueID: 0
+        destinationConversationID: 20
+        destinationDialogueID: 2
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+    - id: 2
+      fields:
+      - title: Title
+        value: 
+        type: 0
+      - title: Actor
+        value: 24
+        type: 5
+      - title: Conversant
+        value: 25
+        type: 5
+      - title: Menu Text
+        value: 
+        type: 0
+      - title: Dialogue Text
+        value: 'Hi, this is the Facilities Manager. There is a fire in the basement
+          together with the flood that is causing alot of smoke to be created. Please
+          announce to the customers to evacuate to the top floor. '
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
       conversationID: 20
       isRoot: 0
       isGroup: 0
@@ -679,16 +843,16 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 26
+        value: 25
         type: 5
       - title: Conversant
-        value: 27
+        value: 24
         type: 5
       - title: Menu Text
         value: 
         type: 0
       - title: Dialogue Text
-        value: 'Ok, noted. I will get it done as soon as I received the documents. '
+        value: 'Ok, noted. I will proceed with the evacuation now. '
         type: 4
       - title: Video File
         value: 
@@ -705,137 +869,8 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
-      userScript: Item["Sales_Call_from_John"].State = "success"
-  - id: 21
-    fields:
-    - title: Title
-      value: Evacuation Notice
-      type: 0
-    - title: Description
-      value: 
-      type: 0
-    - title: Actor
-      value: 26
-      type: 5
-    - title: Conversant
-      value: 25
-      type: 5
-    nodeColor: Red
-    dialogueEntries:
-    - id: 0
-      fields:
-      - title: Title
-        value: START
-        type: 0
-      - title: Actor
-        value: 26
-        type: 5
-      - title: Conversant
-        value: 25
-        type: 5
-      - title: Menu Text
-        value: 
-        type: 0
-      - title: Dialogue Text
-        value: 
-        type: 4
-      - title: Video File
-        value: 
-        type: 0
-      - title: Sequence
-        value: None()
-        type: 0
-      conversationID: 21
-      isRoot: 1
-      isGroup: 0
-      nodeColor: White
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks:
-      - originConversationID: 21
-        originDialogueID: 0
-        destinationConversationID: 21
-        destinationDialogueID: 2
-        isConnector: 0
-        priority: 2
-      conditionsString: 
-      userScript: 
-    - id: 2
-      fields:
-      - title: Title
-        value: 
-        type: 0
-      - title: Actor
-        value: 25
-        type: 5
-      - title: Conversant
-        value: 26
-        type: 5
-      - title: Menu Text
-        value: 
-        type: 0
-      - title: Dialogue Text
-        value: 'Hi, this is the Facilities Manager. There is a possibility of flood
-          in the next hours. Kindly advise customers to come back on another day if
-          there is no urgent matters. '
-        type: 4
-      - title: Video File
-        value: 
-        type: 0
-      - title: Sequence
-        value: 
-        type: 0
-      conversationID: 21
-      isRoot: 0
-      isGroup: 0
-      nodeColor: White
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks:
-      - originConversationID: 21
-        originDialogueID: 2
-        destinationConversationID: 21
-        destinationDialogueID: 3
-        isConnector: 0
-        priority: 2
-      conditionsString: 
-      userScript: 
-    - id: 3
-      fields:
-      - title: Title
-        value: 
-        type: 0
-      - title: Actor
-        value: 26
-        type: 5
-      - title: Conversant
-        value: 25
-        type: 5
-      - title: Menu Text
-        value: 
-        type: 0
-      - title: Dialogue Text
-        value: 'Ok, noted. I will proceed with the evacuation now. '
-        type: 4
-      - title: Video File
-        value: 
-        type: 0
-      - title: Sequence
-        value: 
-        type: 0
-      conversationID: 21
-      isRoot: 0
-      isGroup: 0
-      nodeColor: White
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks: []
-      conditionsString: 
       userScript: Item["Evacuation_Notice"].State = "active";
-  - id: 22
+  - id: 21
     fields:
     - title: Title
       value: Sales Floor PA
@@ -874,7 +909,7 @@ MonoBehaviour:
       - title: Sequence
         value: None()
         type: 0
-      conversationID: 22
+      conversationID: 21
       isRoot: 1
       isGroup: 0
       nodeColor: White
@@ -882,27 +917,27 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 22
+      - originConversationID: 21
         originDialogueID: 0
-        destinationConversationID: 22
+        destinationConversationID: 21
         destinationDialogueID: 1
         isConnector: 0
         priority: 2
-      - originConversationID: 22
+      - originConversationID: 21
         originDialogueID: 0
-        destinationConversationID: 22
+        destinationConversationID: 21
         destinationDialogueID: 2
         isConnector: 0
         priority: 2
-      - originConversationID: 22
+      - originConversationID: 21
         originDialogueID: 0
-        destinationConversationID: 22
+        destinationConversationID: 21
         destinationDialogueID: 4
         isConnector: 0
         priority: 2
-      - originConversationID: 22
+      - originConversationID: 21
         originDialogueID: 0
-        destinationConversationID: 22
+        destinationConversationID: 21
         destinationDialogueID: 7
         isConnector: 0
         priority: 2
@@ -931,7 +966,7 @@ MonoBehaviour:
       - title: Sequence
         value: 
         type: 0
-      conversationID: 22
+      conversationID: 21
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -939,9 +974,9 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 22
+      - originConversationID: 21
         originDialogueID: 1
-        destinationConversationID: 22
+        destinationConversationID: 21
         destinationDialogueID: 3
         isConnector: 0
         priority: 2
@@ -970,7 +1005,7 @@ MonoBehaviour:
       - title: Sequence
         value: 
         type: 0
-      conversationID: 22
+      conversationID: 21
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -978,9 +1013,9 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 22
+      - originConversationID: 21
         originDialogueID: 2
-        destinationConversationID: 22
+        destinationConversationID: 21
         destinationDialogueID: 5
         isConnector: 0
         priority: 2
@@ -1012,7 +1047,7 @@ MonoBehaviour:
       - title: Sequence
         value: 
         type: 0
-      conversationID: 22
+      conversationID: 21
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -1045,7 +1080,7 @@ MonoBehaviour:
       - title: Sequence
         value: 
         type: 0
-      conversationID: 22
+      conversationID: 21
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -1053,14 +1088,14 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 22
+      - originConversationID: 21
         originDialogueID: 4
-        destinationConversationID: 22
+        destinationConversationID: 21
         destinationDialogueID: 6
         isConnector: 0
         priority: 2
-      conditionsString: Item["Pre_Flood_Notice"].State == "active" and Dialog[4].SimStatus
-        ~= "WasDisplayed"
+      conditionsString: 'Item["Pre_Flood_Notice"].State == "active" and Dialog[4].SimStatus
+        ~= "WasDisplayed" and Item["Evacuation_Notice"].State ~= "active" '
       userScript: 
     - id: 5
       fields:
@@ -1086,7 +1121,7 @@ MonoBehaviour:
       - title: Sequence
         value: 
         type: 0
-      conversationID: 22
+      conversationID: 21
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -1121,7 +1156,7 @@ MonoBehaviour:
       - title: Sequence
         value: 
         type: 0
-      conversationID: 22
+      conversationID: 21
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -1154,7 +1189,7 @@ MonoBehaviour:
       - title: Sequence
         value: 
         type: 0
-      conversationID: 22
+      conversationID: 21
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -1164,7 +1199,7 @@ MonoBehaviour:
       outgoingLinks: []
       conditionsString: 
       userScript: 
-  - id: 23
+  - id: 22
     fields:
     - title: Title
       value: Loan Enquiry
@@ -1173,7 +1208,456 @@ MonoBehaviour:
       value: 
       type: 0
     - title: Actor
-      value: 26
+      value: 25
+      type: 5
+    - title: Conversant
+      value: 27
+      type: 5
+    nodeColor: Red
+    dialogueEntries:
+    - id: 0
+      fields:
+      - title: Title
+        value: START
+        type: 0
+      - title: Actor
+        value: 25
+        type: 5
+      - title: Conversant
+        value: 27
+        type: 5
+      - title: Menu Text
+        value: 
+        type: 0
+      - title: Dialogue Text
+        value: 
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: None()
+        type: 0
+      conversationID: 22
+      isRoot: 1
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 22
+        originDialogueID: 0
+        destinationConversationID: 22
+        destinationDialogueID: 2
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+    - id: 2
+      fields:
+      - title: Title
+        value: 
+        type: 0
+      - title: Actor
+        value: 27
+        type: 5
+      - title: Conversant
+        value: 25
+        type: 5
+      - title: Menu Text
+        value: 
+        type: 0
+      - title: Dialogue Text
+        value: 'Hi, this is Peter. I am calling to check on the status of my loan
+          disbursement. I need it urgently within the next two days. '
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 22
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 22
+        originDialogueID: 2
+        destinationConversationID: 22
+        destinationDialogueID: 3
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+    - id: 3
+      fields:
+      - title: Title
+        value: Information
+        type: 0
+      - title: Actor
+        value: 27
+        type: 5
+      - title: Conversant
+        value: 25
+        type: 5
+      - title: Sequence
+        value: None()
+        type: 0
+      conversationID: 22
+      isRoot: 0
+      isGroup: 1
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 22
+        originDialogueID: 3
+        destinationConversationID: 22
+        destinationDialogueID: 4
+        isConnector: 0
+        priority: 2
+      - originConversationID: 22
+        originDialogueID: 3
+        destinationConversationID: 22
+        destinationDialogueID: 5
+        isConnector: 0
+        priority: 2
+      - originConversationID: 22
+        originDialogueID: 3
+        destinationConversationID: 22
+        destinationDialogueID: 8
+        isConnector: 0
+        priority: 2
+      - originConversationID: 22
+        originDialogueID: 3
+        destinationConversationID: 22
+        destinationDialogueID: 1
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+    - id: 4
+      fields:
+      - title: Title
+        value: 
+        type: 0
+      - title: Actor
+        value: 25
+        type: 5
+      - title: Conversant
+        value: 27
+        type: 5
+      - title: Menu Text
+        value: 'Ask for reference no. '
+        type: 0
+      - title: Dialogue Text
+        value: 'Sir, do you have your reference no. for your loan document? '
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 22
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 22
+        originDialogueID: 4
+        destinationConversationID: 22
+        destinationDialogueID: 6
+        isConnector: 0
+        priority: 2
+      conditionsString: Dialog[4].SimStatus ~= "WasDisplayed" and Item["Loan_Enquiry_Peter"].State
+        ~= "active"
+      userScript: 
+    - id: 5
+      fields:
+      - title: Title
+        value: 
+        type: 0
+      - title: Actor
+        value: 25
+        type: 5
+      - title: Conversant
+        value: 27
+        type: 5
+      - title: Menu Text
+        value: Ask for Full Name
+        type: 0
+      - title: Dialogue Text
+        value: 'Sir, what is your full name? '
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 22
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 22
+        originDialogueID: 5
+        destinationConversationID: 22
+        destinationDialogueID: 7
+        isConnector: 0
+        priority: 2
+      conditionsString: Dialog[5].SimStatus ~= "WasDisplayed" and Item["Loan_Enquiry_Peter"].State
+        ~= "active"
+      userScript: 
+    - id: 6
+      fields:
+      - title: Title
+        value: 
+        type: 0
+      - title: Actor
+        value: 27
+        type: 5
+      - title: Conversant
+        value: 25
+        type: 5
+      - title: Menu Text
+        value: 
+        type: 0
+      - title: Dialogue Text
+        value: It is LD011192
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 22
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 22
+        originDialogueID: 6
+        destinationConversationID: 22
+        destinationDialogueID: 3
+        isConnector: 1
+        priority: 2
+      conditionsString: 
+      userScript: 
+    - id: 7
+      fields:
+      - title: Title
+        value: 
+        type: 0
+      - title: Actor
+        value: 27
+        type: 5
+      - title: Conversant
+        value: 25
+        type: 5
+      - title: Menu Text
+        value: 
+        type: 0
+      - title: Dialogue Text
+        value: My full name is Peter Griffindor Lim.
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 22
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 22
+        originDialogueID: 7
+        destinationConversationID: 22
+        destinationDialogueID: 3
+        isConnector: 1
+        priority: 2
+      conditionsString: 
+      userScript: 
+    - id: 8
+      fields:
+      - title: Title
+        value: 
+        type: 0
+      - title: Actor
+        value: 25
+        type: 5
+      - title: Conversant
+        value: 27
+        type: 5
+      - title: Menu Text
+        value: 
+        type: 0
+      - title: Dialogue Text
+        value: 'Ok Sir, I have all the information I need. I will check on the status
+          of your loan process and call you back. Will that be alright? '
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 22
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 22
+        originDialogueID: 8
+        destinationConversationID: 22
+        destinationDialogueID: 9
+        isConnector: 0
+        priority: 2
+      conditionsString: Dialog[6].SimStatus == "WasDisplayed" and Dialog[7].SimStatus
+        == "WasDisplayed"
+      userScript: 
+    - id: 9
+      fields:
+      - title: Title
+        value: 
+        type: 0
+      - title: Actor
+        value: 27
+        type: 5
+      - title: Conversant
+        value: 25
+        type: 5
+      - title: Menu Text
+        value: 
+        type: 0
+      - title: Dialogue Text
+        value: 'Ok, thanks. Please call back as soon as you can. '
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 22
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: Item["Loan_Enquiry_Peter"].State = "success"
+    - id: 1
+      fields:
+      - title: Title
+        value: 
+        type: 0
+      - title: Actor
+        value: 25
+        type: 5
+      - title: Conversant
+        value: 27
+        type: 5
+      - title: Menu Text
+        value: 'That''s all I need. '
+        type: 0
+      - title: Dialogue Text
+        value: 'Ok Sir, I have all the information I need. I will check on the status
+          of your loan process and call you back. Will that be alright? '
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 22
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 22
+        originDialogueID: 1
+        destinationConversationID: 22
+        destinationDialogueID: 10
+        isConnector: 0
+        priority: 2
+      conditionsString: Dialog[6].SimStatus ~= "WasDisplayed" or Dialog[7].SimStatus
+        ~= "WasDisplayed"
+      userScript: 
+    - id: 10
+      fields:
+      - title: Title
+        value: 
+        type: 0
+      - title: Actor
+        value: 27
+        type: 5
+      - title: Conversant
+        value: 25
+        type: 5
+      - title: Menu Text
+        value: 
+        type: 0
+      - title: Dialogue Text
+        value: 'Ok, thanks. Please call back as soon as you can. '
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 22
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: Item["Loan_Enquiry_Peter"].State = "failure"
+  - id: 23
+    fields:
+    - title: Title
+      value: Valuer
+      type: 0
+    - title: Description
+      value: 
+      type: 0
+    - title: Actor
+      value: 25
       type: 5
     - title: Conversant
       value: 28
@@ -1186,7 +1670,7 @@ MonoBehaviour:
         value: START
         type: 0
       - title: Actor
-        value: 26
+        value: 25
         type: 5
       - title: Conversant
         value: 28
@@ -1228,14 +1712,13 @@ MonoBehaviour:
         value: 28
         type: 5
       - title: Conversant
-        value: 26
+        value: 25
         type: 5
       - title: Menu Text
         value: 
         type: 0
       - title: Dialogue Text
-        value: 'Hi, this is Peter. I am calling to check on the status of my loan
-          disbursement. I need it urgently within the next two days. '
+        value: 'Hi sir, how may I help you? '
         type: 4
       - title: Video File
         value: 
@@ -1257,72 +1740,30 @@ MonoBehaviour:
         destinationDialogueID: 3
         isConnector: 0
         priority: 2
+      - originConversationID: 23
+        originDialogueID: 2
+        destinationConversationID: 23
+        destinationDialogueID: 4
+        isConnector: 0
+        priority: 2
       conditionsString: 
       userScript: 
     - id: 3
       fields:
       - title: Title
-        value: Information
-        type: 0
-      - title: Actor
-        value: 28
-        type: 5
-      - title: Conversant
-        value: 26
-        type: 5
-      - title: Sequence
-        value: None()
-        type: 0
-      conversationID: 23
-      isRoot: 0
-      isGroup: 1
-      nodeColor: White
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks:
-      - originConversationID: 23
-        originDialogueID: 3
-        destinationConversationID: 23
-        destinationDialogueID: 4
-        isConnector: 0
-        priority: 2
-      - originConversationID: 23
-        originDialogueID: 3
-        destinationConversationID: 23
-        destinationDialogueID: 5
-        isConnector: 0
-        priority: 2
-      - originConversationID: 23
-        originDialogueID: 3
-        destinationConversationID: 23
-        destinationDialogueID: 8
-        isConnector: 0
-        priority: 2
-      - originConversationID: 23
-        originDialogueID: 3
-        destinationConversationID: 23
-        destinationDialogueID: 1
-        isConnector: 0
-        priority: 2
-      conditionsString: 
-      userScript: 
-    - id: 4
-      fields:
-      - title: Title
         value: 
         type: 0
       - title: Actor
-        value: 26
+        value: 25
         type: 5
       - title: Conversant
         value: 28
         type: 5
       - title: Menu Text
-        value: 'Ask for reference no. '
+        value: LD011192, Peter Griffindor Lim
         type: 0
       - title: Dialogue Text
-        value: 'Sir, do you have your reference no. for your loan document? '
+        value: 'I need the valuation for the loan LD0111192, Peter Griffindor Lim. '
         type: 4
       - title: Video File
         value: 
@@ -1339,13 +1780,46 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks:
       - originConversationID: 23
-        originDialogueID: 4
+        originDialogueID: 3
         destinationConversationID: 23
-        destinationDialogueID: 6
+        destinationDialogueID: 5
         isConnector: 0
         priority: 2
-      conditionsString: Dialog[4].SimStatus ~= "WasDisplayed" and Item["Loan_Enquiry_Peter"].State
-        ~= "active"
+      conditionsString: Item["Loan_Enquiry_Peter"].State == "active" and Dialog[3].SimStatus
+        ~= "WasDisplayed"
+      userScript: 
+    - id: 4
+      fields:
+      - title: Title
+        value: 
+        type: 0
+      - title: Actor
+        value: 25
+        type: 5
+      - title: Conversant
+        value: 28
+        type: 5
+      - title: Menu Text
+        value: Nothing
+        type: 0
+      - title: Dialogue Text
+        value: 
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 23
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
       userScript: 
     - id: 5
       fields:
@@ -1353,16 +1827,17 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 26
-        type: 5
-      - title: Conversant
         value: 28
         type: 5
+      - title: Conversant
+        value: 25
+        type: 5
       - title: Menu Text
-        value: Ask for Full Name
+        value: 
         type: 0
       - title: Dialogue Text
-        value: 'Sir, what is your full name? '
+        value: 'I think the value for that loan is $200,000. I will forward you the
+          valuation report. '
         type: 4
       - title: Video File
         value: 
@@ -1381,97 +1856,18 @@ MonoBehaviour:
       - originConversationID: 23
         originDialogueID: 5
         destinationConversationID: 23
-        destinationDialogueID: 7
+        destinationDialogueID: 6
         isConnector: 0
         priority: 2
-      conditionsString: Dialog[5].SimStatus ~= "WasDisplayed" and Item["Loan_Enquiry_Peter"].State
-        ~= "active"
+      conditionsString: 
       userScript: 
     - id: 6
       fields:
       - title: Title
-        value: 
+        value: New Dialogue
         type: 0
       - title: Actor
-        value: 28
-        type: 5
-      - title: Conversant
-        value: 26
-        type: 5
-      - title: Menu Text
-        value: 
-        type: 0
-      - title: Dialogue Text
-        value: It is LD011192
-        type: 4
-      - title: Video File
-        value: 
-        type: 0
-      - title: Sequence
-        value: 
-        type: 0
-      conversationID: 23
-      isRoot: 0
-      isGroup: 0
-      nodeColor: White
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks:
-      - originConversationID: 23
-        originDialogueID: 6
-        destinationConversationID: 23
-        destinationDialogueID: 3
-        isConnector: 1
-        priority: 2
-      conditionsString: 
-      userScript: 
-    - id: 7
-      fields:
-      - title: Title
-        value: 
-        type: 0
-      - title: Actor
-        value: 28
-        type: 5
-      - title: Conversant
-        value: 26
-        type: 5
-      - title: Menu Text
-        value: 
-        type: 0
-      - title: Dialogue Text
-        value: My full name is Peter Griffindor Lim.
-        type: 4
-      - title: Video File
-        value: 
-        type: 0
-      - title: Sequence
-        value: 
-        type: 0
-      conversationID: 23
-      isRoot: 0
-      isGroup: 0
-      nodeColor: White
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks:
-      - originConversationID: 23
-        originDialogueID: 7
-        destinationConversationID: 23
-        destinationDialogueID: 3
-        isConnector: 1
-        priority: 2
-      conditionsString: 
-      userScript: 
-    - id: 8
-      fields:
-      - title: Title
-        value: 
-        type: 0
-      - title: Actor
-        value: 26
+        value: 25
         type: 5
       - title: Conversant
         value: 28
@@ -1480,48 +1876,7 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Dialogue Text
-        value: 'Ok Sir, I have all the information I need. I will check on the status
-          of your loan process and call you back. Will that be alright? '
-        type: 4
-      - title: Video File
-        value: 
-        type: 0
-      - title: Sequence
-        value: 
-        type: 0
-      conversationID: 23
-      isRoot: 0
-      isGroup: 0
-      nodeColor: White
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks:
-      - originConversationID: 23
-        originDialogueID: 8
-        destinationConversationID: 23
-        destinationDialogueID: 9
-        isConnector: 0
-        priority: 2
-      conditionsString: Dialog[6].SimStatus == "WasDisplayed" and Dialog[7].SimStatus
-        == "WasDisplayed"
-      userScript: 
-    - id: 9
-      fields:
-      - title: Title
-        value: 
-        type: 0
-      - title: Actor
-        value: 28
-        type: 5
-      - title: Conversant
-        value: 26
-        type: 5
-      - title: Menu Text
-        value: 
-        type: 0
-      - title: Dialogue Text
-        value: 'Ok, thanks. Please call back as soon as you can. '
+        value: 'Ok thanks. '
         type: 4
       - title: Video File
         value: 
@@ -1538,93 +1893,20 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
-      userScript: Item["Loan_Enquiry_Peter"].State = "active"
-    - id: 1
-      fields:
-      - title: Title
-        value: 
-        type: 0
-      - title: Actor
-        value: 26
-        type: 5
-      - title: Conversant
-        value: 28
-        type: 5
-      - title: Menu Text
-        value: 'That''s all I need. '
-        type: 0
-      - title: Dialogue Text
-        value: 
-        type: 4
-      - title: Video File
-        value: 
-        type: 0
-      - title: Sequence
-        value: 
-        type: 0
-      conversationID: 23
-      isRoot: 0
-      isGroup: 0
-      nodeColor: White
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks:
-      - originConversationID: 23
-        originDialogueID: 1
-        destinationConversationID: 23
-        destinationDialogueID: 10
-        isConnector: 0
-        priority: 2
-      conditionsString: Dialog[6].SimStatus ~= "WasDisplayed" and Dialog[7].SimStatus
-        ~= "WasDisplayed"
-      userScript: 
-    - id: 10
-      fields:
-      - title: Title
-        value: 
-        type: 0
-      - title: Actor
-        value: 28
-        type: 5
-      - title: Conversant
-        value: 26
-        type: 5
-      - title: Menu Text
-        value: 
-        type: 0
-      - title: Dialogue Text
-        value: 'Ok, thanks. Please call back as soon as you can. '
-        type: 4
-      - title: Video File
-        value: 
-        type: 0
-      - title: Sequence
-        value: 
-        type: 0
-      conversationID: 23
-      isRoot: 0
-      isGroup: 0
-      nodeColor: White
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks: []
-      conditionsString: 
-      userScript: Item["Loan_Enquiry_Peter"].State = "active"
+      userScript: 'Item["Peter_Valuation_Report"].State = "active" '
   - id: 24
     fields:
     - title: Title
-      value: Valuer
+      value: Pre Flood Notice
       type: 0
     - title: Description
       value: 
       type: 0
     - title: Actor
-      value: 26
+      value: 25
       type: 5
     - title: Conversant
-      value: 29
+      value: 24
       type: 5
     nodeColor: Red
     dialogueEntries:
@@ -1634,10 +1916,10 @@ MonoBehaviour:
         value: START
         type: 0
       - title: Actor
-        value: 26
+        value: 25
         type: 5
       - title: Conversant
-        value: 29
+        value: 24
         type: 5
       - title: Menu Text
         value: 
@@ -1673,16 +1955,18 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 29
+        value: 24
         type: 5
       - title: Conversant
-        value: 26
+        value: 25
         type: 5
       - title: Menu Text
         value: 
         type: 0
       - title: Dialogue Text
-        value: 'Hi sir, how may I help you? '
+        value: Hi, this is the Facilities Manager. There is a possibility of flood
+          in the next few hour if the rain persist. I would advice that you can notify
+          the customers that have no urgent matter to come back on another day.
         type: 4
       - title: Video File
         value: 
@@ -1704,12 +1988,6 @@ MonoBehaviour:
         destinationDialogueID: 3
         isConnector: 0
         priority: 2
-      - originConversationID: 24
-        originDialogueID: 2
-        destinationConversationID: 24
-        destinationDialogueID: 4
-        isConnector: 0
-        priority: 2
       conditionsString: 
       userScript: 
     - id: 3
@@ -1718,16 +1996,16 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 26
+        value: 25
         type: 5
       - title: Conversant
-        value: 29
+        value: 24
         type: 5
       - title: Menu Text
-        value: LD011192, Peter Griffindor Lim
+        value: 
         type: 0
       - title: Dialogue Text
-        value: 'I need the valuation for the loan LD0111192, Peter Griffindor Lim. '
+        value: 'Ok, noted. '
         type: 4
       - title: Video File
         value: 
@@ -1742,23 +2020,116 @@ MonoBehaviour:
       delaySimStatus: 0
       falseConditionAction: Block
       conditionPriority: 2
-      outgoingLinks:
-      - originConversationID: 24
-        originDialogueID: 3
-        destinationConversationID: 24
-        destinationDialogueID: 5
-        isConnector: 0
-        priority: 2
-      conditionsString: Item["Loan_Enquiry_Peter"].State == "active" and Dialog[3].SimStatus
-        ~= "WasDisplayed"
-      userScript: 
-    - id: 4
+      outgoingLinks: []
+      conditionsString: 
+      userScript: Item["Pre_Flood_Notice"].State = "active";
+  - id: 25
+    fields:
+    - title: Title
+      value: Fire Door Level 1
+      type: 0
+    - title: Description
+      value: 
+      type: 0
+    - title: Actor
+      value: 29
+      type: 5
+    - title: Conversant
+      value: 1
+      type: 5
+    nodeColor: Red
+    dialogueEntries:
+    - id: 0
       fields:
       - title: Title
-        value: 
+        value: START
         type: 0
       - title: Actor
-        value: 26
+        value: 29
+        type: 5
+      - title: Conversant
+        value: 1
+        type: 5
+      - title: Menu Text
+        value: 
+        type: 0
+      - title: Dialogue Text
+        value: 
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: None()
+        type: 0
+      conversationID: 25
+      isRoot: 1
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 25
+        originDialogueID: 0
+        destinationConversationID: 25
+        destinationDialogueID: 1
+        isConnector: 0
+        priority: 2
+      - originConversationID: 25
+        originDialogueID: 0
+        destinationConversationID: 25
+        destinationDialogueID: 2
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+    - id: 1
+      fields:
+      - title: Title
+        value: Time to Evacuate
+        type: 0
+      - title: Actor
+        value: 1
+        type: 5
+      - title: Conversant
+        value: 29
+        type: 5
+      - title: Menu Text
+        value: Evacuate to Level 12
+        type: 0
+      - title: Dialogue Text
+        value: 
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 25
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 25
+        originDialogueID: 1
+        destinationConversationID: 25
+        destinationDialogueID: 3
+        isConnector: 0
+        priority: 2
+      conditionsString: Item["Evacuation_Notice"].State == "success"
+      userScript: 
+    - id: 2
+      fields:
+      - title: Title
+        value: Nothing
+        type: 0
+      - title: Actor
+        value: 1
         type: 5
       - title: Conversant
         value: 29
@@ -1775,169 +2146,6 @@ MonoBehaviour:
       - title: Sequence
         value: 
         type: 0
-      conversationID: 24
-      isRoot: 0
-      isGroup: 0
-      nodeColor: White
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks: []
-      conditionsString: 
-      userScript: 
-    - id: 5
-      fields:
-      - title: Title
-        value: 
-        type: 0
-      - title: Actor
-        value: 29
-        type: 5
-      - title: Conversant
-        value: 26
-        type: 5
-      - title: Menu Text
-        value: 
-        type: 0
-      - title: Dialogue Text
-        value: 'I think the value for that loan is $200,000. I will forward you the
-          valuation report. '
-        type: 4
-      - title: Video File
-        value: 
-        type: 0
-      - title: Sequence
-        value: 
-        type: 0
-      conversationID: 24
-      isRoot: 0
-      isGroup: 0
-      nodeColor: White
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks:
-      - originConversationID: 24
-        originDialogueID: 5
-        destinationConversationID: 24
-        destinationDialogueID: 6
-        isConnector: 0
-        priority: 2
-      conditionsString: 
-      userScript: 
-    - id: 6
-      fields:
-      - title: Title
-        value: New Dialogue
-        type: 0
-      - title: Actor
-        value: 26
-        type: 5
-      - title: Conversant
-        value: 29
-        type: 5
-      - title: Menu Text
-        value: 
-        type: 0
-      - title: Dialogue Text
-        value: 'Ok thanks. '
-        type: 4
-      - title: Video File
-        value: 
-        type: 0
-      - title: Sequence
-        value: 
-        type: 0
-      conversationID: 24
-      isRoot: 0
-      isGroup: 0
-      nodeColor: White
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks: []
-      conditionsString: 
-      userScript: 'Item["Peter_Valuation_Report"].State = "active" '
-  - id: 25
-    fields:
-    - title: Title
-      value: Pre Flood Notice
-      type: 0
-    - title: Description
-      value: 
-      type: 0
-    - title: Actor
-      value: 26
-      type: 5
-    - title: Conversant
-      value: 25
-      type: 5
-    nodeColor: Red
-    dialogueEntries:
-    - id: 0
-      fields:
-      - title: Title
-        value: START
-        type: 0
-      - title: Actor
-        value: 26
-        type: 5
-      - title: Conversant
-        value: 25
-        type: 5
-      - title: Menu Text
-        value: 
-        type: 0
-      - title: Dialogue Text
-        value: 
-        type: 4
-      - title: Video File
-        value: 
-        type: 0
-      - title: Sequence
-        value: None()
-        type: 0
-      conversationID: 25
-      isRoot: 1
-      isGroup: 0
-      nodeColor: White
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks:
-      - originConversationID: 25
-        originDialogueID: 0
-        destinationConversationID: 25
-        destinationDialogueID: 2
-        isConnector: 0
-        priority: 2
-      conditionsString: 
-      userScript: 
-    - id: 2
-      fields:
-      - title: Title
-        value: 
-        type: 0
-      - title: Actor
-        value: 25
-        type: 5
-      - title: Conversant
-        value: 26
-        type: 5
-      - title: Menu Text
-        value: 
-        type: 0
-      - title: Dialogue Text
-        value: Hi, this is the Facilities Manager. There is a possibility of flood
-          in the next few hour if the rain persist. I would advice that you can notify
-          the customers that have no urgent matter to come back on another day.
-        type: 4
-      - title: Video File
-        value: 
-        type: 0
-      - title: Sequence
-        value: 
-        type: 0
       conversationID: 25
       isRoot: 0
       isGroup: 0
@@ -1945,13 +2153,7 @@ MonoBehaviour:
       delaySimStatus: 0
       falseConditionAction: Block
       conditionPriority: 2
-      outgoingLinks:
-      - originConversationID: 25
-        originDialogueID: 2
-        destinationConversationID: 25
-        destinationDialogueID: 3
-        isConnector: 0
-        priority: 2
+      outgoingLinks: []
       conditionsString: 
       userScript: 
     - id: 3
@@ -1960,16 +2162,16 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 26
+        value: 29
         type: 5
       - title: Conversant
-        value: 25
+        value: 1
         type: 5
       - title: Menu Text
         value: 
         type: 0
       - title: Dialogue Text
-        value: 'Ok, noted. '
+        value: Moving to Level 12
         type: 4
       - title: Video File
         value: 
@@ -1986,4 +2188,4 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
-      userScript: Item["Pre_Flood_Notice"].State = "active";
+      userScript: Item["Evacuate_to_Level_12"].State = "success"

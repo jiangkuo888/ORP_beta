@@ -4,6 +4,9 @@ using HutongGames.PlayMaker;
 using System.Collections.Generic;
 using dbConnect;
 using System.IO;
+using System.Net;
+using System.Linq;
+using System.Text;
 
 public class GameManagerVik : Photon.MonoBehaviour {
 
@@ -41,19 +44,42 @@ public class GameManagerVik : Photon.MonoBehaviour {
 		
 		photonView.RPC ("setRoleAvailable",PhotonTargets.AllBuffered,PlayerPrefs.GetString("playerName"));
 		PhotonNetwork.LeaveRoom();
-
-
-		//
+	
+		//replay footage saving
 		EZReplayManager.get.stop ();
 
-		//create folder for 
-
+		//create folder for game
+		string currentDir = Directory.GetCurrentDirectory ();
+		Debug.Log (currentDir);
+		Directory.CreateDirectory (currentDir + "\\playback");
 		string filePath = "playback/" + sessionID.ToString();
 		EZReplayManager.get.saveToFile(filePath);
-		//EZReplayManager.get.play (0);
-		//EZReplayManager.get.loadFromFile(sessionID.ToString());
-		//this.playback = true;
 
+		//upload files
+		WWWForm sendForm = new WWWForm();
+		string fileDir = currentDir + "\\playback\\" + sessionID.ToString();
+		Debug.Log(fileDir);
+		byte[] something = File.ReadAllBytes(fileDir);
+		Debug.Log(something.Length);
+		sendForm.AddBinaryData("capture", something, sessionID.ToString());
+		sendForm.AddField("load", "UP");
+		WWW w = new WWW("http://www.sgi-singapore.com/projects/ORILE/loadFiles.php", sendForm);
+		
+		StartCoroutine(WaitForRequest(w));
+
+	}
+
+	IEnumerator WaitForRequest(WWW www)
+	{
+		yield return www;
+		
+		// check for errors
+		if (www.error == null)
+		{
+			Debug.Log("WWW Ok!: " + www.data);
+		} else {
+			Debug.Log("WWW Error: "+ www.error);
+		}    
 	}
 
 	void OnGUI(){
@@ -160,6 +186,32 @@ public class GameManagerVik : Photon.MonoBehaviour {
 		}
 	}
 
+	//set objects for recording
+	void set4Recording()
+	{
+		//find the objects for recording
+		GameObject[] npc = GameObject.FindGameObjectsWithTag ("NPC");
+		foreach (GameObject npcSingle in npc)
+			EZReplayManager.get.mark4Recording (npcSingle);
+
+		GameObject[] door = GameObject.FindGameObjectsWithTag ("door");
+		foreach (GameObject doorSingle in door)
+			EZReplayManager.get.mark4Recording (doorSingle);
+
+		GameObject[] pickable = GameObject.FindGameObjectsWithTag ("pickable");
+		foreach (GameObject pickableSingle in pickable)
+			EZReplayManager.get.mark4Recording (pickableSingle);
+
+		GameObject[] interactive = GameObject.FindGameObjectsWithTag ("interactive");
+		foreach (GameObject interactiveSingle in interactive)
+			EZReplayManager.get.mark4Recording (interactiveSingle);
+
+	//	GameObject[] maincamera = GameObject.FindGameObjectsWithTag ("MainCamera");
+	//	foreach (GameObject maincameraSingle in maincamera)
+	//		EZReplayManager.get.mark4Recording (maincameraSingle);
+
+	}
+
     void StartGame()
     {
 
@@ -260,11 +312,13 @@ public class GameManagerVik : Photon.MonoBehaviour {
 
 		}
 
-
+		set4Recording ();
 		EZReplayManager.get.record();
 
 
     }
+
+
 	[RPC]
 
 	void setRoleUnavailable(string role){
@@ -281,5 +335,6 @@ public class GameManagerVik : Photon.MonoBehaviour {
     void OnDisconnectedFromPhoton()
     {
         Debug.LogWarning("OnDisconnectedFromPhoton");
-    }    
+    } 
+
 }

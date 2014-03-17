@@ -921,6 +921,11 @@ public sealed class EZReplayManager : MonoBehaviour {
 				
 				if (GUI.Button (new Rect (338,72,40, 23),closeIcon)) {
 					switchModeTo(ViewMode.LIVE);
+
+					GameObject gameManager = GameObject.Find("GameManager");  
+					MainMenuVik vikky = gameManager.GetComponent<MainMenuVik>();
+						vikky.isPlayback = false;
+						vikky.isPlaybackList = true;
 				}				
 				// POSITION MANIPULATION TOOLS //-->
 			}

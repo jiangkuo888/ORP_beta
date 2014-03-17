@@ -4,6 +4,8 @@ using PixelCrushers.DialogueSystem;
 using PixelCrushers.DialogueSystem.ChatMapper;
 
 public class DeskMode : MonoBehaviour {
+
+	public GUISkin customSkin;
 	public string deskOwner;
 	
 	public enum DeskModeSubMode: int{FileMode,PCMode,pageMode,InfoMode,None};
@@ -86,7 +88,7 @@ public class DeskMode : MonoBehaviour {
 
 			GameObject.Find ("EmailIcon").GetComponent<Email>().clearNewEmail();
 			//nofunction added
-			if(GUI.Button( new LTRect(w/2 - 50f, .9f*h - 100f, 100f, 30f ).rect, "Send"))
+			if(GUI.Button( new LTRect(w/2 - 50f, .9f*h - 100f, 100f, 30f ).rect,"Send",customSkin.button))
 			{
 				if(this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents.Length>0)
 				{
@@ -109,7 +111,7 @@ public class DeskMode : MonoBehaviour {
 				
 				// accept the document
 			}
-			if(GUI.Button( new LTRect(w/2 - 50f, .9f*h - 50f, 100f, 30f ).rect, "Reject"))
+			if(GUI.Button( new LTRect(w/2 - 50f, .9f*h - 50f, 100f, 30f ).rect, "Reject",customSkin.button))
 			{
 				if(this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents.Length>0)
 				{
@@ -120,7 +122,7 @@ public class DeskMode : MonoBehaviour {
 			}
 
 
-			if(GUI.Button( new LTRect(w/2 - 50f, .9f*h, 100f, 30f ).rect, "Pick up"))
+			if(GUI.Button( new LTRect(w/2 - 50f, .9f*h, 100f, 30f ).rect, "Pick up",customSkin.button))
 			{
 				if(this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents.Length>0)
 				{
@@ -166,7 +168,7 @@ public class DeskMode : MonoBehaviour {
 
 
 			
-			if(GUI.Button(new LTRect(w/2 - 50f, .9f*h - 150f, 100f, 30f ).rect, "Read"))
+			if(GUI.Button(new LTRect(w/2 - 50f, .9f*h - 150f, 100f, 30f ).rect, "Read",customSkin.button))
 			{
 				// read the document
 				if(this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents.Length>0)
@@ -189,7 +191,7 @@ public class DeskMode : MonoBehaviour {
 			
 			
 			//functions in use
-			if(GUI.Button( new LTRect(w - 200f, .9f*h - 50f, 100f, 50f ).rect, "Next"))
+			if(GUI.Button( new LTRect(w - 200f, .9f*h - 50f, 100f, 50f ).rect, "Next",customSkin.button))
 			{
 				
 				
@@ -227,7 +229,7 @@ public class DeskMode : MonoBehaviour {
 				}
 				
 			}
-			if(GUI.Button( new LTRect(100f, .9f*h - 50f, 100f, 50f ).rect, "Back"))
+			if(GUI.Button( new LTRect(100f, .9f*h - 50f, 100f, 50f ).rect, "Back",customSkin.button))
 			{
 				
 				
@@ -263,7 +265,7 @@ public class DeskMode : MonoBehaviour {
 				}
 				
 			}
-			if(GUI.Button( new LTRect(1.0f*w - 100f, 1.0f*h - 50f, 100f, 50f ).rect, "Back to DeskMode"))
+			if(GUI.Button( new LTRect(1.0f*w - 100f, 1.0f*h - 50f, 100f, 50f ).rect, "Back to DeskMode",customSkin.button))
 			{
 				mode = DeskModeSubMode.None;
 				moveCameraToDesk();
@@ -276,13 +278,13 @@ public class DeskMode : MonoBehaviour {
 		case DeskModeSubMode.pageMode:
 		{
 			
-			if(GUI.Button( new LTRect(w - 200f, .9f*h - 50f, 100f, 50f ).rect, "Next Page"))
+			if(GUI.Button( new LTRect(w - 200f, .9f*h - 50f, 100f, 50f ).rect, "Next Page",customSkin.button))
 			{
 				this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].GetComponent<pageData>().showNextPage();
 			}
 			
 			
-			if(GUI.Button( new LTRect(100f, .9f*h - 50f, 100f, 50f ).rect, "Previous Page"))
+			if(GUI.Button( new LTRect(100f, .9f*h - 50f, 100f, 50f ).rect, "Previous Page",customSkin.button))
 			{
 				this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].GetComponent<pageData>().showPreviousPage();
 			}
@@ -293,7 +295,7 @@ public class DeskMode : MonoBehaviour {
 
 				if(GUI.Button( new LTRect(1.0f*w - 100f, 1.0f*h - 50f, 100f, 50f ).rect, "Back to Documents"))
 				{
-					
+				Camera.main.GetComponent<magnify>().disableZoom();
 				mode = DeskModeSubMode.FileMode;
 					this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].GetComponent<pageData>().lastPage = false;
 					this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].GetComponent<ObjectViewer>().playCloseFileAnim();
@@ -304,9 +306,11 @@ public class DeskMode : MonoBehaviour {
 			
 			
 			
-			if(GUI.Button( new LTRect(.5f*w - 50f, .9f*h - 50f, 100f, 50f ).rect, "Verify"))
+			if(GUI.Button( new LTRect(.5f*w - 50f, .9f*h - 50f, 100f, 50f ).rect, "Verify",customSkin.button))
 			{
-				
+				Camera.main.GetComponent<magnify>().disableZoom();
+
+
 				Transform thisTr = this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].transform;
 				GameObject pc = GameObject.Find ("PCMode").gameObject;
 				pc.transform.position = new Vector3(thisTr.position.x + .35f, thisTr.position.y-.1f , thisTr.position.z);
@@ -334,21 +338,21 @@ public class DeskMode : MonoBehaviour {
 
 
 
-			if(GUI.Button( new LTRect(w - 200f, .9f*h - 50f, 100f, 50f ).rect, "Next Page"))
+			if(GUI.Button( new LTRect(w - 200f, .9f*h - 50f, 100f, 50f ).rect, "Next Page",customSkin.button))
 			{
 				this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].GetComponent<pageData>().showNextPage();
 			}
 			
 			
-			if(GUI.Button( new LTRect(100f, .9f*h - 50f, 100f, 50f ).rect, "Previous Page"))
+			if(GUI.Button( new LTRect(100f, .9f*h - 50f, 100f, 50f ).rect, "Previous Page",customSkin.button))
 			{
 				this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].GetComponent<pageData>().showPreviousPage();
 			}
 
 
-			if(GUI.Button( new LTRect(1.0f*w - 100f, 1.0f*h - 50f, 100f, 50f ).rect, "Back to read page"))
+			if(GUI.Button( new LTRect(1.0f*w - 100f, 1.0f*h - 50f, 100f, 50f ).rect, "Back to read page",customSkin.button))
 			{
-
+				Camera.main.GetComponent<magnify>().enableZoom();
 				if(GameObject.Find("PCscreen").GetComponent<pcMode>().enabled == true)
 					GameObject.Find ("PCscreen").GetComponent<pcMode>().enabled = false;
 				
@@ -378,7 +382,7 @@ public class DeskMode : MonoBehaviour {
 
 		case DeskModeSubMode.InfoMode:
 		{
-			if(GUI.Button( new LTRect(1.0f*w - 100f, 1.0f*h - 50f, 100f, 50f ).rect, "Back to Compare mode"))
+			if(GUI.Button( new LTRect(1.0f*w - 100f, 1.0f*h - 50f, 100f, 50f ).rect, "Back to Compare mode",customSkin.button))
 			{
 
 				Transform thisTr = this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].transform;
@@ -417,7 +421,7 @@ public class DeskMode : MonoBehaviour {
 
 		case DeskModeSubMode.None:
 		{
-			if(GUI.Button( new LTRect(1.0f*w - 100f, 1.0f*h - 50f, 100f, 50f ).rect, "Quit DeskMode"))
+			if(GUI.Button( new LTRect(1.0f*w - 100f, 1.0f*h - 50f, 100f, 50f ).rect, "Quit DeskMode",customSkin.button))
 			{
 				if(GameObject.Find ("InventoryObj").GetComponent<inventory>().inventoryObject !=null)
 					GameObject.Find ("InventoryObj").GetComponent<GUITexture>().enabled = true;
