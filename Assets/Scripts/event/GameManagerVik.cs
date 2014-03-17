@@ -190,25 +190,26 @@ public class GameManagerVik : Photon.MonoBehaviour {
 	void set4Recording()
 	{
 		//find the objects for recording
-		GameObject[] npc = GameObject.FindGameObjectsWithTag ("NPC");
-		foreach (GameObject npcSingle in npc)
-			EZReplayManager.get.mark4Recording (npcSingle);
+		//GameObject[] npc = GameObject.FindGameObjectsWithTag ("NPC");
+		//foreach (GameObject npcSingle in npc)
+		//	EZReplayManager.get.mark4Recording (npcSingle);
 
-		GameObject[] door = GameObject.FindGameObjectsWithTag ("door");
-		foreach (GameObject doorSingle in door)
-			EZReplayManager.get.mark4Recording (doorSingle);
+		//GameObject[] door = GameObject.FindGameObjectsWithTag ("doorSwing");
+		//foreach (GameObject doorSingle in door)
+		//	EZReplayManager.get.mark4Recording (doorSingle);
 
-		GameObject[] pickable = GameObject.FindGameObjectsWithTag ("pickable");
-		foreach (GameObject pickableSingle in pickable)
-			EZReplayManager.get.mark4Recording (pickableSingle);
+		//GameObject[] pickable = GameObject.FindGameObjectsWithTag ("pickable");
+		//foreach (GameObject pickableSingle in pickable)
+		//	EZReplayManager.get.mark4Recording (pickableSingle);
 
-		GameObject[] interactive = GameObject.FindGameObjectsWithTag ("interactive");
-		foreach (GameObject interactiveSingle in interactive)
-			EZReplayManager.get.mark4Recording (interactiveSingle);
+		//GameObject[] interactive = GameObject.FindGameObjectsWithTag ("interactive");
+		//foreach (GameObject interactiveSingle in interactive)
+		//	EZReplayManager.get.mark4Recording (interactiveSingle);
 
 	//	GameObject[] maincamera = GameObject.FindGameObjectsWithTag ("MainCamera");
 	//	foreach (GameObject maincameraSingle in maincamera)
 	//		EZReplayManager.get.mark4Recording (maincameraSingle);
+
 
 	}
 
