@@ -23670,26 +23670,26 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 50
-        y: 100
-        width: 150
+        y: 148
+        width: 159
         height: 48
       isBreakpoint: 0
       isSequence: 0
       hideUnused: 0
       transitions:
       - fsmEvent:
-          name: OnConversationEnd
-          isSystemEvent: 0
-          isGlobal: 0
-        toState: Check Quest State
-        linkStyle: 0
-        linkConstraint: 0
-        colorIndex: 0
-      - fsmEvent:
           name: WomenGoToWork
           isSystemEvent: 0
           isGlobal: 0
         toState: GoToWorkDesk
+        linkStyle: 0
+        linkConstraint: 0
+        colorIndex: 0
+      - fsmEvent:
+          name: OnConversationStart
+          isSystemEvent: 0
+          isGlobal: 0
+        toState: inConversation
         linkStyle: 0
         linkConstraint: 0
         colorIndex: 0
@@ -23727,7 +23727,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 318
-        y: 109
+        y: 157
         width: 142
         height: 48
       isBreakpoint: 0
@@ -23804,7 +23804,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 335
-        y: 218
+        y: 266
         width: 123
         height: 32
       isBreakpoint: 0
@@ -24003,7 +24003,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 136
-        y: 252
+        y: 300
         width: 100
         height: 16
       isBreakpoint: 0
@@ -24083,11 +24083,86 @@ MonoBehaviour:
         - stopOnExit
         paramDataPos: 0000000000000000000000000000000002000000010000000100000004000000080000000d0000000d0000000d000000
         paramByteDataSize: 000000000000000000000000020000000200000000000000000000000400000005000000000000000000000001000000
+    - name: inConversation
+      description: 
+      colorIndex: 0
+      position:
+        serializedVersion: 2
+        x: 292
+        y: 114
+        width: 150
+        height: 32
+      isBreakpoint: 0
+      isSequence: 0
+      hideUnused: 0
+      transitions:
+      - fsmEvent:
+          name: OnConversationEnd
+          isSystemEvent: 0
+          isGlobal: 0
+        toState: Check Quest State
+        linkStyle: 0
+        linkConstraint: 0
+        colorIndex: 0
+      actionData:
+        actionNames:
+        - HutongGames.PlayMaker.Actions.PlayAnimation
+        customNames:
+        - 
+        actionEnabled: 01
+        actionIsOpen: 01
+        actionStartIndex: 00000000
+        actionHashCodes: 6e06efc0
+        unityObjectParams: []
+        fsmGameObjectParams: []
+        fsmOwnerDefaultParams:
+        - ownerOption: 0
+          gameObject:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: {fileID: 0}
+        animationCurveParams: []
+        functionCallParams: []
+        fsmTemplateControlParams: []
+        fsmEventTargetParams: []
+        fsmPropertyParams: []
+        layoutOptionParams: []
+        fsmStringParams:
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: FemaleB_NodHead
+        fsmObjectParams: []
+        fsmVarParams: []
+        byteData: 040000009a99993e0000
+        arrayParamSizes: 
+        arrayParamTypes: []
+        customTypeSizes: 
+        customTypeNames: []
+        paramDataType: 1400000012000000070000000f000000170000001700000001000000
+        paramName:
+        - gameObject
+        - animName
+        - playMode
+        - blendTime
+        - finishEvent
+        - loopEvent
+        - stopOnExit
+        paramDataPos: 00000000000000000000000004000000090000000900000009000000
+        paramByteDataSize: 00000000000000000400000005000000000000000000000001000000
     events:
     - name: FINISHED
       isSystemEvent: 1
       isGlobal: 0
     - name: OnConversationEnd
+      isSystemEvent: 0
+      isGlobal: 0
+    - name: OnConversationStart
       isSystemEvent: 0
       isGlobal: 0
     - name: QUEST_FAILURE
@@ -24192,6 +24267,7 @@ Animation:
   - {fileID: 7400000, guid: 314150d0ffb5f3a43b84dc9acc981deb, type: 3}
   - {fileID: 7400000, guid: a8486cc8d9ee26c4b97fa8b8df313cf0, type: 3}
   - {fileID: 7400000, guid: 5cc370eb763bdee48b1e232e8bb6c2a2, type: 3}
+  - {fileID: 7400000, guid: f4ad2eb56e8bb6f4aa1ed94f92e88fff, type: 3}
   m_WrapMode: 0
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
@@ -37956,7 +38032,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fsm:
     usedInTemplate: {fileID: 0}
-    name: Photon Network Synch FSM
+    name: Normal Day Jenny
     startState: WaitForPlayer
     states:
     - name: MoveTo_Wp
@@ -38404,8 +38480,8 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 56.453125
-        y: 195.59375
+        x: 70.453125
+        y: 177.59375
         width: 150
         height: 32
       isBreakpoint: 0
@@ -38452,7 +38528,7 @@ MonoBehaviour:
           tooltip: 
           showInInspector: 0
           networkSync: 0
-          value: FemaleB_idle
+          value: FemaleB_NodHead
         fsmObjectParams: []
         fsmVarParams: []
         byteData: 040000009a99993e0000
@@ -38524,7 +38600,7 @@ MonoBehaviour:
           tooltip: 
           showInInspector: 0
           networkSync: 0
-          value: FemaleB_idle
+          value: FemaleB_NodHead
         fsmObjectParams: []
         fsmVarParams: []
         byteData: 040000009a99993e0000
@@ -38596,7 +38672,7 @@ MonoBehaviour:
           tooltip: 
           showInInspector: 0
           networkSync: 0
-          value: FemaleB_idle
+          value: FemaleB_NodHead
         fsmObjectParams: []
         fsmVarParams: []
         byteData: 040000009a99993e0000
@@ -38668,7 +38744,7 @@ MonoBehaviour:
           tooltip: 
           showInInspector: 0
           networkSync: 0
-          value: FemaleB_idle
+          value: FemaleB_NodHead
         fsmObjectParams: []
         fsmVarParams: []
         byteData: 040000009a99993e0000
@@ -38817,6 +38893,7 @@ Animation:
   - {fileID: 7400000, guid: 34966eb413e23f740b803ce7f6abba17, type: 3}
   - {fileID: 7400000, guid: b480675cd1c6a7642a75e11ccf44eebc, type: 3}
   - {fileID: 7400000, guid: 0a7aa65e7ec7ea0478ab76829e1d591d, type: 3}
+  - {fileID: 7400000, guid: f4ad2eb56e8bb6f4aa1ed94f92e88fff, type: 3}
   m_WrapMode: 0
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
@@ -41727,7 +41804,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fsm:
     usedInTemplate: {fileID: 0}
-    name: Photon Network Synch FSM
+    name: Normal Day John
     startState: MoveTo_Wp
     states:
     - name: MoveTo_Wp
@@ -42255,7 +42332,7 @@ MonoBehaviour:
           tooltip: 
           showInInspector: 0
           networkSync: 0
-          value: MaleA_Idle
+          value: FemaleB_NodHead
         fsmObjectParams: []
         fsmVarParams: []
         byteData: 040000009a99993e0000
@@ -42327,7 +42404,7 @@ MonoBehaviour:
           tooltip: 
           showInInspector: 0
           networkSync: 0
-          value: MaleA_Idle
+          value: FemaleB_NodHead
         fsmObjectParams: []
         fsmVarParams: []
         byteData: 040000009a99993e0000
@@ -42399,7 +42476,7 @@ MonoBehaviour:
           tooltip: 
           showInInspector: 0
           networkSync: 0
-          value: MaleA_Idle
+          value: FemaleB_NodHead
         fsmObjectParams: []
         fsmVarParams: []
         byteData: 040000009a99993e0000
@@ -42471,7 +42548,7 @@ MonoBehaviour:
           tooltip: 
           showInInspector: 0
           networkSync: 0
-          value: MaleA_Idle
+          value: FemaleB_NodHead
         fsmObjectParams: []
         fsmVarParams: []
         byteData: 040000009a99993e0000
@@ -46637,6 +46714,7 @@ Animation:
   m_Animations:
   - {fileID: 7400000, guid: 9c025a43424f2ec45a154b3251cd110d, type: 3}
   - {fileID: 7400000, guid: a33abe67d792dce4b9cb214d18abac5e, type: 3}
+  - {fileID: 7400000, guid: f4ad2eb56e8bb6f4aa1ed94f92e88fff, type: 3}
   m_WrapMode: 0
   m_PlayAutomatically: 0
   m_AnimatePhysics: 0
@@ -59106,17 +59184,17 @@ MonoBehaviour:
         serializedVersion: 2
         x: 274
         y: 132
-        width: 150
+        width: 159
         height: 32
       isBreakpoint: 0
       isSequence: 0
       hideUnused: 0
       transitions:
       - fsmEvent:
-          name: OnConversationEnd
+          name: OnConversationStart
           isSystemEvent: 0
           isGlobal: 0
-        toState: Check Quest
+        toState: InConversation
         linkStyle: 0
         linkConstraint: 0
         colorIndex: 0
@@ -59546,11 +59624,86 @@ MonoBehaviour:
         - stopOnExit
         paramDataPos: 00000000050000000d00000000000000000000000e00000012000000170000001f0000001f000000
         paramByteDataSize: 05000000080000000100000000000000000000000400000005000000080000000000000001000000
+    - name: InConversation
+      description: 
+      colorIndex: 0
+      position:
+        serializedVersion: 2
+        x: 492
+        y: 130
+        width: 150
+        height: 32
+      isBreakpoint: 0
+      isSequence: 0
+      hideUnused: 0
+      transitions:
+      - fsmEvent:
+          name: OnConversationEnd
+          isSystemEvent: 0
+          isGlobal: 0
+        toState: Check Quest
+        linkStyle: 0
+        linkConstraint: 0
+        colorIndex: 0
+      actionData:
+        actionNames:
+        - HutongGames.PlayMaker.Actions.PlayAnimation
+        customNames:
+        - 
+        actionEnabled: 01
+        actionIsOpen: 01
+        actionStartIndex: 00000000
+        actionHashCodes: 6e06efc0
+        unityObjectParams: []
+        fsmGameObjectParams: []
+        fsmOwnerDefaultParams:
+        - ownerOption: 0
+          gameObject:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: {fileID: 0}
+        animationCurveParams: []
+        functionCallParams: []
+        fsmTemplateControlParams: []
+        fsmEventTargetParams: []
+        fsmPropertyParams: []
+        layoutOptionParams: []
+        fsmStringParams:
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: Courier_NodHead
+        fsmObjectParams: []
+        fsmVarParams: []
+        byteData: 040000009a99993e0000
+        arrayParamSizes: 
+        arrayParamTypes: []
+        customTypeSizes: 
+        customTypeNames: []
+        paramDataType: 1400000012000000070000000f000000170000001700000001000000
+        paramName:
+        - gameObject
+        - animName
+        - playMode
+        - blendTime
+        - finishEvent
+        - loopEvent
+        - stopOnExit
+        paramDataPos: 00000000000000000000000004000000090000000900000009000000
+        paramByteDataSize: 00000000000000000400000005000000000000000000000001000000
     events:
     - name: FINISHED
       isSystemEvent: 1
       isGlobal: 0
     - name: OnConversationEnd
+      isSystemEvent: 0
+      isGlobal: 0
+    - name: OnConversationStart
       isSystemEvent: 0
       isGlobal: 0
     - name: QUEST_SUCCESS
@@ -59596,8 +59749,9 @@ Animation:
   m_Animations:
   - {fileID: 7400000, guid: 29a3191483ab83f4a8e743d46d7519c0, type: 3}
   - {fileID: 7400000, guid: a15425cd4e8017649baa9ad9d04e8879, type: 3}
+  - {fileID: 7400000, guid: 2fe7513bdc21d6d4baf47387068880b7, type: 3}
   m_WrapMode: 0
-  m_PlayAutomatically: 1
+  m_PlayAutomatically: 0
   m_AnimatePhysics: 0
   m_CullingType: 1
 --- !u!1 &1034353032
@@ -76107,7 +76261,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 11100000, guid: 29a3191483ab83f4a8e743d46d7519c0, type: 3}
       propertyPath: m_Animations.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 400142, guid: 29a3191483ab83f4a8e743d46d7519c0, type: 3}
       propertyPath: m_LocalPosition.x
@@ -76148,6 +76302,14 @@ Prefab:
     - target: {fileID: 100142, guid: 29a3191483ab83f4a8e743d46d7519c0, type: 3}
       propertyPath: m_Name
       value: Courier
+      objectReference: {fileID: 0}
+    - target: {fileID: 11100000, guid: 29a3191483ab83f4a8e743d46d7519c0, type: 3}
+      propertyPath: m_Animations.Array.data[2]
+      value: 
+      objectReference: {fileID: 7400000, guid: 2fe7513bdc21d6d4baf47387068880b7, type: 3}
+    - target: {fileID: 11100000, guid: 29a3191483ab83f4a8e743d46d7519c0, type: 3}
+      propertyPath: m_PlayAutomatically
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 29a3191483ab83f4a8e743d46d7519c0, type: 3}
@@ -76906,7 +77068,7 @@ Renderer:
   m_Materials:
   - {fileID: 2100000, guid: 1b27f78fe82948b4b9fe4302e2715c02, type: 2}
   - {fileID: 2100000, guid: ff2628c8dd23ac74e9dfabba921cafc2, type: 2}
-  - {fileID: 2100000, guid: 2dffbacb72256a9479a0bd6406d474d3, type: 2}
+  - {fileID: 2100000, guid: 02ba20903eff74e4eb6f1a73fed4fbda, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -80166,7 +80328,7 @@ Renderer:
   m_Materials:
   - {fileID: 2100000, guid: 1b27f78fe82948b4b9fe4302e2715c02, type: 2}
   - {fileID: 2100000, guid: ff2628c8dd23ac74e9dfabba921cafc2, type: 2}
-  - {fileID: 2100000, guid: 2dffbacb72256a9479a0bd6406d474d3, type: 2}
+  - {fileID: 2100000, guid: 02ba20903eff74e4eb6f1a73fed4fbda, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -85828,6 +85990,7 @@ Animation:
   - {fileID: 7400000, guid: 78a8660a136e3864aa25b12738434a86, type: 3}
   - {fileID: 7400000, guid: c4fb85b297cc77c4dafa09c860d89f94, type: 3}
   - {fileID: 7400000, guid: 9f08393971acf0c498a437922bf96b74, type: 3}
+  - {fileID: 7400000, guid: f4ad2eb56e8bb6f4aa1ed94f92e88fff, type: 3}
   m_WrapMode: 0
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
