@@ -96,7 +96,7 @@ public class GameManagerVik : Photon.MonoBehaviour {
 	void OnGUI(){
 		//Add GUISkin
 		GUI.skin = customSkin;
-		GUI.DrawTexture(new Rect(0,0,Screen.width,Screen.height),background);
+		//GUI.DrawTexture(new Rect(0,0,Screen.width,Screen.height),background);
 
 		if (PhotonNetwork.room == null || playback) return;
 
