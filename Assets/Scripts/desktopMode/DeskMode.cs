@@ -268,7 +268,7 @@ public class DeskMode : MonoBehaviour {
 				}
 				
 			}
-			if(GUI.Button( new LTRect(1.0f*w - 100f, 1.0f*h - 50f, 100f, 50f ).rect, "Back to DeskMode",customSkin.button))
+			if(GUI.Button( new LTRect(1.0f*w - 175f, 1.0f*h - 50f, 160f, 50f ).rect, "Back to DeskMode",customSkin.button))
 			{
 				mode = DeskModeSubMode.None;
 				moveCameraToDesk();
@@ -287,7 +287,7 @@ public class DeskMode : MonoBehaviour {
 			}
 			
 			
-			if(GUI.Button( new LTRect(100f, .9f*h - 50f, 100f, 50f ).rect, "Previous Page",customSkin.button))
+			if(GUI.Button( new LTRect(100f, .9f*h - 50f, 125f, 50f ).rect, "Previous Page",customSkin.button))
 			{
 				this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].GetComponent<pageData>().showPreviousPage();
 			}
@@ -296,7 +296,7 @@ public class DeskMode : MonoBehaviour {
 				
 			
 
-				if(GUI.Button( new LTRect(1.0f*w - 100f, 1.0f*h - 50f, 100f, 50f ).rect, "Back to Documents"))
+			if(GUI.Button( new LTRect(1.0f*w - 175f, 1.0f*h - 50f, 160f, 50f ).rect, "Back to Documents",customSkin.button))
 				{
 				Camera.main.GetComponent<magnify>().disableZoom();
 				mode = DeskModeSubMode.FileMode;
@@ -353,7 +353,7 @@ public class DeskMode : MonoBehaviour {
 			}
 
 
-			if(GUI.Button( new LTRect(1.0f*w - 100f, 1.0f*h - 50f, 100f, 50f ).rect, "Back to read page",customSkin.button))
+			if(GUI.Button( new LTRect(1.0f*w - 175f, 1.0f*h - 50f, 160f, 50f ).rect, "Back to read page",customSkin.button))
 			{
 
 				Camera.main.transform.position = CameraOriginalPosition;
@@ -428,7 +428,7 @@ public class DeskMode : MonoBehaviour {
 
 		case DeskModeSubMode.None:
 		{
-			if(GUI.Button( new LTRect(1.0f*w - 100f, 1.0f*h - 50f, 100f, 50f ).rect, "Quit DeskMode",customSkin.button))
+			if(GUI.Button( new LTRect(1.0f*w - 165f, 1.0f*h - 50f, 150f, 50f ).rect, "Quit DeskMode",customSkin.button))
 			{
 				if(GameObject.Find ("InventoryObj").GetComponent<inventory>().inventoryObject !=null)
 					GameObject.Find ("InventoryObj").GetComponent<GUITexture>().enabled = true;

@@ -12,6 +12,9 @@ public class GameManagerVik : Photon.MonoBehaviour {
 
     // this is a object name (must be in any Resources folder) of the prefab to spawn as player avatar.
     // read the documentation for info how to spawn dynamically loaded game objects at runtime (not using Resources folders)
+	public GUISkin customSkin;
+	public Texture2D background;
+
 	public GameObject[] playerPrefabList;
 	public string[] playerList;
 	public Transform[] SMSpawnPositionList;
@@ -83,12 +86,15 @@ public class GameManagerVik : Photon.MonoBehaviour {
 	}
 
 	void OnGUI(){
+		//Add GUISkin
+		GUI.skin = customSkin;
+		GUI.DrawTexture(new Rect(0,0,Screen.width,Screen.height),background);
 
 		if (PhotonNetwork.room == null || playback) return;
 
 
 		// quit button GUI
-		if (GUILayout.Button("Leave& QUIT"))
+		if (GUILayout.Button("Leave & Quit"))
 		{
 			SaveAndQuit();
 
@@ -105,9 +111,9 @@ public class GameManagerVik : Photon.MonoBehaviour {
 		if(!roleSelected)
 		{
 
-		GUILayout.BeginArea(new Rect((Screen.width - 400) / 2, (Screen.height - 300) / 2, 600, 300));
+		GUILayout.BeginArea(new Rect((Screen.width - 600) / 2, (Screen.height - 300) / 2, 960, 600));
 		GUILayout.BeginHorizontal();
-		GUILayout.Label("Chose a role:", GUILayout.Width(150));
+		GUILayout.Label("Choose a role:", GUILayout.Width(200));
 
 		PhotonView photonView = this.gameObject.GetPhotonView();
 
@@ -115,7 +121,7 @@ public class GameManagerVik : Photon.MonoBehaviour {
 			{
 				if (!selectedPlayerList.Contains(playerList[i]))
 				{
-					if(GUILayout.Button(playerList[i],GUILayout.Width(100)) )
+					if(GUILayout.Button(playerList[i],GUILayout.Width(150)) )
 					{
 						PhotonNetwork.playerName = playerList[i];
 						PlayerPrefs.SetString("playerName", playerList[i]);
@@ -314,7 +320,7 @@ public class GameManagerVik : Photon.MonoBehaviour {
 		}
 
 		set4Recording ();
-		EZReplayManager.get.record();
+		//EZReplayManager.get.record();
 
 
     }
