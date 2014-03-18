@@ -221,6 +221,9 @@ public class DeskMode : MonoBehaviour {
 					float midZ = (nextTr.renderer.bounds.max.z + nextTr.renderer.bounds.min.z)/2;
 					
 					LeanTween.move(Camera.main.gameObject,new Vector3(midX,midY+cameraOffset,midZ),.6f).setEase(LeanTweenType.easeOutQuint);
+
+					//Camera.main.gameObject.transform.position = new Vector3(midX,midY+cameraOffset,midZ);
+
 					LeanTween.move(highlight.gameObject,new Vector3(midX,midY+lightOffset,midZ),.6f).setEase(LeanTweenType.easeOutQuint);
 					
 				}
@@ -265,7 +268,7 @@ public class DeskMode : MonoBehaviour {
 				}
 				
 			}
-			if(GUI.Button( new LTRect(1.0f*w - 100f, 1.0f*h - 50f, 100f, 50f ).rect, "Back to DeskMode",customSkin.button))
+			if(GUI.Button( new LTRect(1.0f*w - 175f, 1.0f*h - 50f, 160f, 50f ).rect, "Back to DeskMode",customSkin.button))
 			{
 				mode = DeskModeSubMode.None;
 				moveCameraToDesk();
@@ -284,7 +287,7 @@ public class DeskMode : MonoBehaviour {
 			}
 			
 			
-			if(GUI.Button( new LTRect(100f, .9f*h - 50f, 100f, 50f ).rect, "Previous Page",customSkin.button))
+			if(GUI.Button( new LTRect(100f, .9f*h - 50f, 125f, 50f ).rect, "Previous Page",customSkin.button))
 			{
 				this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].GetComponent<pageData>().showPreviousPage();
 			}
@@ -293,7 +296,7 @@ public class DeskMode : MonoBehaviour {
 				
 			
 
-				if(GUI.Button( new LTRect(1.0f*w - 100f, 1.0f*h - 50f, 100f, 50f ).rect, "Back to Documents"))
+			if(GUI.Button( new LTRect(1.0f*w - 175f, 1.0f*h - 50f, 160f, 50f ).rect, "Back to Documents",customSkin.button))
 				{
 				Camera.main.GetComponent<magnify>().disableZoom();
 				mode = DeskModeSubMode.FileMode;
@@ -350,9 +353,13 @@ public class DeskMode : MonoBehaviour {
 			}
 
 
-			if(GUI.Button( new LTRect(1.0f*w - 100f, 1.0f*h - 50f, 100f, 50f ).rect, "Back to read page",customSkin.button))
+			if(GUI.Button( new LTRect(1.0f*w - 175f, 1.0f*h - 50f, 160f, 50f ).rect, "Back to read page",customSkin.button))
 			{
+
+				Camera.main.transform.position = CameraOriginalPosition;
+
 				Camera.main.GetComponent<magnify>().enableZoom();
+
 				if(GameObject.Find("PCscreen").GetComponent<pcMode>().enabled == true)
 					GameObject.Find ("PCscreen").GetComponent<pcMode>().enabled = false;
 				
@@ -421,7 +428,7 @@ public class DeskMode : MonoBehaviour {
 
 		case DeskModeSubMode.None:
 		{
-			if(GUI.Button( new LTRect(1.0f*w - 100f, 1.0f*h - 50f, 100f, 50f ).rect, "Quit DeskMode",customSkin.button))
+			if(GUI.Button( new LTRect(1.0f*w - 165f, 1.0f*h - 50f, 150f, 50f ).rect, "Quit DeskMode",customSkin.button))
 			{
 				if(GameObject.Find ("InventoryObj").GetComponent<inventory>().inventoryObject !=null)
 					GameObject.Find ("InventoryObj").GetComponent<GUITexture>().enabled = true;

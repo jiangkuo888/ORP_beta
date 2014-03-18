@@ -391,7 +391,9 @@ public class DetectObjects : Photon.MonoBehaviour {
 		Camera.main.transform.LookAt(desk.transform );
 		Camera.main.transform.localEulerAngles = new Vector3(Camera.main.transform.localEulerAngles.x-37f,Camera.main.transform.localEulerAngles.y,Camera.main.transform.localEulerAngles.z);
 		
-		
+		//update the camera state for playback
+		//PlaybackCamera script = Camera.main.GetComponent<PlaybackCamera>();
+		//script.isMainCameraChild = false;
 	}
 	
 	public void moveCameraToObject(GameObject obj){
@@ -423,6 +425,7 @@ public class DetectObjects : Photon.MonoBehaviour {
 			objects_camera_view_position = new Vector3(0f,0f,-cameraOffset);
 			camera_view_rotation = new Vector3(0f,0f,0f);
 		}
+
 		else if (obj.transform.rotation.eulerAngles.y <=315 && obj.transform.rotation.eulerAngles.y > 225)
 		{
 			objects_camera_view_position = new Vector3(-cameraOffset,0f,0f);
@@ -440,6 +443,10 @@ public class DetectObjects : Photon.MonoBehaviour {
 		else
 			Camera.main.transform.localPosition = new Vector3(objXmid,objYmid,objZmid) + objects_camera_view_position;
 		Camera.main.transform.localEulerAngles = camera_view_rotation;
+
+		//update the camera state for playback
+		//PlaybackCamera script = Camera.main.GetComponent<PlaybackCamera>();
+		//script.isMainCameraChild = false;
 		
 	}
 	
@@ -453,6 +460,11 @@ public class DetectObjects : Photon.MonoBehaviour {
 			Camera.main.transform.parent = this.transform;
 			Camera.main.transform.localPosition = this.GetComponent<ThirdPersonNetworkVik>().cameraRelativePosition;
 			Camera.main.transform.localEulerAngles = new Vector3(0.6651921f, 90, 0);
+
+
+			//update the camera state for playback
+			//PlaybackCamera script = Camera.main.GetComponent<PlaybackCamera>();
+			//script.isMainCameraChild = true;
 		}
 	}
 	
@@ -471,9 +483,10 @@ public class DetectObjects : Photon.MonoBehaviour {
 	
 	void Update()
 	{
-		if(photonView.isMine)
-			if(this.transform.Find ("DUGManager"))
-				this.transform.Find ("DUGManager").gameObject.SetActive(true);
+		//if(photonView.isMine)
+		//	if(this.transform.Find ("DUGManager"))
+		//		this.transform.Find ("DUGManager").gameObject.SetActive(true);
+
 
 	}
 	

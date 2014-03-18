@@ -12,6 +12,9 @@ public class GameManagerVik : Photon.MonoBehaviour {
 
     // this is a object name (must be in any Resources folder) of the prefab to spawn as player avatar.
     // read the documentation for info how to spawn dynamically loaded game objects at runtime (not using Resources folders)
+	public GUISkin customSkin;
+	public Texture2D background;
+
 	public GameObject[] playerPrefabList;
 	public string[] playerList;
 	public Transform[] SMSpawnPositionList;
@@ -25,7 +28,12 @@ public class GameManagerVik : Photon.MonoBehaviour {
 	public int sessionID = -1;
 	public string loginName = "";
 	public bool isAdmin; 
+	public bool startGame = false;
+	public bool gameStarted = false;
 	public bool playback = false;
+	public bool isLobby;
+	public string[] dots = new string[] {".", "..", "..."};
+	public int dotInt = 0;
 
     void OnJoinedRoom()
     {
@@ -49,23 +57,26 @@ public class GameManagerVik : Photon.MonoBehaviour {
 		EZReplayManager.get.stop ();
 
 		//create folder for game
-		string currentDir = Directory.GetCurrentDirectory ();
-		Debug.Log (currentDir);
-		Directory.CreateDirectory (currentDir + "\\playback");
-		string filePath = "playback/" + sessionID.ToString();
-		EZReplayManager.get.saveToFile(filePath);
+		if (this.sessionID != -1)
+		{
+			string currentDir = Directory.GetCurrentDirectory ();
+			Debug.Log (currentDir);
+			Directory.CreateDirectory (currentDir + "\\playback");
+			string filePath = "playback/" + sessionID.ToString();
+			EZReplayManager.get.saveToFile(filePath);
+			
+			//upload files
+			WWWForm sendForm = new WWWForm();
+			string fileDir = currentDir + "\\playback\\" + sessionID.ToString();
+			Debug.Log(fileDir);
+			byte[] something = File.ReadAllBytes(fileDir);
+			Debug.Log(something.Length);
+			sendForm.AddBinaryData("capture", something, sessionID.ToString());
+			sendForm.AddField("load", "UP");
+			WWW w = new WWW("http://www.sgi-singapore.com/projects/ORILE/loadFiles.php", sendForm);
 
-		//upload files
-		WWWForm sendForm = new WWWForm();
-		string fileDir = currentDir + "\\playback\\" + sessionID.ToString();
-		Debug.Log(fileDir);
-		byte[] something = File.ReadAllBytes(fileDir);
-		Debug.Log(something.Length);
-		sendForm.AddBinaryData("capture", something, sessionID.ToString());
-		sendForm.AddField("load", "UP");
-		WWW w = new WWW("http://www.sgi-singapore.com/projects/ORILE/loadFiles.php", sendForm);
-		
-		StartCoroutine(WaitForRequest(w));
+			StartCoroutine(WaitForRequest(w));
+		}
 
 	}
 
@@ -83,12 +94,15 @@ public class GameManagerVik : Photon.MonoBehaviour {
 	}
 
 	void OnGUI(){
+		//Add GUISkin
+		GUI.skin = customSkin;
+		//GUI.DrawTexture(new Rect(0,0,Screen.width,Screen.height),background);
 
 		if (PhotonNetwork.room == null || playback) return;
 
 
 		// quit button GUI
-		if (GUILayout.Button("Leave& QUIT"))
+		if (GUILayout.Button("Leave & Quit"))
 		{
 			SaveAndQuit();
 
@@ -105,9 +119,9 @@ public class GameManagerVik : Photon.MonoBehaviour {
 		if(!roleSelected)
 		{
 
-		GUILayout.BeginArea(new Rect((Screen.width - 400) / 2, (Screen.height - 300) / 2, 600, 300));
+		GUILayout.BeginArea(new Rect((Screen.width - 600) / 2, (Screen.height - 300) / 2, 960, 600));
 		GUILayout.BeginHorizontal();
-		GUILayout.Label("Chose a role:", GUILayout.Width(150));
+		GUILayout.Label("Choose a role:", GUILayout.Width(200));
 
 		PhotonView photonView = this.gameObject.GetPhotonView();
 
@@ -115,7 +129,7 @@ public class GameManagerVik : Photon.MonoBehaviour {
 			{
 				if (!selectedPlayerList.Contains(playerList[i]))
 				{
-					if(GUILayout.Button(playerList[i],GUILayout.Width(100)) )
+					if(GUILayout.Button(playerList[i],GUILayout.Width(150)) )
 					{
 						PhotonNetwork.playerName = playerList[i];
 						PlayerPrefs.SetString("playerName", playerList[i]);
@@ -124,13 +138,18 @@ public class GameManagerVik : Photon.MonoBehaviour {
 						// broadcast role selected
 						photonView.RPC ("setRoleUnavailable",PhotonTargets.AllBuffered,playerList[i]);
 						
-						StartGame();
+						//StartGame();
 					}
 				}
 			}
 
 		GUILayout.EndHorizontal();
 		GUILayout.EndArea();
+		}
+
+		if (roleSelected && !gameStarted)
+		{
+			WaitingLobby(PhotonNetwork.playerName);
 		}
 
 		// if number of  players reach maximum, player cannot select role
@@ -190,26 +209,72 @@ public class GameManagerVik : Photon.MonoBehaviour {
 	void set4Recording()
 	{
 		//find the objects for recording
-		GameObject[] npc = GameObject.FindGameObjectsWithTag ("NPC");
-		foreach (GameObject npcSingle in npc)
-			EZReplayManager.get.mark4Recording (npcSingle);
+		//GameObject[] npc = GameObject.FindGameObjectsWithTag ("NPC");
+		//foreach (GameObject npcSingle in npc)
+		//	EZReplayManager.get.mark4Recording (npcSingle);
 
-		GameObject[] door = GameObject.FindGameObjectsWithTag ("door");
-		foreach (GameObject doorSingle in door)
-			EZReplayManager.get.mark4Recording (doorSingle);
+		//GameObject[] door = GameObject.FindGameObjectsWithTag ("doorSwing");
+		//foreach (GameObject doorSingle in door)
+		//	EZReplayManager.get.mark4Recording (doorSingle);
 
-		GameObject[] pickable = GameObject.FindGameObjectsWithTag ("pickable");
-		foreach (GameObject pickableSingle in pickable)
-			EZReplayManager.get.mark4Recording (pickableSingle);
+		//GameObject[] pickable = GameObject.FindGameObjectsWithTag ("pickable");
+		//foreach (GameObject pickableSingle in pickable)
+		//	EZReplayManager.get.mark4Recording (pickableSingle);
 
-		GameObject[] interactive = GameObject.FindGameObjectsWithTag ("interactive");
-		foreach (GameObject interactiveSingle in interactive)
-			EZReplayManager.get.mark4Recording (interactiveSingle);
+		//GameObject[] interactive = GameObject.FindGameObjectsWithTag ("interactive");
+		//foreach (GameObject interactiveSingle in interactive)
+		//	EZReplayManager.get.mark4Recording (interactiveSingle);
 
 	//	GameObject[] maincamera = GameObject.FindGameObjectsWithTag ("MainCamera");
 	//	foreach (GameObject maincameraSingle in maincamera)
 	//		EZReplayManager.get.mark4Recording (maincameraSingle);
 
+
+	}
+
+	void WaitingLobby(string playerName)
+	{
+		GUILayout.BeginArea(new Rect((Screen.width - 400) / 2, (Screen.height - 300) / 2, 600, 300));
+		//GUILayout.BeginHorizontal();
+
+		GUILayout.Label("YOU HAVE CHOSEN: " + playerName);
+		GUILayout.Space(20);
+
+		//wait till there are four people in the room
+		if (selectedPlayerList.Count < 4 && isLobby) {
+
+			GUILayout.Label ("PLEASE WAIT TILL THERE ARE ENOUGH PLAYERS IN THE ROOM");
+			GUILayout.Space (20);
+
+			GUILayout.Label ("Number of players in the room now: " + selectedPlayerList.Count);
+			GUILayout.Space (20);
+
+			int dotNum = dotInt / 10;
+			GUILayout.Label ("WAITING" + dots [dotNum]);
+			dotInt++;
+			if (dotInt >= 30)
+			{
+				dotInt = 0;
+			}
+
+
+		} 
+		else 
+		{
+			if(GUILayout.Button("StartGame",GUILayout.Width(100)) )
+			{	
+				photonView.RPC ("allStartGame", PhotonTargets.AllBuffered);
+			}
+		}
+
+		//GUILayout.EndHorizontal();
+		GUILayout.EndArea();
+
+		if (startGame)
+		{
+			StartGame();
+			startGame = false;
+		}
 	}
 
     void StartGame()
@@ -229,8 +294,8 @@ public class GameManagerVik : Photon.MonoBehaviour {
         object[] objs = new object[1]; // Put our bool data in an object array, to send
         objs[0] = enabledRenderers;
 
-
-		string playerName = PlayerPrefs.GetString("playerName");
+		//Debug.Log (PlayerPrefs.GetString("playerName"));
+		string playerName = PhotonNetwork.playerName;
 
 
 		// start drawing GUI elements
@@ -313,9 +378,9 @@ public class GameManagerVik : Photon.MonoBehaviour {
 		}
 
 		set4Recording ();
-		EZReplayManager.get.record();
+		//EZReplayManager.get.record();
 
-
+		gameStarted = true;
     }
 
 
@@ -330,7 +395,11 @@ public class GameManagerVik : Photon.MonoBehaviour {
 		selectedPlayerList.Remove(role);
 	}
 
-	
+	[RPC]
+	void allStartGame()
+	{
+		startGame = true;
+	}
 
     void OnDisconnectedFromPhoton()
     {
