@@ -360,8 +360,8 @@ MonoBehaviour:
       value: Fire Escape Blockage
       type: 0
     - title: Description
-      value: Quest where some boxes are obstructing the path towards the fire escape
-        route.
+      value: Some boxes are obstructing the path towards the fire escape route. Maybe
+        I should move the boxes to somewhere more appropriate.
       type: 0
     - title: Success Description
       value: 
@@ -401,7 +401,8 @@ MonoBehaviour:
       value: Expired Fire Ext
       type: 0
     - title: Description
-      value: Expired fire extinguisher in sales floor to be discovered by player.
+      value: 'You have found a fire extinguisher that is expired. What should you
+        do? '
       type: 0
     - title: Success Description
       value: 'The expired fire extinguisher has been replaced. '
@@ -421,13 +422,13 @@ MonoBehaviour:
       value: Potential Sales
       type: 0
     - title: Description
-      value: 
+      value: Potential Sales Clinched
       type: 0
     - title: Success Description
-      value: 
+      value: You have successfully clinched a new sales!
       type: 0
     - title: Failure Description
-      value: 
+      value: 'You have lost a potential sales deal... '
       type: 0
     - title: State
       value: unassigned
@@ -466,6 +467,26 @@ MonoBehaviour:
       type: 0
     - title: Success Description
       value: You have completed familiarizing with Workdesk Mode
+      type: 0
+    - title: Failure Description
+      value: 
+      type: 0
+    - title: State
+      value: unassigned
+      type: 0
+    - title: Is Item
+      value: False
+      type: 2
+  - id: 17
+    fields:
+    - title: Name
+      value: Escort Trapped Customer
+      type: 0
+    - title: Description
+      value: 
+      type: 0
+    - title: Success Description
+      value: 
       type: 0
     - title: Failure Description
       value: 
@@ -1480,10 +1501,10 @@ MonoBehaviour:
       value: Expired Fire Extinguisher in Sales floor
       type: 0
     - title: Actor
-      value: 9
+      value: 1
       type: 5
     - title: Conversant
-      value: 8
+      value: 13
       type: 5
     nodeColor: Red
     dialogueEntries:
@@ -1493,10 +1514,10 @@ MonoBehaviour:
         value: START
         type: 0
       - title: Actor
-        value: 9
+        value: 1
         type: 5
       - title: Conversant
-        value: 8
+        value: 13
         type: 5
       - title: Menu Text
         value: 
@@ -1532,10 +1553,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 9
+        value: 1
         type: 5
       - title: Conversant
-        value: 8
+        value: 13
         type: 5
       - title: Menu Text
         value: Check
@@ -1571,10 +1592,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 9
+        value: 1
         type: 5
       - title: Conversant
-        value: 8
+        value: 13
         type: 5
       - title: Menu Text
         value: Leave
@@ -1604,10 +1625,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 8
+        value: 13
         type: 5
       - title: Conversant
-        value: 9
+        value: 1
         type: 5
       - title: Menu Text
         value: 
@@ -1649,10 +1670,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 8
+        value: 13
         type: 5
       - title: Conversant
-        value: 9
+        value: 1
         type: 5
       - title: Menu Text
         value: 
@@ -1694,10 +1715,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 9
+        value: 1
         type: 5
       - title: Conversant
-        value: 8
+        value: 13
         type: 5
       - title: Menu Text
         value: Check Fire Extinguisher
@@ -1733,10 +1754,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 9
+        value: 1
         type: 5
       - title: Conversant
-        value: 8
+        value: 13
         type: 5
       - title: Menu Text
         value: Leave
@@ -1766,10 +1787,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 8
+        value: 13
         type: 5
       - title: Conversant
-        value: 9
+        value: 1
         type: 5
       - title: Menu Text
         value: 
@@ -1803,10 +1824,10 @@ MonoBehaviour:
       value: 
       type: 0
     - title: Actor
-      value: 1
+      value: 7
       type: 5
     - title: Conversant
-      value: 13
+      value: 17
       type: 5
     nodeColor: Red
     dialogueEntries:
@@ -1816,10 +1837,10 @@ MonoBehaviour:
         value: START
         type: 0
       - title: Actor
-        value: 1
+        value: 7
         type: 5
       - title: Conversant
-        value: 13
+        value: 17
         type: 5
       - title: Menu Text
         value: 
@@ -1855,10 +1876,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 13
+        value: 17
         type: 5
       - title: Conversant
-        value: 1
+        value: 7
         type: 5
       - title: Menu Text
         value: 
@@ -1906,16 +1927,16 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 1
+        value: 7
         type: 5
       - title: Conversant
-        value: 13
+        value: 17
         type: 5
       - title: Menu Text
         value: Calm down
         type: 0
       - title: Dialogue Text
-        value: Calm down sir and follow me. I will escort you to the exit safely.
+        value: Calm down Mdm and follow me. I will escort you to the exit safely.
         type: 4
       - title: Video File
         value: 
@@ -1930,8 +1951,14 @@ MonoBehaviour:
       delaySimStatus: 0
       falseConditionAction: Block
       conditionPriority: 2
-      outgoingLinks: []
-      conditionsString: 
+      outgoingLinks:
+      - originConversationID: 12
+        originDialogueID: 2
+        destinationConversationID: 12
+        destinationDialogueID: 5
+        isConnector: 0
+        priority: 2
+      conditionsString: Dialog[2].SimStatus ~= "WasDisplayed"
       userScript: 
     - id: 3
       fields:
@@ -1939,10 +1966,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 1
+        value: 7
         type: 5
       - title: Conversant
-        value: 13
+        value: 17
         type: 5
       - title: Menu Text
         value: Walk away
@@ -1974,16 +2001,16 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 1
+        value: 7
         type: 5
       - title: Conversant
-        value: 13
+        value: 17
         type: 5
       - title: Menu Text
         value: Shout
         type: 0
       - title: Dialogue Text
-        value: 'SIR, You have to follow me now !! Hurry Up!
+        value: 'Mdm, You have to follow me now !! Hurry Up!
 
 '
         type: 4
@@ -2000,9 +2027,81 @@ MonoBehaviour:
       delaySimStatus: 0
       falseConditionAction: Block
       conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 12
+        originDialogueID: 4
+        destinationConversationID: 12
+        destinationDialogueID: 6
+        isConnector: 0
+        priority: 2
+      conditionsString: Dialog[4].SimStatus ~= "WasDisplayed"
+      userScript: 
+    - id: 5
+      fields:
+      - title: Title
+        value: 
+        type: 0
+      - title: Actor
+        value: 17
+        type: 5
+      - title: Conversant
+        value: 7
+        type: 5
+      - title: Menu Text
+        value: 
+        type: 0
+      - title: Dialogue Text
+        value: 'ok... '
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 12
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
-      userScript: 
+      userScript: Item["Escort_Trapped_Customer"].State = "success"
+    - id: 6
+      fields:
+      - title: Title
+        value: 
+        type: 0
+      - title: Actor
+        value: 17
+        type: 5
+      - title: Conversant
+        value: 7
+        type: 5
+      - title: Menu Text
+        value: 
+        type: 0
+      - title: Dialogue Text
+        value: 'Noooo, I''m tooo scared! '
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 12
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: Item["Escort_Trapped_Customer"].State = "failure"
   - id: 13
     fields:
     - title: Title
@@ -2012,10 +2111,10 @@ MonoBehaviour:
       value: 
       type: 0
     - title: Actor
-      value: 9
+      value: 1
       type: 5
     - title: Conversant
-      value: 12
+      value: 16
       type: 5
     nodeColor: Red
     dialogueEntries:
@@ -2025,10 +2124,10 @@ MonoBehaviour:
         value: START
         type: 0
       - title: Actor
-        value: 9
+        value: 1
         type: 5
       - title: Conversant
-        value: 12
+        value: 16
         type: 5
       - title: Menu Text
         value: 
@@ -2070,10 +2169,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 12
+        value: 16
         type: 5
       - title: Conversant
-        value: 3
+        value: 8
         type: 5
       - title: Menu Text
         value: 
@@ -2128,10 +2227,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 3
+        value: 8
         type: 5
       - title: Conversant
-        value: 12
+        value: 16
         type: 5
       - title: Menu Text
         value: 'I need some coffee. '
@@ -2167,10 +2266,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 3
+        value: 8
         type: 5
       - title: Conversant
-        value: 12
+        value: 16
         type: 5
       - title: Menu Text
         value: 'Been a busy day, so much work to be done. '
@@ -2200,10 +2299,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 3
+        value: 8
         type: 5
       - title: Conversant
-        value: 12
+        value: 16
         type: 5
       - title: Menu Text
         value: 'Feeling hungry, is there anything I can heat up in the microwave? '
@@ -2239,10 +2338,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 12
+        value: 16
         type: 5
       - title: Conversant
-        value: 3
+        value: 8
         type: 5
       - title: Menu Text
         value: 
@@ -2272,10 +2371,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 12
+        value: 16
         type: 5
       - title: Conversant
-        value: 3
+        value: 8
         type: 5
       - title: Menu Text
         value: 
@@ -2311,10 +2410,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 3
+        value: 8
         type: 5
       - title: Conversant
-        value: 12
+        value: 16
         type: 5
       - title: Menu Text
         value: Nothing
@@ -2344,10 +2443,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 3
+        value: 8
         type: 5
       - title: Conversant
-        value: 12
+        value: 16
         type: 5
       - title: Menu Text
         value: 
@@ -2377,10 +2476,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 12
+        value: 16
         type: 5
       - title: Conversant
-        value: 2
+        value: 9
         type: 5
       - title: Menu Text
         value: 
@@ -2423,10 +2522,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 2
+        value: 9
         type: 5
       - title: Conversant
-        value: 12
+        value: 16
         type: 5
       - title: Menu Text
         value: 'Why are you not at work? '
@@ -2462,10 +2561,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 12
+        value: 16
         type: 5
       - title: Conversant
-        value: 2
+        value: 9
         type: 5
       - title: Menu Text
         value: 
@@ -2495,10 +2594,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 2
+        value: 9
         type: 5
       - title: Conversant
-        value: 12
+        value: 16
         type: 5
       - title: Menu Text
         value: 'Yes, sure. Thanks. '
@@ -3343,10 +3442,10 @@ MonoBehaviour:
       value: 
       type: 0
     - title: Actor
-      value: 1
+      value: 7
       type: 5
     - title: Conversant
-      value: 20
+      value: 23
       type: 5
     nodeColor: Red
     dialogueEntries:
@@ -3356,10 +3455,10 @@ MonoBehaviour:
         value: START
         type: 0
       - title: Actor
-        value: 1
+        value: 7
         type: 5
       - title: Conversant
-        value: 20
+        value: 23
         type: 5
       - title: Menu Text
         value: 
@@ -3395,10 +3494,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 20
+        value: 23
         type: 5
       - title: Conversant
-        value: 1
+        value: 7
         type: 5
       - title: Menu Text
         value: 
@@ -3434,10 +3533,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 1
+        value: 7
         type: 5
       - title: Conversant
-        value: 20
+        value: 23
         type: 5
       - title: Menu Text
         value: 
@@ -3473,10 +3572,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 20
+        value: 23
         type: 5
       - title: Conversant
-        value: 1
+        value: 7
         type: 5
       - title: Menu Text
         value: 
@@ -3512,10 +3611,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 1
+        value: 7
         type: 5
       - title: Conversant
-        value: 20
+        value: 23
         type: 5
       - title: Menu Text
         value: 
@@ -3551,10 +3650,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 20
+        value: 23
         type: 5
       - title: Conversant
-        value: 1
+        value: 7
         type: 5
       - title: Menu Text
         value: 
@@ -3587,10 +3686,10 @@ MonoBehaviour:
       value: 
       type: 0
     - title: Actor
-      value: 21
+      value: 24
       type: 5
     - title: Conversant
-      value: 9
+      value: 1
       type: 5
     nodeColor: Red
     dialogueEntries:
@@ -3600,10 +3699,10 @@ MonoBehaviour:
         value: START
         type: 0
       - title: Actor
-        value: 21
+        value: 24
         type: 5
       - title: Conversant
-        value: 9
+        value: 1
         type: 5
       - title: Menu Text
         value: 
@@ -3651,10 +3750,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 9
+        value: 1
         type: 5
       - title: Conversant
-        value: 21
+        value: 24
         type: 5
       - title: Menu Text
         value: Check
@@ -3684,10 +3783,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 9
+        value: 1
         type: 5
       - title: Conversant
-        value: 21
+        value: 24
         type: 5
       - title: Menu Text
         value: Deposit
@@ -3717,10 +3816,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 9
+        value: 1
         type: 5
       - title: Conversant
-        value: 21
+        value: 24
         type: 5
       - title: Menu Text
         value: Leave
@@ -3753,10 +3852,10 @@ MonoBehaviour:
       value: 
       type: 0
     - title: Actor
-      value: 9
+      value: 1
       type: 5
     - title: Conversant
-      value: 22
+      value: 5
       type: 5
     nodeColor: Red
     dialogueEntries:
@@ -3766,10 +3865,10 @@ MonoBehaviour:
         value: START
         type: 0
       - title: Actor
-        value: 9
+        value: 1
         type: 5
       - title: Conversant
-        value: 22
+        value: 5
         type: 5
       - title: Menu Text
         value: 
@@ -3805,10 +3904,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 22
+        value: 5
         type: 5
       - title: Conversant
-        value: 9
+        value: 1
         type: 5
       - title: Menu Text
         value: 
@@ -3850,10 +3949,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 9
+        value: 1
         type: 5
       - title: Conversant
-        value: 22
+        value: 5
         type: 5
       - title: Menu Text
         value: Talk Loudly
@@ -3889,10 +3988,10 @@ MonoBehaviour:
         value: New Dialogue
         type: 0
       - title: Actor
-        value: 9
+        value: 1
         type: 5
       - title: Conversant
-        value: 22
+        value: 5
         type: 5
       - title: Menu Text
         value: Whisper
@@ -3928,10 +4027,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 22
+        value: 5
         type: 5
       - title: Conversant
-        value: 9
+        value: 1
         type: 5
       - title: Menu Text
         value: 
@@ -3961,10 +4060,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 22
+        value: 5
         type: 5
       - title: Conversant
-        value: 9
+        value: 1
         type: 5
       - title: Menu Text
         value: 
