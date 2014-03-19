@@ -16,6 +16,7 @@ MonoBehaviour:
   description: This project contains bark conversations for two NPCs that bark at
     each other. You could make it more reactive by adding conditions to the barks
     so that certain barks would trigger only under specific conditions.
+  globalUserScript: 
   emphasisSettings:
   - color: {r: 1, g: 0, b: 0, a: 1}
     bold: 1
@@ -49,7 +50,7 @@ MonoBehaviour:
       value: True
       type: 2
     portrait: {fileID: 0}
-  - id: 2
+  - id: 34
     fields:
     - title: Name
       value: Private Hart
@@ -64,7 +65,7 @@ MonoBehaviour:
       value: False
       type: 2
     portrait: {fileID: 0}
-  - id: 3
+  - id: 35
     fields:
     - title: Name
       value: Sergeant Graves
@@ -82,7 +83,7 @@ MonoBehaviour:
   items: []
   locations: []
   variables:
-  - id: 0
+  - id: 1
     fields:
     - title: Name
       value: Alert
@@ -93,7 +94,7 @@ MonoBehaviour:
     - title: Description
       value: Show alert messages during gameplay by setting this variable.
       type: 0
-  - id: 1
+  - id: 4
     fields:
     - title: Name
       value: Reloaded
@@ -105,7 +106,7 @@ MonoBehaviour:
       value: 
       type: 0
   conversations:
-  - id: 1
+  - id: 44
     fields:
     - title: Title
       value: Private Hart Barks
@@ -114,10 +115,10 @@ MonoBehaviour:
       value: 
       type: 0
     - title: Actor
-      value: 2
+      value: 34
       type: 5
     - title: Conversant
-      value: 3
+      value: 35
       type: 5
     nodeColor: Red
     dialogueEntries:
@@ -127,10 +128,10 @@ MonoBehaviour:
         value: START
         type: 0
       - title: Actor
-        value: 2
+        value: 34
         type: 5
       - title: Conversant
-        value: 3
+        value: 35
         type: 5
       - title: Menu Text
         value: 
@@ -144,7 +145,7 @@ MonoBehaviour:
       - title: Sequence
         value: None()
         type: 0
-      conversationID: 1
+      conversationID: 44
       isRoot: 1
       isGroup: 0
       nodeColor: White
@@ -152,21 +153,21 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 1
+      - originConversationID: 44
         originDialogueID: 0
-        destinationConversationID: 1
+        destinationConversationID: 44
         destinationDialogueID: 1
         isConnector: 0
         priority: 2
-      - originConversationID: 1
+      - originConversationID: 44
         originDialogueID: 0
-        destinationConversationID: 1
+        destinationConversationID: 44
         destinationDialogueID: 2
         isConnector: 0
         priority: 2
-      - originConversationID: 1
+      - originConversationID: 44
         originDialogueID: 0
-        destinationConversationID: 1
+        destinationConversationID: 44
         destinationDialogueID: 3
         isConnector: 0
         priority: 2
@@ -178,10 +179,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 3
+        value: 35
         type: 5
       - title: Conversant
-        value: 2
+        value: 34
         type: 5
       - title: Menu Text
         value: 
@@ -195,7 +196,7 @@ MonoBehaviour:
       - title: Sequence
         value: 
         type: 0
-      conversationID: 1
+      conversationID: 44
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -211,10 +212,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 3
+        value: 35
         type: 5
       - title: Conversant
-        value: 2
+        value: 34
         type: 5
       - title: Menu Text
         value: 
@@ -228,7 +229,7 @@ MonoBehaviour:
       - title: Sequence
         value: Animation(PistolReloadStandingStill); require Animation(PistolCombatIdle)@2
         type: 0
-      conversationID: 1
+      conversationID: 44
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -244,10 +245,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 3
+        value: 35
         type: 5
       - title: Conversant
-        value: 2
+        value: 34
         type: 5
       - title: Menu Text
         value: 
@@ -262,7 +263,7 @@ MonoBehaviour:
         value: Animation(PistolLookingAround); require Animation(PistolCombatIdle)@2;
           Animation(TwoHandGunIReloadstanding,listener); require Animation(TwoHandGunIdle,listener)@2
         type: 0
-      conversationID: 1
+      conversationID: 44
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -272,7 +273,7 @@ MonoBehaviour:
       outgoingLinks: []
       conditionsString: 
       userScript: Variable["Reloaded"] = "True"
-  - id: 2
+  - id: 45
     fields:
     - title: Title
       value: Sergeant Graves Barks
@@ -281,10 +282,10 @@ MonoBehaviour:
       value: 
       type: 0
     - title: Actor
-      value: 3
+      value: 35
       type: 5
     - title: Conversant
-      value: 2
+      value: 34
       type: 5
     nodeColor: Red
     dialogueEntries:
@@ -294,10 +295,10 @@ MonoBehaviour:
         value: START
         type: 0
       - title: Actor
-        value: 3
+        value: 35
         type: 5
       - title: Conversant
-        value: 2
+        value: 34
         type: 5
       - title: Menu Text
         value: 
@@ -311,7 +312,7 @@ MonoBehaviour:
       - title: Sequence
         value: None()
         type: 0
-      conversationID: 2
+      conversationID: 45
       isRoot: 1
       isGroup: 0
       nodeColor: White
@@ -319,21 +320,21 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 2
+      - originConversationID: 45
         originDialogueID: 0
-        destinationConversationID: 2
+        destinationConversationID: 45
         destinationDialogueID: 1
         isConnector: 0
         priority: 2
-      - originConversationID: 2
+      - originConversationID: 45
         originDialogueID: 0
-        destinationConversationID: 2
+        destinationConversationID: 45
         destinationDialogueID: 2
         isConnector: 0
         priority: 2
-      - originConversationID: 2
+      - originConversationID: 45
         originDialogueID: 0
-        destinationConversationID: 2
+        destinationConversationID: 45
         destinationDialogueID: 3
         isConnector: 0
         priority: 2
@@ -345,10 +346,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 2
+        value: 34
         type: 5
       - title: Conversant
-        value: 3
+        value: 35
         type: 5
       - title: Menu Text
         value: 
@@ -362,7 +363,7 @@ MonoBehaviour:
       - title: Sequence
         value: Delay(1.5)
         type: 0
-      conversationID: 2
+      conversationID: 45
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -378,10 +379,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 2
+        value: 34
         type: 5
       - title: Conversant
-        value: 3
+        value: 35
         type: 5
       - title: Menu Text
         value: 
@@ -395,7 +396,7 @@ MonoBehaviour:
       - title: Sequence
         value: Animation(PistolTwoHandsLookingAround); require Animation(TwoHandGunIdle)@3.7
         type: 0
-      conversationID: 2
+      conversationID: 45
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -411,10 +412,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 2
+        value: 34
         type: 5
       - title: Conversant
-        value: 3
+        value: 35
         type: 5
       - title: Menu Text
         value: 
@@ -428,7 +429,7 @@ MonoBehaviour:
       - title: Sequence
         value: 
         type: 0
-      conversationID: 2
+      conversationID: 45
       isRoot: 0
       isGroup: 0
       nodeColor: White
