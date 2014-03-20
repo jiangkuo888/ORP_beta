@@ -45,9 +45,9 @@ public class pcMode : MonoBehaviour {
 
 		if(!InfoModeIsOn)
 		{
-		scrollPosition = GUI.BeginScrollView(new Rect(.46f * w, .2f * h, .5f * w, .6f * h), scrollPosition, new Rect(0, 0, .45f*w, 2000));
+		scrollPosition = GUI.BeginScrollView(new Rect(.46f * w, .2f * h, .5f * w, .6f * h), scrollPosition, new Rect(0, 0, .45f*w, 1000));
 		
-			GUI.DrawTexture (new Rect(0, 0, .5f*w, 2000), null);
+			GUI.DrawTexture (new Rect(0, 0, .5f*w, 1000), null);
 
 
 		for (int i = 0; i < customerNames.Length; i++) {
@@ -76,12 +76,15 @@ public class pcMode : MonoBehaviour {
 		}
 		else{
 
-			scrollPosition = GUI.BeginScrollView(new Rect(.46f * w, .2f * h, .5f * w, .6f * h), scrollPosition, new Rect(0, 0, .45f*w, 2000));
+			//scrollPosition = GUI.BeginScrollView(new Rect(.46f * w, .2f * h, .5f * w, .6f * h), scrollPosition, new Rect(0, 0, .45f*w, 2000));
 			
-			GUI.DrawTexture (new Rect(0, 0, .5f*w, 2000), currentImage, ScaleMode.ScaleToFit);	
+			//GUI.DrawTexture (new Rect(0, 0, .5f*w, 2000), currentImage, ScaleMode.ScaleToFit);	
 		
+			scrollPosition = GUI.BeginScrollView(new Rect(.46f * w, .2f * h, .5f * w, .6f * h), scrollPosition, new Rect(0, 0, .45f*w, 1000));
 			
+			GUI.DrawTexture (new Rect(0, 0, .5f*w, 1000), currentImage, ScaleMode.ScaleToFit);	
 
+			
 			GUI.EndScrollView();
 
 		}

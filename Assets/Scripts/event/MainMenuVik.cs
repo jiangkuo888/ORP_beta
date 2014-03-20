@@ -321,9 +321,6 @@ public class MainMenuVik : MonoBehaviour
 				{
 					if (GUILayout.Button (fileName, GUILayout.Width (80))) {
 
-						isPlayback = true;
-						isPlaybackList = false;
-
 						//download files
 						WWWForm sendForm = new WWWForm();
 						sendForm.AddField("fileName", fileName);
@@ -489,8 +486,15 @@ public class MainMenuVik : MonoBehaviour
 			File.WriteAllBytes(currentDir + "\\playback\\" + fileName, www.bytes);
 
 			string filePath = "playback/" + fileName;
+			//restore all to previous setting
+
 			EZReplayManager.get.loadFromFile(filePath);
 
+			
+			isPlayback = true;
+			isPlaybackList = false;
+
+			
 		} else {
 			Debug.Log("WWW Error: "+ www.error);
 		}    

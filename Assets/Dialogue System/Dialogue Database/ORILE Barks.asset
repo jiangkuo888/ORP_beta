@@ -67,7 +67,7 @@ MonoBehaviour:
   - id: 1
     fields:
     - title: Name
-      value: New Item
+      value: Wrong Info Pitch
       type: 0
     - title: Description
       value: 
@@ -403,7 +403,9 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: Variable["Line"] == 6;
-      userScript: Variable["Line"] = 7;
+      userScript: 'Variable["Line"] = 7;
+
+        Item["Wrong_Info_Pitch"].State = "success";'
   - id: 2
     fields:
     - title: Title

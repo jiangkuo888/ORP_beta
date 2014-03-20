@@ -49,7 +49,7 @@
         <Fields>
           <Field Hint="A name to reference this item or quest. Use underscores instead of spaces so simulator Lua code works." Type="Text">
             <Title>Name</Title>
-            <Value>New Item</Value>
+            <Value>Wrong Info Pitch</Value>
           </Field>
           <Field Hint="A description of this item or quest." Type="Text">
             <Title>Description</Title>
@@ -93,7 +93,7 @@
       </Location>
     </Locations>
     <Conversations>
-      <Conversation ID="1" LockedMode="Unlocked" NodeColor="Red">
+      <Conversation ID="1" NodeColor="Red" LockedMode="Unlocked">
         <Fields>
           <Field Hint="The title of this conversation." Type="Text">
             <Title>Title</Title>
@@ -377,11 +377,12 @@
             <ReviewerStatus>None</ReviewerStatus>
             <OutgoingLinks />
             <ConditionsString>Variable["Line"] == 6;</ConditionsString>
-            <UserScript>Variable["Line"] = 7;</UserScript>
+            <UserScript>Variable["Line"] = 7;
+Item["Wrong_Info_Pitch"].State = "success";</UserScript>
           </DialogEntry>
         </DialogEntries>
       </Conversation>
-      <Conversation ID="2" LockedMode="Unlocked" NodeColor="Red">
+      <Conversation ID="2" NodeColor="Red" LockedMode="Unlocked">
         <Fields>
           <Field Hint="The title of this conversation." Type="Text">
             <Title>Title</Title>

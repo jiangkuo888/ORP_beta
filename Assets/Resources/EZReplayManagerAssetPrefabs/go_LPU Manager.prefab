@@ -725,6 +725,7 @@ GameObject:
   - 114: {fileID: 11400022}
   - 114: {fileID: 11400038}
   - 114: {fileID: 11400036}
+  - 114: {fileID: 11400040}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1580,7 +1581,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75d12adc27cb2c240872471ed03dfdc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerName: LPU Manager
+  playerName: Credit Risk
   target: {fileID: 11100000}
   state: 0
 --- !u!114 &11400016
@@ -1924,9 +1925,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 100092}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d3b9018c883248d4fae50640634821d4, type: 3}
+  m_Script: {fileID: 11500000, guid: 822bf361743a9c14cb3ba187f6690be8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isMainCameraChild: 1
 --- !u!114 &11400038
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1940,6 +1942,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enabled: 0
   distance: 0
+  horizontalSpeed: 0
+  verticalSpeed: 0
+--- !u!114 &11400040
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100092}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3b9018c883248d4fae50640634821d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!124 &12400000
 Behaviour:
   m_ObjectHideFlags: 1
