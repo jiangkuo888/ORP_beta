@@ -4,10 +4,11 @@ using HutongGames.PlayMaker;
 public class PlaybackCamera : Photon.MonoBehaviour {
 
 	public bool isMainCameraChild = true;
+	public Transform parent;
 
 	void Update()
 	{
-		GameObject gameManager = GameObject.Find("GameManager");  
+		GameObject gameManager = GameObject.Find("GameManager"); 
 		MainMenuVik vikky = gameManager.GetComponent<MainMenuVik>();
 		bool isPlayback = vikky.isPlayback;
 
@@ -27,7 +28,8 @@ public class PlaybackCamera : Photon.MonoBehaviour {
 
 			if (!isMainCameraChild)
 			{
-				this.gameObject.transform.parent = null;
+				this.parent = this.gameObject.transform.parent;
+				this.gameObject.transform.parent = GameObject.Find("EZReplayM_sParent").transform;
 			}
 
 		}
@@ -44,6 +46,12 @@ public class PlaybackCamera : Photon.MonoBehaviour {
 			{
 				this.gameObject.SetActive(true);
 			}*/
+			if (isMainCameraChild)
+			{
+				this.gameObject.transform.parent = this.parent;
+				this.gameObject.transform.localPosition = this.GetComponent<ThirdPersonNetworkVik>().cameraRelativePosition;
+				this.gameObject.transform.localEulerAngles = new Vector3(0.6651921f, 90, 0);
+			}
 
 		}
 

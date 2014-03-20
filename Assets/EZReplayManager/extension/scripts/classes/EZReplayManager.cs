@@ -169,23 +169,24 @@ public sealed class EZReplayManager : MonoBehaviour {
 			
 		Object2PropertiesMappingListWrapper o2pMappingListW = new Object2PropertiesMappingListWrapper();
 		
+		/*******************************************************************************
+		 *  New Addition: print out of isMainCameraChild value in SavedStates
+		 *                before saving
+		 *******************************************************************************/
 		foreach (var yang in gOs2propMappings)
-		{
-			//Debug.Log(yang.Value.getGameObjectClone().name);
-			//GameObject something = 
+		{ 
 			if(yang.Key.name == "Main Camera")
 			{
 				foreach (KeyValuePair<int,SavedState> yong in yang.Value.savedStates)
 				{
-						if (!yong.Value.isMainCameraChild)
-						{
-							Debug.Log(yong.Key);
-							Debug.Log(yong.Value.isMainCameraChild);
-						}
+
+					Debug.Log(yong.Key);
+					Debug.Log(yong.Value.isMainCameraChild);
 					
 				}
 			}
 		}
+		//******************************************************************************
 
 		foreach (var entry in gOs2propMappings) {
 			
@@ -217,17 +218,6 @@ public sealed class EZReplayManager : MonoBehaviour {
 		useLoadingSlot();
 		
 		Object2PropertiesMappingListWrapper reSerialized = (Object2PropertiesMappingListWrapper)DeSerializeObject(filename);
-
-			/*foreach (var entry in reSerialized.object2PropertiesMappings)
-			{
-				GameObject goClone = entry.getGameObjectClone();
-				Debug.Log(goClone.name);
-				foreach (KeyValuePair<int,SavedState> yong in entry.savedStates)
-				{
-					Debug.Log(yong.Key);
-					Debug.Log(yong.Value.isMainCameraChild);
-				}
-			}*/
 		
 		gOs2propMappings.Clear();
 		maxPositions = 0;
@@ -248,15 +238,23 @@ public sealed class EZReplayManager : MonoBehaviour {
 				Debug.Log(goClone.name);
 				gOs2propMappings.Add(goClone,entry);
 				
+
+				/*******************************************************************************
+				 *  New Addition: print out of isMainCameraChild value in SavedStates
+				 *                before loading
+				 *******************************************************************************/
+
 				foreach(KeyValuePair<int,SavedState> stateEntry in entry.savedStates) {
-					if (!stateEntry.Value.isMainCameraChild)
-					{
+					//if (!stateEntry.Value.isMainCameraChild)
+					//{
 						Debug.Log(stateEntry.Key);
 						Debug.Log(stateEntry.Value.isMainCameraChild);
-					}
+					//}
 					if (stateEntry.Key > maxPositions)
 						maxPositions = stateEntry.Key;
 				}
+
+				//****************************************************************************
 
 			}
 		}	
@@ -269,16 +267,23 @@ public sealed class EZReplayManager : MonoBehaviour {
 				Debug.Log(goClone.name);
 				gOs2propMappings.Add(goClone,entry);
 
+				/*******************************************************************************
+				 *  New Addition: print out of isMainCameraChild value in SavedStates
+				 *                before loading
+				 *******************************************************************************/
+
 				foreach(KeyValuePair<int,SavedState> stateEntry in entry.savedStates) {
-					if (!stateEntry.Value.isMainCameraChild)
-					{
+					//if (!stateEntry.Value.isMainCameraChild)
+					//{
 						Debug.Log(stateEntry.Key);
 						Debug.Log(stateEntry.Value.isMainCameraChild);
-					}
+					//}
 					
 					if (stateEntry.Key > maxPositions)
 						maxPositions = stateEntry.Key;
 				}
+
+				//****************************************************************************
 			}
 		}
 

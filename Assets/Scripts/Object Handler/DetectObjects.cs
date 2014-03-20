@@ -392,8 +392,8 @@ public class DetectObjects : Photon.MonoBehaviour {
 		Camera.main.transform.localEulerAngles = new Vector3(Camera.main.transform.localEulerAngles.x-37f,Camera.main.transform.localEulerAngles.y,Camera.main.transform.localEulerAngles.z);
 		
 		//update the camera state for playback
-		//PlaybackCamera script = Camera.main.GetComponent<PlaybackCamera>();
-		//script.isMainCameraChild = false;
+		PlaybackCamera script = Camera.main.GetComponent<PlaybackCamera>();
+		script.isMainCameraChild = false;
 	}
 	
 	public void moveCameraToObject(GameObject obj){
@@ -463,8 +463,8 @@ public class DetectObjects : Photon.MonoBehaviour {
 
 
 			//update the camera state for playback
-			//PlaybackCamera script = Camera.main.GetComponent<PlaybackCamera>();
-			//script.isMainCameraChild = true;
+			PlaybackCamera script = Camera.main.GetComponent<PlaybackCamera>();
+			script.isMainCameraChild = true;
 		}
 	}
 	
