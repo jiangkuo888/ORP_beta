@@ -40,9 +40,11 @@ public class MouseCamera : MonoBehaviour {
 		{
 		if (axes == RotationAxes.MouseXAndY)
 		{
-				rotationX += Input.GetAxis("Mouse X") * sensitivityX;
-				rotationX = Mathf.Clamp (rotationX, minimumX, maximumX);
-				
+				//rotationX += Input.GetAxis("Mouse X") * sensitivityX;
+				//rotationX = Mathf.Clamp (rotationX, minimumX, maximumX);
+
+				float rotationX = transform.localEulerAngles.y + Input.GetAxis("Mouse X") * sensitivityX;
+
 				rotationY += Input.GetAxis("Mouse Y") * sensitivityY;
 				rotationY = Mathf.Clamp (rotationY, minimumY, maximumY);
 				
