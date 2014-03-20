@@ -52,7 +52,7 @@ MonoBehaviour:
       value: True
       type: 2
     portrait: {fileID: 0}
-  - id: 2
+  - id: 34
     fields:
     - title: Name
       value: Private Hart
@@ -67,7 +67,7 @@ MonoBehaviour:
       value: False
       type: 2
     portrait: {fileID: 0}
-  - id: 4
+  - id: 36
     fields:
     - title: Name
       value: Terminal
@@ -84,7 +84,7 @@ MonoBehaviour:
       type: 2
     portrait: {fileID: 0}
   items:
-  - id: 1
+  - id: 24
     fields:
     - title: Name
       value: Assassinate the Emperor
@@ -108,7 +108,7 @@ MonoBehaviour:
       type: 0
   locations: []
   variables:
-  - id: 0
+  - id: 1
     fields:
     - title: Name
       value: Alert
@@ -119,7 +119,7 @@ MonoBehaviour:
     - title: Description
       value: Show alert messages during gameplay by setting this variable.
       type: 0
-  - id: 1
+  - id: 9
     fields:
     - title: Name
       value: Kick Hart
@@ -132,7 +132,7 @@ MonoBehaviour:
         set, the QTE dialogue entry is triggered.
       type: 0
   conversations:
-  - id: 1
+  - id: 61
     fields:
     - title: Title
       value: Private Hart
@@ -147,7 +147,7 @@ MonoBehaviour:
       value: 1
       type: 5
     - title: Conversant
-      value: 2
+      value: 34
       type: 5
     nodeColor: Red
     dialogueEntries:
@@ -160,7 +160,7 @@ MonoBehaviour:
         value: 1
         type: 5
       - title: Conversant
-        value: 2
+        value: 34
         type: 5
       - title: Menu Text
         value: 
@@ -174,7 +174,7 @@ MonoBehaviour:
       - title: Sequence
         value: None()
         type: 0
-      conversationID: 1
+      conversationID: 61
       isRoot: 1
       isGroup: 0
       nodeColor: White
@@ -182,27 +182,27 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 1
+      - originConversationID: 61
         originDialogueID: 0
-        destinationConversationID: 1
+        destinationConversationID: 61
         destinationDialogueID: 1
         isConnector: 0
         priority: 2
-      - originConversationID: 1
+      - originConversationID: 61
         originDialogueID: 0
-        destinationConversationID: 1
+        destinationConversationID: 61
         destinationDialogueID: 2
         isConnector: 0
         priority: 2
-      - originConversationID: 1
+      - originConversationID: 61
         originDialogueID: 0
-        destinationConversationID: 1
+        destinationConversationID: 61
         destinationDialogueID: 3
         isConnector: 0
         priority: 2
-      - originConversationID: 1
+      - originConversationID: 61
         originDialogueID: 0
-        destinationConversationID: 1
+        destinationConversationID: 61
         destinationDialogueID: 4
         isConnector: 0
         priority: 2
@@ -214,7 +214,7 @@ MonoBehaviour:
         value: No Quest Yet
         type: 0
       - title: Actor
-        value: 2
+        value: 34
         type: 5
       - title: Conversant
         value: 1
@@ -232,7 +232,7 @@ MonoBehaviour:
         value: LookAt(listener,speaker); LookAt(speaker,listener); Camera(Medium);
           Camera(Closeup,speaker,1)@0.1; require Camera(Closeup,listener)@2
         type: 0
-      conversationID: 1
+      conversationID: 61
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -240,21 +240,21 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 1
+      - originConversationID: 61
         originDialogueID: 1
-        destinationConversationID: 1
+        destinationConversationID: 61
         destinationDialogueID: 5
         isConnector: 0
         priority: 2
-      - originConversationID: 1
+      - originConversationID: 61
         originDialogueID: 1
-        destinationConversationID: 1
+        destinationConversationID: 61
         destinationDialogueID: 6
         isConnector: 0
         priority: 2
-      - originConversationID: 1
+      - originConversationID: 61
         originDialogueID: 1
-        destinationConversationID: 1
+        destinationConversationID: 61
         destinationDialogueID: 7
         isConnector: 0
         priority: 2
@@ -266,7 +266,7 @@ MonoBehaviour:
         value: Quest is Active
         type: 0
       - title: Actor
-        value: 2
+        value: 34
         type: 5
       - title: Conversant
         value: 1
@@ -284,7 +284,7 @@ MonoBehaviour:
         value: LookAt(listener,speaker); LookAt(speaker,listener); Camera(Closeup);
           require Camera(Closeup,listener)@2.5
         type: 0
-      conversationID: 1
+      conversationID: 61
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -292,15 +292,15 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 1
+      - originConversationID: 61
         originDialogueID: 2
-        destinationConversationID: 1
+        destinationConversationID: 61
         destinationDialogueID: 20
         isConnector: 0
         priority: 2
-      - originConversationID: 1
+      - originConversationID: 61
         originDialogueID: 2
-        destinationConversationID: 1
+        destinationConversationID: 61
         destinationDialogueID: 7
         isConnector: 1
         priority: 2
@@ -312,7 +312,7 @@ MonoBehaviour:
         value: Airlock Opened
         type: 0
       - title: Actor
-        value: 2
+        value: 34
         type: 5
       - title: Conversant
         value: 1
@@ -330,7 +330,7 @@ MonoBehaviour:
         value: LookAt(listener,speaker); LookAt(speaker,listener); Camera(Closeup);
           require Camera(Closeup,listener)@2
         type: 0
-      conversationID: 1
+      conversationID: 61
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -338,15 +338,15 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 1
+      - originConversationID: 61
         originDialogueID: 3
-        destinationConversationID: 1
+        destinationConversationID: 61
         destinationDialogueID: 21
         isConnector: 0
         priority: 2
-      - originConversationID: 1
+      - originConversationID: 61
         originDialogueID: 3
-        destinationConversationID: 1
+        destinationConversationID: 61
         destinationDialogueID: 22
         isConnector: 0
         priority: 2
@@ -358,7 +358,7 @@ MonoBehaviour:
         value: Airlock Relocked
         type: 0
       - title: Actor
-        value: 2
+        value: 34
         type: 5
       - title: Conversant
         value: 1
@@ -376,7 +376,7 @@ MonoBehaviour:
         value: LookAt(listener,speaker); LookAt(speaker,listener); Camera(Closeup);
           require Camera(Closeup,listener)@2
         type: 0
-      conversationID: 1
+      conversationID: 61
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -384,9 +384,9 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 1
+      - originConversationID: 61
         originDialogueID: 4
-        destinationConversationID: 1
+        destinationConversationID: 61
         destinationDialogueID: 23
         isConnector: 0
         priority: 2
@@ -401,7 +401,7 @@ MonoBehaviour:
         value: 1
         type: 5
       - title: Conversant
-        value: 2
+        value: 34
         type: 5
       - title: Menu Text
         value: Calm down. What's the problem?
@@ -415,7 +415,7 @@ MonoBehaviour:
       - title: Sequence
         value: 
         type: 0
-      conversationID: 1
+      conversationID: 61
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -423,9 +423,9 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 1
+      - originConversationID: 61
         originDialogueID: 5
-        destinationConversationID: 1
+        destinationConversationID: 61
         destinationDialogueID: 8
         isConnector: 0
         priority: 2
@@ -440,7 +440,7 @@ MonoBehaviour:
         value: 1
         type: 5
       - title: Conversant
-        value: 2
+        value: 34
         type: 5
       - title: Menu Text
         value: Report, private.
@@ -454,7 +454,7 @@ MonoBehaviour:
       - title: Sequence
         value: 
         type: 0
-      conversationID: 1
+      conversationID: 61
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -462,9 +462,9 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 1
+      - originConversationID: 61
         originDialogueID: 6
-        destinationConversationID: 1
+        destinationConversationID: 61
         destinationDialogueID: 8
         isConnector: 1
         priority: 2
@@ -479,7 +479,7 @@ MonoBehaviour:
         value: 1
         type: 5
       - title: Conversant
-        value: 2
+        value: 34
         type: 5
       - title: Menu Text
         value: Stand by, private. I'll be back.
@@ -493,7 +493,7 @@ MonoBehaviour:
       - title: Sequence
         value: 
         type: 0
-      conversationID: 1
+      conversationID: 61
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -509,7 +509,7 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 2
+        value: 34
         type: 5
       - title: Conversant
         value: 1
@@ -526,7 +526,7 @@ MonoBehaviour:
       - title: Sequence
         value: 
         type: 0
-      conversationID: 1
+      conversationID: 61
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -534,15 +534,15 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 1
+      - originConversationID: 61
         originDialogueID: 8
-        destinationConversationID: 1
+        destinationConversationID: 61
         destinationDialogueID: 9
         isConnector: 0
         priority: 2
-      - originConversationID: 1
+      - originConversationID: 61
         originDialogueID: 8
-        destinationConversationID: 1
+        destinationConversationID: 61
         destinationDialogueID: 10
         isConnector: 0
         priority: 2
@@ -557,7 +557,7 @@ MonoBehaviour:
         value: 1
         type: 5
       - title: Conversant
-        value: 2
+        value: 34
         type: 5
       - title: Menu Text
         value: Good. Our spies were right.
@@ -571,7 +571,7 @@ MonoBehaviour:
       - title: Sequence
         value: 
         type: 0
-      conversationID: 1
+      conversationID: 61
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -579,9 +579,9 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 1
+      - originConversationID: 61
         originDialogueID: 9
-        destinationConversationID: 1
+        destinationConversationID: 61
         destinationDialogueID: 11
         isConnector: 0
         priority: 2
@@ -596,7 +596,7 @@ MonoBehaviour:
         value: 1
         type: 5
       - title: Conversant
-        value: 2
+        value: 34
         type: 5
       - title: Menu Text
         value: Open the airlock. Take him out!
@@ -610,7 +610,7 @@ MonoBehaviour:
       - title: Sequence
         value: 
         type: 0
-      conversationID: 1
+      conversationID: 61
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -618,9 +618,9 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 1
+      - originConversationID: 61
         originDialogueID: 10
-        destinationConversationID: 1
+        destinationConversationID: 61
         destinationDialogueID: 11
         isConnector: 1
         priority: 2
@@ -632,7 +632,7 @@ MonoBehaviour:
         value: Assign Quest
         type: 0
       - title: Actor
-        value: 2
+        value: 34
         type: 5
       - title: Conversant
         value: 1
@@ -651,7 +651,7 @@ MonoBehaviour:
         value: Camera(Medium Right); required Camera(Closeup,listener)@3; required
           SetActive(Terminal inactive,false); required SetActive(Terminal active,true)
         type: 0
-      conversationID: 1
+      conversationID: 61
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -659,15 +659,15 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 1
+      - originConversationID: 61
         originDialogueID: 11
-        destinationConversationID: 1
+        destinationConversationID: 61
         destinationDialogueID: 12
         isConnector: 0
         priority: 2
-      - originConversationID: 1
+      - originConversationID: 61
         originDialogueID: 11
-        destinationConversationID: 1
+        destinationConversationID: 61
         destinationDialogueID: 13
         isConnector: 0
         priority: 2
@@ -685,7 +685,7 @@ MonoBehaviour:
         value: 1
         type: 5
       - title: Conversant
-        value: 2
+        value: 34
         type: 5
       - title: Menu Text
         value: Damn. Hold until I return.
@@ -699,7 +699,7 @@ MonoBehaviour:
       - title: Sequence
         value: 
         type: 0
-      conversationID: 1
+      conversationID: 61
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -718,7 +718,7 @@ MonoBehaviour:
         value: 1
         type: 5
       - title: Conversant
-        value: 2
+        value: 34
         type: 5
       - title: Menu Text
         value: Collateral damage. Open it.
@@ -732,7 +732,7 @@ MonoBehaviour:
       - title: Sequence
         value: 
         type: 0
-      conversationID: 1
+      conversationID: 61
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -740,9 +740,9 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 1
+      - originConversationID: 61
         originDialogueID: 13
-        destinationConversationID: 1
+        destinationConversationID: 61
         destinationDialogueID: 14
         isConnector: 0
         priority: 2
@@ -754,7 +754,7 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 2
+        value: 34
         type: 5
       - title: Conversant
         value: 1
@@ -771,7 +771,7 @@ MonoBehaviour:
       - title: Sequence
         value: 
         type: 0
-      conversationID: 1
+      conversationID: 61
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -779,21 +779,21 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 1
+      - originConversationID: 61
         originDialogueID: 14
-        destinationConversationID: 1
+        destinationConversationID: 61
         destinationDialogueID: 12
         isConnector: 1
         priority: 2
-      - originConversationID: 1
+      - originConversationID: 61
         originDialogueID: 14
-        destinationConversationID: 1
+        destinationConversationID: 61
         destinationDialogueID: 15
         isConnector: 0
         priority: 2
-      - originConversationID: 1
+      - originConversationID: 61
         originDialogueID: 14
-        destinationConversationID: 1
+        destinationConversationID: 61
         destinationDialogueID: 16
         isConnector: 0
         priority: 2
@@ -808,7 +808,7 @@ MonoBehaviour:
         value: 1
         type: 5
       - title: Conversant
-        value: 2
+        value: 34
         type: 5
       - title: Menu Text
         value: Small price to free our star system.
@@ -822,7 +822,7 @@ MonoBehaviour:
       - title: Sequence
         value: 
         type: 0
-      conversationID: 1
+      conversationID: 61
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -830,9 +830,9 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 1
+      - originConversationID: 61
         originDialogueID: 15
-        destinationConversationID: 1
+        destinationConversationID: 61
         destinationDialogueID: 17
         isConnector: 0
         priority: 2
@@ -847,7 +847,7 @@ MonoBehaviour:
         value: 1
         type: 5
       - title: Conversant
-        value: 2
+        value: 34
         type: 5
       - title: Menu Text
         value: '[em1]Good! Kill ''em all![/em1]'
@@ -861,7 +861,7 @@ MonoBehaviour:
       - title: Sequence
         value: 
         type: 0
-      conversationID: 1
+      conversationID: 61
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -869,9 +869,9 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 1
+      - originConversationID: 61
         originDialogueID: 16
-        destinationConversationID: 1
+        destinationConversationID: 61
         destinationDialogueID: 17
         isConnector: 1
         priority: 2
@@ -883,7 +883,7 @@ MonoBehaviour:
         value: Hart refuses, QTE offer
         type: 0
       - title: Actor
-        value: 2
+        value: 34
         type: 5
       - title: Conversant
         value: 1
@@ -900,7 +900,7 @@ MonoBehaviour:
       - title: Sequence
         value: Camera(Medium); QTE(1,2,Kick_Hart,true); required Camera(Closeup, listener)@2
         type: 0
-      conversationID: 1
+      conversationID: 61
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -908,9 +908,9 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 1
+      - originConversationID: 61
         originDialogueID: 17
-        destinationConversationID: 1
+        destinationConversationID: 61
         destinationDialogueID: 18
         isConnector: 0
         priority: 2
@@ -925,7 +925,7 @@ MonoBehaviour:
         value: 1
         type: 5
       - title: Conversant
-        value: 2
+        value: 34
         type: 5
       - title: Menu Text
         value: We have orders. I'll handle you later.
@@ -939,7 +939,7 @@ MonoBehaviour:
       - title: Sequence
         value: 
         type: 0
-      conversationID: 1
+      conversationID: 61
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -958,7 +958,7 @@ MonoBehaviour:
         value: 1
         type: 5
       - title: Conversant
-        value: 2
+        value: 34
         type: 5
       - title: Menu Text
         value: We're soldiers. We follow orders.
@@ -972,7 +972,7 @@ MonoBehaviour:
       - title: Sequence
         value: 
         type: 0
-      conversationID: 1
+      conversationID: 61
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -991,7 +991,7 @@ MonoBehaviour:
         value: 1
         type: 5
       - title: Conversant
-        value: 2
+        value: 34
         type: 5
       - title: Menu Text
         value: Their sacrifice freed us all.
@@ -1005,7 +1005,7 @@ MonoBehaviour:
       - title: Sequence
         value: 
         type: 0
-      conversationID: 1
+      conversationID: 61
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -1024,7 +1024,7 @@ MonoBehaviour:
         value: 1
         type: 5
       - title: Conversant
-        value: 2
+        value: 34
         type: 5
       - title: Menu Text
         value: '[f]We''re no better than him otherwise.'
@@ -1038,7 +1038,7 @@ MonoBehaviour:
       - title: Sequence
         value: 
         type: 0
-      conversationID: 1
+      conversationID: 61
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -1054,10 +1054,10 @@ MonoBehaviour:
         value: QTE check
         type: 0
       - title: Actor
-        value: 2
+        value: 34
         type: 5
       - title: Conversant
-        value: 2
+        value: 34
         type: 5
       - title: Menu Text
         value: 
@@ -1071,7 +1071,7 @@ MonoBehaviour:
       - title: Sequence
         value: None()
         type: 0
-      conversationID: 1
+      conversationID: 61
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -1079,27 +1079,27 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 1
+      - originConversationID: 61
         originDialogueID: 18
-        destinationConversationID: 1
+        destinationConversationID: 61
         destinationDialogueID: 12
         isConnector: 1
         priority: 2
-      - originConversationID: 1
+      - originConversationID: 61
         originDialogueID: 18
-        destinationConversationID: 1
+        destinationConversationID: 61
         destinationDialogueID: 19
         isConnector: 0
         priority: 2
-      - originConversationID: 1
+      - originConversationID: 61
         originDialogueID: 18
-        destinationConversationID: 1
+        destinationConversationID: 61
         destinationDialogueID: 24
         isConnector: 0
         priority: 2
-      - originConversationID: 1
+      - originConversationID: 61
         originDialogueID: 18
-        destinationConversationID: 1
+        destinationConversationID: 61
         destinationDialogueID: 25
         isConnector: 0
         priority: 2
@@ -1111,7 +1111,7 @@ MonoBehaviour:
         value: QTE occurs
         type: 0
       - title: Actor
-        value: 2
+        value: 34
         type: 5
       - title: Conversant
         value: 1
@@ -1132,7 +1132,7 @@ MonoBehaviour:
           Animation(TwoHandGunFromLayingToStanding)@1.5; require Animation(PistolCombatIdle)@2;
           require Camera(Closeup,listener)@3
         type: 0
-      conversationID: 1
+      conversationID: 61
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -1140,9 +1140,9 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 1
+      - originConversationID: 61
         originDialogueID: 19
-        destinationConversationID: 1
+        destinationConversationID: 61
         destinationDialogueID: 25
         isConnector: 1
         priority: 2
@@ -1157,7 +1157,7 @@ MonoBehaviour:
         value: 1
         type: 5
       - title: Conversant
-        value: 2
+        value: 34
         type: 5
       - title: Menu Text
         value: Then I'll do it.
@@ -1171,7 +1171,7 @@ MonoBehaviour:
       - title: Sequence
         value: 
         type: 0
-      conversationID: 1
+      conversationID: 61
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -1190,7 +1190,7 @@ MonoBehaviour:
         value: 1
         type: 5
       - title: Conversant
-        value: 2
+        value: 34
         type: 5
       - title: Menu Text
         value: '[f]I''ll see you court martialed, private!'
@@ -1204,7 +1204,7 @@ MonoBehaviour:
       - title: Sequence
         value: 
         type: 0
-      conversationID: 1
+      conversationID: 61
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -1214,7 +1214,7 @@ MonoBehaviour:
       outgoingLinks: []
       conditionsString: 
       userScript: 
-  - id: 3
+  - id: 62
     fields:
     - title: Title
       value: Terminal
@@ -1227,7 +1227,7 @@ MonoBehaviour:
       value: 1
       type: 5
     - title: Conversant
-      value: 4
+      value: 36
       type: 5
     nodeColor: Red
     dialogueEntries:
@@ -1240,7 +1240,7 @@ MonoBehaviour:
         value: 1
         type: 5
       - title: Conversant
-        value: 4
+        value: 36
         type: 5
       - title: Menu Text
         value: 
@@ -1254,7 +1254,7 @@ MonoBehaviour:
       - title: Sequence
         value: None()
         type: 0
-      conversationID: 3
+      conversationID: 62
       isRoot: 1
       isGroup: 0
       nodeColor: White
@@ -1262,15 +1262,15 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 3
+      - originConversationID: 62
         originDialogueID: 0
-        destinationConversationID: 3
+        destinationConversationID: 62
         destinationDialogueID: 1
         isConnector: 0
         priority: 2
-      - originConversationID: 3
+      - originConversationID: 62
         originDialogueID: 0
-        destinationConversationID: 3
+        destinationConversationID: 62
         destinationDialogueID: 2
         isConnector: 0
         priority: 2
@@ -1282,7 +1282,7 @@ MonoBehaviour:
         value: Quest Active
         type: 0
       - title: Actor
-        value: 4
+        value: 36
         type: 5
       - title: Conversant
         value: 1
@@ -1299,7 +1299,7 @@ MonoBehaviour:
       - title: Sequence
         value: Camera(Terminal Camera Angle); Delay(1)
         type: 0
-      conversationID: 3
+      conversationID: 62
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -1307,27 +1307,27 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 3
+      - originConversationID: 62
         originDialogueID: 1
-        destinationConversationID: 3
+        destinationConversationID: 62
         destinationDialogueID: 3
         isConnector: 0
         priority: 2
-      - originConversationID: 3
+      - originConversationID: 62
         originDialogueID: 1
-        destinationConversationID: 3
+        destinationConversationID: 62
         destinationDialogueID: 4
         isConnector: 0
         priority: 2
-      - originConversationID: 3
+      - originConversationID: 62
         originDialogueID: 1
-        destinationConversationID: 3
+        destinationConversationID: 62
         destinationDialogueID: 5
         isConnector: 0
         priority: 2
-      - originConversationID: 3
+      - originConversationID: 62
         originDialogueID: 1
-        destinationConversationID: 3
+        destinationConversationID: 62
         destinationDialogueID: 7
         isConnector: 0
         priority: 2
@@ -1340,7 +1340,7 @@ MonoBehaviour:
         value: Quest Complete
         type: 0
       - title: Actor
-        value: 4
+        value: 36
         type: 5
       - title: Conversant
         value: 1
@@ -1357,7 +1357,7 @@ MonoBehaviour:
       - title: Sequence
         value: Camera(Terminal Camera Angle); Delay(1)
         type: 0
-      conversationID: 3
+      conversationID: 62
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -1377,7 +1377,7 @@ MonoBehaviour:
         value: 1
         type: 5
       - title: Conversant
-        value: 4
+        value: 36
         type: 5
       - title: Menu Text
         value: 12345
@@ -1391,7 +1391,7 @@ MonoBehaviour:
       - title: Sequence
         value: Camera(Terminal Camera Angle); Audio(Typing); Delay(2)
         type: 0
-      conversationID: 3
+      conversationID: 62
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -1399,9 +1399,9 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 3
+      - originConversationID: 62
         originDialogueID: 3
-        destinationConversationID: 3
+        destinationConversationID: 62
         destinationDialogueID: 6
         isConnector: 0
         priority: 2
@@ -1416,7 +1416,7 @@ MonoBehaviour:
         value: 1
         type: 5
       - title: Conversant
-        value: 4
+        value: 36
         type: 5
       - title: Menu Text
         value: secret
@@ -1430,7 +1430,7 @@ MonoBehaviour:
       - title: Sequence
         value: Camera(Terminal Camera Angle); Audio(Typing); Delay(2)
         type: 0
-      conversationID: 3
+      conversationID: 62
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -1438,9 +1438,9 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 3
+      - originConversationID: 62
         originDialogueID: 4
-        destinationConversationID: 3
+        destinationConversationID: 62
         destinationDialogueID: 6
         isConnector: 1
         priority: 2
@@ -1455,7 +1455,7 @@ MonoBehaviour:
         value: 1
         type: 5
       - title: Conversant
-        value: 4
+        value: 36
         type: 5
       - title: Menu Text
         value: dominate
@@ -1469,7 +1469,7 @@ MonoBehaviour:
       - title: Sequence
         value: Camera(Terminal Camera Angle); Audio(Typing); Delay(2)
         type: 0
-      conversationID: 3
+      conversationID: 62
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -1477,9 +1477,9 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 3
+      - originConversationID: 62
         originDialogueID: 5
-        destinationConversationID: 3
+        destinationConversationID: 62
         destinationDialogueID: 8
         isConnector: 0
         priority: 2
@@ -1491,7 +1491,7 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 4
+        value: 36
         type: 5
       - title: Conversant
         value: 1
@@ -1508,7 +1508,7 @@ MonoBehaviour:
       - title: Sequence
         value: Camera(Terminal Camera Angle); Delay(1)
         type: 0
-      conversationID: 3
+      conversationID: 62
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -1516,9 +1516,9 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 3
+      - originConversationID: 62
         originDialogueID: 6
-        destinationConversationID: 3
+        destinationConversationID: 62
         destinationDialogueID: 1
         isConnector: 1
         priority: 2
@@ -1533,7 +1533,7 @@ MonoBehaviour:
         value: 1
         type: 5
       - title: Conversant
-        value: 4
+        value: 36
         type: 5
       - title: Menu Text
         value: logout
@@ -1547,7 +1547,7 @@ MonoBehaviour:
       - title: Sequence
         value: Camera(Terminal Camera Angle); Audio(Typing); Delay(2)
         type: 0
-      conversationID: 3
+      conversationID: 62
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -1563,7 +1563,7 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 4
+        value: 36
         type: 5
       - title: Conversant
         value: 1
@@ -1580,7 +1580,7 @@ MonoBehaviour:
       - title: Sequence
         value: Camera(Terminal Camera Angle); Delay(1)
         type: 0
-      conversationID: 3
+      conversationID: 62
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -1588,21 +1588,21 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 3
+      - originConversationID: 62
         originDialogueID: 8
-        destinationConversationID: 3
+        destinationConversationID: 62
         destinationDialogueID: 9
         isConnector: 0
         priority: 2
-      - originConversationID: 3
+      - originConversationID: 62
         originDialogueID: 8
-        destinationConversationID: 3
+        destinationConversationID: 62
         destinationDialogueID: 11
         isConnector: 0
         priority: 2
-      - originConversationID: 3
+      - originConversationID: 62
         originDialogueID: 8
-        destinationConversationID: 3
+        destinationConversationID: 62
         destinationDialogueID: 7
         isConnector: 1
         priority: 2
@@ -1617,7 +1617,7 @@ MonoBehaviour:
         value: 1
         type: 5
       - title: Conversant
-        value: 4
+        value: 36
         type: 5
       - title: Menu Text
         value: lock hangar doors
@@ -1631,7 +1631,7 @@ MonoBehaviour:
       - title: Sequence
         value: Camera(Terminal Camera Angle); Audio(Typing); Delay(2)
         type: 0
-      conversationID: 3
+      conversationID: 62
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -1639,9 +1639,9 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 3
+      - originConversationID: 62
         originDialogueID: 9
-        destinationConversationID: 3
+        destinationConversationID: 62
         destinationDialogueID: 10
         isConnector: 0
         priority: 2
@@ -1653,7 +1653,7 @@ MonoBehaviour:
         value: Lock hangar
         type: 0
       - title: Actor
-        value: 4
+        value: 36
         type: 5
       - title: Conversant
         value: 1
@@ -1670,7 +1670,7 @@ MonoBehaviour:
       - title: Sequence
         value: Camera(Terminal Camera Angle); Delay(1)
         type: 0
-      conversationID: 3
+      conversationID: 62
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -1678,9 +1678,9 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 3
+      - originConversationID: 62
         originDialogueID: 10
-        destinationConversationID: 3
+        destinationConversationID: 62
         destinationDialogueID: 8
         isConnector: 1
         priority: 2
@@ -1698,7 +1698,7 @@ MonoBehaviour:
         value: 1
         type: 5
       - title: Conversant
-        value: 4
+        value: 36
         type: 5
       - title: Menu Text
         value: open hangar doors
@@ -1712,7 +1712,7 @@ MonoBehaviour:
       - title: Sequence
         value: Camera(Terminal Camera Angle); Audio(Typing); Delay(2)
         type: 0
-      conversationID: 3
+      conversationID: 62
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -1720,9 +1720,9 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 3
+      - originConversationID: 62
         originDialogueID: 11
-        destinationConversationID: 3
+        destinationConversationID: 62
         destinationDialogueID: 12
         isConnector: 0
         priority: 2
@@ -1734,7 +1734,7 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 4
+        value: 36
         type: 5
       - title: Conversant
         value: 1
@@ -1751,7 +1751,7 @@ MonoBehaviour:
       - title: Sequence
         value: Camera(Terminal Camera Angle); Delay(1)
         type: 0
-      conversationID: 3
+      conversationID: 62
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -1759,15 +1759,15 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 3
+      - originConversationID: 62
         originDialogueID: 12
-        destinationConversationID: 3
+        destinationConversationID: 62
         destinationDialogueID: 13
         isConnector: 0
         priority: 2
-      - originConversationID: 3
+      - originConversationID: 62
         originDialogueID: 12
-        destinationConversationID: 3
+        destinationConversationID: 62
         destinationDialogueID: 14
         isConnector: 0
         priority: 2
@@ -1782,7 +1782,7 @@ MonoBehaviour:
         value: 1
         type: 5
       - title: Conversant
-        value: 4
+        value: 36
         type: 5
       - title: Menu Text
         value: confirm and execute
@@ -1796,7 +1796,7 @@ MonoBehaviour:
       - title: Sequence
         value: Camera(Terminal Camera Angle); Audio(Typing); Delay(2)
         type: 0
-      conversationID: 3
+      conversationID: 62
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -1804,9 +1804,9 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 3
+      - originConversationID: 62
         originDialogueID: 13
-        destinationConversationID: 3
+        destinationConversationID: 62
         destinationDialogueID: 15
         isConnector: 0
         priority: 2
@@ -1821,7 +1821,7 @@ MonoBehaviour:
         value: 1
         type: 5
       - title: Conversant
-        value: 4
+        value: 36
         type: 5
       - title: Menu Text
         value: cancel
@@ -1835,7 +1835,7 @@ MonoBehaviour:
       - title: Sequence
         value: Camera(Terminal Camera Angle); Audio(Typing); Delay(2)
         type: 0
-      conversationID: 3
+      conversationID: 62
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -1843,9 +1843,9 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 3
+      - originConversationID: 62
         originDialogueID: 14
-        destinationConversationID: 3
+        destinationConversationID: 62
         destinationDialogueID: 8
         isConnector: 1
         priority: 2
@@ -1857,7 +1857,7 @@ MonoBehaviour:
         value: Open hangar
         type: 0
       - title: Actor
-        value: 4
+        value: 36
         type: 5
       - title: Conversant
         value: 1
@@ -1877,7 +1877,7 @@ MonoBehaviour:
           active, 0.1)@0.2; Animation(HandGunIDyingback,Private Hart); require Animation(TwoHandGunFromLayingToStanding,Private
           Hart)@1; Camera(Medium Left,Private Hart,1)@1; Camera(OTS Right,Player,2)@2
         type: 0
-      conversationID: 3
+      conversationID: 62
       isRoot: 0
       isGroup: 0
       nodeColor: White

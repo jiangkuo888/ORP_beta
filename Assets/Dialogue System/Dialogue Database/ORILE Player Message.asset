@@ -342,7 +342,9 @@ MonoBehaviour:
         value: LO Message 1
         type: 0
       - title: Dialogue Text
-        value: This is Message 1 from SM
+        value: 'This is Message 1 from LO
+
+'
         type: 4
       - title: Video File
         value: 
@@ -359,7 +361,7 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: Item["LOMessageSent1"].State == "active"
-      userScript: Item["LOMessageSent1"].State = "success"
+      userScript: Item["SMMessageSent1"].State = "success"
     - id: 2
       fields:
       - title: Title
@@ -375,7 +377,9 @@ MonoBehaviour:
         value: LO Message 2
         type: 0
       - title: Dialogue Text
-        value: This is Message 2 from SM
+        value: 'This is Message 2 from LO
+
+'
         type: 4
       - title: Video File
         value: 
@@ -408,7 +412,9 @@ MonoBehaviour:
         value: LO Message 3
         type: 0
       - title: Dialogue Text
-        value: This is Message 3 from SM
+        value: 'This is Message 3 from LO
+
+'
         type: 4
       - title: Video File
         value: 
@@ -508,7 +514,7 @@ MonoBehaviour:
         value: Message 1
         type: 0
       - title: Dialogue Text
-        value: 'Sending to LO Message 1
+        value: 'Sending to SM Message 1
 
 '
         type: 4
@@ -516,7 +522,7 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Sequence
-        value: 
+        value: SendConversation(LO,SM, LOMessageSent1);
         type: 0
       conversationID: 4
       isRoot: 0
@@ -526,7 +532,7 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks: []
-      conditionsString: Dialog[1].SimStatus ~= "WasDisplayed" and Item["LOtoSMmessage1Ready"].State
+      conditionsString: Dialog[1].SimStatus ~= "WasDisplayed" and Item["LOMessageSent1"].State
         == "success"
       userScript: 
     - id: 2
@@ -544,7 +550,7 @@ MonoBehaviour:
         value: Message 2
         type: 0
       - title: Dialogue Text
-        value: Sending to LO Message 2
+        value: Sending to SM Message 2
         type: 4
       - title: Video File
         value: 
@@ -560,7 +566,8 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks: []
-      conditionsString: Dialog[2].SimStatus ~= "WasDisplayed"
+      conditionsString: Dialog[2].SimStatus ~= "WasDisplayed" and Item["LOMessageSent2"].State
+        == "success"
       userScript: 
     - id: 3
       fields:
@@ -577,7 +584,7 @@ MonoBehaviour:
         value: Message 3
         type: 0
       - title: Dialogue Text
-        value: Sending to LO Message 3
+        value: Sending to SM Message 3
         type: 4
       - title: Video File
         value: 
@@ -685,7 +692,7 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Sequence
-        value: 
+        value: SendConversation(SM,LO, SMMessageSent1);
         type: 0
       conversationID: 5
       isRoot: 0
@@ -695,7 +702,7 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks: []
-      conditionsString: Dialog[1].SimStatus ~= "WasDisplayed" and Item["LOMessageSent1"].State
+      conditionsString: Dialog[1].SimStatus ~= "WasDisplayed" and Item["SMMessageSent1"].State
         == "success"
       userScript: 
     - id: 2
@@ -862,8 +869,8 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks: []
-      conditionsString: Item["SMMessageSent1"].State == "success"
-      userScript: 
+      conditionsString: Item["SMMessageSent1"].State == "active"
+      userScript: Item["LOMessageSent2"].State == "success"
     - id: 2
       fields:
       - title: Title

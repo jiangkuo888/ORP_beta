@@ -2,6 +2,7 @@
 using System.Collections;
 using PixelCrushers.DialogueSystem.UnityGUI;
 using PixelCrushers.DialogueSystem;
+using PixelCrushers.DialogueSystem.ChatMapper;
 
 
 public class phoneButton : MonoBehaviour {
@@ -25,6 +26,7 @@ public class phoneButton : MonoBehaviour {
 
 	void Awake()
 	{
+
 		smallButtonOn = false;
 		enabled = true;
 
@@ -34,7 +36,8 @@ public class phoneButton : MonoBehaviour {
 
 
 		myGUITexture = this.gameObject.GetComponent("GUITexture") as GUITexture;
-	
+
+
 		
 	}
 	
@@ -149,6 +152,7 @@ public class phoneButton : MonoBehaviour {
 				GameObject.Find ("phoneSmallButton2").GetComponent<GUITexture>().enabled = false;
 				GameObject.Find ("phoneSmallButton3").GetComponent<GUITexture>().enabled = false;
 				GameObject.Find ("phoneSmallButton4").GetComponent<GUITexture>().enabled = false;
+				GameObject.Find ("EmailIcon").GetComponent<GUITexture>().enabled = false;
 				smallButtonOn = false;
 		}
 			else
@@ -157,6 +161,7 @@ public class phoneButton : MonoBehaviour {
 				GameObject.Find ("phoneSmallButton2").GetComponent<GUITexture>().enabled = true;
 				GameObject.Find ("phoneSmallButton3").GetComponent<GUITexture>().enabled = true;
 				GameObject.Find ("phoneSmallButton4").GetComponent<GUITexture>().enabled = true;
+				GameObject.Find ("EmailIcon").GetComponent<GUITexture>().enabled = true;
 				smallButtonOn = true;
 
 			}
@@ -202,9 +207,80 @@ public class phoneButton : MonoBehaviour {
 
 	}
 
+    
+
+	public void loadSmallButtonCharacter(){
+
+		switch(PhotonNetwork.playerName)
+		{
+		case "Sales Manager":
+			GameObject.Find("phoneSmallButton1").GetComponent<phoneShowPlayerButton>().targetPlayer = "LPU Officer";
+			GameObject.Find("phoneSmallButton2").GetComponent<phoneShowPlayerButton>().targetPlayer = "LPU Manager";
+			GameObject.Find("phoneSmallButton3").GetComponent<phoneShowPlayerButton>().targetPlayer = "Credit Risk";
+
+			GameObject.Find("phoneSmallButton1").GetComponent<phoneShowPlayerButton>().conversation = "SM to LO";
+			GameObject.Find("phoneSmallButton2").GetComponent<phoneShowPlayerButton>().conversation = "SM to LM";
+			GameObject.Find("phoneSmallButton3").GetComponent<phoneShowPlayerButton>().conversation = "SM to CR";
+			GameObject.Find("EmailIcon").GetComponent<phoneShowInbox>().conversation = "SM Inbox";
+
+			break;
+		case "LPU Manager":
+			GameObject.Find("phoneSmallButton1").GetComponent<phoneShowPlayerButton>().targetPlayer = "LPU Officer";
+			GameObject.Find("phoneSmallButton2").GetComponent<phoneShowPlayerButton>().targetPlayer = "Sales Manager";
+			GameObject.Find("phoneSmallButton3").GetComponent<phoneShowPlayerButton>().targetPlayer = "Credit Risk";
+
+			GameObject.Find("phoneSmallButton1").GetComponent<phoneShowPlayerButton>().conversation = "LM to LO";
+			GameObject.Find("phoneSmallButton2").GetComponent<phoneShowPlayerButton>().conversation = "LM to SM";
+			GameObject.Find("phoneSmallButton3").GetComponent<phoneShowPlayerButton>().conversation = "LM to CR";
+			GameObject.Find ("EmailIcon").GetComponent<phoneShowInbox>().conversation = "LM Inbox";
+			break;
+		case "LPU Officer":
+			GameObject.Find("phoneSmallButton1").GetComponent<phoneShowPlayerButton>().targetPlayer = "Sales Manager";
+			GameObject.Find("phoneSmallButton2").GetComponent<phoneShowPlayerButton>().targetPlayer = "LPU Manager";
+			GameObject.Find("phoneSmallButton3").GetComponent<phoneShowPlayerButton>().targetPlayer = "Credit Risk";
+
+			GameObject.Find("phoneSmallButton1").GetComponent<phoneShowPlayerButton>().conversation = "LO to SM";
+			GameObject.Find("phoneSmallButton2").GetComponent<phoneShowPlayerButton>().conversation = "LO to LM";
+			GameObject.Find("phoneSmallButton3").GetComponent<phoneShowPlayerButton>().conversation = "LO to CR";
+			GameObject.Find ("EmailIcon").GetComponent<phoneShowInbox>().conversation = "LO Inbox";
+			break;
+		case "Credit Risk":
+			GameObject.Find("phoneSmallButton1").GetComponent<phoneShowPlayerButton>().targetPlayer = "LPU Officer";
+			GameObject.Find("phoneSmallButton2").GetComponent<phoneShowPlayerButton>().targetPlayer = "LPU Manager";
+			GameObject.Find("phoneSmallButton3").GetComponent<phoneShowPlayerButton>().targetPlayer = "Sales Manager";
+
+			GameObject.Find("phoneSmallButton1").GetComponent<phoneShowPlayerButton>().conversation = "CR to LO";
+			GameObject.Find("phoneSmallButton2").GetComponent<phoneShowPlayerButton>().conversation = "CR to LM";
+			GameObject.Find("phoneSmallButton3").GetComponent<phoneShowPlayerButton>().conversation = "CR to SM";
+			GameObject.Find ("EmailIcon").GetComponent<phoneShowInbox>().conversation = "CR Inbox";
+			break;
+		default:
+			break;
+
+		}
 
 
-	
+
+	}
+
+
+
+	public void enableSenderOutboxMessage(string senderName, string targetName,string messageName){
+
+		if(PhotonNetwork.playerName == senderName)
+		{
+			//string senderTag = GameObject.Find (senderName).tag;
+			//string receiverTag = GameObject.Find (targetName).tag;
+
+			//string conversationTitle = senderTag + " to " +receiverTag;
+
+
+			DialogueLua.SetItemField(messageName,"State","success");
+
+		}
+
+
+	}
 	
 	
 }

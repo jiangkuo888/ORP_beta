@@ -19,9 +19,9 @@ public class phoneShowNPCButton : MonoBehaviour {
 	
 	
 	public string[] dialogueNames;
-
-	public string[] NPCnames;
 	
+	public string[] dialogueDisplayText;
+	public string targetPlayer;
 	
 	public Vector2 scrollPosition = Vector2.zero;
 	bool ListOn;
@@ -43,16 +43,25 @@ public class phoneShowNPCButton : MonoBehaviour {
 	void OnGUI(){
 		if(ListOn)
 		{
-			scrollPosition = GUI.BeginScrollView(new Rect(.1f * w, .5f * h, 120, .3f * h), scrollPosition, new Rect(0, 0, 100, NPCnames.Length*80f));
+			scrollPosition = GUI.BeginScrollView(new Rect(.1f * w, .5f * h, 120, .3f * h), scrollPosition, new Rect(0, 0, 100, dialogueDisplayText.Length*80f));
 			
 			GUI.DrawTexture (new Rect(0, 0, 110, 2000), null);
 			
 			
-			for (int i = 0; i < NPCnames.Length; i++) {
-				if(GUI.Button (new Rect (0, 80*i, 100, 60), NPCnames[i]))
+			for (int i = 0; i < dialogueDisplayText.Length; i++) {
+				if(GUI.Button (new Rect (0, 80*i, 100, 60), dialogueDisplayText[i]))
 				{
+					
 					if(dialogueNames[i] !=null)
-						talkTo(dialogueNames[i]);
+					{
+						PhotonView phoneView = this.gameObject.GetPhotonView();
+						
+						phoneView.RPC ("talkTo",PhotonTargets.OthersBuffered,dialogueNames[i],targetPlayer);
+					}
+					
+					
+					
+					
 					
 				}
 			}
@@ -111,8 +120,8 @@ public class phoneShowNPCButton : MonoBehaviour {
 		myGUITexture.texture = hover;
 		
 	}
-
-
+	
+	
 	
 	void OnMouseDown(){
 		myGUITexture.texture = down;
@@ -122,9 +131,9 @@ public class phoneShowNPCButton : MonoBehaviour {
 		}
 		else
 		{
-		
+			
 			ListOn = true;
-		
+			
 		}
 		
 	}
@@ -144,25 +153,43 @@ public class phoneShowNPCButton : MonoBehaviour {
 	}
 	
 	
-
 	
 	
-	void talkTo(string dialogueName)
+	[RPC]
+	void talkTo(string dialogueName,string targetPlayerName)
 	{
-		
-		GameObject.Find ("Dialogue Manager").GetComponent<DialogueSystemController>().StartConversation(dialogueName,GameObject.Find (PhotonNetwork.playerName).transform,GameObject.Find (PhotonNetwork.playerName).transform);
-		
-		//print ("111");
-		
-		
-		GameObject.Find ("phoneSmallButton1").GetComponent<GUITexture>().enabled = false;
-		GameObject.Find ("phoneSmallButton2").GetComponent<GUITexture>().enabled = false;
-		GameObject.Find ("phoneSmallButton3").GetComponent<GUITexture>().enabled = false;
-		GameObject.Find ("phoneSmallButton4").GetComponent<GUITexture>().enabled = false;
-		ListOn = false;
+		if(PhotonNetwork.playerName == targetPlayerName)
+		{
+			GameObject.Find ("Dialogue Manager").GetComponent<DialogueSystemController>().StartConversation(dialogueName,GameObject.Find (PhotonNetwork.playerName).transform,GameObject.Find (PhotonNetwork.playerName).transform);
+			
+			//print ("111");
+			
+			
+			GameObject.Find ("phoneSmallButton1").GetComponent<GUITexture>().enabled = false;
+			GameObject.Find ("phoneSmallButton2").GetComponent<GUITexture>().enabled = false;
+			GameObject.Find ("phoneSmallButton3").GetComponent<GUITexture>().enabled = false;
+			GameObject.Find ("phoneSmallButton4").GetComponent<GUITexture>().enabled = false;
+			ListOn = false;
+		}
 		// disable list
 	}
-	
+
+
+//	public void addDialogue(string dialogueName, string dialogueButtonText){
+//
+//		System.Collections.Generic.List<string> list = new System.Collections.Generic.List<string>(dialogueNames);
+//		list.Add(dialogueName);
+//		dialogueNames = list.ToArray();
+//
+//
+//
+//		System.Collections.Generic.List<string> list2 = new System.Collections.Generic.List<string>(dialogueDisplayText);
+//		list2.Add(dialogueButtonText);
+//		dialogueDisplayText = list2.ToArray();
+//
+//
+//
+//	}
 	
 	
 	
