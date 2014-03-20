@@ -51443,6 +51443,79 @@ Transform:
   m_Children:
   - {fileID: 663699761}
   m_Father: {fileID: 1477096469}
+--- !u!1 &861384308
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 100092, guid: abb7345795738d5408006f1071333b53, type: 3}
+  m_PrefabInternal: {fileID: 1296707531}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 861384309}
+  - 33: {fileID: 861384312}
+  - 23: {fileID: 861384311}
+  - 64: {fileID: 861384310}
+  m_Layer: 0
+  m_Name: Lvl2Partition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &861384309
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 400092, guid: abb7345795738d5408006f1071333b53, type: 3}
+  m_PrefabInternal: {fileID: 1296707531}
+  m_GameObject: {fileID: 861384308}
+  m_LocalRotation: {x: -.707106829, y: 0, z: -0, w: .707106829}
+  m_LocalPosition: {x: 8.01841545, y: 3.09492111, z: .349761277}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1341182377}
+--- !u!64 &861384310
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 6400088, guid: abb7345795738d5408006f1071333b53,
+    type: 3}
+  m_PrefabInternal: {fileID: 1296707531}
+  m_GameObject: {fileID: 861384308}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_SmoothSphereCollisions: 0
+  m_Convex: 0
+  m_Mesh: {fileID: 4300088, guid: abb7345795738d5408006f1071333b53, type: 3}
+--- !u!23 &861384311
+Renderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 2300088, guid: abb7345795738d5408006f1071333b53,
+    type: 3}
+  m_PrefabInternal: {fileID: 1296707531}
+  m_GameObject: {fileID: 861384308}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_LightmapIndex: 255
+  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
+  m_Materials:
+  - {fileID: 2100000, guid: d688efd9a27eb6048a9ae65a8d36b11d, type: 2}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 0
+  m_LightProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_SortingLayerID: 0
+--- !u!33 &861384312
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 3300088, guid: abb7345795738d5408006f1071333b53,
+    type: 3}
+  m_PrefabInternal: {fileID: 1296707531}
+  m_GameObject: {fileID: 861384308}
+  m_Mesh: {fileID: 4300088, guid: abb7345795738d5408006f1071333b53, type: 3}
 --- !u!1 &861827405
 GameObject:
   m_ObjectHideFlags: 0
@@ -74033,7 +74106,7 @@ MonoBehaviour:
   EventManager: {fileID: 1245184160}
   sessionID: -1
   loginName: 
-  isAdmin: 1
+  isAdmin: 0
   startGame: 0
   gameStarted: 0
   playback: 0
@@ -77022,6 +77095,7 @@ Transform:
   - {fileID: 1388416398}
   - {fileID: 1829655038}
   - {fileID: 1433520367}
+  - {fileID: 861384309}
   - {fileID: 336397014}
   - {fileID: 2056250556}
   - {fileID: 1380766118}
@@ -79990,6 +80064,7 @@ MonoBehaviour:
   hover: {fileID: 2800000, guid: ad5814a3d086af54d96b5c3099458fb6, type: 3}
   down: {fileID: 2800000, guid: 0c585c116b933e440a071e187e4e7e04, type: 3}
   targetPlayer: Sales Manager
+  conversation: 
 --- !u!131 &1395893875
 GUITexture:
   m_ObjectHideFlags: 0
@@ -100243,6 +100318,7 @@ MonoBehaviour:
   hover: {fileID: 2800000, guid: ad5814a3d086af54d96b5c3099458fb6, type: 3}
   down: {fileID: 2800000, guid: 0c585c116b933e440a071e187e4e7e04, type: 3}
   targetPlayer: Credit Risk
+  conversation: 
 --- !u!131 &1770202433
 GUITexture:
   m_ObjectHideFlags: 0
@@ -102445,26 +102521,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e7732ea5315ece489283cf53ed77494, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  emailShort: {fileID: 1163834442}
-  emailIcon: {fileID: 2800000, guid: caf227fc0867d9a4082f5086f84184f5, type: 3}
-  documentIcon: {fileID: 0}
-  EmailsToBeSend:
-  - Send to LPU Officer to come and fix computer
-  - Send to Sales Manager that I will go
-  - Send to Credit Risk to call customer
-  EmailsReceived:
-  - Please come and fix my computer
-  - I am coming
-  - Please call customer
-  EmailSenders:
-  - Sales Manager
-  - LPU Officer
-  - Sales Manager
-  EmailReceivers:
-  - LPU Officer
-  - Sales Manager
-  - Credit Risk
-  EmailHasBeenReceived: 000000
+  x_offset: 0
+  y_offset: 0
+  normal: {fileID: 0}
+  hover: {fileID: 0}
+  down: {fileID: 0}
+  conversation: 
 --- !u!131 &1814134189
 GUITexture:
   m_ObjectHideFlags: 0
@@ -105655,6 +105717,7 @@ MonoBehaviour:
   hover: {fileID: 2800000, guid: ad5814a3d086af54d96b5c3099458fb6, type: 3}
   down: {fileID: 2800000, guid: 0c585c116b933e440a071e187e4e7e04, type: 3}
   targetPlayer: LPU Officer
+  conversation: 
 --- !u!131 &1896052955
 GUITexture:
   m_ObjectHideFlags: 0
@@ -111796,12 +111859,8 @@ MonoBehaviour:
   - Facilities
   - Valuer
   - Big Sales Prospect
-  NPCnames:
-  - Receptionist
-  - Security Manager
-  - Facilities Manager
-  - Valuer
-  - Peter
+  dialogueDisplayText: []
+  targetPlayer: 
   scrollPosition: {x: 0, y: 0}
 --- !u!131 &2042306991
 GUITexture:
