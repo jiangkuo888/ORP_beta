@@ -287,6 +287,8 @@ public class GameManagerVik : Photon.MonoBehaviour {
 					break;
 
 				}
+
+				GameObject.Find ("phoneButton").GetComponent<phoneButton>().loadSmallButtonCharacter();
 				
 			}
 		
