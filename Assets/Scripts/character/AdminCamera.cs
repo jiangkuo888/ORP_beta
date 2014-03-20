@@ -66,7 +66,9 @@ public class AdminCamera : Photon.MonoBehaviour {
 						//toggle to next player
 						this.gameObject.transform.position = GameObject.Find(playerNameList[currPlayerFollow]+"(Clone)").transform.position;
 						this.gameObject.transform.position = new Vector3(this.gameObject.transform.position.x, this.gameObject.transform.position.y, this.gameObject.transform.position.z);
-						this.gameObject.transform.rotation = GameObject.Find(playerNameList[currPlayerFollow]+"(Clone)").GetComponent<ThirdPersonNetworkVik>().cloneCameraRotation;
+						Vector3 cameraEuler = GameObject.Find(playerNameList[currPlayerFollow]+"(Clone)").GetComponent<ThirdPersonNetworkVik>().cloneCameraRotation;
+						this.gameObject.transform.rotation = Quaternion.Euler(cameraEuler.z, cameraEuler.y, -cameraEuler.x);
+
 						//mainCam.transform.localPosition = relativePosition;
 						//mainCam.transform.localEulerAngles = new Vector3(0, 90, 0);
 
@@ -114,7 +116,8 @@ public class AdminCamera : Photon.MonoBehaviour {
 			//movwe to where following player is
 			this.gameObject.transform.position = GameObject.Find(playerNameList[currPlayerFollow]+"(Clone)").transform.position;
 			this.gameObject.transform.position = new Vector3(this.gameObject.transform.position.x, this.gameObject.transform.position.y, this.gameObject.transform.position.z);
-			this.gameObject.transform.rotation = GameObject.Find(playerNameList[currPlayerFollow]+"(Clone)").GetComponent<ThirdPersonNetworkVik>().cloneCameraRotation;
+			Vector3 cameraEuler = GameObject.Find(playerNameList[currPlayerFollow]+"(Clone)").GetComponent<ThirdPersonNetworkVik>().cloneCameraRotation;
+			this.gameObject.transform.rotation = Quaternion.Euler(-cameraEuler.z, cameraEuler.y, -cameraEuler.x);
 		}
 
 	}
