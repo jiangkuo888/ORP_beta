@@ -4,7 +4,7 @@ using PixelCrushers.DialogueSystem.UnityGUI;
 using PixelCrushers.DialogueSystem;
 
 
-public class phoneShowPlayerButton : MonoBehaviour {
+public class phoneShowInbox : MonoBehaviour {
 	
 	public float x_offset;
 	public float y_offset;
@@ -16,11 +16,9 @@ public class phoneShowPlayerButton : MonoBehaviour {
 	public Texture hover;
 	public Texture down;
 	
-	
-	
-	public string targetPlayer;
-	public string conversation;
 
+	public string conversation;
+	
 	bool ListOn;
 	float w,h;
 	
@@ -37,7 +35,7 @@ public class phoneShowPlayerButton : MonoBehaviour {
 		
 	}
 	
-
+	
 	
 	// Use this for initialization
 	void Start()
@@ -111,15 +109,29 @@ public class phoneShowPlayerButton : MonoBehaviour {
 		myGUITexture.texture = normal;
 	}
 	
-
-	void startConversation(){
-		if(conversation !=null)
-		{
-			print (conversation);
-		GameObject.Find("Dialogue Manager").GetComponent<DialogueSystemController>().StartConversation(conversation,GameObject.Find (PhotonNetwork.playerName).transform);
-		}
-	}
 	
+	public void startConversation(){
+		if(conversation !=null)
+			GameObject.Find("Dialogue Manager").GetComponent<DialogueSystemController>().StartConversation(conversation,GameObject.Find (PhotonNetwork.playerName).transform);
+		
+	}
+
+
+	public void enableReceiverInboxMessage(string messageName){
+		
+
+			//string senderTag = GameObject.Find (senderName).tag;
+			//string receiverTag = GameObject.Find (targetName).tag;
+			
+			//string conversationTitle = senderTag + " to " +receiverTag;
+			
+			
+		DialogueLua.SetItemField(messageName,"State","active");	
+			
+
+		
+		
+	}
 
 	
 	

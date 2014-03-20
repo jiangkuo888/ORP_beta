@@ -86,7 +86,7 @@ public class DeskMode : MonoBehaviour {
 
 
 
-			GameObject.Find ("EmailIcon").GetComponent<Email>().clearNewEmail();
+
 			//nofunction added
 			if(GUI.Button( new LTRect(w/2 - 50f, .9f*h - 100f, 100f, 30f ).rect,"Send",customSkin.button))
 			{
@@ -471,20 +471,20 @@ public class DeskMode : MonoBehaviour {
 	
 	
 	
-	[RPC]
-	void receiveEmail(string content, string receiverName, string senderName){
-		if(PhotonNetwork.playerName == receiverName)
-		{
-			
-			// enable email icon
-			GameObject.Find ("EmailIcon").GetComponent<Email>().hasNewEmail(content,senderName);
-			
-			
-			
-		}
-		
-		
-	}
+//	[RPC]
+//	void receiveEmail(string content, string receiverName, string senderName){
+//		if(PhotonNetwork.playerName == receiverName)
+//		{
+//			
+//			// enable email icon
+//			GameObject.Find ("EmailIcon").GetComponent<Email>().hasNewEmail(content,senderName);
+//			
+//			
+//			
+//		}
+//		
+//		
+//	}
 	
 	[RPC]
 	
@@ -508,7 +508,7 @@ public class DeskMode : MonoBehaviour {
 			
 			
 			// notify the receiver 
-			GameObject.Find ("EmailIcon").GetComponent<Email>().hasNewDocument(sender);
+			//GameObject.Find ("EmailIcon").GetComponent<Email>().hasNewDocument(sender);
 		}
 		
 		// document sender action

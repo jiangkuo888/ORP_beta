@@ -4,11 +4,12 @@ using PixelCrushers.DialogueSystem.UnityGUI;
 using PixelCrushers.DialogueSystem;
 
 
-public class phoneShowPlayerButton : MonoBehaviour {
+public class GUIresponsive : MonoBehaviour {
 	
 	public float x_offset;
 	public float y_offset;
-	
+	public float width;
+	public float height;
 	
 	private GUITexture myGUITexture;
 	
@@ -16,11 +17,11 @@ public class phoneShowPlayerButton : MonoBehaviour {
 	public Texture hover;
 	public Texture down;
 	
-	
-	
-	public string targetPlayer;
-	public string conversation;
 
+
+
+	public int unreadNumber;
+	
 	bool ListOn;
 	float w,h;
 	
@@ -33,19 +34,19 @@ public class phoneShowPlayerButton : MonoBehaviour {
 		
 		
 		myGUITexture = this.gameObject.GetComponent("GUITexture") as GUITexture;
-		
+		unreadNumber = 0;
 		
 	}
 	
-
+	
 	
 	// Use this for initialization
 	void Start()
 	{
 		// Position the billboard in the center, 
 		// but respect the picture aspect ratio
-		float textureHeight = myGUITexture.texture.height;
-		float textureWidth = myGUITexture.texture.width;
+		float textureHeight = height;
+		float textureWidth = width;
 		float screenHeight = Screen.height;
 		float screenWidth = Screen.width;
 		
@@ -60,15 +61,15 @@ public class phoneShowPlayerButton : MonoBehaviour {
 		if (textureAspectRatio <= screenAspectRatio)
 		{
 			// The scaled size is based on the height
-			scaledHeight = screenHeight/10;
-			scaledWidth = (scaledHeight * textureAspectRatio);
+			scaledHeight = height;
+			scaledWidth = width;
 		}
 		else
 		{
 			
 			// The scaled size is based on the width
-			scaledWidth = screenWidth/10;
-			scaledHeight = (scaledWidth / textureAspectRatio);
+			scaledWidth = width;
+			scaledHeight = height;
 		}
 		float xPosition = screenWidth / 2 * x_offset - scaledWidth;
 		float yPosition = screenHeight / 2 * y_offset - scaledHeight;
@@ -76,51 +77,41 @@ public class phoneShowPlayerButton : MonoBehaviour {
 		myGUITexture.pixelInset = 
 			new Rect(xPosition, yPosition, 
 			         scaledWidth, scaledHeight);
-	}
-	
-	void OnMouseEnter(){
-		
-		
-		GameObject.Find(PhotonNetwork.playerName).GetComponent<DetectObjects>().enabled = false;
-		GameObject.Find(PhotonNetwork.playerName).GetComponent<ClickMove>().OnGUI = true;
-		myGUITexture.texture = hover;
-		
-	}
-	
-	void OnMouseDown(){
-		
-		
-		myGUITexture.texture = down;
-		
-		startConversation();
-		
-		
-	}
-	
-	void OnMouseUpAsButton (){
-		
-		
-		myGUITexture.texture = hover;
-	}
-	
-	void OnMouseExit(){
-		GameObject.Find(PhotonNetwork.playerName).GetComponent<DetectObjects>().enabled = true;
-		GameObject.Find(PhotonNetwork.playerName).GetComponent<ClickMove>().OnGUI = false;
-		
-		
-		myGUITexture.texture = normal;
+
+
+		this.transform.GetComponentInChildren<GUIText>().pixelOffset = new Vector2(myGUITexture.pixelInset.x+height/2-.5f,myGUITexture.pixelInset.y+width/2-.5f);
 	}
 	
 
-	void startConversation(){
-		if(conversation !=null)
+	
+	
+
+	
+	public void addRedDot(){
+
+
+		unreadNumber += 1;
+		this.transform.GetComponentInChildren<GUIText>().text = unreadNumber.ToString();
+
+		if(this.GetComponent<GUITexture>().enabled == false)
 		{
-			print (conversation);
-		GameObject.Find("Dialogue Manager").GetComponent<DialogueSystemController>().StartConversation(conversation,GameObject.Find (PhotonNetwork.playerName).transform);
+			this.GetComponent<GUITexture>().enabled = true;
+			this.transform.GetComponentInChildren<GUIText>().enabled = true;
 		}
-	}
-	
 
+	}
+
+	public void removeRedDot(){
+		unreadNumber -=1;
+		this.transform.GetComponentInChildren<GUIText>().text = unreadNumber.ToString();
+
+		if(unreadNumber <= 0)
+		{
+			this.GetComponent<GUITexture>().enabled = false;
+			this.transform.GetComponentInChildren<GUIText>().enabled = false;
+		}
+
+	}
 	
 	
 	
