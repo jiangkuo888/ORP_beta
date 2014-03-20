@@ -1003,7 +1003,7 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Sequence
-        value: 
+        value: Camera(Mic)
         type: 0
       conversationID: 30
       isRoot: 0
@@ -1037,7 +1037,7 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Sequence
-        value: 
+        value: Camera(Mic)
         type: 0
       conversationID: 30
       isRoot: 0
@@ -1046,10 +1046,16 @@ MonoBehaviour:
       delaySimStatus: 0
       falseConditionAction: Block
       conditionPriority: 2
-      outgoingLinks: []
+      outgoingLinks:
+      - originConversationID: 30
+        originDialogueID: 2
+        destinationConversationID: 30
+        destinationDialogueID: 3
+        isConnector: 0
+        priority: 2
       conditionsString: Item["Evacuation_Notice"].State == "active" and Dialog[2].SimStatus
         ~= "WasDisplayed"
-      userScript: Item["Evacuation_Notice"].State = "success"
+      userScript: 
     - id: 4
       fields:
       - title: Title
@@ -1073,7 +1079,7 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Sequence
-        value: 
+        value: Camera(Mic)
         type: 0
       conversationID: 30
       isRoot: 0
@@ -1082,10 +1088,16 @@ MonoBehaviour:
       delaySimStatus: 0
       falseConditionAction: Block
       conditionPriority: 2
-      outgoingLinks: []
+      outgoingLinks:
+      - originConversationID: 30
+        originDialogueID: 4
+        destinationConversationID: 30
+        destinationDialogueID: 5
+        isConnector: 0
+        priority: 2
       conditionsString: 'Item["Pre_Flood_Notice"].State == "active" and Dialog[4].SimStatus
         ~= "WasDisplayed" and Item["Evacuation_Notice"].State ~= "active" '
-      userScript: Item["Pre_Flood_Notice"].State = "success"
+      userScript: 
     - id: 7
       fields:
       - title: Title
@@ -1107,7 +1119,7 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Sequence
-        value: 
+        value: Camera(Mic)
         type: 0
       conversationID: 30
       isRoot: 0
@@ -1119,6 +1131,72 @@ MonoBehaviour:
       outgoingLinks: []
       conditionsString: 
       userScript: 
+    - id: 3
+      fields:
+      - title: Title
+        value: 
+        type: 0
+      - title: Actor
+        value: 1
+        type: 5
+      - title: Conversant
+        value: 1
+        type: 5
+      - title: Menu Text
+        value: 
+        type: 0
+      - title: Dialogue Text
+        value: 
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: Delay(0)
+        type: 0
+      conversationID: 30
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: Item["Evacuation_Notice"].State = "success"
+    - id: 5
+      fields:
+      - title: Title
+        value: 
+        type: 0
+      - title: Actor
+        value: 1
+        type: 5
+      - title: Conversant
+        value: 1
+        type: 5
+      - title: Menu Text
+        value: 
+        type: 0
+      - title: Dialogue Text
+        value: 
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: Delay(0)
+        type: 0
+      conversationID: 30
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: Item["Pre_Flood_Notice"].State = "success"
   - id: 31
     fields:
     - title: Title
