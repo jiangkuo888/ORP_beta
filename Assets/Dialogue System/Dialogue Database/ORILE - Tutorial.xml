@@ -4553,7 +4553,6 @@
               <Link OriginConvoID="12" DestinationConvoID="12" OriginDialogID="0" DestinationDialogID="1" IsConnector="false" />
               <Link OriginConvoID="12" DestinationConvoID="12" OriginDialogID="0" DestinationDialogID="2" IsConnector="false" />
               <Link OriginConvoID="12" DestinationConvoID="12" OriginDialogID="0" DestinationDialogID="3" IsConnector="false" />
-              <Link OriginConvoID="12" DestinationConvoID="12" OriginDialogID="0" DestinationDialogID="4" IsConnector="false" />
             </OutgoingLinks>
             <ConditionsString />
             <UserScript />
@@ -4592,7 +4591,7 @@
             <ReviewerNotes />
             <ReviewerStatus>None</ReviewerStatus>
             <OutgoingLinks />
-            <ConditionsString>Variable["InventoryHasObject"] == false and Variable["belongToYou"] == true;</ConditionsString>
+            <ConditionsString>Variable["InventoryHasObject"] == false </ConditionsString>
             <UserScript />
           </DialogEntry>
           <DialogEntry ID="2" IsRoot="false" IsGroup="false" NodeColor="White" DelaySimStatus="false" FalseCondtionAction="Block" ConditionPriority="Normal">
@@ -4629,7 +4628,7 @@
             <ReviewerNotes />
             <ReviewerStatus>None</ReviewerStatus>
             <OutgoingLinks />
-            <ConditionsString>Variable["InventoryHasObject"] == true and Variable["belongToYou"] == true;</ConditionsString>
+            <ConditionsString>Variable["InventoryHasObject"] == true </ConditionsString>
             <UserScript />
           </DialogEntry>
           <DialogEntry ID="3" IsRoot="false" IsGroup="false" NodeColor="White" DelaySimStatus="false" FalseCondtionAction="Block" ConditionPriority="Normal">
@@ -4667,43 +4666,6 @@
             <ReviewerStatus>None</ReviewerStatus>
             <OutgoingLinks />
             <ConditionsString />
-            <UserScript />
-          </DialogEntry>
-          <DialogEntry ID="4" IsRoot="false" IsGroup="false" NodeColor="White" DelaySimStatus="false" FalseCondtionAction="Block" ConditionPriority="Normal">
-            <Fields>
-              <Field Hint="The title of this dialogue." Type="Text">
-                <Title>Title</Title>
-                <Value>Wrong Player</Value>
-              </Field>
-              <Field Hint="The actor who is talking." Type="Actor">
-                <Title>Actor</Title>
-                <Value>8</Value>
-              </Field>
-              <Field Hint="The actor who is listening." Type="Actor">
-                <Title>Conversant</Title>
-                <Value>14</Value>
-              </Field>
-              <Field Hint="The text that is displayed to the player in a list as a dialogue option." Type="Text">
-                <Title>Menu Text</Title>
-                <Value />
-              </Field>
-              <Field Hint="The text that is spoken by the actor." Type="Localization">
-                <Title>Dialogue Text</Title>
-                <Value>This suitcase is not belong to you.</Value>
-              </Field>
-              <Field Hint="A WMV video file to be played for this dialogue." Type="Text">
-                <Title>Video File</Title>
-                <Value />
-              </Field>
-              <Field Hint="Dialogue System for Unity cutscene sequence" Type="Text">
-                <Title>Sequence</Title>
-                <Value />
-              </Field>
-            </Fields>
-            <ReviewerNotes />
-            <ReviewerStatus>None</ReviewerStatus>
-            <OutgoingLinks />
-            <ConditionsString>Variable["belongToYou"] == false;</ConditionsString>
             <UserScript />
           </DialogEntry>
         </DialogEntries>

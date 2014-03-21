@@ -145,6 +145,7 @@ public class DeskMode : MonoBehaviour {
 
 						// set safe variable to true
 						DialogueLua.SetVariable("Has_Document",true);
+						DialogueLua.SetVariable("InventoryHasObject",true);
 
 					}
 
