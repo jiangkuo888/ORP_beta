@@ -867,8 +867,9 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks: []
-      conditionsString: Item["SMMessageSent1"].State == "active"
-      userScript: Item["LOMessageSent2"].State == "success"
+      conditionsString: Item["SMMessageSent1"].State == "active" and Dialog[1].SimStatus
+        ~= "WasDisplayed"
+      userScript: Item["LOMessageSent2"].State = "success"
     - id: 2
       fields:
       - title: Title

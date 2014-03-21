@@ -2232,7 +2232,7 @@
               <Link OriginConvoID="9" DestinationConvoID="9" OriginDialogID="1" DestinationDialogID="3" IsConnector="false" />
               <Link OriginConvoID="9" DestinationConvoID="9" OriginDialogID="1" DestinationDialogID="4" IsConnector="false" />
             </OutgoingLinks>
-            <ConditionsString>Item["Evacuation_Notice"].State == "active"</ConditionsString>
+            <ConditionsString>Item["Evacuation_Notice"].State ~= "unassigned"</ConditionsString>
             <UserScript />
           </DialogEntry>
           <DialogEntry ID="2" IsRoot="false" IsGroup="false" NodeColor="White" DelaySimStatus="false" FalseCondtionAction="Block" ConditionPriority="Normal">

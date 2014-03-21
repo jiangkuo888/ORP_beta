@@ -910,8 +910,8 @@
             <ReviewerNotes />
             <ReviewerStatus>None</ReviewerStatus>
             <OutgoingLinks />
-            <ConditionsString>Item["SMMessageSent1"].State == "active"</ConditionsString>
-            <UserScript>Item["LOMessageSent2"].State == "success"</UserScript>
+            <ConditionsString>Item["SMMessageSent1"].State == "active" and Dialog[1].SimStatus ~= "WasDisplayed"</ConditionsString>
+            <UserScript>Item["LOMessageSent2"].State = "success"</UserScript>
           </DialogEntry>
           <DialogEntry ID="2" IsRoot="false" IsGroup="false" NodeColor="White" DelaySimStatus="false" FalseCondtionAction="Block" ConditionPriority="Normal">
             <Fields>

@@ -2125,7 +2125,7 @@ MonoBehaviour:
         destinationDialogueID: 4
         isConnector: 0
         priority: 2
-      conditionsString: Item["Evacuation_Notice"].State == "active"
+      conditionsString: Item["Evacuation_Notice"].State ~= "unassigned"
       userScript: 
     - id: 2
       fields:
