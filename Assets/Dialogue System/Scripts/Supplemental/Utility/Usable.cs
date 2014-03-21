@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections;
 
 namespace PixelCrushers.DialogueSystem.Examples {
-
+	
 	/// <summary>
 	/// This component indicates that the game object is usable. This component works in
 	/// conjunction with the Selector component. If you leave overrideName blank but there
@@ -25,22 +25,29 @@ namespace PixelCrushers.DialogueSystem.Examples {
 		/// The max distance at which the object can be used.
 		/// </summary>
 		public float maxUseDistance = 5f;
-
+		
 		public void Start() {
 			if (string.IsNullOrEmpty(overrideName)) {
 				OverrideActorName overrideActorName = GetComponentInChildren<OverrideActorName>();
 				if (overrideActorName != null) overrideName = overrideActorName.overrideName;
 			}
 		}
-
-
+		
+		
 		public void OnUse (Transform actor){
-
+			
 			PlayerPrefs.SetString("LocalActor",actor.name);
 			PlayerPrefs.SetString("OnUsedObj",this.transform.name);
-
+			
+			if(this.GetComponent<suitcaseObjList>()!= null)
+			{
+				if(this.GetComponent<suitcaseObjList>().owner ==actor.name)
+					DialogueLua.SetVariable("belongToYou",true);
+				else
+					DialogueLua.SetVariable("false",true);
+			}
 		}
-
+		
 	}
-
+	
 }

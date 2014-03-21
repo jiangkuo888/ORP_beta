@@ -409,12 +409,10 @@ MonoBehaviour:
         value: 6
         type: 5
       - title: Menu Text
-        value: LO Message 3
+        value: No message in Inbox
         type: 0
       - title: Dialogue Text
-        value: 'This is Message 3 from LO
-
-'
+        value: 
         type: 4
       - title: Video File
         value: 
@@ -430,7 +428,7 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks: []
-      conditionsString: Item["LOMessageSent3"].State == "active"
+      conditionsString: 
       userScript: 
   - id: 4
     fields:
@@ -581,10 +579,10 @@ MonoBehaviour:
         value: 6
         type: 5
       - title: Menu Text
-        value: Message 3
+        value: Nothing to send
         type: 0
       - title: Dialogue Text
-        value: Sending to SM Message 3
+        value: 
         type: 4
       - title: Video File
         value: 
@@ -600,7 +598,7 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks: []
-      conditionsString: Dialog[3].SimStatus ~= "WasDisplayed"
+      conditionsString: 
       userScript: 
   - id: 5
     fields:
@@ -681,12 +679,10 @@ MonoBehaviour:
         value: 6
         type: 5
       - title: Menu Text
-        value: Message 1
+        value: Notify Loan Officer Evacuation to LPU floor.
         type: 0
       - title: Dialogue Text
-        value: 'Sending to SM Message 1
-
-'
+        value: 'Sending to Sales Manager... '
         type: 4
       - title: Video File
         value: 
@@ -736,7 +732,8 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks: []
-      conditionsString: Dialog[2].SimStatus ~= "WasDisplayed"
+      conditionsString: Dialog[2].SimStatus ~= "WasDisplayed" and Item["SMMessageSent2"].State
+        == "success"
       userScript: 
     - id: 3
       fields:
@@ -750,10 +747,10 @@ MonoBehaviour:
         value: 6
         type: 5
       - title: Menu Text
-        value: Message 3
+        value: Nothing to send
         type: 0
       - title: Dialogue Text
-        value: Sending to SM Message 3
+        value: 
         type: 4
       - title: Video File
         value: 
@@ -769,7 +766,7 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks: []
-      conditionsString: Dialog[3].SimStatus ~= "WasDisplayed"
+      conditionsString: 
       userScript: 
   - id: 6
     fields:
@@ -850,10 +847,11 @@ MonoBehaviour:
         value: 6
         type: 5
       - title: Menu Text
-        value: LO Message 1
+        value: Message from Sales Manager
         type: 0
       - title: Dialogue Text
-        value: This is Message 1 from LO
+        value: "We are evacuating the Sales Floor to the LPU Floor in a while. Please
+          kindly prepare to receive the evacuatees. \n"
         type: 4
       - title: Video File
         value: 
@@ -869,8 +867,9 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks: []
-      conditionsString: Item["SMMessageSent1"].State == "active"
-      userScript: Item["LOMessageSent2"].State == "success"
+      conditionsString: Item["SMMessageSent1"].State == "active" and Dialog[1].SimStatus
+        ~= "WasDisplayed"
+      userScript: Item["LOMessageSent2"].State = "success"
     - id: 2
       fields:
       - title: Title
@@ -902,7 +901,7 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks: []
-      conditionsString: Item["SMMessageSent2"].State == "success"
+      conditionsString: Item["SMMessageSent2"].State == "active"
       userScript: 
     - id: 3
       fields:
@@ -916,10 +915,10 @@ MonoBehaviour:
         value: 6
         type: 5
       - title: Menu Text
-        value: LO Message 3
+        value: No message inbox
         type: 0
       - title: Dialogue Text
-        value: This is Message 3 from LO
+        value: 
         type: 4
       - title: Video File
         value: 
@@ -935,5 +934,5 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks: []
-      conditionsString: Item["SMMessageSent3"].State == "success"
+      conditionsString: 
       userScript: 
