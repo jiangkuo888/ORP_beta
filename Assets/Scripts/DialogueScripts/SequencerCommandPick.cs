@@ -137,6 +137,8 @@ public class SequencerCommandPick : SequencerCommand {
 
 
 		GameObject.Find ("InventoryObj").GetComponent<inventory>().updateInventoryObject(obj);
+
+		DialogueLua.SetVariable("InventoryHasObject",true);
 		
 	}
 	
