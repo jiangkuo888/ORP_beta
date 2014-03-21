@@ -1,159 +1,139 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
-using PixelCrushers.DialogueSystem.Examples;
+using System.Collections.Generic;
 
-public class AdminCamera : Photon.MonoBehaviour
-{
-	MouseCamera cameraScript;
-	MouseCamera playerRotationScript;
+[AddComponentMenu("Camera-Control/Mouse Look")]
+public class AdminCamera : Photon.MonoBehaviour {
+
+	public Vector3 relativePosition = new Vector3(0,1.257728f, 0);
+	public int currPlayerFollow;
+	public string[] playerNameList = new string[] {"Sales Manager", "LPU Officer", "LPU Manager", "Credit Risk"};
+	public Vector3 lastPos;
+	public Quaternion lastRot;
+
+	public enum RotationAxes { MouseXAndY = 0, MouseX = 1, MouseY = 2, MouseNone = 3 }
+	public RotationAxes axes = RotationAxes.MouseXAndY;
+	public float sensitivityX = 5F;
+	public float sensitivityY = 5F;
 	
-	public Vector3 cameraRelativePosition = new Vector3(0,1.257728f, 0);
+	public float minimumX = -360F;
+	public float maximumX = 360F;
+	
+	public float minimumY = -60F;
+	public float maximumY = 60F;
+	
+	
+	float rotationY = 0F;
+	float originalY = 0F;
 
-	void Awake()
-	{
-		
-		
-		// controllerScript = GetComponent<FPSInputController>();
-		
+	// Use this for initialization
+	void Start () {
+		this.currPlayerFollow = -1;
+		originalY = transform.localEulerAngles.x;
 	}
-	void Start()
-	{
-		
-		//TODO: Bugfix to allow .isMine and .owner from AWAKE!
-		if (photonView.isMine)
+	
+	// Update is called once per frame
+	void Update () {
+
+		GameObject gameManager = GameObject.Find ("GameManager");  
+		GameManagerVik vikky = gameManager.GetComponent<GameManagerVik> ();
+		HashSet<string> selectedPlayerList = vikky.selectedPlayerList;
+	
+		//if admin watch other players
+		if (Input.GetKeyUp ("space") && selectedPlayerList.Count > 0) 
 		{
-			//MINE: local player, simply enable the local scripts
-			
-			
-			
-			
-			// controllerScript.enabled = true;
-		//	Renderer[] rs =  this.transform.GetComponentsInChildren<Renderer>();
-		//	foreach (Renderer r in rs)
-		//		r.enabled = false;
-			
-			
-			Camera.main.transform.parent = transform;
-			Camera.main.transform.localPosition = cameraRelativePosition;
-			Camera.main.transform.localEulerAngles = new Vector3(0.6651921f, 90, 0);
-			Camera.main.farClipPlane = 100.0f;
-			
-			if(cameraScript == null)
-				cameraScript = GameObject.Find ("Main Camera").GetComponent<MouseCamera>();
-			if(playerRotationScript == null)
-				playerRotationScript = transform.GetComponent<MouseCamera>();
-			
-			
-			playerRotationScript.enabled = true;
-			cameraScript.enabled = true;
-			
-		//	gameObject.GetComponent<ClickMove>().enabled = true;
-		//	gameObject.GetComponent<CharacterMotor>().enabled = true;
-			//			gameObject.GetComponent<DetectObjects>().enabled = true;
-			
+			currPlayerFollow++;
+			while (true)
+			{
+				if (currPlayerFollow >= playerNameList.Length)
+				{
+					//goes back to admin
+					this.gameObject.transform.position = lastPos;
+					this.gameObject.transform.rotation = lastRot;
+					currPlayerFollow = -1;
+					break;
+
+				}
+				else
+				{
+
+					if (selectedPlayerList.Contains(playerNameList[currPlayerFollow]))
+					{
+						//save current position and rotation
+						this.lastPos = this.gameObject.transform.position;
+						this.lastRot = this.gameObject.transform.rotation;
+
+						//toggle to next player
+						this.gameObject.transform.position = GameObject.Find(playerNameList[currPlayerFollow]+"(Clone)").transform.position;
+						this.gameObject.transform.position = new Vector3(this.gameObject.transform.position.x, this.gameObject.transform.position.y, this.gameObject.transform.position.z);
+						Vector3 cameraEuler = GameObject.Find(playerNameList[currPlayerFollow]+"(Clone)").GetComponent<ThirdPersonNetworkVik>().cloneCameraRotation;
+						this.gameObject.transform.rotation = Quaternion.Euler(cameraEuler.z, cameraEuler.y, -cameraEuler.x);
+
+						//mainCam.transform.localPosition = relativePosition;
+						//mainCam.transform.localEulerAngles = new Vector3(0, 90, 0);
+
+						break;
+					}
+					else
+					{
+						currPlayerFollow++;
+					}
+
+				}
+			}
+
 		}
-		else
-		{           
-			
-			
-			
-			if(playerRotationScript == null)
-				playerRotationScript = transform.GetComponent<MouseCamera>();
-			
-			//Renderer[] rs =  this.transform.GetComponentsInChildren<Renderer>();
-			//foreach (Renderer r in rs)
-			//	r.enabled = true;
-			playerRotationScript.enabled = false;
-			//gameObject.GetComponent<ClickMove>().enabled = false;
-			//gameObject.GetComponent<CharacterMotor>().enabled = false;
-			//	gameObject.GetComponent<DetectObjects>().enabled = false;
-			//gameObject.GetComponent<Selector>().enabled = false;
-			//  controllerScript.enabled = true;
-			
+
+		//mouse camera
+		if(Input.GetButton ("Fire2") && this.currPlayerFollow == -1)
+		{
+			if (axes == RotationAxes.MouseXAndY)
+			{
+				float rotationX = transform.localEulerAngles.y + Input.GetAxis("Mouse X") * sensitivityX;
+				
+				rotationY += Input.GetAxis("Mouse Y") * sensitivityY;
+				rotationY = Mathf.Clamp (rotationY, minimumY, maximumY);
+				
+				transform.localEulerAngles = new Vector3(/*-rotationY*/0, rotationX, rotationY);
+				//Debug.Log(transform.right);
+			}
+			else if (axes == RotationAxes.MouseX)
+			{
+				transform.Rotate(0, Input.GetAxis("Mouse X") * sensitivityX, 0);
+			}
+			else if(axes == RotationAxes.MouseY)
+			{
+				rotationY += Input.GetAxis("Mouse Y") * sensitivityY;
+				rotationY = Mathf.Clamp (rotationY, minimumY, maximumY);
+				
+				transform.localEulerAngles = new Vector3(-rotationY, transform.localEulerAngles.y, 0);
+			}
 		}
-		
-		//gameObject.GetComponent<ClickMove>().SendMessage("SetIsRemotePlayer", !photonView.isMine);
-		
-		
-		
-		
-		
-		
+
+		if (this.currPlayerFollow != -1)
+		{
+			//Debug.Log(GameObject.Find(playerNameList[currPlayerFollow]+"(Clone)").GetComponent<ThirdPersonNetworkVik>().cloneCameraRotation);
+			//movwe to where following player is
+			this.gameObject.transform.position = GameObject.Find(playerNameList[currPlayerFollow]+"(Clone)").transform.position;
+			this.gameObject.transform.position = new Vector3(this.gameObject.transform.position.x, this.gameObject.transform.position.y, this.gameObject.transform.position.z);
+			Vector3 cameraEuler = GameObject.Find(playerNameList[currPlayerFollow]+"(Clone)").GetComponent<ThirdPersonNetworkVik>().cloneCameraRotation;
+			this.gameObject.transform.rotation = Quaternion.Euler(-cameraEuler.z, cameraEuler.y, -cameraEuler.x);
+		}
+
 	}
-	
+
 	void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
 	{
 		if (stream.isWriting)
 		{
-			//We own this player: send the others our data
-			// stream.SendNext((int)controllerScript._characterState);
-			stream.SendNext(transform.position);
-			stream.SendNext(transform.rotation);
 			
-			
-			switch(this.GetComponent<AnimationController>().state)
-			{
-			case AnimationController.CharacterState.idle:
-				stream.SendNext("idle");
-				stream.SendNext (PhotonNetwork.playerName);
-				break;
-			case AnimationController.CharacterState.run:
-				stream.SendNext("run");
-				stream.SendNext (PhotonNetwork.playerName);
-				break;
-			case AnimationController.CharacterState.computer:
-				stream.SendNext("computer");
-				stream.SendNext (PhotonNetwork.playerName);
-				break;
-			case AnimationController.CharacterState.walk:
-				stream.SendNext("walk");
-				stream.SendNext (PhotonNetwork.playerName);
-				break;
-			default:
-				break;
-				
-			}
-			
+			//do nothing
 			
 		}
 		else
 		{
-			//Network player, receive data
-			//controllerScript._characterState = (CharacterState)(int)stream.ReceiveNext();
-			correctPlayerPos = (Vector3)stream.ReceiveNext();
-			correctPlayerRot = (Quaternion)stream.ReceiveNext();
-			//        rigidbody.velocity = (Vector3)stream.ReceiveNext();
-			correctState = (string)stream.ReceiveNext();
-			correctRole = (string)stream.ReceiveNext();
-			
+			//do nothing
 		}
 	}
-	
-	private Vector3 correctPlayerPos = Vector3.zero; //We lerp towards this
-	private Quaternion correctPlayerRot = Quaternion.identity; //We lerp towards this
-	private string correctState = "idle";
-	private string correctRole = "";
-	void Update()
-	{
-		if (Input.GetKeyDown ("w")) {
-		
-			this.transform.Translate(Camera.main.transform.TransformDirection(Vector3.forward));
 
-		}
-		
-	}
 }
-
-//    void OnPhotonInstantiate(PhotonMessageInfo info)
-//    {
-//        //We know there should be instantiation data..get our bools from this PhotonView!
-//        object[] objs = photonView.instantiationData; //The instantiate data..
-//        bool[] mybools = (bool[])objs[0];   //Our bools!
-//
-//        //disable the axe and shield meshrenderers based on the instantiate data
-//        MeshRenderer[] rens = GetComponentsInChildren<MeshRenderer>();
-//        rens[0].enabled = mybools[0];//Axe
-//        rens[1].enabled = mybools[1];//Shield
-//
-//    }
-//

@@ -22,7 +22,7 @@ public class GameManagerVik : Photon.MonoBehaviour {
 	public Transform[] LMSpawnPositionList;
 	public Transform[] CRSpawnPositionList;
 	private Vector3 spawnPosition;
-	HashSet<string> selectedPlayerList = new HashSet<string>();
+	public HashSet<string> selectedPlayerList = new HashSet<string>();
 	bool roleSelected = false;
 	public PlayMakerFSM EventManager;
 	public int sessionID = -1;
@@ -203,6 +203,7 @@ public class GameManagerVik : Photon.MonoBehaviour {
 			//end add to db
 			
 		}
+		this.gameStarted = true;
 	}
 
 	//set objects for recording
@@ -352,6 +353,8 @@ public class GameManagerVik : Photon.MonoBehaviour {
 					break;
 
 				}
+
+				GameObject.Find ("phoneButton").GetComponent<phoneButton>().loadSmallButtonCharacter();
 				
 			}
 		
@@ -378,7 +381,7 @@ public class GameManagerVik : Photon.MonoBehaviour {
 		}
 
 		set4Recording ();
-		//EZReplayManager.get.record();
+		EZReplayManager.get.record();
 
 		gameStarted = true;
     }

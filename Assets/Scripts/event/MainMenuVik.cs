@@ -150,13 +150,23 @@ public class MainMenuVik : MonoBehaviour
 					//end add to db
 
 					//if successful;, means login success
-					if (dbReturn == "SUCCESS NO RETURN") {
+					if (dbReturn == "SUCCESS") {
+
 						isLogin = false;
 
-						//add playerName
-						//GameObject gameManager = GameObject.Find("GameManager");  
-						//GameManagerVik vikky = gameManager.GetComponent<GameManagerVik>();
-						vikky.loginName = playerName;
+						//see if admin
+						string playerType = db.getReturnValue("playerType");
+						if (playerType == "ADMIN")
+						{
+							vikky.isAdmin = true;
+						}
+						else
+						{
+							//add playerName
+							vikky.loginName = playerName;
+						}
+
+
 					}
 					//if not successful print error string
 					else {
@@ -299,22 +309,22 @@ public class MainMenuVik : MonoBehaviour
 			foreach (string capture in listArray)
 			{	
 				string fileName = "";
-				Debug.Log(capture);
+				//Debug.Log(capture);
 
 				if (capture.IndexOf("[") == 0)
 				{
 					fileName = capture.Substring(2,capture.Length-3);
-					Debug.Log(fileName);
+					//Debug.Log(fileName);
 				}
 				else if (capture.IndexOf("]") == capture.Length-1)
 				{
 					fileName = capture.Substring(1,capture.Length-3);
-					Debug.Log(fileName);
+					//Debug.Log(fileName);
 				}
 				else
 				{
 					fileName = capture.Substring(1,capture.Length-2);
-					Debug.Log(fileName);
+					//Debug.Log(fileName);
 				}
 
 				if (fileName != "." && fileName != "..")
@@ -481,7 +491,7 @@ public class MainMenuVik : MonoBehaviour
 			//Debug.Log(www.bytes.Length);
 			//Debug.Log(www.data);
 			string currentDir = Directory.GetCurrentDirectory ();
-			Debug.Log (currentDir + "\\playback\\" + fileName);
+			//Debug.Log (currentDir + "\\playback\\" + fileName);
 			Directory.CreateDirectory (currentDir + "\\playback");
 			File.WriteAllBytes(currentDir + "\\playback\\" + fileName, www.bytes);
 
@@ -509,7 +519,7 @@ public class MainMenuVik : MonoBehaviour
 		{
 
 			this.fileList = www.data;
-			Debug.Log(this.fileList);
+			//Debug.Log(this.fileList);
 		} else {
 			Debug.Log("WWW Error: "+ www.error);
 		}    

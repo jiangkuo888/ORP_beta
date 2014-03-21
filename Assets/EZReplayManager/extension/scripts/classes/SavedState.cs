@@ -19,7 +19,13 @@ public class SavedState : ISerializable {
 	public SerQuaternion localRotation;
 	
 	public bool emittingParticles = false;
+
+	/**************************************************************
+	 *  New Addition: boolean variable called isMainCameraChild
+	 **************************************************************/
 	public bool isMainCameraChild = true;
+	//*************************************************************
+
 	public bool isActive = false;
 	
 	//serialization constructor
@@ -32,6 +38,7 @@ public class SavedState : ISerializable {
 		
 		emittingParticles = info.GetBoolean("emittingParticles");
 		isActive = info.GetBoolean("isActive");
+		this.isMainCameraChild = info.GetBoolean("isMainCameraChild");
 	}			
 	
 	//as this is not derived from MonoBehaviour, we have a constructor
@@ -60,14 +67,6 @@ public class SavedState : ISerializable {
 			this.localPosition = new SerVector3(Vector3.zero);
 			this.localRotation = new SerQuaternion(Quaternion.identity);			
 			this.isActive = false;	
-		}
-
-		if (go.tag == "MainCamera")
-		{
-			//Debug.Log (this.localPosition.x);
-			//Debug.Log (this.localPosition.y);
-			//Debug.Log (this.localPosition.z);
-			//Debug.Log (this.isMainCameraChild);
 		}
 
 	}
@@ -100,19 +99,17 @@ public class SavedState : ISerializable {
 		
 		if (!changed && emittingParticles != otherState.emittingParticles)
 			changed = true;	
-	
+
+		/**********************************************************************
+		 *  New Addition: isMainCameraChild comparison
+		 **********************************************************************/
 		if (!changed && isMainCameraChild != otherState.isMainCameraChild)
 		{
 
 			changed = true;	
 		}
-		if ((!this.isMainCameraChild || !otherState.isMainCameraChild))
-		{
-			//Debug.Log ("this");
-			//Debug.Log (this.isMainCameraChild);
-			//Debug.Log ("other");
-			//Debug.Log (otherState.isMainCameraChild);
-		}
+		//*********************************************************************
+
 		return changed;
 	}		
 	
@@ -135,27 +132,20 @@ public class SavedState : ISerializable {
 		else if ( go.GetComponent<ParticleEmitter>() ) 
 			go.GetComponent<ParticleEmitter>().emit = false;
 
-		//only for main camera
-		//Debug.Log (this.isMainCameraChild);
-		//Debug.Log (go.tag);
+
+		/*******************************************************************************
+		 *  New Addition: isMainCameraChild comparison
+		 *******************************************************************************/
 		if (go.tag == "MainCamera" && go.transform.parent != null)
 		{
-			//Debug.Log (go.name);
-			//Debug.Log (go.name);
-			//Debug.Log (this.localPosition.x);
-			//Debug.Log (this.localPosition.y);
-			//Debug.Log (this.localPosition.z);
-			//Debug.Log (this.isMainCameraChild);
 			bool compareOne = go.GetComponent<PlaybackCamera>().isMainCameraChild;
 			bool compareTwo = this.isMainCameraChild;
 			if (compareOne != compareTwo)
 			{
-				//Debug.Log(compareTwo);
-				//Debug.Log (go.position);
 				go.GetComponent<PlaybackCamera>().isMainCameraChild = this.isMainCameraChild;
 			}		
 		}
-
+		//******************************************************************************
 	}
 	
 	/*[SecurityPermissionAttribute(
@@ -171,6 +161,7 @@ public class SavedState : ISerializable {
 		
 		info.AddValue("emittingParticles", this.emittingParticles);
 		info.AddValue("isActive", this.isActive);
+		info.AddValue ("isMainCameraChild", this.isMainCameraChild);
 		//base.GetObjectData(info, context);
 	}	
 	

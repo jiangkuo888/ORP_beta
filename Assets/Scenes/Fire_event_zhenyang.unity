@@ -4267,62 +4267,6 @@ Transform:
   m_Children:
   - {fileID: 1906942343}
   m_Father: {fileID: 1484077723}
---- !u!1001 &87253329
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 11400000, guid: ae153529f8125764db4ab5eed1fd10a3, type: 2}
-      propertyPath: componentsAndScriptsToKeepAtReplay.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: ae153529f8125764db4ab5eed1fd10a3, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: ae153529f8125764db4ab5eed1fd10a3, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: ae153529f8125764db4ab5eed1fd10a3, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: ae153529f8125764db4ab5eed1fd10a3, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: ae153529f8125764db4ab5eed1fd10a3, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: ae153529f8125764db4ab5eed1fd10a3, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: ae153529f8125764db4ab5eed1fd10a3, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11400000, guid: ae153529f8125764db4ab5eed1fd10a3, type: 2}
-      propertyPath: componentsAndScriptsToKeepAtReplay.Array.data[0]
-      value: CharacterController
-      objectReference: {fileID: 0}
-    - target: {fileID: 11400000, guid: ae153529f8125764db4ab5eed1fd10a3, type: 2}
-      propertyPath: componentsAndScriptsToKeepAtReplay.Array.data[1]
-      value: PhotonView
-      objectReference: {fileID: 0}
-    - target: {fileID: 11400000, guid: ae153529f8125764db4ab5eed1fd10a3, type: 2}
-      propertyPath: componentsAndScriptsToKeepAtReplay.Array.data[2]
-      value: PlaybackCamera
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: ae153529f8125764db4ab5eed1fd10a3, type: 2}
-  m_RootGameObject: {fileID: 1988829485}
-  m_IsPrefabParent: 0
-  m_IsExploded: 1
 --- !u!1 &87643638
 GameObject:
   m_ObjectHideFlags: 0
@@ -11484,7 +11428,7 @@ MonoBehaviour:
   documentName: Bank doc 1
   pagePrototype: {fileID: 1817239430}
   pageTextures:
-  - {fileID: 2800000, guid: 6d3cb7e67bbfcbc4a968e3911d0050d0, type: 3}
+  - {fileID: 2800000, guid: d7aa821df46f5de4bae28810eac3b467, type: 3}
   - {fileID: 2800000, guid: 75df0825e6d45e24797cf66964f47acb, type: 3}
   - {fileID: 2800000, guid: fd15721ea84e59e4d853c0070931b0e0, type: 3}
   - {fileID: 2800000, guid: 9da1646793b7e44428c052f95f12650c, type: 3}
@@ -13219,40 +13163,63 @@ MonoBehaviour:
       transitions: []
       actionData:
         actionNames:
+        - HutongGames.PlayMaker.Actions.FindGameObject
         - HutongGames.PlayMaker.Actions.SetPosition
         customNames:
         - 
-        actionEnabled: 01
-        actionIsOpen: 01
-        actionStartIndex: 00000000
-        actionHashCodes: 8b80e9a5
+        - 
+        actionEnabled: 0101
+        actionIsOpen: 0101
+        actionStartIndex: 0000000003000000
+        actionHashCodes: c54a778f8b80e9a5
         unityObjectParams: []
-        fsmGameObjectParams: []
+        fsmGameObjectParams:
+        - useVariable: 1
+          name: player
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: {fileID: 0}
         fsmOwnerDefaultParams:
         - ownerOption: 1
           gameObject:
-            useVariable: 0
-            name: 
+            useVariable: 1
+            name: player
             tooltip: 
             showInInspector: 0
             networkSync: 0
-            value: {fileID: 100032, guid: 862638506a814af458833c5504c756cd, type: 2}
+            value: {fileID: 0}
         animationCurveParams: []
         functionCallParams: []
         fsmTemplateControlParams: []
         fsmEventTargetParams: []
         fsmPropertyParams: []
         layoutOptionParams: []
-        fsmStringParams: []
+        fsmStringParams:
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: Sales Manager
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: SM
         fsmObjectParams: []
         fsmVarParams: []
-        byteData: 000000000000000000000000010000b0c0000000c040000000704200000000000000
+        byteData: 000000000000000000000000010000b0c0000000e040000000704200000000000000
         arrayParamSizes: 
         arrayParamTypes: []
         customTypeSizes: 
         customTypeNames: []
-        paramDataType: 140000001c0000000f0000000f0000000f000000070000000100000001000000
+        paramDataType: 120000001200000013000000140000001c0000000f0000000f0000000f000000070000000100000001000000
         paramName:
+        - objectName
+        - withTag
+        - store
         - gameObject
         - vector
         - x
@@ -13261,8 +13228,8 @@ MonoBehaviour:
         - space
         - everyFrame
         - lateUpdate
-        paramDataPos: 00000000000000000d00000012000000170000001c0000002000000021000000
-        paramByteDataSize: 000000000d000000050000000500000005000000040000000100000001000000
+        paramDataPos: 00000000010000000000000000000000000000000d00000012000000170000001c0000002000000021000000
+        paramByteDataSize: 000000000000000000000000000000000d000000050000000500000005000000040000000100000001000000
     events:
     - name: FINISHED
       isSystemEvent: 1
@@ -13284,7 +13251,13 @@ MonoBehaviour:
       colorVariables: []
       rectVariables: []
       quaternionVariables: []
-      gameObjectVariables: []
+      gameObjectVariables:
+      - useVariable: 1
+        name: player
+        tooltip: 
+        showInInspector: 0
+        networkSync: 0
+        value: {fileID: 0}
       objectVariables: []
       materialVariables: []
       textureVariables: []
@@ -15809,7 +15782,6 @@ GameObject:
   - 114: {fileID: 318830914}
   - 114: {fileID: 318830927}
   - 114: {fileID: 318830926}
-  - 114: {fileID: 318830928}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -16093,7 +16065,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5afbec4062e8ecb438021f9d1c2f166d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  axes: 2
+  axes: 0
   sensitivityX: 15
   sensitivityY: 15
   minimumX: -360
@@ -16156,7 +16128,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 318830913}
-  m_LocalRotation: {x: -.0493938103, y: -.820773602, z: .0718089268, w: -.564565837}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -25.662035, y: 4.46238804, z: 59.4959908}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -16173,32 +16145,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isMainCameraChild: 1
+  parent: {fileID: 0}
 --- !u!114 &318830927
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 318830913}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 98d41c40bc24a9041abf10458318ca0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   enabled: 0
   distance: 0
-  horizontalSpeed: 0
-  verticalSpeed: 0
---- !u!114 &318830928
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 318830913}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d3b9018c883248d4fae50640634821d4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  horizontalSpeed: .5
+  verticalSpeed: .300000012
 --- !u!1 &319642129
 GameObject:
   m_ObjectHideFlags: 0
@@ -19616,7 +19578,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 372435897}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.18966484, y: -1.29225779, z: 1.59893799}
+  m_LocalPosition: {x: -7.30814266, y: -1.29225779, z: -2.1659584}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1678731848}
@@ -23722,26 +23684,26 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 50
-        y: 100
-        width: 150
+        y: 148
+        width: 159
         height: 48
       isBreakpoint: 0
       isSequence: 0
       hideUnused: 0
       transitions:
       - fsmEvent:
-          name: OnConversationEnd
-          isSystemEvent: 0
-          isGlobal: 0
-        toState: Check Quest State
-        linkStyle: 0
-        linkConstraint: 0
-        colorIndex: 0
-      - fsmEvent:
           name: WomenGoToWork
           isSystemEvent: 0
           isGlobal: 0
         toState: GoToWorkDesk
+        linkStyle: 0
+        linkConstraint: 0
+        colorIndex: 0
+      - fsmEvent:
+          name: OnConversationStart
+          isSystemEvent: 0
+          isGlobal: 0
+        toState: inConversation
         linkStyle: 0
         linkConstraint: 0
         colorIndex: 0
@@ -23779,7 +23741,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 318
-        y: 109
+        y: 157
         width: 142
         height: 48
       isBreakpoint: 0
@@ -23856,7 +23818,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 335
-        y: 218
+        y: 266
         width: 123
         height: 32
       isBreakpoint: 0
@@ -24055,7 +24017,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 136
-        y: 252
+        y: 300
         width: 100
         height: 16
       isBreakpoint: 0
@@ -24135,11 +24097,86 @@ MonoBehaviour:
         - stopOnExit
         paramDataPos: 0000000000000000000000000000000002000000010000000100000004000000080000000d0000000d0000000d000000
         paramByteDataSize: 000000000000000000000000020000000200000000000000000000000400000005000000000000000000000001000000
+    - name: inConversation
+      description: 
+      colorIndex: 0
+      position:
+        serializedVersion: 2
+        x: 292
+        y: 114
+        width: 150
+        height: 32
+      isBreakpoint: 0
+      isSequence: 0
+      hideUnused: 0
+      transitions:
+      - fsmEvent:
+          name: OnConversationEnd
+          isSystemEvent: 0
+          isGlobal: 0
+        toState: Check Quest State
+        linkStyle: 0
+        linkConstraint: 0
+        colorIndex: 0
+      actionData:
+        actionNames:
+        - HutongGames.PlayMaker.Actions.PlayAnimation
+        customNames:
+        - 
+        actionEnabled: 01
+        actionIsOpen: 01
+        actionStartIndex: 00000000
+        actionHashCodes: 6e06efc0
+        unityObjectParams: []
+        fsmGameObjectParams: []
+        fsmOwnerDefaultParams:
+        - ownerOption: 0
+          gameObject:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: {fileID: 0}
+        animationCurveParams: []
+        functionCallParams: []
+        fsmTemplateControlParams: []
+        fsmEventTargetParams: []
+        fsmPropertyParams: []
+        layoutOptionParams: []
+        fsmStringParams:
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: FemaleB_NodHead
+        fsmObjectParams: []
+        fsmVarParams: []
+        byteData: 040000009a99993e0000
+        arrayParamSizes: 
+        arrayParamTypes: []
+        customTypeSizes: 
+        customTypeNames: []
+        paramDataType: 1400000012000000070000000f000000170000001700000001000000
+        paramName:
+        - gameObject
+        - animName
+        - playMode
+        - blendTime
+        - finishEvent
+        - loopEvent
+        - stopOnExit
+        paramDataPos: 00000000000000000000000004000000090000000900000009000000
+        paramByteDataSize: 00000000000000000400000005000000000000000000000001000000
     events:
     - name: FINISHED
       isSystemEvent: 1
       isGlobal: 0
     - name: OnConversationEnd
+      isSystemEvent: 0
+      isGlobal: 0
+    - name: OnConversationStart
       isSystemEvent: 0
       isGlobal: 0
     - name: QUEST_FAILURE
@@ -24244,6 +24281,7 @@ Animation:
   - {fileID: 7400000, guid: 314150d0ffb5f3a43b84dc9acc981deb, type: 3}
   - {fileID: 7400000, guid: a8486cc8d9ee26c4b97fa8b8df313cf0, type: 3}
   - {fileID: 7400000, guid: 5cc370eb763bdee48b1e232e8bb6c2a2, type: 3}
+  - {fileID: 7400000, guid: f4ad2eb56e8bb6f4aa1ed94f92e88fff, type: 3}
   m_WrapMode: 0
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
@@ -38008,7 +38046,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fsm:
     usedInTemplate: {fileID: 0}
-    name: Photon Network Synch FSM
+    name: Normal Day Jenny
     startState: WaitForPlayer
     states:
     - name: MoveTo_Wp
@@ -38456,8 +38494,8 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 56.453125
-        y: 195.59375
+        x: 70.453125
+        y: 177.59375
         width: 150
         height: 32
       isBreakpoint: 0
@@ -38504,7 +38542,7 @@ MonoBehaviour:
           tooltip: 
           showInInspector: 0
           networkSync: 0
-          value: FemaleB_idle
+          value: FemaleB_NodHead
         fsmObjectParams: []
         fsmVarParams: []
         byteData: 040000009a99993e0000
@@ -38576,7 +38614,7 @@ MonoBehaviour:
           tooltip: 
           showInInspector: 0
           networkSync: 0
-          value: FemaleB_idle
+          value: FemaleB_NodHead
         fsmObjectParams: []
         fsmVarParams: []
         byteData: 040000009a99993e0000
@@ -38648,7 +38686,7 @@ MonoBehaviour:
           tooltip: 
           showInInspector: 0
           networkSync: 0
-          value: FemaleB_idle
+          value: FemaleB_NodHead
         fsmObjectParams: []
         fsmVarParams: []
         byteData: 040000009a99993e0000
@@ -38720,7 +38758,7 @@ MonoBehaviour:
           tooltip: 
           showInInspector: 0
           networkSync: 0
-          value: FemaleB_idle
+          value: FemaleB_NodHead
         fsmObjectParams: []
         fsmVarParams: []
         byteData: 040000009a99993e0000
@@ -38869,6 +38907,7 @@ Animation:
   - {fileID: 7400000, guid: 34966eb413e23f740b803ce7f6abba17, type: 3}
   - {fileID: 7400000, guid: b480675cd1c6a7642a75e11ccf44eebc, type: 3}
   - {fileID: 7400000, guid: 0a7aa65e7ec7ea0478ab76829e1d591d, type: 3}
+  - {fileID: 7400000, guid: f4ad2eb56e8bb6f4aa1ed94f92e88fff, type: 3}
   m_WrapMode: 0
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
@@ -40514,9 +40553,9 @@ MonoBehaviour:
   documentName: Bank doc 1
   pagePrototype: {fileID: 1817239430}
   pageTextures:
-  - {fileID: 2800000, guid: 3944b5d818ca5cd49b325419fa6f1bd5, type: 3}
-  - {fileID: 2800000, guid: 31ef5a51f39ee3b4082b50a7ec8184ec, type: 3}
-  - {fileID: 2800000, guid: 95744472c8988264a84e296f55644d0a, type: 3}
+  - {fileID: 2800000, guid: 19c758a0cabab40428c01d857a83cac8, type: 3}
+  - {fileID: 2800000, guid: a6e1bacc40b5b3a4c8d43c3d6e8204c9, type: 3}
+  - {fileID: 2800000, guid: 19c758a0cabab40428c01d857a83cac8, type: 3}
   LO_signature: {fileID: 2136359671}
   LM_signature: {fileID: 560524836}
   CR_signature: {fileID: 165184258}
@@ -41779,7 +41818,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fsm:
     usedInTemplate: {fileID: 0}
-    name: Photon Network Synch FSM
+    name: Normal Day John
     startState: MoveTo_Wp
     states:
     - name: MoveTo_Wp
@@ -42307,7 +42346,7 @@ MonoBehaviour:
           tooltip: 
           showInInspector: 0
           networkSync: 0
-          value: MaleA_Idle
+          value: FemaleB_NodHead
         fsmObjectParams: []
         fsmVarParams: []
         byteData: 040000009a99993e0000
@@ -42379,7 +42418,7 @@ MonoBehaviour:
           tooltip: 
           showInInspector: 0
           networkSync: 0
-          value: MaleA_Idle
+          value: FemaleB_NodHead
         fsmObjectParams: []
         fsmVarParams: []
         byteData: 040000009a99993e0000
@@ -42451,7 +42490,7 @@ MonoBehaviour:
           tooltip: 
           showInInspector: 0
           networkSync: 0
-          value: MaleA_Idle
+          value: FemaleB_NodHead
         fsmObjectParams: []
         fsmVarParams: []
         byteData: 040000009a99993e0000
@@ -42523,7 +42562,7 @@ MonoBehaviour:
           tooltip: 
           showInInspector: 0
           networkSync: 0
-          value: MaleA_Idle
+          value: FemaleB_NodHead
         fsmObjectParams: []
         fsmVarParams: []
         byteData: 040000009a99993e0000
@@ -46689,6 +46728,7 @@ Animation:
   m_Animations:
   - {fileID: 7400000, guid: 9c025a43424f2ec45a154b3251cd110d, type: 3}
   - {fileID: 7400000, guid: a33abe67d792dce4b9cb214d18abac5e, type: 3}
+  - {fileID: 7400000, guid: f4ad2eb56e8bb6f4aa1ed94f92e88fff, type: 3}
   m_WrapMode: 0
   m_PlayAutomatically: 0
   m_AnimatePhysics: 0
@@ -47101,7 +47141,7 @@ MonoBehaviour:
   - LD011192 - Peter
   - LD011193 - Jenny
   customerImages:
-  - {fileID: 2800000, guid: 91a11e4dd12d5364eae34cf9ba4c5e73, type: 3}
+  - {fileID: 2800000, guid: 199be4308ea4dca4bbd03667eb85693b, type: 3}
   - {fileID: 2800000, guid: 89d9340d413953546a09fae5738fe7de, type: 3}
   - {fileID: 2800000, guid: 31ef5a51f39ee3b4082b50a7ec8184ec, type: 3}
   deskTop: {fileID: 0}
@@ -51403,6 +51443,79 @@ Transform:
   m_Children:
   - {fileID: 663699761}
   m_Father: {fileID: 1477096469}
+--- !u!1 &861384308
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 100092, guid: abb7345795738d5408006f1071333b53, type: 3}
+  m_PrefabInternal: {fileID: 1296707531}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 861384309}
+  - 33: {fileID: 861384312}
+  - 23: {fileID: 861384311}
+  - 64: {fileID: 861384310}
+  m_Layer: 0
+  m_Name: Lvl2Partition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &861384309
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 400092, guid: abb7345795738d5408006f1071333b53, type: 3}
+  m_PrefabInternal: {fileID: 1296707531}
+  m_GameObject: {fileID: 861384308}
+  m_LocalRotation: {x: -.707106829, y: 0, z: -0, w: .707106829}
+  m_LocalPosition: {x: 8.01841545, y: 3.09492111, z: .349761277}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1341182377}
+--- !u!64 &861384310
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 6400088, guid: abb7345795738d5408006f1071333b53,
+    type: 3}
+  m_PrefabInternal: {fileID: 1296707531}
+  m_GameObject: {fileID: 861384308}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_SmoothSphereCollisions: 0
+  m_Convex: 0
+  m_Mesh: {fileID: 4300088, guid: abb7345795738d5408006f1071333b53, type: 3}
+--- !u!23 &861384311
+Renderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 2300088, guid: abb7345795738d5408006f1071333b53,
+    type: 3}
+  m_PrefabInternal: {fileID: 1296707531}
+  m_GameObject: {fileID: 861384308}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_LightmapIndex: 255
+  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
+  m_Materials:
+  - {fileID: 2100000, guid: d688efd9a27eb6048a9ae65a8d36b11d, type: 2}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 0
+  m_LightProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_SortingLayerID: 0
+--- !u!33 &861384312
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 3300088, guid: abb7345795738d5408006f1071333b53,
+    type: 3}
+  m_PrefabInternal: {fileID: 1296707531}
+  m_GameObject: {fileID: 861384308}
+  m_Mesh: {fileID: 4300088, guid: abb7345795738d5408006f1071333b53, type: 3}
 --- !u!1 &861827405
 GameObject:
   m_ObjectHideFlags: 0
@@ -59158,17 +59271,17 @@ MonoBehaviour:
         serializedVersion: 2
         x: 274
         y: 132
-        width: 150
+        width: 159
         height: 32
       isBreakpoint: 0
       isSequence: 0
       hideUnused: 0
       transitions:
       - fsmEvent:
-          name: OnConversationEnd
+          name: OnConversationStart
           isSystemEvent: 0
           isGlobal: 0
-        toState: Check Quest
+        toState: InConversation
         linkStyle: 0
         linkConstraint: 0
         colorIndex: 0
@@ -59598,11 +59711,86 @@ MonoBehaviour:
         - stopOnExit
         paramDataPos: 00000000050000000d00000000000000000000000e00000012000000170000001f0000001f000000
         paramByteDataSize: 05000000080000000100000000000000000000000400000005000000080000000000000001000000
+    - name: InConversation
+      description: 
+      colorIndex: 0
+      position:
+        serializedVersion: 2
+        x: 492
+        y: 130
+        width: 150
+        height: 32
+      isBreakpoint: 0
+      isSequence: 0
+      hideUnused: 0
+      transitions:
+      - fsmEvent:
+          name: OnConversationEnd
+          isSystemEvent: 0
+          isGlobal: 0
+        toState: Check Quest
+        linkStyle: 0
+        linkConstraint: 0
+        colorIndex: 0
+      actionData:
+        actionNames:
+        - HutongGames.PlayMaker.Actions.PlayAnimation
+        customNames:
+        - 
+        actionEnabled: 01
+        actionIsOpen: 01
+        actionStartIndex: 00000000
+        actionHashCodes: 6e06efc0
+        unityObjectParams: []
+        fsmGameObjectParams: []
+        fsmOwnerDefaultParams:
+        - ownerOption: 0
+          gameObject:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: {fileID: 0}
+        animationCurveParams: []
+        functionCallParams: []
+        fsmTemplateControlParams: []
+        fsmEventTargetParams: []
+        fsmPropertyParams: []
+        layoutOptionParams: []
+        fsmStringParams:
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: Courier_NodHead
+        fsmObjectParams: []
+        fsmVarParams: []
+        byteData: 040000009a99993e0000
+        arrayParamSizes: 
+        arrayParamTypes: []
+        customTypeSizes: 
+        customTypeNames: []
+        paramDataType: 1400000012000000070000000f000000170000001700000001000000
+        paramName:
+        - gameObject
+        - animName
+        - playMode
+        - blendTime
+        - finishEvent
+        - loopEvent
+        - stopOnExit
+        paramDataPos: 00000000000000000000000004000000090000000900000009000000
+        paramByteDataSize: 00000000000000000400000005000000000000000000000001000000
     events:
     - name: FINISHED
       isSystemEvent: 1
       isGlobal: 0
     - name: OnConversationEnd
+      isSystemEvent: 0
+      isGlobal: 0
+    - name: OnConversationStart
       isSystemEvent: 0
       isGlobal: 0
     - name: QUEST_SUCCESS
@@ -59648,8 +59836,9 @@ Animation:
   m_Animations:
   - {fileID: 7400000, guid: 29a3191483ab83f4a8e743d46d7519c0, type: 3}
   - {fileID: 7400000, guid: a15425cd4e8017649baa9ad9d04e8879, type: 3}
+  - {fileID: 7400000, guid: 2fe7513bdc21d6d4baf47387068880b7, type: 3}
   m_WrapMode: 0
-  m_PlayAutomatically: 1
+  m_PlayAutomatically: 0
   m_AnimatePhysics: 0
   m_CullingType: 1
 --- !u!1 &1034353032
@@ -73894,6 +74083,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1aa6d93d1e7dfa04c98a362c95014ff8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  customSkin: {fileID: 11400000, guid: a1668ec14eec0d8438e522ff791219a4, type: 2}
+  background: {fileID: 2800000, guid: e9d01666bb9270041b66f83aab979a68, type: 3}
   playerPrefabList:
   - {fileID: 100032, guid: 862638506a814af458833c5504c756cd, type: 2}
   - {fileID: 100032, guid: 7a00da1ebba92cb4b9ad6604138f3c2a, type: 2}
@@ -73916,8 +74107,10 @@ MonoBehaviour:
   sessionID: -1
   loginName: 
   isAdmin: 0
+  startGame: 0
   gameStarted: 0
   playback: 0
+  isLobby: 0
   dots:
   - .
   - ..
@@ -76165,7 +76358,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 11100000, guid: 29a3191483ab83f4a8e743d46d7519c0, type: 3}
       propertyPath: m_Animations.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 400142, guid: 29a3191483ab83f4a8e743d46d7519c0, type: 3}
       propertyPath: m_LocalPosition.x
@@ -76206,6 +76399,14 @@ Prefab:
     - target: {fileID: 100142, guid: 29a3191483ab83f4a8e743d46d7519c0, type: 3}
       propertyPath: m_Name
       value: Courier
+      objectReference: {fileID: 0}
+    - target: {fileID: 11100000, guid: 29a3191483ab83f4a8e743d46d7519c0, type: 3}
+      propertyPath: m_Animations.Array.data[2]
+      value: 
+      objectReference: {fileID: 7400000, guid: 2fe7513bdc21d6d4baf47387068880b7, type: 3}
+    - target: {fileID: 11100000, guid: 29a3191483ab83f4a8e743d46d7519c0, type: 3}
+      propertyPath: m_PlayAutomatically
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 29a3191483ab83f4a8e743d46d7519c0, type: 3}
@@ -76894,6 +77095,7 @@ Transform:
   - {fileID: 1388416398}
   - {fileID: 1829655038}
   - {fileID: 1433520367}
+  - {fileID: 861384309}
   - {fileID: 336397014}
   - {fileID: 2056250556}
   - {fileID: 1380766118}
@@ -79862,6 +80064,7 @@ MonoBehaviour:
   hover: {fileID: 2800000, guid: ad5814a3d086af54d96b5c3099458fb6, type: 3}
   down: {fileID: 2800000, guid: 0c585c116b933e440a071e187e4e7e04, type: 3}
   targetPlayer: Sales Manager
+  conversation: 
 --- !u!131 &1395893875
 GUITexture:
   m_ObjectHideFlags: 0
@@ -84399,6 +84602,76 @@ Transform:
   m_Children:
   - {fileID: 87003751}
   m_Father: {fileID: 214030767}
+--- !u!1 &1485383246
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 100000, guid: ae153529f8125764db4ab5eed1fd10a3, type: 2}
+  m_PrefabInternal: {fileID: 1909791399}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1485383248}
+  - 114: {fileID: 1485383247}
+  m_Layer: 0
+  m_Name: EZReplayManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1485383247
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400000, guid: ae153529f8125764db4ab5eed1fd10a3,
+    type: 2}
+  m_PrefabInternal: {fileID: 1909791399}
+  m_GameObject: {fileID: 1485383246}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8598b762690093946ae0c3ad5fe23589, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EZRicon: {fileID: 2800000, guid: 7c402dc20066ca342b9f2cf8f3a67bdd, type: 3}
+  playIcon: {fileID: 2800000, guid: 635f2b0393a3ada4582dca68766d869d, type: 3}
+  pauseIcon: {fileID: 2800000, guid: 36ef1f977cc57a340ada10ba2a0d6e7e, type: 3}
+  startRecordIcon: {fileID: 2800000, guid: 46ccf505474693547b4c7073461176b5, type: 3}
+  stopRecordIcon: {fileID: 2800000, guid: 4081d4bc8f574d94b87db8bf455c8b52, type: 3}
+  replayIcon: {fileID: 2800000, guid: 80b9a14103b8ba34b853007f3c859d4e, type: 3}
+  stopIcon: {fileID: 2800000, guid: 80b4743b96d41794ca714b66ff7707a0, type: 3}
+  closeIcon: {fileID: 2800000, guid: 1c8939577864be54293170ed4ac42f42, type: 3}
+  rewindIcon: {fileID: 2800000, guid: 029f51967ff13a64ab2a09a07958a9b8, type: 3}
+  showHintsForImportantOptions: 1
+  useRecordingGUI: 0
+  useReplayGUI: 1
+  useDarkStripesInReplay: 1
+  precacheGameobjects: 1
+  sendCallbacks: 0
+  callbacksToExecute:
+  - __EZR_live_prepare
+  - __EZR_live_ready
+  - __EZR_replay_prepare
+  - __EZR_replay_ready
+  - __EZR_record
+  - __EZR_play
+  - __EZR_pause
+  - __EZR_stop
+  autoDeactivateLiveObjectsOnReplay: 1
+  recordingInterval: .0500000007
+  gameObjectsToRecord: []
+  componentsAndScriptsToKeepAtReplay:
+  - CharacterController
+  - PhotonView
+  - PlaybackCamera
+--- !u!4 &1485383248
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 400000, guid: ae153529f8125764db4ab5eed1fd10a3, type: 2}
+  m_PrefabInternal: {fileID: 1909791399}
+  m_GameObject: {fileID: 1485383246}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
 --- !u!1 &1485764779
 GameObject:
   m_ObjectHideFlags: 0
@@ -85819,6 +86092,7 @@ Animation:
   - {fileID: 7400000, guid: 78a8660a136e3864aa25b12738434a86, type: 3}
   - {fileID: 7400000, guid: c4fb85b297cc77c4dafa09c860d89f94, type: 3}
   - {fileID: 7400000, guid: 9f08393971acf0c498a437922bf96b74, type: 3}
+  - {fileID: 7400000, guid: f4ad2eb56e8bb6f4aa1ed94f92e88fff, type: 3}
   m_WrapMode: 0
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
@@ -93655,8 +93929,8 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 299
-        y: 197
+        x: 300
+        y: 191
         width: 100
         height: 32
       isBreakpoint: 0
@@ -100044,6 +100318,7 @@ MonoBehaviour:
   hover: {fileID: 2800000, guid: ad5814a3d086af54d96b5c3099458fb6, type: 3}
   down: {fileID: 2800000, guid: 0c585c116b933e440a071e187e4e7e04, type: 3}
   targetPlayer: Credit Risk
+  conversation: 
 --- !u!131 &1770202433
 GUITexture:
   m_ObjectHideFlags: 0
@@ -102246,26 +102521,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e7732ea5315ece489283cf53ed77494, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  emailShort: {fileID: 1163834442}
-  emailIcon: {fileID: 2800000, guid: caf227fc0867d9a4082f5086f84184f5, type: 3}
-  documentIcon: {fileID: 0}
-  EmailsToBeSend:
-  - Send to LPU Officer to come and fix computer
-  - Send to Sales Manager that I will go
-  - Send to Credit Risk to call customer
-  EmailsReceived:
-  - Please come and fix my computer
-  - I am coming
-  - Please call customer
-  EmailSenders:
-  - Sales Manager
-  - LPU Officer
-  - Sales Manager
-  EmailReceivers:
-  - LPU Officer
-  - Sales Manager
-  - Credit Risk
-  EmailHasBeenReceived: 000000
+  x_offset: 0
+  y_offset: 0
+  normal: {fileID: 0}
+  hover: {fileID: 0}
+  down: {fileID: 0}
+  conversation: 
 --- !u!131 &1814134189
 GUITexture:
   m_ObjectHideFlags: 0
@@ -105456,6 +105717,7 @@ MonoBehaviour:
   hover: {fileID: 2800000, guid: ad5814a3d086af54d96b5c3099458fb6, type: 3}
   down: {fileID: 2800000, guid: 0c585c116b933e440a071e187e4e7e04, type: 3}
   targetPlayer: LPU Officer
+  conversation: 
 --- !u!131 &1896052955
 GUITexture:
   m_ObjectHideFlags: 0
@@ -106430,6 +106692,66 @@ Transform:
   m_Children:
   - {fileID: 1159725928}
   m_Father: {fileID: 703766980}
+--- !u!1001 &1909791399
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 11400000, guid: ae153529f8125764db4ab5eed1fd10a3, type: 2}
+      propertyPath: componentsAndScriptsToKeepAtReplay.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: ae153529f8125764db4ab5eed1fd10a3, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: ae153529f8125764db4ab5eed1fd10a3, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: ae153529f8125764db4ab5eed1fd10a3, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: ae153529f8125764db4ab5eed1fd10a3, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: ae153529f8125764db4ab5eed1fd10a3, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: ae153529f8125764db4ab5eed1fd10a3, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: ae153529f8125764db4ab5eed1fd10a3, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: ae153529f8125764db4ab5eed1fd10a3, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: ae153529f8125764db4ab5eed1fd10a3, type: 2}
+      propertyPath: componentsAndScriptsToKeepAtReplay.Array.data[0]
+      value: CharacterController
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: ae153529f8125764db4ab5eed1fd10a3, type: 2}
+      propertyPath: componentsAndScriptsToKeepAtReplay.Array.data[1]
+      value: PhotonView
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: ae153529f8125764db4ab5eed1fd10a3, type: 2}
+      propertyPath: componentsAndScriptsToKeepAtReplay.Array.data[2]
+      value: PlaybackCamera
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: ae153529f8125764db4ab5eed1fd10a3, type: 2}
+  m_RootGameObject: {fileID: 1485383246}
+  m_IsPrefabParent: 0
+  m_IsExploded: 1
 --- !u!1001 &1910620688
 Prefab:
   m_ObjectHideFlags: 0
@@ -109279,76 +109601,6 @@ Transform:
   m_Children:
   - {fileID: 127844216}
   m_Father: {fileID: 580987615}
---- !u!1 &1988829485
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 100000, guid: ae153529f8125764db4ab5eed1fd10a3, type: 2}
-  m_PrefabInternal: {fileID: 87253329}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1988829487}
-  - 114: {fileID: 1988829486}
-  m_Layer: 0
-  m_Name: EZReplayManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1988829486
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11400000, guid: ae153529f8125764db4ab5eed1fd10a3,
-    type: 2}
-  m_PrefabInternal: {fileID: 87253329}
-  m_GameObject: {fileID: 1988829485}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8598b762690093946ae0c3ad5fe23589, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  EZRicon: {fileID: 2800000, guid: 7c402dc20066ca342b9f2cf8f3a67bdd, type: 3}
-  playIcon: {fileID: 2800000, guid: 635f2b0393a3ada4582dca68766d869d, type: 3}
-  pauseIcon: {fileID: 2800000, guid: 36ef1f977cc57a340ada10ba2a0d6e7e, type: 3}
-  startRecordIcon: {fileID: 2800000, guid: 46ccf505474693547b4c7073461176b5, type: 3}
-  stopRecordIcon: {fileID: 2800000, guid: 4081d4bc8f574d94b87db8bf455c8b52, type: 3}
-  replayIcon: {fileID: 2800000, guid: 80b9a14103b8ba34b853007f3c859d4e, type: 3}
-  stopIcon: {fileID: 2800000, guid: 80b4743b96d41794ca714b66ff7707a0, type: 3}
-  closeIcon: {fileID: 2800000, guid: 1c8939577864be54293170ed4ac42f42, type: 3}
-  rewindIcon: {fileID: 2800000, guid: 029f51967ff13a64ab2a09a07958a9b8, type: 3}
-  showHintsForImportantOptions: 1
-  useRecordingGUI: 0
-  useReplayGUI: 1
-  useDarkStripesInReplay: 1
-  precacheGameobjects: 1
-  sendCallbacks: 0
-  callbacksToExecute:
-  - __EZR_live_prepare
-  - __EZR_live_ready
-  - __EZR_replay_prepare
-  - __EZR_replay_ready
-  - __EZR_record
-  - __EZR_play
-  - __EZR_pause
-  - __EZR_stop
-  autoDeactivateLiveObjectsOnReplay: 1
-  recordingInterval: .0500000007
-  gameObjectsToRecord: []
-  componentsAndScriptsToKeepAtReplay:
-  - CharacterController
-  - PhotonView
-  - PlaybackCamera
---- !u!4 &1988829487
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 400000, guid: ae153529f8125764db4ab5eed1fd10a3, type: 2}
-  m_PrefabInternal: {fileID: 87253329}
-  m_GameObject: {fileID: 1988829485}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
 --- !u!1 &1989173182
 GameObject:
   m_ObjectHideFlags: 0
@@ -111607,12 +111859,8 @@ MonoBehaviour:
   - Facilities
   - Valuer
   - Big Sales Prospect
-  NPCnames:
-  - Receptionist
-  - Security Manager
-  - Facilities Manager
-  - Valuer
-  - Peter
+  dialogueDisplayText: []
+  targetPlayer: 
   scrollPosition: {x: 0, y: 0}
 --- !u!131 &2042306991
 GUITexture:

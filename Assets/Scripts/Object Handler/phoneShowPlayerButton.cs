@@ -19,6 +19,7 @@ public class phoneShowPlayerButton : MonoBehaviour {
 	
 	
 	public string targetPlayer;
+	public string conversation;
 
 	bool ListOn;
 	float w,h;
@@ -91,7 +92,7 @@ public class phoneShowPlayerButton : MonoBehaviour {
 		
 		myGUITexture.texture = down;
 		
-		VOIP(targetPlayer);
+		startConversation();
 		
 		
 	}
@@ -111,10 +112,12 @@ public class phoneShowPlayerButton : MonoBehaviour {
 	}
 	
 
-	void VOIP(string target){
-
-		GameObject.Find("Dialogue Manager").GetComponent<DialogueSystemController>().ShowAlert("You are now chating with "+target+"....");
-
+	void startConversation(){
+		if(conversation !=null)
+		{
+			print (conversation);
+		GameObject.Find("Dialogue Manager").GetComponent<DialogueSystemController>().StartConversation(conversation,GameObject.Find (PhotonNetwork.playerName).transform);
+		}
 	}
 	
 

@@ -629,6 +629,34 @@
           </Field>
         </Fields>
       </Item>
+      <Item ID="9">
+        <Fields>
+          <Field Hint="A name to reference this item or quest. Use underscores instead of spaces so simulator Lua code works." Type="Text">
+            <Title>Name</Title>
+            <Value>Identify Wrong Info Given</Value>
+          </Field>
+          <Field Hint="A description of this item or quest." Type="Text">
+            <Title>Description</Title>
+            <Value />
+          </Field>
+          <Field Hint="The description of the quest when the player has completed it successfully." Type="Text">
+            <Title>Success Description</Title>
+            <Value />
+          </Field>
+          <Field Hint="The description of the quest when the player has completed it in failure." Type="Text">
+            <Title>Failure Description</Title>
+            <Value />
+          </Field>
+          <Field Hint="The state of the quest: unassigned, active, success, or failure" Type="Text">
+            <Title>State</Title>
+            <Value>unassigned</Value>
+          </Field>
+          <Field Hint="When using the quest system, set this True to mark the item as an actual item rather than a quest." Type="Boolean">
+            <Title>Is Item</Title>
+            <Value>False</Value>
+          </Field>
+        </Fields>
+      </Item>
     </Items>
     <Locations>
       <Location ID="1">
@@ -1619,7 +1647,7 @@
             <ReviewerStatus>None</ReviewerStatus>
             <OutgoingLinks />
             <ConditionsString />
-            <UserScript>Item["Fire_Escape_Blockage"].State = "active"</UserScript>
+            <UserScript>Item["Fire_Escape_Blockage"].State = "active";</UserScript>
           </DialogEntry>
         </DialogEntries>
       </Conversation>
@@ -3585,6 +3613,84 @@
             </Fields>
             <ReviewerNotes />
             <ReviewerStatus>None</ReviewerStatus>
+            <OutgoingLinks>
+              <Link OriginConvoID="11" DestinationConvoID="11" OriginDialogID="4" DestinationDialogID="5" IsConnector="false" />
+              <Link OriginConvoID="11" DestinationConvoID="11" OriginDialogID="4" DestinationDialogID="6" IsConnector="false" />
+            </OutgoingLinks>
+            <ConditionsString />
+            <UserScript />
+          </DialogEntry>
+          <DialogEntry ID="5" IsRoot="false" IsGroup="false" NodeColor="White" DelaySimStatus="false" FalseCondtionAction="Block" ConditionPriority="Normal">
+            <Fields>
+              <Field Hint="The title of this dialogue." Type="Text">
+                <Title>Title</Title>
+                <Value>New Dialogue</Value>
+              </Field>
+              <Field Hint="The actor who is talking." Type="Actor">
+                <Title>Actor</Title>
+                <Value>8</Value>
+              </Field>
+              <Field Hint="The actor who is listening." Type="Actor">
+                <Title>Conversant</Title>
+                <Value>12</Value>
+              </Field>
+              <Field Hint="The text that is displayed to the player in a list as a dialogue option." Type="Text">
+                <Title>Menu Text</Title>
+                <Value>Wait</Value>
+              </Field>
+              <Field Hint="The text that is spoken by the actor." Type="Localization">
+                <Title>Dialogue Text</Title>
+                <Value>We need to wait for further instructions before we can evacuate. This is to ensure that the evacuation measures are in place and we can evacuate safely. </Value>
+              </Field>
+              <Field Hint="A WMV video file to be played for this dialogue." Type="Text">
+                <Title>Video File</Title>
+                <Value />
+              </Field>
+              <Field Hint="Dialogue System for Unity cutscene sequence" Type="Text">
+                <Title>Sequence</Title>
+                <Value />
+              </Field>
+            </Fields>
+            <ReviewerNotes />
+            <ReviewerStatus>None</ReviewerStatus>
+            <OutgoingLinks />
+            <ConditionsString />
+            <UserScript />
+          </DialogEntry>
+          <DialogEntry ID="6" IsRoot="false" IsGroup="false" NodeColor="White" DelaySimStatus="false" FalseCondtionAction="Block" ConditionPriority="Normal">
+            <Fields>
+              <Field Hint="The title of this dialogue." Type="Text">
+                <Title>Title</Title>
+                <Value>New Dialogue</Value>
+              </Field>
+              <Field Hint="The actor who is talking." Type="Actor">
+                <Title>Actor</Title>
+                <Value>8</Value>
+              </Field>
+              <Field Hint="The actor who is listening." Type="Actor">
+                <Title>Conversant</Title>
+                <Value>12</Value>
+              </Field>
+              <Field Hint="The text that is displayed to the player in a list as a dialogue option." Type="Text">
+                <Title>Menu Text</Title>
+                <Value>Evacuate Now! </Value>
+              </Field>
+              <Field Hint="The text that is spoken by the actor." Type="Localization">
+                <Title>Dialogue Text</Title>
+                <Value>We can't wait anymore. Let evacuate now! Everyone follow me! 
+</Value>
+              </Field>
+              <Field Hint="A WMV video file to be played for this dialogue." Type="Text">
+                <Title>Video File</Title>
+                <Value />
+              </Field>
+              <Field Hint="Dialogue System for Unity cutscene sequence" Type="Text">
+                <Title>Sequence</Title>
+                <Value />
+              </Field>
+            </Fields>
+            <ReviewerNotes />
+            <ReviewerStatus>None</ReviewerStatus>
             <OutgoingLinks />
             <ConditionsString />
             <UserScript />
@@ -4231,7 +4337,7 @@
             <ReviewerStatus>None</ReviewerStatus>
             <OutgoingLinks />
             <ConditionsString />
-            <UserScript />
+            <UserScript>Item["Identify_Wrong_Info_Given"].State = "failure"</UserScript>
           </DialogEntry>
           <DialogEntry ID="5" IsRoot="false" IsGroup="false" NodeColor="White" DelaySimStatus="false" FalseCondtionAction="Block" ConditionPriority="Normal">
             <Fields>
@@ -4268,7 +4374,7 @@
             <ReviewerStatus>None</ReviewerStatus>
             <OutgoingLinks />
             <ConditionsString />
-            <UserScript />
+            <UserScript>Item["Identify_Wrong_Info_Given"].State = "success"</UserScript>
           </DialogEntry>
         </DialogEntries>
       </Conversation>

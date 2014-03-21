@@ -370,7 +370,8 @@
               </Field>
               <Field Hint="The text that is spoken by the actor." Type="Localization">
                 <Title>Dialogue Text</Title>
-                <Value>This is Message 1 from SM</Value>
+                <Value>This is Message 1 from LO
+</Value>
               </Field>
               <Field Hint="A WMV video file to be played for this dialogue." Type="Text">
                 <Title>Video File</Title>
@@ -385,7 +386,7 @@
             <ReviewerStatus>None</ReviewerStatus>
             <OutgoingLinks />
             <ConditionsString>Item["LOMessageSent1"].State == "active"</ConditionsString>
-            <UserScript>Item["LOMessageSent1"].State = "success"</UserScript>
+            <UserScript>Item["SMMessageSent1"].State = "success"</UserScript>
           </DialogEntry>
           <DialogEntry ID="2" IsRoot="false" IsGroup="false" NodeColor="White" DelaySimStatus="false" FalseCondtionAction="Block" ConditionPriority="Normal">
             <Fields>
@@ -407,7 +408,8 @@
               </Field>
               <Field Hint="The text that is spoken by the actor." Type="Localization">
                 <Title>Dialogue Text</Title>
-                <Value>This is Message 2 from SM</Value>
+                <Value>This is Message 2 from LO
+</Value>
               </Field>
               <Field Hint="A WMV video file to be played for this dialogue." Type="Text">
                 <Title>Video File</Title>
@@ -440,11 +442,11 @@
               </Field>
               <Field Hint="The text that is displayed to the player in a list as a dialogue option." Type="Text">
                 <Title>Menu Text</Title>
-                <Value>LO Message 3</Value>
+                <Value>No message in Inbox</Value>
               </Field>
               <Field Hint="The text that is spoken by the actor." Type="Localization">
                 <Title>Dialogue Text</Title>
-                <Value>This is Message 3 from SM</Value>
+                <Value />
               </Field>
               <Field Hint="A WMV video file to be played for this dialogue." Type="Text">
                 <Title>Video File</Title>
@@ -458,7 +460,7 @@
             <ReviewerNotes />
             <ReviewerStatus>None</ReviewerStatus>
             <OutgoingLinks />
-            <ConditionsString>Item["LOMessageSent3"].State == "active"</ConditionsString>
+            <ConditionsString />
             <UserScript />
           </DialogEntry>
         </DialogEntries>
@@ -544,7 +546,7 @@
               </Field>
               <Field Hint="The text that is spoken by the actor." Type="Localization">
                 <Title>Dialogue Text</Title>
-                <Value>Sending to LO Message 1
+                <Value>Sending to SM Message 1
 </Value>
               </Field>
               <Field Hint="A WMV video file to be played for this dialogue." Type="Text">
@@ -553,13 +555,13 @@
               </Field>
               <Field Hint="Dialogue System for Unity cutscene sequence" Type="Text">
                 <Title>Sequence</Title>
-                <Value />
+                <Value>SendConversation(LO,SM, LOMessageSent1);</Value>
               </Field>
             </Fields>
             <ReviewerNotes />
             <ReviewerStatus>None</ReviewerStatus>
             <OutgoingLinks />
-            <ConditionsString>Dialog[1].SimStatus ~= "WasDisplayed" and Item["LOtoSMmessage1Ready"].State == "success"</ConditionsString>
+            <ConditionsString>Dialog[1].SimStatus ~= "WasDisplayed" and Item["LOMessageSent1"].State == "success"</ConditionsString>
             <UserScript />
           </DialogEntry>
           <DialogEntry ID="2" IsRoot="false" IsGroup="false" NodeColor="White" DelaySimStatus="false" FalseCondtionAction="Block" ConditionPriority="Normal">
@@ -582,7 +584,7 @@
               </Field>
               <Field Hint="The text that is spoken by the actor." Type="Localization">
                 <Title>Dialogue Text</Title>
-                <Value>Sending to LO Message 2</Value>
+                <Value>Sending to SM Message 2</Value>
               </Field>
               <Field Hint="A WMV video file to be played for this dialogue." Type="Text">
                 <Title>Video File</Title>
@@ -596,7 +598,7 @@
             <ReviewerNotes />
             <ReviewerStatus>None</ReviewerStatus>
             <OutgoingLinks />
-            <ConditionsString>Dialog[2].SimStatus ~= "WasDisplayed"</ConditionsString>
+            <ConditionsString>Dialog[2].SimStatus ~= "WasDisplayed" and Item["LOMessageSent2"].State == "success"</ConditionsString>
             <UserScript />
           </DialogEntry>
           <DialogEntry ID="3" IsRoot="false" IsGroup="false" NodeColor="White" DelaySimStatus="false" FalseCondtionAction="Block" ConditionPriority="Normal">
@@ -615,11 +617,11 @@
               </Field>
               <Field Hint="The text that is displayed to the player in a list as a dialogue option." Type="Text">
                 <Title>Menu Text</Title>
-                <Value>Message 3</Value>
+                <Value>Nothing to send</Value>
               </Field>
               <Field Hint="The text that is spoken by the actor." Type="Localization">
                 <Title>Dialogue Text</Title>
-                <Value>Sending to LO Message 3</Value>
+                <Value />
               </Field>
               <Field Hint="A WMV video file to be played for this dialogue." Type="Text">
                 <Title>Video File</Title>
@@ -633,7 +635,7 @@
             <ReviewerNotes />
             <ReviewerStatus>None</ReviewerStatus>
             <OutgoingLinks />
-            <ConditionsString>Dialog[3].SimStatus ~= "WasDisplayed"</ConditionsString>
+            <ConditionsString />
             <UserScript />
           </DialogEntry>
         </DialogEntries>
@@ -715,12 +717,11 @@
               </Field>
               <Field Hint="The text that is displayed to the player in a list as a dialogue option." Type="Text">
                 <Title>Menu Text</Title>
-                <Value>Message 1</Value>
+                <Value>Notify Loan Officer Evacuation to LPU floor.</Value>
               </Field>
               <Field Hint="The text that is spoken by the actor." Type="Localization">
                 <Title>Dialogue Text</Title>
-                <Value>Sending to SM Message 1
-</Value>
+                <Value>Sending to Sales Manager... </Value>
               </Field>
               <Field Hint="A WMV video file to be played for this dialogue." Type="Text">
                 <Title>Video File</Title>
@@ -728,13 +729,13 @@
               </Field>
               <Field Hint="Dialogue System for Unity cutscene sequence" Type="Text">
                 <Title>Sequence</Title>
-                <Value />
+                <Value>SendConversation(SM,LO, SMMessageSent1);</Value>
               </Field>
             </Fields>
             <ReviewerNotes />
             <ReviewerStatus>None</ReviewerStatus>
             <OutgoingLinks />
-            <ConditionsString>Dialog[1].SimStatus ~= "WasDisplayed" and Item["LOMessageSent1"].State == "success"</ConditionsString>
+            <ConditionsString>Dialog[1].SimStatus ~= "WasDisplayed" and Item["SMMessageSent1"].State == "success"</ConditionsString>
             <UserScript />
           </DialogEntry>
           <DialogEntry ID="2" IsRoot="false" IsGroup="false" NodeColor="White" DelaySimStatus="false" FalseCondtionAction="Block" ConditionPriority="Normal">
@@ -771,7 +772,7 @@
             <ReviewerNotes />
             <ReviewerStatus>None</ReviewerStatus>
             <OutgoingLinks />
-            <ConditionsString>Dialog[2].SimStatus ~= "WasDisplayed"</ConditionsString>
+            <ConditionsString>Dialog[2].SimStatus ~= "WasDisplayed" and Item["SMMessageSent2"].State == "success"</ConditionsString>
             <UserScript />
           </DialogEntry>
           <DialogEntry ID="3" IsRoot="false" IsGroup="false" NodeColor="White" DelaySimStatus="false" FalseCondtionAction="Block" ConditionPriority="Normal">
@@ -790,11 +791,11 @@
               </Field>
               <Field Hint="The text that is displayed to the player in a list as a dialogue option." Type="Text">
                 <Title>Menu Text</Title>
-                <Value>Message 3</Value>
+                <Value>Nothing to send</Value>
               </Field>
               <Field Hint="The text that is spoken by the actor." Type="Localization">
                 <Title>Dialogue Text</Title>
-                <Value>Sending to SM Message 3</Value>
+                <Value />
               </Field>
               <Field Hint="A WMV video file to be played for this dialogue." Type="Text">
                 <Title>Video File</Title>
@@ -808,7 +809,7 @@
             <ReviewerNotes />
             <ReviewerStatus>None</ReviewerStatus>
             <OutgoingLinks />
-            <ConditionsString>Dialog[3].SimStatus ~= "WasDisplayed"</ConditionsString>
+            <ConditionsString />
             <UserScript />
           </DialogEntry>
         </DialogEntries>
@@ -890,11 +891,12 @@
               </Field>
               <Field Hint="The text that is displayed to the player in a list as a dialogue option." Type="Text">
                 <Title>Menu Text</Title>
-                <Value>LO Message 1</Value>
+                <Value>Message from Sales Manager</Value>
               </Field>
               <Field Hint="The text that is spoken by the actor." Type="Localization">
                 <Title>Dialogue Text</Title>
-                <Value>This is Message 1 from LO</Value>
+                <Value>We are evacuating the Sales Floor to the LPU Floor in a while. Please kindly prepare to receive the evacuatees. 
+</Value>
               </Field>
               <Field Hint="A WMV video file to be played for this dialogue." Type="Text">
                 <Title>Video File</Title>
@@ -908,8 +910,8 @@
             <ReviewerNotes />
             <ReviewerStatus>None</ReviewerStatus>
             <OutgoingLinks />
-            <ConditionsString>Item["SMMessageSent1"].State == "success"</ConditionsString>
-            <UserScript />
+            <ConditionsString>Item["SMMessageSent1"].State == "active" and Dialog[1].SimStatus ~= "WasDisplayed"</ConditionsString>
+            <UserScript>Item["LOMessageSent2"].State = "success"</UserScript>
           </DialogEntry>
           <DialogEntry ID="2" IsRoot="false" IsGroup="false" NodeColor="White" DelaySimStatus="false" FalseCondtionAction="Block" ConditionPriority="Normal">
             <Fields>
@@ -945,7 +947,7 @@
             <ReviewerNotes />
             <ReviewerStatus>None</ReviewerStatus>
             <OutgoingLinks />
-            <ConditionsString>Item["SMMessageSent2"].State == "success"</ConditionsString>
+            <ConditionsString>Item["SMMessageSent2"].State == "active"</ConditionsString>
             <UserScript />
           </DialogEntry>
           <DialogEntry ID="3" IsRoot="false" IsGroup="false" NodeColor="White" DelaySimStatus="false" FalseCondtionAction="Block" ConditionPriority="Normal">
@@ -964,11 +966,11 @@
               </Field>
               <Field Hint="The text that is displayed to the player in a list as a dialogue option." Type="Text">
                 <Title>Menu Text</Title>
-                <Value>LO Message 3</Value>
+                <Value>No message inbox</Value>
               </Field>
               <Field Hint="The text that is spoken by the actor." Type="Localization">
                 <Title>Dialogue Text</Title>
-                <Value>This is Message 3 from LO</Value>
+                <Value />
               </Field>
               <Field Hint="A WMV video file to be played for this dialogue." Type="Text">
                 <Title>Video File</Title>
@@ -982,7 +984,7 @@
             <ReviewerNotes />
             <ReviewerStatus>None</ReviewerStatus>
             <OutgoingLinks />
-            <ConditionsString>Item["SMMessageSent3"].State == "success"</ConditionsString>
+            <ConditionsString />
             <UserScript />
           </DialogEntry>
         </DialogEntries>

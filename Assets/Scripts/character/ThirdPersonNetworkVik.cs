@@ -8,6 +8,7 @@ public class ThirdPersonNetworkVik : Photon.MonoBehaviour
 	MouseCamera playerRotationScript;
 
 	public Vector3 cameraRelativePosition = new Vector3(0,1.257728f, 0);
+	public Vector3 cloneCameraRotation = new Vector3(0,0, 0);
 
     void Awake()
     {
@@ -113,6 +114,19 @@ public class ThirdPersonNetworkVik : Photon.MonoBehaviour
 					
 			}
 
+			//get camera rotation and send it
+			Transform mainCam = this.gameObject.transform.FindChild("Main Camera");
+			if (mainCam != null)
+			{
+				stream.SendNext(mainCam.eulerAngles);
+			}
+			else
+			{
+				stream.SendNext(new Vector3(0,0,0));
+			}
+			//Debug.Log("send");
+			//Debug.Log(mainCam.rotation);
+
 			
 		}
 		else
@@ -124,6 +138,9 @@ public class ThirdPersonNetworkVik : Photon.MonoBehaviour
     //        rigidbody.velocity = (Vector3)stream.ReceiveNext();
 			correctState = (string)stream.ReceiveNext();
 			correctRole = (string)stream.ReceiveNext();
+			correctCameraRotation = (Vector3)stream.ReceiveNext();
+			//Debug.Log("get");
+			//Debug.Log(correctCameraRotation);
 
         }
     }
@@ -132,6 +149,7 @@ public class ThirdPersonNetworkVik : Photon.MonoBehaviour
     private Quaternion correctPlayerRot = Quaternion.identity; //We lerp towards this
 	private string correctState = "idle";
 	private string correctRole = "";
+	private Vector3 correctCameraRotation = Vector3.zero; //We lerp towards this
     void Update()
     {
 
@@ -146,6 +164,9 @@ public class ThirdPersonNetworkVik : Photon.MonoBehaviour
 
 
 			transform.GetComponent<AnimationController>().updateState(correctState,correctRole);
+			this.cloneCameraRotation = this.correctCameraRotation;
+			//Debug.Log ("updated camera rotation");
+			//Debug.Log (cloneCameraRotation);
 			//.SendMessage("updateState",correctState);
 
 //			print ("correctPlayerPos : "+correctPlayerPos);
