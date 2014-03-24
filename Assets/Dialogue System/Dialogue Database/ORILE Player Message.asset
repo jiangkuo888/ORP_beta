@@ -244,6 +244,46 @@ MonoBehaviour:
     - title: Is Item
       value: False
       type: 2
+  - id: 8
+    fields:
+    - title: Name
+      value: SMMessageSent1
+      type: 0
+    - title: Description
+      value: 
+      type: 0
+    - title: Success Description
+      value: 
+      type: 0
+    - title: Failure Description
+      value: 
+      type: 0
+    - title: State
+      value: unassigned
+      type: 0
+    - title: Is Item
+      value: False
+      type: 2
+  - id: 9
+    fields:
+    - title: Name
+      value: LOtoSM1
+      type: 0
+    - title: Description
+      value: 
+      type: 0
+    - title: Success Description
+      value: 
+      type: 0
+    - title: Failure Description
+      value: 
+      type: 0
+    - title: State
+      value: unassigned
+      type: 0
+    - title: Is Item
+      value: False
+      type: 2
   locations:
   - id: 1
     fields:
@@ -325,16 +365,10 @@ MonoBehaviour:
       - originConversationID: 3
         originDialogueID: 0
         destinationConversationID: 3
-        destinationDialogueID: 2
-        isConnector: 0
-        priority: 2
-      - originConversationID: 3
-        originDialogueID: 0
-        destinationConversationID: 3
         destinationDialogueID: 3
         isConnector: 0
         priority: 2
-      conditionsString: Item["LOMessageSent1"].State == "active"
+      conditionsString: 
       userScript: 
     - id: 1
       fields:
@@ -368,43 +402,9 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks: []
-      conditionsString: Item["LOtoSM1"].State == "active"
+      conditionsString: Item["LOtoSM1"].State == "active" and Dialog[1].SimStatus
+        ~= "WasDisplayed"
       userScript: Item["LOtoSM1"].State = "success"
-    - id: 2
-      fields:
-      - title: Title
-        value: 
-        type: 0
-      - title: Actor
-        value: 8
-        type: 5
-      - title: Conversant
-        value: 6
-        type: 5
-      - title: Menu Text
-        value: LO Message 2
-        type: 0
-      - title: Dialogue Text
-        value: 'This is Message 2 from LO
-
-'
-        type: 4
-      - title: Video File
-        value: 
-        type: 0
-      - title: Sequence
-        value: 
-        type: 0
-      conversationID: 3
-      isRoot: 0
-      isGroup: 0
-      nodeColor: White
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks: []
-      conditionsString: Item["LOMessageSent2"].State == "active"
-      userScript: 
     - id: 3
       fields:
       - title: Title
@@ -494,12 +494,6 @@ MonoBehaviour:
       - originConversationID: 4
         originDialogueID: 0
         destinationConversationID: 4
-        destinationDialogueID: 2
-        isConnector: 0
-        priority: 2
-      - originConversationID: 4
-        originDialogueID: 0
-        destinationConversationID: 4
         destinationDialogueID: 3
         isConnector: 0
         priority: 2
@@ -539,39 +533,6 @@ MonoBehaviour:
       outgoingLinks: []
       conditionsString: Dialog[1].SimStatus ~= "WasDisplayed" and Item["LOtoSM1"].State
         == "success"
-      userScript: 
-    - id: 2
-      fields:
-      - title: Title
-        value: LOtoSM0
-        type: 0
-      - title: Actor
-        value: 1
-        type: 5
-      - title: Conversant
-        value: 6
-        type: 5
-      - title: Menu Text
-        value: Greetings to Sales Manager
-        type: 0
-      - title: Dialogue Text
-        value: Sending to SM Message 2
-        type: 4
-      - title: Video File
-        value: 
-        type: 0
-      - title: Sequence
-        value: SendConversation(LO,SM, LOtoSM0);
-        type: 0
-      conversationID: 4
-      isRoot: 0
-      isGroup: 0
-      nodeColor: White
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks: []
-      conditionsString: Dialog[2].SimStatus ~= "WasDisplayed"
       userScript: 
     - id: 3
       fields:
@@ -662,12 +623,6 @@ MonoBehaviour:
       - originConversationID: 5
         originDialogueID: 0
         destinationConversationID: 5
-        destinationDialogueID: 2
-        isConnector: 0
-        priority: 2
-      - originConversationID: 5
-        originDialogueID: 0
-        destinationConversationID: 5
         destinationDialogueID: 3
         isConnector: 0
         priority: 2
@@ -708,39 +663,6 @@ MonoBehaviour:
       outgoingLinks: []
       conditionsString: Dialog[1].SimStatus ~= "WasDisplayed" and Item["SMMessageSent1"].State
         == "success"
-      userScript: 
-    - id: 2
-      fields:
-      - title: Title
-        value: SMtoLO2
-        type: 0
-      - title: Actor
-        value: 1
-        type: 5
-      - title: Conversant
-        value: 6
-        type: 5
-      - title: Menu Text
-        value: Say Hi to Loan Manager
-        type: 0
-      - title: Dialogue Text
-        value: Sending to Sales Manager...
-        type: 4
-      - title: Video File
-        value: 
-        type: 0
-      - title: Sequence
-        value: SendConversation(SM,LO, SMtoLO2);
-        type: 0
-      conversationID: 5
-      isRoot: 0
-      isGroup: 0
-      nodeColor: White
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks: []
-      conditionsString: Dialog[2].SimStatus ~= "WasDisplayed"
       userScript: 
     - id: 3
       fields:
@@ -831,12 +753,6 @@ MonoBehaviour:
       - originConversationID: 6
         originDialogueID: 0
         destinationConversationID: 6
-        destinationDialogueID: 2
-        isConnector: 0
-        priority: 2
-      - originConversationID: 6
-        originDialogueID: 0
-        destinationConversationID: 6
         destinationDialogueID: 3
         isConnector: 0
         priority: 2
@@ -877,40 +793,6 @@ MonoBehaviour:
       conditionsString: Item["SMMessageSent1"].State == "active" and Dialog[1].SimStatus
         ~= "WasDisplayed"
       userScript: Item["LOtoSM1"].State = "success"
-    - id: 2
-      fields:
-      - title: Title
-        value: 
-        type: 0
-      - title: Actor
-        value: 7
-        type: 5
-      - title: Conversant
-        value: 6
-        type: 5
-      - title: Menu Text
-        value: Message from Sales Manager
-        type: 0
-      - title: Dialogue Text
-        value: "Hi, how's thing going on your end? \n"
-        type: 4
-      - title: Video File
-        value: 
-        type: 0
-      - title: Sequence
-        value: 
-        type: 0
-      conversationID: 6
-      isRoot: 0
-      isGroup: 0
-      nodeColor: White
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks: []
-      conditionsString: Item["SMtoLO2"].State == "active" and Dialog[2].SimStatus
-        ~= "WasDisplayed"
-      userScript: 
     - id: 3
       fields:
       - title: Title
@@ -1129,50 +1011,10 @@ MonoBehaviour:
       - originConversationID: 8
         originDialogueID: 0
         destinationConversationID: 8
-        destinationDialogueID: 1
-        isConnector: 0
-        priority: 2
-      - originConversationID: 8
-        originDialogueID: 0
-        destinationConversationID: 8
         destinationDialogueID: 2
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
-    - id: 1
-      fields:
-      - title: Title
-        value: 
-        type: 0
-      - title: Actor
-        value: 8
-        type: 5
-      - title: Conversant
-        value: 6
-        type: 5
-      - title: Menu Text
-        value: Message from Loan Officer
-        type: 0
-      - title: Dialogue Text
-        value: "Hi, how's thing going on your end? \n"
-        type: 4
-      - title: Video File
-        value: 
-        type: 0
-      - title: Sequence
-        value: 
-        type: 0
-      conversationID: 8
-      isRoot: 0
-      isGroup: 0
-      nodeColor: White
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks: []
-      conditionsString: Item["LOtoLM0"].State == "active" and Dialog[1].SimStatus
-        ~= "WasDisplayed"
       userScript: 
     - id: 2
       fields:
@@ -1292,49 +1134,10 @@ MonoBehaviour:
       - originConversationID: 9
         originDialogueID: 0
         destinationConversationID: 9
-        destinationDialogueID: 1
-        isConnector: 0
-        priority: 2
-      - originConversationID: 9
-        originDialogueID: 0
-        destinationConversationID: 9
         destinationDialogueID: 2
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
-    - id: 1
-      fields:
-      - title: Title
-        value: SMtoLM0
-        type: 0
-      - title: Actor
-        value: 1
-        type: 5
-      - title: Conversant
-        value: 6
-        type: 5
-      - title: Menu Text
-        value: Greetings to Loan Manager
-        type: 0
-      - title: Dialogue Text
-        value: Good day! How's your day coming along?
-        type: 4
-      - title: Video File
-        value: 
-        type: 0
-      - title: Sequence
-        value: SendConversation(SM,LM, SMtoLM0);
-        type: 0
-      conversationID: 9
-      isRoot: 0
-      isGroup: 0
-      nodeColor: White
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks: []
-      conditionsString: Dialog[1].SimStatus ~= "WasDisplayed"
       userScript: 
     - id: 2
       fields:
@@ -1419,49 +1222,10 @@ MonoBehaviour:
       - originConversationID: 10
         originDialogueID: 0
         destinationConversationID: 10
-        destinationDialogueID: 1
-        isConnector: 0
-        priority: 2
-      - originConversationID: 10
-        originDialogueID: 0
-        destinationConversationID: 10
         destinationDialogueID: 2
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
-    - id: 1
-      fields:
-      - title: Title
-        value: SMtoCR0
-        type: 0
-      - title: Actor
-        value: 1
-        type: 5
-      - title: Conversant
-        value: 6
-        type: 5
-      - title: Menu Text
-        value: Greetings to Credit Risk
-        type: 0
-      - title: Dialogue Text
-        value: 'Howdy, how''s it going? '
-        type: 4
-      - title: Video File
-        value: 
-        type: 0
-      - title: Sequence
-        value: SendConversation(SM, CR, SMtoCR0);
-        type: 0
-      conversationID: 10
-      isRoot: 0
-      isGroup: 0
-      nodeColor: White
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks: []
-      conditionsString: Dialog[1].SimStatus ~= "WasDisplayed"
       userScript: 
     - id: 2
       fields:
@@ -1552,51 +1316,10 @@ MonoBehaviour:
       - originConversationID: 11
         originDialogueID: 0
         destinationConversationID: 11
-        destinationDialogueID: 1
-        isConnector: 0
-        priority: 2
-      - originConversationID: 11
-        originDialogueID: 0
-        destinationConversationID: 11
         destinationDialogueID: 2
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
-    - id: 1
-      fields:
-      - title: Title
-        value: LOtoLM0
-        type: 0
-      - title: Actor
-        value: 1
-        type: 5
-      - title: Conversant
-        value: 6
-        type: 5
-      - title: Menu Text
-        value: Greetings to Loan Manager
-        type: 0
-      - title: Dialogue Text
-        value: 'Sending message to Loan Manager...
-
-'
-        type: 4
-      - title: Video File
-        value: 
-        type: 0
-      - title: Sequence
-        value: SendConversation(LO,LM, LOtoLM0);
-        type: 0
-      conversationID: 11
-      isRoot: 0
-      isGroup: 0
-      nodeColor: White
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks: []
-      conditionsString: Dialog[2].SimStatus ~= "WasDisplayed"
       userScript: 
     - id: 2
       fields:
@@ -1716,49 +1439,10 @@ MonoBehaviour:
       - originConversationID: 12
         originDialogueID: 0
         destinationConversationID: 12
-        destinationDialogueID: 1
-        isConnector: 0
-        priority: 2
-      - originConversationID: 12
-        originDialogueID: 0
-        destinationConversationID: 12
         destinationDialogueID: 2
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
-    - id: 1
-      fields:
-      - title: Title
-        value: LOtoSM0
-        type: 0
-      - title: Actor
-        value: 1
-        type: 5
-      - title: Conversant
-        value: 6
-        type: 5
-      - title: Menu Text
-        value: Greetings to Sales Manager
-        type: 0
-      - title: Dialogue Text
-        value: Sending to SM Message 2
-        type: 4
-      - title: Video File
-        value: 
-        type: 0
-      - title: Sequence
-        value: SendConversation(LO,SM, LOtoSM0);
-        type: 0
-      conversationID: 12
-      isRoot: 0
-      isGroup: 0
-      nodeColor: White
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks: []
-      conditionsString: Dialog[2].SimStatus ~= "WasDisplayed"
       userScript: 
     - id: 2
       fields:
@@ -1843,49 +1527,10 @@ MonoBehaviour:
       - originConversationID: 13
         originDialogueID: 0
         destinationConversationID: 13
-        destinationDialogueID: 1
-        isConnector: 0
-        priority: 2
-      - originConversationID: 13
-        originDialogueID: 0
-        destinationConversationID: 13
         destinationDialogueID: 2
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
-    - id: 1
-      fields:
-      - title: Title
-        value: LOtoSM0
-        type: 0
-      - title: Actor
-        value: 1
-        type: 5
-      - title: Conversant
-        value: 6
-        type: 5
-      - title: Menu Text
-        value: Greetings to Sales Manager
-        type: 0
-      - title: Dialogue Text
-        value: Sending to SM Message 2
-        type: 4
-      - title: Video File
-        value: 
-        type: 0
-      - title: Sequence
-        value: SendConversation(LO,SM, LOtoSM0);
-        type: 0
-      conversationID: 13
-      isRoot: 0
-      isGroup: 0
-      nodeColor: White
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks: []
-      conditionsString: Dialog[2].SimStatus ~= "WasDisplayed"
       userScript: 
     - id: 2
       fields:
@@ -1970,49 +1615,10 @@ MonoBehaviour:
       - originConversationID: 14
         originDialogueID: 0
         destinationConversationID: 14
-        destinationDialogueID: 1
-        isConnector: 0
-        priority: 2
-      - originConversationID: 14
-        originDialogueID: 0
-        destinationConversationID: 14
         destinationDialogueID: 2
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
-    - id: 1
-      fields:
-      - title: Title
-        value: LOtoSM0
-        type: 0
-      - title: Actor
-        value: 1
-        type: 5
-      - title: Conversant
-        value: 6
-        type: 5
-      - title: Menu Text
-        value: Greetings to Sales Manager
-        type: 0
-      - title: Dialogue Text
-        value: Sending to SM Message 2
-        type: 4
-      - title: Video File
-        value: 
-        type: 0
-      - title: Sequence
-        value: SendConversation(LO,SM, LOtoSM0);
-        type: 0
-      conversationID: 14
-      isRoot: 0
-      isGroup: 0
-      nodeColor: White
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks: []
-      conditionsString: Dialog[2].SimStatus ~= "WasDisplayed"
       userScript: 
     - id: 2
       fields:
@@ -2227,49 +1833,10 @@ MonoBehaviour:
       - originConversationID: 16
         originDialogueID: 0
         destinationConversationID: 16
-        destinationDialogueID: 1
-        isConnector: 0
-        priority: 2
-      - originConversationID: 16
-        originDialogueID: 0
-        destinationConversationID: 16
         destinationDialogueID: 2
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
-    - id: 1
-      fields:
-      - title: Title
-        value: LOtoSM0
-        type: 0
-      - title: Actor
-        value: 1
-        type: 5
-      - title: Conversant
-        value: 6
-        type: 5
-      - title: Menu Text
-        value: Greetings to Sales Manager
-        type: 0
-      - title: Dialogue Text
-        value: Sending to SM Message 2
-        type: 4
-      - title: Video File
-        value: 
-        type: 0
-      - title: Sequence
-        value: SendConversation(LO,SM, LOtoSM0);
-        type: 0
-      conversationID: 16
-      isRoot: 0
-      isGroup: 0
-      nodeColor: White
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks: []
-      conditionsString: Dialog[2].SimStatus ~= "WasDisplayed"
       userScript: 
     - id: 2
       fields:
@@ -2354,49 +1921,10 @@ MonoBehaviour:
       - originConversationID: 17
         originDialogueID: 0
         destinationConversationID: 17
-        destinationDialogueID: 1
-        isConnector: 0
-        priority: 2
-      - originConversationID: 17
-        originDialogueID: 0
-        destinationConversationID: 17
         destinationDialogueID: 2
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
-    - id: 1
-      fields:
-      - title: Title
-        value: LOtoSM0
-        type: 0
-      - title: Actor
-        value: 1
-        type: 5
-      - title: Conversant
-        value: 6
-        type: 5
-      - title: Menu Text
-        value: Greetings to Sales Manager
-        type: 0
-      - title: Dialogue Text
-        value: Sending to SM Message 2
-        type: 4
-      - title: Video File
-        value: 
-        type: 0
-      - title: Sequence
-        value: SendConversation(LO,SM, LOtoSM0);
-        type: 0
-      conversationID: 17
-      isRoot: 0
-      isGroup: 0
-      nodeColor: White
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks: []
-      conditionsString: Dialog[2].SimStatus ~= "WasDisplayed"
       userScript: 
     - id: 2
       fields:
@@ -2481,49 +2009,10 @@ MonoBehaviour:
       - originConversationID: 18
         originDialogueID: 0
         destinationConversationID: 18
-        destinationDialogueID: 1
-        isConnector: 0
-        priority: 2
-      - originConversationID: 18
-        originDialogueID: 0
-        destinationConversationID: 18
         destinationDialogueID: 2
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
-    - id: 1
-      fields:
-      - title: Title
-        value: LOtoSM0
-        type: 0
-      - title: Actor
-        value: 1
-        type: 5
-      - title: Conversant
-        value: 6
-        type: 5
-      - title: Menu Text
-        value: Greetings to Sales Manager
-        type: 0
-      - title: Dialogue Text
-        value: Sending to SM Message 2
-        type: 4
-      - title: Video File
-        value: 
-        type: 0
-      - title: Sequence
-        value: SendConversation(LO,SM, LOtoSM0);
-        type: 0
-      conversationID: 18
-      isRoot: 0
-      isGroup: 0
-      nodeColor: White
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks: []
-      conditionsString: Dialog[2].SimStatus ~= "WasDisplayed"
       userScript: 
     - id: 2
       fields:
