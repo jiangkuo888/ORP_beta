@@ -14,6 +14,7 @@ public class GameManagerVik : Photon.MonoBehaviour {
     // read the documentation for info how to spawn dynamically loaded game objects at runtime (not using Resources folders)
 	public GUISkin customSkin;
 	public Texture2D background;
+	public GameObject GameEndScreen;
 
 	public GameObject[] playerPrefabList;
 	public string[] playerList;
@@ -34,6 +35,8 @@ public class GameManagerVik : Photon.MonoBehaviour {
 	public bool isLobby;
 	public string[] dots = new string[] {".", "..", "..."};
 	public int dotInt = 0;
+
+
 
     void OnJoinedRoom()
     {
@@ -385,7 +388,34 @@ public class GameManagerVik : Photon.MonoBehaviour {
 
 		gameStarted = true;
     }
+	public void EndGame(){
+		GameObject MainCamera = Camera.main.gameObject;
 
+		if(MainCamera.gameObject != null)
+		{
+			if(MainCamera.transform.parent != null)
+			{
+				
+				MainCamera.transform.parent.GetComponent<ClickMove>().gameOn = false;
+				MainCamera.transform.parent.GetComponent<DetectObjects>().gameOn = false;
+			}
+			
+			MainCamera.SetActive(false);
+			GameEndScreen.SetActive(true);
+
+
+			GameObject.Find ("QuestLogButton").GetComponent<GUITexture>().enabled = false;
+			GameObject.Find ("phoneButton").GetComponent<GUITexture>().enabled = false;
+			GameObject.Find ("InventoryContainer").GetComponent<GUITexture>().enabled = false;
+			GameObject.Find ("InventoryButton1").GetComponent<GUITexture>().enabled = false;
+			GameObject.Find ("InventoryButton2").GetComponent<GUITexture>().enabled = false;
+			GameObject.Find ("GameManager").GetComponent<ChatVik>().enabled = false;
+
+
+
+		}
+
+	}
 
 	[RPC]
 
