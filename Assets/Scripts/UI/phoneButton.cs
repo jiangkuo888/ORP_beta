@@ -19,6 +19,7 @@ public class phoneButton : MonoBehaviour {
 	public Texture down;
 	public Texture isOnCall;
 
+
 	bool smallButtonOn;
 	string conversationName;
 	string playerName;
@@ -26,7 +27,7 @@ public class phoneButton : MonoBehaviour {
 
 	void Awake()
 	{
-
+		OnCalling = false;
 		smallButtonOn = false;
 		enabled = true;
 
@@ -86,8 +87,12 @@ public class phoneButton : MonoBehaviour {
 		if(OnCalling)
 		{
 			blinking ();
-		}
 
+		}
+		else{
+
+
+		}
 
 
 	}
@@ -102,6 +107,8 @@ public class phoneButton : MonoBehaviour {
 		
 	}
 	void blinking(){
+
+
 
 		if(count%50<25)
 		{
@@ -125,6 +132,11 @@ public class phoneButton : MonoBehaviour {
 			GameObject.Find("Dialogue Manager").GetComponent<DialogueSystemController>().StartConversation(conversationName,GameObject.Find (PhotonNetwork.playerName).transform);
 			
 			OnCalling = false;
+
+
+			GameObject.Find ("AudioManager").GetComponent<AudioManager>().Stop(GameObject.Find ("AudioManager").GetComponent<AudioManager>().Audioclips[0]);
+
+
 			myGUITexture.texture = normal;
 		}
 		else
@@ -194,6 +206,8 @@ public class phoneButton : MonoBehaviour {
 		if(PhotonNetwork.playerName == player){
 
 		OnCalling = true;
+		GameObject.Find ("AudioManager").GetComponent<AudioManager>().Play(GameObject.Find ("AudioManager").GetComponent<AudioManager>().Audioclips[0],Camera.main.transform.position,1f,1f,false);
+
 		playerName = player;
 
 
