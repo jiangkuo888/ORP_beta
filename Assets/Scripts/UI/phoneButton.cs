@@ -19,6 +19,7 @@ public class phoneButton : MonoBehaviour {
 	public Texture down;
 	public Texture isOnCall;
 
+
 	bool smallButtonOn;
 	string conversationName;
 	string playerName;
@@ -26,7 +27,7 @@ public class phoneButton : MonoBehaviour {
 
 	void Awake()
 	{
-
+		OnCalling = false;
 		smallButtonOn = false;
 		enabled = true;
 
@@ -86,8 +87,12 @@ public class phoneButton : MonoBehaviour {
 		if(OnCalling)
 		{
 			blinking ();
-		}
 
+		}
+		else{
+
+
+		}
 
 
 	}
@@ -103,14 +108,16 @@ public class phoneButton : MonoBehaviour {
 	}
 	void blinking(){
 
-		if(count%50<25)
-		{
 		myGUITexture.texture = isOnCall;
+
+		if(count%40<20)
+		{
+			myGUITexture.pixelInset = new Rect(myGUITexture.pixelInset.x+myGUITexture.pixelInset.width*0.02f/2,myGUITexture.pixelInset.y+myGUITexture.pixelInset.height*0.02f/2,myGUITexture.pixelInset.width*0.98f,myGUITexture.pixelInset.height*0.98f);
 
 		}
 		else{
 
-			myGUITexture.texture = normal;
+			myGUITexture.pixelInset = new Rect(myGUITexture.pixelInset.x-myGUITexture.pixelInset.width*0.02f/2,myGUITexture.pixelInset.y-myGUITexture.pixelInset.height*0.02f/2,myGUITexture.pixelInset.width/0.98f,myGUITexture.pixelInset.height/0.98f);
 		}
 
 		count++;
@@ -125,6 +132,11 @@ public class phoneButton : MonoBehaviour {
 			GameObject.Find("Dialogue Manager").GetComponent<DialogueSystemController>().StartConversation(conversationName,GameObject.Find (PhotonNetwork.playerName).transform);
 			
 			OnCalling = false;
+
+
+			GameObject.Find ("AudioManager").GetComponent<AudioManager>().Stop(GameObject.Find ("AudioManager").GetComponent<AudioManager>().Audioclips[0]);
+
+
 			myGUITexture.texture = normal;
 		}
 		else
@@ -194,6 +206,8 @@ public class phoneButton : MonoBehaviour {
 		if(PhotonNetwork.playerName == player){
 
 		OnCalling = true;
+		GameObject.Find ("AudioManager").GetComponent<AudioManager>().Play(GameObject.Find ("AudioManager").GetComponent<AudioManager>().Audioclips[0],Camera.main.transform.position,1f,1f,false);
+
 		playerName = player;
 
 
@@ -222,6 +236,9 @@ public class phoneButton : MonoBehaviour {
 			GameObject.Find("phoneSmallButton2").GetComponent<phoneShowPlayerButton>().conversation = "SM to LM";
 			GameObject.Find("phoneSmallButton3").GetComponent<phoneShowPlayerButton>().conversation = "SM to CR";
 			GameObject.Find("EmailIcon").GetComponent<phoneShowInbox>().conversation = "SM Inbox";
+
+
+
 
 			break;
 		case "LPU Manager":
@@ -258,6 +275,11 @@ public class phoneButton : MonoBehaviour {
 			break;
 
 		}
+
+
+		GameObject.Find ("phoneSmallButton1").GetComponent<phoneShowPlayerButton>().updateNormal();
+		GameObject.Find ("phoneSmallButton2").GetComponent<phoneShowPlayerButton>().updateNormal();
+		GameObject.Find ("phoneSmallButton3").GetComponent<phoneShowPlayerButton>().updateNormal();
 
 
 

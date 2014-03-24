@@ -63,6 +63,66 @@ MonoBehaviour:
       value: False
       type: 2
     portrait: {fileID: 0}
+  - id: 7
+    fields:
+    - title: Name
+      value: Sales Manager
+      type: 0
+    - title: Pictures
+      value: '[]'
+      type: 3
+    - title: Description
+      value: 
+      type: 0
+    - title: IsPlayer
+      value: True
+      type: 2
+    portrait: {fileID: 0}
+  - id: 8
+    fields:
+    - title: Name
+      value: Loan Officer
+      type: 0
+    - title: Pictures
+      value: '[]'
+      type: 3
+    - title: Description
+      value: 
+      type: 0
+    - title: IsPlayer
+      value: True
+      type: 2
+    portrait: {fileID: 0}
+  - id: 9
+    fields:
+    - title: Name
+      value: Loan Manager
+      type: 0
+    - title: Pictures
+      value: '[]'
+      type: 3
+    - title: Description
+      value: 
+      type: 0
+    - title: IsPlayer
+      value: True
+      type: 2
+    portrait: {fileID: 0}
+  - id: 10
+    fields:
+    - title: Name
+      value: Credit Risk
+      type: 0
+    - title: Pictures
+      value: '[]'
+      type: 3
+    - title: Description
+      value: 
+      type: 0
+    - title: IsPlayer
+      value: True
+      type: 2
+    portrait: {fileID: 0}
   items:
   - id: 2
     fields:
@@ -87,7 +147,7 @@ MonoBehaviour:
   - id: 3
     fields:
     - title: Name
-      value: LOMessageSent2
+      value: LOtoSM0
       type: 0
     - title: Description
       value: 
@@ -107,7 +167,7 @@ MonoBehaviour:
   - id: 4
     fields:
     - title: Name
-      value: LOMessageSent3
+      value: SMtoLO2
       type: 0
     - title: Description
       value: 
@@ -127,7 +187,7 @@ MonoBehaviour:
   - id: 5
     fields:
     - title: Name
-      value: SMMessageSent3
+      value: LOtoLM0
       type: 0
     - title: Description
       value: 
@@ -147,7 +207,7 @@ MonoBehaviour:
   - id: 6
     fields:
     - title: Name
-      value: SMMessageSent2
+      value: LOtoLM1
       type: 0
     - title: Description
       value: 
@@ -167,7 +227,7 @@ MonoBehaviour:
   - id: 7
     fields:
     - title: Name
-      value: SMMessageSent1
+      value: LMtoCR_Safe_unlock
       type: 0
     - title: Description
       value: 
@@ -187,7 +247,7 @@ MonoBehaviour:
   - id: 8
     fields:
     - title: Name
-      value: LOtoSMmessage1Ready
+      value: SMMessageSent1
       type: 0
     - title: Description
       value: 
@@ -207,7 +267,7 @@ MonoBehaviour:
   - id: 9
     fields:
     - title: Name
-      value: LOtoSMmessage2Ready
+      value: LOtoSM1
       type: 0
     - title: Description
       value: 
@@ -247,17 +307,6 @@ MonoBehaviour:
       type: 0
     - title: Description
       value: Show alert messages during gameplay by setting this variable.
-      type: 0
-  - id: 2
-    fields:
-    - title: Name
-      value: Line
-      type: 0
-    - title: Initial Value
-      value: 
-      type: 0
-    - title: Description
-      value: 
       type: 0
   conversations:
   - id: 3
@@ -316,35 +365,28 @@ MonoBehaviour:
       - originConversationID: 3
         originDialogueID: 0
         destinationConversationID: 3
-        destinationDialogueID: 2
-        isConnector: 0
-        priority: 2
-      - originConversationID: 3
-        originDialogueID: 0
-        destinationConversationID: 3
         destinationDialogueID: 3
         isConnector: 0
         priority: 2
-      conditionsString: Item["LOMessageSent1"].State == "active"
+      conditionsString: 
       userScript: 
     - id: 1
       fields:
       - title: Title
-        value: 
+        value: LOtoSM1
         type: 0
       - title: Actor
-        value: 1
+        value: 8
         type: 5
       - title: Conversant
         value: 6
         type: 5
       - title: Menu Text
-        value: LO Message 1
+        value: Message from Loan Officer
         type: 0
       - title: Dialogue Text
-        value: 'This is Message 1 from LO
-
-'
+        value: "I have received your message. Please give me 5 minutes to prepare.
+          \n"
         type: 4
       - title: Video File
         value: 
@@ -360,43 +402,9 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks: []
-      conditionsString: Item["LOMessageSent1"].State == "active"
-      userScript: Item["SMMessageSent1"].State = "success"
-    - id: 2
-      fields:
-      - title: Title
-        value: 
-        type: 0
-      - title: Actor
-        value: 1
-        type: 5
-      - title: Conversant
-        value: 6
-        type: 5
-      - title: Menu Text
-        value: LO Message 2
-        type: 0
-      - title: Dialogue Text
-        value: 'This is Message 2 from LO
-
-'
-        type: 4
-      - title: Video File
-        value: 
-        type: 0
-      - title: Sequence
-        value: 
-        type: 0
-      conversationID: 3
-      isRoot: 0
-      isGroup: 0
-      nodeColor: White
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks: []
-      conditionsString: Item["LOMessageSent2"].State == "active"
-      userScript: 
+      conditionsString: Item["LOtoSM1"].State == "active" and Dialog[1].SimStatus
+        ~= "WasDisplayed"
+      userScript: Item["LOtoSM1"].State = "success"
     - id: 3
       fields:
       - title: Title
@@ -486,12 +494,6 @@ MonoBehaviour:
       - originConversationID: 4
         originDialogueID: 0
         destinationConversationID: 4
-        destinationDialogueID: 2
-        isConnector: 0
-        priority: 2
-      - originConversationID: 4
-        originDialogueID: 0
-        destinationConversationID: 4
         destinationDialogueID: 3
         isConnector: 0
         priority: 2
@@ -500,7 +502,7 @@ MonoBehaviour:
     - id: 1
       fields:
       - title: Title
-        value: 
+        value: LOtoSM1
         type: 0
       - title: Actor
         value: 1
@@ -509,18 +511,17 @@ MonoBehaviour:
         value: 6
         type: 5
       - title: Menu Text
-        value: Message 1
+        value: Send Confirmation of Evacuation to Sales Manager
         type: 0
       - title: Dialogue Text
-        value: 'Sending to SM Message 1
-
-'
+        value: Sending Message to Sales Manager ... [ I have received your message.
+          Please give me 5 minutes to prepare. ]
         type: 4
       - title: Video File
         value: 
         type: 0
       - title: Sequence
-        value: SendConversation(LO,SM, LOMessageSent1);
+        value: SendConversation(LO,SM, LOtoSM1);
         type: 0
       conversationID: 4
       isRoot: 0
@@ -530,41 +531,7 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks: []
-      conditionsString: Dialog[1].SimStatus ~= "WasDisplayed" and Item["LOMessageSent1"].State
-        == "success"
-      userScript: 
-    - id: 2
-      fields:
-      - title: Title
-        value: 
-        type: 0
-      - title: Actor
-        value: 1
-        type: 5
-      - title: Conversant
-        value: 6
-        type: 5
-      - title: Menu Text
-        value: Message 2
-        type: 0
-      - title: Dialogue Text
-        value: Sending to SM Message 2
-        type: 4
-      - title: Video File
-        value: 
-        type: 0
-      - title: Sequence
-        value: 
-        type: 0
-      conversationID: 4
-      isRoot: 0
-      isGroup: 0
-      nodeColor: White
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks: []
-      conditionsString: Dialog[2].SimStatus ~= "WasDisplayed" and Item["LOMessageSent2"].State
+      conditionsString: Dialog[1].SimStatus ~= "WasDisplayed" and Item["LOtoSM1"].State
         == "success"
       userScript: 
     - id: 3
@@ -656,12 +623,6 @@ MonoBehaviour:
       - originConversationID: 5
         originDialogueID: 0
         destinationConversationID: 5
-        destinationDialogueID: 2
-        isConnector: 0
-        priority: 2
-      - originConversationID: 5
-        originDialogueID: 0
-        destinationConversationID: 5
         destinationDialogueID: 3
         isConnector: 0
         priority: 2
@@ -670,7 +631,7 @@ MonoBehaviour:
     - id: 1
       fields:
       - title: Title
-        value: 
+        value: SMMessageSent1
         type: 0
       - title: Actor
         value: 1
@@ -682,7 +643,9 @@ MonoBehaviour:
         value: Notify Loan Officer Evacuation to LPU floor.
         type: 0
       - title: Dialogue Text
-        value: 'Sending to Sales Manager... '
+        value: "Sending message to Sales Manager...  \n[ We are evacuating the Sales
+          Floor to the LPU Floor in a while. Please kindly prepare to receive the
+          evacuatees. ]"
         type: 4
       - title: Video File
         value: 
@@ -699,40 +662,6 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: Dialog[1].SimStatus ~= "WasDisplayed" and Item["SMMessageSent1"].State
-        == "success"
-      userScript: 
-    - id: 2
-      fields:
-      - title: Title
-        value: 
-        type: 0
-      - title: Actor
-        value: 1
-        type: 5
-      - title: Conversant
-        value: 6
-        type: 5
-      - title: Menu Text
-        value: Message 2
-        type: 0
-      - title: Dialogue Text
-        value: Sending to SM Message 2
-        type: 4
-      - title: Video File
-        value: 
-        type: 0
-      - title: Sequence
-        value: 
-        type: 0
-      conversationID: 5
-      isRoot: 0
-      isGroup: 0
-      nodeColor: White
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks: []
-      conditionsString: Dialog[2].SimStatus ~= "WasDisplayed" and Item["SMMessageSent2"].State
         == "success"
       userScript: 
     - id: 3
@@ -824,12 +753,6 @@ MonoBehaviour:
       - originConversationID: 6
         originDialogueID: 0
         destinationConversationID: 6
-        destinationDialogueID: 2
-        isConnector: 0
-        priority: 2
-      - originConversationID: 6
-        originDialogueID: 0
-        destinationConversationID: 6
         destinationDialogueID: 3
         isConnector: 0
         priority: 2
@@ -841,7 +764,7 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 1
+        value: 7
         type: 5
       - title: Conversant
         value: 6
@@ -857,7 +780,7 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Sequence
-        value: 
+        value: Log(6B, SM inform LO of evacuation)
         type: 0
       conversationID: 6
       isRoot: 0
@@ -869,47 +792,14 @@ MonoBehaviour:
       outgoingLinks: []
       conditionsString: Item["SMMessageSent1"].State == "active" and Dialog[1].SimStatus
         ~= "WasDisplayed"
-      userScript: Item["LOMessageSent2"].State = "success"
-    - id: 2
-      fields:
-      - title: Title
-        value: 
-        type: 0
-      - title: Actor
-        value: 1
-        type: 5
-      - title: Conversant
-        value: 6
-        type: 5
-      - title: Menu Text
-        value: LO Message 2
-        type: 0
-      - title: Dialogue Text
-        value: This is Message 2 from LO
-        type: 4
-      - title: Video File
-        value: 
-        type: 0
-      - title: Sequence
-        value: 
-        type: 0
-      conversationID: 6
-      isRoot: 0
-      isGroup: 0
-      nodeColor: White
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks: []
-      conditionsString: Item["SMMessageSent2"].State == "active"
-      userScript: 
+      userScript: Item["LOtoSM1"].State = "success"
     - id: 3
       fields:
       - title: Title
         value: 
         type: 0
       - title: Actor
-        value: 1
+        value: 7
         type: 5
       - title: Conversant
         value: 6
@@ -927,6 +817,1227 @@ MonoBehaviour:
         value: 
         type: 0
       conversationID: 6
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: 
+  - id: 7
+    fields:
+    - title: Title
+      value: CR Inbox
+      type: 0
+    - title: Description
+      value: 
+      type: 0
+    - title: Actor
+      value: 6
+      type: 5
+    - title: Conversant
+      value: 1
+      type: 5
+    nodeColor: Red
+    dialogueEntries:
+    - id: 0
+      fields:
+      - title: Title
+        value: START
+        type: 0
+      - title: Actor
+        value: 6
+        type: 5
+      - title: Conversant
+        value: 1
+        type: 5
+      - title: Menu Text
+        value: 
+        type: 0
+      - title: Dialogue Text
+        value: 
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: None()
+        type: 0
+      conversationID: 7
+      isRoot: 1
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 7
+        originDialogueID: 0
+        destinationConversationID: 7
+        destinationDialogueID: 1
+        isConnector: 0
+        priority: 2
+      - originConversationID: 7
+        originDialogueID: 0
+        destinationConversationID: 7
+        destinationDialogueID: 2
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+    - id: 1
+      fields:
+      - title: Title
+        value: 
+        type: 0
+      - title: Actor
+        value: 9
+        type: 5
+      - title: Conversant
+        value: 6
+        type: 5
+      - title: Menu Text
+        value: Message from Loan Manager
+        type: 0
+      - title: Dialogue Text
+        value: Hi, I need to deposit some documents into the safe. Please come over
+          with your safe key to unlock the safe. Thank you.
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: Log(6A, Inform Credit Risk to unlock Safe)
+        type: 0
+      conversationID: 7
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: Item["LMtoCR_Safe_unlock"].State == "active" and Dialog[1].SimStatus
+        ~= "WasDisplayed"
+      userScript: 
+    - id: 2
+      fields:
+      - title: Title
+        value: 
+        type: 0
+      - title: Actor
+        value: 10
+        type: 5
+      - title: Conversant
+        value: 6
+        type: 5
+      - title: Menu Text
+        value: No message inbox
+        type: 0
+      - title: Dialogue Text
+        value: 
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 7
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: 
+  - id: 8
+    fields:
+    - title: Title
+      value: LM Inbox
+      type: 0
+    - title: Description
+      value: 
+      type: 0
+    - title: Actor
+      value: 6
+      type: 5
+    - title: Conversant
+      value: 1
+      type: 5
+    nodeColor: Red
+    dialogueEntries:
+    - id: 0
+      fields:
+      - title: Title
+        value: START
+        type: 0
+      - title: Actor
+        value: 6
+        type: 5
+      - title: Conversant
+        value: 1
+        type: 5
+      - title: Menu Text
+        value: 
+        type: 0
+      - title: Dialogue Text
+        value: 
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: None()
+        type: 0
+      conversationID: 8
+      isRoot: 1
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 8
+        originDialogueID: 0
+        destinationConversationID: 8
+        destinationDialogueID: 3
+        isConnector: 0
+        priority: 2
+      - originConversationID: 8
+        originDialogueID: 0
+        destinationConversationID: 8
+        destinationDialogueID: 2
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+    - id: 2
+      fields:
+      - title: Title
+        value: 
+        type: 0
+      - title: Actor
+        value: 9
+        type: 5
+      - title: Conversant
+        value: 6
+        type: 5
+      - title: Menu Text
+        value: No message inbox
+        type: 0
+      - title: Dialogue Text
+        value: 
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 8
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: 
+    - id: 3
+      fields:
+      - title: Title
+        value: 
+        type: 0
+      - title: Actor
+        value: 8
+        type: 5
+      - title: Conversant
+        value: 6
+        type: 5
+      - title: Menu Text
+        value: Message from Loan Officer
+        type: 0
+      - title: Dialogue Text
+        value: There is an evacuation of the Sales Floor to our floor. Kindly keep
+          all sensitive documents secured.
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 8
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: Item["LOtoLM1"].State == "active" and Dialog[3].SimStatus
+        ~= "WasDisplayed"
+      userScript: Item["LMtoCR_Safe_unlock"].State = "success"
+  - id: 9
+    fields:
+    - title: Title
+      value: SM to LM
+      type: 0
+    - title: Description
+      value: 
+      type: 0
+    - title: Actor
+      value: 6
+      type: 5
+    - title: Conversant
+      value: 1
+      type: 5
+    nodeColor: Red
+    dialogueEntries:
+    - id: 0
+      fields:
+      - title: Title
+        value: START
+        type: 0
+      - title: Actor
+        value: 6
+        type: 5
+      - title: Conversant
+        value: 1
+        type: 5
+      - title: Menu Text
+        value: 
+        type: 0
+      - title: Dialogue Text
+        value: 
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: None()
+        type: 0
+      conversationID: 9
+      isRoot: 1
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 9
+        originDialogueID: 0
+        destinationConversationID: 9
+        destinationDialogueID: 2
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+    - id: 2
+      fields:
+      - title: Title
+        value: 
+        type: 0
+      - title: Actor
+        value: 1
+        type: 5
+      - title: Conversant
+        value: 6
+        type: 5
+      - title: Menu Text
+        value: Nothing to send
+        type: 0
+      - title: Dialogue Text
+        value: 
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 9
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: 
+  - id: 10
+    fields:
+    - title: Title
+      value: SM to CR
+      type: 0
+    - title: Description
+      value: 
+      type: 0
+    - title: Actor
+      value: 6
+      type: 5
+    - title: Conversant
+      value: 1
+      type: 5
+    nodeColor: Red
+    dialogueEntries:
+    - id: 0
+      fields:
+      - title: Title
+        value: START
+        type: 0
+      - title: Actor
+        value: 6
+        type: 5
+      - title: Conversant
+        value: 1
+        type: 5
+      - title: Menu Text
+        value: 
+        type: 0
+      - title: Dialogue Text
+        value: 
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: None()
+        type: 0
+      conversationID: 10
+      isRoot: 1
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 10
+        originDialogueID: 0
+        destinationConversationID: 10
+        destinationDialogueID: 2
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+    - id: 2
+      fields:
+      - title: Title
+        value: 
+        type: 0
+      - title: Actor
+        value: 1
+        type: 5
+      - title: Conversant
+        value: 6
+        type: 5
+      - title: Menu Text
+        value: Nothing to send
+        type: 0
+      - title: Dialogue Text
+        value: 
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 10
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: 
+  - id: 11
+    fields:
+    - title: Title
+      value: LO to LM
+      type: 0
+    - title: Description
+      value: 
+      type: 0
+    - title: Actor
+      value: 6
+      type: 5
+    - title: Conversant
+      value: 1
+      type: 5
+    nodeColor: Red
+    dialogueEntries:
+    - id: 0
+      fields:
+      - title: Title
+        value: START
+        type: 0
+      - title: Actor
+        value: 6
+        type: 5
+      - title: Conversant
+        value: 1
+        type: 5
+      - title: Menu Text
+        value: 
+        type: 0
+      - title: Dialogue Text
+        value: 
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: None()
+        type: 0
+      conversationID: 11
+      isRoot: 1
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 11
+        originDialogueID: 0
+        destinationConversationID: 11
+        destinationDialogueID: 3
+        isConnector: 0
+        priority: 2
+      - originConversationID: 11
+        originDialogueID: 0
+        destinationConversationID: 11
+        destinationDialogueID: 2
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+    - id: 2
+      fields:
+      - title: Title
+        value: 
+        type: 0
+      - title: Actor
+        value: 1
+        type: 5
+      - title: Conversant
+        value: 6
+        type: 5
+      - title: Menu Text
+        value: Nothing to send
+        type: 0
+      - title: Dialogue Text
+        value: 
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 11
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: 
+    - id: 3
+      fields:
+      - title: Title
+        value: Keep your stuffs
+        type: 0
+      - title: Actor
+        value: 1
+        type: 5
+      - title: Conversant
+        value: 6
+        type: 5
+      - title: Menu Text
+        value: Evacuation Notice
+        type: 0
+      - title: Dialogue Text
+        value: 'Sending message to Loan Manager... [There is an evacuation of the
+          Sales Floor to our floor. Kindly keep all sensitive documents secured.] '
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: SendConversation(LO,LM, LOtoLM1);
+        type: 0
+      conversationID: 11
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: Item["LOtoSM1"].State == "success" and Dialog[3].SimStatus
+        ~= "WasDisplayed"
+      userScript: 
+  - id: 12
+    fields:
+    - title: Title
+      value: LO to CR
+      type: 0
+    - title: Description
+      value: 
+      type: 0
+    - title: Actor
+      value: 6
+      type: 5
+    - title: Conversant
+      value: 1
+      type: 5
+    nodeColor: Red
+    dialogueEntries:
+    - id: 0
+      fields:
+      - title: Title
+        value: START
+        type: 0
+      - title: Actor
+        value: 6
+        type: 5
+      - title: Conversant
+        value: 1
+        type: 5
+      - title: Menu Text
+        value: 
+        type: 0
+      - title: Dialogue Text
+        value: 
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: None()
+        type: 0
+      conversationID: 12
+      isRoot: 1
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 12
+        originDialogueID: 0
+        destinationConversationID: 12
+        destinationDialogueID: 2
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+    - id: 2
+      fields:
+      - title: Title
+        value: 
+        type: 0
+      - title: Actor
+        value: 1
+        type: 5
+      - title: Conversant
+        value: 6
+        type: 5
+      - title: Menu Text
+        value: Nothing to send
+        type: 0
+      - title: Dialogue Text
+        value: 
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 12
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: 
+  - id: 13
+    fields:
+    - title: Title
+      value: LM to SM
+      type: 0
+    - title: Description
+      value: 
+      type: 0
+    - title: Actor
+      value: 6
+      type: 5
+    - title: Conversant
+      value: 1
+      type: 5
+    nodeColor: Red
+    dialogueEntries:
+    - id: 0
+      fields:
+      - title: Title
+        value: START
+        type: 0
+      - title: Actor
+        value: 6
+        type: 5
+      - title: Conversant
+        value: 1
+        type: 5
+      - title: Menu Text
+        value: 
+        type: 0
+      - title: Dialogue Text
+        value: 
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: None()
+        type: 0
+      conversationID: 13
+      isRoot: 1
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 13
+        originDialogueID: 0
+        destinationConversationID: 13
+        destinationDialogueID: 2
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+    - id: 2
+      fields:
+      - title: Title
+        value: 
+        type: 0
+      - title: Actor
+        value: 1
+        type: 5
+      - title: Conversant
+        value: 6
+        type: 5
+      - title: Menu Text
+        value: Nothing to send
+        type: 0
+      - title: Dialogue Text
+        value: 
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 13
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: 
+  - id: 14
+    fields:
+    - title: Title
+      value: LM to LO
+      type: 0
+    - title: Description
+      value: 
+      type: 0
+    - title: Actor
+      value: 6
+      type: 5
+    - title: Conversant
+      value: 1
+      type: 5
+    nodeColor: Red
+    dialogueEntries:
+    - id: 0
+      fields:
+      - title: Title
+        value: START
+        type: 0
+      - title: Actor
+        value: 6
+        type: 5
+      - title: Conversant
+        value: 1
+        type: 5
+      - title: Menu Text
+        value: 
+        type: 0
+      - title: Dialogue Text
+        value: 
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: None()
+        type: 0
+      conversationID: 14
+      isRoot: 1
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 14
+        originDialogueID: 0
+        destinationConversationID: 14
+        destinationDialogueID: 2
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+    - id: 2
+      fields:
+      - title: Title
+        value: 
+        type: 0
+      - title: Actor
+        value: 1
+        type: 5
+      - title: Conversant
+        value: 6
+        type: 5
+      - title: Menu Text
+        value: Nothing to send
+        type: 0
+      - title: Dialogue Text
+        value: 
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 14
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: 
+  - id: 15
+    fields:
+    - title: Title
+      value: LM to CR
+      type: 0
+    - title: Description
+      value: 
+      type: 0
+    - title: Actor
+      value: 6
+      type: 5
+    - title: Conversant
+      value: 1
+      type: 5
+    nodeColor: Red
+    dialogueEntries:
+    - id: 0
+      fields:
+      - title: Title
+        value: START
+        type: 0
+      - title: Actor
+        value: 6
+        type: 5
+      - title: Conversant
+        value: 1
+        type: 5
+      - title: Menu Text
+        value: 
+        type: 0
+      - title: Dialogue Text
+        value: 
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: None()
+        type: 0
+      conversationID: 15
+      isRoot: 1
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 15
+        originDialogueID: 0
+        destinationConversationID: 15
+        destinationDialogueID: 1
+        isConnector: 0
+        priority: 2
+      - originConversationID: 15
+        originDialogueID: 0
+        destinationConversationID: 15
+        destinationDialogueID: 2
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+    - id: 1
+      fields:
+      - title: Title
+        value: Unlock Safe
+        type: 0
+      - title: Actor
+        value: 1
+        type: 5
+      - title: Conversant
+        value: 6
+        type: 5
+      - title: Menu Text
+        value: Message to Credit Risk - Help unlock the safe
+        type: 0
+      - title: Dialogue Text
+        value: Sending message to Credit Risk... [Hi, I need to deposit some documents
+          into the safe. Please come over with your safe key to unlock the safe. Thank
+          you.]
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: SendConversation(LM,CR, LMtoCR_Safe_unlock);
+        type: 0
+      conversationID: 15
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: Dialog[1].SimStatus ~= "WasDisplayed" and Item["LMtoCR_Safe_unlock"]
+        == "success"
+      userScript: 
+    - id: 2
+      fields:
+      - title: Title
+        value: 
+        type: 0
+      - title: Actor
+        value: 1
+        type: 5
+      - title: Conversant
+        value: 6
+        type: 5
+      - title: Menu Text
+        value: Nothing to send
+        type: 0
+      - title: Dialogue Text
+        value: 
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 15
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: 
+  - id: 16
+    fields:
+    - title: Title
+      value: CR to SM
+      type: 0
+    - title: Description
+      value: 
+      type: 0
+    - title: Actor
+      value: 6
+      type: 5
+    - title: Conversant
+      value: 1
+      type: 5
+    nodeColor: Red
+    dialogueEntries:
+    - id: 0
+      fields:
+      - title: Title
+        value: START
+        type: 0
+      - title: Actor
+        value: 6
+        type: 5
+      - title: Conversant
+        value: 1
+        type: 5
+      - title: Menu Text
+        value: 
+        type: 0
+      - title: Dialogue Text
+        value: 
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: None()
+        type: 0
+      conversationID: 16
+      isRoot: 1
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 16
+        originDialogueID: 0
+        destinationConversationID: 16
+        destinationDialogueID: 2
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+    - id: 2
+      fields:
+      - title: Title
+        value: 
+        type: 0
+      - title: Actor
+        value: 1
+        type: 5
+      - title: Conversant
+        value: 6
+        type: 5
+      - title: Menu Text
+        value: Nothing to send
+        type: 0
+      - title: Dialogue Text
+        value: 
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 16
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: 
+  - id: 17
+    fields:
+    - title: Title
+      value: CR to LO
+      type: 0
+    - title: Description
+      value: 
+      type: 0
+    - title: Actor
+      value: 6
+      type: 5
+    - title: Conversant
+      value: 1
+      type: 5
+    nodeColor: Red
+    dialogueEntries:
+    - id: 0
+      fields:
+      - title: Title
+        value: START
+        type: 0
+      - title: Actor
+        value: 6
+        type: 5
+      - title: Conversant
+        value: 1
+        type: 5
+      - title: Menu Text
+        value: 
+        type: 0
+      - title: Dialogue Text
+        value: 
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: None()
+        type: 0
+      conversationID: 17
+      isRoot: 1
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 17
+        originDialogueID: 0
+        destinationConversationID: 17
+        destinationDialogueID: 2
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+    - id: 2
+      fields:
+      - title: Title
+        value: 
+        type: 0
+      - title: Actor
+        value: 1
+        type: 5
+      - title: Conversant
+        value: 6
+        type: 5
+      - title: Menu Text
+        value: Nothing to send
+        type: 0
+      - title: Dialogue Text
+        value: 
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 17
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: 
+  - id: 18
+    fields:
+    - title: Title
+      value: CR to LM
+      type: 0
+    - title: Description
+      value: 
+      type: 0
+    - title: Actor
+      value: 6
+      type: 5
+    - title: Conversant
+      value: 1
+      type: 5
+    nodeColor: Red
+    dialogueEntries:
+    - id: 0
+      fields:
+      - title: Title
+        value: START
+        type: 0
+      - title: Actor
+        value: 6
+        type: 5
+      - title: Conversant
+        value: 1
+        type: 5
+      - title: Menu Text
+        value: 
+        type: 0
+      - title: Dialogue Text
+        value: 
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: None()
+        type: 0
+      conversationID: 18
+      isRoot: 1
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 18
+        originDialogueID: 0
+        destinationConversationID: 18
+        destinationDialogueID: 2
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+    - id: 2
+      fields:
+      - title: Title
+        value: 
+        type: 0
+      - title: Actor
+        value: 1
+        type: 5
+      - title: Conversant
+        value: 6
+        type: 5
+      - title: Menu Text
+        value: Nothing to send
+        type: 0
+      - title: Dialogue Text
+        value: 
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 18
       isRoot: 0
       isGroup: 0
       nodeColor: White
