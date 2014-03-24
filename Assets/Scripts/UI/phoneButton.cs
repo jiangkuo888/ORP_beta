@@ -237,6 +237,9 @@ public class phoneButton : MonoBehaviour {
 			GameObject.Find("phoneSmallButton3").GetComponent<phoneShowPlayerButton>().conversation = "SM to CR";
 			GameObject.Find("EmailIcon").GetComponent<phoneShowInbox>().conversation = "SM Inbox";
 
+
+
+
 			break;
 		case "LPU Manager":
 			GameObject.Find("phoneSmallButton1").GetComponent<phoneShowPlayerButton>().targetPlayer = "LPU Officer";
@@ -272,6 +275,11 @@ public class phoneButton : MonoBehaviour {
 			break;
 
 		}
+
+
+		GameObject.Find ("phoneSmallButton1").GetComponent<phoneShowPlayerButton>().updateNormal();
+		GameObject.Find ("phoneSmallButton2").GetComponent<phoneShowPlayerButton>().updateNormal();
+		GameObject.Find ("phoneSmallButton3").GetComponent<phoneShowPlayerButton>().updateNormal();
 
 
 
