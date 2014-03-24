@@ -108,16 +108,16 @@ public class phoneButton : MonoBehaviour {
 	}
 	void blinking(){
 
-
-
-		if(count%50<25)
-		{
 		myGUITexture.texture = isOnCall;
+
+		if(count%40<20)
+		{
+			myGUITexture.pixelInset = new Rect(myGUITexture.pixelInset.x+myGUITexture.pixelInset.width*0.02f/2,myGUITexture.pixelInset.y+myGUITexture.pixelInset.height*0.02f/2,myGUITexture.pixelInset.width*0.98f,myGUITexture.pixelInset.height*0.98f);
 
 		}
 		else{
 
-			myGUITexture.texture = normal;
+			myGUITexture.pixelInset = new Rect(myGUITexture.pixelInset.x-myGUITexture.pixelInset.width*0.02f/2,myGUITexture.pixelInset.y-myGUITexture.pixelInset.height*0.02f/2,myGUITexture.pixelInset.width/0.98f,myGUITexture.pixelInset.height/0.98f);
 		}
 
 		count++;
