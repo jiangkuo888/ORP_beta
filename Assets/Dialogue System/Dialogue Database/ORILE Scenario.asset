@@ -2052,7 +2052,8 @@ MonoBehaviour:
         destinationDialogueID: 5
         isConnector: 0
         priority: 2
-      conditionsString: Dialog[2].SimStatus ~= "WasDisplayed"
+      conditionsString: Dialog[2].SimStatus ~= "WasDisplayed" or Dialog[4].SimStatus
+        ~= "WasDisplayed"
       userScript: 
     - id: 3
       fields:
@@ -2077,7 +2078,7 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Sequence
-        value: 
+        value: Log(5B, Did not Handle Panicked Customer well)
         type: 0
       conversationID: 24
       isRoot: 0
@@ -2087,8 +2088,8 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks: []
-      conditionsString: 
-      userScript: 
+      conditionsString: Dialog[3].SimStatus ~= "WasDisplayed"
+      userScript: Item["Escort_Trapped_Customer"].State = "failure"
     - id: 4
       fields:
       - title: Title
@@ -2128,7 +2129,8 @@ MonoBehaviour:
         destinationDialogueID: 6
         isConnector: 0
         priority: 2
-      conditionsString: Dialog[4].SimStatus ~= "WasDisplayed"
+      conditionsString: Dialog[2].SimStatus ~= "WasDisplayed" or Dialog[4].SimStatus
+        ~= "WasDisplayed"
       userScript: 
     - id: 5
       fields:
@@ -2151,7 +2153,7 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Sequence
-        value: 
+        value: Log(5A, Handle Panicked Customer well)
         type: 0
       conversationID: 24
       isRoot: 0
@@ -2184,7 +2186,7 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Sequence
-        value: 
+        value: Log(5B, Did not Handle Panicked Customer well)
         type: 0
       conversationID: 24
       isRoot: 0

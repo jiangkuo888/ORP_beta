@@ -2157,7 +2157,7 @@
             <OutgoingLinks>
               <Link OriginConvoID="8" DestinationConvoID="8" OriginDialogID="2" DestinationDialogID="5" IsConnector="false" />
             </OutgoingLinks>
-            <ConditionsString>Dialog[2].SimStatus ~= "WasDisplayed"</ConditionsString>
+            <ConditionsString>Dialog[2].SimStatus ~= "WasDisplayed" or Dialog[4].SimStatus ~= "WasDisplayed"</ConditionsString>
             <UserScript />
           </DialogEntry>
           <DialogEntry ID="3" IsRoot="false" IsGroup="false" NodeColor="White" DelaySimStatus="false" FalseCondtionAction="Block" ConditionPriority="Normal">
@@ -2189,14 +2189,14 @@
               </Field>
               <Field Hint="Dialogue System for Unity cutscene sequence" Type="Text">
                 <Title>Sequence</Title>
-                <Value />
+                <Value>Log(5B, Did not Handle Panicked Customer well)</Value>
               </Field>
             </Fields>
             <ReviewerNotes />
             <ReviewerStatus>None</ReviewerStatus>
             <OutgoingLinks />
-            <ConditionsString />
-            <UserScript />
+            <ConditionsString>Dialog[3].SimStatus ~= "WasDisplayed"</ConditionsString>
+            <UserScript>Item["Escort_Trapped_Customer"].State = "failure"</UserScript>
           </DialogEntry>
           <DialogEntry ID="4" IsRoot="false" IsGroup="false" NodeColor="White" DelaySimStatus="false" FalseCondtionAction="Block" ConditionPriority="Normal">
             <Fields>
@@ -2235,7 +2235,7 @@
             <OutgoingLinks>
               <Link OriginConvoID="8" DestinationConvoID="8" OriginDialogID="4" DestinationDialogID="6" IsConnector="false" />
             </OutgoingLinks>
-            <ConditionsString>Dialog[4].SimStatus ~= "WasDisplayed"</ConditionsString>
+            <ConditionsString>Dialog[2].SimStatus ~= "WasDisplayed" or Dialog[4].SimStatus ~= "WasDisplayed"</ConditionsString>
             <UserScript />
           </DialogEntry>
           <DialogEntry ID="5" IsRoot="false" IsGroup="false" NodeColor="White" DelaySimStatus="false" FalseCondtionAction="Block" ConditionPriority="Normal">
@@ -2266,7 +2266,7 @@
               </Field>
               <Field Hint="Dialogue System for Unity cutscene sequence" Type="Text">
                 <Title>Sequence</Title>
-                <Value />
+                <Value>Log(5A, Handle Panicked Customer well)</Value>
               </Field>
             </Fields>
             <ReviewerNotes />
@@ -2303,7 +2303,7 @@
               </Field>
               <Field Hint="Dialogue System for Unity cutscene sequence" Type="Text">
                 <Title>Sequence</Title>
-                <Value />
+                <Value>Log(5B, Did not Handle Panicked Customer well)</Value>
               </Field>
             </Fields>
             <ReviewerNotes />
