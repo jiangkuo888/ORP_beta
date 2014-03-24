@@ -180,8 +180,8 @@ public sealed class EZReplayManager : MonoBehaviour {
 				foreach (KeyValuePair<int,SavedState> yong in yang.Value.savedStates)
 				{
 
-					Debug.Log(yong.Key);
-					Debug.Log(yong.Value.isMainCameraChild);
+					//Debug.Log(yong.Key);
+					//Debug.Log(yong.Value.isMainCameraChild);
 					
 				}
 			}
@@ -235,7 +235,7 @@ public sealed class EZReplayManager : MonoBehaviour {
 			if (entry.isParent()) {
 				entry.prepareObjectForReplay();
 				GameObject goClone = entry.getGameObjectClone();
-				Debug.Log(goClone.name);
+				//Debug.Log(goClone.name);
 				gOs2propMappings.Add(goClone,entry);
 				
 
@@ -247,8 +247,8 @@ public sealed class EZReplayManager : MonoBehaviour {
 				foreach(KeyValuePair<int,SavedState> stateEntry in entry.savedStates) {
 					//if (!stateEntry.Value.isMainCameraChild)
 					//{
-						Debug.Log(stateEntry.Key);
-						Debug.Log(stateEntry.Value.isMainCameraChild);
+						//Debug.Log(stateEntry.Key);
+						//Debug.Log(stateEntry.Value.isMainCameraChild);
 					//}
 					if (stateEntry.Key > maxPositions)
 						maxPositions = stateEntry.Key;
@@ -264,7 +264,7 @@ public sealed class EZReplayManager : MonoBehaviour {
 			if (!entry.isParent()) {
 				entry.prepareObjectForReplay();
 				GameObject goClone = entry.getGameObjectClone();
-				Debug.Log(goClone.name);
+				//Debug.Log(goClone.name);
 				gOs2propMappings.Add(goClone,entry);
 
 				/*******************************************************************************
@@ -275,8 +275,8 @@ public sealed class EZReplayManager : MonoBehaviour {
 				foreach(KeyValuePair<int,SavedState> stateEntry in entry.savedStates) {
 					//if (!stateEntry.Value.isMainCameraChild)
 					//{
-						Debug.Log(stateEntry.Key);
-						Debug.Log(stateEntry.Value.isMainCameraChild);
+						//Debug.Log(stateEntry.Key);
+						//Debug.Log(stateEntry.Value.isMainCameraChild);
 					//}
 					
 					if (stateEntry.Key > maxPositions)
