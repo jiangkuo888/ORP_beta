@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
+using PixelCrushers.DialogueSystem;
+using PixelCrushers.DialogueSystem.SequencerCommands;
 
 public class NPCsync: MonoBehaviour {
 
@@ -46,6 +48,19 @@ public class NPCsync: MonoBehaviour {
 	}
 
 
+	public void safeOtherUnlockRPC(){
+		print (" me unlocked, tell others");
+
+
+
+		PhotonView photonView = this.gameObject.GetPhotonView ();
+		photonView.RPC ("OtherUnlockRPC",PhotonTargets.OthersBuffered);
+
+
+	}
+
+
+
 	[RPC]
 	void syncNPCstate(string myEvent){
 
@@ -84,6 +99,13 @@ public class NPCsync: MonoBehaviour {
 		}
 		
 		
+	}
+
+	[RPC]
+	public void OtherUnlockRPC()
+	{
+		DialogueLua.SetVariable("OtherUnlocked",true);
+
 	}
 
 }

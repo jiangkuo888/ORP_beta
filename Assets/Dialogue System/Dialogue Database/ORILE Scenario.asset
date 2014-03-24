@@ -348,6 +348,21 @@ MonoBehaviour:
       value: False
       type: 2
     portrait: {fileID: 0}
+  - id: 26
+    fields:
+    - title: Name
+      value: Keybox
+      type: 0
+    - title: Pictures
+      value: '[]'
+      type: 3
+    - title: Description
+      value: 
+      type: 0
+    - title: IsPlayer
+      value: False
+      type: 2
+    portrait: {fileID: 0}
   items:
   - id: 10
     fields:
@@ -592,7 +607,29 @@ MonoBehaviour:
   - id: 5
     fields:
     - title: Name
-      value: belongToYou
+      value: HasKey
+      type: 0
+    - title: Initial Value
+      value: True
+      type: 2
+    - title: Description
+      value: 
+      type: 0
+  - id: 6
+    fields:
+    - title: Name
+      value: MeUnlocked
+      type: 0
+    - title: Initial Value
+      value: False
+      type: 2
+    - title: Description
+      value: 
+      type: 0
+  - id: 7
+    fields:
+    - title: Name
+      value: OtherUnlocked
       type: 0
     - title: Initial Value
       value: False
@@ -3911,8 +3948,32 @@ MonoBehaviour:
       delaySimStatus: 0
       falseConditionAction: Block
       conditionPriority: 2
-      outgoingLinks: []
-      conditionsString: Variable["Has_Document"] ~= true;
+      outgoingLinks:
+      - originConversationID: 18
+        originDialogueID: 1
+        destinationConversationID: 18
+        destinationDialogueID: 4
+        isConnector: 0
+        priority: 2
+      - originConversationID: 18
+        originDialogueID: 1
+        destinationConversationID: 18
+        destinationDialogueID: 5
+        isConnector: 0
+        priority: 2
+      - originConversationID: 18
+        originDialogueID: 1
+        destinationConversationID: 18
+        destinationDialogueID: 6
+        isConnector: 0
+        priority: 2
+      - originConversationID: 18
+        originDialogueID: 1
+        destinationConversationID: 18
+        destinationDialogueID: 7
+        isConnector: 0
+        priority: 2
+      conditionsString: 
       userScript: 
     - id: 2
       fields:
@@ -3945,7 +4006,8 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks: []
-      conditionsString: Variable["Has_Document"] == true;
+      conditionsString: Variable["Has_Document"] == true and Variable["MeUnlocked"]
+        == true and Variable["OtherUnlocked"] == true;
       userScript: 
     - id: 3
       fields:
@@ -3979,6 +4041,162 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
+      userScript: 
+    - id: 4
+      fields:
+      - title: Title
+        value: 
+        type: 0
+      - title: Actor
+        value: 1
+        type: 5
+      - title: Conversant
+        value: 24
+        type: 5
+      - title: Menu Text
+        value: Unlock
+        type: 0
+      - title: Dialogue Text
+        value: 
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: OtherUnlock();
+        type: 0
+      conversationID: 18
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 18
+        originDialogueID: 4
+        destinationConversationID: 18
+        destinationDialogueID: 2
+        isConnector: 1
+        priority: 2
+      - originConversationID: 18
+        originDialogueID: 4
+        destinationConversationID: 18
+        destinationDialogueID: 1
+        isConnector: 1
+        priority: 2
+      - originConversationID: 18
+        originDialogueID: 4
+        destinationConversationID: 18
+        destinationDialogueID: 3
+        isConnector: 1
+        priority: 2
+      conditionsString: Variable["MeUnlocked"] == false and Variable["HasKey"] ==
+        false;
+      userScript: Variable["MeUnlocked"] = true;
+    - id: 5
+      fields:
+      - title: Title
+        value: 
+        type: 0
+      - title: Actor
+        value: 24
+        type: 5
+      - title: Conversant
+        value: 1
+        type: 5
+      - title: Menu Text
+        value: 'Waiting '
+        type: 0
+      - title: Dialogue Text
+        value: 'Waiting for another key holder to unlock.
+
+'
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 18
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: Variable["OtherUnlocked"] == false and Variable["MeUnlocked"]
+        == true;
+      userScript: 
+    - id: 6
+      fields:
+      - title: Title
+        value: Unlocked
+        type: 0
+      - title: Actor
+        value: 24
+        type: 5
+      - title: Conversant
+        value: 1
+        type: 5
+      - title: Menu Text
+        value: 
+        type: 0
+      - title: Dialogue Text
+        value: The safe is unlocked, you can drop item inside.
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 18
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: Variable["MeUnlocked"] == true and Variable["OtherUnlocked"]
+        == true;
+      userScript: 
+    - id: 7
+      fields:
+      - title: Title
+        value: locked
+        type: 0
+      - title: Actor
+        value: 24
+        type: 5
+      - title: Conversant
+        value: 1
+        type: 5
+      - title: Menu Text
+        value: 
+        type: 0
+      - title: Dialogue Text
+        value: The safe is locked. It needs both LM and CR to unlock.
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 18
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: Variable["MeUnlocked"] == false and Variable["OtherUnlocked"]
+        == false and Variable["HasKey"] == true;
       userScript: 
   - id: 19
     fields:
@@ -4469,6 +4687,172 @@ MonoBehaviour:
         value: 
         type: 0
       conversationID: 21
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: 
+  - id: 22
+    fields:
+    - title: Title
+      value: Keybox Options
+      type: 0
+    - title: Description
+      value: 
+      type: 0
+    - title: Actor
+      value: 26
+      type: 5
+    - title: Conversant
+      value: 1
+      type: 5
+    nodeColor: Red
+    dialogueEntries:
+    - id: 0
+      fields:
+      - title: Title
+        value: START
+        type: 0
+      - title: Actor
+        value: 26
+        type: 5
+      - title: Conversant
+        value: 1
+        type: 5
+      - title: Menu Text
+        value: 
+        type: 0
+      - title: Dialogue Text
+        value: 
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: None()
+        type: 0
+      conversationID: 22
+      isRoot: 1
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 22
+        originDialogueID: 0
+        destinationConversationID: 22
+        destinationDialogueID: 1
+        isConnector: 0
+        priority: 2
+      - originConversationID: 22
+        originDialogueID: 0
+        destinationConversationID: 22
+        destinationDialogueID: 2
+        isConnector: 0
+        priority: 2
+      - originConversationID: 22
+        originDialogueID: 0
+        destinationConversationID: 22
+        destinationDialogueID: 3
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+    - id: 1
+      fields:
+      - title: Title
+        value: 
+        type: 0
+      - title: Actor
+        value: 1
+        type: 5
+      - title: Conversant
+        value: 26
+        type: 5
+      - title: Menu Text
+        value: Check
+        type: 0
+      - title: Dialogue Text
+        value: 
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 22
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 'Variable["HasKey"] == false '
+      userScript: 
+    - id: 2
+      fields:
+      - title: Title
+        value: 
+        type: 0
+      - title: Actor
+        value: 1
+        type: 5
+      - title: Conversant
+        value: 26
+        type: 5
+      - title: Menu Text
+        value: Pick up
+        type: 0
+      - title: Dialogue Text
+        value: 
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: Pick(key);
+        type: 0
+      conversationID: 22
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 'Variable["HasKey"] == true '
+      userScript: 
+    - id: 3
+      fields:
+      - title: Title
+        value: 
+        type: 0
+      - title: Actor
+        value: 1
+        type: 5
+      - title: Conversant
+        value: 26
+        type: 5
+      - title: Menu Text
+        value: Leave
+        type: 0
+      - title: Dialogue Text
+        value: 
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 22
       isRoot: 0
       isGroup: 0
       nodeColor: White

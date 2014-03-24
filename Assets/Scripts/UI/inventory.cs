@@ -140,7 +140,7 @@ public class inventory : MonoBehaviour {
 		if(inventoryObject != null)
 		{
 			if(!inventoryObjectTexture){
-				Debug.LogError("Assign a Texture in the inspector.");
+					Debug.LogError("Assign a Texture in the inspector.");
 				return;
 			}
 			
