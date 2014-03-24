@@ -5,7 +5,8 @@ using PixelCrushers.DialogueSystem;
 
 
 public class phoneShowNPCButton : MonoBehaviour {
-	
+	public GUISkin customSkin;
+
 	public float x_offset;
 	public float y_offset;
 	
@@ -41,22 +42,31 @@ public class phoneShowNPCButton : MonoBehaviour {
 	}
 	
 	void OnGUI(){
+		//Add GUISkin
+		GUI.skin = customSkin;
 		if(ListOn)
 		{
-			scrollPosition = GUI.BeginScrollView(new Rect(.1f * w, .5f * h, 120, .3f * h), scrollPosition, new Rect(0, 0, 100, dialogueDisplayText.Length*80f));
+			scrollPosition = GUI.BeginScrollView(new Rect(.1f * w, .5f * h, 220, .3f * h), scrollPosition, new Rect(0, 0, 200, dialogueDisplayText.Length*80f));
 			
 			GUI.DrawTexture (new Rect(0, 0, 110, 2000), null);
 			
 			
 			for (int i = 0; i < dialogueDisplayText.Length; i++) {
-				if(GUI.Button (new Rect (0, 80*i, 100, 60), dialogueDisplayText[i]))
+				if(GUI.Button (new Rect (0, 80*i, 200, 60), dialogueDisplayText[i]))
 				{
 					
 					if(dialogueNames[i] !=null)
 					{
-						PhotonView phoneView = this.gameObject.GetPhotonView();
+						GameObject.Find ("Dialogue Manager").GetComponent<DialogueSystemController>().StartConversation(dialogueNames[i],GameObject.Find (PhotonNetwork.playerName).transform,GameObject.Find (PhotonNetwork.playerName).transform);
 						
-						phoneView.RPC ("talkTo",PhotonTargets.OthersBuffered,dialogueNames[i],targetPlayer);
+						//print ("111");
+						
+						
+						GameObject.Find ("phoneSmallButton1").GetComponent<GUITexture>().enabled = false;
+						GameObject.Find ("phoneSmallButton2").GetComponent<GUITexture>().enabled = false;
+						GameObject.Find ("phoneSmallButton3").GetComponent<GUITexture>().enabled = false;
+						GameObject.Find ("phoneSmallButton4").GetComponent<GUITexture>().enabled = false;
+						ListOn = false;
 					}
 					
 					
@@ -154,25 +164,6 @@ public class phoneShowNPCButton : MonoBehaviour {
 	
 	
 	
-	
-	[RPC]
-	void talkTo(string dialogueName,string targetPlayerName)
-	{
-		if(PhotonNetwork.playerName == targetPlayerName)
-		{
-			GameObject.Find ("Dialogue Manager").GetComponent<DialogueSystemController>().StartConversation(dialogueName,GameObject.Find (PhotonNetwork.playerName).transform,GameObject.Find (PhotonNetwork.playerName).transform);
-			
-			//print ("111");
-			
-			
-			GameObject.Find ("phoneSmallButton1").GetComponent<GUITexture>().enabled = false;
-			GameObject.Find ("phoneSmallButton2").GetComponent<GUITexture>().enabled = false;
-			GameObject.Find ("phoneSmallButton3").GetComponent<GUITexture>().enabled = false;
-			GameObject.Find ("phoneSmallButton4").GetComponent<GUITexture>().enabled = false;
-			ListOn = false;
-		}
-		// disable list
-	}
 
 
 //	public void addDialogue(string dialogueName, string dialogueButtonText){
