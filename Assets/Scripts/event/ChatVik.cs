@@ -11,7 +11,7 @@ public class ChatVik : Photon.MonoBehaviour
     public static ChatVik SP;
     public List<string> messages = new List<string>();
 
-    private int chatHeight = (int)140;
+    private int chatHeight = (int)200;
     private Vector2 scrollPos = Vector2.zero;
     private string chatInput = "";
     private float lastUnfocusTime = 0;
@@ -25,7 +25,7 @@ public class ChatVik : Photon.MonoBehaviour
     {        
         GUI.SetNextControlName("");
 
-        GUILayout.BeginArea(new Rect(0, Screen.height - chatHeight, Screen.width, chatHeight));
+		GUILayout.BeginArea(new Rect(250, Screen.height - chatHeight, Screen.width, chatHeight));
         
         //Show scroll list of chat messages
         scrollPos = GUILayout.BeginScrollView(scrollPos);
@@ -40,7 +40,7 @@ public class ChatVik : Photon.MonoBehaviour
         //Chat input
         GUILayout.BeginHorizontal(); 
         GUI.SetNextControlName("ChatField");
-    chatInput = GUILayout.TextField(chatInput, GUILayout.MinWidth(200));
+    chatInput = GUILayout.TextField(chatInput, GUILayout.MinWidth(500));
        
         if (Event.current.type == EventType.keyDown && Event.current.character == '\n'){
             if (GUI.GetNameOfFocusedControl() == "ChatField")

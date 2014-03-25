@@ -547,6 +547,26 @@ MonoBehaviour:
     - title: Is Item
       value: False
       type: 2
+  - id: 19
+    fields:
+    - title: Name
+      value: Evacuate Now
+      type: 0
+    - title: Description
+      value: 'Time to evacuate everyone to the roof. '
+      type: 0
+    - title: Success Description
+      value: 
+      type: 0
+    - title: Failure Description
+      value: 
+      type: 0
+    - title: State
+      value: unassigned
+      type: 0
+    - title: Is Item
+      value: False
+      type: 2
   locations:
   - id: 1
     fields:
@@ -2030,7 +2050,9 @@ MonoBehaviour:
         value: Calm down
         type: 0
       - title: Dialogue Text
-        value: Calm down Mdm move to the exit.
+        value: 'Calm down Mdm. Please proceed to the fire exit and move up to the
+          12th Floor where our Loan Processing Unit is located. The staff there will
+          take care of you. '
         type: 4
       - title: Video File
         value: 
@@ -2105,7 +2127,7 @@ MonoBehaviour:
         value: Shout
         type: 0
       - title: Dialogue Text
-        value: Mdm, You have to Hurry Up to the exit!
+        value: Mdm, You have to Hurry Up to the fire exit now!
         type: 4
       - title: Video File
         value: 
@@ -2939,7 +2961,7 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Dialogue Text
-        value: 'This is not what I am looking for. '
+        value: "This is not what I am looking for.  Sorry but i have to go now. \n"
         type: 4
       - title: Video File
         value: 
@@ -2972,7 +2994,7 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Dialogue Text
-        value: I am looking for unsecured loan.
+        value: I am looking for some personal loans.
         type: 4
       - title: Video File
         value: 
@@ -3014,10 +3036,12 @@ MonoBehaviour:
         value: 18
         type: 5
       - title: Menu Text
-        value: House Loan 1 Pitch
+        value: Unsecured Loan Pitch
         type: 0
       - title: Dialogue Text
-        value: 'May I recommend this loan. '
+        value: 'Are you looking for a personal loan? If yes then I would recommend
+          this Unsecured Loan package that our ORP bank is currently offering.  We
+          offer premium interest rates that you will enjoy. '
         type: 4
       - title: Video File
         value: 
@@ -3053,10 +3077,11 @@ MonoBehaviour:
         value: 18
         type: 5
       - title: Menu Text
-        value: House loan 2 pitch
+        value: Secured Loan Pitch
         type: 0
       - title: Dialogue Text
-        value: Let me recommend you this loan.
+        value: 'Are you looking for a house loan? If yes then I would recommend this
+          Secured Loan package that our ORP bank is currently offering. '
         type: 4
       - title: Video File
         value: 
@@ -3129,7 +3154,7 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Dialogue Text
-        value: This is not ideal for me. Do you have any other offer?
+        value: 'This is not what I am looking for. I want to get a personal loan. '
         type: 4
       - title: Video File
         value: 
@@ -3542,7 +3567,7 @@ MonoBehaviour:
     - id: 5
       fields:
       - title: Title
-        value: New Dialogue
+        value: Wait for Instructions
         type: 0
       - title: Actor
         value: 1
@@ -3573,11 +3598,11 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
-      userScript: 
+      userScript: Item["Evacuate_Now"].State = "success"
     - id: 6
       fields:
       - title: Title
-        value: New Dialogue
+        value: Don't wait
         type: 0
       - title: Actor
         value: 1
@@ -3606,7 +3631,7 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
-      userScript: 
+      userScript: Item["Evacuate_Now"].State = "failure"
   - id: 29
     fields:
     - title: Title

@@ -311,7 +311,7 @@ public class GameManagerVik : Photon.MonoBehaviour {
 		GameObject.Find ("phoneButton").GetComponent<GUITexture>().enabled = true;
 		GameObject.Find ("InventoryContainer").GetComponent<GUITexture>().enabled = true;
 		GameObject.Find ("InventoryButton1").GetComponent<GUITexture>().enabled = true;
-		GameObject.Find ("InventoryButton2").GetComponent<GUITexture>().enabled = true;
+		GameObject.Find ("InventoryButton2").GetComponent<GUITexture>().enabled = false;
 
 
 		// instantiate prefab based on the name
