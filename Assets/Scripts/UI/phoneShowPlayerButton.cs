@@ -16,7 +16,21 @@ public class phoneShowPlayerButton : MonoBehaviour {
 	public Texture hover;
 	public Texture down;
 	
-	
+	public Texture SM;
+	public Texture SM_hover;
+	public Texture SM_down;
+
+	public Texture LO;
+	public Texture LO_hover;
+	public Texture LO_down;
+
+	public Texture LM;
+	public Texture LM_hover;
+	public Texture LM_down;
+
+	public Texture CR;
+	public Texture CR_hover;
+	public Texture CR_down;
 	
 	public string targetPlayer;
 	public string conversation;
@@ -29,11 +43,17 @@ public class phoneShowPlayerButton : MonoBehaviour {
 		w = Screen.width;
 		h = Screen.height;
 		ListOn = false;
-		this.gameObject.GetComponent<GUITexture>().texture = normal;
+
+
+
+	
+
+
+
 		
 		
 		myGUITexture = this.gameObject.GetComponent("GUITexture") as GUITexture;
-		
+
 		
 	}
 	
@@ -42,6 +62,10 @@ public class phoneShowPlayerButton : MonoBehaviour {
 	// Use this for initialization
 	void Start()
 	{
+
+
+
+		myGUITexture.texture = normal;
 		// Position the billboard in the center, 
 		// but respect the picture aspect ratio
 		float textureHeight = myGUITexture.texture.height;
@@ -119,9 +143,46 @@ public class phoneShowPlayerButton : MonoBehaviour {
 		GameObject.Find("Dialogue Manager").GetComponent<DialogueSystemController>().StartConversation(conversation,GameObject.Find (PhotonNetwork.playerName).transform);
 		}
 	}
-	
 
-	
+
+	void Update(){
+
+
+	}
+
+	public void updateNormal(){
+
+		switch(targetPlayer)
+		{
+		case "Sales Manager":
+			normal = SM;
+			hover = SM_hover;
+			down = SM_down;
+			myGUITexture.texture = normal;
+			break;
+		case "LPU Officer":
+			normal = LO;
+			hover = LO_hover;
+			down = LO_down;
+			myGUITexture.texture = normal;
+			break;
+		case "LPU Manager":
+			normal = LM;
+			hover = LM_hover;
+			down = LM_down;
+			myGUITexture.texture = normal;
+			break;
+		case "Credit Risk":
+			normal = CR;
+			hover = CR_hover;
+			down = CR_down;
+			myGUITexture.texture = normal;
+			break;
+		default:
+			break;
+			
+		}
+	}
 	
 	
 	
