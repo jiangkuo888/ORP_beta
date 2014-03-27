@@ -85,7 +85,7 @@ public class DeskMode : MonoBehaviour {
 		{
 
 
-
+			GUI.Label(new Rect(w/2 - 100f, .4f*h - 100f, 200f, 30f ), this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].gameObject.name);
 
 			//nofunction added
 			if(GUI.Button( new LTRect(w/2 - 50f, .9f*h - 100f, 100f, 30f ).rect,"Send",customSkin.button))
@@ -196,7 +196,7 @@ public class DeskMode : MonoBehaviour {
 			{
 				
 				
-				
+
 				
 				int documentIndex = this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents.Length;
 				
@@ -213,7 +213,12 @@ public class DeskMode : MonoBehaviour {
 					}
 					// add viewer for next obj
 					currentDocumentIndex++;
+
+					print (currentDocumentIndex);
+
+
 					Transform nextTr = this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].transform;
+					if(nextTr.gameObject.GetComponent<ObjectViewer>() ==null)
 					nextTr.gameObject.AddComponent<ObjectViewer>();
 					
 					// calculate the next obj mid point
@@ -239,7 +244,7 @@ public class DeskMode : MonoBehaviour {
 				
 				
 				
-				
+
 				
 				
 				if(currentDocumentIndex>1)
@@ -252,7 +257,12 @@ public class DeskMode : MonoBehaviour {
 					}
 					// add viewer for next obj
 					currentDocumentIndex--;
+
+
+//					print (currentDocumentIndex);
+
 					Transform nextTr = this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].transform;
+					if(nextTr.gameObject.GetComponent<ObjectViewer>() ==null)
 					nextTr.gameObject.AddComponent<ObjectViewer>();
 					
 					// calculate the next obj mid point
@@ -342,7 +352,7 @@ public class DeskMode : MonoBehaviour {
 
 
 
-			if(GUI.Button( new LTRect(w - 200f, .9f*h - 50f, 100f, 50f ).rect, "Next Page",customSkin.button))
+			if(GUI.Button( new LTRect(w/2 - 200f, .9f*h - 50f, 100f, 50f ).rect, "Next Page",customSkin.button))
 			{
 				this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].GetComponent<pageData>().showNextPage();
 			}
@@ -466,7 +476,7 @@ public class DeskMode : MonoBehaviour {
 			GameObject.Find ("PCscreen").GetComponent<pcMode>().enabled = true;
 		
 		mode = DeskModeSubMode.PCMode;
-		GameObject.Find("PCscreen").GetComponent<pcMode>().InfoModeIsOn = false;
+		GameObject.Find("PCscreen").GetComponent<pcMode>().scrollPosition = Vector2.zero;
 
 	}
 	
@@ -515,21 +525,51 @@ public class DeskMode : MonoBehaviour {
 		// document sender action
 		if(PhotonNetwork.playerName == sender)
 		{
-			
+
+
+
 			GameObject document = this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1];
 			this.transform.Find ("DocumentHolder").GetComponent<documentData>().removeDocument(document);
 			// move the document out of the table
+
+			//update new original position
+			this.transform.Find ("DocumentHolder").GetComponent<documentData>().updateNewPosition();
+
 			document.transform.parent = GameObject.Find ("AllDocuments").transform;
 			document.transform.localPosition = new Vector3(0,0,0);
 			// move the first document position to next document
-			
+
+
 			if(this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents.Length >0)
+			{
+				if(currentDocumentIndex>1)
+					currentDocumentIndex = currentDocumentIndex -1;
+				else 
+					currentDocumentIndex = 1;
+
+
+				// put the first document in the list in the first
 				GameObject.Find ("documentHidden").transform.position = this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[0].transform.position;
-			
-			
+				//this.transform.Find ("DocumentHolder").GetComponent<documentData>().arrangeDocuments();
+
+				Transform nextTr = this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].transform;
+				if(nextTr.gameObject.GetComponent<ObjectViewer>() ==null)
+					nextTr.gameObject.AddComponent<ObjectViewer>();
+				
+				// calculate the next obj mid point
+				float midX = (nextTr.renderer.bounds.max.x + nextTr.renderer.bounds.min.x)/2;
+				float midY = (nextTr.renderer.bounds.max.y + nextTr.renderer.bounds.min.y)/2;
+				float midZ = (nextTr.renderer.bounds.max.z + nextTr.renderer.bounds.min.z)/2;
+				
+				LeanTween.move(Camera.main.gameObject,new Vector3(midX,midY+cameraOffset,midZ),.6f).setEase(LeanTweenType.easeOutQuint);
+				
+				//Camera.main.gameObject.transform.position = new Vector3(midX,midY+cameraOffset,midZ);
+				
+				LeanTween.move(highlight.gameObject,new Vector3(midX,midY+lightOffset,midZ),.6f).setEase(LeanTweenType.easeOutQuint);
+			}
 			// quit the deskMode
-			mode = DeskModeSubMode.None;
-			moveCameraToDesk();
+			//mode = DeskModeSubMode.None;
+			//moveCameraToDesk();
 		}
 	}
 	
