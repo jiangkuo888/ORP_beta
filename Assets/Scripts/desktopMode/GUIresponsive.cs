@@ -56,7 +56,7 @@ public class GUIresponsive : MonoBehaviour {
 		
 	}
 	
-	void updateRedDot(){
+	public void updateRedDot(){
 
 		if(GameObject.Find ("phoneButton").GetComponent<phoneButton>().smallButtonOn == true)
 			redDotMoveUp();
@@ -116,8 +116,8 @@ public class GUIresponsive : MonoBehaviour {
 	public void addRedDot(){
 
 		// updateRedDot position
-		updateRedDot();
 
+		updateRedDot();
 		unreadNumber += 1;
 		this.transform.Find ("unreadNumber").GetComponent<GUIText>().text = unreadNumber.ToString();
 		this.transform.Find ("EmailShortMessage").GetComponent<GUIText>().text = "You have new message.";
@@ -177,7 +177,7 @@ public class GUIresponsive : MonoBehaviour {
 
 
 		GUITexture phoneTexture = GameObject.Find ("phoneButton").GetComponent<GUITexture>().guiTexture;
-		myGUITexture.pixelInset = new Rect(phoneTexture.pixelInset.x+phoneTexture.pixelInset.width,phoneTexture.pixelInset.y+phoneTexture.pixelInset.height,phoneTexture.pixelInset.width/5,phoneTexture.pixelInset.height/5);
+		myGUITexture.pixelInset = new Rect(phoneTexture.pixelInset.x+phoneTexture.pixelInset.width*.6f,phoneTexture.pixelInset.y+phoneTexture.pixelInset.height*.6f,phoneTexture.pixelInset.width/4,phoneTexture.pixelInset.height/4);
 
 
 		this.transform.Find ("unreadNumber").GetComponent<GUIText>().pixelOffset = new Vector2(myGUITexture.pixelInset.x+height/2-.5f,myGUITexture.pixelInset.y+width/2-.5f);
