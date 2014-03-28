@@ -84,9 +84,9 @@ public class DeskMode : MonoBehaviour {
 		case DeskModeSubMode.FileMode:
 		{
 
-
+			if(this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents.Length>0){
 			GUI.Label(new Rect(w/2 - 100f, .4f*h - 100f, 200f, 30f ), this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].gameObject.name);
-
+			}
 			//nofunction added
 			if(GUI.Button( new LTRect(w/2 - 50f, .9f*h - 100f, 100f, 30f ).rect,"Send",customSkin.button))
 			{
