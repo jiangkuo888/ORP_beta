@@ -81,6 +81,7 @@ public class NPCsync: MonoBehaviour {
 			print ("RPC received "+sender+receiver+message);
 			// show inbox red dot
 			GameObject.Find ("RedDot").GetComponent<GUIresponsive>().addRedDot();
+
 			
 			// set conversation number
 			GameObject.Find ("EmailIcon").GetComponent<phoneShowInbox>().enableReceiverInboxMessage(message);

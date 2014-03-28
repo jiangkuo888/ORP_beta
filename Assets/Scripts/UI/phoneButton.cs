@@ -20,7 +20,7 @@ public class phoneButton : MonoBehaviour {
 	public Texture isOnCall;
 
 
-	bool smallButtonOn;
+	public bool smallButtonOn;
 	string conversationName;
 	string playerName;
 	int count = 0;

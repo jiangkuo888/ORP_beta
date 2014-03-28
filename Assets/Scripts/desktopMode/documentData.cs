@@ -13,15 +13,7 @@ public class documentData : MonoBehaviour {
 	void Start () {
 
 
-		if(documents.Length != 0)
-			for(int i =0; i < documents.Length; i ++)
-		{
-
-			documents[i].transform.parent = fileModeObj.transform;
-
-
-			documents[i].transform.localPosition = new Vector3(-0.2275543f +i*0.35f,0,-0.03671265f);
-		}
+		arrangeDocuments();
 
 	
 	}
@@ -70,6 +62,33 @@ public class documentData : MonoBehaviour {
 			
 			documents[i].transform.localPosition = new Vector3(-0.2275543f +i*0.35f,0,-0.03671265f);
 		}
+	}
+
+	public void arrangeDocuments(){
+
+		if(documents.Length != 0)
+			for(int i =0; i < documents.Length; i ++)
+		{
+			
+			documents[i].transform.parent = fileModeObj.transform;
+			
+			
+			documents[i].transform.localPosition = new Vector3(-0.2275543f +i*0.35f,0,-0.03671265f);
+		}
+	}
+
+	public void updateNewPosition(){
+		if(documents.Length != 0)
+			for(int i =0; i < documents.Length; i ++)
+		{
+
+			if(documents[i].GetComponent<ObjectViewer>())
+			documents[i].GetComponent<ObjectViewer>().originalPosition = documents[i].transform.position;
+			
+			
+
+		}
+
 	}
 
 

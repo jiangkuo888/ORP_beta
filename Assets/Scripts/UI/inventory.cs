@@ -154,9 +154,9 @@ public class inventory : MonoBehaviour {
 		if(GameObject.Find ("DropArea_"+obj.name))
 		GameObject.Find ("DropArea_"+obj.name).GetComponent<DropAreaController>().AreaActivated = true;
 		inventoryObject = obj;
-		string texture = "Assets/Resources/Textures/"+obj.name+".png";
-		inventoryObjectTexture = (Texture)Resources.LoadAssetAtPath(texture, typeof(Texture));
-
+		//string texture = "Assets/Resources/Textures/"+obj.name+".png";
+		//inventoryObjectTexture = (Texture)Resources.LoadAssetAtPath(texture, typeof(Texture));
+		inventoryObjectTexture = inventoryObject.GetComponent<GUITexture>().texture;
 		float scaledHeight,scaledWidth;
 
 		scaledWidth = w*scaleX;
