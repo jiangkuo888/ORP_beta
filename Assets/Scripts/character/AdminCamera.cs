@@ -5,7 +5,7 @@ using System.Collections.Generic;
 [AddComponentMenu("Camera-Control/Mouse Look")]
 public class AdminCamera : Photon.MonoBehaviour {
 
-	public Vector3 relativePosition = new Vector3(0,1.257728f, 0);
+	public Vector3 relativePosition = new Vector3(0,0, 0);
 	public int currPlayerFollow;
 	public string[] playerNameList = new string[] {"Sales Manager", "LPU Officer", "LPU Manager", "Credit Risk"};
 	public Vector3 lastPos;
@@ -67,7 +67,7 @@ public class AdminCamera : Photon.MonoBehaviour {
 						this.gameObject.transform.position = GameObject.Find(playerNameList[currPlayerFollow]+"(Clone)").transform.position;
 						this.gameObject.transform.position = new Vector3(this.gameObject.transform.position.x, this.gameObject.transform.position.y, this.gameObject.transform.position.z);
 						Vector3 cameraEuler = GameObject.Find(playerNameList[currPlayerFollow]+"(Clone)").GetComponent<ThirdPersonNetworkVik>().cloneCameraRotation;
-						this.gameObject.transform.rotation = Quaternion.Euler(cameraEuler.z, cameraEuler.y, -cameraEuler.x);
+						this.gameObject.transform.rotation = Quaternion.Euler(cameraEuler.x, cameraEuler.y, cameraEuler.z);
 
 						//mainCam.transform.localPosition = relativePosition;
 						//mainCam.transform.localEulerAngles = new Vector3(0, 90, 0);
@@ -94,7 +94,7 @@ public class AdminCamera : Photon.MonoBehaviour {
 				rotationY += Input.GetAxis("Mouse Y") * sensitivityY;
 				rotationY = Mathf.Clamp (rotationY, minimumY, maximumY);
 				
-				transform.localEulerAngles = new Vector3(/*-rotationY*/0, rotationX, rotationY);
+				transform.localEulerAngles = new Vector3(-rotationY, rotationX, /*rotationY*/0);
 				//Debug.Log(transform.right);
 			}
 			else if (axes == RotationAxes.MouseX)
@@ -117,7 +117,7 @@ public class AdminCamera : Photon.MonoBehaviour {
 			this.gameObject.transform.position = GameObject.Find(playerNameList[currPlayerFollow]+"(Clone)").transform.position;
 			this.gameObject.transform.position = new Vector3(this.gameObject.transform.position.x, this.gameObject.transform.position.y, this.gameObject.transform.position.z);
 			Vector3 cameraEuler = GameObject.Find(playerNameList[currPlayerFollow]+"(Clone)").GetComponent<ThirdPersonNetworkVik>().cloneCameraRotation;
-			this.gameObject.transform.rotation = Quaternion.Euler(-cameraEuler.z, cameraEuler.y, -cameraEuler.x);
+			this.gameObject.transform.rotation = Quaternion.Euler(cameraEuler.x, cameraEuler.y, cameraEuler.z);
 		}
 
 	}

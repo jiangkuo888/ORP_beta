@@ -506,7 +506,7 @@ public class MainMenuVik : MonoBehaviour
 
 			
 		} else {
-			Debug.Log("WWW Error: "+ www.error);
+			//Debug.Log("WWW Error: "+ www.error);
 		}    
 	}
 
@@ -521,7 +521,7 @@ public class MainMenuVik : MonoBehaviour
 			this.fileList = www.data;
 			//Debug.Log(this.fileList);
 		} else {
-			Debug.Log("WWW Error: "+ www.error);
+			//Debug.Log("WWW Error: "+ www.error);
 		}    
 	}
 	
