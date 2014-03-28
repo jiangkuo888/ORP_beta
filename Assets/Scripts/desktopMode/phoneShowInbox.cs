@@ -21,9 +21,14 @@ public class phoneShowInbox : MonoBehaviour {
 	
 	bool ListOn;
 	float w,h;
-	
+
+
+
+
 	void Awake()
 	{
+
+
 		w = Screen.width;
 		h = Screen.height;
 		ListOn = false;
@@ -127,7 +132,7 @@ public class phoneShowInbox : MonoBehaviour {
 			
 			
 		DialogueLua.SetItemField(messageName,"State","active");	
-			
+
 
 		
 		

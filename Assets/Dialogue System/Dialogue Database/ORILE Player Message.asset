@@ -392,7 +392,7 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Sequence
-        value: 
+        value: DidRead();
         type: 0
       conversationID: 3
       isRoot: 0
@@ -643,7 +643,7 @@ MonoBehaviour:
         value: Notify Loan Officer Evacuation to LPU floor.
         type: 0
       - title: Dialogue Text
-        value: "Sending message to Sales Manager...  \n[ We are evacuating the Sales
+        value: "Sending message to Loan Officer...  \n[ We are evacuating the Sales
           Floor to the LPU Floor in a while. Please kindly prepare to receive the
           evacuatees. ]"
         type: 4
@@ -780,7 +780,7 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Sequence
-        value: Log(6B, SM inform LO of evacuation)
+        value: Log(6B, SM inform LO of evacuation);DidRead();
         type: 0
       conversationID: 6
       isRoot: 0
@@ -909,7 +909,7 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Sequence
-        value: Log(6A, Inform Credit Risk to unlock Safe)
+        value: Log(6A, Inform Credit Risk to unlock Safe);DidRead();
         type: 0
       conversationID: 7
       isRoot: 0
@@ -1071,7 +1071,7 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Sequence
-        value: 
+        value: DidRead();
         type: 0
       conversationID: 8
       isRoot: 0

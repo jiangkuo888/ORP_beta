@@ -697,6 +697,34 @@
           </Field>
         </Fields>
       </Item>
+      <Item ID="10">
+        <Fields>
+          <Field Hint="A name to reference this item or quest. Use underscores instead of spaces so simulator Lua code works." Type="Text">
+            <Title>Name</Title>
+            <Value>Evacuate Now</Value>
+          </Field>
+          <Field Hint="A description of this item or quest." Type="Text">
+            <Title>Description</Title>
+            <Value>Time to evacuate everyone to the roof. </Value>
+          </Field>
+          <Field Hint="The description of the quest when the player has completed it successfully." Type="Text">
+            <Title>Success Description</Title>
+            <Value />
+          </Field>
+          <Field Hint="The description of the quest when the player has completed it in failure." Type="Text">
+            <Title>Failure Description</Title>
+            <Value />
+          </Field>
+          <Field Hint="The state of the quest: unassigned, active, success, or failure" Type="Text">
+            <Title>State</Title>
+            <Value>unassigned</Value>
+          </Field>
+          <Field Hint="When using the quest system, set this True to mark the item as an actual item rather than a quest." Type="Boolean">
+            <Title>Is Item</Title>
+            <Value>False</Value>
+          </Field>
+        </Fields>
+      </Item>
     </Items>
     <Locations>
       <Location ID="1">
@@ -2141,7 +2169,7 @@
               </Field>
               <Field Hint="The text that is spoken by the actor." Type="Localization">
                 <Title>Dialogue Text</Title>
-                <Value>Calm down Mdm move to the exit.</Value>
+                <Value>Calm down Mdm. Please proceed to the fire exit and move up to the 12th Floor where our Loan Processing Unit is located. The staff there will take care of you. </Value>
               </Field>
               <Field Hint="A WMV video file to be played for this dialogue." Type="Text">
                 <Title>Video File</Title>
@@ -2218,7 +2246,7 @@
               </Field>
               <Field Hint="The text that is spoken by the actor." Type="Localization">
                 <Title>Dialogue Text</Title>
-                <Value>Mdm, You have to Hurry Up to the exit!</Value>
+                <Value>Mdm, You have to Hurry Up to the fire exit now!</Value>
               </Field>
               <Field Hint="A WMV video file to be played for this dialogue." Type="Text">
                 <Title>Video File</Title>
@@ -3055,7 +3083,8 @@
               </Field>
               <Field Hint="The text that is spoken by the actor." Type="Localization">
                 <Title>Dialogue Text</Title>
-                <Value>This is not what I am looking for. </Value>
+                <Value>This is not what I am looking for.  Sorry but i have to go now. 
+</Value>
               </Field>
               <Field Hint="A WMV video file to be played for this dialogue." Type="Text">
                 <Title>Video File</Title>
@@ -3092,7 +3121,7 @@
               </Field>
               <Field Hint="The text that is spoken by the actor." Type="Localization">
                 <Title>Dialogue Text</Title>
-                <Value>I am looking for unsecured loan.</Value>
+                <Value>I am looking for some personal loans.</Value>
               </Field>
               <Field Hint="A WMV video file to be played for this dialogue." Type="Text">
                 <Title>Video File</Title>
@@ -3128,11 +3157,11 @@
               </Field>
               <Field Hint="The text that is displayed to the player in a list as a dialogue option." Type="Text">
                 <Title>Menu Text</Title>
-                <Value>House Loan 1 Pitch</Value>
+                <Value>Unsecured Loan Pitch</Value>
               </Field>
               <Field Hint="The text that is spoken by the actor." Type="Localization">
                 <Title>Dialogue Text</Title>
-                <Value>May I recommend this loan. </Value>
+                <Value>Are you looking for a personal loan? If yes then I would recommend this Unsecured Loan package that our ORP bank is currently offering.  We offer premium interest rates that you will enjoy. </Value>
               </Field>
               <Field Hint="A WMV video file to be played for this dialogue." Type="Text">
                 <Title>Video File</Title>
@@ -3167,11 +3196,11 @@
               </Field>
               <Field Hint="The text that is displayed to the player in a list as a dialogue option." Type="Text">
                 <Title>Menu Text</Title>
-                <Value>House loan 2 pitch</Value>
+                <Value>Secured Loan Pitch</Value>
               </Field>
               <Field Hint="The text that is spoken by the actor." Type="Localization">
                 <Title>Dialogue Text</Title>
-                <Value>Let me recommend you this loan.</Value>
+                <Value>Are you looking for a house loan? If yes then I would recommend this Secured Loan package that our ORP bank is currently offering. </Value>
               </Field>
               <Field Hint="A WMV video file to be played for this dialogue." Type="Text">
                 <Title>Video File</Title>
@@ -3247,7 +3276,7 @@
               </Field>
               <Field Hint="The text that is spoken by the actor." Type="Localization">
                 <Title>Dialogue Text</Title>
-                <Value>This is not ideal for me. Do you have any other offer?</Value>
+                <Value>This is not what I am looking for. I want to get a personal loan. </Value>
               </Field>
               <Field Hint="A WMV video file to be played for this dialogue." Type="Text">
                 <Title>Video File</Title>
@@ -3663,7 +3692,7 @@
             <Fields>
               <Field Hint="The title of this dialogue." Type="Text">
                 <Title>Title</Title>
-                <Value>New Dialogue</Value>
+                <Value>Wait for Instructions</Value>
               </Field>
               <Field Hint="The actor who is talking." Type="Actor">
                 <Title>Actor</Title>
@@ -3694,13 +3723,13 @@
             <ReviewerStatus>None</ReviewerStatus>
             <OutgoingLinks />
             <ConditionsString />
-            <UserScript />
+            <UserScript>Item["Evacuate_Now"].State = "success"</UserScript>
           </DialogEntry>
           <DialogEntry ID="6" IsRoot="false" IsGroup="false" NodeColor="White" DelaySimStatus="false" FalseCondtionAction="Block" ConditionPriority="Normal">
             <Fields>
               <Field Hint="The title of this dialogue." Type="Text">
                 <Title>Title</Title>
-                <Value>New Dialogue</Value>
+                <Value>Don't wait</Value>
               </Field>
               <Field Hint="The actor who is talking." Type="Actor">
                 <Title>Actor</Title>
@@ -3732,7 +3761,7 @@
             <ReviewerStatus>None</ReviewerStatus>
             <OutgoingLinks />
             <ConditionsString />
-            <UserScript />
+            <UserScript>Item["Evacuate_Now"].State = "failure"</UserScript>
           </DialogEntry>
         </DialogEntries>
       </Conversation>

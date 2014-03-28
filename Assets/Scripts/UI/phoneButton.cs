@@ -20,7 +20,7 @@ public class phoneButton : MonoBehaviour {
 	public Texture isOnCall;
 
 
-	bool smallButtonOn;
+	public bool smallButtonOn;
 	string conversationName;
 	string playerName;
 	int count = 0;
@@ -126,6 +126,9 @@ public class phoneButton : MonoBehaviour {
 	void OnMouseDown(){
 
 
+
+
+
 		if(OnCalling)
 		{
 			// start conversation
@@ -166,6 +169,7 @@ public class phoneButton : MonoBehaviour {
 				GameObject.Find ("phoneSmallButton4").GetComponent<GUITexture>().enabled = false;
 				GameObject.Find ("EmailIcon").GetComponent<GUITexture>().enabled = false;
 				smallButtonOn = false;
+				GameObject.Find ("RedDot").GetComponent<GUIresponsive>().updateRedDot();
 		}
 			else
 			{
@@ -175,6 +179,7 @@ public class phoneButton : MonoBehaviour {
 				GameObject.Find ("phoneSmallButton4").GetComponent<GUITexture>().enabled = true;
 				GameObject.Find ("EmailIcon").GetComponent<GUITexture>().enabled = true;
 				smallButtonOn = true;
+				GameObject.Find ("RedDot").GetComponent<GUIresponsive>().updateRedDot();
 
 			}
 		
