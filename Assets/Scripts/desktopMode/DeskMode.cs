@@ -519,7 +519,7 @@ public class DeskMode : MonoBehaviour {
 			
 			
 			// notify the receiver 
-			//GameObject.Find ("EmailIcon").GetComponent<Email>().hasNewDocument(sender);
+			GameObject.Find("Dialogue Manager").GetComponent<DialogueSystemController>().ShowAlert("You have new document from "+sender+".");
 		}
 		
 		// document sender action
