@@ -686,6 +686,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400090}
   - 143: {fileID: 14300000}
+  - 114: {fileID: 11400022}
   - 114: {fileID: 11400020}
   - 114: {fileID: 11400018}
   - 114: {fileID: 11400016}
@@ -716,16 +717,17 @@ GameObject:
   - 92: {fileID: 9200000}
   - 124: {fileID: 12400000}
   - 81: {fileID: 8100000}
+  - 114: {fileID: 11400036}
   - 114: {fileID: 11400034}
   - 114: {fileID: 11400032}
   - 114: {fileID: 11400030}
   - 114: {fileID: 11400028}
   - 114: {fileID: 11400026}
   - 114: {fileID: 11400024}
-  - 114: {fileID: 11400022}
-  - 114: {fileID: 11400036}
-  - 82: {fileID: 8200000}
   - 114: {fileID: 11400038}
+  - 82: {fileID: 8200000}
+  - 114: {fileID: 11400040}
+  - 114: {fileID: 11400042}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1331,7 +1333,7 @@ AudioListener:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100092}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!82 &8200000
 AudioSource:
   m_ObjectHideFlags: 1
@@ -1423,10 +1425,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 100090}
   m_Enabled: 1
   m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dae3af9c7dffbb04b9230c13e2302f30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isSubDisabled: 0
+--- !u!114 &11400002
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d3b9018c883248d4fae50640634821d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &11400002
+--- !u!114 &11400004
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -1437,7 +1451,7 @@ MonoBehaviour:
   m_Script: {fileID: -855550762, guid: b5a7519e94754fb4a8ea0c272031db78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &11400004
+--- !u!114 &11400006
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -1456,14 +1470,21 @@ MonoBehaviour:
       questConditions: []
       acceptedTags: []
       acceptedGameObjects: []
-    target: {fileID: 11400006}
+    target: {fileID: 11400008}
     state: 1
   - condition:
       luaConditions: []
       questConditions: []
       acceptedTags: []
       acceptedGameObjects: []
-    target: {fileID: 11400020}
+    target: {fileID: 11400022}
+    state: 1
+  - condition:
+      luaConditions: []
+      questConditions: []
+      acceptedTags: []
+      acceptedGameObjects: []
+    target: {fileID: 11400014}
     state: 1
   - condition:
       luaConditions: []
@@ -1471,13 +1492,6 @@ MonoBehaviour:
       acceptedTags: []
       acceptedGameObjects: []
     target: {fileID: 11400012}
-    state: 1
-  - condition:
-      luaConditions: []
-      questConditions: []
-      acceptedTags: []
-      acceptedGameObjects: []
-    target: {fileID: 11400010}
     state: 1
   onEnd:
   - condition:
@@ -1485,14 +1499,21 @@ MonoBehaviour:
       questConditions: []
       acceptedTags: []
       acceptedGameObjects: []
-    target: {fileID: 11400006}
+    target: {fileID: 11400008}
     state: 0
   - condition:
       luaConditions: []
       questConditions: []
       acceptedTags: []
       acceptedGameObjects: []
-    target: {fileID: 11400020}
+    target: {fileID: 11400022}
+    state: 0
+  - condition:
+      luaConditions: []
+      questConditions: []
+      acceptedTags: []
+      acceptedGameObjects: []
+    target: {fileID: 11400014}
     state: 0
   - condition:
       luaConditions: []
@@ -1501,14 +1522,7 @@ MonoBehaviour:
       acceptedGameObjects: []
     target: {fileID: 11400012}
     state: 0
-  - condition:
-      luaConditions: []
-      questConditions: []
-      acceptedTags: []
-      acceptedGameObjects: []
-    target: {fileID: 11400010}
-    state: 0
---- !u!114 &11400006
+--- !u!114 &11400008
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -1538,7 +1552,7 @@ MonoBehaviour:
   useButton: Fire1
   defaultUseMessage: (spacebar to interact)
   broadcastToChildren: 1
---- !u!114 &11400008
+--- !u!114 &11400010
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -1557,7 +1571,7 @@ MonoBehaviour:
   currentHitObj: {fileID: 0}
   mouseClick: 0
   enteredDialog: 0
---- !u!114 &11400010
+--- !u!114 &11400012
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -1610,7 +1624,7 @@ MonoBehaviour:
     slidingSpeed: 15
     sidewaysControl: 1
     speedControl: .400000006
---- !u!114 &11400012
+--- !u!114 &11400014
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -1621,14 +1635,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5afbec4062e8ecb438021f9d1c2f166d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  axes: 3
-  sensitivityX: 0
-  sensitivityY: 0
+  axes: 1
+  sensitivityX: 1
+  sensitivityY: 1
   minimumX: -360
   maximumX: 360
-  minimumY: 0
+  minimumY: -10
   maximumY: 0
---- !u!114 &11400014
+--- !u!114 &11400016
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -1642,7 +1656,7 @@ MonoBehaviour:
   playerName: LPU Officer
   target: {fileID: 11100000}
   state: 0
---- !u!114 &11400016
+--- !u!114 &11400018
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -1657,12 +1671,12 @@ MonoBehaviour:
   ownerId: 0
   group: 0
   prefixBackup: -1
-  observed: {fileID: 11400018}
+  observed: {fileID: 11400020}
   synchronization: 2
   onSerializeTransformOption: 3
   onSerializeRigidBodyOption: 2
   instantiationId: 1001
---- !u!114 &11400018
+--- !u!114 &11400020
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -1675,7 +1689,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cameraRelativePosition: {x: 0, y: 1.25772798, z: 0}
   cloneCameraRotation: {x: 0, y: 0, z: 0}
---- !u!114 &11400020
+--- !u!114 &11400022
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -1693,7 +1707,7 @@ MonoBehaviour:
   speed: 10
   heightOffset: .899999976
   OnGUI: 0
---- !u!114 &11400022
+--- !u!114 &11400024
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -1719,7 +1733,7 @@ MonoBehaviour:
   shaderFXAAPreset3: {fileID: 4800000, guid: c182fa94a5a0a4c02870641efcd38cd5, type: 3}
   shaderFXAAII: {fileID: 4800000, guid: cd5b323dcc592457790ff18b528f5e67, type: 3}
   shaderFXAAIII: {fileID: 4800000, guid: c547503fff0e8482ea5793727057041c, type: 3}
---- !u!114 &11400024
+--- !u!114 &11400026
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -1848,7 +1862,7 @@ MonoBehaviour:
     type: 3}
   colorCorrectionSelectiveShader: {fileID: 4800000, guid: e515e0f94cefc4c0db54b45cba621544,
     type: 3}
---- !u!114 &11400026
+--- !u!114 &11400028
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -1865,7 +1879,7 @@ MonoBehaviour:
   separableBlurShader: {fileID: 4800000, guid: e97c14fbb5ea04c3a902cc533d7fc5d1, type: 3}
   contrastCompositeShader: {fileID: 4800000, guid: 273404942eede4ea1883ca1fb2942507,
     type: 3}
---- !u!114 &11400028
+--- !u!114 &11400030
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -1904,7 +1918,7 @@ MonoBehaviour:
   blurAndFlaresShader: {fileID: 4800000, guid: be6e39cf196f146d5be72fbefb18ed75, type: 3}
   brightPassFilterShader: {fileID: 4800000, guid: 0aeaa4cb29f5d4e9c8455f04c8575c8c,
     type: 3}
---- !u!114 &11400030
+--- !u!114 &11400032
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -1938,7 +1952,7 @@ MonoBehaviour:
   adaptionSpeed: 5
   tonemapper: {fileID: 4800000, guid: 003377fc2620a44939dadde6fe3f8190, type: 3}
   validRenderTextureFormat: 1
---- !u!114 &11400032
+--- !u!114 &11400034
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -1958,7 +1972,7 @@ MonoBehaviour:
   m_MinZ: .00999999978
   m_SSAOShader: {fileID: 4800000, guid: 43ca18288c424f645aaa1e9e07f04c50, type: 3}
   m_RandomTexture: {fileID: 2800000, guid: a181ca8e3c62f3e4b8f183f6c586b032, type: 3}
---- !u!114 &11400034
+--- !u!114 &11400036
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -1969,14 +1983,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5afbec4062e8ecb438021f9d1c2f166d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  axes: 0
-  sensitivityX: 3
+  axes: 2
+  sensitivityX: 1
   sensitivityY: 1
   minimumX: -360
   maximumX: 360
-  minimumY: -30
+  minimumY: -25
   maximumY: 0
---- !u!114 &11400036
+--- !u!114 &11400038
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -1991,7 +2005,7 @@ MonoBehaviour:
   distance: 4.46238804
   horizontalSpeed: .5
   verticalSpeed: .300000012
---- !u!114 &11400038
+--- !u!114 &11400040
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -2004,6 +2018,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isMainCameraChild: 1
   parent: {fileID: 0}
+--- !u!114 &11400042
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3b9018c883248d4fae50640634821d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!124 &12400000
 Behaviour:
   m_ObjectHideFlags: 1

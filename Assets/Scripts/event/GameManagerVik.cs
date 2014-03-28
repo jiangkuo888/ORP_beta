@@ -35,8 +35,28 @@ public class GameManagerVik : Photon.MonoBehaviour {
 	public bool isLobby;
 	public string[] dots = new string[] {".", "..", "..."};
 	public int dotInt = 0;
+	//public GameObject mainCam;
 
+	void Start()
+	{	
+		//this.mainCam = GameObject.Find ("Main Camera");
+	}
+		
+	void Update()
+	{
+		/*MainMenuVik vikky = this.gameObject.GetComponent<MainMenuVik>();
+		bool isPlayback = vikky.isPlayback;
 
+		if (mainCam == null)
+		{
+			this.mainCam = GameObject.Find ("Main Camera");
+		}
+
+		if (mainCam != null && !isPlayback && !this.mainCam.activeInHierarchy)
+		{
+			this.mainCam.SetActive(true);
+		}*/
+	}
 
     void OnJoinedRoom()
     {
@@ -63,7 +83,7 @@ public class GameManagerVik : Photon.MonoBehaviour {
 		if (this.sessionID != -1)
 		{
 			string currentDir = Directory.GetCurrentDirectory ();
-			Debug.Log (currentDir);
+			//Debug.Log (currentDir);
 			Directory.CreateDirectory (currentDir + "\\playback");
 			string filePath = "playback/" + sessionID.ToString();
 			EZReplayManager.get.saveToFile(filePath);
@@ -71,9 +91,9 @@ public class GameManagerVik : Photon.MonoBehaviour {
 			//upload files
 			WWWForm sendForm = new WWWForm();
 			string fileDir = currentDir + "\\playback\\" + sessionID.ToString();
-			Debug.Log(fileDir);
+			//Debug.Log(fileDir);
 			byte[] something = File.ReadAllBytes(fileDir);
-			Debug.Log(something.Length);
+			//Debug.Log(something.Length);
 			sendForm.AddBinaryData("capture", something, sessionID.ToString());
 			sendForm.AddField("load", "UP");
 			WWW w = new WWW("http://www.sgi-singapore.com/projects/ORILE/loadFiles.php", sendForm);
@@ -90,9 +110,9 @@ public class GameManagerVik : Photon.MonoBehaviour {
 		// check for errors
 		if (www.error == null)
 		{
-			Debug.Log("WWW Ok!: " + www.data);
+			//Debug.Log("WWW Ok!: " + www.data);
 		} else {
-			Debug.Log("WWW Error: "+ www.error);
+			//Debug.Log("WWW Error: "+ www.error);
 		}    
 	}
 
@@ -315,45 +335,47 @@ public class GameManagerVik : Photon.MonoBehaviour {
 
 
 		// instantiate prefab based on the name
+		GameObject playa = null;
 		for(int i = 0 ; i < playerPrefabList.Length; i++)
 		{
+
 			if(playerName == playerPrefabList[i].name)
 			{
 				switch(playerName)
 				{
 				case "Sales Manager":
 					spawnPosition = randomSpawnPosition(SMSpawnPositionList);
-					GameObject a = PhotonNetwork.Instantiate(playerPrefabList[i].name, spawnPosition, Quaternion.identity, 0, objs);
+					playa = PhotonNetwork.Instantiate(playerPrefabList[i].name, spawnPosition, Quaternion.identity, 0, objs);
 
-					a.name = "Sales Manager";
-					if(GameObject.Find (a.name+" Table").gameObject.transform.Find ("DocumentHolder").GetComponent<documentData>().enabled == false)
-						GameObject.Find (a.name+" Table").gameObject.transform.Find ("DocumentHolder").GetComponent<documentData>().enabled = true;
+					playa.name = "Sales Manager";
+					if(GameObject.Find (playa.name+" Table").gameObject.transform.Find ("DocumentHolder").GetComponent<documentData>().enabled == false)
+						GameObject.Find (playa.name+" Table").gameObject.transform.Find ("DocumentHolder").GetComponent<documentData>().enabled = true;
 
 
 					break;
 				case "LPU Officer":
 					spawnPosition = randomSpawnPosition(LOSpawnPositionList);
-					GameObject b = PhotonNetwork.Instantiate(playerPrefabList[i].name, spawnPosition, Quaternion.identity, 0, objs);
-					b.name = "LPU Officer";
-					if(GameObject.Find (b.name+" Table").gameObject.transform.Find ("DocumentHolder").GetComponent<documentData>().enabled == false)
-						GameObject.Find (b.name+" Table").gameObject.transform.Find ("DocumentHolder").GetComponent<documentData>().enabled = true;
+					playa = PhotonNetwork.Instantiate(playerPrefabList[i].name, spawnPosition, Quaternion.identity, 0, objs);
+					playa.name = "LPU Officer";
+					if(GameObject.Find (playa.name+" Table").gameObject.transform.Find ("DocumentHolder").GetComponent<documentData>().enabled == false)
+						GameObject.Find (playa.name+" Table").gameObject.transform.Find ("DocumentHolder").GetComponent<documentData>().enabled = true;
 
 					break;
 				case "LPU Manager":
 					spawnPosition = randomSpawnPosition(LMSpawnPositionList);
-					GameObject c = PhotonNetwork.Instantiate(playerPrefabList[i].name, spawnPosition, Quaternion.identity, 0, objs);
-					c.name = "LPU Manager";
-					if(GameObject.Find (c.name+" Table").gameObject.transform.Find ("DocumentHolder").GetComponent<documentData>().enabled == false)
-						GameObject.Find (c.name+" Table").gameObject.transform.Find ("DocumentHolder").GetComponent<documentData>().enabled = true;
+					playa = PhotonNetwork.Instantiate(playerPrefabList[i].name, spawnPosition, Quaternion.identity, 0, objs);
+					playa.name = "LPU Manager";
+					if(GameObject.Find (playa.name+" Table").gameObject.transform.Find ("DocumentHolder").GetComponent<documentData>().enabled == false)
+						GameObject.Find (playa.name+" Table").gameObject.transform.Find ("DocumentHolder").GetComponent<documentData>().enabled = true;
 
 					break;
 				case "Credit Risk":
 					spawnPosition = randomSpawnPosition(CRSpawnPositionList);
-					GameObject d = PhotonNetwork.Instantiate(playerPrefabList[i].name, spawnPosition, Quaternion.identity, 0, objs);
-					d.name = "Credit Risk";
+					playa = PhotonNetwork.Instantiate(playerPrefabList[i].name, spawnPosition, Quaternion.identity, 0, objs);
+					playa.name = "Credit Risk";
 
-					if(GameObject.Find (d.name+" Table").gameObject.transform.Find ("DocumentHolder").GetComponent<documentData>().enabled == false)
-						GameObject.Find (d.name+" Table").gameObject.transform.Find ("DocumentHolder").GetComponent<documentData>().enabled = true;
+					if(GameObject.Find (playa.name+" Table").gameObject.transform.Find ("DocumentHolder").GetComponent<documentData>().enabled == false)
+						GameObject.Find (playa.name+" Table").gameObject.transform.Find ("DocumentHolder").GetComponent<documentData>().enabled = true;
 
 					break;
 				default:
@@ -387,11 +409,26 @@ public class GameManagerVik : Photon.MonoBehaviour {
 
 		}
 
-		set4Recording ();
 		EZReplayManager.get.record();
+		if (playa != null)
+		{
+			CameraChange (playa);
+		}
 
 		gameStarted = true;
     }
+
+	public void CameraChange(GameObject ch)
+	{
+		Camera.main.transform.parent = ch.transform;
+		Camera.main.transform.localPosition =  new Vector3(0,1.257728f, 0);
+		Camera.main.transform.localEulerAngles = new Vector3(0.6651921f, 90, 0);
+
+		//update the camera state for playback
+		PlaybackCamera script = Camera.main.GetComponent<PlaybackCamera>();
+		script.isMainCameraChild = true;
+	}
+
 	public void EndGame(){
 		GameObject MainCamera = Camera.main.gameObject;
 
