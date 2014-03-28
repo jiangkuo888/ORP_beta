@@ -24,6 +24,7 @@ public class SavedState : ISerializable {
 	 *  New Addition: boolean variable called isMainCameraChild
 	 **************************************************************/
 	public bool isMainCameraChild = true;
+	public string tag ="";
 	//*************************************************************
 
 	public bool isActive = false;
@@ -39,6 +40,7 @@ public class SavedState : ISerializable {
 		emittingParticles = info.GetBoolean("emittingParticles");
 		isActive = info.GetBoolean("isActive");
 		this.isMainCameraChild = info.GetBoolean("isMainCameraChild");
+		this.tag = info.GetString("tag");
 	}			
 	
 	//as this is not derived from MonoBehaviour, we have a constructor
@@ -59,6 +61,11 @@ public class SavedState : ISerializable {
 			{
 
 				this.isMainCameraChild = go.GetComponent<PlaybackCamera>().isMainCameraChild;
+
+				if (this.isMainCameraChild)
+				{
+					this.tag = go.transform.parent.tag;
+				}
 			}
 
 		} else {
@@ -108,6 +115,11 @@ public class SavedState : ISerializable {
 
 			changed = true;	
 		}
+		if (!changed && tag != otherState.tag)
+		{
+			
+			changed = true;	
+		}
 		//*********************************************************************
 
 		return changed;
@@ -115,6 +127,45 @@ public class SavedState : ISerializable {
 	
 	//called to synchronize gameObjectClone of Object2PropertiesMapping back to this saved state
 	public void synchronizeProperties(GameObject go) {
+
+		/*******************************************************************************
+		 *  New Addition: isMainCameraChild comparison
+		 *******************************************************************************/
+		if (go.tag == "MainCamera")
+		{
+			if (go.name != "Main Camera")
+			{
+				bool compareOne = go.GetComponent<PlaybackCamera>().isMainCameraChild;
+				bool compareTwo = this.isMainCameraChild;
+				if (compareOne != compareTwo)
+				{
+					go.GetComponent<PlaybackCamera>().isMainCameraChild = this.isMainCameraChild;
+					go.GetComponent<PlaybackCamera>().test(this.tag);
+				}
+
+				if (go.transform.parent != null && go.transform.parent.gameObject.name == "EZReplayM_sParent" && this.isMainCameraChild)
+				{
+					go.GetComponent<PlaybackCamera>().test(this.tag);
+				}
+				else
+				{
+					//disable if it is sub cam
+					if (go.GetComponent<PlaybackCamera>().isSubCam())
+					{
+						go.SetActive(false);
+					}
+
+				}
+			}
+			else if (go.name == "Main Camera")
+			{
+				go.SetActive(false);
+			}
+				
+		}
+
+	
+		//******************************************************************************
 		
 		//HINT: lerping is still highly experimental
 		//EZReplayManager.singleton.StartCoroutine_Auto(EZReplayManager.singleton.MoveTo (go.transform,serVec3ToVec3(this.localPosition),0.08f));
@@ -131,21 +182,7 @@ public class SavedState : ISerializable {
 			go.GetComponent<ParticleEmitter>().emit = true;
 		else if ( go.GetComponent<ParticleEmitter>() ) 
 			go.GetComponent<ParticleEmitter>().emit = false;
-
-
-		/*******************************************************************************
-		 *  New Addition: isMainCameraChild comparison
-		 *******************************************************************************/
-		if (go.tag == "MainCamera" && go.transform.parent != null)
-		{
-			bool compareOne = go.GetComponent<PlaybackCamera>().isMainCameraChild;
-			bool compareTwo = this.isMainCameraChild;
-			if (compareOne != compareTwo)
-			{
-				go.GetComponent<PlaybackCamera>().isMainCameraChild = this.isMainCameraChild;
-			}		
-		}
-		//******************************************************************************
+	
 	}
 	
 	/*[SecurityPermissionAttribute(
@@ -162,6 +199,7 @@ public class SavedState : ISerializable {
 		info.AddValue("emittingParticles", this.emittingParticles);
 		info.AddValue("isActive", this.isActive);
 		info.AddValue ("isMainCameraChild", this.isMainCameraChild);
+		info.AddValue ("tag", this.tag);
 		//base.GetObjectData(info, context);
 	}	
 	

@@ -34,9 +34,9 @@ public class ThirdPersonNetworkVik : Photon.MonoBehaviour
 				r.enabled = false;
 
 
-			Camera.main.transform.parent = transform;
-			Camera.main.transform.localPosition = cameraRelativePosition;
-			Camera.main.transform.localEulerAngles = new Vector3(0.6651921f, 90, 0);
+			//Camera.main.transform.parent = transform;
+			//Camera.main.transform.localPosition = cameraRelativePosition;
+			//Camera.main.transform.localEulerAngles = new Vector3(0.6651921f, 90, 0);
 
 			if(cameraScript == null)
 				cameraScript = GameObject.Find ("Main Camera").GetComponent<MouseCamera>();

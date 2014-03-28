@@ -25,7 +25,7 @@ public class AdminMovement : Photon.MonoBehaviour
 			
 			Camera.main.transform.parent = transform;
 			Camera.main.transform.localPosition = cameraRelativePosition;
-			Camera.main.transform.localEulerAngles = new Vector3(0, 90, 0);
+			Camera.main.transform.localEulerAngles = transform.localEulerAngles;//new Vector3(0, 90, 0);
 			Camera.main.farClipPlane = 100.0f;
 			
 			if(cameraScript == null)
@@ -62,16 +62,16 @@ public class AdminMovement : Photon.MonoBehaviour
 		if (Input.GetKey("w") && currFollow == -1)
 		{
 			//move forward
-
-			Vector3 move = transform.right;
-			move.z = 0.0f;
+			//Debug.Log (transform.forward);
+			Vector3 move = addy.transform.forward;
+			move.x = 0.0f;
 
 			//special case x
 			if (transform.right.x < 0)
 			{
-				move.x = -move.x;
+				move.z = -move.z;
 			}
-			if (transform.right.x < 0.1f && transform.right.x > 0.0f)
+			/*if (transform.right.x < 0.1f && transform.right.x > 0.0f)
 			{
 				move.x = 1.0f - move.x;
 			}
@@ -86,8 +86,8 @@ public class AdminMovement : Photon.MonoBehaviour
 			else if (transform.right.y > -0.1f && transform.right.y < 0.0f)
 			{
 				move.x = 1.0f + move.y;
-			}
-
+			}*/
+			move.Normalize();
 			transform.Translate(move * 0.2f);
 
 		}
