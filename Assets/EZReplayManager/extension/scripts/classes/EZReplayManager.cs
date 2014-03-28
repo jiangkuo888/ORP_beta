@@ -164,34 +164,31 @@ public sealed class EZReplayManager : MonoBehaviour {
 			StartCoroutine(startShowPrecachingMandatoryMessage(8.5f));
 			return;	
 		}
-
+			
 		stop ();
 			
 		Object2PropertiesMappingListWrapper o2pMappingListW = new Object2PropertiesMappingListWrapper();
 		
-		/*******************************************************************************
-		 *  New Addition: print out of isMainCameraChild value in SavedStates
-		 *                before saving
-		 *******************************************************************************/
-		foreach (var yang in gOs2propMappings)
-		{ 
-			if(yang.Key.name == "Main Camera")
-			{
-				foreach (KeyValuePair<int,SavedState> yong in yang.Value.savedStates)
-				{
-
-					//Debug.Log(yong.Key);
-					//Debug.Log(yong.Value.isMainCameraChild);
-					
-				}
-			}
-		}
-		//******************************************************************************
-
+		
 		foreach (var entry in gOs2propMappings) {
 			
+			//Debug.Log (entry.Key.name);
+			foreach (var yang in entry.Value.savedStates)
+			{
+				//Debug.Log (yang.Key);
+
+				if (entry.Key.name == "Main Camera")
+				{
+					//Debug.Log (yang.Value.localPosition.getVector3());
+					//Debug.Log (yang.Value.localRotation.getQuaternion());
+					//Debug.Log (yang.Value.isMainCameraChild);
+				}
+			}
+			
+
 			o2pMappingListW.addMapping(entry.Value);		
 		}
+
 		o2pMappingListW.recordingInterval = recordingInterval;
 		SerializeObject(filename,o2pMappingListW);							
 		
@@ -224,6 +221,7 @@ public sealed class EZReplayManager : MonoBehaviour {
 		recorderPosition = 0;
 		recordingInterval = reSerialized.recordingInterval; //if you load a replay with a different recording interval, 
 																	  //you have to reset it to the earlier value afterwards YOURSELF!
+
 		
 		if (reSerialized.EZR_VERSION != EZR_VERSION) {
 			if (showWarnings)
@@ -235,26 +233,22 @@ public sealed class EZReplayManager : MonoBehaviour {
 			if (entry.isParent()) {
 				entry.prepareObjectForReplay();
 				GameObject goClone = entry.getGameObjectClone();
-				//Debug.Log(goClone.name);
 				gOs2propMappings.Add(goClone,entry);
 				
-
-				/*******************************************************************************
-				 *  New Addition: print out of isMainCameraChild value in SavedStates
-				 *                before loading
-				 *******************************************************************************/
-
+				//Debug.Log(goClone.name);
 				foreach(KeyValuePair<int,SavedState> stateEntry in entry.savedStates) {
-					//if (!stateEntry.Value.isMainCameraChild)
-					//{
-						//Debug.Log(stateEntry.Key);
-						//Debug.Log(stateEntry.Value.isMainCameraChild);
-					//}
 					if (stateEntry.Key > maxPositions)
 						maxPositions = stateEntry.Key;
-				}
 
-				//****************************************************************************
+
+						if (goClone.tag == "MainCamera")
+						{
+							//Debug.Log(stateEntry.Key);
+							//Debug.Log(stateEntry.Value.localPosition);
+							//Debug.Log(stateEntry.Value.localRotation);
+							//Debug.Log(stateEntry.Value.isMainCameraChild);
+						}
+				}
 
 			}
 		}	
@@ -264,27 +258,37 @@ public sealed class EZReplayManager : MonoBehaviour {
 			if (!entry.isParent()) {
 				entry.prepareObjectForReplay();
 				GameObject goClone = entry.getGameObjectClone();
-				//Debug.Log(goClone.name);
-				gOs2propMappings.Add(goClone,entry);
 
-				/*******************************************************************************
-				 *  New Addition: print out of isMainCameraChild value in SavedStates
-				 *                before loading
-				 *******************************************************************************/
+				//list of things not to add
+				//sub cam
 
-				foreach(KeyValuePair<int,SavedState> stateEntry in entry.savedStates) {
-					//if (!stateEntry.Value.isMainCameraChild)
-					//{
-						//Debug.Log(stateEntry.Key);
-						//Debug.Log(stateEntry.Value.isMainCameraChild);
-					//}
-					
-					if (stateEntry.Key > maxPositions)
-						maxPositions = stateEntry.Key;
+				if (goClone.tag != "MainCamera")
+				{
+					gOs2propMappings.Add(goClone,entry);
 				}
-
-				//****************************************************************************
+				
+				
+					//Debug.Log(goClone.name);
+				foreach(KeyValuePair<int,SavedState> stateEntry in entry.savedStates) {
+	
+					if (goClone.tag == "MainCamera")
+					{
+						//Debug.Log(stateEntry.Key);
+						//Debug.Log(stateEntry.Value.localPosition.getVector3());
+						//Debug.Log(stateEntry.Value.localRotation.getQuaternion());
+						//Debug.Log(stateEntry.Value.isMainCameraChild);
+					}
+				}
 			}
+
+			//Debug.Log(goClone.name);
+			foreach(KeyValuePair<int,SavedState> stateEntry in entry.savedStates) {
+				if (stateEntry.Key > maxPositions)
+					maxPositions = stateEntry.Key;
+				
+			}
+			
+					
 		}
 
 		currentMode = ViewMode.REPLAY;
@@ -649,6 +653,7 @@ public sealed class EZReplayManager : MonoBehaviour {
 		if (gOs2propMappings != null)
 		foreach(KeyValuePair<GameObject,Object2PropertiesMapping> entry in gOs2propMappings) {
 			GameObject go = entry.Key;
+			
 			Object2PropertiesMapping propMapping = entry.Value;
 			
 			if (currentAction == ActionMode.RECORD && currentMode == ViewMode.LIVE) { //if recording
@@ -953,6 +958,12 @@ public sealed class EZReplayManager : MonoBehaviour {
 				
 				//<!-- POSITION MANIPULATION TOOLS 
 				if (GUI.Button (new Rect (158,72,40, 23),playIcon)) {
+
+					if(GameObject.Find("Main Camera") != null)
+					{
+						GameObject.Find("Main Camera").SetActive(false);
+					}
+
 					play(speedSliderValue,true,false,false);
 				}
 			
@@ -971,10 +982,8 @@ public sealed class EZReplayManager : MonoBehaviour {
 				if (GUI.Button (new Rect (338,72,40, 23),closeIcon)) {
 					switchModeTo(ViewMode.LIVE);
 
-					GameObject gameManager = GameObject.Find("GameManager");  
-					MainMenuVik vikky = gameManager.GetComponent<MainMenuVik>();
-						vikky.isPlayback = false;
-						vikky.isPlaybackList = true;
+					MainMenuVik vikky = GameObject.Find("GameManager").GetComponent<MainMenuVik>();
+					vikky.isPlayback = false;
 				}				
 				// POSITION MANIPULATION TOOLS //-->
 			}
