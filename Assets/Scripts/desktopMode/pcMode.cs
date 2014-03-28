@@ -4,7 +4,7 @@ using System.Collections;
 
 public class pcMode : MonoBehaviour {
 	
-	
+	public GUISkin customSkin;
 	float w,h;
 	public float x_offset;
 	public float y_offset;
@@ -84,8 +84,17 @@ public class pcMode : MonoBehaviour {
 			
 			GUI.DrawTexture (new Rect(0, 0, .5f*w, 1000), currentImage, ScaleMode.ScaleToFit);	
 
-			
+
+
+
 			GUI.EndScrollView();
+
+
+			if(GUI.Button( new LTRect(w - 200f, .9f*h - 50f, 100f, 50f ).rect, "Back",customSkin.button))
+			{
+				InfoModeIsOn = false;
+				scrollPosition = Vector2.zero;
+			}
 
 		}
 		

@@ -308,8 +308,8 @@ public class GameManagerVik : Photon.MonoBehaviour {
 
 		print ("Now we have: "+PhotonNetwork.playerList.Length+" players in total.");
 
-		print (EventManager.FsmVariables.GetFsmInt ("playerNum").Value);
-		print(PhotonNetwork.playerList.Length);
+//		print (EventManager.FsmVariables.GetFsmInt ("playerNum").Value);
+		//print(PhotonNetwork.playerList.Length);
 
 		EventManager.FsmVariables.GetFsmInt("playerNum").Value = PhotonNetwork.playerList.Length;
         Camera.main.farClipPlane = 1000; //Main menu set this to 0.4 for a nicer BG    
