@@ -1,0 +1,538 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1097633651, guid: b5a7519e94754fb4a8ea0c272031db78, type: 3}
+  m_Name: Tutorial2
+  m_EditorClassIdentifier: 
+  version: 1.5.1.0
+  author: 
+  description: Project configured for game development.
+  globalUserScript: 
+  emphasisSettings:
+  - color: {r: .905882359, g: .58431375, b: .356862754, a: 1}
+    bold: 1
+    italic: 0
+    underline: 0
+  - color: {r: .266666681, g: .713725507, b: .203921571, a: 1}
+    bold: 1
+    italic: 0
+    underline: 0
+  - color: {r: .274509817, g: .533333361, b: .90196079, a: 1}
+    bold: 1
+    italic: 0
+    underline: 0
+  - color: {r: .800000012, g: .800000012, b: .800000012, a: 1}
+    bold: 1
+    italic: 0
+    underline: 0
+  actors:
+  - id: 37
+    fields:
+    - title: Name
+      value: New Player
+      type: 0
+    - title: Pictures
+      value: '[]'
+      type: 3
+    - title: Description
+      value: 
+      type: 0
+    - title: IsPlayer
+      value: True
+      type: 2
+    - title: Age
+      value: 30
+      type: 1
+    - title: Gender
+      value: 
+      type: 0
+    - title: Rank
+      value: 
+      type: 0
+    - title: Faction
+      value: 
+      type: 0
+    - title: Class
+      value: 
+      type: 0
+    - title: Subclass
+      value: 
+      type: 0
+    - title: Ability
+      value: 
+      type: 0
+    - title: Primary Race
+      value: 
+      type: 0
+    - title: Secondary Race
+      value: 
+      type: 0
+    - title: Hometown
+      value: 
+      type: 0
+    - title: Texture Files
+      value: '[]'
+      type: 3
+    - title: Model Files
+      value: '[]'
+      type: 3
+    portrait: {fileID: 0}
+  - id: 38
+    fields:
+    - title: Name
+      value: New NPC
+      type: 0
+    - title: Pictures
+      value: '[]'
+      type: 3
+    - title: Description
+      value: 
+      type: 0
+    - title: IsPlayer
+      value: False
+      type: 2
+    - title: Age
+      value: 30
+      type: 1
+    - title: Gender
+      value: 
+      type: 0
+    - title: Rank
+      value: 
+      type: 0
+    - title: Faction
+      value: 
+      type: 0
+    - title: Class
+      value: 
+      type: 0
+    - title: Subclass
+      value: 
+      type: 0
+    - title: Ability
+      value: 
+      type: 0
+    - title: Primary Race
+      value: 
+      type: 0
+    - title: Secondary Race
+      value: 
+      type: 0
+    - title: Hometown
+      value: 
+      type: 0
+    - title: Texture Files
+      value: '[]'
+      type: 3
+    - title: Model Files
+      value: '[]'
+      type: 3
+    portrait: {fileID: 0}
+  items:
+  - id: 29
+    fields:
+    - title: Name
+      value: New Item
+      type: 0
+    - title: Pictures
+      value: '[]'
+      type: 3
+    - title: Description
+      value: 
+      type: 0
+    - title: Purpose
+      value: 
+      type: 0
+    - title: Primary Location
+      value: -1
+      type: 7
+    - title: Effect
+      value: 
+      type: 0
+    - title: Associated With
+      value: -1
+      type: 5
+    - title: Combines With
+      value: -1
+      type: 6
+    - title: Condition
+      value: 
+      type: 0
+    - title: Texture Files
+      value: '[]'
+      type: 3
+    - title: Model Files
+      value: '[]'
+      type: 3
+  locations:
+  - id: 1
+    fields:
+    - title: Name
+      value: New Location
+      type: 0
+    - title: Pictures
+      value: '[]'
+      type: 3
+    - title: Description
+      value: 
+      type: 0
+    - title: Act
+      value: 
+      type: 0
+    - title: Chapter
+      value: 
+      type: 0
+    - title: Scene
+      value: 
+      type: 0
+    - title: Level
+      value: 
+      type: 0
+    - title: Purpose
+      value: 
+      type: 0
+    - title: Climate
+      value: 
+      type: 0
+    - title: Mood
+      value: 
+      type: 0
+    - title: Texture Files
+      value: '[]'
+      type: 3
+    - title: Model Files
+      value: '[]'
+      type: 3
+  variables:
+  - id: 9
+    fields:
+    - title: Name
+      value: Tutorial_key_get
+      type: 0
+    - title: Initial Value
+      value: False
+      type: 2
+    - title: Description
+      value: 
+      type: 0
+  conversations:
+  - id: 51
+    fields:
+    - title: Title
+      value: Tutorial NPC
+      type: 0
+    - title: Pictures
+      value: '[]'
+      type: 3
+    - title: Description
+      value: 
+      type: 0
+    - title: Actor
+      value: 37
+      type: 5
+    - title: Conversant
+      value: 38
+      type: 5
+    - title: Act
+      value: 
+      type: 0
+    - title: Chapter
+      value: 
+      type: 0
+    - title: Scene
+      value: 
+      type: 0
+    - title: Level
+      value: 
+      type: 0
+    - title: Mood
+      value: 
+      type: 0
+    - title: Primary Location
+      value: -1
+      type: 7
+    nodeColor: Red
+    dialogueEntries:
+    - id: 0
+      fields:
+      - title: Title
+        value: START
+        type: 0
+      - title: Pictures
+        value: '[]'
+        type: 3
+      - title: Description
+        value: 
+        type: 0
+      - title: Actor
+        value: 37
+        type: 5
+      - title: Conversant
+        value: 38
+        type: 5
+      - title: Menu Text
+        value: 
+        type: 0
+      - title: Dialogue Text
+        value: 
+        type: 0
+      - title: Parenthetical
+        value: 
+        type: 0
+      - title: Audio Files
+        value: '[]'
+        type: 3
+      - title: Video File
+        value: 
+        type: 0
+      - title: Animation Files
+        value: '[]'
+        type: 3
+      - title: Sequence
+        value: None()
+        type: 0
+      conversationID: 51
+      isRoot: 1
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 51
+        originDialogueID: 0
+        destinationConversationID: 51
+        destinationDialogueID: 1
+        isConnector: 0
+        priority: 2
+      - originConversationID: 51
+        originDialogueID: 0
+        destinationConversationID: 51
+        destinationDialogueID: 4
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+    - id: 1
+      fields:
+      - title: Title
+        value: 1
+        type: 0
+      - title: Pictures
+        value: '[]'
+        type: 3
+      - title: Description
+        value: 
+        type: 0
+      - title: Actor
+        value: 38
+        type: 5
+      - title: Conversant
+        value: 37
+        type: 5
+      - title: Menu Text
+        value: 
+        type: 0
+      - title: Dialogue Text
+        value: 'Hi, to interact with an object or a person, just click on it. '
+        type: 4
+      - title: Parenthetical
+        value: 
+        type: 0
+      - title: Audio Files
+        value: '[]'
+        type: 3
+      - title: Video File
+        value: 
+        type: 0
+      - title: Lipsync Files
+        value: '[]'
+        type: 3
+      - title: Animation Files
+        value: '[]'
+        type: 3
+      - title: Mood
+        value: 
+        type: 0
+      conversationID: 51
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 51
+        originDialogueID: 1
+        destinationConversationID: 51
+        destinationDialogueID: 2
+        isConnector: 0
+        priority: 2
+      conditionsString: Variable["Tutorial_key_get"] == false;
+      userScript: 
+    - id: 2
+      fields:
+      - title: Title
+        value: 2
+        type: 0
+      - title: Pictures
+        value: '[]'
+        type: 3
+      - title: Description
+        value: 
+        type: 0
+      - title: Actor
+        value: 38
+        type: 5
+      - title: Conversant
+        value: 37
+        type: 5
+      - title: Menu Text
+        value: 
+        type: 0
+      - title: Dialogue Text
+        value: Now can you help me grab the key on the opposite wall?
+        type: 4
+      - title: Parenthetical
+        value: 
+        type: 0
+      - title: Audio Files
+        value: '[]'
+        type: 3
+      - title: Video File
+        value: 
+        type: 0
+      - title: Lipsync Files
+        value: '[]'
+        type: 3
+      - title: Animation Files
+        value: '[]'
+        type: 3
+      - title: Mood
+        value: 
+        type: 0
+      conversationID: 51
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 51
+        originDialogueID: 2
+        destinationConversationID: 51
+        destinationDialogueID: 3
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+    - id: 3
+      fields:
+      - title: Title
+        value: 3
+        type: 0
+      - title: Pictures
+        value: '[]'
+        type: 3
+      - title: Description
+        value: 
+        type: 0
+      - title: Actor
+        value: 37
+        type: 5
+      - title: Conversant
+        value: 38
+        type: 5
+      - title: Menu Text
+        value: OK. I'll get it.
+        type: 0
+      - title: Dialogue Text
+        value: 
+        type: 4
+      - title: Parenthetical
+        value: 
+        type: 0
+      - title: Audio Files
+        value: '[]'
+        type: 3
+      - title: Video File
+        value: 
+        type: 0
+      - title: Lipsync Files
+        value: '[]'
+        type: 3
+      - title: Animation Files
+        value: '[]'
+        type: 3
+      - title: Mood
+        value: 
+        type: 0
+      conversationID: 51
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: 
+    - id: 4
+      fields:
+      - title: Title
+        value: 1_success
+        type: 0
+      - title: Pictures
+        value: '[]'
+        type: 3
+      - title: Description
+        value: 
+        type: 0
+      - title: Actor
+        value: 38
+        type: 5
+      - title: Conversant
+        value: 37
+        type: 5
+      - title: Menu Text
+        value: 
+        type: 0
+      - title: Dialogue Text
+        value: You did it! Thanks a lot!
+        type: 4
+      - title: Parenthetical
+        value: 
+        type: 0
+      - title: Audio Files
+        value: '[]'
+        type: 3
+      - title: Video File
+        value: 
+        type: 0
+      - title: Lipsync Files
+        value: '[]'
+        type: 3
+      - title: Animation Files
+        value: '[]'
+        type: 3
+      - title: Mood
+        value: 
+        type: 0
+      conversationID: 51
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: Variable["Tutorial_key_get"] == true;
+      userScript: 

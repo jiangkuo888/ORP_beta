@@ -346,7 +346,7 @@ public class GameManagerVik : Photon.MonoBehaviour {
 				{
 				case "Sales Manager":
 					spawnPosition = randomSpawnPosition(SMSpawnPositionList);
-					playa = PhotonNetwork.Instantiate(playerPrefabList[i].name, spawnPosition, Quaternion.identity, 0, objs);
+					playa = PhotonNetwork.Instantiate(playerPrefabList[i].name, spawnPosition, playerPrefabList[i].transform.rotation, 0, objs);
 
 
 					playa.name = "Sales Manager";
@@ -358,7 +358,7 @@ public class GameManagerVik : Photon.MonoBehaviour {
 					break;
 				case "LPU Officer":
 					spawnPosition = randomSpawnPosition(LOSpawnPositionList);
-					playa = PhotonNetwork.Instantiate(playerPrefabList[i].name, spawnPosition, Quaternion.identity, 0, objs);
+					playa = PhotonNetwork.Instantiate(playerPrefabList[i].name, spawnPosition, playerPrefabList[i].transform.rotation, 0, objs);
 					playa.name = "LPU Officer";
 					if(!isTutorial){
 					if(GameObject.Find (playa.name+" Table").gameObject.transform.Find ("DocumentHolder").GetComponent<documentData>().enabled == false)
@@ -367,7 +367,7 @@ public class GameManagerVik : Photon.MonoBehaviour {
 					break;
 				case "LPU Manager":
 					spawnPosition = randomSpawnPosition(LMSpawnPositionList);
-					playa = PhotonNetwork.Instantiate(playerPrefabList[i].name, spawnPosition, Quaternion.identity, 0, objs);
+					playa = PhotonNetwork.Instantiate(playerPrefabList[i].name, spawnPosition, playerPrefabList[i].transform.rotation, 0, objs);
 					playa.name = "LPU Manager";
 					if(!isTutorial){
 					if(GameObject.Find (playa.name+" Table").gameObject.transform.Find ("DocumentHolder").GetComponent<documentData>().enabled == false)
@@ -376,7 +376,7 @@ public class GameManagerVik : Photon.MonoBehaviour {
 					break;
 				case "Credit Risk":
 					spawnPosition = randomSpawnPosition(CRSpawnPositionList);
-					playa = PhotonNetwork.Instantiate(playerPrefabList[i].name, spawnPosition, Quaternion.identity, 0, objs);
+					playa = PhotonNetwork.Instantiate(playerPrefabList[i].name, spawnPosition, playerPrefabList[i].transform.rotation, 0, objs);
 					playa.name = "Credit Risk";
 					if(!isTutorial){
 					if(GameObject.Find (playa.name+" Table").gameObject.transform.Find ("DocumentHolder").GetComponent<documentData>().enabled == false)
