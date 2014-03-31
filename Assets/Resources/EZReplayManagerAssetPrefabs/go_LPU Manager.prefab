@@ -686,7 +686,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 400090}
   - 143: {fileID: 14300000}
-  - 114: {fileID: 11400022}
   - 114: {fileID: 11400020}
   - 114: {fileID: 11400018}
   - 114: {fileID: 11400016}
@@ -727,7 +726,7 @@ GameObject:
   - 114: {fileID: 11400038}
   - 82: {fileID: 8200000}
   - 114: {fileID: 11400040}
-  - 114: {fileID: 11400042}
+  - 114: {fileID: 11400022}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1333,7 +1332,7 @@ AudioListener:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100092}
-  m_Enabled: 0
+  m_Enabled: 1
 --- !u!82 &8200000
 AudioSource:
   m_ObjectHideFlags: 1
@@ -1425,22 +1424,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 100090}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dae3af9c7dffbb04b9230c13e2302f30, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isSubDisabled: 0
---- !u!114 &11400002
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100090}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d3b9018c883248d4fae50640634821d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &11400004
+--- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -1451,7 +1438,7 @@ MonoBehaviour:
   m_Script: {fileID: -855550762, guid: b5a7519e94754fb4a8ea0c272031db78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &11400006
+--- !u!114 &11400004
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -1470,21 +1457,14 @@ MonoBehaviour:
       questConditions: []
       acceptedTags: []
       acceptedGameObjects: []
-    target: {fileID: 11400008}
+    target: {fileID: 11400006}
     state: 1
   - condition:
       luaConditions: []
       questConditions: []
       acceptedTags: []
       acceptedGameObjects: []
-    target: {fileID: 11400022}
-    state: 1
-  - condition:
-      luaConditions: []
-      questConditions: []
-      acceptedTags: []
-      acceptedGameObjects: []
-    target: {fileID: 11400014}
+    target: {fileID: 11400020}
     state: 1
   - condition:
       luaConditions: []
@@ -1492,6 +1472,13 @@ MonoBehaviour:
       acceptedTags: []
       acceptedGameObjects: []
     target: {fileID: 11400012}
+    state: 1
+  - condition:
+      luaConditions: []
+      questConditions: []
+      acceptedTags: []
+      acceptedGameObjects: []
+    target: {fileID: 11400010}
     state: 1
   onEnd:
   - condition:
@@ -1499,21 +1486,14 @@ MonoBehaviour:
       questConditions: []
       acceptedTags: []
       acceptedGameObjects: []
-    target: {fileID: 11400008}
+    target: {fileID: 11400006}
     state: 0
   - condition:
       luaConditions: []
       questConditions: []
       acceptedTags: []
       acceptedGameObjects: []
-    target: {fileID: 11400022}
-    state: 0
-  - condition:
-      luaConditions: []
-      questConditions: []
-      acceptedTags: []
-      acceptedGameObjects: []
-    target: {fileID: 11400014}
+    target: {fileID: 11400020}
     state: 0
   - condition:
       luaConditions: []
@@ -1522,7 +1502,14 @@ MonoBehaviour:
       acceptedGameObjects: []
     target: {fileID: 11400012}
     state: 0
---- !u!114 &11400008
+  - condition:
+      luaConditions: []
+      questConditions: []
+      acceptedTags: []
+      acceptedGameObjects: []
+    target: {fileID: 11400010}
+    state: 0
+--- !u!114 &11400006
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -1552,7 +1539,7 @@ MonoBehaviour:
   useButton: Fire1
   defaultUseMessage: (spacebar to interact)
   broadcastToChildren: 1
---- !u!114 &11400010
+--- !u!114 &11400008
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -1571,7 +1558,7 @@ MonoBehaviour:
   currentHitObj: {fileID: 0}
   mouseClick: 0
   enteredDialog: 0
---- !u!114 &11400012
+--- !u!114 &11400010
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -1624,7 +1611,7 @@ MonoBehaviour:
     slidingSpeed: 15
     sidewaysControl: 1
     speedControl: .400000006
---- !u!114 &11400014
+--- !u!114 &11400012
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -1642,7 +1629,7 @@ MonoBehaviour:
   maximumX: 360
   minimumY: -10
   maximumY: 0
---- !u!114 &11400016
+--- !u!114 &11400014
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -1656,7 +1643,7 @@ MonoBehaviour:
   playerName: LPU Manager
   target: {fileID: 11100000}
   state: 0
---- !u!114 &11400018
+--- !u!114 &11400016
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -1671,12 +1658,12 @@ MonoBehaviour:
   ownerId: 0
   group: 0
   prefixBackup: -1
-  observed: {fileID: 11400020}
+  observed: {fileID: 11400018}
   synchronization: 2
   onSerializeTransformOption: 3
   onSerializeRigidBodyOption: 2
   instantiationId: 1001
---- !u!114 &11400020
+--- !u!114 &11400018
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -1689,7 +1676,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cameraRelativePosition: {x: 0, y: 1.25772798, z: 0}
   cloneCameraRotation: {x: 0, y: 0, z: 0}
---- !u!114 &11400022
+--- !u!114 &11400020
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -1707,6 +1694,17 @@ MonoBehaviour:
   speed: 10
   heightOffset: .899999976
   OnGUI: 0
+--- !u!114 &11400022
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3b9018c883248d4fae50640634821d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11400024
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2018,17 +2016,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isMainCameraChild: 1
   parent: {fileID: 0}
---- !u!114 &11400042
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100092}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d3b9018c883248d4fae50640634821d4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!124 &12400000
 Behaviour:
   m_ObjectHideFlags: 1
