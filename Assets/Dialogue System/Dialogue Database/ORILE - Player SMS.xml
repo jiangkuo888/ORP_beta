@@ -738,7 +738,7 @@
             <ReviewerStatus>None</ReviewerStatus>
             <OutgoingLinks />
             <ConditionsString>Dialog[1].SimStatus ~= "WasDisplayed" and Item["SMMessageSent1"].State == "success"</ConditionsString>
-            <UserScript />
+            <UserScript>Item["Notified_Arrival"].State = "success"</UserScript>
           </DialogEntry>
           <DialogEntry ID="3" IsRoot="false" IsGroup="false" NodeColor="White" DelaySimStatus="false" FalseCondtionAction="Block" ConditionPriority="Normal">
             <Fields>

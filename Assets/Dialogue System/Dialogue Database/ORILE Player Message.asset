@@ -663,7 +663,7 @@ MonoBehaviour:
       outgoingLinks: []
       conditionsString: Dialog[1].SimStatus ~= "WasDisplayed" and Item["SMMessageSent1"].State
         == "success"
-      userScript: 
+      userScript: Item["Notified_Arrival"].State = "success"
     - id: 3
       fields:
       - title: Title
