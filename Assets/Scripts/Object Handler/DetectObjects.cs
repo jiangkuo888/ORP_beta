@@ -10,6 +10,8 @@ public class DetectObjects : Photon.MonoBehaviour {
 	public Vector2 hotSpot = new Vector2(100,0);
 
 	private PlayMakerFSM getState;
+	// tutorial
+	PlayMakerFSM EventFSM;
 
 	PhotonView hitObjPhotonView;
 	
@@ -32,6 +34,8 @@ public class DetectObjects : Photon.MonoBehaviour {
 		mouseClick = false;
 		currentHitObj = null;
 		enteredDialog = false;
+
+		EventFSM = GameObject.Find ("EventManager-Tutorial").GetComponent<PlayMakerFSM>();
 		
 	}
 	
@@ -147,7 +151,7 @@ public class DetectObjects : Photon.MonoBehaviour {
 					}
 					else if (hit.collider.gameObject.tag == "desk")
 					{
-						if (hit.collider.gameObject.name.Contains(PhotonNetwork.playerName))
+						if (hit.collider.gameObject.name.Contains(PhotonNetwork.playerName)||hit.collider.gameObject.name.Contains("Common"))
 						{
 
 
@@ -168,6 +172,11 @@ public class DetectObjects : Photon.MonoBehaviour {
 							//hit.transform.renderer.material.color = Color.green;
 							
 							if (Input.GetKeyUp (KeyCode.Mouse0)) {
+
+								if(EventFSM.enabled)
+								EventFSM.FsmVariables.GetFsmBool("InDeskMode").Value = true;
+
+
 								mouseClick = true;
 								enteredDialog = true;
 								

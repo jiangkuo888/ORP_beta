@@ -11,6 +11,7 @@ public class DoorHandler : Photon.MonoBehaviour {
 	bool enter ;
 	bool doorState;
 	public bool clicked;
+	public bool enabled;
 	PlayMakerFSM EventFSM;
 	// Use this for initialization
 	void Start () {
@@ -22,11 +23,12 @@ public class DoorHandler : Photon.MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update() {
+		if(enabled){
 		//if this photonview player enter, and press f
 		//change state and send, open door.
 		if(enter && clicked){
 //			print("111");
-
+		    if(EventFSM.enabled)
 			EventFSM.FsmVariables.GetFsmBool("Opened_door").Value = true;
 
 			PhotonView photonView = PhotonView.Get (this);
@@ -34,7 +36,7 @@ public class DoorHandler : Photon.MonoBehaviour {
 			clicked = ! clicked;
 		}
 
-
+		}
 		
 
 	}

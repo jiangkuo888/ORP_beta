@@ -71,7 +71,7 @@ public class documentData : MonoBehaviour {
 		{
 			
 			documents[i].transform.parent = fileModeObj.transform;
-			
+			print (documents[i].name + " is arranged at "+documents[i].transform.localPosition);
 			
 			documents[i].transform.localPosition = new Vector3(-0.2275543f +i*0.35f,0,-0.03671265f);
 		}

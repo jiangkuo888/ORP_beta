@@ -194,7 +194,7 @@ public class inventory : MonoBehaviour {
 	public void Drop(){
 
 
-		if(inventoryObject != null)
+		if(inventoryObject != null&& inventoryObject.GetComponent<Collider>()!=null)
 		{
 		// Distance from your player    
 		//float distance   = 3;     
@@ -253,6 +253,7 @@ public class inventory : MonoBehaviour {
 
 
 	void enableCollider(GameObject obj){
+
 
 		Collider collider = obj.GetComponent<Collider> ();
 
