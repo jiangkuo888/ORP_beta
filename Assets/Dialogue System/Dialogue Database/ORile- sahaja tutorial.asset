@@ -273,6 +273,36 @@ MonoBehaviour:
       value: False
       type: 2
     portrait: {fileID: 0}
+  - id: 32
+    fields:
+    - title: Name
+      value: customer4
+      type: 0
+    - title: Pictures
+      value: '[]'
+      type: 3
+    - title: Description
+      value: 
+      type: 0
+    - title: IsPlayer
+      value: False
+      type: 2
+    portrait: {fileID: 0}
+  - id: 33
+    fields:
+    - title: Name
+      value: customer6
+      type: 0
+    - title: Pictures
+      value: '[]'
+      type: 3
+    - title: Description
+      value: 
+      type: 0
+    - title: IsPlayer
+      value: False
+      type: 2
+    portrait: {fileID: 0}
   items: []
   locations:
   - id: 1
@@ -1871,7 +1901,7 @@ MonoBehaviour:
       value: 11
       type: 5
     - title: Conversant
-      value: 7
+      value: 12
       type: 5
     nodeColor: Red
     dialogueEntries:
@@ -1884,7 +1914,7 @@ MonoBehaviour:
         value: 11
         type: 5
       - title: Conversant
-        value: 7
+        value: 12
         type: 5
       - title: Menu Text
         value: 
@@ -2020,7 +2050,7 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Sequence
-        value: 
+        value: Log(5A, Discrepancy in Doc)
         type: 0
       conversationID: 37
       isRoot: 0
@@ -2092,7 +2122,7 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Sequence
-        value: 
+        value: Log(5A,No Discrepancy in Doc)
         type: 0
       conversationID: 37
       isRoot: 0
@@ -2572,10 +2602,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 30
+        value: 31
         type: 5
       - title: Conversant
-        value: 31
+        value: 30
         type: 5
       - title: Menu Text
         value: 
@@ -3276,7 +3306,7 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Sequence
-        value: 
+        value: Log(5A. Unhold Customer Call)
         type: 0
       conversationID: 39
       isRoot: 0
@@ -3318,6 +3348,498 @@ MonoBehaviour:
         value: 
         type: 0
       conversationID: 39
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: 
+  - id: 40
+    fields:
+    - title: Title
+      value: Loan settlement
+      type: 0
+    - title: Description
+      value: 
+      type: 0
+    - title: Actor
+      value: 32
+      type: 5
+    - title: Conversant
+      value: 30
+      type: 5
+    nodeColor: Red
+    dialogueEntries:
+    - id: 0
+      fields:
+      - title: Title
+        value: START
+        type: 0
+      - title: Actor
+        value: 32
+        type: 5
+      - title: Conversant
+        value: 30
+        type: 5
+      - title: Menu Text
+        value: 
+        type: 0
+      - title: Dialogue Text
+        value: 
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: None()
+        type: 0
+      conversationID: 40
+      isRoot: 1
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: 
+  - id: 41
+    fields:
+    - title: Title
+      value: Client call before the fire drill
+      type: 0
+    - title: Description
+      value: 
+      type: 0
+    - title: Actor
+      value: 30
+      type: 5
+    - title: Conversant
+      value: 33
+      type: 5
+    nodeColor: Red
+    dialogueEntries:
+    - id: 0
+      fields:
+      - title: Title
+        value: START
+        type: 0
+      - title: Actor
+        value: 30
+        type: 5
+      - title: Conversant
+        value: 33
+        type: 5
+      - title: Menu Text
+        value: 
+        type: 0
+      - title: Dialogue Text
+        value: 
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: None()
+        type: 0
+      conversationID: 41
+      isRoot: 1
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 41
+        originDialogueID: 0
+        destinationConversationID: 41
+        destinationDialogueID: 1
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+    - id: 1
+      fields:
+      - title: Title
+        value: New Dialogue
+        type: 0
+      - title: Actor
+        value: 31
+        type: 5
+      - title: Conversant
+        value: 30
+        type: 5
+      - title: Menu Text
+        value: 
+        type: 0
+      - title: Dialogue Text
+        value: Hi there, my name is Gavin i would like to enquire about something.
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 41
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 41
+        originDialogueID: 1
+        destinationConversationID: 41
+        destinationDialogueID: 2
+        isConnector: 0
+        priority: 2
+      - originConversationID: 41
+        originDialogueID: 1
+        destinationConversationID: 41
+        destinationDialogueID: 3
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+    - id: 2
+      fields:
+      - title: Title
+        value: New Dialogue
+        type: 0
+      - title: Actor
+        value: 30
+        type: 5
+      - title: Conversant
+        value: 31
+        type: 5
+      - title: Menu Text
+        value: Take the call.
+        type: 0
+      - title: Dialogue Text
+        value: Hi Gavin. what information do you need?
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: Log(5A. Take Gavin Call)
+        type: 0
+      conversationID: 41
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 41
+        originDialogueID: 2
+        destinationConversationID: 41
+        destinationDialogueID: 4
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+    - id: 3
+      fields:
+      - title: Title
+        value: New Dialogue
+        type: 0
+      - title: Actor
+        value: 30
+        type: 5
+      - title: Conversant
+        value: 31
+        type: 5
+      - title: Menu Text
+        value: Cut the call.
+        type: 0
+      - title: Dialogue Text
+        value: I am sorry i am busy at the moment. Can you call back later please.
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: Log(5A. Cut Gavin Call)
+        type: 0
+      conversationID: 41
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: 
+    - id: 4
+      fields:
+      - title: Title
+        value: New Dialogue
+        type: 0
+      - title: Actor
+        value: 31
+        type: 5
+      - title: Conversant
+        value: 30
+        type: 5
+      - title: Menu Text
+        value: 
+        type: 0
+      - title: Dialogue Text
+        value: I want to know what are the different mortgage products you have and
+          which one has fixed interest rate for a period of 3 or more years?
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 41
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 41
+        originDialogueID: 4
+        destinationConversationID: 41
+        destinationDialogueID: 5
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+    - id: 5
+      fields:
+      - title: Title
+        value: New Dialogue
+        type: 0
+      - title: Actor
+        value: 30
+        type: 5
+      - title: Conversant
+        value: 31
+        type: 5
+      - title: Menu Text
+        value: 
+        type: 0
+      - title: Dialogue Text
+        value: We are not offering Fixed interest mortgages right now, as the interest
+          is low so we are offering only floating rate loans for new customers.
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 41
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 41
+        originDialogueID: 5
+        destinationConversationID: 41
+        destinationDialogueID: 6
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+    - id: 6
+      fields:
+      - title: Title
+        value: New Dialogue
+        type: 0
+      - title: Actor
+        value: 31
+        type: 5
+      - title: Conversant
+        value: 30
+        type: 5
+      - title: Menu Text
+        value: 
+        type: 0
+      - title: Dialogue Text
+        value: Ehhh.. that is not the information i am looking for. Can you specify
+          about the mortgage products.
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 41
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 41
+        originDialogueID: 6
+        destinationConversationID: 41
+        destinationDialogueID: 7
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+    - id: 7
+      fields:
+      - title: Title
+        value: New Dialogue
+        type: 0
+      - title: Actor
+        value: 30
+        type: 5
+      - title: Conversant
+        value: 31
+        type: 5
+      - title: Menu Text
+        value: 
+        type: 0
+      - title: Dialogue Text
+        value: I am sorry that is all the information i have.
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 41
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 41
+        originDialogueID: 7
+        destinationConversationID: 41
+        destinationDialogueID: 8
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+    - id: 8
+      fields:
+      - title: Title
+        value: New Dialogue
+        type: 0
+      - title: Actor
+        value: 31
+        type: 5
+      - title: Conversant
+        value: 30
+        type: 5
+      - title: Menu Text
+        value: 
+        type: 0
+      - title: Dialogue Text
+        value: But you haven't provided any information about the mortgage products!!
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 41
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 41
+        originDialogueID: 8
+        destinationConversationID: 41
+        destinationDialogueID: 9
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+    - id: 9
+      fields:
+      - title: Title
+        value: New Dialogue
+        type: 0
+      - title: Actor
+        value: 30
+        type: 5
+      - title: Conversant
+        value: 31
+        type: 5
+      - title: Menu Text
+        value: 
+        type: 0
+      - title: Dialogue Text
+        value: Ok sir. Can u call me back later so i can get more information for
+          you.
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 41
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 41
+        originDialogueID: 9
+        destinationConversationID: 41
+        destinationDialogueID: 10
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+    - id: 10
+      fields:
+      - title: Title
+        value: New Dialogue
+        type: 0
+      - title: Actor
+        value: 31
+        type: 5
+      - title: Conversant
+        value: 30
+        type: 5
+      - title: Menu Text
+        value: 
+        type: 0
+      - title: Dialogue Text
+        value: Ok whatever!
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 41
       isRoot: 0
       isGroup: 0
       nodeColor: White
