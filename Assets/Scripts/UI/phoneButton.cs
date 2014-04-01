@@ -3,7 +3,7 @@ using System.Collections;
 using PixelCrushers.DialogueSystem.UnityGUI;
 using PixelCrushers.DialogueSystem;
 using PixelCrushers.DialogueSystem.ChatMapper;
-
+using HutongGames.PlayMaker;
 
 public class phoneButton : MonoBehaviour {
 	
@@ -24,6 +24,8 @@ public class phoneButton : MonoBehaviour {
 	string conversationName;
 	string playerName;
 	int count = 0;
+	PlayMakerFSM EventFSM;
+
 
 	void Awake()
 	{
@@ -45,6 +47,8 @@ public class phoneButton : MonoBehaviour {
 	// Use this for initialization
 	void Start()
 	{
+		EventFSM = GameObject.Find ("EventManager-Tutorial").GetComponent<PlayMakerFSM>();
+
 
 		OnCalling = false;
 		// Position the billboard in the center, 
@@ -146,7 +150,10 @@ public class phoneButton : MonoBehaviour {
 		{
 
 		
-
+			
+			if(EventFSM.enabled)
+				if(EventFSM.ActiveStateName == "show phone feature")
+					EventFSM.FsmVariables.GetFsmBool("phoneClicked").Value = true;
 
 
 
@@ -230,18 +237,22 @@ public class phoneButton : MonoBehaviour {
 
 	public void loadSmallButtonCharacter(){
 
+
+
 		switch(PhotonNetwork.playerName)
 		{
 		case "Sales Manager":
 			GameObject.Find("phoneSmallButton1").GetComponent<phoneShowPlayerButton>().targetPlayer = "LPU Officer";
 			GameObject.Find("phoneSmallButton2").GetComponent<phoneShowPlayerButton>().targetPlayer = "LPU Manager";
 			GameObject.Find("phoneSmallButton3").GetComponent<phoneShowPlayerButton>().targetPlayer = "Credit Risk";
-
+			if(EventFSM.enabled != true)
+				
+			{
 			GameObject.Find("phoneSmallButton1").GetComponent<phoneShowPlayerButton>().conversation = "SM to LO";
 			GameObject.Find("phoneSmallButton2").GetComponent<phoneShowPlayerButton>().conversation = "SM to LM";
 			GameObject.Find("phoneSmallButton3").GetComponent<phoneShowPlayerButton>().conversation = "SM to CR";
 			GameObject.Find("EmailIcon").GetComponent<phoneShowInbox>().conversation = "SM Inbox";
-
+			}
 
 
 
@@ -250,31 +261,40 @@ public class phoneButton : MonoBehaviour {
 			GameObject.Find("phoneSmallButton1").GetComponent<phoneShowPlayerButton>().targetPlayer = "LPU Officer";
 			GameObject.Find("phoneSmallButton2").GetComponent<phoneShowPlayerButton>().targetPlayer = "Sales Manager";
 			GameObject.Find("phoneSmallButton3").GetComponent<phoneShowPlayerButton>().targetPlayer = "Credit Risk";
-
+			if(EventFSM.enabled != true)
+				
+			{
 			GameObject.Find("phoneSmallButton1").GetComponent<phoneShowPlayerButton>().conversation = "LM to LO";
 			GameObject.Find("phoneSmallButton2").GetComponent<phoneShowPlayerButton>().conversation = "LM to SM";
 			GameObject.Find("phoneSmallButton3").GetComponent<phoneShowPlayerButton>().conversation = "LM to CR";
 			GameObject.Find ("EmailIcon").GetComponent<phoneShowInbox>().conversation = "LM Inbox";
+			}
 			break;
 		case "LPU Officer":
 			GameObject.Find("phoneSmallButton1").GetComponent<phoneShowPlayerButton>().targetPlayer = "Sales Manager";
 			GameObject.Find("phoneSmallButton2").GetComponent<phoneShowPlayerButton>().targetPlayer = "LPU Manager";
 			GameObject.Find("phoneSmallButton3").GetComponent<phoneShowPlayerButton>().targetPlayer = "Credit Risk";
-
+			if(EventFSM.enabled != true)
+				
+			{
 			GameObject.Find("phoneSmallButton1").GetComponent<phoneShowPlayerButton>().conversation = "LO to SM";
 			GameObject.Find("phoneSmallButton2").GetComponent<phoneShowPlayerButton>().conversation = "LO to LM";
 			GameObject.Find("phoneSmallButton3").GetComponent<phoneShowPlayerButton>().conversation = "LO to CR";
 			GameObject.Find ("EmailIcon").GetComponent<phoneShowInbox>().conversation = "LO Inbox";
+			}
 			break;
 		case "Credit Risk":
 			GameObject.Find("phoneSmallButton1").GetComponent<phoneShowPlayerButton>().targetPlayer = "LPU Officer";
 			GameObject.Find("phoneSmallButton2").GetComponent<phoneShowPlayerButton>().targetPlayer = "LPU Manager";
 			GameObject.Find("phoneSmallButton3").GetComponent<phoneShowPlayerButton>().targetPlayer = "Sales Manager";
-
+			if(EventFSM.enabled != true)
+				
+			{
 			GameObject.Find("phoneSmallButton1").GetComponent<phoneShowPlayerButton>().conversation = "CR to LO";
 			GameObject.Find("phoneSmallButton2").GetComponent<phoneShowPlayerButton>().conversation = "CR to LM";
 			GameObject.Find("phoneSmallButton3").GetComponent<phoneShowPlayerButton>().conversation = "CR to SM";
 			GameObject.Find ("EmailIcon").GetComponent<phoneShowInbox>().conversation = "CR Inbox";
+			}
 			break;
 		default:
 			break;

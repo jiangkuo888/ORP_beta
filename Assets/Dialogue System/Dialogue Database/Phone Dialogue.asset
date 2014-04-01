@@ -96,7 +96,7 @@ MonoBehaviour:
   - id: 35
     fields:
     - title: Name
-      value: Customer - John
+      value: Customer - Kevin
       type: 0
     - title: Pictures
       value: '[]'
@@ -169,7 +169,7 @@ MonoBehaviour:
       type: 2
     portrait: {fileID: 0}
   items:
-  - id: 20
+  - id: 21
     fields:
     - title: Name
       value: Sales Call from John
@@ -189,7 +189,7 @@ MonoBehaviour:
     - title: Is Item
       value: False
       type: 2
-  - id: 21
+  - id: 22
     fields:
     - title: Name
       value: Evacuation Notice
@@ -209,7 +209,7 @@ MonoBehaviour:
     - title: Is Item
       value: False
       type: 2
-  - id: 22
+  - id: 23
     fields:
     - title: Name
       value: Loan Enquiry Peter
@@ -229,7 +229,7 @@ MonoBehaviour:
     - title: Is Item
       value: False
       type: 2
-  - id: 23
+  - id: 24
     fields:
     - title: Name
       value: Peter Valuation Report
@@ -249,7 +249,7 @@ MonoBehaviour:
     - title: Is Item
       value: False
       type: 2
-  - id: 24
+  - id: 25
     fields:
     - title: Name
       value: Pre Flood Notice
@@ -269,7 +269,7 @@ MonoBehaviour:
     - title: Is Item
       value: False
       type: 2
-  - id: 25
+  - id: 26
     fields:
     - title: Name
       value: Evacuate to Level 12
@@ -289,7 +289,7 @@ MonoBehaviour:
     - title: Is Item
       value: False
       type: 2
-  - id: 26
+  - id: 27
     fields:
     - title: Name
       value: Notified Arrival
@@ -310,7 +310,7 @@ MonoBehaviour:
     - title: Is Item
       value: False
       type: 2
-  - id: 27
+  - id: 28
     fields:
     - title: Name
       value: Move to Conference
@@ -719,9 +719,9 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Dialogue Text
-        value: "Hi this is John, I am calling to confirm on taking up the loan package
-          that you offered just now. I have couriered in the required documents so
-          can you help me process it as soon as possible? Thanks. \n"
+        value: "Hi this is Kevin from just now, I am calling to confirm on taking
+          up the loan package that you offered just now. I have couriered in the required
+          documents so can you help me process it as soon as possible? Thanks. \n"
         type: 4
       - title: Video File
         value: 
@@ -2224,7 +2224,7 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Dialogue Text
-        value: 'What are you guys doing here? '
+        value: 'Hi, can i help you? This is a restricted area. '
         type: 4
       - title: Video File
         value: 
@@ -2302,8 +2302,8 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Dialogue Text
-        value: 'I have not received any of notice at all! Can you all kindly move
-          to the conference room for now? '
+        value: "I have not received any of notice at all! Can you all kindly move
+          to the conference room for now? Let me find out what has happened. \n"
         type: 4
       - title: Video File
         value: 
@@ -2342,7 +2342,7 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Dialogue Text
-        value: ok.
+        value: "Alright. Where is the conference room located? \n"
         type: 4
       - title: Video File
         value: 
@@ -2357,9 +2357,15 @@ MonoBehaviour:
       delaySimStatus: 0
       falseConditionAction: Block
       conditionPriority: 2
-      outgoingLinks: []
+      outgoingLinks:
+      - originConversationID: 51
+        originDialogueID: 4
+        destinationConversationID: 51
+        destinationDialogueID: 6
+        isConnector: 0
+        priority: 2
       conditionsString: 
-      userScript: Item["Move_to_Conference"].State = "success"
+      userScript: 
     - id: 5
       fields:
       - title: Title
@@ -2393,4 +2399,38 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: Item["Notified_Arrival"].State == "success"
+      userScript: Item["Move_to_Conference"].State = "success"
+    - id: 6
+      fields:
+      - title: Title
+        value: 
+        type: 0
+      - title: Actor
+        value: 1
+        type: 5
+      - title: Conversant
+        value: 5
+        type: 5
+      - title: Menu Text
+        value: 
+        type: 0
+      - title: Dialogue Text
+        value: 'Just go straight down either way and take the next turn, the conference
+          room will be located at the end of the corridor. '
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 51
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
       userScript: Item["Move_to_Conference"].State = "success"

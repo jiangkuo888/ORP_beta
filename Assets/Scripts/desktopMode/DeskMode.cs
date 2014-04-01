@@ -2,6 +2,7 @@
 using System.Collections;
 using PixelCrushers.DialogueSystem;
 using PixelCrushers.DialogueSystem.ChatMapper;
+using HutongGames.PlayMaker;
 
 public class DeskMode : MonoBehaviour {
 
@@ -42,10 +43,14 @@ public class DeskMode : MonoBehaviour {
 	Vector3 TelephoneModeOriginalPosition;
 	public Vector3 CameraOriginalPosition;
 
+	// playmaker object for tutorial
+	PlayMakerFSM EventFSM;
 
 	// Use this for initialization
 	void Start () {
-		
+
+		EventFSM = GameObject.Find ("EventManager-Tutorial").GetComponent<PlayMakerFSM>();
+
 		w = Screen.width;
 		h = Screen.height;
 		mode = DeskModeSubMode.None;
@@ -83,6 +88,11 @@ public class DeskMode : MonoBehaviour {
 			
 		case DeskModeSubMode.FileMode:
 		{
+			if(EventFSM.enabled)
+				if(EventFSM.ActiveStateName == "checkDocument")
+					EventFSM.FsmVariables.GetFsmBool("InFileMode").Value = true;
+
+
 
 			if(this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents.Length>0){
 			GUI.Label(new Rect(w/2 - 100f, .4f*h - 100f, 200f, 30f ), this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].gameObject.name);
@@ -90,6 +100,14 @@ public class DeskMode : MonoBehaviour {
 			//nofunction added
 			if(GUI.Button( new LTRect(w/2 - 50f, .9f*h - 100f, 100f, 30f ).rect,"Send",customSkin.button))
 			{
+				
+				if(EventFSM.enabled)
+					if(EventFSM.ActiveStateName == "Send")
+						EventFSM.FsmVariables.GetFsmBool("sent").Value = true;
+
+
+
+
 				if(this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents.Length>0)
 				{
 					// RPC call to display email
@@ -172,6 +190,12 @@ public class DeskMode : MonoBehaviour {
 			if(GUI.Button(new LTRect(w/2 - 50f, .9f*h - 150f, 100f, 30f ).rect, "Read",customSkin.button))
 			{
 				// read the document
+				if(EventFSM.enabled)
+					if(EventFSM.ActiveStateName == "ShowInstructions")
+						EventFSM.FsmVariables.GetFsmBool("IsReading").Value = true;
+
+
+
 				if(this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents.Length>0)
 				{
 
@@ -214,7 +238,7 @@ public class DeskMode : MonoBehaviour {
 					// add viewer for next obj
 					currentDocumentIndex++;
 
-					print (currentDocumentIndex);
+					//print (currentDocumentIndex);
 
 
 					Transform nextTr = this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].transform;
@@ -322,6 +346,12 @@ public class DeskMode : MonoBehaviour {
 			
 			if(GUI.Button( new LTRect(.5f*w - 50f, .9f*h - 50f, 100f, 50f ).rect, "Verify",customSkin.button))
 			{
+
+				if(EventFSM.enabled)
+					if(EventFSM.ActiveStateName == "GoVerify")
+						EventFSM.FsmVariables.GetFsmBool("IsVerifying").Value = true;
+
+
 				Camera.main.GetComponent<magnify>().disableZoom();
 
 
@@ -441,6 +471,13 @@ public class DeskMode : MonoBehaviour {
 		{
 			if(GUI.Button( new LTRect(1.0f*w - 165f, 1.0f*h - 50f, 150f, 50f ).rect, "Quit DeskMode",customSkin.button))
 			{
+
+				if(EventFSM.enabled)
+					if(EventFSM.ActiveStateName == "Quit deskmode")
+						EventFSM.FsmVariables.GetFsmBool("isQuit").Value = true;
+
+
+
 				if(GameObject.Find ("InventoryObj").GetComponent<inventory>().inventoryObject !=null)
 					GameObject.Find ("InventoryObj").GetComponent<GUITexture>().enabled = true;
 
@@ -519,7 +556,7 @@ public class DeskMode : MonoBehaviour {
 			
 			
 			// notify the receiver 
-			//GameObject.Find ("EmailIcon").GetComponent<Email>().hasNewDocument(sender);
+			GameObject.Find("Dialogue Manager").GetComponent<DialogueSystemController>().ShowAlert("You have new document from "+sender+".");
 		}
 		
 		// document sender action

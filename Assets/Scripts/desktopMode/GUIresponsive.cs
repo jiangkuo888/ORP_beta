@@ -120,7 +120,7 @@ public class GUIresponsive : MonoBehaviour {
 		updateRedDot();
 		unreadNumber += 1;
 		this.transform.Find ("unreadNumber").GetComponent<GUIText>().text = unreadNumber.ToString();
-		this.transform.Find ("EmailShortMessage").GetComponent<GUIText>().text = "You have new message.";
+		//this.transform.Find ("EmailShortMessage").GetComponent<GUIText>().text = "You have new message.";
 
 		if(this.GetComponent<GUITexture>().enabled == false)
 		{
@@ -137,7 +137,7 @@ public class GUIresponsive : MonoBehaviour {
 
 		unreadNumber -=1;
 		this.transform.Find ("unreadNumber").GetComponent<GUIText>().text = unreadNumber.ToString();
-		this.transform.Find ("EmailShortMessage").GetComponent<GUIText>().text = "";
+		//this.transform.Find ("EmailShortMessage").GetComponent<GUIText>().text = "";
 		if(unreadNumber <= 0)
 		{
 			this.GetComponent<GUITexture>().enabled = false;
@@ -182,6 +182,8 @@ public class GUIresponsive : MonoBehaviour {
 
 		this.transform.Find ("unreadNumber").GetComponent<GUIText>().pixelOffset = new Vector2(myGUITexture.pixelInset.x+height/2-.5f,myGUITexture.pixelInset.y+width/2-.5f);
 	}
+
+
 
 	         
 	
