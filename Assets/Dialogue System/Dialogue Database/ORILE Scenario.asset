@@ -458,7 +458,8 @@ MonoBehaviour:
       value: You have successfully clinched a new sales!
       type: 0
     - title: Failure Description
-      value: 'You have lost a potential sales deal... '
+      value: 'You have lost a potential sales deal as you are being too aggressive
+        instead of listening to the customer first.  '
       type: 0
     - title: State
       value: unassigned
@@ -553,13 +554,13 @@ MonoBehaviour:
       value: Evacuate Now
       type: 0
     - title: Description
-      value: 'Time to evacuate everyone to the roof. '
+      value: Calm the people held at the Conference room.
       type: 0
     - title: Success Description
-      value: 
+      value: 'You should wait for further instructions before you decide to evacuate. '
       type: 0
     - title: Failure Description
-      value: 
+      value: 'You should wait for further instructions before you decide to evacuate. '
       type: 0
     - title: State
       value: unassigned
@@ -1913,7 +1914,9 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
-      userScript: 
+      userScript: 'Item["Fire_Escape_Blockage"].State = "active";
+
+        Variable["Alert"] = "New Quest: Clear blockage at Fire Exit";'
     - id: 4
       fields:
       - title: Title
@@ -1945,8 +1948,8 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks: []
-      conditionsString: 
-      userScript: Item["Fire_Escape_Blockage"].State = "active";
+      conditionsString: Item["Fire_Escape_Blockage"].State == "active";
+      userScript: 
   - id: 23
     fields:
     - title: Title
@@ -3319,7 +3322,9 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
-      userScript: Item["Potential_Sales"].State = "failure";
+      userScript: 'Item["Potential_Sales"].State = "failure";
+
+        Variable["Alert"] = "Quest Fail: Unsuccessful Sales Pitch";'
     - id: 7
       fields:
       - title: Title
@@ -3639,10 +3644,10 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
-      userScript: 'Item["Potential_Sales"].State = "success";
-
-        Item["Kevin_Email_Sent"].State = "active"; Variable["Alert"] = "New Quest:
-        Send Email to Kevin.";'
+      userScript: "Item[\"Potential_Sales\"].State = \"success\";\nItem[\"Kevin_Email_Sent\"].State
+        = \"active\";\nVariable[\"Alert\"] = \"Quest Success: You have successfully
+        clinch a new sale. \"; \nVariable[\"Alert\"] = \"New Quest: Send Email to
+        Kevin.\";"
   - id: 27
     fields:
     - title: Title
@@ -4142,7 +4147,9 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
-      userScript: Item["Evacuate_Now"].State = "success"
+      userScript: 'Item["Evacuate_Now"].State = "success";
+
+        Variable["Alert"] = "Quest Success: You have made the right decision to wait.";'
     - id: 6
       fields:
       - title: Title
@@ -4175,7 +4182,9 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
-      userScript: Item["Evacuate_Now"].State = "failure"
+      userScript: 'Item["Evacuate_Now"].State = "failure";
+
+        Variable["Alert"] = "Quest failed: You should not have evacuated now.";'
   - id: 29
     fields:
     - title: Title
@@ -4363,7 +4372,7 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Dialogue Text
-        value: 'Ok thanks, can you place them on my desk? '
+        value: 'Ok thanks, can you pass them to the front desk? '
         type: 4
       - title: Video File
         value: 
@@ -4402,7 +4411,7 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Dialogue Text
-        value: 'Ok. '
+        value: "Ok. No problem. \n"
         type: 4
       - title: Video File
         value: 
@@ -4419,7 +4428,9 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
-      userScript: 'Item["Delivery_from_Courier"].State = "success"; '
+      userScript: 'Item["Delivery_from_Courier"].State = "success";
+
+        Variable["Alert"] = "Quest Success: Received Documents from Kevin";'
   - id: 30
     fields:
     - title: Title
