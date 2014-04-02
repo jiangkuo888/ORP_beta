@@ -1150,7 +1150,8 @@
             <ReviewerStatus>None</ReviewerStatus>
             <OutgoingLinks />
             <ConditionsString>Item["Evacuation_Notice"].State == "active" and Dialog[2].SimStatus ~= "WasDisplayed"</ConditionsString>
-            <UserScript>Item["Evacuation_Notice"].State = "success"</UserScript>
+            <UserScript>Item["Evacuation_Notice"].State = "success";
+Variable["Alert"] = "Quest Success: You have evacuated the Sales Floor.";</UserScript>
           </DialogEntry>
           <DialogEntry ID="4" IsRoot="false" IsGroup="false" NodeColor="White" DelaySimStatus="false" FalseCondtionAction="Block" ConditionPriority="Normal">
             <Fields>
@@ -1187,7 +1188,8 @@
             <ReviewerStatus>None</ReviewerStatus>
             <OutgoingLinks />
             <ConditionsString>Item["Pre_Flood_Notice"].State == "active" and Dialog[4].SimStatus ~= "WasDisplayed" and Item["Evacuation_Notice"].State ~= "active" </ConditionsString>
-            <UserScript>Item["Pre_Flood_Notice"].State = "success"</UserScript>
+            <UserScript>Item["Pre_Flood_Notice"].State = "success";
+Variable["Alert"] = "Quest Success: You have given the early warning to the customers. ";</UserScript>
           </DialogEntry>
           <DialogEntry ID="7" IsRoot="false" IsGroup="false" NodeColor="White" DelaySimStatus="false" FalseCondtionAction="Block" ConditionPriority="Normal">
             <Fields>
@@ -1587,7 +1589,8 @@
             <ReviewerStatus>None</ReviewerStatus>
             <OutgoingLinks />
             <ConditionsString />
-            <UserScript>Item["Loan_Enquiry_Peter"].State = "success"</UserScript>
+            <UserScript>Item["Loan_Enquiry_Peter"].State = "success";
+Variable["Alert"] = "Quest Success: You have gathered all the necessary information. ";</UserScript>
           </DialogEntry>
           <DialogEntry ID="1" IsRoot="false" IsGroup="false" NodeColor="White" DelaySimStatus="false" FalseCondtionAction="Block" ConditionPriority="Normal">
             <Fields>
@@ -1663,7 +1666,8 @@
             <ReviewerStatus>None</ReviewerStatus>
             <OutgoingLinks />
             <ConditionsString />
-            <UserScript>Item["Loan_Enquiry_Peter"].State = "failure"</UserScript>
+            <UserScript>Item["Loan_Enquiry_Peter"].State = "failure";
+Variable["Alert"] = "Quest failed: You have not gotten all the necessary information. ";</UserScript>
           </DialogEntry>
         </DialogEntries>
       </Conversation>
@@ -1916,7 +1920,7 @@
             <ReviewerStatus>None</ReviewerStatus>
             <OutgoingLinks />
             <ConditionsString />
-            <UserScript>Item["Peter_Valuation_Report"].State = "active" </UserScript>
+            <UserScript>Item["Peter_Valuation_Report"].State = "active";</UserScript>
           </DialogEntry>
         </DialogEntries>
       </Conversation>
@@ -2053,7 +2057,8 @@
             <ReviewerStatus>None</ReviewerStatus>
             <OutgoingLinks />
             <ConditionsString />
-            <UserScript>Item["Pre_Flood_Notice"].State = "active";</UserScript>
+            <UserScript>Item["Pre_Flood_Notice"].State = "active";
+Variable["Alert"] = "There is a new announcement available for you.";</UserScript>
           </DialogEntry>
         </DialogEntries>
       </Conversation>
@@ -2229,7 +2234,8 @@
             <ReviewerStatus>None</ReviewerStatus>
             <OutgoingLinks />
             <ConditionsString>Item["Evacuation_Notice"].State == "success"</ConditionsString>
-            <UserScript>Item["Evacuate_to_Level_12"].State = "success"</UserScript>
+            <UserScript>Item["Evacuate_to_Level_12"].State = "success";
+Variable["Alert"] = "Quest success: You have evacuated to the 12th Floor.";</UserScript>
           </DialogEntry>
           <DialogEntry ID="4" IsRoot="false" IsGroup="false" NodeColor="White" DelaySimStatus="false" FalseCondtionAction="Block" ConditionPriority="Normal">
             <Fields>
