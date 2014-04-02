@@ -125,6 +125,17 @@ MonoBehaviour:
     - title: Description
       value: 
       type: 0
+  - id: 10
+    fields:
+    - title: Name
+      value: keyboxIsOpen
+      type: 0
+    - title: Initial Value
+      value: False
+      type: 2
+    - title: Description
+      value: 
+      type: 0
   conversations:
   - id: 35
     fields:
@@ -176,7 +187,7 @@ MonoBehaviour:
       - originConversationID: 35
         originDialogueID: 0
         destinationConversationID: 35
-        destinationDialogueID: 2
+        destinationDialogueID: 1
         isConnector: 0
         priority: 2
       - originConversationID: 35
@@ -185,43 +196,14 @@ MonoBehaviour:
         destinationDialogueID: 3
         isConnector: 0
         priority: 2
+      - originConversationID: 35
+        originDialogueID: 0
+        destinationConversationID: 35
+        destinationDialogueID: 4
+        isConnector: 0
+        priority: 2
       conditionsString: 
       userScript: 
-    - id: 2
-      fields:
-      - title: Title
-        value: 
-        type: 0
-      - title: Actor
-        value: 1
-        type: 5
-      - title: Conversant
-        value: 28
-        type: 5
-      - title: Menu Text
-        value: Pick up
-        type: 0
-      - title: Dialogue Text
-        value: 
-        type: 4
-      - title: Video File
-        value: 
-        type: 0
-      - title: Sequence
-        value: Pick(key);
-        type: 0
-      conversationID: 35
-      isRoot: 0
-      isGroup: 0
-      nodeColor: White
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks: []
-      conditionsString: Variable["HasKey"] == true;
-      userScript: 'Variable["HasKey"] = false;
-
-        Variable["Tutorial_key_get"] = true;'
     - id: 3
       fields:
       - title: Title
@@ -243,7 +225,7 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Sequence
-        value: 
+        value: Pick(close);
         type: 0
       conversationID: 35
       isRoot: 0
@@ -254,7 +236,158 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
-      userScript: 
+      userScript: Variable["keyboxIsOpen"] = false;
+    - id: 1
+      fields:
+      - title: Title
+        value: 3
+        type: 0
+      - title: Actor
+        value: 1
+        type: 5
+      - title: Conversant
+        value: 28
+        type: 5
+      - title: Menu Text
+        value: Open
+        type: 0
+      - title: Dialogue Text
+        value: Opening....
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: Pick(open);
+        type: 0
+      conversationID: 35
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 35
+        originDialogueID: 1
+        destinationConversationID: 35
+        destinationDialogueID: 2
+        isConnector: 0
+        priority: 2
+      - originConversationID: 35
+        originDialogueID: 1
+        destinationConversationID: 35
+        destinationDialogueID: 5
+        isConnector: 0
+        priority: 2
+      conditionsString: Variable["keyboxIsOpen"] == false;
+      userScript: Variable["keyboxIsOpen"] = true;
+    - id: 2
+      fields:
+      - title: Title
+        value: 
+        type: 0
+      - title: Actor
+        value: 1
+        type: 5
+      - title: Conversant
+        value: 28
+        type: 5
+      - title: Menu Text
+        value: Pick up
+        type: 0
+      - title: Dialogue Text
+        value: Picking...
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: Pick(key);
+        type: 0
+      conversationID: 35
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: Variable["HasKey"] == true;
+      userScript: 'Variable["HasKey"] = false;
+
+        Variable["Tutorial_key_get"] = true;'
+    - id: 4
+      fields:
+      - title: Title
+        value: 
+        type: 0
+      - title: Actor
+        value: 1
+        type: 5
+      - title: Conversant
+        value: 28
+        type: 5
+      - title: Menu Text
+        value: Pick up
+        type: 0
+      - title: Dialogue Text
+        value: Picking...
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: Pick(key);
+        type: 0
+      conversationID: 35
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: Variable["HasKey"] == true and Variable["keyboxIsOpen"] ==
+        true;
+      userScript: 'Variable["HasKey"] = false;
+
+        Variable["Tutorial_key_get"] = true;
+
+'
+    - id: 5
+      fields:
+      - title: Title
+        value: 
+        type: 0
+      - title: Actor
+        value: 1
+        type: 5
+      - title: Conversant
+        value: 28
+        type: 5
+      - title: Menu Text
+        value: Leave
+        type: 0
+      - title: Dialogue Text
+        value: 
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: Pick(close);
+        type: 0
+      conversationID: 35
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: Variable["keyboxIsOpen"] = false;
   - id: 36
     fields:
     - title: Title
