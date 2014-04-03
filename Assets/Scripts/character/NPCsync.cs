@@ -58,6 +58,12 @@ public class NPCsync: MonoBehaviour {
 
 
 	}
+	public void safeOtherLockRPC(){
+		print (" I locked, left others");
+
+		PhotonView photonView = this.gameObject.GetPhotonView ();
+		photonView.RPC ("OtherLockRPC",PhotonTargets.OthersBuffered);
+	}
 
 
 
@@ -107,6 +113,12 @@ public class NPCsync: MonoBehaviour {
 	{
 		DialogueLua.SetVariable("OtherUnlocked",true);
 
+	}
+
+	[RPC]
+	public void OtherLockRPC()
+	{
+		DialogueLua.SetVariable("OtherUnlocked",false);
 	}
 
 }

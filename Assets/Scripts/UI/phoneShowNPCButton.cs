@@ -66,6 +66,7 @@ public class phoneShowNPCButton : MonoBehaviour {
 						GameObject.Find ("phoneSmallButton2").GetComponent<GUITexture>().enabled = false;
 						GameObject.Find ("phoneSmallButton3").GetComponent<GUITexture>().enabled = false;
 						GameObject.Find ("phoneSmallButton4").GetComponent<GUITexture>().enabled = false;
+						GameObject.Find ("EmailIcon").GetComponent<GUITexture>().enabled = false;
 						ListOn = false;
 					}
 					

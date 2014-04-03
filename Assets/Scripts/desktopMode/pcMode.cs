@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+using HutongGames.PlayMaker;
 
 public class pcMode : MonoBehaviour {
 	
@@ -23,7 +23,7 @@ public class pcMode : MonoBehaviour {
 	
 	
 	
-	
+	PlayMakerFSM EventFSM;
 	
 	
 	
@@ -32,6 +32,8 @@ public class pcMode : MonoBehaviour {
 		InfoModeIsOn = false;
 		w = Screen.width;
 		h = Screen.height;
+
+		EventFSM = GameObject.Find ("EventManager-Tutorial").GetComponent<PlayMakerFSM>();
 	}
 	
 	void InfoModeOn(){
@@ -53,6 +55,11 @@ public class pcMode : MonoBehaviour {
 		for (int i = 0; i < customerNames.Length; i++) {
 			if(GUI.Button (new Rect (.06f*w, 50*i, 300, 30), customerNames[i]))
 			{
+
+					if(EventFSM.enabled)
+						if(EventFSM.ActiveStateName == "Click on Entry")
+						EventFSM.FsmVariables.GetFsmBool("EntryClicked").Value = true;
+
 				if(deskTop != null)
 				{
 					

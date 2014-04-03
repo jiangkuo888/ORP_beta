@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using HutongGames.PlayMaker;
 
 public class DoorHandler : Photon.MonoBehaviour {
 	
@@ -10,26 +11,32 @@ public class DoorHandler : Photon.MonoBehaviour {
 	bool enter ;
 	bool doorState;
 	public bool clicked;
-	
+	public bool enabled;
+	PlayMakerFSM EventFSM;
 	// Use this for initialization
 	void Start () {
 		isOpen = false;
 		enter = false;
 		clicked = false;
+		EventFSM = GameObject.Find ("EventManager-Tutorial").GetComponent<PlayMakerFSM>();
 	}
 	
 	// Update is called once per frame
 	void Update() {
+		if(enabled){
 		//if this photonview player enter, and press f
 		//change state and send, open door.
 		if(enter && clicked){
 //			print("111");
+		    if(EventFSM.enabled)
+			EventFSM.FsmVariables.GetFsmBool("Opened_door").Value = true;
+
 			PhotonView photonView = PhotonView.Get (this);
 			photonView.RPC("Open",PhotonTargets.AllBuffered);
 			clicked = ! clicked;
 		}
 
-
+		}
 		
 
 	}

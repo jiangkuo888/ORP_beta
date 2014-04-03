@@ -7,7 +7,13 @@ using System.Collections.Generic;
 /// </summary>
 public class ChatVik : Photon.MonoBehaviour
 {
+	public GUISkin customSkin;
+	public Texture2D playerTextureSM;
+	public Texture2D playerTextureLO;
+	public Texture2D playerTextureLM;
+	public Texture2D playerTextureCR;
 
+	Texture2D playerTexture;
     public static ChatVik SP;
     public List<string> messages = new List<string>();
 
@@ -18,6 +24,7 @@ public class ChatVik : Photon.MonoBehaviour
 
     void Awake()
     {
+		playerTexture = null;
         SP = this;
     }
 
@@ -39,8 +46,36 @@ public class ChatVik : Photon.MonoBehaviour
 
         //Chat input
         GUILayout.BeginHorizontal(); 
+
+		switch(PhotonNetwork.playerName)
+		{
+		case "Sales Manager":
+			playerTexture = playerTextureSM;
+			break;
+		case "LPU Manager":
+			playerTexture = playerTextureLM;
+			break;
+		case "LPU Officer":
+			playerTexture = playerTextureLO;
+			break;
+		case "Credit Risk":
+			playerTexture = playerTextureCR;
+			break;
+		default:
+			break;
+
+		}
+
+		if(playerTexture != null)
+			GUILayout.Box(playerTexture,customSkin.box);
+
+
+		GUIStyle myStyle = new GUIStyle (GUI.skin.textField); 
+		// do whatever you want with this style, e.g.:
+		myStyle.margin=new RectOffset(0,0,15,0);
+
         GUI.SetNextControlName("ChatField");
-    chatInput = GUILayout.TextField(chatInput, GUILayout.MinWidth(500));
+		chatInput = GUILayout.TextField(chatInput,myStyle,GUILayout.Width(300));
        
         if (Event.current.type == EventType.keyDown && Event.current.character == '\n'){
             if (GUI.GetNameOfFocusedControl() == "ChatField")
@@ -115,4 +150,8 @@ public class ChatVik : Photon.MonoBehaviour
     {
         this.enabled = true;
     }
+	public void OnConversationStart(Transform tr){
+		print ("23123");
+		this.enabled = false;
+	}
 }

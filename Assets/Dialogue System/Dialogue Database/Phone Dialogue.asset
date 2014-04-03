@@ -48,7 +48,7 @@ MonoBehaviour:
       value: True
       type: 2
     portrait: {fileID: 0}
-  - id: 32
+  - id: 35
     fields:
     - title: Name
       value: Facilities Manager
@@ -63,7 +63,7 @@ MonoBehaviour:
       value: False
       type: 2
     portrait: {fileID: 0}
-  - id: 30
+  - id: 31
     fields:
     - title: Name
       value: Phone
@@ -93,10 +93,10 @@ MonoBehaviour:
       value: False
       type: 2
     portrait: {fileID: 0}
-  - id: 33
+  - id: 36
     fields:
     - title: Name
-      value: Customer - John
+      value: Customer - Kevin
       type: 0
     - title: Pictures
       value: '[]'
@@ -108,7 +108,7 @@ MonoBehaviour:
       value: False
       type: 2
     portrait: {fileID: 0}
-  - id: 34
+  - id: 37
     fields:
     - title: Name
       value: Customer - Peter
@@ -123,7 +123,7 @@ MonoBehaviour:
       value: False
       type: 2
     portrait: {fileID: 0}
-  - id: 35
+  - id: 38
     fields:
     - title: Name
       value: Valuer
@@ -138,7 +138,7 @@ MonoBehaviour:
       value: False
       type: 2
     portrait: {fileID: 0}
-  - id: 36
+  - id: 39
     fields:
     - title: Name
       value: Fire Door
@@ -169,7 +169,7 @@ MonoBehaviour:
       type: 2
     portrait: {fileID: 0}
   items:
-  - id: 20
+  - id: 22
     fields:
     - title: Name
       value: Sales Call from John
@@ -189,7 +189,7 @@ MonoBehaviour:
     - title: Is Item
       value: False
       type: 2
-  - id: 21
+  - id: 23
     fields:
     - title: Name
       value: Evacuation Notice
@@ -209,7 +209,7 @@ MonoBehaviour:
     - title: Is Item
       value: False
       type: 2
-  - id: 22
+  - id: 24
     fields:
     - title: Name
       value: Loan Enquiry Peter
@@ -229,7 +229,7 @@ MonoBehaviour:
     - title: Is Item
       value: False
       type: 2
-  - id: 23
+  - id: 25
     fields:
     - title: Name
       value: Peter Valuation Report
@@ -249,7 +249,7 @@ MonoBehaviour:
     - title: Is Item
       value: False
       type: 2
-  - id: 24
+  - id: 26
     fields:
     - title: Name
       value: Pre Flood Notice
@@ -269,7 +269,7 @@ MonoBehaviour:
     - title: Is Item
       value: False
       type: 2
-  - id: 25
+  - id: 27
     fields:
     - title: Name
       value: Evacuate to Level 12
@@ -289,7 +289,7 @@ MonoBehaviour:
     - title: Is Item
       value: False
       type: 2
-  - id: 26
+  - id: 28
     fields:
     - title: Name
       value: Notified Arrival
@@ -310,7 +310,7 @@ MonoBehaviour:
     - title: Is Item
       value: False
       type: 2
-  - id: 27
+  - id: 29
     fields:
     - title: Name
       value: Move to Conference
@@ -356,7 +356,7 @@ MonoBehaviour:
       value: Show alert messages during gameplay by setting this variable.
       type: 0
   conversations:
-  - id: 40
+  - id: 50
     fields:
     - title: Title
       value: Facilities
@@ -368,7 +368,7 @@ MonoBehaviour:
       value: 1
       type: 5
     - title: Conversant
-      value: 32
+      value: 35
       type: 5
     nodeColor: Red
     dialogueEntries:
@@ -381,7 +381,7 @@ MonoBehaviour:
         value: 1
         type: 5
       - title: Conversant
-        value: 32
+        value: 35
         type: 5
       - title: Menu Text
         value: 
@@ -395,7 +395,7 @@ MonoBehaviour:
       - title: Sequence
         value: None()
         type: 0
-      conversationID: 40
+      conversationID: 50
       isRoot: 1
       isGroup: 0
       nodeColor: White
@@ -403,9 +403,9 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 40
+      - originConversationID: 50
         originDialogueID: 0
-        destinationConversationID: 40
+        destinationConversationID: 50
         destinationDialogueID: 2
         isConnector: 0
         priority: 2
@@ -417,7 +417,7 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 32
+        value: 35
         type: 5
       - title: Conversant
         value: 1
@@ -434,7 +434,7 @@ MonoBehaviour:
       - title: Sequence
         value: 
         type: 0
-      conversationID: 40
+      conversationID: 50
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -442,15 +442,15 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 40
+      - originConversationID: 50
         originDialogueID: 2
-        destinationConversationID: 40
+        destinationConversationID: 50
         destinationDialogueID: 3
         isConnector: 0
         priority: 2
-      - originConversationID: 40
+      - originConversationID: 50
         originDialogueID: 2
-        destinationConversationID: 40
+        destinationConversationID: 50
         destinationDialogueID: 4
         isConnector: 0
         priority: 2
@@ -465,7 +465,7 @@ MonoBehaviour:
         value: 1
         type: 5
       - title: Conversant
-        value: 32
+        value: 35
         type: 5
       - title: Menu Text
         value: I need your attention
@@ -479,7 +479,7 @@ MonoBehaviour:
       - title: Sequence
         value: 
         type: 0
-      conversationID: 40
+      conversationID: 50
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -498,7 +498,7 @@ MonoBehaviour:
         value: 1
         type: 5
       - title: Conversant
-        value: 32
+        value: 35
         type: 5
       - title: Menu Text
         value: Sorry, nothing's up.
@@ -512,7 +512,7 @@ MonoBehaviour:
       - title: Sequence
         value: 
         type: 0
-      conversationID: 40
+      conversationID: 50
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -522,7 +522,7 @@ MonoBehaviour:
       outgoingLinks: []
       conditionsString: 
       userScript: 
-  - id: 41
+  - id: 51
     fields:
     - title: Title
       value: Courier Delay
@@ -534,7 +534,7 @@ MonoBehaviour:
       value: 25
       type: 5
     - title: Conversant
-      value: 30
+      value: 31
       type: 5
     nodeColor: Red
     dialogueEntries:
@@ -547,7 +547,7 @@ MonoBehaviour:
         value: 25
         type: 5
       - title: Conversant
-        value: 30
+        value: 31
         type: 5
       - title: Menu Text
         value: 
@@ -561,7 +561,7 @@ MonoBehaviour:
       - title: Sequence
         value: None()
         type: 0
-      conversationID: 41
+      conversationID: 51
       isRoot: 1
       isGroup: 0
       nodeColor: White
@@ -569,9 +569,9 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 41
+      - originConversationID: 51
         originDialogueID: 0
-        destinationConversationID: 41
+        destinationConversationID: 51
         destinationDialogueID: 1
         isConnector: 0
         priority: 2
@@ -583,7 +583,7 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 30
+        value: 31
         type: 5
       - title: Conversant
         value: 25
@@ -600,7 +600,7 @@ MonoBehaviour:
       - title: Sequence
         value: 
         type: 0
-      conversationID: 41
+      conversationID: 51
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -608,9 +608,9 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 41
+      - originConversationID: 51
         originDialogueID: 1
-        destinationConversationID: 41
+        destinationConversationID: 51
         destinationDialogueID: 2
         isConnector: 0
         priority: 2
@@ -625,7 +625,7 @@ MonoBehaviour:
         value: 25
         type: 5
       - title: Conversant
-        value: 30
+        value: 31
         type: 5
       - title: Menu Text
         value: 
@@ -639,7 +639,7 @@ MonoBehaviour:
       - title: Sequence
         value: 
         type: 0
-      conversationID: 41
+      conversationID: 51
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -649,7 +649,7 @@ MonoBehaviour:
       outgoingLinks: []
       conditionsString: 
       userScript: 
-  - id: 42
+  - id: 52
     fields:
     - title: Title
       value: John Call
@@ -658,10 +658,10 @@ MonoBehaviour:
       value: 
       type: 0
     - title: Actor
-      value: 30
+      value: 31
       type: 5
     - title: Conversant
-      value: 33
+      value: 36
       type: 5
     nodeColor: Red
     dialogueEntries:
@@ -671,10 +671,10 @@ MonoBehaviour:
         value: START
         type: 0
       - title: Actor
-        value: 30
+        value: 31
         type: 5
       - title: Conversant
-        value: 33
+        value: 36
         type: 5
       - title: Menu Text
         value: 
@@ -688,7 +688,7 @@ MonoBehaviour:
       - title: Sequence
         value: None()
         type: 0
-      conversationID: 42
+      conversationID: 52
       isRoot: 1
       isGroup: 0
       nodeColor: White
@@ -696,9 +696,9 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 42
+      - originConversationID: 52
         originDialogueID: 0
-        destinationConversationID: 42
+        destinationConversationID: 52
         destinationDialogueID: 2
         isConnector: 0
         priority: 2
@@ -710,18 +710,18 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 33
+        value: 36
         type: 5
       - title: Conversant
-        value: 30
+        value: 31
         type: 5
       - title: Menu Text
         value: 
         type: 0
       - title: Dialogue Text
-        value: "Hi this is John, I am calling to confirm on taking up the loan package
-          that you offered just now. I have couriered in the required documents so
-          can you help me process it as soon as possible? Thanks. \n"
+        value: "Hi this is Kevin from just now, I am calling to confirm on taking
+          up the loan package that you offered just now. I have couriered in the required
+          documents so can you help me process it as soon as possible? Thanks. \n"
         type: 4
       - title: Video File
         value: 
@@ -729,7 +729,7 @@ MonoBehaviour:
       - title: Sequence
         value: 
         type: 0
-      conversationID: 42
+      conversationID: 52
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -737,9 +737,9 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 42
+      - originConversationID: 52
         originDialogueID: 2
-        destinationConversationID: 42
+        destinationConversationID: 52
         destinationDialogueID: 3
         isConnector: 0
         priority: 2
@@ -751,10 +751,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 30
+        value: 31
         type: 5
       - title: Conversant
-        value: 33
+        value: 36
         type: 5
       - title: Menu Text
         value: 
@@ -768,7 +768,7 @@ MonoBehaviour:
       - title: Sequence
         value: 
         type: 0
-      conversationID: 42
+      conversationID: 52
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -777,8 +777,8 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
-      userScript: Item["Sales_Call_from_John"].State = "success"
-  - id: 43
+      userScript: Item["Sales_Call_from_John"].State = "success";
+  - id: 53
     fields:
     - title: Title
       value: Evacuation Notice
@@ -787,10 +787,10 @@ MonoBehaviour:
       value: 
       type: 0
     - title: Actor
-      value: 30
+      value: 31
       type: 5
     - title: Conversant
-      value: 32
+      value: 35
       type: 5
     nodeColor: Red
     dialogueEntries:
@@ -800,10 +800,10 @@ MonoBehaviour:
         value: START
         type: 0
       - title: Actor
-        value: 30
+        value: 31
         type: 5
       - title: Conversant
-        value: 32
+        value: 35
         type: 5
       - title: Menu Text
         value: 
@@ -817,7 +817,7 @@ MonoBehaviour:
       - title: Sequence
         value: None()
         type: 0
-      conversationID: 43
+      conversationID: 53
       isRoot: 1
       isGroup: 0
       nodeColor: White
@@ -825,9 +825,9 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 43
+      - originConversationID: 53
         originDialogueID: 0
-        destinationConversationID: 43
+        destinationConversationID: 53
         destinationDialogueID: 2
         isConnector: 0
         priority: 2
@@ -839,10 +839,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 32
+        value: 35
         type: 5
       - title: Conversant
-        value: 30
+        value: 31
         type: 5
       - title: Menu Text
         value: 
@@ -858,7 +858,7 @@ MonoBehaviour:
       - title: Sequence
         value: 
         type: 0
-      conversationID: 43
+      conversationID: 53
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -866,9 +866,9 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 43
+      - originConversationID: 53
         originDialogueID: 2
-        destinationConversationID: 43
+        destinationConversationID: 53
         destinationDialogueID: 3
         isConnector: 0
         priority: 2
@@ -880,10 +880,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 30
+        value: 31
         type: 5
       - title: Conversant
-        value: 32
+        value: 35
         type: 5
       - title: Menu Text
         value: 
@@ -897,7 +897,7 @@ MonoBehaviour:
       - title: Sequence
         value: 
         type: 0
-      conversationID: 43
+      conversationID: 53
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -907,7 +907,7 @@ MonoBehaviour:
       outgoingLinks: []
       conditionsString: 
       userScript: Item["Evacuation_Notice"].State = "active";
-  - id: 44
+  - id: 54
     fields:
     - title: Title
       value: Sales Floor PA
@@ -919,7 +919,7 @@ MonoBehaviour:
       value: 1
       type: 5
     - title: Conversant
-      value: 1
+      value: 5
       type: 5
     nodeColor: Red
     dialogueEntries:
@@ -939,14 +939,14 @@ MonoBehaviour:
         type: 0
       - title: Dialogue Text
         value: 
-        type: 0
+        type: 4
       - title: Video File
         value: 
         type: 0
       - title: Sequence
         value: None()
         type: 0
-      conversationID: 44
+      conversationID: 54
       isRoot: 1
       isGroup: 0
       nodeColor: White
@@ -954,28 +954,67 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 44
+      - originConversationID: 54
         originDialogueID: 0
-        destinationConversationID: 44
+        destinationConversationID: 54
+        destinationDialogueID: 3
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+    - id: 3
+      fields:
+      - title: Title
+        value: New Dialogue
+        type: 0
+      - title: Actor
+        value: 5
+        type: 5
+      - title: Conversant
+        value: 1
+        type: 5
+      - title: Menu Text
+        value: 
+        type: 0
+      - title: Dialogue Text
+        value: 
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: Camera(Safe);
+        type: 0
+      conversationID: 54
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 54
+        originDialogueID: 3
+        destinationConversationID: 54
         destinationDialogueID: 1
         isConnector: 0
         priority: 2
-      - originConversationID: 44
-        originDialogueID: 0
-        destinationConversationID: 44
+      - originConversationID: 54
+        originDialogueID: 3
+        destinationConversationID: 54
         destinationDialogueID: 2
         isConnector: 0
         priority: 2
-      - originConversationID: 44
-        originDialogueID: 0
-        destinationConversationID: 44
+      - originConversationID: 54
+        originDialogueID: 3
+        destinationConversationID: 54
         destinationDialogueID: 4
         isConnector: 0
         priority: 2
-      - originConversationID: 44
-        originDialogueID: 0
-        destinationConversationID: 44
-        destinationDialogueID: 7
+      - originConversationID: 54
+        originDialogueID: 3
+        destinationConversationID: 54
+        destinationDialogueID: 5
         isConnector: 0
         priority: 2
       conditionsString: 
@@ -989,15 +1028,13 @@ MonoBehaviour:
         value: 1
         type: 5
       - title: Conversant
-        value: 1
+        value: 5
         type: 5
       - title: Menu Text
-        value: Welcome Announcement
+        value: Nothing to announce
         type: 0
       - title: Dialogue Text
-        value: 'Good morning, welcome to ORP Bank. We offer the best deals in town
-          so check out with our sales staff for more information on the latest package
-          we offer here at ORP Bank. '
+        value: 
         type: 4
       - title: Video File
         value: 
@@ -1005,7 +1042,7 @@ MonoBehaviour:
       - title: Sequence
         value: 
         type: 0
-      conversationID: 44
+      conversationID: 54
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -1013,44 +1050,9 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks: []
-      conditionsString: Dialog[1].SimStatus ~= "WasDisplayed"
+      conditionsString: 
       userScript: 
     - id: 2
-      fields:
-      - title: Title
-        value: Evacuation Announcement
-        type: 0
-      - title: Actor
-        value: 1
-        type: 5
-      - title: Conversant
-        value: 1
-        type: 5
-      - title: Menu Text
-        value: Evacuation Announcement
-        type: 0
-      - title: Dialogue Text
-        value: 'All customers please follow the instructions of the ground staff to
-          evacuate to safety. '
-        type: 0
-      - title: Video File
-        value: 
-        type: 0
-      - title: Sequence
-        value: Log(10A, Evacuation started)
-        type: 0
-      conversationID: 44
-      isRoot: 0
-      isGroup: 0
-      nodeColor: White
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks: []
-      conditionsString: Item["Evacuation_Notice"].State == "active" and Dialog[2].SimStatus
-        ~= "WasDisplayed"
-      userScript: Item["Evacuation_Notice"].State = "success"
-    - id: 4
       fields:
       - title: Title
         value: Warning Announcement
@@ -1059,7 +1061,7 @@ MonoBehaviour:
         value: 1
         type: 5
       - title: Conversant
-        value: 1
+        value: 5
         type: 5
       - title: Menu Text
         value: Warning Announcement
@@ -1075,7 +1077,7 @@ MonoBehaviour:
       - title: Sequence
         value: Log(9A, Pre Flood announcement made)
         type: 0
-      conversationID: 44
+      conversationID: 54
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -1085,8 +1087,48 @@ MonoBehaviour:
       outgoingLinks: []
       conditionsString: 'Item["Pre_Flood_Notice"].State == "active" and Dialog[4].SimStatus
         ~= "WasDisplayed" and Item["Evacuation_Notice"].State ~= "active" '
-      userScript: Item["Pre_Flood_Notice"].State = "success"
-    - id: 7
+      userScript: 'Item["Pre_Flood_Notice"].State = "success";
+
+        Variable["Alert"] = "Quest Success: You have given the early warning to the
+        customers. ";'
+    - id: 4
+      fields:
+      - title: Title
+        value: Evacuation Announcement
+        type: 0
+      - title: Actor
+        value: 1
+        type: 5
+      - title: Conversant
+        value: 5
+        type: 5
+      - title: Menu Text
+        value: Evacuation Announcement
+        type: 0
+      - title: Dialogue Text
+        value: 'All customers please follow the instructions of the ground staff to
+          evacuate to safety. '
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: Log(10A, Evacuation started)
+        type: 0
+      conversationID: 54
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: Item["Evacuation_Notice"].State == "active" and Dialog[2].SimStatus
+        ~= "WasDisplayed"
+      userScript: 'Item["Evacuation_Notice"].State = "success";
+
+        Variable["Alert"] = "Quest Success: You have evacuated the Sales Floor.";'
+    - id: 5
       fields:
       - title: Title
         value: 
@@ -1095,13 +1137,15 @@ MonoBehaviour:
         value: 1
         type: 5
       - title: Conversant
-        value: 1
+        value: 5
         type: 5
       - title: Menu Text
-        value: Nothing to announce
+        value: Welcome Announcement
         type: 0
       - title: Dialogue Text
-        value: 
+        value: 'Good morning, welcome to ORP Bank. We offer the best deals in town
+          so check out with our sales staff for more information on the latest package
+          we offer here at ORP Bank. '
         type: 4
       - title: Video File
         value: 
@@ -1109,7 +1153,7 @@ MonoBehaviour:
       - title: Sequence
         value: 
         type: 0
-      conversationID: 44
+      conversationID: 54
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -1117,9 +1161,9 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks: []
-      conditionsString: 
+      conditionsString: Dialog[1].SimStatus ~= "WasDisplayed"
       userScript: 
-  - id: 45
+  - id: 55
     fields:
     - title: Title
       value: Loan Enquiry
@@ -1128,10 +1172,10 @@ MonoBehaviour:
       value: 
       type: 0
     - title: Actor
-      value: 30
+      value: 31
       type: 5
     - title: Conversant
-      value: 34
+      value: 37
       type: 5
     nodeColor: Red
     dialogueEntries:
@@ -1141,10 +1185,10 @@ MonoBehaviour:
         value: START
         type: 0
       - title: Actor
-        value: 30
+        value: 31
         type: 5
       - title: Conversant
-        value: 34
+        value: 37
         type: 5
       - title: Menu Text
         value: 
@@ -1158,7 +1202,7 @@ MonoBehaviour:
       - title: Sequence
         value: None()
         type: 0
-      conversationID: 45
+      conversationID: 55
       isRoot: 1
       isGroup: 0
       nodeColor: White
@@ -1166,9 +1210,9 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 45
+      - originConversationID: 55
         originDialogueID: 0
-        destinationConversationID: 45
+        destinationConversationID: 55
         destinationDialogueID: 2
         isConnector: 0
         priority: 2
@@ -1180,10 +1224,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 34
+        value: 37
         type: 5
       - title: Conversant
-        value: 30
+        value: 31
         type: 5
       - title: Menu Text
         value: 
@@ -1198,7 +1242,7 @@ MonoBehaviour:
       - title: Sequence
         value: 
         type: 0
-      conversationID: 45
+      conversationID: 55
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -1206,9 +1250,9 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 45
+      - originConversationID: 55
         originDialogueID: 2
-        destinationConversationID: 45
+        destinationConversationID: 55
         destinationDialogueID: 3
         isConnector: 0
         priority: 2
@@ -1220,15 +1264,15 @@ MonoBehaviour:
         value: Information
         type: 0
       - title: Actor
-        value: 34
+        value: 37
         type: 5
       - title: Conversant
-        value: 30
+        value: 31
         type: 5
       - title: Sequence
         value: None()
         type: 0
-      conversationID: 45
+      conversationID: 55
       isRoot: 0
       isGroup: 1
       nodeColor: White
@@ -1236,27 +1280,27 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 45
+      - originConversationID: 55
         originDialogueID: 3
-        destinationConversationID: 45
+        destinationConversationID: 55
         destinationDialogueID: 4
         isConnector: 0
         priority: 2
-      - originConversationID: 45
+      - originConversationID: 55
         originDialogueID: 3
-        destinationConversationID: 45
+        destinationConversationID: 55
         destinationDialogueID: 5
         isConnector: 0
         priority: 2
-      - originConversationID: 45
+      - originConversationID: 55
         originDialogueID: 3
-        destinationConversationID: 45
+        destinationConversationID: 55
         destinationDialogueID: 8
         isConnector: 0
         priority: 2
-      - originConversationID: 45
+      - originConversationID: 55
         originDialogueID: 3
-        destinationConversationID: 45
+        destinationConversationID: 55
         destinationDialogueID: 1
         isConnector: 0
         priority: 2
@@ -1268,10 +1312,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 30
+        value: 31
         type: 5
       - title: Conversant
-        value: 34
+        value: 37
         type: 5
       - title: Menu Text
         value: 'Ask for reference no. '
@@ -1285,7 +1329,7 @@ MonoBehaviour:
       - title: Sequence
         value: 
         type: 0
-      conversationID: 45
+      conversationID: 55
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -1293,9 +1337,9 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 45
+      - originConversationID: 55
         originDialogueID: 4
-        destinationConversationID: 45
+        destinationConversationID: 55
         destinationDialogueID: 6
         isConnector: 0
         priority: 2
@@ -1308,10 +1352,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 30
+        value: 31
         type: 5
       - title: Conversant
-        value: 34
+        value: 37
         type: 5
       - title: Menu Text
         value: Ask for Full Name
@@ -1325,7 +1369,7 @@ MonoBehaviour:
       - title: Sequence
         value: 
         type: 0
-      conversationID: 45
+      conversationID: 55
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -1333,9 +1377,9 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 45
+      - originConversationID: 55
         originDialogueID: 5
-        destinationConversationID: 45
+        destinationConversationID: 55
         destinationDialogueID: 7
         isConnector: 0
         priority: 2
@@ -1348,10 +1392,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 34
+        value: 37
         type: 5
       - title: Conversant
-        value: 30
+        value: 31
         type: 5
       - title: Menu Text
         value: 
@@ -1365,7 +1409,7 @@ MonoBehaviour:
       - title: Sequence
         value: 
         type: 0
-      conversationID: 45
+      conversationID: 55
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -1373,9 +1417,9 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 45
+      - originConversationID: 55
         originDialogueID: 6
-        destinationConversationID: 45
+        destinationConversationID: 55
         destinationDialogueID: 3
         isConnector: 1
         priority: 2
@@ -1387,10 +1431,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 34
+        value: 37
         type: 5
       - title: Conversant
-        value: 30
+        value: 31
         type: 5
       - title: Menu Text
         value: 
@@ -1404,7 +1448,7 @@ MonoBehaviour:
       - title: Sequence
         value: 
         type: 0
-      conversationID: 45
+      conversationID: 55
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -1412,9 +1456,9 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 45
+      - originConversationID: 55
         originDialogueID: 7
-        destinationConversationID: 45
+        destinationConversationID: 55
         destinationDialogueID: 3
         isConnector: 1
         priority: 2
@@ -1426,10 +1470,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 30
+        value: 31
         type: 5
       - title: Conversant
-        value: 34
+        value: 37
         type: 5
       - title: Menu Text
         value: 
@@ -1444,7 +1488,7 @@ MonoBehaviour:
       - title: Sequence
         value: 
         type: 0
-      conversationID: 45
+      conversationID: 55
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -1452,9 +1496,9 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 45
+      - originConversationID: 55
         originDialogueID: 8
-        destinationConversationID: 45
+        destinationConversationID: 55
         destinationDialogueID: 9
         isConnector: 0
         priority: 2
@@ -1467,10 +1511,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 34
+        value: 37
         type: 5
       - title: Conversant
-        value: 30
+        value: 31
         type: 5
       - title: Menu Text
         value: 
@@ -1482,9 +1526,9 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Sequence
-        value: 
+        value: Log(9C, Loan Enquiry Success);
         type: 0
-      conversationID: 45
+      conversationID: 55
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -1493,17 +1537,20 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
-      userScript: Item["Loan_Enquiry_Peter"].State = "success"
+      userScript: 'Item["Loan_Enquiry_Peter"].State = "success";
+
+        Variable["Alert"] = "Quest Success: You have gathered all the necessary information.
+        ";'
     - id: 1
       fields:
       - title: Title
         value: 
         type: 0
       - title: Actor
-        value: 30
+        value: 31
         type: 5
       - title: Conversant
-        value: 34
+        value: 37
         type: 5
       - title: Menu Text
         value: 'That''s all I need. '
@@ -1518,7 +1565,7 @@ MonoBehaviour:
       - title: Sequence
         value: 
         type: 0
-      conversationID: 45
+      conversationID: 55
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -1526,9 +1573,9 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 45
+      - originConversationID: 55
         originDialogueID: 1
-        destinationConversationID: 45
+        destinationConversationID: 55
         destinationDialogueID: 10
         isConnector: 0
         priority: 2
@@ -1541,10 +1588,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 34
+        value: 37
         type: 5
       - title: Conversant
-        value: 30
+        value: 31
         type: 5
       - title: Menu Text
         value: 
@@ -1556,9 +1603,9 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Sequence
-        value: 
+        value: Log(9C, Loan Enquiry Failed);
         type: 0
-      conversationID: 45
+      conversationID: 55
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -1567,8 +1614,11 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
-      userScript: Item["Loan_Enquiry_Peter"].State = "failure"
-  - id: 46
+      userScript: 'Item["Loan_Enquiry_Peter"].State = "failure";
+
+        Variable["Alert"] = "Quest failed: You have not gotten all the necessary information.
+        ";'
+  - id: 56
     fields:
     - title: Title
       value: Valuer
@@ -1577,10 +1627,10 @@ MonoBehaviour:
       value: 
       type: 0
     - title: Actor
-      value: 30
+      value: 31
       type: 5
     - title: Conversant
-      value: 35
+      value: 38
       type: 5
     nodeColor: Red
     dialogueEntries:
@@ -1590,10 +1640,10 @@ MonoBehaviour:
         value: START
         type: 0
       - title: Actor
-        value: 30
+        value: 31
         type: 5
       - title: Conversant
-        value: 35
+        value: 38
         type: 5
       - title: Menu Text
         value: 
@@ -1607,7 +1657,7 @@ MonoBehaviour:
       - title: Sequence
         value: None()
         type: 0
-      conversationID: 46
+      conversationID: 56
       isRoot: 1
       isGroup: 0
       nodeColor: White
@@ -1615,9 +1665,9 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 46
+      - originConversationID: 56
         originDialogueID: 0
-        destinationConversationID: 46
+        destinationConversationID: 56
         destinationDialogueID: 2
         isConnector: 0
         priority: 2
@@ -1629,10 +1679,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 35
+        value: 38
         type: 5
       - title: Conversant
-        value: 30
+        value: 31
         type: 5
       - title: Menu Text
         value: 
@@ -1646,7 +1696,7 @@ MonoBehaviour:
       - title: Sequence
         value: 
         type: 0
-      conversationID: 46
+      conversationID: 56
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -1654,15 +1704,15 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 46
+      - originConversationID: 56
         originDialogueID: 2
-        destinationConversationID: 46
+        destinationConversationID: 56
         destinationDialogueID: 3
         isConnector: 0
         priority: 2
-      - originConversationID: 46
+      - originConversationID: 56
         originDialogueID: 2
-        destinationConversationID: 46
+        destinationConversationID: 56
         destinationDialogueID: 4
         isConnector: 0
         priority: 2
@@ -1674,10 +1724,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 30
+        value: 31
         type: 5
       - title: Conversant
-        value: 35
+        value: 38
         type: 5
       - title: Menu Text
         value: LD011192, Peter Griffindor Lim
@@ -1689,9 +1739,9 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Sequence
-        value: 
+        value: 'Log(5B, Get Valuation Report) '
         type: 0
-      conversationID: 46
+      conversationID: 56
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -1699,9 +1749,9 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 46
+      - originConversationID: 56
         originDialogueID: 3
-        destinationConversationID: 46
+        destinationConversationID: 56
         destinationDialogueID: 5
         isConnector: 0
         priority: 2
@@ -1714,10 +1764,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 30
+        value: 31
         type: 5
       - title: Conversant
-        value: 35
+        value: 38
         type: 5
       - title: Menu Text
         value: Nothing
@@ -1731,7 +1781,7 @@ MonoBehaviour:
       - title: Sequence
         value: 
         type: 0
-      conversationID: 46
+      conversationID: 56
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -1747,10 +1797,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 35
+        value: 38
         type: 5
       - title: Conversant
-        value: 30
+        value: 31
         type: 5
       - title: Menu Text
         value: 
@@ -1765,7 +1815,7 @@ MonoBehaviour:
       - title: Sequence
         value: 
         type: 0
-      conversationID: 46
+      conversationID: 56
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -1773,9 +1823,9 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 46
+      - originConversationID: 56
         originDialogueID: 5
-        destinationConversationID: 46
+        destinationConversationID: 56
         destinationDialogueID: 6
         isConnector: 0
         priority: 2
@@ -1787,10 +1837,10 @@ MonoBehaviour:
         value: New Dialogue
         type: 0
       - title: Actor
-        value: 30
+        value: 31
         type: 5
       - title: Conversant
-        value: 35
+        value: 38
         type: 5
       - title: Menu Text
         value: 
@@ -1804,7 +1854,7 @@ MonoBehaviour:
       - title: Sequence
         value: 
         type: 0
-      conversationID: 46
+      conversationID: 56
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -1813,8 +1863,8 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
-      userScript: 'Item["Peter_Valuation_Report"].State = "active" '
-  - id: 47
+      userScript: Item["Peter_Valuation_Report"].State = "active";
+  - id: 57
     fields:
     - title: Title
       value: Pre Flood Notice
@@ -1823,10 +1873,10 @@ MonoBehaviour:
       value: 
       type: 0
     - title: Actor
-      value: 30
+      value: 31
       type: 5
     - title: Conversant
-      value: 32
+      value: 35
       type: 5
     nodeColor: Red
     dialogueEntries:
@@ -1836,10 +1886,10 @@ MonoBehaviour:
         value: START
         type: 0
       - title: Actor
-        value: 30
+        value: 31
         type: 5
       - title: Conversant
-        value: 32
+        value: 35
         type: 5
       - title: Menu Text
         value: 
@@ -1853,7 +1903,7 @@ MonoBehaviour:
       - title: Sequence
         value: None()
         type: 0
-      conversationID: 47
+      conversationID: 57
       isRoot: 1
       isGroup: 0
       nodeColor: White
@@ -1861,9 +1911,9 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 47
+      - originConversationID: 57
         originDialogueID: 0
-        destinationConversationID: 47
+        destinationConversationID: 57
         destinationDialogueID: 2
         isConnector: 0
         priority: 2
@@ -1875,10 +1925,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 32
+        value: 35
         type: 5
       - title: Conversant
-        value: 30
+        value: 31
         type: 5
       - title: Menu Text
         value: 
@@ -1894,7 +1944,7 @@ MonoBehaviour:
       - title: Sequence
         value: 
         type: 0
-      conversationID: 47
+      conversationID: 57
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -1902,9 +1952,9 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 47
+      - originConversationID: 57
         originDialogueID: 2
-        destinationConversationID: 47
+        destinationConversationID: 57
         destinationDialogueID: 3
         isConnector: 0
         priority: 2
@@ -1916,10 +1966,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 30
+        value: 31
         type: 5
       - title: Conversant
-        value: 32
+        value: 35
         type: 5
       - title: Menu Text
         value: 
@@ -1933,7 +1983,7 @@ MonoBehaviour:
       - title: Sequence
         value: 
         type: 0
-      conversationID: 47
+      conversationID: 57
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -1942,8 +1992,10 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
-      userScript: Item["Pre_Flood_Notice"].State = "active";
-  - id: 48
+      userScript: 'Item["Pre_Flood_Notice"].State = "active";
+
+        Variable["Alert"] = "There is a new announcement available for you.";'
+  - id: 58
     fields:
     - title: Title
       value: Fire Door Level 1
@@ -1952,7 +2004,7 @@ MonoBehaviour:
       value: 
       type: 0
     - title: Actor
-      value: 36
+      value: 39
       type: 5
     - title: Conversant
       value: 1
@@ -1965,7 +2017,7 @@ MonoBehaviour:
         value: START
         type: 0
       - title: Actor
-        value: 36
+        value: 39
         type: 5
       - title: Conversant
         value: 1
@@ -1982,7 +2034,7 @@ MonoBehaviour:
       - title: Sequence
         value: None()
         type: 0
-      conversationID: 48
+      conversationID: 58
       isRoot: 1
       isGroup: 0
       nodeColor: White
@@ -1990,15 +2042,15 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 48
+      - originConversationID: 58
         originDialogueID: 0
-        destinationConversationID: 48
+        destinationConversationID: 58
         destinationDialogueID: 1
         isConnector: 0
         priority: 2
-      - originConversationID: 48
+      - originConversationID: 58
         originDialogueID: 0
-        destinationConversationID: 48
+        destinationConversationID: 58
         destinationDialogueID: 2
         isConnector: 0
         priority: 2
@@ -2013,7 +2065,7 @@ MonoBehaviour:
         value: 1
         type: 5
       - title: Conversant
-        value: 36
+        value: 39
         type: 5
       - title: Menu Text
         value: Evacuate to Level 12
@@ -2027,7 +2079,7 @@ MonoBehaviour:
       - title: Sequence
         value: 
         type: 0
-      conversationID: 48
+      conversationID: 58
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -2035,15 +2087,15 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 48
+      - originConversationID: 58
         originDialogueID: 1
-        destinationConversationID: 48
+        destinationConversationID: 58
         destinationDialogueID: 3
         isConnector: 0
         priority: 2
-      - originConversationID: 48
+      - originConversationID: 58
         originDialogueID: 1
-        destinationConversationID: 48
+        destinationConversationID: 58
         destinationDialogueID: 4
         isConnector: 0
         priority: 2
@@ -2058,7 +2110,7 @@ MonoBehaviour:
         value: 1
         type: 5
       - title: Conversant
-        value: 36
+        value: 39
         type: 5
       - title: Menu Text
         value: Nothing
@@ -2072,7 +2124,7 @@ MonoBehaviour:
       - title: Sequence
         value: 
         type: 0
-      conversationID: 48
+      conversationID: 58
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -2088,7 +2140,7 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 36
+        value: 39
         type: 5
       - title: Conversant
         value: 1
@@ -2105,7 +2157,7 @@ MonoBehaviour:
       - title: Sequence
         value: 
         type: 0
-      conversationID: 48
+      conversationID: 58
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -2114,14 +2166,16 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: Item["Evacuation_Notice"].State == "success"
-      userScript: Item["Evacuate_to_Level_12"].State = "success"
+      userScript: 'Item["Evacuate_to_Level_12"].State = "success";
+
+        Variable["Alert"] = "Quest success: You have evacuated to the 12th Floor.";'
     - id: 4
       fields:
       - title: Title
         value: 
         type: 0
       - title: Actor
-        value: 36
+        value: 39
         type: 5
       - title: Conversant
         value: 1
@@ -2138,7 +2192,7 @@ MonoBehaviour:
       - title: Sequence
         value: 
         type: 0
-      conversationID: 48
+      conversationID: 58
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -2148,7 +2202,7 @@ MonoBehaviour:
       outgoingLinks: []
       conditionsString: Item["Evacuation_Notice"].State ~= "success"
       userScript: 
-  - id: 49
+  - id: 59
     fields:
     - title: Title
       value: Unnoticed
@@ -2187,7 +2241,7 @@ MonoBehaviour:
       - title: Sequence
         value: None()
         type: 0
-      conversationID: 49
+      conversationID: 59
       isRoot: 1
       isGroup: 0
       nodeColor: White
@@ -2195,15 +2249,15 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 49
+      - originConversationID: 59
         originDialogueID: 0
-        destinationConversationID: 49
+        destinationConversationID: 59
         destinationDialogueID: 1
         isConnector: 0
         priority: 2
-      - originConversationID: 49
+      - originConversationID: 59
         originDialogueID: 0
-        destinationConversationID: 49
+        destinationConversationID: 59
         destinationDialogueID: 5
         isConnector: 0
         priority: 2
@@ -2224,7 +2278,7 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Dialogue Text
-        value: 'What are you guys doing here? '
+        value: 'Hi, can i help you? This is a restricted area. '
         type: 4
       - title: Video File
         value: 
@@ -2232,7 +2286,7 @@ MonoBehaviour:
       - title: Sequence
         value: Camera(Wide)
         type: 0
-      conversationID: 49
+      conversationID: 59
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -2240,9 +2294,9 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 49
+      - originConversationID: 59
         originDialogueID: 1
-        destinationConversationID: 49
+        destinationConversationID: 59
         destinationDialogueID: 2
         isConnector: 0
         priority: 2
@@ -2271,7 +2325,7 @@ MonoBehaviour:
       - title: Sequence
         value: 
         type: 0
-      conversationID: 49
+      conversationID: 59
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -2279,9 +2333,9 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 49
+      - originConversationID: 59
         originDialogueID: 2
-        destinationConversationID: 49
+        destinationConversationID: 59
         destinationDialogueID: 3
         isConnector: 0
         priority: 2
@@ -2302,8 +2356,8 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Dialogue Text
-        value: 'I have not received any of notice at all! Can you all kindly move
-          to the conference room for now? '
+        value: "I have not received any of notice at all! Can you all kindly move
+          to the conference room for now? Let me find out what has happened. \n"
         type: 4
       - title: Video File
         value: 
@@ -2311,7 +2365,7 @@ MonoBehaviour:
       - title: Sequence
         value: 
         type: 0
-      conversationID: 49
+      conversationID: 59
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -2319,9 +2373,9 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 49
+      - originConversationID: 59
         originDialogueID: 3
-        destinationConversationID: 49
+        destinationConversationID: 59
         destinationDialogueID: 4
         isConnector: 0
         priority: 2
@@ -2342,7 +2396,7 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Dialogue Text
-        value: ok.
+        value: "Alright. Where is the conference room located? \n"
         type: 4
       - title: Video File
         value: 
@@ -2350,16 +2404,22 @@ MonoBehaviour:
       - title: Sequence
         value: 
         type: 0
-      conversationID: 49
+      conversationID: 59
       isRoot: 0
       isGroup: 0
       nodeColor: White
       delaySimStatus: 0
       falseConditionAction: Block
       conditionPriority: 2
-      outgoingLinks: []
+      outgoingLinks:
+      - originConversationID: 59
+        originDialogueID: 4
+        destinationConversationID: 59
+        destinationDialogueID: 6
+        isConnector: 0
+        priority: 2
       conditionsString: 
-      userScript: Item["Move_to_Conference"].State = "success"
+      userScript: 
     - id: 5
       fields:
       - title: Title
@@ -2384,7 +2444,7 @@ MonoBehaviour:
       - title: Sequence
         value: Camera(Wide)
         type: 0
-      conversationID: 49
+      conversationID: 59
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -2393,4 +2453,38 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: Item["Notified_Arrival"].State == "success"
+      userScript: Item["Move_to_Conference"].State = "success"
+    - id: 6
+      fields:
+      - title: Title
+        value: 
+        type: 0
+      - title: Actor
+        value: 1
+        type: 5
+      - title: Conversant
+        value: 5
+        type: 5
+      - title: Menu Text
+        value: 
+        type: 0
+      - title: Dialogue Text
+        value: 'Just go straight down either way and take the next turn, the conference
+          room will be located at the end of the corridor. '
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 59
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
       userScript: Item["Move_to_Conference"].State = "success"

@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
+using HutongGames.PlayMaker;
+
 
 public class pageData : MonoBehaviour {
 	public string documentName;
@@ -9,6 +11,7 @@ public class pageData : MonoBehaviour {
 	public GameObject LO_signature;
 	public GameObject LM_signature;
 	public GameObject CR_signature;
+	PlayMakerFSM EventFSM;
 
 
 	
@@ -22,7 +25,7 @@ public class pageData : MonoBehaviour {
 	
 	// Use this for initialization
 	void Start () {
-
+		EventFSM = GameObject.Find ("EventManager-Tutorial").GetComponent<PlayMakerFSM>();
 		LO_signed = false;
 		LM_signed = false;
 		CR_signed = false;
@@ -77,6 +80,13 @@ public class pageData : MonoBehaviour {
 					{
 					if(GUI.Button( new LTRect(w/2 - 100f, .2f*h - 100f, 200f, 50f ).rect, "Sign"))
 					{
+
+						if(EventFSM.enabled)
+							if(EventFSM.ActiveStateName == "Sign")
+								EventFSM.FsmVariables.GetFsmBool("signed").Value = true;
+
+
+
 						PhotonView photonView = this.gameObject.GetPhotonView();
 						photonView.RPC ("signDoc",PhotonTargets.AllBuffered,"LO");
 
@@ -127,6 +137,9 @@ public class pageData : MonoBehaviour {
 					{
 					if(GUI.Button( new LTRect(w/2 - 100f, .6f*h - 100f, 200f, 50f ).rect, "Sign"))
 					{
+
+
+
 						PhotonView photonView = this.gameObject.GetPhotonView();
 						photonView.RPC ("signDoc",PhotonTargets.AllBuffered,"CR");
 					}
