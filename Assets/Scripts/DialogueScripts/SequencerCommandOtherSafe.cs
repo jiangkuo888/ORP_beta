@@ -7,7 +7,7 @@ using System.Collections;
 using PixelCrushers.DialogueSystem;
 using PixelCrushers.DialogueSystem.SequencerCommands;
 
-public class SequencerCommandOtherUnlock : SequencerCommand {
+public class SequencerCommandOtherSafe : SequencerCommand {
 
 	private GameObject actor;
 	private GameObject onUsedObj;
@@ -22,7 +22,10 @@ public class SequencerCommandOtherUnlock : SequencerCommand {
 //
 //		if(PlayerPrefs.GetString("OnUsedObj") != null)
 //			onUsedObj = GameObject.Find (PlayerPrefs.GetString("OnUsedObj"));
+		if(GetParameter(0)=="unlock")
 		GameObject.Find ("Dialogue Manager").GetComponent<NPCsync>().safeOtherUnlockRPC();
+		else if(GetParameter (0)=="lock")
+			GameObject.Find ("Dialogue Manager").GetComponent<NPCsync>().safeOtherLockRPC();
 
 
 
