@@ -12,17 +12,60 @@ using SimpleJSON;
 //using System;
 
 
-public class MainMenuVik : MonoBehaviour
+public class MainMenuVik : Photon.MonoBehaviour
 {
 	public string fileList;
+	public GUISkin customSkin;
+	public Texture2D background;
 
+	//------------------------------------------------------------------
+	// boolean variables for different menu scenes; toggle on and off 
+	// for each scene
+	//------------------------------------------------------------------
+	public bool isLogin = true; //login page
+	public bool isCreate = false; //create player page
+	public bool isMessage = false; //error/confirm message page
+	public bool isPlaybackList = false; //page where you choose from a list of playbacks
+	public bool isMain = false; //main page
+	//public bool isPlayback = false; //playback mode
+	public bool isChoose = false; //choose character page
+	public bool isTrainer = false; //player is trainer
+	public bool isLobby = false; //lobby screen
+	public bool isStartGame = false; //whether the GameEnd is starting
+	public bool isSkipLobby = false;
+	//------------------------------------------------------------------
+
+	public HashSet<string> selectedPlayerList = new HashSet<string>();
+	public string[] playerList;
+	public string[] dots = new string[] {".", "..", "..."};
+	public int dotInt = 0;
+
+	public string message = "";
+	public string playerName = "";
+	public string password = "";
+	public string reEnter = "";
+	public string roomName = "jkroom";
+	private Vector2 scrollPos = Vector2.zero;
+	public int totalPlayers = 4;
+
+
+	//RUN AT START OF GAME
     void Awake()
     {
+		PlayerPrefs.DeleteAll ();
+		isStartGame = false;
+		Debug.Log ("main yo");
         //PhotonNetwork.logLevel = NetworkLogLevel.Full;
 
-        //Connect to the main photon server. This is the only IP and port we ever need to set(!)
+		//-----------------------------------------------------------------------------------------------------
+		//					Photon network initialisation
+		//-----------------------------------------------------------------------------------------------------
+
+        // Connect to the main photon server. This is the only IP and port we ever need to set(!)
         if (!PhotonNetwork.connected)
-            PhotonNetwork.ConnectUsingSettings("v1.0"); // version of the game/demo. used to separate older clients from newer ones (e.g. if incompatible)
+           PhotonNetwork.ConnectUsingSettings("v1.0"); // version of the game/demo. used to separate older clients from newer ones (e.g. if incompatible)
+
+		//-----------------------------------------------------------------------------------------------------
 
         //Load name from PlayerPrefs
         PhotonNetwork.playerName = PlayerPrefs.GetString("playerName", "Guest" + Random.Range(1, 9999));
@@ -30,53 +73,43 @@ public class MainMenuVik : MonoBehaviour
         //Set camera clipping for nicer "main menu" background
         Camera.main.farClipPlane = Camera.main.nearClipPlane + 0.1f;
 
-		//get list of games from server
+
+		//Also, get the list of replays in the server
+
 		//get list of directory
 		WWWForm sendForm = new WWWForm();
 		sendForm.AddField("load", "LIST");
 		WWW w = new WWW("http://www.sgi-singapore.com/projects/ORILE/loadFiles.php", sendForm);
+
 		StartCoroutine(WaitForList(w));
 		//fileList = w.data;
 		//Debug.Log(fileList);
+
     }
-	public GUISkin customSkin;
-	public Texture2D background;
-	public bool isLogin = true;
-	public bool isCreate = false;
-	public bool isMessage = false;
-	public bool isPlaybackList = false;
-	public bool isPlayback = false;
-	public bool isChoose = false;
-	public string message = "";
-	public string playerName = "";
-	public string password = "";
-	public string reEnter = "";
-    public string roomName = "jkroom";
-    private Vector2 scrollPos = Vector2.zero;
 
     void OnGUI()
     {
-
+		//set to custom skin
 		GUI.skin = customSkin;
 
-
+		//--------------------------------------------------------------------------------------------------
+		//				IF SHOWING CONNECTING SCREEN
+		//--------------------------------------------------------------------------------------------------
         if (!PhotonNetwork.connected)
         {
-            ShowConnectingGUI();
+			GUILayout.BeginArea(new Rect((Screen.width - 400) / 2, (Screen.height - 300) / 2, 400, 300));
+			
+			GUILayout.Label("Connecting to Photon server.");
+			GUILayout.Label("Hint: This demo uses a settings file and logs the server address to the console.");
+			
+			GUILayout.EndArea();
             return;   //Wait for a connection
         }
-		if (isPlayback)
-		{
-			return;   //Wait for a connection
-		}
 
-		GameObject gameManager = GameObject.Find("GameManager");  
-		GameManagerVik vikky = gameManager.GetComponent<GameManagerVik>();
-		bool playback = vikky.playback;
 
-		if (PhotonNetwork.room != null || playback)
-            return; //Only when we're not in a Room
-
+		//--------------------------------------------------------------------------------------------------
+		//				IF SHOWING ERROR MESSAGE
+		//--------------------------------------------------------------------------------------------------
 		if (isMessage) {
 
 			GUILayout.BeginArea (new Rect ((Screen.width - 400) / 2, (Screen.height - 300) / 2, 600, 300));
@@ -84,63 +117,63 @@ public class MainMenuVik : MonoBehaviour
 
 
 			GUILayout.Box (message, GUILayout.Width (300), GUILayout.Height (200));
+			//ok button
 			if (GUILayout.Button ("OK", GUILayout.Width (80))) {
+					
+				//---------------------------------
+				//	 TOGGLE isMessage false
+				//---------------------------------
 					isMessage = false;
+
 			}
 
 			GUILayout.EndArea ();
 
 
+		//--------------------------------------------------------------------------------------------------
+		//				IF LOGGING INTO THE GAME
+		//--------------------------------------------------------------------------------------------------
 		} else if (isLogin) {
 
-			//login page call at start of game
 
 			GUILayout.BeginArea (new Rect(0,0,Screen.width,Screen.height));
 			GUI.DrawTexture(new Rect(0,0,Screen.width,Screen.height),background);
 
+
 			GUILayout.BeginArea (new Rect (Screen.width/4, Screen.height*.1f, Screen.width/2, Screen.height*.8f));
 
-			
-			
-			
-			
-			
-			
+			//title
 			GUILayout.Label ("ORILE","Title");
-			
 			GUILayout.Space (45);
-
 			GUILayout.Label ("Login Menu");
-
-
 
 
 			GUILayout.BeginArea (new Rect (0, Screen.height*.275f, Screen.width/2, Screen.height*.5f));
 
+			//player name entry
 			GUILayout.BeginHorizontal();
 			GUILayout.Label ("Player Name:", "labelText");
 			playerName = GUILayout.TextField (playerName, 25, GUILayout.Width (200));
 			GUILayout.EndHorizontal();
 
-            
-
-
+    		//password entry
 			GUILayout.BeginHorizontal();
 			GUILayout.Label ("Password:", "labelText");
 			password = GUILayout.PasswordField (password, "*" [0], 25, GUILayout.Width (200));
-
 			GUILayout.EndHorizontal();
+
 
 			GUILayout.Space(20);
 
-
+			//login button
 			GUILayout.BeginHorizontal();
 			GUILayout.Label("",GUILayout.Width (200));
 			//if 'login' button is pressed, see if can login into game
 			if (GUILayout.Button ("Login", GUILayout.Width (100))) {
 
 				if (playerName != "" && password != "") {
-						//add to db dbClass 
+
+					//connect to db
 					dbClass db = new dbClass ();
 					db.addFunction ("playerLogin");
 					db.addValues ("playerName", playerName);
@@ -152,89 +185,94 @@ public class MainMenuVik : MonoBehaviour
 					//if successful;, means login success
 					if (dbReturn == "SUCCESS") {
 
+						//--------------------------------------
+						//	 TOGGLE isLogin false/ isMain true
+						//--------------------------------------
 						isLogin = false;
+						isMain = true;
 
 						//see if admin
 						string playerType = db.getReturnValue("playerType");
+						PlayerPrefs.SetString("playerLoginName", playerName);
 						if (playerType == "ADMIN")
 						{
-							vikky.isAdmin = true;
-						}
-						else
-						{
-							//add playerName
-							vikky.loginName = playerName;
+							isTrainer = true;
 						}
 
 
 					}
 					//if not successful print error string
 					else {
+
+						//---------------------------------
+						//	 TOGGLE isMessage true
+						//---------------------------------
 						isMessage = true;
 						message = dbReturn;
 					}
 
-				} else {
-
+				} 
+				//send error msg for empty input
+				else {
+						
+						//---------------------------------
+						//	 TOGGLE isMessage true
+						//---------------------------------
 						isMessage = true;
 						message = "Please type in your playerName or password.";
 
 				}
 		
 			}
+
+			//press create button, means create new players
 			if (GUILayout.Button ("Create", GUILayout.Width (100))) {
+
+					//-----------------------------------------
+					//	 TOGGLE isCreate true/ isLogin false
+					//-----------------------------------------
 					isCreate = true;
 					isLogin = false;
 			}
 			GUILayout.EndHorizontal();
 
 
-
 			GUILayout.Space(20);
 
-			GUILayout.BeginHorizontal();
-			// create account
-
-
-
-
-
-			GUILayout.EndHorizontal();
 
 			GUILayout.EndArea();
 			GUILayout.EndArea();
 			GUILayout.EndArea ();
 
-				
-		} else if (isCreate) {
 
+		//--------------------------------------------------------------------------------------------------
+		//				IF CREATING PLAYER
+		//--------------------------------------------------------------------------------------------------
+		} else if (isCreate) {
 
 
 			GUILayout.BeginArea (new Rect(0,0,Screen.width,Screen.height));
 			GUI.DrawTexture(new Rect(0,0,Screen.width,Screen.height),background);
 
-			//create player page
+
 			GUILayout.BeginArea (new Rect (Screen.width/4, Screen.height*.1f, Screen.width/2, Screen.height*.8f));
 
-			
-			
-			
-			
-			
-			
-			GUILayout.Label ("ORILE","Title");
-			
-			GUILayout.Space (45);
 
+			GUILayout.Label ("ORILE","Title");
+			GUILayout.Space (45);
 			GUILayout.Label ("Create new player");
 			GUILayout.Space (15);
 
+			//player login
 			GUILayout.Label ("Player Name:", GUILayout.Width (150));
 			playerName = GUILayout.TextField (playerName, GUILayout.Width (150));
+			//password entry
 			GUILayout.Label ("Password:", GUILayout.Width (150));
 			password = GUILayout.PasswordField (password, "*" [0], GUILayout.Width (150));
+			//password re-entry
 			GUILayout.Label ("Re-enter Password:", GUILayout.Width (150));
 			reEnter = GUILayout.PasswordField (reEnter, "*" [0], GUILayout.Width (150));
+
 
 			//if 'login' button is pressed, see if can login into game
 			if (GUILayout.Button ("CREATE", GUILayout.Width (80))) {
@@ -254,6 +292,10 @@ public class MainMenuVik : MonoBehaviour
 
 						//if successful;, means login success
 						if (dbReturn == "SUCCESS NO RETURN") {
+
+							//-----------------------------------------------------------
+							//	 TOGGLE isCreate false/ isLogin true/ isMessage true
+							//------------------------------------------------------------
 							isCreate = false;
 							isLogin = true;
 							isMessage = true;
@@ -261,42 +303,66 @@ public class MainMenuVik : MonoBehaviour
 						}
 						//if not successful print error string
 						else {
-	
+
+							//---------------------------------
+							//	 TOGGLE isMessage true
+							//---------------------------------
 							isMessage = true;
 							message = dbReturn;
 						}
 
-					} else {
+					}
+					//password not equal to re-enter password
+					else 
+					{
 
+						//---------------------------------
+						//	 TOGGLE isMessage true
+						//---------------------------------
 						isMessage = true;
 						message = "Password does not sync up.\n Please type it in again.";
 					}
 
-				} else {
+				} 
+				//empty input
+				else 
+				{
 
+					//---------------------------------
+					//	 TOGGLE isMessage true
+					//---------------------------------
 					isMessage = true;
 					message = "Please type in your playerName or password.";
 
 				}
 			}
 
+
+			//back button
 			if (GUILayout.Button ("back", GUILayout.Width (80))) {
-					isCreate = false;
-					isLogin = true;
+
+				//-----------------------------------------
+				//	 TOGGLE isCreate false/ isLogin true
+				//-----------------------------------------
+				isCreate = false;
+				isLogin = true;
 			}
 
 			GUILayout.EndArea ();
 			GUILayout.EndArea();
-
+		
+		
+		//--------------------------------------------------------------------------------------------------
+		//				IF ACCESSING PLAYBACK LIST
+		//--------------------------------------------------------------------------------------------------
 		} else if (isPlaybackList) {	
 
 
 			GUILayout.BeginArea (new Rect(0,0,Screen.width,Screen.height));
 			GUI.DrawTexture(new Rect(0,0,Screen.width,Screen.height),background);
-			//bring them to the playback menu
+
+
 			GUILayout.BeginArea (new Rect ((Screen.width - 400) / 2, (Screen.height - 300) / 2, 600, 300));
-
-
 
 
 			GUILayout.Label ("Playback Menu");
@@ -304,13 +370,15 @@ public class MainMenuVik : MonoBehaviour
 			GUILayout.Label ("Select the one you want to playback");
 			GUILayout.Space (15);
 
-			//parse the json string
+
 			string[] listArray = this.fileList.Split(',');
 			foreach (string capture in listArray)
 			{	
 				string fileName = "";
 				//Debug.Log(capture);
 
+
+				//PARSE THE JSON STRING
 				if (capture.IndexOf("[") == 0)
 				{
 					fileName = capture.Substring(2,capture.Length-3);
@@ -327,9 +395,18 @@ public class MainMenuVik : MonoBehaviour
 					//Debug.Log(fileName);
 				}
 
+				//this if statement is still for parsing the info
 				if (fileName != "." && fileName != "..")
 				{
+					//create a button for each playback
 					if (GUILayout.Button (fileName, GUILayout.Width (80))) {
+
+						//prepare playbackdialogue for playback
+						/*PlaybackDialogue diaggy = GameObject.Find("Main Camera").GetComponent<PlaybackDialogue>();
+						diaggy.convoTitle = "";
+						diaggy.dialogueNum = -1;
+						diaggy.currNum = -1;
+						diaggy.currTitle = "";*/
 
 						//download files
 						WWWForm sendForm = new WWWForm();
@@ -343,41 +420,43 @@ public class MainMenuVik : MonoBehaviour
 
 			}
 
+
 			GUILayout.Space (15);
 
+			//back button
 			if (GUILayout.Button ("back", GUILayout.Width (80))) {
+
+				//----------------------------------------------------
+				//	 TOGGLE isPlaybackList false /isMain true
+				//----------------------------------------------------
 				isPlaybackList = false;
+				isMain = true;
 			}
 
-			GUILayout.EndArea ();
-			GUILayout.EndArea();
 
-		} else {
+			GUILayout.EndArea();
+			GUILayout.EndArea();
+		
+
+		//--------------------------------------------------------------------------------------------------
+		//				IF MAIN PAGE
+		//--------------------------------------------------------------------------------------------------
+		} else if (isMain) {
 
 
 			GUILayout.BeginArea (new Rect(0,0,Screen.width,Screen.height));
 			GUI.DrawTexture(new Rect(0,0,Screen.width,Screen.height),background);
 
+
 			GUILayout.BeginArea (new Rect (Screen.width/4, Screen.height*.1f, Screen.width/2, Screen.height*.8f));
 
 
-
-
-
-
-
 			GUILayout.Label ("ORILE","Title");
-
 			GUILayout.Space (45);
-			
-
-
-			
 			GUILayout.Label ("Main Menu");
 			GUILayout.Space (15);
 			
-			
-			
+
 
 			//Join room by title
 			GUILayout.BeginHorizontal ();
@@ -385,11 +464,28 @@ public class MainMenuVik : MonoBehaviour
 			roomName = GUILayout.TextField (roomName,GUILayout.Width(Screen.width/5));
 			if (GUILayout.Button ("Join",GUILayout.Width(100))) {
 				PhotonNetwork.JoinRoom (roomName);
+
+				//-----------------------------------------
+				//	 TOGGLE isChoose true / isMain false
+				//-----------------------------------------
+				isChoose = true;
+				isMain = false;
+
+				//get from db
+				dbClass db = new dbClass();
+				db.addFunction("getSessionID");
+				db.addValues("roomName", roomName);
+				string dbReturn = db.connectToDb();
+				
+				if (dbReturn != "SUCCESS") {
+					print (dbReturn);
+				}
+				PlayerPrefs.SetInt("sessionID", db.getReturnValueInt("sessionID"));
+				PlayerPrefs.SetString("roomName", roomName);
+
 			}
 			GUILayout.EndHorizontal ();
 			GUILayout.Space (15);
-
-
 
 
 
@@ -400,6 +496,12 @@ public class MainMenuVik : MonoBehaviour
 			if (GUILayout.Button ("Start",GUILayout.Width(100))) {
 				PhotonNetwork.CreateRoom (roomName, true, true, 10);
 
+				//-----------------------------------------
+				//	 TOGGLE isChoose true / isMain false
+				//-----------------------------------------
+				isChoose = true;
+				isMain = false;
+
 				//add to db
 				dbClass db = new dbClass();
 				db.addFunction("sessionCreate");
@@ -409,17 +511,19 @@ public class MainMenuVik : MonoBehaviour
 				if (dbReturn != "SUCCESS") {
 					print (dbReturn);
 				}
+				PlayerPrefs.SetInt("sessionID", db.getReturnValueInt("sessionID"));
+				PlayerPrefs.SetString("roomName", roomName);
 
 				//add roomID
 				//GameObject gameManager = GameObject.Find("GameManager");  
 				//GameManagerVik vikky = gameManager.GetComponent<GameManagerVik>();
-				vikky.sessionID = db.getReturnValueInt("sessionID");
+				//vikky.sessionID = db.getReturnValueInt("sessionID");
 				//end add to db
 			}
 			GUILayout.EndHorizontal ();
+
+
 			GUILayout.Space (15);
-
-
 
 
 			//Join random room
@@ -436,24 +540,40 @@ public class MainMenuVik : MonoBehaviour
 			GUILayout.Space (15);
 
 
-
-
 			GUILayout.Space (30);
 			GUILayout.Label ("Room Listing");
 			GUILayout.Space (15);
 
+			//room listing
 			if (PhotonNetwork.GetRoomList ().Length == 0) {
 				GUILayout.Label ("..no games available..");
 			} else {
 				//Room listing: simply call GetRoomList: no need to fetch/poll whatever!
-
-
 				scrollPos = GUILayout.BeginScrollView (scrollPos);
 				foreach (RoomInfo game in PhotonNetwork.GetRoomList()) {
 					GUILayout.BeginHorizontal ();
 					GUILayout.Label (game.name + " " + game.playerCount + "/" + game.maxPlayers,GUILayout.Width(Screen.width/5+200));
+					//join button
 					if (GUILayout.Button ("Join",GUILayout.Width(100))) {
 						PhotonNetwork.JoinRoom (game.name);
+
+						//-----------------------------------------
+						//	 TOGGLE isChoose true / isMain false
+						//-----------------------------------------
+						isChoose = true;
+						isMain = false;
+
+						//get from db
+						dbClass db = new dbClass();
+						db.addFunction("getSessionID");
+						db.addValues("roomName", game.name);
+						string dbReturn = db.connectToDb();
+						
+						if (dbReturn != "SUCCESS") {
+							print (dbReturn);
+						}
+						PlayerPrefs.SetInt("sessionID", db.getReturnValueInt("sessionID"));
+						PlayerPrefs.SetString("roomName", game.name);
 					}
 					GUILayout.EndHorizontal ();
 				}
@@ -461,15 +581,18 @@ public class MainMenuVik : MonoBehaviour
 			}
 
 
-
 			//video playback
 			GUILayout.Space (45);
 			GUILayout.Label ("Watch Replay");
 			GUILayout.BeginHorizontal ();
-
+			//watch button
 			if (GUILayout.Button ("Watch")) {
 
+				//----------------------------------------------
+				//	 TOGGLE isPlaybackList true / isMain false
+				//----------------------------------------------
 				isPlaybackList = true;
+				isMain = false;
 
 			}
 			GUILayout.EndHorizontal ();
@@ -478,8 +601,115 @@ public class MainMenuVik : MonoBehaviour
 			GUILayout.EndArea();
 
 		}
+
+		//--------------------------------------------------------------------------------------------------
+		//				IF CHOOSING CHARACTER
+		//--------------------------------------------------------------------------------------------------
+		else if (isChoose)
+		{
+			//choose character if player not trainer
+			if (!isTrainer)
+			{
+				// if role selection not completed, draw GUI
+				GUILayout.BeginArea(new Rect((Screen.width - 600) / 2, (Screen.height - 300) / 2, 960, 600));
+				GUILayout.BeginHorizontal();
+				GUILayout.Label("Choose a role:", GUILayout.Width(200));
+				
+				PhotonView photonView = this.gameObject.GetPhotonView();
+				
+				for(int i =0;i<playerList.Length;i++)
+				{
+					if (!selectedPlayerList.Contains(playerList[i]))
+					{
+						if(GUILayout.Button(playerList[i],GUILayout.Width(150)) )
+						{
+							PhotonNetwork.playerName = playerList[i];
+							PlayerPrefs.SetString("playerName", playerList[i]);
+							
+							// broadcast role selected
+							photonView.RPC ("setRoleUnavailable",PhotonTargets.AllBuffered,playerList[i]);
+							
+							//------------------------------------------
+							//	 TOGGLE isLobby true / isChoose false
+							//------------------------------------------
+							isLobby = true;
+							isChoose = false;
+						}
+					}
+				}
+
+				GUILayout.EndHorizontal();
+				GUILayout.EndArea();
+			}
+			else
+			{
+				//if player trainer, do not need to go lobby or choose player; go directly to game
+				PlayerPrefs.SetString("isTrainer", "true");
+				Application.LoadLevel("Fire_event_zhenyang");
+			}
+
+		}
+
+		//--------------------------------------------------------------------------------------------------
+		//				IF WAITING LOBBY
+		//--------------------------------------------------------------------------------------------------
+		else if (isLobby)
+		{
+			GUILayout.BeginArea(new Rect((Screen.width - 400) / 2, (Screen.height - 300) / 2, 600, 300));
+
+			
+			GUILayout.Label("YOU HAVE CHOSEN: " + playerName);
+			GUILayout.Space(20);
+
+
+			//wait till there are four people in the room
+			if (selectedPlayerList.Count < totalPlayers && !isSkipLobby) {
+				
+				GUILayout.Label ("PLEASE WAIT TILL THERE ARE ENOUGH PLAYERS IN THE ROOM");
+				GUILayout.Space (20);
+				
+				GUILayout.Label ("Number of players in the room now: " + selectedPlayerList.Count);
+				GUILayout.Space (20);
+				
+				int dotNum = dotInt / 100;
+				GUILayout.Label ("WAITING" + dots [dotNum]);
+				dotInt++;
+				if (dotInt >= 300)
+				{
+					dotInt = 0;
+				}
+				
+				
+			} 
+			else 
+			{
+				if(GUILayout.Button("StartGame",GUILayout.Width(100)) )
+				{	
+					photonView.RPC ("allStartGame", PhotonTargets.AllBuffered);
+				}
+			}
+
+
+			GUILayout.EndArea();
+
+
+			if (isStartGame)
+			{
+				//player not trainer
+				PlayerPrefs.SetString("isTrainer", "false");
+				Application.LoadLevel("Fire_event_zhenyang");
+				//StartGame();
+				//startGame = false;
+			}
+
+		}
     }
 
+	//***********************************************************************************************************************************
+	//				YIELD FUNCTIONS
+	//***********************************************************************************************************************************
+
+	//yield for downloading the playback file
 	IEnumerator WaitForDownload(WWW www, string fileName)
 	{
 		yield return www;
@@ -498,11 +728,16 @@ public class MainMenuVik : MonoBehaviour
 			string filePath = "playback/" + fileName;
 			//restore all to previous setting
 
-			EZReplayManager.get.loadFromFile(filePath);
+			//EZReplayManager.get.loadFromFile(filePath);
 
-			
-			isPlayback = true;
-			isPlaybackList = false;
+
+			//---------------------------------
+			//	 TOGGLE isPlaybackList false
+			//--------------------------------
+			PlayerPrefs.SetString("isTrainer", "false");
+			PlayerPrefs.SetString("isPlayback", "true");
+			PlayerPrefs.SetString("filePath", filePath);
+			Application.LoadLevel("Fire_event_zhenyang");
 
 			
 		} else {
@@ -510,6 +745,7 @@ public class MainMenuVik : MonoBehaviour
 		}    
 	}
 
+	//yield for waiting or list to download
 	IEnumerator WaitForList(WWW www)
 	{
 		yield return www;
@@ -524,14 +760,51 @@ public class MainMenuVik : MonoBehaviour
 			//Debug.Log("WWW Error: "+ www.error);
 		}    
 	}
+
+	//***********************************************************************************************************************************
+
+
+
+	//***********************************************************************************************************************************
+	//				PHOTON NETWORK / RPC FUNCTIONS
+	//***********************************************************************************************************************************
+
+	[RPC]
 	
-	void ShowConnectingGUI()
+	void setRoleUnavailable(string role){
+		selectedPlayerList.Add(role);
+	}
+	
+	[RPC]
+	void setRoleAvailable(string role){
+		selectedPlayerList.Remove(role);
+	}
+	
+	[RPC]
+	void allStartGame()
 	{
-		GUILayout.BeginArea(new Rect((Screen.width - 400) / 2, (Screen.height - 300) / 2, 400, 300));
+		isStartGame = true;
+	}
 
-        GUILayout.Label("Connecting to Photon server.");
-        GUILayout.Label("Hint: This demo uses a settings file and logs the server address to the console.");
+	void OnDisconnectedFromPhoton()
+	{
+		Debug.LogWarning("OnDisconnectedFromPhoton");
+	} 
+	
+	void OnPhotonPlayerConnected(){
+		//print ("Now we have: "+PhotonNetwork.playerList.Length+" players in total.");
+		//print (EventManager.FsmVariables.GetFsmInt ("playerNum").Value);
+		print(PhotonNetwork.playerList.Length);
+		//EventManager.FsmVariables.GetFsmInt("playerNum").Value = PhotonNetwork.playerList.Length;
+		
+	}
+	
+	void OnPhotonPlayerDisconnected(){
+		print ("Now we have: "+PhotonNetwork.playerList.Length+" players in total.");
+		//EventManager.FsmVariables.GetFsmInt("playerNum").Value = PhotonNetwork.playerList.Length;
+		
+	}
 
-        GUILayout.EndArea();
-    }
+	//***********************************************************************************************************************************
+	
 }

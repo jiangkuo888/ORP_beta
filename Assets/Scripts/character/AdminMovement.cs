@@ -10,6 +10,7 @@ public class AdminMovement : Photon.MonoBehaviour
 	public Vector3 cameraRelativePosition = new Vector3(0,1.257728f, 0);
 	float rotationY = 0F;
 	float originalY = 0F;
+	public GUIStyle custom;
 
 	void Awake()
 	{
@@ -91,6 +92,31 @@ public class AdminMovement : Photon.MonoBehaviour
 			transform.Translate(move * 0.2f);
 
 		}
+	}
+
+	void OnGUI()
+	{
+		//get admin follow
+		AdminCamera addy = this.gameObject.GetComponent<AdminCamera>();
+
+		GUILayout.BeginArea (new Rect (0, Screen.height*.275f, Screen.width/2, Screen.height*.5f));
+
+		if (addy.currPlayerFollow == -1)
+		{
+			GUILayout.BeginHorizontal();
+			GUILayout.Label ("Hello! Welcome to trainer mode.", custom);
+			GUILayout.EndHorizontal();
+		}
+		else
+		{
+			string name =  addy.playerNameList[addy.currPlayerFollow];
+			GUILayout.BeginHorizontal();
+			GUILayout.Label ("You are currently following: " + name, custom);
+			GUILayout.EndHorizontal(); 
+
+		}
+
+		GUILayout.EndArea();
 	}
 
 	
