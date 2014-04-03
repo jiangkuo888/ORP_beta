@@ -397,10 +397,10 @@ MonoBehaviour:
       value: 
       type: 0
     - title: Actor
-      value: 5
+      value: 1
       type: 5
     - title: Conversant
-      value: 1
+      value: 5
       type: 5
     nodeColor: Red
     dialogueEntries:
@@ -464,13 +464,16 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Dialogue Text
-        value: 'Hi, to interact with an object or a person, just click on it. '
+        value: 'Hi, for any object or NPC that you can interact with, you will see
+          a text that appears at the top of the screen. When it is grey, it means
+          you are not close enough to interact with the object or NPC. You will be
+          able to interact when the text is shown as yellow. '
         type: 4
       - title: Video File
         value: 
         type: 0
       - title: Sequence
-        value: 
+        value: Camera(Closeup);
         type: 0
       conversationID: 38
       isRoot: 0
@@ -488,10 +491,10 @@ MonoBehaviour:
         priority: 2
       conditionsString: Variable["Tutorial_key_get"] == false;
       userScript: 
-    - id: 2
+    - id: 4
       fields:
       - title: Title
-        value: 2
+        value: 1_success
         type: 0
       - title: Actor
         value: 5
@@ -503,7 +506,41 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Dialogue Text
-        value: Now can you help me grab the key on the opposite wall?
+        value: "You did it! Thanks a lot! Now you can proceed to the next room. \n"
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: NpcQuestDone();Camera(Closeup);
+        type: 0
+      conversationID: 38
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: Variable["Tutorial_key_get"] == true;
+      userScript: Variable["NPC_quest_done"] = true;
+    - id: 2
+      fields:
+      - title: Title
+        value: New Dialogue
+        type: 0
+      - title: Actor
+        value: 5
+        type: 5
+      - title: Conversant
+        value: 1
+        type: 5
+      - title: Menu Text
+        value: 
+        type: 0
+      - title: Dialogue Text
+        value: "Now, can you find a key for me in this room? Once you find it, can
+          you pick it up and pass it to me? \nThanks"
         type: 4
       - title: Video File
         value: 
@@ -530,7 +567,7 @@ MonoBehaviour:
     - id: 3
       fields:
       - title: Title
-        value: 3
+        value: 
         type: 0
       - title: Actor
         value: 1
@@ -539,10 +576,10 @@ MonoBehaviour:
         value: 5
         type: 5
       - title: Menu Text
-        value: OK. I'll get it.
+        value: 
         type: 0
       - title: Dialogue Text
-        value: 
+        value: 'Okie. '
         type: 4
       - title: Video File
         value: 
@@ -560,39 +597,6 @@ MonoBehaviour:
       outgoingLinks: []
       conditionsString: 
       userScript: 
-    - id: 4
-      fields:
-      - title: Title
-        value: 1_success
-        type: 0
-      - title: Actor
-        value: 5
-        type: 5
-      - title: Conversant
-        value: 1
-        type: 5
-      - title: Menu Text
-        value: 
-        type: 0
-      - title: Dialogue Text
-        value: You did it! Thanks a lot!
-        type: 4
-      - title: Video File
-        value: 
-        type: 0
-      - title: Sequence
-        value: NpcQuestDone();
-        type: 0
-      conversationID: 38
-      isRoot: 0
-      isGroup: 0
-      nodeColor: White
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks: []
-      conditionsString: Variable["Tutorial_key_get"] == true;
-      userScript: Variable["NPC_quest_done"] = true;
   - id: 39
     fields:
     - title: Title
