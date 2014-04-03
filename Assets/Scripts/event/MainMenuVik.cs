@@ -32,7 +32,8 @@ public class MainMenuVik : Photon.MonoBehaviour
 	public bool isTrainer = false; //player is trainer
 	public bool isLobby = false; //lobby screen
 	public bool isStartGame = false; //whether the GameEnd is starting
-	public bool isSkipLobby = false;
+	public bool isSkipLobby = false; //whether to skip lobby
+	public string sceneLinkage = "Fire_event_merged"; //scene to link to 
 	//------------------------------------------------------------------
 
 	public HashSet<string> selectedPlayerList = new HashSet<string>();
@@ -645,7 +646,7 @@ public class MainMenuVik : Photon.MonoBehaviour
 			{
 				//if player trainer, do not need to go lobby or choose player; go directly to game
 				PlayerPrefs.SetString("isTrainer", "true");
-				Application.LoadLevel("Fire_event_zhenyang");
+				Application.LoadLevel(sceneLinkage);
 			}
 
 		}
@@ -697,7 +698,7 @@ public class MainMenuVik : Photon.MonoBehaviour
 			{
 				//player not trainer
 				PlayerPrefs.SetString("isTrainer", "false");
-				Application.LoadLevel("Fire_event_zhenyang");
+				Application.LoadLevel(sceneLinkage);
 				//StartGame();
 				//startGame = false;
 			}
@@ -737,7 +738,7 @@ public class MainMenuVik : Photon.MonoBehaviour
 			PlayerPrefs.SetString("isTrainer", "false");
 			PlayerPrefs.SetString("isPlayback", "true");
 			PlayerPrefs.SetString("filePath", filePath);
-			Application.LoadLevel("Fire_event_zhenyang");
+			Application.LoadLevel(sceneLinkage);
 
 			
 		} else {

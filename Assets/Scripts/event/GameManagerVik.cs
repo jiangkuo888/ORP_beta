@@ -31,15 +31,17 @@ public class GameManagerVik : Photon.MonoBehaviour {
 	public bool isTrainer = false;
 	public bool isPlayBack = false;
 	public bool connected = false;
+	public bool startGameNow = false;
 
 	//sync boolean
-	//public int syncNum = 0;
-	//public int syncTotal = 4;
+	public int syncNum = 0;
+	public int syncTotal = 4;
 
 	//debugging variables
 	public string characterName = "";
 	public string roomName = "Room";
 	public bool noLogin = false;
+	 
 
 
 	//***********************************************************************************************************************************
@@ -80,7 +82,7 @@ public class GameManagerVik : Photon.MonoBehaviour {
 			//-----------------------------------------------------------------------------------------------------
 		}
 
-		//photonView.RPC ("levelLoaded",PhotonTargets.AllBuffered);
+		photonView.RPC ("levelLoaded",PhotonTargets.AllBuffered);
 	}
 
 	void Update()
@@ -102,10 +104,17 @@ public class GameManagerVik : Photon.MonoBehaviour {
 
 		}
 
-		if (!noLogin && !connected && !this.isPlayBack)
+		if (!noLogin && !connected && !this.isPlayBack && this.syncNum >= this.syncTotal)
+		{
+			photonView.RPC ("allStartGame",PhotonTargets.AllBuffered);
+			connected = true;
+
+		}
+
+		if (startGameNow)
 		{
 			startGame();
-			connected = true;
+			startGameNow = false;
 		}
 	}
 
@@ -117,8 +126,8 @@ public class GameManagerVik : Photon.MonoBehaviour {
 		//-----------------------------------------------------------------------------------------------------
 		//					create room
 		//-----------------------------------------------------------------------------------------------------
-		//PhotonNetwork.CreateRoom (roomName, true, true, 10);
-		PhotonNetwork.JoinRoom (roomName);
+		PhotonNetwork.CreateRoom (roomName, true, true, 10);
+		//PhotonNetwork.JoinRoom (roomName);
 		
 		Debug.Log (PhotonNetwork.countOfPlayersOnMaster);
 		Debug.Log (PhotonNetwork.countOfRooms);
@@ -182,7 +191,10 @@ public class GameManagerVik : Photon.MonoBehaviour {
 			GameObject.Find ("InventoryButton1").GetComponent<GUITexture>().enabled = true;
 			GameObject.Find ("InventoryButton2").GetComponent<GUITexture>().enabled = false;
 			
-			
+			// start timer 
+			GameObject.Find ("EventManager").GetComponent<NetworkTime>().enabled = true;
+
+
 			// instantiate prefab based on the name
 			GameObject playa = null;
 			for(int i = 0 ; i < playerPrefabList.Length; i++)
@@ -394,17 +406,17 @@ public class GameManagerVik : Photon.MonoBehaviour {
 		selectedPlayerList.Remove(role);
 	}
 
-	/*[RPC]
+	[RPC]
 	void levelLoaded(){
 
 		this.syncNum++;
-	}*/
+	}
 
-	/*[RPC]
+	[RPC]
 	void allStartGame()
 	{
-		startGame = true;
-	}*/
+		startGameNow = true;
+	}
 
     void OnDisconnectedFromPhoton()
     {

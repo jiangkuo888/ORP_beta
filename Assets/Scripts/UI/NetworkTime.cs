@@ -42,11 +42,10 @@ public class NetworkTime : MonoBehaviour {
 
 		currentTimeInSec = PhotonNetwork.networkingPeer.ServerTimeInMilliSeconds/1000;
 
-		if(PhotonNetwork.isMasterClient)
-		{
+
 			EventManager.FsmVariables.GetFsmBool("isMaster").Value = true;
 			EventManager.FsmVariables.GetFsmFloat("TimeSinceCreate").Value = currentTimeInSec - startTimeInSec;
-		}
+
 
 
 	}
