@@ -1800,7 +1800,7 @@ MonoBehaviour:
         value: 1
         type: 5
       - title: Conversant
-        value: 17
+        value: 29
         type: 5
       - title: Menu Text
         value: 
@@ -1825,24 +1825,96 @@ MonoBehaviour:
       - originConversationID: 22
         originDialogueID: 0
         destinationConversationID: 22
-        destinationDialogueID: 4
+        destinationDialogueID: 5
         isConnector: 0
         priority: 2
+      conditionsString: 
+      userScript: 
+    - id: 5
+      fields:
+      - title: Title
+        value: 
+        type: 0
+      - title: Actor
+        value: 29
+        type: 5
+      - title: Conversant
+        value: 1
+        type: 5
+      - title: Menu Text
+        value: 
+        type: 0
+      - title: Dialogue Text
+        value: 
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: Camera(Contact List);
+        type: 0
+      conversationID: 22
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
       - originConversationID: 22
-        originDialogueID: 0
+        originDialogueID: 5
         destinationConversationID: 22
         destinationDialogueID: 1
         isConnector: 0
         priority: 2
       - originConversationID: 22
-        originDialogueID: 0
+        originDialogueID: 5
         destinationConversationID: 22
         destinationDialogueID: 2
+        isConnector: 0
+        priority: 2
+      - originConversationID: 22
+        originDialogueID: 5
+        destinationConversationID: 22
+        destinationDialogueID: 4
         isConnector: 0
         priority: 2
       conditionsString: 
       userScript: 
     - id: 1
+      fields:
+      - title: Title
+        value: 
+        type: 0
+      - title: Actor
+        value: 1
+        type: 5
+      - title: Conversant
+        value: 29
+        type: 5
+      - title: Menu Text
+        value: Leave
+        type: 0
+      - title: Dialogue Text
+        value: 
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 22
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: 
+    - id: 2
       fields:
       - title: Title
         value: 
@@ -1874,44 +1946,11 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks:
       - originConversationID: 22
-        originDialogueID: 1
+        originDialogueID: 2
         destinationConversationID: 22
         destinationDialogueID: 3
         isConnector: 0
         priority: 2
-      conditionsString: 
-      userScript: 
-    - id: 2
-      fields:
-      - title: Title
-        value: 
-        type: 0
-      - title: Actor
-        value: 1
-        type: 5
-      - title: Conversant
-        value: 29
-        type: 5
-      - title: Menu Text
-        value: Leave
-        type: 0
-      - title: Dialogue Text
-        value: 
-        type: 4
-      - title: Video File
-        value: 
-        type: 0
-      - title: Sequence
-        value: 
-        type: 0
-      conversationID: 22
-      isRoot: 0
-      isGroup: 0
-      nodeColor: White
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks: []
       conditionsString: 
       userScript: 
     - id: 3
@@ -4471,10 +4510,10 @@ MonoBehaviour:
       value: 
       type: 0
     - title: Actor
-      value: 26
+      value: 1
       type: 5
     - title: Conversant
-      value: 1
+      value: 26
       type: 5
     nodeColor: Red
     dialogueEntries:
@@ -4484,10 +4523,10 @@ MonoBehaviour:
         value: START
         type: 0
       - title: Actor
-        value: 26
+        value: 1
         type: 5
       - title: Conversant
-        value: 1
+        value: 26
         type: 5
       - title: Menu Text
         value: 
@@ -4512,25 +4551,70 @@ MonoBehaviour:
       - originConversationID: 30
         originDialogueID: 0
         destinationConversationID: 30
-        destinationDialogueID: 2
+        destinationDialogueID: 8
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+    - id: 8
+      fields:
+      - title: Title
+        value: 
+        type: 0
+      - title: Actor
+        value: 26
+        type: 5
+      - title: Conversant
+        value: 1
+        type: 5
+      - title: Menu Text
+        value: 
+        type: 0
+      - title: Dialogue Text
+        value: 
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: Camera(Safe)
+        type: 0
+      conversationID: 30
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 30
+        originDialogueID: 8
+        destinationConversationID: 30
+        destinationDialogueID: 5
         isConnector: 0
         priority: 2
       - originConversationID: 30
-        originDialogueID: 0
+        originDialogueID: 8
         destinationConversationID: 30
         destinationDialogueID: 4
         isConnector: 0
         priority: 2
       - originConversationID: 30
-        originDialogueID: 0
+        originDialogueID: 8
         destinationConversationID: 30
-        destinationDialogueID: 1
+        destinationDialogueID: 3
         isConnector: 0
         priority: 2
       - originConversationID: 30
-        originDialogueID: 0
+        originDialogueID: 8
         destinationConversationID: 30
-        destinationDialogueID: 3
+        destinationDialogueID: 2
+        isConnector: 0
+        priority: 2
+      - originConversationID: 30
+        originDialogueID: 8
+        destinationConversationID: 30
+        destinationDialogueID: 1
         isConnector: 0
         priority: 2
       conditionsString: 
@@ -4547,10 +4631,10 @@ MonoBehaviour:
         value: 26
         type: 5
       - title: Menu Text
-        value: Check
+        value: Leave
         type: 0
       - title: Dialogue Text
-        value: Checking Safe...
+        value: 
         type: 4
       - title: Video File
         value: 
@@ -4565,28 +4649,77 @@ MonoBehaviour:
       delaySimStatus: 0
       falseConditionAction: Block
       conditionPriority: 2
-      outgoingLinks:
-      - originConversationID: 30
-        originDialogueID: 1
-        destinationConversationID: 30
-        destinationDialogueID: 5
-        isConnector: 0
-        priority: 2
-      - originConversationID: 30
-        originDialogueID: 1
-        destinationConversationID: 30
-        destinationDialogueID: 6
-        isConnector: 0
-        priority: 2
-      - originConversationID: 30
-        originDialogueID: 1
-        destinationConversationID: 30
-        destinationDialogueID: 7
-        isConnector: 0
-        priority: 2
+      outgoingLinks: []
       conditionsString: 
       userScript: 
     - id: 2
+      fields:
+      - title: Title
+        value: 5
+        type: 0
+      - title: Actor
+        value: 1
+        type: 5
+      - title: Conversant
+        value: 26
+        type: 5
+      - title: Menu Text
+        value: Lock
+        type: 0
+      - title: Dialogue Text
+        value: 
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: OtherSafe(lock);
+        type: 0
+      conversationID: 30
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: Variable["MeUnlocked"] == true and Variable["HasKey"] == false;
+      userScript: Variable["MeUnlocked"] = false;
+    - id: 3
+      fields:
+      - title: Title
+        value: 
+        type: 0
+      - title: Actor
+        value: 1
+        type: 5
+      - title: Conversant
+        value: 26
+        type: 5
+      - title: Menu Text
+        value: Unlock
+        type: 0
+      - title: Dialogue Text
+        value: 'Unlocking Safe... '
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: OtherSafe(unlock);
+        type: 0
+      conversationID: 30
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: Variable["MeUnlocked"] == false and Variable["HasKey"] ==
+        false;
+      userScript: Variable["MeUnlocked"] = true;
+    - id: 4
       fields:
       - title: Title
         value: 
@@ -4620,7 +4753,7 @@ MonoBehaviour:
       conditionsString: Variable["Has_Document"] == true and Variable["MeUnlocked"]
         == true and Variable["OtherUnlocked"] == true;
       userScript: 
-    - id: 3
+    - id: 5
       fields:
       - title: Title
         value: 
@@ -4632,10 +4765,10 @@ MonoBehaviour:
         value: 26
         type: 5
       - title: Menu Text
-        value: Leave
+        value: Check
         type: 0
       - title: Dialogue Text
-        value: 
+        value: Checking Safe...
         type: 4
       - title: Video File
         value: 
@@ -4650,113 +4783,28 @@ MonoBehaviour:
       delaySimStatus: 0
       falseConditionAction: Block
       conditionPriority: 2
-      outgoingLinks: []
+      outgoingLinks:
+      - originConversationID: 30
+        originDialogueID: 5
+        destinationConversationID: 30
+        destinationDialogueID: 6
+        isConnector: 0
+        priority: 2
+      - originConversationID: 30
+        originDialogueID: 5
+        destinationConversationID: 30
+        destinationDialogueID: 7
+        isConnector: 0
+        priority: 2
+      - originConversationID: 30
+        originDialogueID: 5
+        destinationConversationID: 30
+        destinationDialogueID: 9
+        isConnector: 0
+        priority: 2
       conditionsString: 
       userScript: 
     - id: 6
-      fields:
-      - title: Title
-        value: Unlocked
-        type: 0
-      - title: Actor
-        value: 26
-        type: 5
-      - title: Conversant
-        value: 1
-        type: 5
-      - title: Menu Text
-        value: 
-        type: 0
-      - title: Dialogue Text
-        value: The safe is unlocked, you can drop item inside.
-        type: 4
-      - title: Video File
-        value: 
-        type: 0
-      - title: Sequence
-        value: Log(7B, Unlock Safe);
-        type: 0
-      conversationID: 30
-      isRoot: 0
-      isGroup: 0
-      nodeColor: White
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks: []
-      conditionsString: Variable["MeUnlocked"] == true and Variable["OtherUnlocked"]
-        == true;
-      userScript: 
-    - id: 7
-      fields:
-      - title: Title
-        value: locked
-        type: 0
-      - title: Actor
-        value: 26
-        type: 5
-      - title: Conversant
-        value: 1
-        type: 5
-      - title: Menu Text
-        value: 
-        type: 0
-      - title: Dialogue Text
-        value: The safe is locked. It needs both keys from Loan Manager and Credit
-          Risk to unlock.
-        type: 4
-      - title: Video File
-        value: 
-        type: 0
-      - title: Sequence
-        value: 
-        type: 0
-      conversationID: 30
-      isRoot: 0
-      isGroup: 0
-      nodeColor: White
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks: []
-      conditionsString: Variable["MeUnlocked"] == false and Variable["OtherUnlocked"]
-        == false and Variable["HasKey"] == true;
-      userScript: 
-    - id: 4
-      fields:
-      - title: Title
-        value: 
-        type: 0
-      - title: Actor
-        value: 1
-        type: 5
-      - title: Conversant
-        value: 26
-        type: 5
-      - title: Menu Text
-        value: Unlock
-        type: 0
-      - title: Dialogue Text
-        value: 'Unlocking Safe... '
-        type: 4
-      - title: Video File
-        value: 
-        type: 0
-      - title: Sequence
-        value: OtherUnlock();
-        type: 0
-      conversationID: 30
-      isRoot: 0
-      isGroup: 0
-      nodeColor: White
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks: []
-      conditionsString: Variable["MeUnlocked"] == false and Variable["HasKey"] ==
-        false;
-      userScript: Variable["MeUnlocked"] = true;
-    - id: 5
       fields:
       - title: Title
         value: Waiting for another key
@@ -4791,6 +4839,75 @@ MonoBehaviour:
       outgoingLinks: []
       conditionsString: Variable["OtherUnlocked"] == false and Variable["MeUnlocked"]
         == true;
+      userScript: 
+    - id: 7
+      fields:
+      - title: Title
+        value: Unlocked
+        type: 0
+      - title: Actor
+        value: 26
+        type: 5
+      - title: Conversant
+        value: 1
+        type: 5
+      - title: Menu Text
+        value: 
+        type: 0
+      - title: Dialogue Text
+        value: The safe is unlocked, you can drop item inside.
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: Log(7B, Unlock Safe);
+        type: 0
+      conversationID: 30
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: Variable["MeUnlocked"] == true and Variable["OtherUnlocked"]
+        == true;
+      userScript: 
+    - id: 9
+      fields:
+      - title: Title
+        value: locked
+        type: 0
+      - title: Actor
+        value: 26
+        type: 5
+      - title: Conversant
+        value: 1
+        type: 5
+      - title: Menu Text
+        value: 
+        type: 0
+      - title: Dialogue Text
+        value: The safe is locked. It needs both keys from Loan Manager and Credit
+          Risk to unlock.
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 30
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: Variable["MeUnlocked"] == false and Variable["OtherUnlocked"]
+        == false and Variable["HasKey"] == true;
       userScript: 
   - id: 31
     fields:
@@ -5133,10 +5250,10 @@ MonoBehaviour:
       value: 
       type: 0
     - title: Actor
-      value: 27
+      value: 1
       type: 5
     - title: Conversant
-      value: 1
+      value: 27
       type: 5
     nodeColor: Red
     dialogueEntries:
@@ -5146,10 +5263,10 @@ MonoBehaviour:
         value: START
         type: 0
       - title: Actor
-        value: 27
+        value: 1
         type: 5
       - title: Conversant
-        value: 1
+        value: 27
         type: 5
       - title: Menu Text
         value: 
@@ -5174,17 +5291,56 @@ MonoBehaviour:
       - originConversationID: 33
         originDialogueID: 0
         destinationConversationID: 33
+        destinationDialogueID: 4
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+    - id: 4
+      fields:
+      - title: Title
+        value: setting camera
+        type: 0
+      - title: Actor
+        value: 27
+        type: 5
+      - title: Conversant
+        value: 1
+        type: 5
+      - title: Menu Text
+        value: 
+        type: 0
+      - title: Dialogue Text
+        value: 
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: Camera(Suitcase)
+        type: 0
+      conversationID: 33
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 33
+        originDialogueID: 4
+        destinationConversationID: 33
         destinationDialogueID: 1
         isConnector: 0
         priority: 2
       - originConversationID: 33
-        originDialogueID: 0
+        originDialogueID: 4
         destinationConversationID: 33
         destinationDialogueID: 2
         isConnector: 0
         priority: 2
       - originConversationID: 33
-        originDialogueID: 0
+        originDialogueID: 4
         destinationConversationID: 33
         destinationDialogueID: 3
         isConnector: 0
@@ -5203,10 +5359,10 @@ MonoBehaviour:
         value: 27
         type: 5
       - title: Menu Text
-        value: Check
+        value: Leave
         type: 0
       - title: Dialogue Text
-        value: Checking Suitcase...
+        value: 
         type: 4
       - title: Video File
         value: 
@@ -5222,7 +5378,7 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks: []
-      conditionsString: 'Variable["InventoryHasObject"] == false '
+      conditionsString: 
       userScript: 
     - id: 2
       fields:
@@ -5269,10 +5425,10 @@ MonoBehaviour:
         value: 27
         type: 5
       - title: Menu Text
-        value: Leave
+        value: Check
         type: 0
       - title: Dialogue Text
-        value: 
+        value: Checking Suitcase...
         type: 4
       - title: Video File
         value: 
@@ -5288,7 +5444,7 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks: []
-      conditionsString: 
+      conditionsString: 'Variable["InventoryHasObject"] == false '
       userScript: 
   - id: 34
     fields:
@@ -5584,24 +5740,96 @@ MonoBehaviour:
       - originConversationID: 35
         originDialogueID: 0
         destinationConversationID: 35
-        destinationDialogueID: 4
+        destinationDialogueID: 5
         isConnector: 0
         priority: 2
+      conditionsString: 
+      userScript: 
+    - id: 5
+      fields:
+      - title: Title
+        value: 
+        type: 0
+      - title: Actor
+        value: 29
+        type: 5
+      - title: Conversant
+        value: 1
+        type: 5
+      - title: Menu Text
+        value: 
+        type: 0
+      - title: Dialogue Text
+        value: 
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: Camera(Closeup Ground);
+        type: 0
+      conversationID: 35
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
       - originConversationID: 35
-        originDialogueID: 0
+        originDialogueID: 5
         destinationConversationID: 35
         destinationDialogueID: 1
         isConnector: 0
         priority: 2
       - originConversationID: 35
-        originDialogueID: 0
+        originDialogueID: 5
         destinationConversationID: 35
         destinationDialogueID: 2
+        isConnector: 0
+        priority: 2
+      - originConversationID: 35
+        originDialogueID: 5
+        destinationConversationID: 35
+        destinationDialogueID: 4
         isConnector: 0
         priority: 2
       conditionsString: 
       userScript: 
     - id: 1
+      fields:
+      - title: Title
+        value: 
+        type: 0
+      - title: Actor
+        value: 1
+        type: 5
+      - title: Conversant
+        value: 17
+        type: 5
+      - title: Menu Text
+        value: Leave
+        type: 0
+      - title: Dialogue Text
+        value: 
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 35
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: 
+    - id: 2
       fields:
       - title: Title
         value: 
@@ -5633,44 +5861,11 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks:
       - originConversationID: 35
-        originDialogueID: 1
+        originDialogueID: 2
         destinationConversationID: 35
         destinationDialogueID: 3
         isConnector: 0
         priority: 2
-      conditionsString: 
-      userScript: 
-    - id: 2
-      fields:
-      - title: Title
-        value: 
-        type: 0
-      - title: Actor
-        value: 1
-        type: 5
-      - title: Conversant
-        value: 17
-        type: 5
-      - title: Menu Text
-        value: Leave
-        type: 0
-      - title: Dialogue Text
-        value: 
-        type: 4
-      - title: Video File
-        value: 
-        type: 0
-      - title: Sequence
-        value: 
-        type: 0
-      conversationID: 35
-      isRoot: 0
-      isGroup: 0
-      nodeColor: White
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks: []
       conditionsString: 
       userScript: 
     - id: 3
@@ -5769,7 +5964,7 @@ MonoBehaviour:
         value: 1
         type: 5
       - title: Conversant
-        value: 17
+        value: 29
         type: 5
       - title: Menu Text
         value: 
@@ -5794,19 +5989,58 @@ MonoBehaviour:
       - originConversationID: 36
         originDialogueID: 0
         destinationConversationID: 36
-        destinationDialogueID: 4
+        destinationDialogueID: 5
         isConnector: 0
         priority: 2
+      conditionsString: 
+      userScript: 
+    - id: 5
+      fields:
+      - title: Title
+        value: 
+        type: 0
+      - title: Actor
+        value: 29
+        type: 5
+      - title: Conversant
+        value: 1
+        type: 5
+      - title: Menu Text
+        value: 
+        type: 0
+      - title: Dialogue Text
+        value: 
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: Camera(Contact List);
+        type: 0
+      conversationID: 36
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
       - originConversationID: 36
-        originDialogueID: 0
+        originDialogueID: 5
         destinationConversationID: 36
         destinationDialogueID: 1
         isConnector: 0
         priority: 2
       - originConversationID: 36
-        originDialogueID: 0
+        originDialogueID: 5
         destinationConversationID: 36
-        destinationDialogueID: 2
+        destinationDialogueID: 3
+        isConnector: 0
+        priority: 2
+      - originConversationID: 36
+        originDialogueID: 5
+        destinationConversationID: 36
+        destinationDialogueID: 4
         isConnector: 0
         priority: 2
       conditionsString: 
@@ -5845,7 +6079,7 @@ MonoBehaviour:
       - originConversationID: 36
         originDialogueID: 1
         destinationConversationID: 36
-        destinationDialogueID: 3
+        destinationDialogueID: 2
         isConnector: 0
         priority: 2
       conditionsString: 
@@ -5856,16 +6090,17 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 1
-        type: 5
-      - title: Conversant
         value: 29
         type: 5
+      - title: Conversant
+        value: 1
+        type: 5
       - title: Menu Text
-        value: Leave
+        value: 
         type: 0
       - title: Dialogue Text
-        value: 
+        value: "This is a contact list of important contacts. This is a key item of
+          your grab list. \n"
         type: 4
       - title: Video File
         value: 
@@ -5883,7 +6118,7 @@ MonoBehaviour:
       outgoingLinks: []
       conditionsString: 
       userScript: 
-    - id: 4
+    - id: 3
       fields:
       - title: Title
         value: 
@@ -5898,7 +6133,7 @@ MonoBehaviour:
         value: Pick up
         type: 0
       - title: Dialogue Text
-        value: 
+        value: Picking...
         type: 4
       - title: Video File
         value: 
@@ -5916,23 +6151,22 @@ MonoBehaviour:
       outgoingLinks: []
       conditionsString: Item["Grab_List"].State == "active";
       userScript: 
-    - id: 3
+    - id: 4
       fields:
       - title: Title
         value: 
         type: 0
       - title: Actor
-        value: 29
-        type: 5
-      - title: Conversant
         value: 1
         type: 5
+      - title: Conversant
+        value: 29
+        type: 5
       - title: Menu Text
-        value: 
+        value: Leave
         type: 0
       - title: Dialogue Text
-        value: "This is a contact list of important contacts. This is a key item of
-          your grab list. \n"
+        value: Leaving...
         type: 4
       - title: Video File
         value: 

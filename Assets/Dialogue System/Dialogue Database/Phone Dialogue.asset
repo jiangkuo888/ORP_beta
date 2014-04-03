@@ -777,7 +777,7 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
-      userScript: Item["Sales_Call_from_John"].State = "success"
+      userScript: Item["Sales_Call_from_John"].State = "success";
   - id: 53
     fields:
     - title: Title
@@ -919,7 +919,7 @@ MonoBehaviour:
       value: 1
       type: 5
     - title: Conversant
-      value: 1
+      value: 5
       type: 5
     nodeColor: Red
     dialogueEntries:
@@ -957,25 +957,64 @@ MonoBehaviour:
       - originConversationID: 54
         originDialogueID: 0
         destinationConversationID: 54
+        destinationDialogueID: 3
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+    - id: 3
+      fields:
+      - title: Title
+        value: New Dialogue
+        type: 0
+      - title: Actor
+        value: 5
+        type: 5
+      - title: Conversant
+        value: 1
+        type: 5
+      - title: Menu Text
+        value: 
+        type: 0
+      - title: Dialogue Text
+        value: 
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: Camera(Safe);
+        type: 0
+      conversationID: 54
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 54
+        originDialogueID: 3
+        destinationConversationID: 54
         destinationDialogueID: 1
         isConnector: 0
         priority: 2
       - originConversationID: 54
-        originDialogueID: 0
+        originDialogueID: 3
         destinationConversationID: 54
         destinationDialogueID: 2
         isConnector: 0
         priority: 2
       - originConversationID: 54
-        originDialogueID: 0
+        originDialogueID: 3
         destinationConversationID: 54
         destinationDialogueID: 4
         isConnector: 0
         priority: 2
       - originConversationID: 54
-        originDialogueID: 0
+        originDialogueID: 3
         destinationConversationID: 54
-        destinationDialogueID: 7
+        destinationDialogueID: 5
         isConnector: 0
         priority: 2
       conditionsString: 
@@ -989,15 +1028,13 @@ MonoBehaviour:
         value: 1
         type: 5
       - title: Conversant
-        value: 1
+        value: 5
         type: 5
       - title: Menu Text
-        value: Welcome Announcement
+        value: Nothing to announce
         type: 0
       - title: Dialogue Text
-        value: 'Good morning, welcome to ORP Bank. We offer the best deals in town
-          so check out with our sales staff for more information on the latest package
-          we offer here at ORP Bank. '
+        value: 
         type: 4
       - title: Video File
         value: 
@@ -1013,46 +1050,9 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks: []
-      conditionsString: Dialog[1].SimStatus ~= "WasDisplayed"
+      conditionsString: 
       userScript: 
     - id: 2
-      fields:
-      - title: Title
-        value: Evacuation Announcement
-        type: 0
-      - title: Actor
-        value: 1
-        type: 5
-      - title: Conversant
-        value: 1
-        type: 5
-      - title: Menu Text
-        value: Evacuation Announcement
-        type: 0
-      - title: Dialogue Text
-        value: 'All customers please follow the instructions of the ground staff to
-          evacuate to safety. '
-        type: 4
-      - title: Video File
-        value: 
-        type: 0
-      - title: Sequence
-        value: Log(10A, Evacuation started)
-        type: 0
-      conversationID: 54
-      isRoot: 0
-      isGroup: 0
-      nodeColor: White
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks: []
-      conditionsString: Item["Evacuation_Notice"].State == "active" and Dialog[2].SimStatus
-        ~= "WasDisplayed"
-      userScript: 'Item["Evacuation_Notice"].State = "success";
-
-        Variable["Alert"] = "Quest Success: You have evacuated the Sales Floor.";'
-    - id: 4
       fields:
       - title: Title
         value: Warning Announcement
@@ -1061,7 +1061,7 @@ MonoBehaviour:
         value: 1
         type: 5
       - title: Conversant
-        value: 1
+        value: 5
         type: 5
       - title: Menu Text
         value: Warning Announcement
@@ -1091,7 +1091,44 @@ MonoBehaviour:
 
         Variable["Alert"] = "Quest Success: You have given the early warning to the
         customers. ";'
-    - id: 7
+    - id: 4
+      fields:
+      - title: Title
+        value: Evacuation Announcement
+        type: 0
+      - title: Actor
+        value: 1
+        type: 5
+      - title: Conversant
+        value: 5
+        type: 5
+      - title: Menu Text
+        value: Evacuation Announcement
+        type: 0
+      - title: Dialogue Text
+        value: 'All customers please follow the instructions of the ground staff to
+          evacuate to safety. '
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: Log(10A, Evacuation started)
+        type: 0
+      conversationID: 54
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: Item["Evacuation_Notice"].State == "active" and Dialog[2].SimStatus
+        ~= "WasDisplayed"
+      userScript: 'Item["Evacuation_Notice"].State = "success";
+
+        Variable["Alert"] = "Quest Success: You have evacuated the Sales Floor.";'
+    - id: 5
       fields:
       - title: Title
         value: 
@@ -1100,13 +1137,15 @@ MonoBehaviour:
         value: 1
         type: 5
       - title: Conversant
-        value: 1
+        value: 5
         type: 5
       - title: Menu Text
-        value: Nothing to announce
+        value: Welcome Announcement
         type: 0
       - title: Dialogue Text
-        value: 
+        value: 'Good morning, welcome to ORP Bank. We offer the best deals in town
+          so check out with our sales staff for more information on the latest package
+          we offer here at ORP Bank. '
         type: 4
       - title: Video File
         value: 
@@ -1122,7 +1161,7 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks: []
-      conditionsString: 
+      conditionsString: Dialog[1].SimStatus ~= "WasDisplayed"
       userScript: 
   - id: 55
     fields:
