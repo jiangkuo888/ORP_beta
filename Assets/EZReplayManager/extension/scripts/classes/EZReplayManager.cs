@@ -173,7 +173,7 @@ public sealed class EZReplayManager : MonoBehaviour {
 		foreach (var entry in gOs2propMappings) {
 			
 			//Debug.Log (entry.Key.name);
-			foreach (var yang in entry.Value.savedStates)
+			/*foreach (var yang in entry.Value.savedStates)
 			{
 				//Debug.Log (yang.Key);
 
@@ -181,9 +181,12 @@ public sealed class EZReplayManager : MonoBehaviour {
 				{
 					//Debug.Log (yang.Value.localPosition.getVector3());
 					//Debug.Log (yang.Value.localRotation.getQuaternion());
-					//Debug.Log (yang.Value.isMainCameraChild);
+					Debug.Log (yang.Value.dialogueNum);
+					Debug.Log (yang.Value.dialogueType);
+					Debug.Log (yang.Value.convoTitle);
+
 				}
-			}
+			}*/
 			
 
 			o2pMappingListW.addMapping(entry.Value);		
@@ -244,9 +247,9 @@ public sealed class EZReplayManager : MonoBehaviour {
 						if (goClone.tag == "MainCamera")
 						{
 							//Debug.Log(stateEntry.Key);
-							//Debug.Log(stateEntry.Value.localPosition);
-							//Debug.Log(stateEntry.Value.localRotation);
-							//Debug.Log(stateEntry.Value.isMainCameraChild);
+							Debug.Log(stateEntry.Value.dialogueNum);
+							Debug.Log(stateEntry.Value.dialogueType);
+							Debug.Log(stateEntry.Value.convoTitle);
 						}
 				}
 
@@ -273,10 +276,10 @@ public sealed class EZReplayManager : MonoBehaviour {
 	
 					if (goClone.tag == "MainCamera")
 					{
-						//Debug.Log(stateEntry.Key);
-						//Debug.Log(stateEntry.Value.localPosition.getVector3());
-						//Debug.Log(stateEntry.Value.localRotation.getQuaternion());
-						//Debug.Log(stateEntry.Value.isMainCameraChild);
+						Debug.Log(stateEntry.Key);
+						Debug.Log(stateEntry.Value.localPosition.getVector3());
+						Debug.Log(stateEntry.Value.localRotation.getQuaternion());
+						Debug.Log(stateEntry.Value.isMainCameraChild);
 					}
 				}
 			}
@@ -981,9 +984,8 @@ public sealed class EZReplayManager : MonoBehaviour {
 				
 				if (GUI.Button (new Rect (338,72,40, 23),closeIcon)) {
 					switchModeTo(ViewMode.LIVE);
-
-					MainMenuVik vikky = GameObject.Find("GameManager").GetComponent<MainMenuVik>();
-					vikky.isPlayback = false;
+					PlayerPrefs.DeleteKey("isPlayback");
+					Application.LoadLevel("login scene");
 				}				
 				// POSITION MANIPULATION TOOLS //-->
 			}

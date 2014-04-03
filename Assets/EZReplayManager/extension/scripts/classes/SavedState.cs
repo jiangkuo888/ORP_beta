@@ -21,10 +21,16 @@ public class SavedState : ISerializable {
 	public bool emittingParticles = false;
 
 	/**************************************************************
-	 *  New Addition: boolean variable called isMainCameraChild
+	 *  New Addition
 	 **************************************************************/
 	public bool isMainCameraChild = true;
 	public string tag ="";
+
+	//for replay conversations
+	public string convoTitle;
+	public int dialogueNum;
+	public string dialogueType;
+
 	//*************************************************************
 
 	public bool isActive = false;
@@ -36,11 +42,19 @@ public class SavedState : ISerializable {
 		this.localPosition = (SerVector3)info.GetValue("localPosition",typeof(SerVector3));
 		//this.rotation = (SerQuaternion)info.GetValue("rotation",typeof(SerQuaternion));
 		this.localRotation = (SerQuaternion)info.GetValue("localRotation",typeof(SerQuaternion));	
-		
+
 		emittingParticles = info.GetBoolean("emittingParticles");
 		isActive = info.GetBoolean("isActive");
+
+		/**************************************************************
+		 *  New Addition
+		 **************************************************************/
 		this.isMainCameraChild = info.GetBoolean("isMainCameraChild");
 		this.tag = info.GetString("tag");
+		this.convoTitle = info.GetString("convoTitle");
+		this.dialogueNum = info.GetInt32("dialogueNum");
+		this.dialogueType = info.GetString("dialogueType");
+		//*************************************************************
 	}			
 	
 	//as this is not derived from MonoBehaviour, we have a constructor
@@ -56,6 +70,10 @@ public class SavedState : ISerializable {
 			this.localRotation = new SerQuaternion(go.transform.localRotation);
 			this.isActive = go.activeInHierarchy;
 
+			/**************************************************************
+			 *  New Addition
+			 **************************************************************/
+
 			//only for main camera
 			if (go.tag == "MainCamera" /*&& go.transform.parent == null*/)
 			{
@@ -66,7 +84,14 @@ public class SavedState : ISerializable {
 				{
 					this.tag = go.transform.parent.tag;
 				}
+
+				PlaybackDialogue diaggy = go.GetComponent<PlaybackDialogue> ();
+				this.convoTitle = diaggy.convoTitle;
+				this.dialogueNum = diaggy.dialogueNum;
+				this.dialogueType = diaggy.dialogueType;
 			}
+
+			//**************************************************************
 
 		} else {
 			//this.position = new SerVector3(Vector3.zero);
@@ -108,7 +133,7 @@ public class SavedState : ISerializable {
 			changed = true;	
 
 		/**********************************************************************
-		 *  New Addition: isMainCameraChild comparison
+		 *  New Addition
 		 **********************************************************************/
 		if (!changed && isMainCameraChild != otherState.isMainCameraChild)
 		{
@@ -116,6 +141,21 @@ public class SavedState : ISerializable {
 			changed = true;	
 		}
 		if (!changed && tag != otherState.tag)
+		{
+			
+			changed = true;	
+		}
+		if (!changed && convoTitle != otherState.convoTitle)
+		{
+			
+			changed = true;	
+		}
+		if (!changed && dialogueNum != otherState.dialogueNum)
+		{
+			
+			changed = true;	
+		}
+		if (!changed && dialogueType != otherState.dialogueType)
 		{
 			
 			changed = true;	
@@ -129,7 +169,7 @@ public class SavedState : ISerializable {
 	public void synchronizeProperties(GameObject go) {
 
 		/*******************************************************************************
-		 *  New Addition: isMainCameraChild comparison
+		 *  New Addition
 		 *******************************************************************************/
 		if (go.tag == "MainCamera")
 		{
@@ -162,8 +202,14 @@ public class SavedState : ISerializable {
 				go.SetActive(false);
 			}
 				
+			//if (this.dialogueNum != -1 && this.convoTitle != "")
+			//{
+				PlaybackDialogue diaggy = go.GetComponent<PlaybackDialogue>();
+				diaggy.convoTitle = this.convoTitle;
+				diaggy.dialogueNum = this.dialogueNum;
+				diaggy.dialogueType = this.dialogueType;
+			//}
 		}
-
 	
 		//******************************************************************************
 		
@@ -198,9 +244,16 @@ public class SavedState : ISerializable {
 		
 		info.AddValue("emittingParticles", this.emittingParticles);
 		info.AddValue("isActive", this.isActive);
+		/*******************************************************************************
+		 *  New Addition
+		 *******************************************************************************/
 		info.AddValue ("isMainCameraChild", this.isMainCameraChild);
 		info.AddValue ("tag", this.tag);
+		info.AddValue ("convoTitle", this.convoTitle);
+		info.AddValue ("dialogueNum", this.dialogueNum);
+		info.AddValue ("dialogueType", this.dialogueType);
 		//base.GetObjectData(info, context);
+		//******************************************************************************
 	}	
 	
 }
