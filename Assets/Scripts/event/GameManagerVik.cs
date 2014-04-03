@@ -28,58 +28,285 @@ public class GameManagerVik : Photon.MonoBehaviour {
 	public PlayMakerFSM EventManager;
 	public int sessionID = -1;
 	public string loginName = "";
-	public bool isAdmin; 
-	public bool startGame = false;
-	public bool gameStarted = false;
-	public bool playback = false;
-	public bool isLobby;
-	public string[] dots = new string[] {".", "..", "..."};
-	public int dotInt = 0;
-	public bool isTutorial;
-	//public GameObject mainCam;
+	public bool isTrainer = false;
+	public bool isPlayBack = false;
+	public bool connected = false;
 
+	//sync boolean
+	//public int syncNum = 0;
+	//public int syncTotal = 4;
+
+	//debugging variables
+	public string characterName = "";
+	public string roomName = "Room";
+	public bool noLogin = false;
+
+
+	//***********************************************************************************************************************************
+	//		 start the game either using values from login screen or with predefined values
+	//***********************************************************************************************************************************
 	void Start()
-	{	
-		//this.mainCam = GameObject.Find ("Main Camera");
-	}
-		
-	void Update()
 	{
-		/*MainMenuVik vikky = this.gameObject.GetComponent<MainMenuVik>();
-		bool isPlayback = vikky.isPlayback;
-
-		if (mainCam == null)
+		this.isPlayBack = false;
+		//get player name
+		string tempName = PlayerPrefs.GetString ("playerName");
+		if (tempName != "" && !noLogin) 
 		{
-			this.mainCam = GameObject.Find ("Main Camera");
+			characterName = tempName;
+			sessionID = PlayerPrefs.GetInt ("sessionID");
+			loginName = PlayerPrefs.GetString ("playerLoginName");
+			roomName = PlayerPrefs.GetString ("roomName");
+
+			if (PlayerPrefs.GetString ("isTrainer") == "true")
+			{
+				isTrainer = true;
+			}
+			else
+			{
+				isTrainer = false;
+			}
+		} 
+		else
+		{
+			//-----------------------------------------------------------------------------------------------------
+			//					Photon network initialisation
+			//-----------------------------------------------------------------------------------------------------
+			
+			// Connect to the main photon server. This is the only IP and port we ever need to set(!)
+			//if (!PhotonNetwork.connected)
+			if (!PhotonNetwork.connected)
+				PhotonNetwork.ConnectUsingSettings("v1.0"); // version of the game/demo. used to separate older clients from newer ones (e.g. if incompatible)
+			PhotonNetwork.playerName = PlayerPrefs.GetString("playerName", "Guest" + Random.Range(1, 9999));
+			//-----------------------------------------------------------------------------------------------------
 		}
 
-		if (mainCam != null && !isPlayback && !this.mainCam.activeInHierarchy)
-		{
-			this.mainCam.SetActive(true);
-		}*/
+		//photonView.RPC ("levelLoaded",PhotonTargets.AllBuffered);
 	}
 
-    void OnJoinedRoom()
-    {
+	void Update()
+	{
+		if (PlayerPrefs.GetString ("isPlayback") == "true" && !this.isPlayBack)
+		{
+			EZReplayManager.get.loadFromFile(PlayerPrefs.GetString ("filePath"));
+			this.isPlayBack = true;
+		}
 
 
-    }
+		if (noLogin && !connected && !this.isPlayBack)
+		{
+			if (PhotonNetwork.connected)
+			{
+				StartCoroutine(WaitForConnect());
+				connected = true;
+			}
 
+		}
+
+		if (!noLogin && !connected && !this.isPlayBack)
+		{
+			startGame();
+			connected = true;
+		}
+	}
+
+	//yield the saving of binary files
+	IEnumerator WaitForConnect()
+	{
+		yield return new WaitForSeconds(1);
+		
+		//-----------------------------------------------------------------------------------------------------
+		//					create room
+		//-----------------------------------------------------------------------------------------------------
+		//PhotonNetwork.CreateRoom (roomName, true, true, 10);
+		PhotonNetwork.JoinRoom (roomName);
+		
+		Debug.Log (PhotonNetwork.countOfPlayersOnMaster);
+		Debug.Log (PhotonNetwork.countOfRooms);
+		Debug.Log (PhotonNetwork.countOfPlayersInRooms);
+		Debug.Log (PhotonNetwork.playerName);
+		
+		PhotonNetwork.playerName = characterName;
+		//PlayerPrefs.SetString("playerName", playerList[i]);
+		
+		// broadcast role selected
+		photonView.RPC ("setRoleUnavailable",PhotonTargets.AllBuffered,characterName);
+		
+		//add to db
+		dbClass db = new dbClass();
+		db.addFunction("sessionCreate");
+		db.addValues("roomName", roomName);
+		string dbReturn = db.connectToDb();
+		
+		if (dbReturn != "SUCCESS") {
+			print (dbReturn);
+		}
+		sessionID =  db.getReturnValueInt("sessionID");
+		
+		yield return new WaitForSeconds(1);
+		startGame();
+	}
+
+	//start the game
+	void startGame()
+	{
+		//set name
+		PhotonNetwork.playerName = characterName;
+
+		print ("Now we have: "+PhotonNetwork.playerList.Length+" players in total.");
+		
+		print (EventManager.FsmVariables.GetFsmInt ("playerNum").Value);
+		print(PhotonNetwork.playerList.Length);
+
+		//if not trainer
+		if (!isTrainer)
+		{
+			EventManager.FsmVariables.GetFsmInt("playerNum").Value = PhotonNetwork.playerList.Length;
+			Camera.main.farClipPlane = 1000; //Main menu set this to 0.4 for a nicer BG    
+			
+			//prepare instantiation data for the viking: Randomly diable the axe and/or shield
+			bool[] enabledRenderers = new bool[2];
+			enabledRenderers[0] = Random.Range(0,2)==0;//Axe
+			enabledRenderers[1] = Random.Range(0, 2) == 0; ;//Shield
+			
+			object[] objs = new object[1]; // Put our bool data in an object array, to send
+			objs[0] = enabledRenderers;
+			
+			//Debug.Log (PlayerPrefs.GetString("playerName"));
+			string playerName = PhotonNetwork.playerName;
+			
+			
+			// start drawing GUI elements
+			GameObject.Find ("QuestLogButton").GetComponent<GUITexture>().enabled = true;
+			GameObject.Find ("phoneButton").GetComponent<GUITexture>().enabled = true;
+			GameObject.Find ("InventoryContainer").GetComponent<GUITexture>().enabled = true;
+			GameObject.Find ("InventoryButton1").GetComponent<GUITexture>().enabled = true;
+			GameObject.Find ("InventoryButton2").GetComponent<GUITexture>().enabled = false;
+			
+			
+			// instantiate prefab based on the name
+			GameObject playa = null;
+			for(int i = 0 ; i < playerPrefabList.Length; i++)
+			{
+				
+				if(playerName == playerPrefabList[i].name)
+				{
+					switch(playerName)
+					{
+					case "Sales Manager":
+						spawnPosition = randomSpawnPosition(SMSpawnPositionList);
+						playa = PhotonNetwork.Instantiate(playerPrefabList[i].name, spawnPosition, Quaternion.identity, 0, objs);
+						
+						playa.name = "Sales Manager";
+						if(GameObject.Find (playa.name+" Table").gameObject.transform.Find ("DocumentHolder").GetComponent<documentData>().enabled == false)
+							GameObject.Find (playa.name+" Table").gameObject.transform.Find ("DocumentHolder").GetComponent<documentData>().enabled = true;
+						
+						
+						break;
+					case "LPU Officer":
+						spawnPosition = randomSpawnPosition(LOSpawnPositionList);
+						playa = PhotonNetwork.Instantiate(playerPrefabList[i].name, spawnPosition, Quaternion.identity, 0, objs);
+						playa.name = "LPU Officer";
+						if(GameObject.Find (playa.name+" Table").gameObject.transform.Find ("DocumentHolder").GetComponent<documentData>().enabled == false)
+							GameObject.Find (playa.name+" Table").gameObject.transform.Find ("DocumentHolder").GetComponent<documentData>().enabled = true;
+						
+						break;
+					case "LPU Manager":
+						spawnPosition = randomSpawnPosition(LMSpawnPositionList);
+						playa = PhotonNetwork.Instantiate(playerPrefabList[i].name, spawnPosition, Quaternion.identity, 0, objs);
+						playa.name = "LPU Manager";
+						if(GameObject.Find (playa.name+" Table").gameObject.transform.Find ("DocumentHolder").GetComponent<documentData>().enabled == false)
+							GameObject.Find (playa.name+" Table").gameObject.transform.Find ("DocumentHolder").GetComponent<documentData>().enabled = true;
+						
+						break;
+					case "Credit Risk":
+						spawnPosition = randomSpawnPosition(CRSpawnPositionList);
+						playa = PhotonNetwork.Instantiate(playerPrefabList[i].name, spawnPosition, Quaternion.identity, 0, objs);
+						playa.name = "Credit Risk";
+						
+						if(GameObject.Find (playa.name+" Table").gameObject.transform.Find ("DocumentHolder").GetComponent<documentData>().enabled == false)
+							GameObject.Find (playa.name+" Table").gameObject.transform.Find ("DocumentHolder").GetComponent<documentData>().enabled = true;
+						
+						break;
+					default:
+						break;
+						
+					}
+					
+					GameObject.Find ("phoneButton").GetComponent<phoneButton>().loadSmallButtonCharacter();
+					
+				}
+				
+			}
+			
+			
+			EZReplayManager.get.record();
+			if (playa != null)
+			{
+				CameraChange (playa);
+			}
+		}
+		// if is trainer
+		else
+		{
+			GameObject a = PhotonNetwork.Instantiate("Admin", new Vector3(-19.0f, 3.5f, 57.0f), Quaternion.identity, 0);
+		}
+
+
+		Debug.Log (PhotonNetwork.countOfPlayersOnMaster);
+		Debug.Log (PhotonNetwork.countOfRooms);
+		Debug.Log (PhotonNetwork.countOfPlayersInRooms);
+		Debug.Log (PhotonNetwork.playerName);
+
+	}
+
+	//spawn positions at start
 	Vector3 randomSpawnPosition(Transform[] positionList){
 		Transform tr = positionList[Random.Range(0,positionList.Length)];
 		return tr.position;
+		
+	}
+
+	public void CameraChange(GameObject ch)
+	{
+		Camera.main.transform.parent = ch.transform;
+		Camera.main.transform.localPosition =  new Vector3(0,1.257728f, 0);
+		Camera.main.transform.localEulerAngles = new Vector3(0.6651921f, 90, 0);
+		
+		//update the camera state for playback
+		PlaybackCamera script = Camera.main.GetComponent<PlaybackCamera>();
+		script.isMainCameraChild = true;
+	}
+
+	//***********************************************************************************************************************************
+
+
+	//GUI
+
+	void OnGUI()
+	{
+		//set to custom skin
+		GUI.skin = customSkin;
+
+		// quit button GUI
+		if (GUILayout.Button ("Leave & Quit")) {
+			SaveAndQuit ();
+		}
 
 	}
+
+	//***********************************************************************************************************************************
+	//				QUIT AND SAVE REPLAY FILE
+	//***********************************************************************************************************************************
 	public void SaveAndQuit(){
 		PhotonView photonView = this.gameObject.GetPhotonView();
 		
 		
 		photonView.RPC ("setRoleAvailable",PhotonTargets.AllBuffered,PlayerPrefs.GetString("playerName"));
 		PhotonNetwork.LeaveRoom();
-	
+		
 		//replay footage saving
 		EZReplayManager.get.stop ();
-
+		
 		//create folder for game
 		if (this.sessionID != -1)
 		{
@@ -98,12 +325,13 @@ public class GameManagerVik : Photon.MonoBehaviour {
 			sendForm.AddBinaryData("capture", something, sessionID.ToString());
 			sendForm.AddField("load", "UP");
 			WWW w = new WWW("http://www.sgi-singapore.com/projects/ORILE/loadFiles.php", sendForm);
-
+			
 			StartCoroutine(WaitForRequest(w));
 		}
-
+		
 	}
 
+	//yield the saving of binary files
 	IEnumerator WaitForRequest(WWW www)
 	{
 		yield return www;
@@ -111,332 +339,22 @@ public class GameManagerVik : Photon.MonoBehaviour {
 		// check for errors
 		if (www.error == null)
 		{
-			//Debug.Log("WWW Ok!: " + www.data);
+			Debug.Log("WWW Ok!: " + www.data);
 		} else {
-			//Debug.Log("WWW Error: "+ www.error);
-		}    
+			Debug.Log("WWW Error: "+ www.error);
+		}   
+		//PlayerPrefs.DeleteAll();
+		Application.LoadLevel("login scene");
 	}
 
-	void OnGUI(){
-		//Add GUISkin
-		GUI.skin = customSkin;
-		//GUI.DrawTexture(new Rect(0,0,Screen.width,Screen.height),background);
-
-		if (PhotonNetwork.room == null || playback) return;
-
-
-		// quit button GUI
-		if (GUILayout.Button("Leave & Quit"))
-		{
-			SaveAndQuit();
-
-		}
-
-		if (isAdmin && !roleSelected)
-		{
-			StartGameAdmin();
-			roleSelected = true;
-			//return;
-		}
-
-		// if role selection not completed, draw GUI
-		if(!roleSelected)
-		{
-
-		GUILayout.BeginArea(new Rect((Screen.width - 600) / 2, (Screen.height - 300) / 2, 960, 600));
-		GUILayout.BeginHorizontal();
-		GUILayout.Label("Choose a role:", GUILayout.Width(200));
-
-		PhotonView photonView = this.gameObject.GetPhotonView();
-
-			for(int i =0;i<playerList.Length;i++)
-			{
-				if (!selectedPlayerList.Contains(playerList[i]))
-				{
-					if(GUILayout.Button(playerList[i],GUILayout.Width(150)) )
-					{
-						PhotonNetwork.playerName = playerList[i];
-						PlayerPrefs.SetString("playerName", playerList[i]);
-						roleSelected = true;
-
-						// broadcast role selected
-						photonView.RPC ("setRoleUnavailable",PhotonTargets.AllBuffered,playerList[i]);
-						
-						//StartGame();
-					}
-				}
-			}
-
-		GUILayout.EndHorizontal();
-		GUILayout.EndArea();
-		}
-
-		if (roleSelected && !gameStarted)
-		{
-			WaitingLobby(PhotonNetwork.playerName);
-		}
-
-		// if number of  players reach maximum, player cannot select role
-//		if(PhotonNetwork.playerList.Length < playerList.Length)
-//			GUILayout.BeginArea(new Rect((Screen.width - 400) / 2, (Screen.height - 300) / 2, 600, 300));
-	}
-    IEnumerator OnLeftRoom()
-    {
-        //Easy way to reset the level: Otherwise we'd manually reset the camera
-
-        //Wait untill Photon is properly disconnected (empty room, and connected back to main server)
-        while(PhotonNetwork.room!=null || PhotonNetwork.connected==false)
-            yield return 0;
-		Application.LoadLevel(Application.loadedLevel);
-
-
-    }
-
-
-	void OnPhotonPlayerConnected(){
-		print ("Now we have: "+PhotonNetwork.playerList.Length+" players in total.");
-		print (EventManager.FsmVariables.GetFsmInt ("playerNum").Value);
-		print(PhotonNetwork.playerList.Length);
-		EventManager.FsmVariables.GetFsmInt("playerNum").Value = PhotonNetwork.playerList.Length;
-
-	}
-
-	void OnPhotonPlayerDisconnected(){
-		print ("Now we have: "+PhotonNetwork.playerList.Length+" players in total.");
-		EventManager.FsmVariables.GetFsmInt("playerNum").Value = PhotonNetwork.playerList.Length;
-
-	}
-
-	void StartGameAdmin()
-	{
-		GameObject a = PhotonNetwork.Instantiate("Admin", new Vector3(-19.0f, 3.5f, 57.0f), Quaternion.identity, 0);
-
-		//update roomID if needed
-		if (this.sessionID == -1)
-		{
-			//add to db
-			dbClass db = new dbClass();
-			db.addFunction("getSessionID");
-			db.addValues("roomName", PhotonNetwork.room.name);
-			string dbReturn = db.connectToDb();
-			
-			if (dbReturn != "SUCCESS") {
-				print (dbReturn);
-			}
-			
-			//add roomID
-			this.sessionID = db.getReturnValueInt("sessionID");
-			//end add to db
-			
-		}
-		this.gameStarted = true;
-	}
-
-	//set objects for recording
-	void set4Recording()
-	{
-		//find the objects for recording
-		//GameObject[] npc = GameObject.FindGameObjectsWithTag ("NPC");
-		//foreach (GameObject npcSingle in npc)
-		//	EZReplayManager.get.mark4Recording (npcSingle);
-
-		//GameObject[] door = GameObject.FindGameObjectsWithTag ("doorSwing");
-		//foreach (GameObject doorSingle in door)
-		//	EZReplayManager.get.mark4Recording (doorSingle);
-
-		//GameObject[] pickable = GameObject.FindGameObjectsWithTag ("pickable");
-		//foreach (GameObject pickableSingle in pickable)
-		//	EZReplayManager.get.mark4Recording (pickableSingle);
-
-		//GameObject[] interactive = GameObject.FindGameObjectsWithTag ("interactive");
-		//foreach (GameObject interactiveSingle in interactive)
-		//	EZReplayManager.get.mark4Recording (interactiveSingle);
-
-	//	GameObject[] maincamera = GameObject.FindGameObjectsWithTag ("MainCamera");
-	//	foreach (GameObject maincameraSingle in maincamera)
-	//		EZReplayManager.get.mark4Recording (maincameraSingle);
-
-
-	}
-
-	void WaitingLobby(string playerName)
-	{
-		GUILayout.BeginArea(new Rect((Screen.width - 400) / 2, (Screen.height - 300) / 2, 600, 300));
-		//GUILayout.BeginHorizontal();
-
-		GUILayout.Label("YOU HAVE CHOSEN: " + playerName);
-		GUILayout.Space(20);
-
-		//wait till there are four people in the room
-		if (selectedPlayerList.Count < 4 && isLobby) {
-
-			GUILayout.Label ("PLEASE WAIT TILL THERE ARE ENOUGH PLAYERS IN THE ROOM");
-			GUILayout.Space (20);
-
-			GUILayout.Label ("Number of players in the room now: " + selectedPlayerList.Count);
-			GUILayout.Space (20);
-
-			int dotNum = dotInt / 10;
-			GUILayout.Label ("WAITING" + dots [dotNum]);
-			dotInt++;
-			if (dotInt >= 30)
-			{
-				dotInt = 0;
-			}
-
-
-		} 
-		else 
-		{
-			if(GUILayout.Button("StartGame",GUILayout.Width(100)) )
-			{	
-				photonView.RPC ("allStartGame", PhotonTargets.AllBuffered);
-			}
-		}
-
-		//GUILayout.EndHorizontal();
-		GUILayout.EndArea();
-
-		if (startGame)
-		{
-			StartGame();
-			startGame = false;
-		}
-	}
-
-    void StartGame()
-    {
-
-		print ("Now we have: "+PhotonNetwork.playerList.Length+" players in total.");
-
-//		print (EventManager.FsmVariables.GetFsmInt ("playerNum").Value);
-		//print(PhotonNetwork.playerList.Length);
-
-		EventManager.FsmVariables.GetFsmInt("playerNum").Value = PhotonNetwork.playerList.Length;
-        Camera.main.farClipPlane = 1000; //Main menu set this to 0.4 for a nicer BG    
-
-        //prepare instantiation data for the viking: Randomly diable the axe and/or shield
-        bool[] enabledRenderers = new bool[2];
-        enabledRenderers[0] = Random.Range(0,2)==0;//Axe
-        enabledRenderers[1] = Random.Range(0, 2) == 0; ;//Shield
-        
-        object[] objs = new object[1]; // Put our bool data in an object array, to send
-        objs[0] = enabledRenderers;
-
-		//Debug.Log (PlayerPrefs.GetString("playerName"));
-		string playerName = PhotonNetwork.playerName;
-
-
-		// start drawing GUI elements
-		GameObject.Find ("QuestLogButton").GetComponent<GUITexture>().enabled = true;
-		GameObject.Find ("phoneButton").GetComponent<GUITexture>().enabled = true;
-		GameObject.Find ("InventoryContainer").GetComponent<GUITexture>().enabled = true;
-		GameObject.Find ("InventoryButton1").GetComponent<GUITexture>().enabled = true;
-		GameObject.Find ("InventoryButton2").GetComponent<GUITexture>().enabled = false;
-
-
-		// instantiate prefab based on the name
-		GameObject playa = null;
-		for(int i = 0 ; i < playerPrefabList.Length; i++)
-		{
-
-			if(playerName == playerPrefabList[i].name)
-			{
-				switch(playerName)
-				{
-				case "Sales Manager":
-					spawnPosition = randomSpawnPosition(SMSpawnPositionList);
-					playa = PhotonNetwork.Instantiate(playerPrefabList[i].name, spawnPosition, playerPrefabList[i].transform.rotation, 0, objs);
-
-
-					playa.name = "Sales Manager";
-					if(!isTutorial){
-					if(GameObject.Find (playa.name+" Table").gameObject.transform.Find ("DocumentHolder").GetComponent<documentData>().enabled == false)
-						GameObject.Find (playa.name+" Table").gameObject.transform.Find ("DocumentHolder").GetComponent<documentData>().enabled = true;
-					}
-
-					break;
-				case "LPU Officer":
-					spawnPosition = randomSpawnPosition(LOSpawnPositionList);
-					playa = PhotonNetwork.Instantiate(playerPrefabList[i].name, spawnPosition, playerPrefabList[i].transform.rotation, 0, objs);
-					playa.name = "LPU Officer";
-					if(!isTutorial){
-					if(GameObject.Find (playa.name+" Table").gameObject.transform.Find ("DocumentHolder").GetComponent<documentData>().enabled == false)
-						GameObject.Find (playa.name+" Table").gameObject.transform.Find ("DocumentHolder").GetComponent<documentData>().enabled = true;
-					}
-					break;
-				case "LPU Manager":
-					spawnPosition = randomSpawnPosition(LMSpawnPositionList);
-					playa = PhotonNetwork.Instantiate(playerPrefabList[i].name, spawnPosition, playerPrefabList[i].transform.rotation, 0, objs);
-					playa.name = "LPU Manager";
-					if(!isTutorial){
-					if(GameObject.Find (playa.name+" Table").gameObject.transform.Find ("DocumentHolder").GetComponent<documentData>().enabled == false)
-						GameObject.Find (playa.name+" Table").gameObject.transform.Find ("DocumentHolder").GetComponent<documentData>().enabled = true;
-					}
-					break;
-				case "Credit Risk":
-					spawnPosition = randomSpawnPosition(CRSpawnPositionList);
-					playa = PhotonNetwork.Instantiate(playerPrefabList[i].name, spawnPosition, playerPrefabList[i].transform.rotation, 0, objs);
-					playa.name = "Credit Risk";
-					if(!isTutorial){
-					if(GameObject.Find (playa.name+" Table").gameObject.transform.Find ("DocumentHolder").GetComponent<documentData>().enabled == false)
-						GameObject.Find (playa.name+" Table").gameObject.transform.Find ("DocumentHolder").GetComponent<documentData>().enabled = true;
-					}
-					break;
-				default:
-					break;
-
-				}
-
-				GameObject.Find ("phoneButton").GetComponent<phoneButton>().loadSmallButtonCharacter();
-				
-			}
-		
-			//update roomID if needed
-			if (this.sessionID == -1)
-			{
-				//add to db
-				dbClass db = new dbClass();
-				db.addFunction("getSessionID");
-				db.addValues("roomName", PhotonNetwork.room.name);
-				string dbReturn = db.connectToDb();
-
-				if (dbReturn != "SUCCESS") {
-					print (dbReturn);
-				}
-				
-				//add roomID
-				this.sessionID = db.getReturnValueInt("sessionID");
-				//end add to db
-	       		
-			}
-
-
-		}
-
-		EZReplayManager.get.record();
-		if (playa != null)
-		{
-			CameraChange (playa);
-		}
-
-		gameStarted = true;
-    }
-
-	public void CameraChange(GameObject ch)
-	{
-		Camera.main.transform.parent = ch.transform;
-		Camera.main.transform.localPosition =  new Vector3(0,1.257728f, 0);
-		Camera.main.transform.localEulerAngles = new Vector3(0.6651921f, 90, 0);
-
-		//update the camera state for playback
-		PlaybackCamera script = Camera.main.GetComponent<PlaybackCamera>();
-		script.isMainCameraChild = true;
-	}
-
+	//***********************************************************************************************************************************
+
+	//***********************************************************************************************************************************
+	//				END GAME
+	//***********************************************************************************************************************************
 	public void EndGame(){
 		GameObject MainCamera = Camera.main.gameObject;
-
+		
 		if(MainCamera.gameObject != null)
 		{
 			if(MainCamera.transform.parent != null)
@@ -447,21 +365,23 @@ public class GameManagerVik : Photon.MonoBehaviour {
 			}
 			
 			MainCamera.SetActive(false);
-			GameEndScreen.SetActive(true);
-
-
+			//GameEndScreen.SetActive(true);
+			
+			
 			GameObject.Find ("QuestLogButton").GetComponent<GUITexture>().enabled = false;
 			GameObject.Find ("phoneButton").GetComponent<GUITexture>().enabled = false;
 			GameObject.Find ("InventoryContainer").GetComponent<GUITexture>().enabled = false;
 			GameObject.Find ("InventoryButton1").GetComponent<GUITexture>().enabled = false;
 			GameObject.Find ("InventoryButton2").GetComponent<GUITexture>().enabled = false;
 			GameObject.Find ("GameManager").GetComponent<ChatVik>().enabled = false;
-
-
-
+			
+			
+			
 		}
-
+		
 	}
+
+	//***********************************************************************************************************************************
 
 	[RPC]
 
@@ -474,15 +394,48 @@ public class GameManagerVik : Photon.MonoBehaviour {
 		selectedPlayerList.Remove(role);
 	}
 
-	[RPC]
+	/*[RPC]
+	void levelLoaded(){
+
+		this.syncNum++;
+	}*/
+
+	/*[RPC]
 	void allStartGame()
 	{
 		startGame = true;
-	}
+	}*/
 
     void OnDisconnectedFromPhoton()
     {
         Debug.LogWarning("OnDisconnectedFromPhoton");
     } 
+
+	IEnumerator OnLeftRoom()
+	{
+		//Easy way to reset the level: Otherwise we'd manually reset the camera
+		
+		//Wait untill Photon is properly disconnected (empty room, and connected back to main server)
+		while(PhotonNetwork.room!=null || PhotonNetwork.connected==false)
+			yield return 0;
+		//Application.LoadLevel(Application.loadedLevel);
+		
+		
+	}
+
+	void OnPhotonPlayerConnected(){
+		//print ("Now we have: "+PhotonNetwork.playerList.Length+" players in total.");
+		//print (EventManager.FsmVariables.GetFsmInt ("playerNum").Value);
+		print(PhotonNetwork.playerList.Length);
+		//EventManager.FsmVariables.GetFsmInt("playerNum").Value = PhotonNetwork.playerList.Length;
+		
+	}
+	
+	void OnPhotonPlayerDisconnected(){
+		print ("Now we have: "+PhotonNetwork.playerList.Length+" players in total.");
+		//EventManager.FsmVariables.GetFsmInt("playerNum").Value = PhotonNetwork.playerList.Length;
+		
+	}
+
 
 }

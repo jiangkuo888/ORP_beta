@@ -8,16 +8,13 @@ public class PlaybackCamera : Photon.MonoBehaviour {
 
 	void start()
 	{
-		/*GameObject gameManager = GameObject.Find("GameManager"); 
-		MainMenuVik vikky = gameManager.GetComponent<MainMenuVik>();
-		bool isPlayback = vikky.isPlayback;*/
 	}
 
 	void Update()
 	{
 		GameObject gameManager = GameObject.Find("GameManager"); 
-		MainMenuVik vikky = gameManager.GetComponent<MainMenuVik>();
-		bool isPlayback = vikky.isPlayback;
+		GameManagerVik vikky = gameManager.GetComponent<GameManagerVik>();
+		bool isPlayback = vikky.isPlayBack;
 
 		if (isPlayback && this.gameObject.name == "Main Camera") 
 		{
@@ -51,8 +48,8 @@ public class PlaybackCamera : Photon.MonoBehaviour {
 	public void test(string tag)
 	{
 		GameObject gameManager = GameObject.Find("GameManager"); 
-		MainMenuVik vikky = gameManager.GetComponent<MainMenuVik>();
-		bool isPlayback = vikky.isPlayback;
+		GameManagerVik vikky = gameManager.GetComponent<GameManagerVik>();
+		bool isPlayback = vikky.isPlayBack;
 
 		//main camera that is child of main guy
 		if (this.gameObject.transform.parent != null && this.gameObject.transform.parent.name != "EZReplayM_sParent" && isPlayback)
@@ -106,8 +103,8 @@ public class PlaybackCamera : Photon.MonoBehaviour {
 	public bool isSubCam()
 	{
 		GameObject gameManager = GameObject.Find("GameManager"); 
-		MainMenuVik vikky = gameManager.GetComponent<MainMenuVik>();
-		bool isPlayback = vikky.isPlayback;
+		GameManagerVik vikky = gameManager.GetComponent<GameManagerVik>();
+		bool isPlayback = vikky.isPlayBack;
 		
 		if (isPlayback) 
 		{
