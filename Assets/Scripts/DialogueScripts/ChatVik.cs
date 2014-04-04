@@ -70,7 +70,7 @@ public class ChatVik : Photon.MonoBehaviour
 		GUI.SetNextControlName("ChatField");
 		chatInput = GUILayout.TextField(chatInput,myStyle,GUILayout.Width(300));
 		
-		if (Event.current.type == EventType.keyDown && Event.current.character == '\n'){
+		if (Event.current.type == EventType.Layout && Event.current.character == '\n'){
 			if (GUI.GetNameOfFocusedControl() == "ChatField")
 			{                
 				SendChat(PhotonTargets.All);

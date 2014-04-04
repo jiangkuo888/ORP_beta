@@ -514,6 +514,7 @@ GameObject:
   - 4: {fileID: 56626034}
   - 114: {fileID: 56626033}
   - 114: {fileID: 56626032}
+  - 114: {fileID: 56626029}
   m_Layer: 0
   m_Name: EventManager-Tutorial
   m_TagString: Untagged
@@ -521,6 +522,20 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &56626029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 56626028}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13ddc065e3bf860459783fd55c7941ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GMT: 0
+  isMaster: 0
+  customSkin: {fileID: 11400000, guid: a1668ec14eec0d8438e522ff791219a4, type: 2}
 --- !u!114 &56626032
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1254,7 +1269,7 @@ MonoBehaviour:
           tooltip: 
           showInInspector: 0
           networkSync: 0
-          value: After you finish verifying, click "Back to documents" and sign the
+          value: After you finish verifying, click "Back to read page" and sign the
             document on the last page.
         fsmObjectParams: []
         fsmVarParams: []
@@ -1290,7 +1305,7 @@ MonoBehaviour:
           name: FINISHED
           isSystemEvent: 1
           isGlobal: 0
-        toState: Sign
+        toState: SM test
         linkStyle: 0
         linkConstraint: 0
         colorIndex: 0
@@ -1815,6 +1830,69 @@ MonoBehaviour:
         - dontDestroyOnLoad
         paramDataPos: 0000000000000000050000000a0000000a000000010000000b0000000c0000000d0000000d000000
         paramByteDataSize: 00000000050000000500000000000000010000000000000001000000010000000000000002000000
+    - name: SM test
+      description: 
+      colorIndex: 0
+      position:
+        serializedVersion: 2
+        x: 79.6875
+        y: 675.273438
+        width: 100
+        height: 48
+      isBreakpoint: 0
+      isSequence: 0
+      hideUnused: 0
+      transitions:
+      - fsmEvent:
+          name: not SM
+          isSystemEvent: 0
+          isGlobal: 0
+        toState: Sign
+        linkStyle: 0
+        linkConstraint: 0
+        colorIndex: 0
+      - fsmEvent:
+          name: SM skip
+          isSystemEvent: 0
+          isGlobal: 0
+        toState: Quit deskmode
+        linkStyle: 0
+        linkConstraint: 0
+        colorIndex: 0
+      actionData:
+        actionNames:
+        - HutongGames.PlayMaker.Actions.BoolTest
+        customNames:
+        - 
+        actionEnabled: 01
+        actionIsOpen: 01
+        actionStartIndex: 00000000
+        actionHashCodes: 3334d172
+        unityObjectParams: []
+        fsmGameObjectParams: []
+        fsmOwnerDefaultParams: []
+        animationCurveParams: []
+        functionCallParams: []
+        fsmTemplateControlParams: []
+        fsmEventTargetParams: []
+        fsmPropertyParams: []
+        layoutOptionParams: []
+        fsmStringParams: []
+        fsmObjectParams: []
+        fsmVarParams: []
+        byteData: 00016973534d534d20736b69706e6f7420534d01
+        arrayParamSizes: 
+        arrayParamTypes: []
+        customTypeSizes: 
+        customTypeNames: []
+        paramDataType: 11000000170000001700000001000000
+        paramName:
+        - boolVariable
+        - isTrue
+        - isFalse
+        - everyFrame
+        paramDataPos: 00000000060000000d00000013000000
+        paramByteDataSize: 06000000070000000600000001000000
     events:
     - name: FINISHED
       isSystemEvent: 1
@@ -1829,6 +1907,12 @@ MonoBehaviour:
       isSystemEvent: 0
       isGlobal: 0
     - name: 2min passed
+      isSystemEvent: 0
+      isGlobal: 0
+    - name: SM skip
+      isSystemEvent: 0
+      isGlobal: 0
+    - name: not SM
       isSystemEvent: 0
       isGlobal: 0
     globalTransitions: []
@@ -1922,6 +2006,12 @@ MonoBehaviour:
         value: 0
       - useVariable: 1
         name: isQuit
+        tooltip: 
+        showInInspector: 0
+        networkSync: 0
+        value: 0
+      - useVariable: 1
+        name: isSM
         tooltip: 
         showInInspector: 0
         networkSync: 0
@@ -2762,7 +2852,7 @@ Transform:
   m_PrefabInternal: {fileID: 1730908607}
   m_GameObject: {fileID: 132130462}
   m_LocalRotation: {x: 0, y: -0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: .185905457, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 849649196}
@@ -3558,7 +3648,7 @@ Transform:
   m_PrefabInternal: {fileID: 1730908607}
   m_GameObject: {fileID: 199061991}
   m_LocalRotation: {x: 0, y: -0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: .184528351, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 922837294}
@@ -3949,6 +4039,15 @@ MonoBehaviour:
   LO_signed: 0
   LM_signed: 0
   CR_signed: 0
+  correct_document: 0
+  reject_wrong_doc: 
+  sign_wrong_doc: 
+  send_unsign_wrong_doc: 
+  send_sign_wrong_doc: 
+  reject_correct_doc: 
+  sign_correct_doc: 
+  send_unsign_correct_doc: 
+  send_sign_correct_doc: 
 --- !u!111 &240290157
 Animation:
   m_ObjectHideFlags: 0
@@ -4897,8 +4996,8 @@ Transform:
   m_PrefabInternal: {fileID: 1730908607}
   m_GameObject: {fileID: 293638955}
   m_LocalRotation: {x: -.707106829, y: 0, z: -0, w: .707106829}
-  m_LocalPosition: {x: -46.041687, y: 34.8384476, z: 47.271347}
-  m_LocalScale: {x: 1, y: .429016262, z: 1}
+  m_LocalPosition: {x: -46.0384102, y: 34.8384476, z: 47.271347}
+  m_LocalScale: {x: 1, y: .423701376, z: 1}
   m_Children: []
   m_Father: {fileID: 1689513478}
 --- !u!64 &293638957
@@ -5085,6 +5184,7 @@ GameObject:
   - 114: {fileID: 318830927}
   - 82: {fileID: 318830926}
   - 114: {fileID: 318830928}
+  - 114: {fileID: 318830929}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -5522,6 +5622,82 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isMainCameraChild: 1
   parent: {fileID: 0}
+--- !u!114 &318830929
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 318830913}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09329ff7e2492c94186e3b8101b44592, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  convoTitle: 
+  dialogueNum: 0
+  dialogueType: 
+  currTitle: 
+  currNum: -1
+  custom:
+    m_Name: 
+    m_Normal:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_Hover:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_Active:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_Focused:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_OnNormal:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_OnHover:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_OnActive:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_OnFocused:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_Border:
+      m_Left: 0
+      m_Right: 0
+      m_Top: 0
+      m_Bottom: 0
+    m_Margin:
+      m_Left: 0
+      m_Right: 0
+      m_Top: 0
+      m_Bottom: 0
+    m_Padding:
+      m_Left: 0
+      m_Right: 0
+      m_Top: 0
+      m_Bottom: 0
+    m_Overflow:
+      m_Left: 0
+      m_Right: 0
+      m_Top: 0
+      m_Bottom: 0
+    m_Font: {fileID: 0}
+    m_FontSize: 0
+    m_FontStyle: 0
+    m_Alignment: 0
+    m_WordWrap: 0
+    m_RichText: 1
+    m_TextClipping: 0
+    m_ImagePosition: 0
+    m_ContentOffset: {x: 0, y: 0}
+    m_FixedWidth: 0
+    m_FixedHeight: 0
+    m_StretchWidth: 1
+    m_StretchHeight: 0
+  customSkin: {fileID: 11400000, guid: a1668ec14eec0d8438e522ff791219a4, type: 2}
 --- !u!1 &319466543
 GameObject:
   m_ObjectHideFlags: 0
@@ -5930,7 +6106,7 @@ Transform:
   m_PrefabInternal: {fileID: 1730908607}
   m_GameObject: {fileID: 349398186}
   m_LocalRotation: {x: -.707106233, y: -.000903792272, z: -.000903792272, w: .707106233}
-  m_LocalPosition: {x: -25.1426849, y: 33.1525879, z: 41.800415}
+  m_LocalPosition: {x: -25.1426849, y: 33.3392525, z: 41.800415}
   m_LocalScale: {x: .11596901, y: .11596901, z: .115969002}
   m_Children: []
   m_Father: {fileID: 1689513478}
@@ -6856,6 +7032,15 @@ MonoBehaviour:
   LO_signed: 0
   LM_signed: 0
   CR_signed: 0
+  correct_document: 0
+  reject_wrong_doc: 
+  sign_wrong_doc: 
+  send_unsign_wrong_doc: 
+  send_sign_wrong_doc: 
+  reject_correct_doc: 
+  sign_correct_doc: 
+  send_unsign_correct_doc: 
+  send_sign_correct_doc: 
 --- !u!111 &431185579
 Animation:
   m_ObjectHideFlags: 0
@@ -9290,6 +9475,15 @@ MonoBehaviour:
   LO_signed: 0
   LM_signed: 0
   CR_signed: 0
+  correct_document: 0
+  reject_wrong_doc: 
+  sign_wrong_doc: 
+  send_unsign_wrong_doc: 
+  send_sign_wrong_doc: 
+  reject_correct_doc: 
+  sign_correct_doc: 
+  send_unsign_correct_doc: 
+  send_sign_correct_doc: 
 --- !u!111 &759885352
 Animation:
   m_ObjectHideFlags: 0
@@ -10617,34 +10811,35 @@ MonoBehaviour:
   EventManager: {fileID: 1245184160}
   sessionID: -1
   loginName: 
-  isAdmin: 0
-  startGame: 0
-  gameStarted: 0
-  playback: 0
-  isLobby: 0
-  dots:
-  - .
-  - ..
-  - '...'
-  dotInt: 0
+  isTrainer: 0
+  isPlayBack: 0
   isTutorial: 1
+  connected: 0
+  startGameNow: 0
+  syncNum: 0
+  syncTotal: 1
+  characterName: Sales Manager
+  roomName: jkTutorialTesting
+  noLogin: 1
 --- !u!114 &790429271
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 790429269}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6b49a136d12d95b45aae363ccc115943, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  customSkin: {fileID: 0}
-  playerTextureSM: {fileID: 0}
-  playerTextureLO: {fileID: 0}
-  playerTextureLM: {fileID: 0}
-  playerTextureCR: {fileID: 0}
+  customSkin: {fileID: 11400000, guid: a1668ec14eec0d8438e522ff791219a4, type: 2}
+  playerTextureSM: {fileID: 2800000, guid: 6e76cafbbaa93374b8a27b22b5628f72, type: 3}
+  playerTextureLO: {fileID: 2800000, guid: 7b74ffc4583e8e44ab729b467633a99d, type: 3}
+  playerTextureLM: {fileID: 2800000, guid: 90d3c84c3e0a44345a5795da984384f9, type: 3}
+  playerTextureCR: {fileID: 2800000, guid: 658e74596c05b4e4ca66d1914b66f6ee, type: 3}
   messages: []
+  ChatArea_x: 0
+  ChatArea_y: 0
 --- !u!114 &790429272
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10705,13 +10900,25 @@ MonoBehaviour:
   isCreate: 0
   isMessage: 0
   isPlaybackList: 0
-  isPlayback: 0
+  isMain: 0
   isChoose: 0
+  isTrainer: 0
+  isLobby: 0
+  isStartGame: 0
+  isSkipLobby: 0
+  sceneLinkage: Fire_event_tutorial
+  playerList: []
+  dots:
+  - .
+  - ..
+  - '...'
+  dotInt: 0
   message: 
   playerName: sgi
   password: 123123
   reEnter: 
   roomName: Room
+  totalPlayers: 4
 --- !u!114 &790429275
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11999,6 +12206,15 @@ MonoBehaviour:
   LO_signed: 0
   LM_signed: 0
   CR_signed: 0
+  correct_document: 0
+  reject_wrong_doc: 
+  sign_wrong_doc: 
+  send_unsign_wrong_doc: 
+  send_sign_wrong_doc: 
+  reject_correct_doc: 
+  sign_correct_doc: 
+  send_unsign_correct_doc: 
+  send_sign_correct_doc: 
 --- !u!111 &899243623
 Animation:
   m_ObjectHideFlags: 0
@@ -12524,7 +12740,7 @@ Transform:
   m_PrefabInternal: {fileID: 1730908607}
   m_GameObject: {fileID: 980205690}
   m_LocalRotation: {x: 0, y: -0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: .189090729, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1221318408}
@@ -13650,7 +13866,7 @@ Transform:
   m_PrefabInternal: {fileID: 1730908607}
   m_GameObject: {fileID: 1140120739}
   m_LocalRotation: {x: 0, y: -0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: .210731506, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 725510375}
@@ -14551,6 +14767,15 @@ MonoBehaviour:
   LO_signed: 0
   LM_signed: 0
   CR_signed: 0
+  correct_document: 0
+  reject_wrong_doc: 
+  sign_wrong_doc: 
+  send_unsign_wrong_doc: 
+  send_sign_wrong_doc: 
+  reject_correct_doc: 
+  sign_correct_doc: 
+  send_unsign_correct_doc: 
+  send_sign_correct_doc: 
 --- !u!111 &1205135541
 Animation:
   m_ObjectHideFlags: 0
@@ -14927,6 +15152,15 @@ MonoBehaviour:
   LO_signed: 0
   LM_signed: 0
   CR_signed: 0
+  correct_document: 0
+  reject_wrong_doc: 
+  sign_wrong_doc: 
+  send_unsign_wrong_doc: 
+  send_sign_wrong_doc: 
+  reject_correct_doc: 
+  sign_correct_doc: 
+  send_unsign_correct_doc: 
+  send_sign_correct_doc: 
 --- !u!111 &1230231287
 Animation:
   m_ObjectHideFlags: 0
@@ -17110,7 +17344,7 @@ Transform:
   m_PrefabInternal: {fileID: 1730908607}
   m_GameObject: {fileID: 1273051329}
   m_LocalRotation: {x: .505575359, y: -.494079858, z: -.502371132, w: -.497897625}
-  m_LocalPosition: {x: -25.2028351, y: 33.59375, z: 43.6124573}
+  m_LocalPosition: {x: -25.2038479, y: 33.6571312, z: 43.6124878}
   m_LocalScale: {x: .00754734408, y: .00754734455, z: .00754734362}
   m_Children: []
   m_Father: {fileID: 1689513478}
@@ -19518,7 +19752,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1524479750
 Transform:
   m_ObjectHideFlags: 0
@@ -19798,7 +20032,7 @@ Transform:
   m_PrefabInternal: {fileID: 1730908607}
   m_GameObject: {fileID: 1558049465}
   m_LocalRotation: {x: -.707106829, y: 0, z: -0, w: .707106829}
-  m_LocalPosition: {x: -37.937973, y: 34.1618652, z: 41.2648315}
+  m_LocalPosition: {x: -37.937973, y: 34.322628, z: 41.2648315}
   m_LocalScale: {x: .00764178392, y: .00764178392, z: .00764178392}
   m_Children: []
   m_Father: {fileID: 1689513478}
@@ -20473,7 +20707,7 @@ Transform:
   m_PrefabInternal: {fileID: 1730908607}
   m_GameObject: {fileID: 1691645298}
   m_LocalRotation: {x: 0, y: -0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: .191940308, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1913981852}
@@ -20980,7 +21214,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100080, guid: 067021067cef6774496935e327550c68, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 100022, guid: 067021067cef6774496935e327550c68, type: 2}
       propertyPath: m_TagString
@@ -21061,6 +21295,62 @@ Prefab:
     - target: {fileID: 400190, guid: 067021067cef6774496935e327550c68, type: 2}
       propertyPath: m_LocalPosition.y
       value: .208717346
+      objectReference: {fileID: 0}
+    - target: {fileID: 400066, guid: 067021067cef6774496935e327550c68, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: .210731506
+      objectReference: {fileID: 0}
+    - target: {fileID: 400172, guid: 067021067cef6774496935e327550c68, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 34.322628
+      objectReference: {fileID: 0}
+    - target: {fileID: 400138, guid: 067021067cef6774496935e327550c68, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 33.3425751
+      objectReference: {fileID: 0}
+    - target: {fileID: 400026, guid: 067021067cef6774496935e327550c68, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: .185905457
+      objectReference: {fileID: 0}
+    - target: {fileID: 400176, guid: 067021067cef6774496935e327550c68, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: .189090729
+      objectReference: {fileID: 0}
+    - target: {fileID: 400170, guid: 067021067cef6774496935e327550c68, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: .188484192
+      objectReference: {fileID: 0}
+    - target: {fileID: 400152, guid: 067021067cef6774496935e327550c68, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -25.2038479
+      objectReference: {fileID: 0}
+    - target: {fileID: 400152, guid: 067021067cef6774496935e327550c68, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 33.6571312
+      objectReference: {fileID: 0}
+    - target: {fileID: 400152, guid: 067021067cef6774496935e327550c68, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 43.6124878
+      objectReference: {fileID: 0}
+    - target: {fileID: 400198, guid: 067021067cef6774496935e327550c68, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 33.3392525
+      objectReference: {fileID: 0}
+    - target: {fileID: 400162, guid: 067021067cef6774496935e327550c68, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: .184528351
+      objectReference: {fileID: 0}
+    - target: {fileID: 400082, guid: 067021067cef6774496935e327550c68, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: .191940308
+      objectReference: {fileID: 0}
+    - target: {fileID: 400094, guid: 067021067cef6774496935e327550c68, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -46.0384102
+      objectReference: {fileID: 0}
+    - target: {fileID: 400094, guid: 067021067cef6774496935e327550c68, type: 2}
+      propertyPath: m_LocalScale.y
+      value: .423701376
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 067021067cef6774496935e327550c68, type: 2}
@@ -21191,7 +21481,7 @@ Transform:
   m_PrefabInternal: {fileID: 1730908607}
   m_GameObject: {fileID: 1734742729}
   m_LocalRotation: {x: -.707106829, y: 0, z: -0, w: .707106829}
-  m_LocalPosition: {x: -30.636795, y: 33.1525879, z: 41.3267822}
+  m_LocalPosition: {x: -30.636795, y: 33.3425751, z: 41.3267822}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1689513478}
@@ -26084,7 +26374,7 @@ Transform:
   m_PrefabInternal: {fileID: 1730908607}
   m_GameObject: {fileID: 2085734827}
   m_LocalRotation: {x: 0, y: -0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: .188484192, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 9766923}
