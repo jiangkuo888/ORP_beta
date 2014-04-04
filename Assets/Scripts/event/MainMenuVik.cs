@@ -29,6 +29,7 @@ public class MainMenuVik : Photon.MonoBehaviour
 	public bool isMain = false; //main page
 	//public bool isPlayback = false; //playback mode
 	public bool isChoose = false; //choose character page
+	public bool isNoChoose = false; // no choose character page
 	public bool isTrainer = false; //player is trainer
 	public bool isLobby = false; //lobby screen
 	public bool isStartGame = false; //whether the GameEnd is starting
@@ -651,6 +652,7 @@ public class MainMenuVik : Photon.MonoBehaviour
 
 		}
 
+
 		//--------------------------------------------------------------------------------------------------
 		//				IF WAITING LOBBY
 		//--------------------------------------------------------------------------------------------------
@@ -659,7 +661,7 @@ public class MainMenuVik : Photon.MonoBehaviour
 			GUILayout.BeginArea(new Rect((Screen.width - 400) / 2, (Screen.height - 300) / 2, 600, 300));
 
 			
-			GUILayout.Label("YOU HAVE CHOSEN: " + playerName);
+			GUILayout.Label("YOU HAVE CHOSEN: " + PhotonNetwork.playerName);
 			GUILayout.Space(20);
 
 
