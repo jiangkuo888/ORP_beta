@@ -13,7 +13,7 @@ public class PlayerActionLog : MonoBehaviour {
 		GameManagerVik vikky = gameManager.GetComponent<GameManagerVik>();
 		string sessionID = vikky.sessionID.ToString ();
 		string playerName = vikky.loginName;
-		string playerRole = PlayerPrefs.GetString("playerName");
+		string playerRole = vikky.characterName;
 
 		//add to db
 		dbClass db = new dbClass();

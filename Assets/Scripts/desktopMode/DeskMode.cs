@@ -537,8 +537,37 @@ public class DeskMode : MonoBehaviour {
 
 	void rejectDocument(){
 
-		
+
+
+
+
+
 		GameObject document = this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1];
+
+
+
+		// log player action
+
+		if(document.GetComponent<pageData>().correct_document)
+		{
+			GameObject.Find ("Dialogue Manager").GetComponent<PlayerActionLog>().addToPlayerActionLog(document.GetComponent<pageData>().reject_correct_doc,"rejected correct document "+document.name);
+		}
+		else
+		{
+			GameObject.Find ("Dialogue Manager").GetComponent<PlayerActionLog>().addToPlayerActionLog(document.GetComponent<pageData>().reject_wrong_doc,"rejected wrong document "+document.name);
+
+		}
+
+
+
+
+
+
+
+
+
+
+
 		this.transform.Find ("DocumentHolder").GetComponent<documentData>().removeDocument(document);
 		// move the document out of the table
 		
@@ -614,7 +643,56 @@ public class DeskMode : MonoBehaviour {
 
 
 
+
+
 			GameObject document = this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1];
+
+			//log player action
+
+
+			bool signed = false;
+
+			switch(PhotonNetwork.playerName)
+			{
+			case "LPU Manager":
+				if(document.GetComponent<pageData>().LM_signed)
+					signed= true;
+				break;
+			case "LPU Officer":
+				if(document.GetComponent<pageData>().LO_signed)
+					signed= true;
+				break;
+			case "Credit Risk":
+				if(document.GetComponent<pageData>().CR_signed)
+					signed= true;
+				break;
+			default:
+				break;
+				
+			}
+
+			if(document.GetComponent<pageData>().correct_document)
+			{
+
+				if(signed)
+					GameObject.Find ("Dialogue Manager").GetComponent<PlayerActionLog>().addToPlayerActionLog(document.GetComponent<pageData>().send_sign_correct_doc,"sent correct document "+document.name+" with signature");
+				else
+					GameObject.Find ("Dialogue Manager").GetComponent<PlayerActionLog>().addToPlayerActionLog(document.GetComponent<pageData>().send_unsign_correct_doc,"sent correct document "+document.name+" without signature");
+
+
+			}
+			else
+			{
+			
+				if(signed)
+					GameObject.Find ("Dialogue Manager").GetComponent<PlayerActionLog>().addToPlayerActionLog(document.GetComponent<pageData>().send_sign_wrong_doc,"sent wrong document "+document.name+" with signature");
+				else
+					GameObject.Find ("Dialogue Manager").GetComponent<PlayerActionLog>().addToPlayerActionLog(document.GetComponent<pageData>().send_unsign_wrong_doc,"sent wrong document "+document.name+" without signature");
+
+			}
+
+
+
 			this.transform.Find ("DocumentHolder").GetComponent<documentData>().removeDocument(document);
 			// move the document out of the table
 
@@ -702,7 +780,7 @@ public class DeskMode : MonoBehaviour {
 		
 		
 
-		//		print ("111");
+
 		disableChildren();
 		GameObject.Find(deskOwner).GetComponent<DetectObjects>().moveCameraToPlayer();
 

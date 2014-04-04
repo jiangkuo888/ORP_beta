@@ -22,6 +22,11 @@ public class ChatVik : Photon.MonoBehaviour
     private string chatInput = "";
     private float lastUnfocusTime = 0;
 
+
+
+	public float ChatArea_x;
+	public float ChatArea_y;
+
     void Awake()
     {
 		playerTexture = null;
@@ -32,21 +37,9 @@ public class ChatVik : Photon.MonoBehaviour
     {        
         GUI.SetNextControlName("");
 
-		GUILayout.BeginArea(new Rect(250, Screen.height - chatHeight, Screen.width, chatHeight));
-        
-        //Show scroll list of chat messages
-        scrollPos = GUILayout.BeginScrollView(scrollPos);
-        GUI.color = Color.red;
-        for (int i = messages.Count - 1; i >= 0; i--)
-        {
-            GUILayout.Label(messages[i]);
-        }
-        GUILayout.EndScrollView();
-        GUI.color = Color.white;
-
-        //Chat input
-        GUILayout.BeginHorizontal(); 
-
+		GUILayout.BeginArea(new Rect(Screen.width - Screen.width/2+ChatArea_x, ChatArea_y, Screen.width/2, Screen.height/2));
+		GUILayout.BeginHorizontal(); 
+		
 		switch(PhotonNetwork.playerName)
 		{
 		case "Sales Manager":
@@ -63,41 +56,56 @@ public class ChatVik : Photon.MonoBehaviour
 			break;
 		default:
 			break;
-
+			
 		}
-
+		
 		if(playerTexture != null)
 			GUILayout.Box(playerTexture,customSkin.box);
-
-
+		
+		
 		GUIStyle myStyle = new GUIStyle (GUI.skin.textField); 
 		// do whatever you want with this style, e.g.:
 		myStyle.margin=new RectOffset(0,0,15,0);
-
-        GUI.SetNextControlName("ChatField");
+		
+		GUI.SetNextControlName("ChatField");
 		chatInput = GUILayout.TextField(chatInput,myStyle,GUILayout.Width(300));
-       
-        if (Event.current.type == EventType.keyDown && Event.current.character == '\n'){
-            if (GUI.GetNameOfFocusedControl() == "ChatField")
-            {                
-                SendChat(PhotonTargets.All);
-                lastUnfocusTime = Time.time;
-                GUI.FocusControl("");
-                GUI.UnfocusWindow();
-            }
-            else
-            {
-                if (lastUnfocusTime < Time.time - 0.1f)
-                {
-                    GUI.FocusControl("ChatField");
-                }
-            }
-        }
+		
+		if (Event.current.type == EventType.keyDown && Event.current.character == '\n'){
+			if (GUI.GetNameOfFocusedControl() == "ChatField")
+			{                
+				SendChat(PhotonTargets.All);
+				lastUnfocusTime = Time.time;
+				GUI.FocusControl("");
+				GUI.UnfocusWindow();
+			}
+			else
+			{
+				if (lastUnfocusTime < Time.time - 0.1f)
+				{
+					GUI.FocusControl("ChatField");
+				}
+			}
+		}
+		
+		//if (GUILayout.Button("SEND", GUILayout.Height(17)))
+		//   SendChat(PhotonTargets.All);
+		GUILayout.FlexibleSpace();
+		GUILayout.EndHorizontal();
 
-        //if (GUILayout.Button("SEND", GUILayout.Height(17)))
-         //   SendChat(PhotonTargets.All);
-        GUILayout.FlexibleSpace();
-        GUILayout.EndHorizontal();
+
+
+        //Show scroll list of chat messages
+        scrollPos = GUILayout.BeginScrollView(scrollPos);
+        GUI.color = Color.red;
+        for (int i = messages.Count - 1; i >= 0; i--)
+        {
+            GUILayout.Label(messages[i]);
+        }
+        GUILayout.EndScrollView();
+        GUI.color = Color.white;
+
+        //Chat input
+        
 
     
 

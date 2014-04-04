@@ -22,6 +22,23 @@ public class pageData : MonoBehaviour {
 	float w,h;
 
 	public bool LO_signed,LM_signed,CR_signed;
+
+
+	public bool correct_document;
+
+
+
+	// wrong document IDs
+	public string reject_wrong_doc;
+	public string sign_wrong_doc;
+	public string send_unsign_wrong_doc;
+	public string send_sign_wrong_doc;
+
+	// correct document IDs
+	public string reject_correct_doc;
+	public string sign_correct_doc;
+	public string send_unsign_correct_doc;
+	public string send_sign_correct_doc;
 	
 	// Use this for initialization
 	void Start () {
@@ -54,6 +71,20 @@ public class pageData : MonoBehaviour {
 		newPage.name = "page_content";
 		newPage.transform.localPosition = new Vector3(-0.0002115475f,0.001669302f ,0.001225402f);
 		newPage.transform.localEulerAngles = new Vector3(90,0,0);
+
+
+
+		// define actionID
+		  reject_wrong_doc = "11A";
+		  sign_wrong_doc = "11B";
+		  send_unsign_wrong_doc = "11C";
+		  send_sign_wrong_doc = "11D";
+		
+		// correct document IDs
+		  reject_correct_doc = "12A";
+		  sign_correct_doc = "12B";
+		  send_unsign_correct_doc = "12C";
+		  send_sign_correct_doc = "12D";
 	}
 	
 	
@@ -81,14 +112,28 @@ public class pageData : MonoBehaviour {
 					if(GUI.Button( new LTRect(w/2 - 100f, .2f*h - 100f, 200f, 50f ).rect, "Sign"))
 					{
 
-						if(EventFSM.enabled)
-							if(EventFSM.ActiveStateName == "Sign")
-								EventFSM.FsmVariables.GetFsmBool("signed").Value = true;
+
 
 
 
 						PhotonView photonView = this.gameObject.GetPhotonView();
 						photonView.RPC ("signDoc",PhotonTargets.AllBuffered,"LO");
+
+
+						if(EventFSM.enabled)
+							if(EventFSM.ActiveStateName == "Sign")
+								EventFSM.FsmVariables.GetFsmBool("signed").Value = true;
+						// log the user action in database
+						if(correct_document)
+						{
+							GameObject.Find ("Dialogue Manager").GetComponent<PlayerActionLog>().addToPlayerActionLog(sign_correct_doc,"LPU Officer signed correct document "+this.name);
+						}
+						else
+						{
+							GameObject.Find ("Dialogue Manager").GetComponent<PlayerActionLog>().addToPlayerActionLog(sign_wrong_doc,"LPU Officer signed wrong document "+this.name);
+
+						}
+
 
 					}
 					}
@@ -115,7 +160,19 @@ public class pageData : MonoBehaviour {
 						PhotonView photonView = this.gameObject.GetPhotonView();
 						photonView.RPC ("signDoc",PhotonTargets.AllBuffered,"LM");
 
-
+						if(EventFSM.enabled)
+							if(EventFSM.ActiveStateName == "Sign")
+								EventFSM.FsmVariables.GetFsmBool("signed").Value = true;
+						// log the user action in database
+						if(correct_document)
+						{
+							GameObject.Find ("Dialogue Manager").GetComponent<PlayerActionLog>().addToPlayerActionLog(sign_correct_doc,"LPU Manager signed correct document "+this.name);
+						}
+						else
+						{
+							GameObject.Find ("Dialogue Manager").GetComponent<PlayerActionLog>().addToPlayerActionLog(sign_wrong_doc,"LPU Manager signed wrong document "+this.name);
+							
+						}
 					}
 					}
 					
@@ -142,6 +199,21 @@ public class pageData : MonoBehaviour {
 
 						PhotonView photonView = this.gameObject.GetPhotonView();
 						photonView.RPC ("signDoc",PhotonTargets.AllBuffered,"CR");
+
+
+						if(EventFSM.enabled)
+							if(EventFSM.ActiveStateName == "Sign")
+								EventFSM.FsmVariables.GetFsmBool("signed").Value = true;
+						// log the user action in database
+						if(correct_document)
+						{
+							GameObject.Find ("Dialogue Manager").GetComponent<PlayerActionLog>().addToPlayerActionLog(sign_correct_doc,"Credit Risk signed correct document "+this.name);
+						}
+						else
+						{
+							GameObject.Find ("Dialogue Manager").GetComponent<PlayerActionLog>().addToPlayerActionLog(sign_wrong_doc,"Credit Risk signed wrong document "+this.name);
+							
+						}
 					}
 					}
 					
