@@ -30,6 +30,7 @@ public class GameManagerVik : Photon.MonoBehaviour {
 	public string loginName = "";
 	public bool isTrainer = false;
 	public bool isPlayBack = false;
+	public bool isTutorial = false;
 	public bool connected = false;
 	public bool startGameNow = false;
 
@@ -192,7 +193,11 @@ public class GameManagerVik : Photon.MonoBehaviour {
 			GameObject.Find ("InventoryButton2").GetComponent<GUITexture>().enabled = false;
 			
 			// start timer 
+			if(!isTutorial)
+			{
 			GameObject.Find ("EventManager").GetComponent<NetworkTime>().enabled = true;
+				this.GetComponent<ChatVik>().enabled = true;
+			}
 
 
 			// instantiate prefab based on the name
@@ -209,35 +214,47 @@ public class GameManagerVik : Photon.MonoBehaviour {
 						playa = PhotonNetwork.Instantiate(playerPrefabList[i].name, spawnPosition, Quaternion.identity, 0, objs);
 						
 						playa.name = "Sales Manager";
+
+						if(!isTutorial)
+						{
 						if(GameObject.Find (playa.name+" Table").gameObject.transform.Find ("DocumentHolder").GetComponent<documentData>().enabled == false)
 							GameObject.Find (playa.name+" Table").gameObject.transform.Find ("DocumentHolder").GetComponent<documentData>().enabled = true;
-						
+						}
+						else{
+							GameObject.Find ("EventManager-Tutorial").GetComponent<PlayMakerFSM>().FsmVariables.GetFsmBool("isSM").Value = true;
+						}
 						
 						break;
 					case "LPU Officer":
 						spawnPosition = randomSpawnPosition(LOSpawnPositionList);
 						playa = PhotonNetwork.Instantiate(playerPrefabList[i].name, spawnPosition, Quaternion.identity, 0, objs);
 						playa.name = "LPU Officer";
+
+						if(!isTutorial)
+						{
 						if(GameObject.Find (playa.name+" Table").gameObject.transform.Find ("DocumentHolder").GetComponent<documentData>().enabled == false)
 							GameObject.Find (playa.name+" Table").gameObject.transform.Find ("DocumentHolder").GetComponent<documentData>().enabled = true;
-						
+						}
 						break;
 					case "LPU Manager":
 						spawnPosition = randomSpawnPosition(LMSpawnPositionList);
 						playa = PhotonNetwork.Instantiate(playerPrefabList[i].name, spawnPosition, Quaternion.identity, 0, objs);
 						playa.name = "LPU Manager";
+						if(!isTutorial)
+						{
 						if(GameObject.Find (playa.name+" Table").gameObject.transform.Find ("DocumentHolder").GetComponent<documentData>().enabled == false)
 							GameObject.Find (playa.name+" Table").gameObject.transform.Find ("DocumentHolder").GetComponent<documentData>().enabled = true;
-						
+						}
 						break;
 					case "Credit Risk":
 						spawnPosition = randomSpawnPosition(CRSpawnPositionList);
 						playa = PhotonNetwork.Instantiate(playerPrefabList[i].name, spawnPosition, Quaternion.identity, 0, objs);
 						playa.name = "Credit Risk";
-						
+						if(!isTutorial)
+						{
 						if(GameObject.Find (playa.name+" Table").gameObject.transform.Find ("DocumentHolder").GetComponent<documentData>().enabled == false)
 							GameObject.Find (playa.name+" Table").gameObject.transform.Find ("DocumentHolder").GetComponent<documentData>().enabled = true;
-						
+						}
 						break;
 					default:
 						break;
@@ -390,7 +407,8 @@ public class GameManagerVik : Photon.MonoBehaviour {
 			GameObject.Find ("InventoryButton2").GetComponent<GUITexture>().enabled = false;
 			GameObject.Find ("GameManager").GetComponent<ChatVik>().enabled = false;
 			
-			
+			GameObject.Find ("EventManager").GetComponent<NetworkTime>().enabled = true;
+		
 			
 		}
 		

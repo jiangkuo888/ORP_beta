@@ -55,7 +55,7 @@ public class NetworkTime : MonoBehaviour {
 
 
 
-		GUILayout.BeginArea(new Rect(Screen.width/2-100, 0, 200,60));
+		GUILayout.BeginArea(new Rect(Screen.width/2-310, 0, 200,60));
 		GUILayout.Label(formatAsTime(PhotonNetwork.networkingPeer.ServerTimeInMilliSeconds/1000),customSkin.customStyles[2]);
 
 		GUILayout.EndArea();
