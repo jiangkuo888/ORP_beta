@@ -193,7 +193,11 @@ public class GameManagerVik : Photon.MonoBehaviour {
 			GameObject.Find ("InventoryButton2").GetComponent<GUITexture>().enabled = false;
 			
 			// start timer 
-			//GameObject.Find ("EventManager-Tutorial").GetComponent<NetworkTime>().enabled = true;
+			if(!isTutorial)
+			{
+			GameObject.Find ("EventManager").GetComponent<NetworkTime>().enabled = true;
+				this.GetComponent<ChatVik>().enabled = true;
+			}
 
 
 			// instantiate prefab based on the name
@@ -403,7 +407,8 @@ public class GameManagerVik : Photon.MonoBehaviour {
 			GameObject.Find ("InventoryButton2").GetComponent<GUITexture>().enabled = false;
 			GameObject.Find ("GameManager").GetComponent<ChatVik>().enabled = false;
 			
-			
+			GameObject.Find ("EventManager").GetComponent<NetworkTime>().enabled = true;
+		
 			
 		}
 		
