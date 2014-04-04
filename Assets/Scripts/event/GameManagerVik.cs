@@ -356,6 +356,9 @@ public class GameManagerVik : Photon.MonoBehaviour {
 			Debug.Log("WWW Error: "+ www.error);
 		}   
 		//PlayerPrefs.DeleteAll();
+
+		yield return new WaitForSeconds (1);
+
 		Application.LoadLevel("login scene");
 	}
 
