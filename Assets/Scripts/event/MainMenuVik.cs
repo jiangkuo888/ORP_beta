@@ -659,7 +659,7 @@ public class MainMenuVik : Photon.MonoBehaviour
 			GUILayout.BeginArea(new Rect((Screen.width - 400) / 2, (Screen.height - 300) / 2, 600, 300));
 
 			
-			GUILayout.Label("YOU HAVE CHOSEN: " + playerName);
+			GUILayout.Label("YOU HAVE CHOSEN: " + PhotonNetwork.playerName);
 			GUILayout.Space(20);
 
 
