@@ -2,12 +2,13 @@
 using System.Collections;
 using PixelCrushers.DialogueSystem;
 using PixelCrushers.DialogueSystem.SequencerCommands;
+using PixelCrushers.DialogueSystem.Examples;
 
 public class NPCsync: MonoBehaviour {
 
 	public PlayMakerFSM targetFSM;
 
-
+	private GameObject target_usable;
 	// Use this for initialization
 	void Start () {
 	
@@ -119,6 +120,26 @@ public class NPCsync: MonoBehaviour {
 	public void OtherLockRPC()
 	{
 		DialogueLua.SetVariable("OtherUnlocked",false);
+	}
+
+	public void addUsable(GameObject target){
+
+
+		target_usable= target;
+
+		StartCoroutine(WaitForAddUsable());
+	}
+
+
+	IEnumerator WaitForAddUsable()
+	{
+		if(target_usable.GetComponent<Usable>())
+			Destroy(target_usable.GetComponent<Usable>());
+
+		yield return new WaitForSeconds(1);
+
+		if(target_usable.GetComponent<Usable>()==null)
+		target_usable.AddComponent<Usable>();
 	}
 
 }

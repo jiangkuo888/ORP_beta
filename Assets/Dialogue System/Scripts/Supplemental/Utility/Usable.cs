@@ -47,6 +47,12 @@ namespace PixelCrushers.DialogueSystem.Examples {
 					DialogueLua.SetVariable("false",true);
 			}
 		}
+
+		public void OnConversationEnd(){
+
+			GameObject.Find("Dialogue Manager").GetComponent<NPCsync>().addUsable(this.gameObject);
+
+		}
 		
 	}
 	
