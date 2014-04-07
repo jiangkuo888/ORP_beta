@@ -405,6 +405,34 @@
           </Field>
         </Fields>
       </Item>
+      <Item ID="11">
+        <Fields>
+          <Field Hint="A name to reference this item or quest. Use underscores instead of spaces so simulator Lua code works." Type="Text">
+            <Title>Name</Title>
+            <Value>LOtoSM2</Value>
+          </Field>
+          <Field Hint="A description of this item or quest." Type="Text">
+            <Title>Description</Title>
+            <Value />
+          </Field>
+          <Field Hint="The description of the quest when the player has completed it successfully." Type="Text">
+            <Title>Success Description</Title>
+            <Value />
+          </Field>
+          <Field Hint="The description of the quest when the player has completed it in failure." Type="Text">
+            <Title>Failure Description</Title>
+            <Value />
+          </Field>
+          <Field Hint="The state of the quest: unassigned, active, success, or failure" Type="Text">
+            <Title>State</Title>
+            <Value>unassigned</Value>
+          </Field>
+          <Field Hint="When using the quest system, set this True to mark the item as an actual item rather than a quest." Type="Boolean">
+            <Title>Is Item</Title>
+            <Value>False</Value>
+          </Field>
+        </Fields>
+      </Item>
     </Items>
     <Locations>
       <Location ID="1">
@@ -480,6 +508,7 @@
             <ReviewerStatus>None</ReviewerStatus>
             <OutgoingLinks>
               <Link OriginConvoID="1" DestinationConvoID="1" OriginDialogID="0" DestinationDialogID="1" IsConnector="false" />
+              <Link OriginConvoID="1" DestinationConvoID="1" OriginDialogID="0" DestinationDialogID="2" IsConnector="false" />
               <Link OriginConvoID="1" DestinationConvoID="1" OriginDialogID="0" DestinationDialogID="3" IsConnector="false" />
             </OutgoingLinks>
             <ConditionsString />
@@ -505,7 +534,7 @@
               </Field>
               <Field Hint="The text that is spoken by the actor." Type="Localization">
                 <Title>Dialogue Text</Title>
-                <Value>I have received your message. Please give me 5 minutes to prepare. 
+                <Value>I have received your message. Please give me some time to prepare. 
 </Value>
               </Field>
               <Field Hint="A WMV video file to be played for this dialogue." Type="Text">
@@ -558,6 +587,43 @@
             <ReviewerStatus>None</ReviewerStatus>
             <OutgoingLinks />
             <ConditionsString />
+            <UserScript />
+          </DialogEntry>
+          <DialogEntry ID="2" IsRoot="false" IsGroup="false" NodeColor="White" DelaySimStatus="false" FalseCondtionAction="Block" ConditionPriority="Normal">
+            <Fields>
+              <Field Hint="The title of this dialogue." Type="Text">
+                <Title>Title</Title>
+                <Value>LOtoSM1</Value>
+              </Field>
+              <Field Hint="The actor who is talking." Type="Actor">
+                <Title>Actor</Title>
+                <Value>3</Value>
+              </Field>
+              <Field Hint="The actor who is listening." Type="Actor">
+                <Title>Conversant</Title>
+                <Value>5</Value>
+              </Field>
+              <Field Hint="The text that is displayed to the player in a list as a dialogue option." Type="Text">
+                <Title>Menu Text</Title>
+                <Value>Message from Loan Officer</Value>
+              </Field>
+              <Field Hint="The text that is spoken by the actor." Type="Localization">
+                <Title>Dialogue Text</Title>
+                <Value>We are prepared to receive the evacuatees. You can perform the evacuation now.</Value>
+              </Field>
+              <Field Hint="A WMV video file to be played for this dialogue." Type="Text">
+                <Title>Video File</Title>
+                <Value />
+              </Field>
+              <Field Hint="Dialogue System for Unity cutscene sequence" Type="Text">
+                <Title>Sequence</Title>
+                <Value>DidRead();</Value>
+              </Field>
+            </Fields>
+            <ReviewerNotes />
+            <ReviewerStatus>None</ReviewerStatus>
+            <OutgoingLinks />
+            <ConditionsString>Item["LOtoSM2"].State == "active" and Dialog[2].SimStatus ~= "WasDisplayed"</ConditionsString>
             <UserScript />
           </DialogEntry>
         </DialogEntries>
@@ -617,6 +683,7 @@
             <ReviewerStatus>None</ReviewerStatus>
             <OutgoingLinks>
               <Link OriginConvoID="2" DestinationConvoID="2" OriginDialogID="0" DestinationDialogID="1" IsConnector="false" />
+              <Link OriginConvoID="2" DestinationConvoID="2" OriginDialogID="0" DestinationDialogID="2" IsConnector="false" />
               <Link OriginConvoID="2" DestinationConvoID="2" OriginDialogID="0" DestinationDialogID="3" IsConnector="false" />
             </OutgoingLinks>
             <ConditionsString />
@@ -638,11 +705,11 @@
               </Field>
               <Field Hint="The text that is displayed to the player in a list as a dialogue option." Type="Text">
                 <Title>Menu Text</Title>
-                <Value>Send Confirmation of Evacuation to Sales Manager</Value>
+                <Value>[f]Send Confirmation of Evacuation to Sales Manager</Value>
               </Field>
               <Field Hint="The text that is spoken by the actor." Type="Localization">
                 <Title>Dialogue Text</Title>
-                <Value>Sending Message to Sales Manager ... [ I have received your message. Please give me 5 minutes to prepare. ]</Value>
+                <Value>Sending Message to Sales Manager ... [ I have received your message. Please give me some time to prepare. I will message you when I'm ready.]</Value>
               </Field>
               <Field Hint="A WMV video file to be played for this dialogue." Type="Text">
                 <Title>Video File</Title>
@@ -657,7 +724,7 @@
             <ReviewerStatus>None</ReviewerStatus>
             <OutgoingLinks />
             <ConditionsString>Dialog[1].SimStatus ~= "WasDisplayed" and Item["LOtoSM1"].State == "success"</ConditionsString>
-            <UserScript />
+            <UserScript>Item["LOtoSM2"].State = "success"</UserScript>
           </DialogEntry>
           <DialogEntry ID="3" IsRoot="false" IsGroup="false" NodeColor="White" DelaySimStatus="false" FalseCondtionAction="Block" ConditionPriority="Normal">
             <Fields>
@@ -694,6 +761,43 @@
             <ReviewerStatus>None</ReviewerStatus>
             <OutgoingLinks />
             <ConditionsString />
+            <UserScript />
+          </DialogEntry>
+          <DialogEntry ID="2" IsRoot="false" IsGroup="false" NodeColor="White" DelaySimStatus="false" FalseCondtionAction="Block" ConditionPriority="Normal">
+            <Fields>
+              <Field Hint="The title of this dialogue." Type="Text">
+                <Title>Title</Title>
+                <Value>LOtoSM2</Value>
+              </Field>
+              <Field Hint="The actor who is talking." Type="Actor">
+                <Title>Actor</Title>
+                <Value>1</Value>
+              </Field>
+              <Field Hint="The actor who is listening." Type="Actor">
+                <Title>Conversant</Title>
+                <Value>5</Value>
+              </Field>
+              <Field Hint="The text that is displayed to the player in a list as a dialogue option." Type="Text">
+                <Title>Menu Text</Title>
+                <Value>[f]Notify Sales Manager that we are ready to receive the evacuatees. </Value>
+              </Field>
+              <Field Hint="The text that is spoken by the actor." Type="Localization">
+                <Title>Dialogue Text</Title>
+                <Value>Sending Messages to Sales Manager ... [We are prepared to receive the evacuatees. You can perform the evacuation now.] </Value>
+              </Field>
+              <Field Hint="A WMV video file to be played for this dialogue." Type="Text">
+                <Title>Video File</Title>
+                <Value />
+              </Field>
+              <Field Hint="Dialogue System for Unity cutscene sequence" Type="Text">
+                <Title>Sequence</Title>
+                <Value>SendConversation(LO,SM, LOtoSM2);</Value>
+              </Field>
+            </Fields>
+            <ReviewerNotes />
+            <ReviewerStatus>None</ReviewerStatus>
+            <OutgoingLinks />
+            <ConditionsString>Dialog[1].SimStatus ~= "WasDisplayed" and Item["LOtoSM2"].State == "success"</ConditionsString>
             <UserScript />
           </DialogEntry>
         </DialogEntries>
@@ -931,7 +1035,9 @@
             <ReviewerStatus>None</ReviewerStatus>
             <OutgoingLinks />
             <ConditionsString>Item["SMMessageSent1"].State == "active" and Dialog[1].SimStatus ~= "WasDisplayed"</ConditionsString>
-            <UserScript>Item["LOtoSM1"].State = "success"</UserScript>
+            <UserScript>Item["LOtoSM1"].State = "success";
+Item["LOtoCR1"].State = "success";
+Item["LOtoLM1"].State = "success";</UserScript>
           </DialogEntry>
           <DialogEntry ID="3" IsRoot="false" IsGroup="false" NodeColor="White" DelaySimStatus="false" FalseCondtionAction="Block" ConditionPriority="Normal">
             <Fields>
