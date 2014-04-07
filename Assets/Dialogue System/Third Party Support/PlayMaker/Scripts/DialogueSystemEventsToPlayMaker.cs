@@ -49,6 +49,11 @@ namespace PixelCrushers.DialogueSystem.PlayMaker {
 		void OnConversationEnd(Transform actor) {
 			Fsm.EventData.GameObjectData = (actor != null) ? actor.gameObject : null;
 			SendEvent("OnConversationEnd");
+
+			PlaybackDialogue diaggy = GameObject.Find("Main Camera").GetComponent<PlaybackDialogue> ();
+			diaggy.convoTitle = "";
+			diaggy.dialogueNum = -1;
+			diaggy.dialogueType = "";
 		}
 
 		/// <summary>

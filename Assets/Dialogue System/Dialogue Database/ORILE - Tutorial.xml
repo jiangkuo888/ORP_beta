@@ -443,6 +443,26 @@
           </Field>
         </Fields>
       </Actor>
+      <Actor ID="23">
+        <Fields>
+          <Field Hint="A name to reference this actor." Type="Text">
+            <Title>Name</Title>
+            <Value>Object</Value>
+          </Field>
+          <Field Hint="A collection of image files that represent this actor, used as portrait images." Type="Files">
+            <Title>Pictures</Title>
+            <Value>[]</Value>
+          </Field>
+          <Field Hint="A short description of what makes this actor unique." Type="Text">
+            <Title>Description</Title>
+            <Value />
+          </Field>
+          <Field Hint="Mark this box if this actor is the main player character." Type="Boolean">
+            <Title>IsPlayer</Title>
+            <Value>False</Value>
+          </Field>
+        </Fields>
+      </Actor>
     </Actors>
     <Items>
       <Item ID="1">
@@ -738,6 +758,34 @@
           <Field Hint="The description of the quest when the player has completed it successfully." Type="Text">
             <Title>Success Description</Title>
             <Value>Email has been sent to Kevin</Value>
+          </Field>
+          <Field Hint="The description of the quest when the player has completed it in failure." Type="Text">
+            <Title>Failure Description</Title>
+            <Value />
+          </Field>
+          <Field Hint="The state of the quest: unassigned, active, success, or failure" Type="Text">
+            <Title>State</Title>
+            <Value>unassigned</Value>
+          </Field>
+          <Field Hint="When using the quest system, set this True to mark the item as an actual item rather than a quest." Type="Boolean">
+            <Title>Is Item</Title>
+            <Value>False</Value>
+          </Field>
+        </Fields>
+      </Item>
+      <Item ID="12">
+        <Fields>
+          <Field Hint="A name to reference this item or quest. Use underscores instead of spaces so simulator Lua code works." Type="Text">
+            <Title>Name</Title>
+            <Value>Grab List</Value>
+          </Field>
+          <Field Hint="A description of this item or quest." Type="Text">
+            <Title>Description</Title>
+            <Value>Time to grab the grab list before the evacuation starts. </Value>
+          </Field>
+          <Field Hint="The description of the quest when the player has completed it successfully." Type="Text">
+            <Title>Success Description</Title>
+            <Value />
           </Field>
           <Field Hint="The description of the quest when the player has completed it in failure." Type="Text">
             <Title>Failure Description</Title>
@@ -1835,7 +1883,7 @@
         <Fields>
           <Field Hint="The title of this conversation." Type="Text">
             <Title>Title</Title>
-            <Value>Fire Escape Blockage</Value>
+            <Value>Access Card</Value>
           </Field>
           <Field Hint="A short description of what happens in this conversation." Type="Text">
             <Title>Description</Title>
@@ -1847,7 +1895,7 @@
           </Field>
           <Field Hint="The actor who is approached or is mostly talked to." Type="Actor">
             <Title>Conversant</Title>
-            <Value>10</Value>
+            <Value>23</Value>
           </Field>
         </Fields>
         <DialogEntries>
@@ -1863,7 +1911,7 @@
               </Field>
               <Field Hint="The actor who is listening." Type="Actor">
                 <Title>Conversant</Title>
-                <Value>10</Value>
+                <Value>23</Value>
               </Field>
               <Field Hint="The text that is displayed to the player in a list as a dialogue option." Type="Text">
                 <Title>Menu Text</Title>
@@ -1885,9 +1933,48 @@
             <ReviewerNotes />
             <ReviewerStatus>None</ReviewerStatus>
             <OutgoingLinks>
-              <Link OriginConvoID="5" DestinationConvoID="5" OriginDialogID="0" DestinationDialogID="4" IsConnector="false" />
-              <Link OriginConvoID="5" DestinationConvoID="5" OriginDialogID="0" DestinationDialogID="1" IsConnector="false" />
-              <Link OriginConvoID="5" DestinationConvoID="5" OriginDialogID="0" DestinationDialogID="2" IsConnector="false" />
+              <Link OriginConvoID="5" DestinationConvoID="5" OriginDialogID="0" DestinationDialogID="5" IsConnector="false" />
+            </OutgoingLinks>
+            <ConditionsString />
+            <UserScript />
+          </DialogEntry>
+          <DialogEntry ID="5" IsRoot="false" IsGroup="false" NodeColor="White" DelaySimStatus="false" FalseCondtionAction="Block" ConditionPriority="Normal">
+            <Fields>
+              <Field Hint="The title of this dialogue." Type="Text">
+                <Title>Title</Title>
+                <Value />
+              </Field>
+              <Field Hint="The actor who is talking." Type="Actor">
+                <Title>Actor</Title>
+                <Value>23</Value>
+              </Field>
+              <Field Hint="The actor who is listening." Type="Actor">
+                <Title>Conversant</Title>
+                <Value>8</Value>
+              </Field>
+              <Field Hint="The text that is displayed to the player in a list as a dialogue option." Type="Text">
+                <Title>Menu Text</Title>
+                <Value />
+              </Field>
+              <Field Hint="The text that is spoken by the actor." Type="Localization">
+                <Title>Dialogue Text</Title>
+                <Value />
+              </Field>
+              <Field Hint="A WMV video file to be played for this dialogue." Type="Text">
+                <Title>Video File</Title>
+                <Value />
+              </Field>
+              <Field Hint="Dialogue System for Unity cutscene sequence" Type="Text">
+                <Title>Sequence</Title>
+                <Value>Camera(Contact List);</Value>
+              </Field>
+            </Fields>
+            <ReviewerNotes />
+            <ReviewerStatus>None</ReviewerStatus>
+            <OutgoingLinks>
+              <Link OriginConvoID="5" DestinationConvoID="5" OriginDialogID="5" DestinationDialogID="1" IsConnector="false" />
+              <Link OriginConvoID="5" DestinationConvoID="5" OriginDialogID="5" DestinationDialogID="2" IsConnector="false" />
+              <Link OriginConvoID="5" DestinationConvoID="5" OriginDialogID="5" DestinationDialogID="4" IsConnector="false" />
             </OutgoingLinks>
             <ConditionsString />
             <UserScript />
@@ -1904,46 +1991,7 @@
               </Field>
               <Field Hint="The actor who is listening." Type="Actor">
                 <Title>Conversant</Title>
-                <Value>10</Value>
-              </Field>
-              <Field Hint="The text that is displayed to the player in a list as a dialogue option." Type="Text">
-                <Title>Menu Text</Title>
-                <Value>Check</Value>
-              </Field>
-              <Field Hint="The text that is spoken by the actor." Type="Localization">
-                <Title>Dialogue Text</Title>
-                <Value />
-              </Field>
-              <Field Hint="A WMV video file to be played for this dialogue." Type="Text">
-                <Title>Video File</Title>
-                <Value />
-              </Field>
-              <Field Hint="Dialogue System for Unity cutscene sequence" Type="Text">
-                <Title>Sequence</Title>
-                <Value />
-              </Field>
-            </Fields>
-            <ReviewerNotes />
-            <ReviewerStatus>None</ReviewerStatus>
-            <OutgoingLinks>
-              <Link OriginConvoID="5" DestinationConvoID="5" OriginDialogID="1" DestinationDialogID="3" IsConnector="false" />
-            </OutgoingLinks>
-            <ConditionsString />
-            <UserScript />
-          </DialogEntry>
-          <DialogEntry ID="2" IsRoot="false" IsGroup="false" NodeColor="White" DelaySimStatus="false" FalseCondtionAction="Block" ConditionPriority="Normal">
-            <Fields>
-              <Field Hint="The title of this dialogue." Type="Text">
-                <Title>Title</Title>
-                <Value />
-              </Field>
-              <Field Hint="The actor who is talking." Type="Actor">
-                <Title>Actor</Title>
-                <Value>8</Value>
-              </Field>
-              <Field Hint="The actor who is listening." Type="Actor">
-                <Title>Conversant</Title>
-                <Value>10</Value>
+                <Value>23</Value>
               </Field>
               <Field Hint="The text that is displayed to the player in a list as a dialogue option." Type="Text">
                 <Title>Menu Text</Title>
@@ -1968,15 +2016,54 @@
             <ConditionsString />
             <UserScript />
           </DialogEntry>
+          <DialogEntry ID="2" IsRoot="false" IsGroup="false" NodeColor="White" DelaySimStatus="false" FalseCondtionAction="Block" ConditionPriority="Normal">
+            <Fields>
+              <Field Hint="The title of this dialogue." Type="Text">
+                <Title>Title</Title>
+                <Value />
+              </Field>
+              <Field Hint="The actor who is talking." Type="Actor">
+                <Title>Actor</Title>
+                <Value>8</Value>
+              </Field>
+              <Field Hint="The actor who is listening." Type="Actor">
+                <Title>Conversant</Title>
+                <Value>23</Value>
+              </Field>
+              <Field Hint="The text that is displayed to the player in a list as a dialogue option." Type="Text">
+                <Title>Menu Text</Title>
+                <Value>Check</Value>
+              </Field>
+              <Field Hint="The text that is spoken by the actor." Type="Localization">
+                <Title>Dialogue Text</Title>
+                <Value>Checking item...</Value>
+              </Field>
+              <Field Hint="A WMV video file to be played for this dialogue." Type="Text">
+                <Title>Video File</Title>
+                <Value />
+              </Field>
+              <Field Hint="Dialogue System for Unity cutscene sequence" Type="Text">
+                <Title>Sequence</Title>
+                <Value />
+              </Field>
+            </Fields>
+            <ReviewerNotes />
+            <ReviewerStatus>None</ReviewerStatus>
+            <OutgoingLinks>
+              <Link OriginConvoID="5" DestinationConvoID="5" OriginDialogID="2" DestinationDialogID="3" IsConnector="false" />
+            </OutgoingLinks>
+            <ConditionsString />
+            <UserScript />
+          </DialogEntry>
           <DialogEntry ID="3" IsRoot="false" IsGroup="false" NodeColor="White" DelaySimStatus="false" FalseCondtionAction="Block" ConditionPriority="Normal">
             <Fields>
               <Field Hint="The title of this dialogue." Type="Text">
                 <Title>Title</Title>
-                <Value>Active Blockage Quest</Value>
+                <Value />
               </Field>
               <Field Hint="The actor who is talking." Type="Actor">
                 <Title>Actor</Title>
-                <Value>10</Value>
+                <Value>23</Value>
               </Field>
               <Field Hint="The actor who is listening." Type="Actor">
                 <Title>Conversant</Title>
@@ -1988,8 +2075,7 @@
               </Field>
               <Field Hint="The text that is spoken by the actor." Type="Localization">
                 <Title>Dialogue Text</Title>
-                <Value>A bunch of boxes filled with heavy archival documents in front of the stairwell.
-</Value>
+                <Value>This is a contact list of important phone numbers. This is a key item of your grab list. </Value>
               </Field>
               <Field Hint="A WMV video file to be played for this dialogue." Type="Text">
                 <Title>Video File</Title>
@@ -2004,8 +2090,7 @@
             <ReviewerStatus>None</ReviewerStatus>
             <OutgoingLinks />
             <ConditionsString />
-            <UserScript>Item["Fire_Escape_Blockage"].State = "active";
-Variable["Alert"] = "New Quest: Clear blockage at Fire Exit";</UserScript>
+            <UserScript />
           </DialogEntry>
           <DialogEntry ID="4" IsRoot="false" IsGroup="false" NodeColor="White" DelaySimStatus="false" FalseCondtionAction="Block" ConditionPriority="Normal">
             <Fields>
@@ -2019,7 +2104,7 @@ Variable["Alert"] = "New Quest: Clear blockage at Fire Exit";</UserScript>
               </Field>
               <Field Hint="The actor who is listening." Type="Actor">
                 <Title>Conversant</Title>
-                <Value>10</Value>
+                <Value>23</Value>
               </Field>
               <Field Hint="The text that is displayed to the player in a list as a dialogue option." Type="Text">
                 <Title>Menu Text</Title>
@@ -2041,7 +2126,7 @@ Variable["Alert"] = "New Quest: Clear blockage at Fire Exit";</UserScript>
             <ReviewerNotes />
             <ReviewerStatus>None</ReviewerStatus>
             <OutgoingLinks />
-            <ConditionsString>Item["Fire_Escape_Blockage"].State == "active";</ConditionsString>
+            <ConditionsString>Item["Grab_List"].State == "active";</ConditionsString>
             <UserScript />
           </DialogEntry>
         </DialogEntries>
@@ -4562,11 +4647,11 @@ Variable["Alert"] = "Quest Success: Received Documents from Kevin";</UserScript>
           </Field>
           <Field Hint="The actor who is doing most of the talking, or initiates this conversation." Type="Actor">
             <Title>Actor</Title>
-            <Value>20</Value>
+            <Value>8</Value>
           </Field>
           <Field Hint="The actor who is approached or is mostly talked to." Type="Actor">
             <Title>Conversant</Title>
-            <Value>8</Value>
+            <Value>20</Value>
           </Field>
         </Fields>
         <DialogEntries>
@@ -4578,11 +4663,11 @@ Variable["Alert"] = "Quest Success: Received Documents from Kevin";</UserScript>
               </Field>
               <Field Hint="The actor who is talking." Type="Actor">
                 <Title>Actor</Title>
-                <Value>20</Value>
+                <Value>8</Value>
               </Field>
               <Field Hint="The actor who is listening." Type="Actor">
                 <Title>Conversant</Title>
-                <Value>8</Value>
+                <Value>20</Value>
               </Field>
               <Field Hint="The text that is displayed to the player in a list as a dialogue option." Type="Text">
                 <Title>Menu Text</Title>
@@ -4604,93 +4689,55 @@ Variable["Alert"] = "Quest Success: Received Documents from Kevin";</UserScript>
             <ReviewerNotes />
             <ReviewerStatus>None</ReviewerStatus>
             <OutgoingLinks>
-              <Link OriginConvoID="14" DestinationConvoID="14" OriginDialogID="0" DestinationDialogID="2" IsConnector="false" />
-              <Link OriginConvoID="14" DestinationConvoID="14" OriginDialogID="0" DestinationDialogID="4" IsConnector="false" />
-              <Link OriginConvoID="14" DestinationConvoID="14" OriginDialogID="0" DestinationDialogID="1" IsConnector="false" />
-              <Link OriginConvoID="14" DestinationConvoID="14" OriginDialogID="0" DestinationDialogID="3" IsConnector="false" />
+              <Link OriginConvoID="14" DestinationConvoID="14" OriginDialogID="0" DestinationDialogID="8" IsConnector="false" />
+            </OutgoingLinks>
+            <ConditionsString />
+            <UserScript />
+          </DialogEntry>
+          <DialogEntry ID="8" IsRoot="false" IsGroup="false" NodeColor="White" DelaySimStatus="false" FalseCondtionAction="Block" ConditionPriority="Normal">
+            <Fields>
+              <Field Hint="The title of this dialogue." Type="Text">
+                <Title>Title</Title>
+                <Value />
+              </Field>
+              <Field Hint="The actor who is talking." Type="Actor">
+                <Title>Actor</Title>
+                <Value>20</Value>
+              </Field>
+              <Field Hint="The actor who is listening." Type="Actor">
+                <Title>Conversant</Title>
+                <Value>8</Value>
+              </Field>
+              <Field Hint="The text that is displayed to the player in a list as a dialogue option." Type="Text">
+                <Title>Menu Text</Title>
+                <Value />
+              </Field>
+              <Field Hint="The text that is spoken by the actor." Type="Localization">
+                <Title>Dialogue Text</Title>
+                <Value />
+              </Field>
+              <Field Hint="A WMV video file to be played for this dialogue." Type="Text">
+                <Title>Video File</Title>
+                <Value />
+              </Field>
+              <Field Hint="Dialogue System for Unity cutscene sequence" Type="Text">
+                <Title>Sequence</Title>
+                <Value>Camera(Safe)</Value>
+              </Field>
+            </Fields>
+            <ReviewerNotes />
+            <ReviewerStatus>None</ReviewerStatus>
+            <OutgoingLinks>
+              <Link OriginConvoID="14" DestinationConvoID="14" OriginDialogID="8" DestinationDialogID="5" IsConnector="false" />
+              <Link OriginConvoID="14" DestinationConvoID="14" OriginDialogID="8" DestinationDialogID="4" IsConnector="false" />
+              <Link OriginConvoID="14" DestinationConvoID="14" OriginDialogID="8" DestinationDialogID="3" IsConnector="false" />
+              <Link OriginConvoID="14" DestinationConvoID="14" OriginDialogID="8" DestinationDialogID="2" IsConnector="false" />
+              <Link OriginConvoID="14" DestinationConvoID="14" OriginDialogID="8" DestinationDialogID="1" IsConnector="false" />
             </OutgoingLinks>
             <ConditionsString />
             <UserScript />
           </DialogEntry>
           <DialogEntry ID="1" IsRoot="false" IsGroup="false" NodeColor="White" DelaySimStatus="false" FalseCondtionAction="Block" ConditionPriority="Normal">
-            <Fields>
-              <Field Hint="The title of this dialogue." Type="Text">
-                <Title>Title</Title>
-                <Value />
-              </Field>
-              <Field Hint="The actor who is talking." Type="Actor">
-                <Title>Actor</Title>
-                <Value>8</Value>
-              </Field>
-              <Field Hint="The actor who is listening." Type="Actor">
-                <Title>Conversant</Title>
-                <Value>20</Value>
-              </Field>
-              <Field Hint="The text that is displayed to the player in a list as a dialogue option." Type="Text">
-                <Title>Menu Text</Title>
-                <Value>Check</Value>
-              </Field>
-              <Field Hint="The text that is spoken by the actor." Type="Localization">
-                <Title>Dialogue Text</Title>
-                <Value>Checking Safe...</Value>
-              </Field>
-              <Field Hint="A WMV video file to be played for this dialogue." Type="Text">
-                <Title>Video File</Title>
-                <Value />
-              </Field>
-              <Field Hint="Dialogue System for Unity cutscene sequence" Type="Text">
-                <Title>Sequence</Title>
-                <Value />
-              </Field>
-            </Fields>
-            <ReviewerNotes />
-            <ReviewerStatus>None</ReviewerStatus>
-            <OutgoingLinks>
-              <Link OriginConvoID="14" DestinationConvoID="14" OriginDialogID="1" DestinationDialogID="5" IsConnector="false" />
-              <Link OriginConvoID="14" DestinationConvoID="14" OriginDialogID="1" DestinationDialogID="6" IsConnector="false" />
-              <Link OriginConvoID="14" DestinationConvoID="14" OriginDialogID="1" DestinationDialogID="7" IsConnector="false" />
-            </OutgoingLinks>
-            <ConditionsString />
-            <UserScript />
-          </DialogEntry>
-          <DialogEntry ID="2" IsRoot="false" IsGroup="false" NodeColor="White" DelaySimStatus="false" FalseCondtionAction="Block" ConditionPriority="Normal">
-            <Fields>
-              <Field Hint="The title of this dialogue." Type="Text">
-                <Title>Title</Title>
-                <Value />
-              </Field>
-              <Field Hint="The actor who is talking." Type="Actor">
-                <Title>Actor</Title>
-                <Value>8</Value>
-              </Field>
-              <Field Hint="The actor who is listening." Type="Actor">
-                <Title>Conversant</Title>
-                <Value>20</Value>
-              </Field>
-              <Field Hint="The text that is displayed to the player in a list as a dialogue option." Type="Text">
-                <Title>Menu Text</Title>
-                <Value>Deposit</Value>
-              </Field>
-              <Field Hint="The text that is spoken by the actor." Type="Localization">
-                <Title>Dialogue Text</Title>
-                <Value />
-              </Field>
-              <Field Hint="A WMV video file to be played for this dialogue." Type="Text">
-                <Title>Video File</Title>
-                <Value />
-              </Field>
-              <Field Hint="Dialogue System for Unity cutscene sequence" Type="Text">
-                <Title>Sequence</Title>
-                <Value>Deposit()</Value>
-              </Field>
-            </Fields>
-            <ReviewerNotes />
-            <ReviewerStatus>None</ReviewerStatus>
-            <OutgoingLinks />
-            <ConditionsString>Variable["Has_Document"] == true and Variable["MeUnlocked"] == true and Variable["OtherUnlocked"] == true;</ConditionsString>
-            <UserScript />
-          </DialogEntry>
-          <DialogEntry ID="3" IsRoot="false" IsGroup="false" NodeColor="White" DelaySimStatus="false" FalseCondtionAction="Block" ConditionPriority="Normal">
             <Fields>
               <Field Hint="The title of this dialogue." Type="Text">
                 <Title>Title</Title>
@@ -4727,7 +4774,197 @@ Variable["Alert"] = "Quest Success: Received Documents from Kevin";</UserScript>
             <ConditionsString />
             <UserScript />
           </DialogEntry>
+          <DialogEntry ID="2" IsRoot="false" IsGroup="false" NodeColor="White" DelaySimStatus="false" FalseCondtionAction="Block" ConditionPriority="Normal">
+            <Fields>
+              <Field Hint="The title of this dialogue." Type="Text">
+                <Title>Title</Title>
+                <Value>5</Value>
+              </Field>
+              <Field Hint="The actor who is talking." Type="Actor">
+                <Title>Actor</Title>
+                <Value>8</Value>
+              </Field>
+              <Field Hint="The actor who is listening." Type="Actor">
+                <Title>Conversant</Title>
+                <Value>20</Value>
+              </Field>
+              <Field Hint="The text that is displayed to the player in a list as a dialogue option." Type="Text">
+                <Title>Menu Text</Title>
+                <Value>Lock</Value>
+              </Field>
+              <Field Hint="The text that is spoken by the actor." Type="Localization">
+                <Title>Dialogue Text</Title>
+                <Value />
+              </Field>
+              <Field Hint="A WMV video file to be played for this dialogue." Type="Text">
+                <Title>Video File</Title>
+                <Value />
+              </Field>
+              <Field Hint="Dialogue System for Unity cutscene sequence" Type="Text">
+                <Title>Sequence</Title>
+                <Value>OtherSafe(lock);</Value>
+              </Field>
+            </Fields>
+            <ReviewerNotes />
+            <ReviewerStatus>None</ReviewerStatus>
+            <OutgoingLinks />
+            <ConditionsString>Variable["MeUnlocked"] == true and Variable["HasKey"] == false;</ConditionsString>
+            <UserScript>Variable["MeUnlocked"] = false;</UserScript>
+          </DialogEntry>
+          <DialogEntry ID="3" IsRoot="false" IsGroup="false" NodeColor="White" DelaySimStatus="false" FalseCondtionAction="Block" ConditionPriority="Normal">
+            <Fields>
+              <Field Hint="The title of this dialogue." Type="Text">
+                <Title>Title</Title>
+                <Value />
+              </Field>
+              <Field Hint="The actor who is talking." Type="Actor">
+                <Title>Actor</Title>
+                <Value>8</Value>
+              </Field>
+              <Field Hint="The actor who is listening." Type="Actor">
+                <Title>Conversant</Title>
+                <Value>20</Value>
+              </Field>
+              <Field Hint="The text that is displayed to the player in a list as a dialogue option." Type="Text">
+                <Title>Menu Text</Title>
+                <Value>Unlock</Value>
+              </Field>
+              <Field Hint="The text that is spoken by the actor." Type="Localization">
+                <Title>Dialogue Text</Title>
+                <Value>Unlocking Safe... </Value>
+              </Field>
+              <Field Hint="A WMV video file to be played for this dialogue." Type="Text">
+                <Title>Video File</Title>
+                <Value />
+              </Field>
+              <Field Hint="Dialogue System for Unity cutscene sequence" Type="Text">
+                <Title>Sequence</Title>
+                <Value>OtherSafe(unlock);</Value>
+              </Field>
+            </Fields>
+            <ReviewerNotes />
+            <ReviewerStatus>None</ReviewerStatus>
+            <OutgoingLinks />
+            <ConditionsString>Variable["MeUnlocked"] == false and Variable["HasKey"] == false;</ConditionsString>
+            <UserScript>Variable["MeUnlocked"] = true;</UserScript>
+          </DialogEntry>
+          <DialogEntry ID="4" IsRoot="false" IsGroup="false" NodeColor="White" DelaySimStatus="false" FalseCondtionAction="Block" ConditionPriority="Normal">
+            <Fields>
+              <Field Hint="The title of this dialogue." Type="Text">
+                <Title>Title</Title>
+                <Value />
+              </Field>
+              <Field Hint="The actor who is talking." Type="Actor">
+                <Title>Actor</Title>
+                <Value>8</Value>
+              </Field>
+              <Field Hint="The actor who is listening." Type="Actor">
+                <Title>Conversant</Title>
+                <Value>20</Value>
+              </Field>
+              <Field Hint="The text that is displayed to the player in a list as a dialogue option." Type="Text">
+                <Title>Menu Text</Title>
+                <Value>Deposit</Value>
+              </Field>
+              <Field Hint="The text that is spoken by the actor." Type="Localization">
+                <Title>Dialogue Text</Title>
+                <Value />
+              </Field>
+              <Field Hint="A WMV video file to be played for this dialogue." Type="Text">
+                <Title>Video File</Title>
+                <Value />
+              </Field>
+              <Field Hint="Dialogue System for Unity cutscene sequence" Type="Text">
+                <Title>Sequence</Title>
+                <Value>Deposit()</Value>
+              </Field>
+            </Fields>
+            <ReviewerNotes />
+            <ReviewerStatus>None</ReviewerStatus>
+            <OutgoingLinks />
+            <ConditionsString>Variable["Has_Document"] == true and Variable["MeUnlocked"] == true and Variable["OtherUnlocked"] == true;</ConditionsString>
+            <UserScript />
+          </DialogEntry>
+          <DialogEntry ID="5" IsRoot="false" IsGroup="false" NodeColor="White" DelaySimStatus="false" FalseCondtionAction="Block" ConditionPriority="Normal">
+            <Fields>
+              <Field Hint="The title of this dialogue." Type="Text">
+                <Title>Title</Title>
+                <Value />
+              </Field>
+              <Field Hint="The actor who is talking." Type="Actor">
+                <Title>Actor</Title>
+                <Value>8</Value>
+              </Field>
+              <Field Hint="The actor who is listening." Type="Actor">
+                <Title>Conversant</Title>
+                <Value>20</Value>
+              </Field>
+              <Field Hint="The text that is displayed to the player in a list as a dialogue option." Type="Text">
+                <Title>Menu Text</Title>
+                <Value>Check</Value>
+              </Field>
+              <Field Hint="The text that is spoken by the actor." Type="Localization">
+                <Title>Dialogue Text</Title>
+                <Value>Checking Safe...</Value>
+              </Field>
+              <Field Hint="A WMV video file to be played for this dialogue." Type="Text">
+                <Title>Video File</Title>
+                <Value />
+              </Field>
+              <Field Hint="Dialogue System for Unity cutscene sequence" Type="Text">
+                <Title>Sequence</Title>
+                <Value />
+              </Field>
+            </Fields>
+            <ReviewerNotes />
+            <ReviewerStatus>None</ReviewerStatus>
+            <OutgoingLinks>
+              <Link OriginConvoID="14" DestinationConvoID="14" OriginDialogID="5" DestinationDialogID="6" IsConnector="false" />
+              <Link OriginConvoID="14" DestinationConvoID="14" OriginDialogID="5" DestinationDialogID="7" IsConnector="false" />
+              <Link OriginConvoID="14" DestinationConvoID="14" OriginDialogID="5" DestinationDialogID="9" IsConnector="false" />
+            </OutgoingLinks>
+            <ConditionsString />
+            <UserScript />
+          </DialogEntry>
           <DialogEntry ID="6" IsRoot="false" IsGroup="false" NodeColor="White" DelaySimStatus="false" FalseCondtionAction="Block" ConditionPriority="Normal">
+            <Fields>
+              <Field Hint="The title of this dialogue." Type="Text">
+                <Title>Title</Title>
+                <Value>Waiting for another key</Value>
+              </Field>
+              <Field Hint="The actor who is talking." Type="Actor">
+                <Title>Actor</Title>
+                <Value>20</Value>
+              </Field>
+              <Field Hint="The actor who is listening." Type="Actor">
+                <Title>Conversant</Title>
+                <Value>8</Value>
+              </Field>
+              <Field Hint="The text that is displayed to the player in a list as a dialogue option." Type="Text">
+                <Title>Menu Text</Title>
+                <Value>Waiting </Value>
+              </Field>
+              <Field Hint="The text that is spoken by the actor." Type="Localization">
+                <Title>Dialogue Text</Title>
+                <Value>Waiting for another key holder to unlock.
+</Value>
+              </Field>
+              <Field Hint="A WMV video file to be played for this dialogue." Type="Text">
+                <Title>Video File</Title>
+                <Value />
+              </Field>
+              <Field Hint="Dialogue System for Unity cutscene sequence" Type="Text">
+                <Title>Sequence</Title>
+                <Value />
+              </Field>
+            </Fields>
+            <ReviewerNotes />
+            <ReviewerStatus>None</ReviewerStatus>
+            <OutgoingLinks />
+            <ConditionsString>Variable["OtherUnlocked"] == false and Variable["MeUnlocked"] == true;</ConditionsString>
+            <UserScript />
+          </DialogEntry>
+          <DialogEntry ID="7" IsRoot="false" IsGroup="false" NodeColor="White" DelaySimStatus="false" FalseCondtionAction="Block" ConditionPriority="Normal">
             <Fields>
               <Field Hint="The title of this dialogue." Type="Text">
                 <Title>Title</Title>
@@ -4764,7 +5001,7 @@ Variable["Alert"] = "Quest Success: Received Documents from Kevin";</UserScript>
             <ConditionsString>Variable["MeUnlocked"] == true and Variable["OtherUnlocked"] == true;</ConditionsString>
             <UserScript />
           </DialogEntry>
-          <DialogEntry ID="7" IsRoot="false" IsGroup="false" NodeColor="White" DelaySimStatus="false" FalseCondtionAction="Block" ConditionPriority="Normal">
+          <DialogEntry ID="9" IsRoot="false" IsGroup="false" NodeColor="White" DelaySimStatus="false" FalseCondtionAction="Block" ConditionPriority="Normal">
             <Fields>
               <Field Hint="The title of this dialogue." Type="Text">
                 <Title>Title</Title>
@@ -4799,81 +5036,6 @@ Variable["Alert"] = "Quest Success: Received Documents from Kevin";</UserScript>
             <ReviewerStatus>None</ReviewerStatus>
             <OutgoingLinks />
             <ConditionsString>Variable["MeUnlocked"] == false and Variable["OtherUnlocked"] == false and Variable["HasKey"] == true;</ConditionsString>
-            <UserScript />
-          </DialogEntry>
-          <DialogEntry ID="4" IsRoot="false" IsGroup="false" NodeColor="White" DelaySimStatus="false" FalseCondtionAction="Block" ConditionPriority="Normal">
-            <Fields>
-              <Field Hint="The title of this dialogue." Type="Text">
-                <Title>Title</Title>
-                <Value />
-              </Field>
-              <Field Hint="The actor who is talking." Type="Actor">
-                <Title>Actor</Title>
-                <Value>8</Value>
-              </Field>
-              <Field Hint="The actor who is listening." Type="Actor">
-                <Title>Conversant</Title>
-                <Value>20</Value>
-              </Field>
-              <Field Hint="The text that is displayed to the player in a list as a dialogue option." Type="Text">
-                <Title>Menu Text</Title>
-                <Value>Unlock</Value>
-              </Field>
-              <Field Hint="The text that is spoken by the actor." Type="Localization">
-                <Title>Dialogue Text</Title>
-                <Value>Unlocking Safe... </Value>
-              </Field>
-              <Field Hint="A WMV video file to be played for this dialogue." Type="Text">
-                <Title>Video File</Title>
-                <Value />
-              </Field>
-              <Field Hint="Dialogue System for Unity cutscene sequence" Type="Text">
-                <Title>Sequence</Title>
-                <Value>OtherUnlock();</Value>
-              </Field>
-            </Fields>
-            <ReviewerNotes />
-            <ReviewerStatus>None</ReviewerStatus>
-            <OutgoingLinks />
-            <ConditionsString>Variable["MeUnlocked"] == false and Variable["HasKey"] == false;</ConditionsString>
-            <UserScript>Variable["MeUnlocked"] = true;</UserScript>
-          </DialogEntry>
-          <DialogEntry ID="5" IsRoot="false" IsGroup="false" NodeColor="White" DelaySimStatus="false" FalseCondtionAction="Block" ConditionPriority="Normal">
-            <Fields>
-              <Field Hint="The title of this dialogue." Type="Text">
-                <Title>Title</Title>
-                <Value>Waiting for another key</Value>
-              </Field>
-              <Field Hint="The actor who is talking." Type="Actor">
-                <Title>Actor</Title>
-                <Value>20</Value>
-              </Field>
-              <Field Hint="The actor who is listening." Type="Actor">
-                <Title>Conversant</Title>
-                <Value>8</Value>
-              </Field>
-              <Field Hint="The text that is displayed to the player in a list as a dialogue option." Type="Text">
-                <Title>Menu Text</Title>
-                <Value>Waiting </Value>
-              </Field>
-              <Field Hint="The text that is spoken by the actor." Type="Localization">
-                <Title>Dialogue Text</Title>
-                <Value>Waiting for another key holder to unlock.
-</Value>
-              </Field>
-              <Field Hint="A WMV video file to be played for this dialogue." Type="Text">
-                <Title>Video File</Title>
-                <Value />
-              </Field>
-              <Field Hint="Dialogue System for Unity cutscene sequence" Type="Text">
-                <Title>Sequence</Title>
-                <Value />
-              </Field>
-            </Fields>
-            <ReviewerNotes />
-            <ReviewerStatus>None</ReviewerStatus>
-            <OutgoingLinks />
-            <ConditionsString>Variable["OtherUnlocked"] == false and Variable["MeUnlocked"] == true;</ConditionsString>
             <UserScript />
           </DialogEntry>
         </DialogEntries>
@@ -5241,11 +5403,11 @@ Variable["Alert"] = "Quest Success: Received Documents from Kevin";</UserScript>
           </Field>
           <Field Hint="The actor who is doing most of the talking, or initiates this conversation." Type="Actor">
             <Title>Actor</Title>
-            <Value>14</Value>
+            <Value>8</Value>
           </Field>
           <Field Hint="The actor who is approached or is mostly talked to." Type="Actor">
             <Title>Conversant</Title>
-            <Value>8</Value>
+            <Value>14</Value>
           </Field>
         </Fields>
         <DialogEntries>
@@ -5257,11 +5419,11 @@ Variable["Alert"] = "Quest Success: Received Documents from Kevin";</UserScript>
               </Field>
               <Field Hint="The actor who is talking." Type="Actor">
                 <Title>Actor</Title>
-                <Value>14</Value>
+                <Value>8</Value>
               </Field>
               <Field Hint="The actor who is listening." Type="Actor">
                 <Title>Conversant</Title>
-                <Value>8</Value>
+                <Value>14</Value>
               </Field>
               <Field Hint="The text that is displayed to the player in a list as a dialogue option." Type="Text">
                 <Title>Menu Text</Title>
@@ -5283,9 +5445,48 @@ Variable["Alert"] = "Quest Success: Received Documents from Kevin";</UserScript>
             <ReviewerNotes />
             <ReviewerStatus>None</ReviewerStatus>
             <OutgoingLinks>
-              <Link OriginConvoID="12" DestinationConvoID="12" OriginDialogID="0" DestinationDialogID="1" IsConnector="false" />
-              <Link OriginConvoID="12" DestinationConvoID="12" OriginDialogID="0" DestinationDialogID="2" IsConnector="false" />
-              <Link OriginConvoID="12" DestinationConvoID="12" OriginDialogID="0" DestinationDialogID="3" IsConnector="false" />
+              <Link OriginConvoID="12" DestinationConvoID="12" OriginDialogID="0" DestinationDialogID="4" IsConnector="false" />
+            </OutgoingLinks>
+            <ConditionsString />
+            <UserScript />
+          </DialogEntry>
+          <DialogEntry ID="4" IsRoot="false" IsGroup="false" NodeColor="White" DelaySimStatus="false" FalseCondtionAction="Block" ConditionPriority="Normal">
+            <Fields>
+              <Field Hint="The title of this dialogue." Type="Text">
+                <Title>Title</Title>
+                <Value>setting camera</Value>
+              </Field>
+              <Field Hint="The actor who is talking." Type="Actor">
+                <Title>Actor</Title>
+                <Value>14</Value>
+              </Field>
+              <Field Hint="The actor who is listening." Type="Actor">
+                <Title>Conversant</Title>
+                <Value>8</Value>
+              </Field>
+              <Field Hint="The text that is displayed to the player in a list as a dialogue option." Type="Text">
+                <Title>Menu Text</Title>
+                <Value />
+              </Field>
+              <Field Hint="The text that is spoken by the actor." Type="Localization">
+                <Title>Dialogue Text</Title>
+                <Value />
+              </Field>
+              <Field Hint="A WMV video file to be played for this dialogue." Type="Text">
+                <Title>Video File</Title>
+                <Value />
+              </Field>
+              <Field Hint="Dialogue System for Unity cutscene sequence" Type="Text">
+                <Title>Sequence</Title>
+                <Value>Camera(Suitcase)</Value>
+              </Field>
+            </Fields>
+            <ReviewerNotes />
+            <ReviewerStatus>None</ReviewerStatus>
+            <OutgoingLinks>
+              <Link OriginConvoID="12" DestinationConvoID="12" OriginDialogID="4" DestinationDialogID="1" IsConnector="false" />
+              <Link OriginConvoID="12" DestinationConvoID="12" OriginDialogID="4" DestinationDialogID="2" IsConnector="false" />
+              <Link OriginConvoID="12" DestinationConvoID="12" OriginDialogID="4" DestinationDialogID="3" IsConnector="false" />
             </OutgoingLinks>
             <ConditionsString />
             <UserScript />
@@ -5306,11 +5507,11 @@ Variable["Alert"] = "Quest Success: Received Documents from Kevin";</UserScript>
               </Field>
               <Field Hint="The text that is displayed to the player in a list as a dialogue option." Type="Text">
                 <Title>Menu Text</Title>
-                <Value>Check</Value>
+                <Value>Leave</Value>
               </Field>
               <Field Hint="The text that is spoken by the actor." Type="Localization">
                 <Title>Dialogue Text</Title>
-                <Value>Checking Suitcase...</Value>
+                <Value />
               </Field>
               <Field Hint="A WMV video file to be played for this dialogue." Type="Text">
                 <Title>Video File</Title>
@@ -5324,7 +5525,7 @@ Variable["Alert"] = "Quest Success: Received Documents from Kevin";</UserScript>
             <ReviewerNotes />
             <ReviewerStatus>None</ReviewerStatus>
             <OutgoingLinks />
-            <ConditionsString>Variable["InventoryHasObject"] == false </ConditionsString>
+            <ConditionsString />
             <UserScript />
           </DialogEntry>
           <DialogEntry ID="2" IsRoot="false" IsGroup="false" NodeColor="White" DelaySimStatus="false" FalseCondtionAction="Block" ConditionPriority="Normal">
@@ -5380,11 +5581,11 @@ Variable["Alert"] = "Quest Success: Received Documents from Kevin";</UserScript>
               </Field>
               <Field Hint="The text that is displayed to the player in a list as a dialogue option." Type="Text">
                 <Title>Menu Text</Title>
-                <Value>Leave</Value>
+                <Value>Check</Value>
               </Field>
               <Field Hint="The text that is spoken by the actor." Type="Localization">
                 <Title>Dialogue Text</Title>
-                <Value />
+                <Value>Checking Suitcase...</Value>
               </Field>
               <Field Hint="A WMV video file to be played for this dialogue." Type="Text">
                 <Title>Video File</Title>
@@ -5398,7 +5599,7 @@ Variable["Alert"] = "Quest Success: Received Documents from Kevin";</UserScript>
             <ReviewerNotes />
             <ReviewerStatus>None</ReviewerStatus>
             <OutgoingLinks />
-            <ConditionsString />
+            <ConditionsString>Variable["InventoryHasObject"] == false </ConditionsString>
             <UserScript />
           </DialogEntry>
         </DialogEntries>
@@ -5650,6 +5851,513 @@ Variable["Alert"] = "Quest Success: Received Documents from Kevin";</UserScript>
             <ReviewerStatus>None</ReviewerStatus>
             <OutgoingLinks />
             <ConditionsString>Variable["HasKey"] == true;</ConditionsString>
+            <UserScript />
+          </DialogEntry>
+        </DialogEntries>
+      </Conversation>
+      <Conversation ID="17" NodeColor="Red" LockedMode="Unlocked">
+        <Fields>
+          <Field Hint="The title of this conversation." Type="Text">
+            <Title>Title</Title>
+            <Value>Fire Escape Blockage</Value>
+          </Field>
+          <Field Hint="A short description of what happens in this conversation." Type="Text">
+            <Title>Description</Title>
+            <Value />
+          </Field>
+          <Field Hint="The actor who is doing most of the talking, or initiates this conversation." Type="Actor">
+            <Title>Actor</Title>
+            <Value>8</Value>
+          </Field>
+          <Field Hint="The actor who is approached or is mostly talked to." Type="Actor">
+            <Title>Conversant</Title>
+            <Value>10</Value>
+          </Field>
+        </Fields>
+        <DialogEntries>
+          <DialogEntry ID="0" IsRoot="true" IsGroup="false" NodeColor="White" DelaySimStatus="false" FalseCondtionAction="Block" ConditionPriority="Normal">
+            <Fields>
+              <Field Hint="The title of this dialogue." Type="Text">
+                <Title>Title</Title>
+                <Value>START</Value>
+              </Field>
+              <Field Hint="The actor who is talking." Type="Actor">
+                <Title>Actor</Title>
+                <Value>8</Value>
+              </Field>
+              <Field Hint="The actor who is listening." Type="Actor">
+                <Title>Conversant</Title>
+                <Value>10</Value>
+              </Field>
+              <Field Hint="The text that is displayed to the player in a list as a dialogue option." Type="Text">
+                <Title>Menu Text</Title>
+                <Value />
+              </Field>
+              <Field Hint="The text that is spoken by the actor." Type="Localization">
+                <Title>Dialogue Text</Title>
+                <Value />
+              </Field>
+              <Field Hint="A WMV video file to be played for this dialogue." Type="Text">
+                <Title>Video File</Title>
+                <Value />
+              </Field>
+              <Field Hint="Dialogue System for Unity cutscene sequence" Type="Text">
+                <Title>Sequence</Title>
+                <Value />
+              </Field>
+            </Fields>
+            <ReviewerNotes />
+            <ReviewerStatus>None</ReviewerStatus>
+            <OutgoingLinks>
+              <Link OriginConvoID="17" DestinationConvoID="17" OriginDialogID="0" DestinationDialogID="5" IsConnector="false" />
+            </OutgoingLinks>
+            <ConditionsString />
+            <UserScript />
+          </DialogEntry>
+          <DialogEntry ID="5" IsRoot="false" IsGroup="false" NodeColor="White" DelaySimStatus="false" FalseCondtionAction="Block" ConditionPriority="Normal">
+            <Fields>
+              <Field Hint="The title of this dialogue." Type="Text">
+                <Title>Title</Title>
+                <Value />
+              </Field>
+              <Field Hint="The actor who is talking." Type="Actor">
+                <Title>Actor</Title>
+                <Value>23</Value>
+              </Field>
+              <Field Hint="The actor who is listening." Type="Actor">
+                <Title>Conversant</Title>
+                <Value>8</Value>
+              </Field>
+              <Field Hint="The text that is displayed to the player in a list as a dialogue option." Type="Text">
+                <Title>Menu Text</Title>
+                <Value />
+              </Field>
+              <Field Hint="The text that is spoken by the actor." Type="Localization">
+                <Title>Dialogue Text</Title>
+                <Value />
+              </Field>
+              <Field Hint="A WMV video file to be played for this dialogue." Type="Text">
+                <Title>Video File</Title>
+                <Value />
+              </Field>
+              <Field Hint="Dialogue System for Unity cutscene sequence" Type="Text">
+                <Title>Sequence</Title>
+                <Value>Camera(Closeup Ground);</Value>
+              </Field>
+            </Fields>
+            <ReviewerNotes />
+            <ReviewerStatus>None</ReviewerStatus>
+            <OutgoingLinks>
+              <Link OriginConvoID="17" DestinationConvoID="17" OriginDialogID="5" DestinationDialogID="1" IsConnector="false" />
+              <Link OriginConvoID="17" DestinationConvoID="17" OriginDialogID="5" DestinationDialogID="2" IsConnector="false" />
+              <Link OriginConvoID="17" DestinationConvoID="17" OriginDialogID="5" DestinationDialogID="4" IsConnector="false" />
+            </OutgoingLinks>
+            <ConditionsString />
+            <UserScript />
+          </DialogEntry>
+          <DialogEntry ID="1" IsRoot="false" IsGroup="false" NodeColor="White" DelaySimStatus="false" FalseCondtionAction="Block" ConditionPriority="Normal">
+            <Fields>
+              <Field Hint="The title of this dialogue." Type="Text">
+                <Title>Title</Title>
+                <Value />
+              </Field>
+              <Field Hint="The actor who is talking." Type="Actor">
+                <Title>Actor</Title>
+                <Value>8</Value>
+              </Field>
+              <Field Hint="The actor who is listening." Type="Actor">
+                <Title>Conversant</Title>
+                <Value>10</Value>
+              </Field>
+              <Field Hint="The text that is displayed to the player in a list as a dialogue option." Type="Text">
+                <Title>Menu Text</Title>
+                <Value>Leave</Value>
+              </Field>
+              <Field Hint="The text that is spoken by the actor." Type="Localization">
+                <Title>Dialogue Text</Title>
+                <Value />
+              </Field>
+              <Field Hint="A WMV video file to be played for this dialogue." Type="Text">
+                <Title>Video File</Title>
+                <Value />
+              </Field>
+              <Field Hint="Dialogue System for Unity cutscene sequence" Type="Text">
+                <Title>Sequence</Title>
+                <Value />
+              </Field>
+            </Fields>
+            <ReviewerNotes />
+            <ReviewerStatus>None</ReviewerStatus>
+            <OutgoingLinks />
+            <ConditionsString />
+            <UserScript />
+          </DialogEntry>
+          <DialogEntry ID="2" IsRoot="false" IsGroup="false" NodeColor="White" DelaySimStatus="false" FalseCondtionAction="Block" ConditionPriority="Normal">
+            <Fields>
+              <Field Hint="The title of this dialogue." Type="Text">
+                <Title>Title</Title>
+                <Value />
+              </Field>
+              <Field Hint="The actor who is talking." Type="Actor">
+                <Title>Actor</Title>
+                <Value>8</Value>
+              </Field>
+              <Field Hint="The actor who is listening." Type="Actor">
+                <Title>Conversant</Title>
+                <Value>10</Value>
+              </Field>
+              <Field Hint="The text that is displayed to the player in a list as a dialogue option." Type="Text">
+                <Title>Menu Text</Title>
+                <Value>Check</Value>
+              </Field>
+              <Field Hint="The text that is spoken by the actor." Type="Localization">
+                <Title>Dialogue Text</Title>
+                <Value>Checking item...</Value>
+              </Field>
+              <Field Hint="A WMV video file to be played for this dialogue." Type="Text">
+                <Title>Video File</Title>
+                <Value />
+              </Field>
+              <Field Hint="Dialogue System for Unity cutscene sequence" Type="Text">
+                <Title>Sequence</Title>
+                <Value />
+              </Field>
+            </Fields>
+            <ReviewerNotes />
+            <ReviewerStatus>None</ReviewerStatus>
+            <OutgoingLinks>
+              <Link OriginConvoID="17" DestinationConvoID="17" OriginDialogID="2" DestinationDialogID="3" IsConnector="false" />
+            </OutgoingLinks>
+            <ConditionsString />
+            <UserScript />
+          </DialogEntry>
+          <DialogEntry ID="3" IsRoot="false" IsGroup="false" NodeColor="White" DelaySimStatus="false" FalseCondtionAction="Block" ConditionPriority="Normal">
+            <Fields>
+              <Field Hint="The title of this dialogue." Type="Text">
+                <Title>Title</Title>
+                <Value>Active Blockage Quest</Value>
+              </Field>
+              <Field Hint="The actor who is talking." Type="Actor">
+                <Title>Actor</Title>
+                <Value>10</Value>
+              </Field>
+              <Field Hint="The actor who is listening." Type="Actor">
+                <Title>Conversant</Title>
+                <Value>8</Value>
+              </Field>
+              <Field Hint="The text that is displayed to the player in a list as a dialogue option." Type="Text">
+                <Title>Menu Text</Title>
+                <Value />
+              </Field>
+              <Field Hint="The text that is spoken by the actor." Type="Localization">
+                <Title>Dialogue Text</Title>
+                <Value>A bunch of boxes filled with heavy archival documents in front of the stairwell.
+</Value>
+              </Field>
+              <Field Hint="A WMV video file to be played for this dialogue." Type="Text">
+                <Title>Video File</Title>
+                <Value />
+              </Field>
+              <Field Hint="Dialogue System for Unity cutscene sequence" Type="Text">
+                <Title>Sequence</Title>
+                <Value />
+              </Field>
+            </Fields>
+            <ReviewerNotes />
+            <ReviewerStatus>None</ReviewerStatus>
+            <OutgoingLinks />
+            <ConditionsString />
+            <UserScript>Item["Fire_Escape_Blockage"].State = "active";
+Variable["Alert"] = "New Quest: Clear blockage at Fire Exit";</UserScript>
+          </DialogEntry>
+          <DialogEntry ID="4" IsRoot="false" IsGroup="false" NodeColor="White" DelaySimStatus="false" FalseCondtionAction="Block" ConditionPriority="Normal">
+            <Fields>
+              <Field Hint="The title of this dialogue." Type="Text">
+                <Title>Title</Title>
+                <Value />
+              </Field>
+              <Field Hint="The actor who is talking." Type="Actor">
+                <Title>Actor</Title>
+                <Value>8</Value>
+              </Field>
+              <Field Hint="The actor who is listening." Type="Actor">
+                <Title>Conversant</Title>
+                <Value>10</Value>
+              </Field>
+              <Field Hint="The text that is displayed to the player in a list as a dialogue option." Type="Text">
+                <Title>Menu Text</Title>
+                <Value>Pick up</Value>
+              </Field>
+              <Field Hint="The text that is spoken by the actor." Type="Localization">
+                <Title>Dialogue Text</Title>
+                <Value />
+              </Field>
+              <Field Hint="A WMV video file to be played for this dialogue." Type="Text">
+                <Title>Video File</Title>
+                <Value />
+              </Field>
+              <Field Hint="Dialogue System for Unity cutscene sequence" Type="Text">
+                <Title>Sequence</Title>
+                <Value>Pick();</Value>
+              </Field>
+            </Fields>
+            <ReviewerNotes />
+            <ReviewerStatus>None</ReviewerStatus>
+            <OutgoingLinks />
+            <ConditionsString>Item["Fire_Escape_Blockage"].State == "active";</ConditionsString>
+            <UserScript />
+          </DialogEntry>
+        </DialogEntries>
+      </Conversation>
+      <Conversation ID="18" NodeColor="Red" LockedMode="Unlocked">
+        <Fields>
+          <Field Hint="The title of this conversation." Type="Text">
+            <Title>Title</Title>
+            <Value>Contact List</Value>
+          </Field>
+          <Field Hint="A short description of what happens in this conversation." Type="Text">
+            <Title>Description</Title>
+            <Value />
+          </Field>
+          <Field Hint="The actor who is doing most of the talking, or initiates this conversation." Type="Actor">
+            <Title>Actor</Title>
+            <Value>8</Value>
+          </Field>
+          <Field Hint="The actor who is approached or is mostly talked to." Type="Actor">
+            <Title>Conversant</Title>
+            <Value>23</Value>
+          </Field>
+        </Fields>
+        <DialogEntries>
+          <DialogEntry ID="0" IsRoot="true" IsGroup="false" NodeColor="White" DelaySimStatus="false" FalseCondtionAction="Block" ConditionPriority="Normal">
+            <Fields>
+              <Field Hint="The title of this dialogue." Type="Text">
+                <Title>Title</Title>
+                <Value>START</Value>
+              </Field>
+              <Field Hint="The actor who is talking." Type="Actor">
+                <Title>Actor</Title>
+                <Value>8</Value>
+              </Field>
+              <Field Hint="The actor who is listening." Type="Actor">
+                <Title>Conversant</Title>
+                <Value>23</Value>
+              </Field>
+              <Field Hint="The text that is displayed to the player in a list as a dialogue option." Type="Text">
+                <Title>Menu Text</Title>
+                <Value />
+              </Field>
+              <Field Hint="The text that is spoken by the actor." Type="Localization">
+                <Title>Dialogue Text</Title>
+                <Value />
+              </Field>
+              <Field Hint="A WMV video file to be played for this dialogue." Type="Text">
+                <Title>Video File</Title>
+                <Value />
+              </Field>
+              <Field Hint="Dialogue System for Unity cutscene sequence" Type="Text">
+                <Title>Sequence</Title>
+                <Value />
+              </Field>
+            </Fields>
+            <ReviewerNotes />
+            <ReviewerStatus>None</ReviewerStatus>
+            <OutgoingLinks>
+              <Link OriginConvoID="18" DestinationConvoID="18" OriginDialogID="0" DestinationDialogID="5" IsConnector="false" />
+            </OutgoingLinks>
+            <ConditionsString />
+            <UserScript />
+          </DialogEntry>
+          <DialogEntry ID="5" IsRoot="false" IsGroup="false" NodeColor="White" DelaySimStatus="false" FalseCondtionAction="Block" ConditionPriority="Normal">
+            <Fields>
+              <Field Hint="The title of this dialogue." Type="Text">
+                <Title>Title</Title>
+                <Value />
+              </Field>
+              <Field Hint="The actor who is talking." Type="Actor">
+                <Title>Actor</Title>
+                <Value>23</Value>
+              </Field>
+              <Field Hint="The actor who is listening." Type="Actor">
+                <Title>Conversant</Title>
+                <Value>8</Value>
+              </Field>
+              <Field Hint="The text that is displayed to the player in a list as a dialogue option." Type="Text">
+                <Title>Menu Text</Title>
+                <Value />
+              </Field>
+              <Field Hint="The text that is spoken by the actor." Type="Localization">
+                <Title>Dialogue Text</Title>
+                <Value />
+              </Field>
+              <Field Hint="A WMV video file to be played for this dialogue." Type="Text">
+                <Title>Video File</Title>
+                <Value />
+              </Field>
+              <Field Hint="Dialogue System for Unity cutscene sequence" Type="Text">
+                <Title>Sequence</Title>
+                <Value>Camera(Contact List);</Value>
+              </Field>
+            </Fields>
+            <ReviewerNotes />
+            <ReviewerStatus>None</ReviewerStatus>
+            <OutgoingLinks>
+              <Link OriginConvoID="18" DestinationConvoID="18" OriginDialogID="5" DestinationDialogID="1" IsConnector="false" />
+              <Link OriginConvoID="18" DestinationConvoID="18" OriginDialogID="5" DestinationDialogID="3" IsConnector="false" />
+              <Link OriginConvoID="18" DestinationConvoID="18" OriginDialogID="5" DestinationDialogID="4" IsConnector="false" />
+            </OutgoingLinks>
+            <ConditionsString />
+            <UserScript />
+          </DialogEntry>
+          <DialogEntry ID="1" IsRoot="false" IsGroup="false" NodeColor="White" DelaySimStatus="false" FalseCondtionAction="Block" ConditionPriority="Normal">
+            <Fields>
+              <Field Hint="The title of this dialogue." Type="Text">
+                <Title>Title</Title>
+                <Value />
+              </Field>
+              <Field Hint="The actor who is talking." Type="Actor">
+                <Title>Actor</Title>
+                <Value>8</Value>
+              </Field>
+              <Field Hint="The actor who is listening." Type="Actor">
+                <Title>Conversant</Title>
+                <Value>23</Value>
+              </Field>
+              <Field Hint="The text that is displayed to the player in a list as a dialogue option." Type="Text">
+                <Title>Menu Text</Title>
+                <Value>Check</Value>
+              </Field>
+              <Field Hint="The text that is spoken by the actor." Type="Localization">
+                <Title>Dialogue Text</Title>
+                <Value>Checking item...</Value>
+              </Field>
+              <Field Hint="A WMV video file to be played for this dialogue." Type="Text">
+                <Title>Video File</Title>
+                <Value />
+              </Field>
+              <Field Hint="Dialogue System for Unity cutscene sequence" Type="Text">
+                <Title>Sequence</Title>
+                <Value />
+              </Field>
+            </Fields>
+            <ReviewerNotes />
+            <ReviewerStatus>None</ReviewerStatus>
+            <OutgoingLinks>
+              <Link OriginConvoID="18" DestinationConvoID="18" OriginDialogID="1" DestinationDialogID="2" IsConnector="false" />
+            </OutgoingLinks>
+            <ConditionsString />
+            <UserScript />
+          </DialogEntry>
+          <DialogEntry ID="2" IsRoot="false" IsGroup="false" NodeColor="White" DelaySimStatus="false" FalseCondtionAction="Block" ConditionPriority="Normal">
+            <Fields>
+              <Field Hint="The title of this dialogue." Type="Text">
+                <Title>Title</Title>
+                <Value />
+              </Field>
+              <Field Hint="The actor who is talking." Type="Actor">
+                <Title>Actor</Title>
+                <Value>23</Value>
+              </Field>
+              <Field Hint="The actor who is listening." Type="Actor">
+                <Title>Conversant</Title>
+                <Value>8</Value>
+              </Field>
+              <Field Hint="The text that is displayed to the player in a list as a dialogue option." Type="Text">
+                <Title>Menu Text</Title>
+                <Value />
+              </Field>
+              <Field Hint="The text that is spoken by the actor." Type="Localization">
+                <Title>Dialogue Text</Title>
+                <Value>This is a contact list of important contacts. This is a key item of your grab list. 
+</Value>
+              </Field>
+              <Field Hint="A WMV video file to be played for this dialogue." Type="Text">
+                <Title>Video File</Title>
+                <Value />
+              </Field>
+              <Field Hint="Dialogue System for Unity cutscene sequence" Type="Text">
+                <Title>Sequence</Title>
+                <Value />
+              </Field>
+            </Fields>
+            <ReviewerNotes />
+            <ReviewerStatus>None</ReviewerStatus>
+            <OutgoingLinks />
+            <ConditionsString />
+            <UserScript />
+          </DialogEntry>
+          <DialogEntry ID="3" IsRoot="false" IsGroup="false" NodeColor="White" DelaySimStatus="false" FalseCondtionAction="Block" ConditionPriority="Normal">
+            <Fields>
+              <Field Hint="The title of this dialogue." Type="Text">
+                <Title>Title</Title>
+                <Value />
+              </Field>
+              <Field Hint="The actor who is talking." Type="Actor">
+                <Title>Actor</Title>
+                <Value>8</Value>
+              </Field>
+              <Field Hint="The actor who is listening." Type="Actor">
+                <Title>Conversant</Title>
+                <Value>23</Value>
+              </Field>
+              <Field Hint="The text that is displayed to the player in a list as a dialogue option." Type="Text">
+                <Title>Menu Text</Title>
+                <Value>Pick up</Value>
+              </Field>
+              <Field Hint="The text that is spoken by the actor." Type="Localization">
+                <Title>Dialogue Text</Title>
+                <Value>Picking...</Value>
+              </Field>
+              <Field Hint="A WMV video file to be played for this dialogue." Type="Text">
+                <Title>Video File</Title>
+                <Value />
+              </Field>
+              <Field Hint="Dialogue System for Unity cutscene sequence" Type="Text">
+                <Title>Sequence</Title>
+                <Value>Pick();</Value>
+              </Field>
+            </Fields>
+            <ReviewerNotes />
+            <ReviewerStatus>None</ReviewerStatus>
+            <OutgoingLinks />
+            <ConditionsString>Item["Grab_List"].State == "active";</ConditionsString>
+            <UserScript />
+          </DialogEntry>
+          <DialogEntry ID="4" IsRoot="false" IsGroup="false" NodeColor="White" DelaySimStatus="false" FalseCondtionAction="Block" ConditionPriority="Normal">
+            <Fields>
+              <Field Hint="The title of this dialogue." Type="Text">
+                <Title>Title</Title>
+                <Value />
+              </Field>
+              <Field Hint="The actor who is talking." Type="Actor">
+                <Title>Actor</Title>
+                <Value>8</Value>
+              </Field>
+              <Field Hint="The actor who is listening." Type="Actor">
+                <Title>Conversant</Title>
+                <Value>23</Value>
+              </Field>
+              <Field Hint="The text that is displayed to the player in a list as a dialogue option." Type="Text">
+                <Title>Menu Text</Title>
+                <Value>Leave</Value>
+              </Field>
+              <Field Hint="The text that is spoken by the actor." Type="Localization">
+                <Title>Dialogue Text</Title>
+                <Value>Leaving...</Value>
+              </Field>
+              <Field Hint="A WMV video file to be played for this dialogue." Type="Text">
+                <Title>Video File</Title>
+                <Value />
+              </Field>
+              <Field Hint="Dialogue System for Unity cutscene sequence" Type="Text">
+                <Title>Sequence</Title>
+                <Value />
+              </Field>
+            </Fields>
+            <ReviewerNotes />
+            <ReviewerStatus>None</ReviewerStatus>
+            <OutgoingLinks />
+            <ConditionsString />
             <UserScript />
           </DialogEntry>
         </DialogEntries>
