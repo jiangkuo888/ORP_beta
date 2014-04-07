@@ -40,14 +40,14 @@ public class phoneButton : MonoBehaviour {
 
 		myGUITexture = this.gameObject.GetComponent("GUITexture") as GUITexture;
 
-
+		EventFSM = GameObject.Find ("EventManager-Tutorial").GetComponent<PlayMakerFSM>();
+		print (EventFSM.name);
 		
 	}
 	
 	// Use this for initialization
 	void Start()
 	{
-		EventFSM = GameObject.Find ("EventManager-Tutorial").GetComponent<PlayMakerFSM>();
 
 
 		OnCalling = false;
@@ -274,6 +274,8 @@ public class phoneButton : MonoBehaviour {
 			GameObject.Find("phoneSmallButton1").GetComponent<phoneShowPlayerButton>().targetPlayer = "Sales Manager";
 			GameObject.Find("phoneSmallButton2").GetComponent<phoneShowPlayerButton>().targetPlayer = "LPU Manager";
 			GameObject.Find("phoneSmallButton3").GetComponent<phoneShowPlayerButton>().targetPlayer = "Credit Risk";
+
+			print (EventFSM.name);
 			if(EventFSM.enabled != true)
 				
 			{

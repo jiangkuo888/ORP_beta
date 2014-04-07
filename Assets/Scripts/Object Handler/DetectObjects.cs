@@ -41,7 +41,7 @@ public class DetectObjects : Photon.MonoBehaviour {
 	
 	
 	void  OnGUI (){
-		if(gameOn && photonView.isMine)
+		if((gameOn && photonView.isMine) || GameObject.Find ("GameManager").GetComponent<GameManagerVik>().isTutorial)
 		{
 		Ray ray= Camera.main.ScreenPointToRay (Input.mousePosition);
 		RaycastHit hit;
@@ -248,10 +248,15 @@ public class DetectObjects : Photon.MonoBehaviour {
 							if( mouseClick)
 							{
 								if(hit.collider.transform.parent.parent.transform.Find ("TriggerA").GetComponent<DoorHandler>().enter)
+								{
 								hit.collider.transform.parent.parent.transform.Find ("TriggerA").GetComponent<DoorHandler>().clicked = true;
+								}
 
 								if(hit.collider.transform.parent.parent.transform.Find ("TriggerB").GetComponent<DoorHandler>().enter)
+								{
 								hit.collider.transform.parent.parent.transform.Find ("TriggerB").GetComponent<DoorHandler>().clicked = true;
+									print ("CLICKED");
+								}
 								
 								currentHitObj.renderer.material.shader = originalShader;
 								Cursor.SetCursor(null, Vector2.zero, cursorMode);
