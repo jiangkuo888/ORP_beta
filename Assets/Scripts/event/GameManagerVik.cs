@@ -69,6 +69,10 @@ public class GameManagerVik : Photon.MonoBehaviour {
 				isTrainer = false;
 			}
 		} 
+		else if (PlayerPrefs.GetString("isTutorial") == "true")
+		{
+			isTutorial = true;
+		}
 		else
 		{
 			//-----------------------------------------------------------------------------------------------------
