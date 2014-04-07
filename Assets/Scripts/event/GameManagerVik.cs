@@ -214,6 +214,7 @@ public class GameManagerVik : Photon.MonoBehaviour {
 						playa = PhotonNetwork.Instantiate(playerPrefabList[i].name, spawnPosition, Quaternion.identity, 0, objs);
 						
 						playa.name = "Sales Manager";
+						//playa.GetComponent<CharacterController>().detectCollisions = false;
 
 						if(!isTutorial)
 						{
@@ -229,6 +230,7 @@ public class GameManagerVik : Photon.MonoBehaviour {
 						spawnPosition = randomSpawnPosition(LOSpawnPositionList);
 						playa = PhotonNetwork.Instantiate(playerPrefabList[i].name, spawnPosition, Quaternion.identity, 0, objs);
 						playa.name = "LPU Officer";
+						//playa.GetComponent<CharacterController>().detectCollisions = false;
 
 						if(!isTutorial)
 						{
@@ -240,6 +242,8 @@ public class GameManagerVik : Photon.MonoBehaviour {
 						spawnPosition = randomSpawnPosition(LMSpawnPositionList);
 						playa = PhotonNetwork.Instantiate(playerPrefabList[i].name, spawnPosition, Quaternion.identity, 0, objs);
 						playa.name = "LPU Manager";
+						//playa.GetComponent<CharacterController>().detectCollisions = false;
+
 						if(!isTutorial)
 						{
 						if(GameObject.Find (playa.name+" Table").gameObject.transform.Find ("DocumentHolder").GetComponent<documentData>().enabled == false)
@@ -250,6 +254,8 @@ public class GameManagerVik : Photon.MonoBehaviour {
 						spawnPosition = randomSpawnPosition(CRSpawnPositionList);
 						playa = PhotonNetwork.Instantiate(playerPrefabList[i].name, spawnPosition, Quaternion.identity, 0, objs);
 						playa.name = "Credit Risk";
+						//playa.GetComponent<CharacterController>().detectCollisions = false;
+
 						if(!isTutorial)
 						{
 						if(GameObject.Find (playa.name+" Table").gameObject.transform.Find ("DocumentHolder").GetComponent<documentData>().enabled == false)
