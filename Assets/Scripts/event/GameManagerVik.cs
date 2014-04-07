@@ -160,12 +160,12 @@ public class GameManagerVik : Photon.MonoBehaviour {
 	void startGame()
 	{
 		//set name
-		PhotonNetwork.playerName = characterName;
+		//PhotonNetwork.playerName = characterName;
 
 		print ("Now we have: "+PhotonNetwork.playerList.Length+" players in total.");
 		
-		print (EventManager.FsmVariables.GetFsmInt ("playerNum").Value);
-		print(PhotonNetwork.playerList.Length);
+//		print (EventManager.FsmVariables.GetFsmInt ("playerNum").Value);
+	//	print(PhotonNetwork.playerList.Length);
 
 		//if not trainer
 		if (!isTrainer)

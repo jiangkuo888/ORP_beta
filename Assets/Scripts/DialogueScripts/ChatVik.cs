@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using dbConnect;
 
 /// <summary>
 /// This simple chat example showcases the use of RPC targets and targetting certain players via RPCs.
@@ -124,6 +125,27 @@ public class ChatVik : Photon.MonoBehaviour
     void SendChatMessage(string text, PhotonMessageInfo info)
     {
         AddMessage("[" + info.sender + "] " + text);
+
+		//get roomID & playerName
+		GameObject gameManager = GameObject.Find("GameManager");  
+		GameManagerVik vikky = gameManager.GetComponent<GameManagerVik>();
+		string sessionID = vikky.sessionID.ToString ();
+		string playerName = vikky.loginName;
+		string playerRole = PlayerPrefs.GetString("playerName");
+		
+		//add to db
+		dbClass db = new dbClass();
+		db.addFunction("addChatLog");
+		db.addValues("playerName", playerName);
+		db.addValues("playerRole", playerRole);
+		db.addValues("sessionID", sessionID);
+		db.addValues("chatString", text);
+		string dbReturn = db.connectToDb();
+		
+		if (dbReturn != "SUCCESS NO RETURN") {
+			print (dbReturn);
+		}
+
     }
 
     void SendChat(PhotonTargets target)

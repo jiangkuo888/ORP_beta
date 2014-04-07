@@ -69,7 +69,7 @@ namespace dbConnect {
 				formData["send"] = sendJSON.ToString();
 				byte[] responseBytes = webClient.UploadValues(this.url, "POST", formData);
 				string responsefromserver = Encoding.UTF8.GetString(responseBytes);
-				//Debug.Log(responsefromserver);
+				Debug.Log(responsefromserver);
 
 				//parse the return values
 				var returnValue = JSONNode.Parse(responsefromserver);

@@ -164,7 +164,26 @@ public class phoneShowNPCButton : MonoBehaviour {
 	}
 	
 	
-	
+	public void addCallToNPCList(string buttonDisplayText, string conversationName){
+
+		// add the conversationName to the list
+		System.Collections.Generic.List<string> conversationList = new System.Collections.Generic.List<string>(dialogueNames);
+		
+		if(!conversationList.Contains(conversationName))
+			conversationList.Add(conversationName);
+		
+		dialogueNames = conversationList.ToArray();
+
+
+		// add the display text to the textlist
+		System.Collections.Generic.List<string> textList = new System.Collections.Generic.List<string>(dialogueDisplayText);
+		
+		if(!textList.Contains(buttonDisplayText))
+			textList.Add(buttonDisplayText);
+		
+		dialogueDisplayText = textList.ToArray();
+
+	}
 
 
 //	public void addDialogue(string dialogueName, string dialogueButtonText){
