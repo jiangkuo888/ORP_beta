@@ -512,6 +512,8 @@ public class CharacterMotor : MonoBehaviour
     {
 
 	//	print (hit.transform.name);
+
+		if(hit.transform.tag !="SM" && hit.transform.tag !="LO" && hit.transform.tag !="LO" && hit.transform.tag !="CR"){
         if(hit.normal.y > 0 && hit.normal.y > groundNormal.y && hit.moveDirection.y < 0)
         {
             if((hit.point - movement.lastHitPoint).sqrMagnitude > 0.001 || lastGroundNormal == Vector3.zero)
@@ -524,6 +526,7 @@ public class CharacterMotor : MonoBehaviour
             movement.frameVelocity = Vector3.zero;
 
         }
+		}
     }
 
     private IEnumerator SubtractNewPlatformVelocity()
