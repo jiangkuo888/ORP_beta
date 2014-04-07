@@ -160,7 +160,7 @@ public class GameManagerVik : Photon.MonoBehaviour {
 	void startGame()
 	{
 		//set name
-		PhotonNetwork.playerName = characterName;
+		//PhotonNetwork.playerName = characterName;
 
 		print ("Now we have: "+PhotonNetwork.playerList.Length+" players in total.");
 		
