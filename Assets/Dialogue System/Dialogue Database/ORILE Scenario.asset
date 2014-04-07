@@ -379,7 +379,7 @@ MonoBehaviour:
       type: 2
     portrait: {fileID: 0}
   items:
-  - id: 10
+  - id: 12
     fields:
     - title: Name
       value: Missing Fire Extinguisher
@@ -399,7 +399,7 @@ MonoBehaviour:
     - title: Is Item
       value: False
       type: 2
-  - id: 11
+  - id: 13
     fields:
     - title: Name
       value: Fire Escape Blockage
@@ -420,7 +420,7 @@ MonoBehaviour:
     - title: Is Item
       value: False
       type: 2
-  - id: 12
+  - id: 14
     fields:
     - title: Name
       value: Get to Work!
@@ -440,7 +440,7 @@ MonoBehaviour:
     - title: Is Item
       value: False
       type: 2
-  - id: 13
+  - id: 15
     fields:
     - title: Name
       value: Expired Fire Ext
@@ -461,7 +461,7 @@ MonoBehaviour:
     - title: Is Item
       value: False
       type: 2
-  - id: 14
+  - id: 16
     fields:
     - title: Name
       value: Potential Sales
@@ -482,7 +482,7 @@ MonoBehaviour:
     - title: Is Item
       value: False
       type: 2
-  - id: 15
+  - id: 17
     fields:
     - title: Name
       value: Delivery from Courier
@@ -502,7 +502,7 @@ MonoBehaviour:
     - title: Is Item
       value: False
       type: 2
-  - id: 16
+  - id: 18
     fields:
     - title: Name
       value: Workdesk Mode
@@ -523,7 +523,7 @@ MonoBehaviour:
     - title: Is Item
       value: False
       type: 2
-  - id: 17
+  - id: 19
     fields:
     - title: Name
       value: Escort Trapped Customer
@@ -543,7 +543,7 @@ MonoBehaviour:
     - title: Is Item
       value: False
       type: 2
-  - id: 18
+  - id: 20
     fields:
     - title: Name
       value: Identify Wrong Info Given
@@ -563,7 +563,7 @@ MonoBehaviour:
     - title: Is Item
       value: False
       type: 2
-  - id: 19
+  - id: 21
     fields:
     - title: Name
       value: Evacuate Now
@@ -583,7 +583,7 @@ MonoBehaviour:
     - title: Is Item
       value: False
       type: 2
-  - id: 20
+  - id: 22
     fields:
     - title: Name
       value: Kevin Email Sent
@@ -603,7 +603,7 @@ MonoBehaviour:
     - title: Is Item
       value: False
       type: 2
-  - id: 21
+  - id: 23
     fields:
     - title: Name
       value: Grab List
@@ -2340,9 +2340,210 @@ MonoBehaviour:
       delaySimStatus: 0
       falseConditionAction: Block
       conditionPriority: 2
-      outgoingLinks: []
+      outgoingLinks:
+      - originConversationID: 23
+        originDialogueID: 7
+        destinationConversationID: 23
+        destinationDialogueID: 8
+        isConnector: 0
+        priority: 2
       conditionsString: 
       userScript: Item["Expired_Fire_Ext"].State = "active";
+    - id: 8
+      fields:
+      - title: Title
+        value: 
+        type: 0
+      - title: Actor
+        value: 1
+        type: 5
+      - title: Conversant
+        value: 15
+        type: 5
+      - title: Menu Text
+        value: 
+        type: 0
+      - title: Dialogue Text
+        value: 'hmmm who should I call regarding this matter? '
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 23
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 23
+        originDialogueID: 8
+        destinationConversationID: 23
+        destinationDialogueID: 9
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+    - id: 9
+      fields:
+      - title: Title
+        value: Who to call
+        type: 0
+      - title: Actor
+        value: 15
+        type: 5
+      - title: Conversant
+        value: 1
+        type: 5
+      - title: Sequence
+        value: None()
+        type: 0
+      conversationID: 23
+      isRoot: 0
+      isGroup: 1
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 23
+        originDialogueID: 9
+        destinationConversationID: 23
+        destinationDialogueID: 10
+        isConnector: 0
+        priority: 2
+      - originConversationID: 23
+        originDialogueID: 9
+        destinationConversationID: 23
+        destinationDialogueID: 11
+        isConnector: 0
+        priority: 2
+      - originConversationID: 23
+        originDialogueID: 9
+        destinationConversationID: 23
+        destinationDialogueID: 12
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+    - id: 10
+      fields:
+      - title: Title
+        value: Right Ans
+        type: 0
+      - title: Actor
+        value: 1
+        type: 5
+      - title: Conversant
+        value: 15
+        type: 5
+      - title: Menu Text
+        value: Security Manager
+        type: 0
+      - title: Dialogue Text
+        value: 'Yes, that''s right! I should contact the Security Manager with my
+          phone. '
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 23
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: Dialog[7].SimStatus ~= "WasDisplayed"
+      userScript: 'Item["Missing_Fire_Extinguisher"].State = "active"; Variable["Alert"]
+        = "New Quest: Missing Fire Extinguisher";'
+    - id: 11
+      fields:
+      - title: Title
+        value: Dummy ans
+        type: 0
+      - title: Actor
+        value: 1
+        type: 5
+      - title: Conversant
+        value: 15
+        type: 5
+      - title: Menu Text
+        value: 'Technology Manager '
+        type: 0
+      - title: Dialogue Text
+        value: 'A missing fire extinguisher has nothing to do with the Technology
+          Manager. '
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 23
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 23
+        originDialogueID: 11
+        destinationConversationID: 23
+        destinationDialogueID: 9
+        isConnector: 1
+        priority: 2
+      conditionsString: Dialog[8].SimStatus ~= "WasDisplayed"
+      userScript: 
+    - id: 12
+      fields:
+      - title: Title
+        value: Dummy ans
+        type: 0
+      - title: Actor
+        value: 1
+        type: 5
+      - title: Conversant
+        value: 15
+        type: 5
+      - title: Menu Text
+        value: Call a Friend
+        type: 0
+      - title: Dialogue Text
+        value: 'hmmm.... that doesn''t seems to be right.. '
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 23
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 23
+        originDialogueID: 12
+        destinationConversationID: 23
+        destinationDialogueID: 9
+        isConnector: 1
+        priority: 2
+      conditionsString: Dialog[9].SimStatus ~= "WasDisplayed"
+      userScript: 
   - id: 24
     fields:
     - title: Title
@@ -2664,7 +2865,7 @@ MonoBehaviour:
         type: 0
       - title: Dialogue Text
         value: 
-        type: 0
+        type: 4
       - title: Video File
         value: 
         type: 0
@@ -2709,12 +2910,12 @@ MonoBehaviour:
         type: 0
       - title: Dialogue Text
         value: 'Hey [lua(Variable["Actor"])], how''s your day? '
-        type: 0
+        type: 4
       - title: Video File
         value: 
         type: 0
       - title: Sequence
-        value: Camera(Closeup); PBDia(Casual Chat in Pantry, 1, npc);
+        value: Camera(Closeup)
         type: 0
       conversationID: 25
       isRoot: 0
@@ -2767,12 +2968,12 @@ MonoBehaviour:
         type: 0
       - title: Dialogue Text
         value: 
-        type: 0
+        type: 4
       - title: Video File
         value: 
         type: 0
       - title: Sequence
-        value: PBDia(Casual Chat in Pantry, 2, player);
+        value: 
         type: 0
       conversationID: 25
       isRoot: 0
@@ -2806,12 +3007,12 @@ MonoBehaviour:
         type: 0
       - title: Dialogue Text
         value: 
-        type: 0
+        type: 4
       - title: Video File
         value: 
         type: 0
       - title: Sequence
-        value: PBDia(Casual Chat in Pantry, 3, player);
+        value: 
         type: 0
       conversationID: 25
       isRoot: 0
@@ -2839,12 +3040,12 @@ MonoBehaviour:
         type: 0
       - title: Dialogue Text
         value: 
-        type: 0
+        type: 4
       - title: Video File
         value: 
         type: 0
       - title: Sequence
-        value: PBDia(Casual Chat in Pantry, 4, player);
+        value: 
         type: 0
       conversationID: 25
       isRoot: 0
@@ -2878,12 +3079,12 @@ MonoBehaviour:
         type: 0
       - title: Dialogue Text
         value: 'Oh, the microwave doesn''t seems to be working. '
-        type: 0
+        type: 4
       - title: Video File
         value: 
         type: 0
       - title: Sequence
-        value: PBDia(Casual Chat in Pantry, 5, npc);
+        value: 
         type: 0
       conversationID: 25
       isRoot: 0
@@ -2911,12 +3112,12 @@ MonoBehaviour:
         type: 0
       - title: Dialogue Text
         value: 'The coffee ran out, so I am brewing a new batch. '
-        type: 0
+        type: 4
       - title: Video File
         value: 
         type: 0
       - title: Sequence
-        value: PBDia(Casual Chat in Pantry, 6, npc);
+        value: 
         type: 0
       conversationID: 25
       isRoot: 0
@@ -2949,8 +3150,8 @@ MonoBehaviour:
         value: Nothing
         type: 0
       - title: Dialogue Text
-        value: PBDia(Casual Chat in Pantry, 7, player);
-        type: 0
+        value: 
+        type: 4
       - title: Video File
         value: 
         type: 0
@@ -2983,12 +3184,12 @@ MonoBehaviour:
         type: 0
       - title: Dialogue Text
         value: 'Ok, i''m come back later. '
-        type: 0
+        type: 4
       - title: Video File
         value: 
         type: 0
       - title: Sequence
-        value: PBDia(Casual Chat in Pantry, 8, player);
+        value: 
         type: 0
       conversationID: 25
       isRoot: 0
@@ -3016,12 +3217,12 @@ MonoBehaviour:
         type: 0
       - title: Dialogue Text
         value: 'Hi, [lua(Variable["Actor"])]. Would you like some coffee? '
-        type: 0
+        type: 4
       - title: Video File
         value: 
         type: 0
       - title: Sequence
-        value: Camera(Closeup); PBDia(Casual Chat in Pantry, 10, npc);
+        value: Camera(Closeup)
         type: 0
       conversationID: 25
       isRoot: 0
@@ -3062,12 +3263,12 @@ MonoBehaviour:
         type: 0
       - title: Dialogue Text
         value: 
-        type: 0
+        type: 4
       - title: Video File
         value: 
         type: 0
       - title: Sequence
-        value: PBDia(Casual Chat in Pantry, 11, player);
+        value: 
         type: 0
       conversationID: 25
       isRoot: 0
@@ -3101,12 +3302,12 @@ MonoBehaviour:
         type: 0
       - title: Dialogue Text
         value: 'Sorry, sir. I will get back to work right away! '
-        type: 0
+        type: 4
       - title: Video File
         value: 
         type: 0
       - title: Sequence
-        value: PBDia(Casual Chat in Pantry, 12, npc);
+        value: 
         type: 0
       conversationID: 25
       isRoot: 0
@@ -3134,12 +3335,12 @@ MonoBehaviour:
         type: 0
       - title: Dialogue Text
         value: 
-        type: 0
+        type: 4
       - title: Video File
         value: 
         type: 0
       - title: Sequence
-        value: PBDia(Casual Chat in Pantry, 13, player);
+        value: 
         type: 0
       conversationID: 25
       isRoot: 0
@@ -5779,7 +5980,7 @@ MonoBehaviour:
       - originConversationID: 35
         originDialogueID: 5
         destinationConversationID: 35
-        destinationDialogueID: 1
+        destinationDialogueID: 4
         isConnector: 0
         priority: 2
       - originConversationID: 35
@@ -5791,7 +5992,7 @@ MonoBehaviour:
       - originConversationID: 35
         originDialogueID: 5
         destinationConversationID: 35
-        destinationDialogueID: 4
+        destinationDialogueID: 1
         isConnector: 0
         priority: 2
       conditionsString: 
