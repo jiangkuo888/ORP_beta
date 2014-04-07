@@ -284,6 +284,46 @@ MonoBehaviour:
     - title: Is Item
       value: False
       type: 2
+  - id: 10
+    fields:
+    - title: Name
+      value: LOtoCR1
+      type: 0
+    - title: Description
+      value: 
+      type: 0
+    - title: Success Description
+      value: 
+      type: 0
+    - title: Failure Description
+      value: 
+      type: 0
+    - title: State
+      value: unassigned
+      type: 0
+    - title: Is Item
+      value: False
+      type: 2
+  - id: 11
+    fields:
+    - title: Name
+      value: CRtoLM_Safe_unlock
+      type: 0
+    - title: Description
+      value: 
+      type: 0
+    - title: Success Description
+      value: 
+      type: 0
+    - title: Failure Description
+      value: 
+      type: 0
+    - title: State
+      value: unassigned
+      type: 0
+    - title: Is Item
+      value: False
+      type: 2
   locations:
   - id: 1
     fields:
@@ -882,6 +922,12 @@ MonoBehaviour:
       - originConversationID: 7
         originDialogueID: 0
         destinationConversationID: 7
+        destinationDialogueID: 3
+        isConnector: 0
+        priority: 2
+      - originConversationID: 7
+        originDialogueID: 0
+        destinationConversationID: 7
         destinationDialogueID: 2
         isConnector: 0
         priority: 2
@@ -955,6 +1001,41 @@ MonoBehaviour:
       outgoingLinks: []
       conditionsString: 
       userScript: 
+    - id: 3
+      fields:
+      - title: Title
+        value: 
+        type: 0
+      - title: Actor
+        value: 8
+        type: 5
+      - title: Conversant
+        value: 6
+        type: 5
+      - title: Menu Text
+        value: Message from Loan Officer
+        type: 0
+      - title: Dialogue Text
+        value: There is an evacuation of the Sales Floor to our floor. Kindly keep
+          all sensitive documents secured.
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: DidRead();
+        type: 0
+      conversationID: 7
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: Item["LOtoCR1"].State == "active" and Dialog[3].SimStatus
+        ~= "WasDisplayed"
+      userScript: Item["CRtoLM_Safe_unlock"].State = "success"
   - id: 8
     fields:
     - title: Title
@@ -1002,6 +1083,12 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
+      - originConversationID: 8
+        originDialogueID: 0
+        destinationConversationID: 8
+        destinationDialogueID: 1
+        isConnector: 0
+        priority: 2
       - originConversationID: 8
         originDialogueID: 0
         destinationConversationID: 8
@@ -1084,6 +1171,41 @@ MonoBehaviour:
       conditionsString: Item["LOtoLM1"].State == "active" and Dialog[3].SimStatus
         ~= "WasDisplayed"
       userScript: Item["LMtoCR_Safe_unlock"].State = "success"
+    - id: 1
+      fields:
+      - title: Title
+        value: 
+        type: 0
+      - title: Actor
+        value: 10
+        type: 5
+      - title: Conversant
+        value: 6
+        type: 5
+      - title: Menu Text
+        value: Message from Credit Risk
+        type: 0
+      - title: Dialogue Text
+        value: Hi, I need to deposit some documents into the safe. I will come over
+          with my safe key to unlock the safe. Thank you.
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: Log(6A, Inform Credit Risk to unlock Safe);DidRead();
+        type: 0
+      conversationID: 8
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: Item["CRtoLM_Safe_unlock"].State == "active" and Dialog[1].SimStatus
+        ~= "WasDisplayed"
+      userScript: 
   - id: 9
     fields:
     - title: Title
@@ -1386,7 +1508,7 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks: []
-      conditionsString: Item["LOtoSM1"].State == "success" and Dialog[3].SimStatus
+      conditionsString: Item["LOtoLM1"].State == "success" and Dialog[3].SimStatus
         ~= "WasDisplayed"
       userScript: 
   - id: 12
@@ -1439,6 +1561,12 @@ MonoBehaviour:
       - originConversationID: 12
         originDialogueID: 0
         destinationConversationID: 12
+        destinationDialogueID: 1
+        isConnector: 0
+        priority: 2
+      - originConversationID: 12
+        originDialogueID: 0
+        destinationConversationID: 12
         destinationDialogueID: 2
         isConnector: 0
         priority: 2
@@ -1476,6 +1604,41 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
+      userScript: 
+    - id: 1
+      fields:
+      - title: Title
+        value: Keep your stuffs
+        type: 0
+      - title: Actor
+        value: 1
+        type: 5
+      - title: Conversant
+        value: 6
+        type: 5
+      - title: Menu Text
+        value: Evacuation Notice
+        type: 0
+      - title: Dialogue Text
+        value: 'Sending message to Loan Manager... [There is an evacuation of the
+          Sales Floor to our floor. Kindly keep all sensitive documents secured.] '
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: SendConversation(LO,CR, LOtoCR1);
+        type: 0
+      conversationID: 12
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: Item["LOtoCR1"].State == "success" and Dialog[3].SimStatus
+        ~= "WasDisplayed"
       userScript: 
   - id: 13
     fields:
@@ -2009,6 +2172,12 @@ MonoBehaviour:
       - originConversationID: 18
         originDialogueID: 0
         destinationConversationID: 18
+        destinationDialogueID: 1
+        isConnector: 0
+        priority: 2
+      - originConversationID: 18
+        originDialogueID: 0
+        destinationConversationID: 18
         destinationDialogueID: 2
         isConnector: 0
         priority: 2
@@ -2046,4 +2215,40 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
+      userScript: 
+    - id: 1
+      fields:
+      - title: Title
+        value: Unlock Safe
+        type: 0
+      - title: Actor
+        value: 1
+        type: 5
+      - title: Conversant
+        value: 6
+        type: 5
+      - title: Menu Text
+        value: Message to Loan Manager - Need to deposit documents in Safe
+        type: 0
+      - title: Dialogue Text
+        value: Sending message to Loan Manager... [Hi, I need to deposit some documents
+          into the safe. I will come over with my safe key to unlock the safe. Thank
+          you.]
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: SendConversation(CR,LM, CRtoLM_Safe_unlock);
+        type: 0
+      conversationID: 18
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: Dialog[1].SimStatus ~= "WasDisplayed" and Item["CRtoLM_Safe_unlock"]
+        == "success"
       userScript: 

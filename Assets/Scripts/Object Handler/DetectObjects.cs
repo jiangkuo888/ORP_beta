@@ -247,8 +247,11 @@ public class DetectObjects : Photon.MonoBehaviour {
 							
 							if( mouseClick)
 							{
-								
-								hit.collider.transform.parent.parent.parent.GetComponent<DoorHandler>().clicked = true;
+								if(hit.collider.transform.parent.parent.transform.Find ("TriggerA").GetComponent<DoorHandler>().enter)
+								hit.collider.transform.parent.parent.transform.Find ("TriggerA").GetComponent<DoorHandler>().clicked = true;
+
+								if(hit.collider.transform.parent.parent.transform.Find ("TriggerB").GetComponent<DoorHandler>().enter)
+								hit.collider.transform.parent.parent.transform.Find ("TriggerB").GetComponent<DoorHandler>().clicked = true;
 								
 								currentHitObj.renderer.material.shader = originalShader;
 								Cursor.SetCursor(null, Vector2.zero, cursorMode);

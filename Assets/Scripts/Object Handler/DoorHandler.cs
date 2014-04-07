@@ -8,11 +8,16 @@ public class DoorHandler : Photon.MonoBehaviour {
 	float DoorOpenAngle = 90.0f;
 	float DoorCloseAngle = 180.0f;
 	bool isOpen ;
-	bool enter ;
+	public bool enter ;
 	bool doorState;
 	public bool clicked;
 	public bool enabled;
 	PlayMakerFSM EventFSM;
+	public bool isTriggerA;
+	public bool isTriggerB;
+
+	public string currentOpenedDirection;
+
 	// Use this for initialization
 	void Start () {
 		isOpen = false;
@@ -45,19 +50,64 @@ public class DoorHandler : Photon.MonoBehaviour {
 	
 	[RPC]
 	void Open(){
-		Transform child = transform.Find("doortestrun");
+		if(isTriggerA)
+		{
+		Transform child = transform.parent.transform.Find("Door");
 		isOpen = !isOpen;
 		if(isOpen){
 			if(child != null)
-				child.animation.Play("Anim_Wooden_Open");
+				{
+					child.animation.Play("DoorOpenA");
+
+
+					transform.parent.Find("TriggerB").GetComponent<DoorHandler>().currentOpenedDirection = "A";
+					currentOpenedDirection = "A";
+				}
 			else
 				Debug.Log("did not get child");
 		}//Debug.Log("Door is open");
 		else{
 			if(child != null)
-				child.animation.Play("Anim_wooden_close");
+				{
+					if(currentOpenedDirection == "A")
+						child.animation.Play("DoorCloseA");
+					else
+						child.animation.Play("DoorCloseB");
+				}
 			else
 				Debug.Log("did not get child");
+		}
+
+
+			//this.transform.parent.transform.Find("TriggerB").GetComponent<DoorHandler>().clicked = false;
+		}
+		else if(isTriggerB){
+			Transform child = transform.parent.transform.Find("Door");
+			isOpen = !isOpen;
+			if(isOpen){
+				if(child != null)
+				{
+					child.animation.Play("DoorOpenB");
+
+					transform.parent.Find("TriggerA").GetComponent<DoorHandler>().currentOpenedDirection = "B";
+					currentOpenedDirection = "B";
+				}
+				else
+					Debug.Log("did not get child");
+			}//Debug.Log("Door is open");
+			else{
+				if(child != null)
+				{
+					if(currentOpenedDirection == "B")
+						child.animation.Play("DoorCloseB");
+					else
+						child.animation.Play("DoorCloseA");
+				}
+				else
+					Debug.Log("did not get child");
+			}
+
+			//this.transform.parent.transform.Find("TriggerA").GetComponent<DoorHandler>().clicked = false;
 		}
 	}
 	
@@ -82,6 +132,10 @@ public class DoorHandler : Photon.MonoBehaviour {
 	
 	//Activate the Main function when player is near the door
 	void OnTriggerEnter (Collider Co){
+
+
+
+
 		//Debug.Log("name: " + other.gameObject.transform.name);
 		if(Co.gameObject.tag == "SM" || Co.gameObject.tag == "LM" || Co.gameObject.tag == "LO" || Co.gameObject.tag == "CR" && Co.GetComponent<PhotonView>().isMine)
 			enter = true;
