@@ -324,6 +324,26 @@ MonoBehaviour:
     - title: Is Item
       value: False
       type: 2
+  - id: 12
+    fields:
+    - title: Name
+      value: LOtoSM2
+      type: 0
+    - title: Description
+      value: 
+      type: 0
+    - title: Success Description
+      value: 
+      type: 0
+    - title: Failure Description
+      value: 
+      type: 0
+    - title: State
+      value: unassigned
+      type: 0
+    - title: Is Item
+      value: False
+      type: 2
   locations:
   - id: 1
     fields:
@@ -405,6 +425,12 @@ MonoBehaviour:
       - originConversationID: 3
         originDialogueID: 0
         destinationConversationID: 3
+        destinationDialogueID: 2
+        isConnector: 0
+        priority: 2
+      - originConversationID: 3
+        originDialogueID: 0
+        destinationConversationID: 3
         destinationDialogueID: 3
         isConnector: 0
         priority: 2
@@ -425,7 +451,7 @@ MonoBehaviour:
         value: Message from Loan Officer
         type: 0
       - title: Dialogue Text
-        value: "I have received your message. Please give me 5 minutes to prepare.
+        value: "I have received your message. Please give me some time to prepare.
           \n"
         type: 4
       - title: Video File
@@ -477,6 +503,41 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
+      userScript: 
+    - id: 2
+      fields:
+      - title: Title
+        value: LOtoSM1
+        type: 0
+      - title: Actor
+        value: 8
+        type: 5
+      - title: Conversant
+        value: 6
+        type: 5
+      - title: Menu Text
+        value: Message from Loan Officer
+        type: 0
+      - title: Dialogue Text
+        value: We are prepared to receive the evacuatees. You can perform the evacuation
+          now.
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: DidRead();
+        type: 0
+      conversationID: 3
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: Item["LOtoSM2"].State == "active" and Dialog[2].SimStatus
+        ~= "WasDisplayed"
       userScript: 
   - id: 4
     fields:
@@ -534,6 +595,12 @@ MonoBehaviour:
       - originConversationID: 4
         originDialogueID: 0
         destinationConversationID: 4
+        destinationDialogueID: 2
+        isConnector: 0
+        priority: 2
+      - originConversationID: 4
+        originDialogueID: 0
+        destinationConversationID: 4
         destinationDialogueID: 3
         isConnector: 0
         priority: 2
@@ -551,11 +618,11 @@ MonoBehaviour:
         value: 6
         type: 5
       - title: Menu Text
-        value: Send Confirmation of Evacuation to Sales Manager
+        value: '[f]Send Confirmation of Evacuation to Sales Manager'
         type: 0
       - title: Dialogue Text
         value: Sending Message to Sales Manager ... [ I have received your message.
-          Please give me 5 minutes to prepare. ]
+          Please give me some time to prepare. I will message you when I'm ready.]
         type: 4
       - title: Video File
         value: 
@@ -573,7 +640,7 @@ MonoBehaviour:
       outgoingLinks: []
       conditionsString: Dialog[1].SimStatus ~= "WasDisplayed" and Item["LOtoSM1"].State
         == "success"
-      userScript: 
+      userScript: Item["LOtoSM2"].State = "success"
     - id: 3
       fields:
       - title: Title
@@ -606,6 +673,41 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
+      userScript: 
+    - id: 2
+      fields:
+      - title: Title
+        value: LOtoSM2
+        type: 0
+      - title: Actor
+        value: 1
+        type: 5
+      - title: Conversant
+        value: 6
+        type: 5
+      - title: Menu Text
+        value: '[f]Notify Sales Manager that we are ready to receive the evacuatees. '
+        type: 0
+      - title: Dialogue Text
+        value: 'Sending Messages to Sales Manager ... [We are prepared to receive
+          the evacuatees. You can perform the evacuation now.] '
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: SendConversation(LO,SM, LOtoSM2);
+        type: 0
+      conversationID: 4
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: Dialog[1].SimStatus ~= "WasDisplayed" and Item["LOtoSM2"].State
+        == "success"
       userScript: 
   - id: 5
     fields:
@@ -832,7 +934,11 @@ MonoBehaviour:
       outgoingLinks: []
       conditionsString: Item["SMMessageSent1"].State == "active" and Dialog[1].SimStatus
         ~= "WasDisplayed"
-      userScript: Item["LOtoSM1"].State = "success"
+      userScript: 'Item["LOtoSM1"].State = "success";
+
+        Item["LOtoCR1"].State = "success";
+
+        Item["LOtoLM1"].State = "success";'
     - id: 3
       fields:
       - title: Title

@@ -6630,86 +6630,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 1730908607}
   m_GameObject: {fileID: 365990324}
   m_Mesh: {fileID: 4300000, guid: 66d4857281aaf8641aa85ca84ff533a3, type: 3}
---- !u!1 &372435897
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 372435898}
-  - 136: {fileID: 372435899}
-  m_Layer: 2
-  m_Name: LOSpawnPts
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &372435898
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 372435897}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1678731848}
---- !u!136 &372435899
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 372435897}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  m_Radius: .5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!1 &381148943
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 381148944}
-  - 136: {fileID: 381148945}
-  m_Layer: 2
-  m_Name: CRSpawnPts
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &381148944
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 381148943}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1678731848}
---- !u!136 &381148945
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 381148943}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  m_Radius: .5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &398357930
 GameObject:
   m_ObjectHideFlags: 0
@@ -7055,46 +6975,6 @@ Animation:
   m_PlayAutomatically: 0
   m_AnimatePhysics: 0
   m_CullingType: 0
---- !u!1 &431417639
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 431417641}
-  - 136: {fileID: 431417640}
-  m_Layer: 2
-  m_Name: SMSpawnPts
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!136 &431417640
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 431417639}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  m_Radius: .5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!4 &431417641
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 431417639}
-  m_LocalRotation: {x: 0, y: .721523821, z: 0, w: .692389607}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1678731848}
 --- !u!1 &438775824
 GameObject:
   m_ObjectHideFlags: 0
@@ -10672,13 +10552,13 @@ MonoBehaviour:
   - LPU Manager
   - Credit Risk
   SMSpawnPositionList:
-  - {fileID: 431417641}
+  - {fileID: 0}
   LOSpawnPositionList:
-  - {fileID: 372435898}
+  - {fileID: 1678731848}
   LMSpawnPositionList:
-  - {fileID: 963943242}
+  - {fileID: 0}
   CRSpawnPositionList:
-  - {fileID: 381148944}
+  - {fileID: 0}
   EventManager: {fileID: 1245184160}
   sessionID: -1
   loginName: 
@@ -10689,9 +10569,9 @@ MonoBehaviour:
   startGameNow: 0
   syncNum: 0
   syncTotal: 1
-  characterName: Sales Manager
-  roomName: jkTutorialTesting
-  noLogin: 1
+  characterName: 
+  roomName: 
+  noLogin: 0
 --- !u!114 &790429271
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10759,7 +10639,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 790429269}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5ae63a6c5483c484083fa20d07b97f21, type: 3}
   m_Name: 
@@ -10772,6 +10652,7 @@ MonoBehaviour:
   isMessage: 0
   isPlaybackList: 0
   isMain: 0
+  isTutorial: 0
   isChoose: 0
   isTrainer: 0
   isLobby: 0
@@ -12433,46 +12314,6 @@ Transform:
   m_Children:
   - {fileID: 909397964}
   m_Father: {fileID: 1699511389}
---- !u!1 &963943241
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 963943242}
-  - 136: {fileID: 963943243}
-  m_Layer: 2
-  m_Name: LMSpawnPts
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &963943242
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 963943241}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1678731848}
---- !u!136 &963943243
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 963943241}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  m_Radius: .5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &980097139
 GameObject:
   m_ObjectHideFlags: 0
@@ -15991,7 +15832,7 @@ MonoBehaviour:
           tooltip: 
           showInInspector: 0
           networkSync: 0
-          value: {fileID: 1421996417}
+          value: {fileID: 0}
         - useVariable: 1
           name: 
           tooltip: 
@@ -18656,54 +18497,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: .00539020263, y: .00909080356, z: .00454012258}
   m_Center: {x: -1.28056854e-09, y: -4.65661287e-10, z: -3.7252903e-09}
---- !u!1 &1421996417
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1421996418}
-  - 33: {fileID: 1421996420}
-  - 136: {fileID: 1421996419}
-  m_Layer: 0
-  m_Name: SmokeSpawnPt
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1421996418
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1421996417}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1678731848}
---- !u!136 &1421996419
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1421996417}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  m_Radius: .5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!33 &1421996420
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1421996417}
-  m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1001 &1435034774
 Prefab:
   m_ObjectHideFlags: 0
@@ -20134,12 +19927,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -75.1866455, y: 7.53023481, z: 140.476212}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 381148944}
-  - {fileID: 963943242}
-  - {fileID: 372435898}
-  - {fileID: 1421996418}
-  - {fileID: 431417641}
+  m_Children: []
   m_Father: {fileID: 0}
 --- !u!1001 &1684775577
 Prefab:
