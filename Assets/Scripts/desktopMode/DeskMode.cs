@@ -146,15 +146,14 @@ public class DeskMode : MonoBehaviour {
 				if(this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents.Length>0)
 				{
 					GameObject targetDocument = this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].gameObject;
-					if(GameObject.Find ("InventoryObj").GetComponent<inventory>().inventoryObject !=null)
+					if(GameObject.Find ("Inventory").GetComponent<InventoryNew>().isFull)
 					{
-						GameObject.Find ("InventoryObj").GetComponent<GUITexture>().enabled = true;
-						print (" you have grabbed other object, please drop them first");
+
+						print ("Inventory is full.");
 					}
 					else{
 
-						GameObject.Find ("InventoryObj").GetComponent<inventory>().updateInventoryObject(targetDocument);
-						GameObject.Find ("InventoryObj").GetComponent<GUITexture>().enabled = true;
+						GameObject.Find ("Inventory").GetComponent<InventoryNew>().AddItem(targetDocument.transform);
 						// remove document from his table
 
 						this.transform.Find ("DocumentHolder").GetComponent<documentData>().removeDocument(targetDocument);
@@ -170,9 +169,9 @@ public class DeskMode : MonoBehaviour {
 
 					mode = DeskModeSubMode.None;
 					
-					GameObject.Find ("InventoryContainer").GetComponent<GUITexture>().enabled = true;
-					GameObject.Find ("InventoryButton1").GetComponent<GUITexture>().enabled = true;
-					GameObject.Find ("InventoryButton2").GetComponent<GUITexture>().enabled = true;
+					//GameObject.Find ("InventoryContainer").GetComponent<GUITexture>().enabled = true;
+					//GameObject.Find ("InventoryButton1").GetComponent<GUITexture>().enabled = true;
+					//GameObject.Find ("InventoryButton2").GetComponent<GUITexture>().enabled = true;
 					
 					
 					GameObject.Find ("phoneButton").GetComponent<GUITexture>().enabled = true;
@@ -481,14 +480,14 @@ public class DeskMode : MonoBehaviour {
 
 
 
-				if(GameObject.Find ("InventoryObj").GetComponent<inventory>().inventoryObject !=null)
-					GameObject.Find ("InventoryObj").GetComponent<GUITexture>().enabled = true;
+				//if(GameObject.Find ("InventoryObj").GetComponent<inventory>().inventoryObject !=null)
+				//	GameObject.Find ("InventoryObj").GetComponent<GUITexture>().enabled = true;
 
 
 
-				GameObject.Find ("InventoryContainer").GetComponent<GUITexture>().enabled = true;
-				GameObject.Find ("InventoryButton1").GetComponent<GUITexture>().enabled = true;
-				GameObject.Find ("InventoryButton2").GetComponent<GUITexture>().enabled = true;
+				//GameObject.Find ("InventoryContainer").GetComponent<GUITexture>().enabled = true;
+				//GameObject.Find ("InventoryButton1").GetComponent<GUITexture>().enabled = true;
+				//GameObject.Find ("InventoryButton2").GetComponent<GUITexture>().enabled = true;
 
 
 				GameObject.Find ("phoneButton").GetComponent<GUITexture>().enabled = true;

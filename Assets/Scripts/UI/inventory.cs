@@ -194,101 +194,13 @@ public class inventory : MonoBehaviour {
 	public void Drop(){
 
 
-		if(inventoryObject != null&& inventoryObject.GetComponent<Collider>()!=null)
-		{
-		// Distance from your player    
-		//float distance   = 3;     
-		
-		// Transforms a forward position relative to your player into the world space  
 
-		
-
-
-			Transform player = GameObject.Find (PhotonNetwork.playerName).transform;
-
-
-			Vector3 throwPos = player.position +Camera.main.transform.forward;
-
-		//Vector3 throwPos = new Vector3(GameObject.Find ("ClickArrow(Clone)").transform.position.x,GameObject.Find ("ClickArrow(Clone)").transform.position.y+ 1f,GameObject.Find ("ClickArrow(Clone)").transform.position.z);
-			if(GameObject.Find ("DropArea_"+inventoryObject.name))
-		GameObject.Find ("DropArea_"+inventoryObject.name).GetComponent<DropAreaController>().AreaActivated = false;
-
-		inventoryObject.transform.parent = null;
-		inventoryObject.transform.position = throwPos;
-		inventoryObject.transform.localScale = inventoryObjectOriginalScale;
-
-		if(inventoryObject.GetComponent<Rigidbody>() == null)
-		inventoryObject.AddComponent<Rigidbody> ();
-
-		enableCollider (inventoryObject);
-		enableRender (inventoryObject);
-
-		PhotonView photonView = inventoryObject.GetPhotonView();
-
-		photonView.RPC ("enableRenderer",PhotonTargets.AllBuffered);
-		photonView.RPC ("enableCollider",PhotonTargets.AllBuffered);
-		photonView.RPC ("enableRigidbody",PhotonTargets.AllBuffered);
-		photonView.RPC ("updateAllInfo",PhotonTargets.AllBuffered,throwPos);
-
-
-
-
-
-		// empty inventory area
-		inventoryObject = null;
-		inventoryObjectTexture = null;
-		this.GetComponent<GUITexture>().texture = null;
-
-		this.GetComponent<GUITexture>().enabled = false;
-
-		}
-		else {
-
-			print ("nothing to drop");
-
-		}
 
 
 	}
 
 
-	void enableCollider(GameObject obj){
 
-
-		Collider collider = obj.GetComponent<Collider> ();
-
-		if (collider.enabled == false)
-						collider.enabled = true;
-
-
-
-		Collider[] colliders = obj.GetComponentsInChildren<Collider>();
-		
-		foreach ( Collider c in colliders)
-		{
-			if(c.enabled == false)
-				c.enabled = true;
-		}
-		
-	}
-	void enableRender(GameObject obj)
-	{
-
-
-		Renderer renderer = obj.GetComponent<Renderer> ();
-		
-		if (renderer.enabled == false)
-			renderer.enabled = true;
-
-
-		Renderer[] renderers = obj.GetComponentsInChildren<Renderer>();
-		
-		foreach ( Renderer r in renderers)
-		{
-			if(r.enabled == false)
-				r.enabled = true;
-		}
-	}
 
 
 
