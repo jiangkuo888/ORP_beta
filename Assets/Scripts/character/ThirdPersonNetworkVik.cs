@@ -21,7 +21,38 @@ public class ThirdPersonNetworkVik : Photon.MonoBehaviour
     {
 
         //TODO: Bugfix to allow .isMine and .owner from AWAKE!
-		if (photonView.isMine)
+
+
+		if(GameObject.Find ("GameManager").GetComponent<GameManagerVik>().isTutorial)
+		{
+
+			Renderer[] rs =  this.transform.GetComponentsInChildren<Renderer>();
+			foreach (Renderer r in rs)
+				r.enabled = false;
+			
+			
+			//Camera.main.transform.parent = transform;
+			//Camera.main.transform.localPosition = cameraRelativePosition;
+			//Camera.main.transform.localEulerAngles = new Vector3(0.6651921f, 90, 0);
+			
+			if(cameraScript == null)
+				cameraScript = GameObject.Find ("Main Camera").GetComponent<MouseCamera>();
+			if(playerRotationScript == null)
+				playerRotationScript = transform.GetComponent<MouseCamera>();
+			
+			
+			playerRotationScript.enabled = true;
+			cameraScript.enabled = true;
+			
+			gameObject.GetComponent<ClickMove>().enabled = true;
+			gameObject.GetComponent<CharacterMotor>().enabled = true;
+			gameObject.GetComponent<DetectObjects>().enabled = true;			
+
+
+		}
+
+
+		else if (photonView.isMine )
         {
             //MINE: local player, simply enable the local scripts
 
@@ -156,7 +187,7 @@ public class ThirdPersonNetworkVik : Photon.MonoBehaviour
 
 
 
-        if (!photonView.isMine)
+		if (!photonView.isMine && !GameObject.Find ("GameManager").GetComponent<GameManagerVik>().isTutorial)
         {
             //Update remote player (smooth this, this looks good, at the cost of some accuracy)
             transform.position = Vector3.Lerp(transform.position, correctPlayerPos, Time.deltaTime * 5);

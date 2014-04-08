@@ -27,6 +27,7 @@ public class MainMenuVik : Photon.MonoBehaviour
 	public bool isMessage = false; //error/confirm message page
 	public bool isPlaybackList = false; //page where you choose from a list of playbacks
 	public bool isMain = false; //main page
+	public bool isTutorial = false; //choose tutorial stage
 	//public bool isPlayback = false; //playback mode
 	public bool isChoose = false; //choose character page
 	public bool isTrainer = false; //player is trainer
@@ -53,7 +54,13 @@ public class MainMenuVik : Photon.MonoBehaviour
 	//RUN AT START OF GAME
     void Awake()
     {
-		PlayerPrefs.DeleteAll ();
+		PlayerPrefs.DeleteKey ("sessionID");
+		PlayerPrefs.DeleteKey ("roomName");
+		PlayerPrefs.DeleteKey ("isTutorial");
+		PlayerPrefs.DeleteKey("isTrainer");
+		PlayerPrefs.DeleteKey("isPlayback");
+		PlayerPrefs.DeleteKey("filePath");
+
 		isStartGame = false;
 		Debug.Log ("main yo");
         //PhotonNetwork.logLevel = NetworkLogLevel.Full;
@@ -85,6 +92,16 @@ public class MainMenuVik : Photon.MonoBehaviour
 		StartCoroutine(WaitForList(w));
 		//fileList = w.data;
 		//Debug.Log(fileList);
+
+		//if come back do not go to login menu
+		if (PlayerPrefs.GetString("playerLoginName") != "")
+		{
+			//---------------------------------------
+			//	 TOGGLE isLogin false / isMain true
+			//--------------------------------------
+			isMain = true;
+			isLogin = false;
+		}
 
     }
 
@@ -186,11 +203,11 @@ public class MainMenuVik : Photon.MonoBehaviour
 					//if successful;, means login success
 					if (dbReturn == "SUCCESS") {
 
-						//--------------------------------------
-						//	 TOGGLE isLogin false/ isMain true
-						//--------------------------------------
+						//-------------------------------------------
+						//	 TOGGLE isLogin false/ isTutorial true
+						//-------------------------------------------
 						isLogin = false;
-						isMain = true;
+						isTutorial = true;
 
 						//see if admin
 						string playerType = db.getReturnValue("playerType");
@@ -244,6 +261,45 @@ public class MainMenuVik : Photon.MonoBehaviour
 			GUILayout.EndArea();
 			GUILayout.EndArea();
 			GUILayout.EndArea ();
+
+
+		//--------------------------------------------------------------------------------------------------
+		//				IF CHOOSING TUTORIAL
+		//--------------------------------------------------------------------------------------------------
+		} else if (isTutorial) {
+
+
+			// if role selection not completed, draw GUI
+			GUILayout.BeginArea(new Rect((Screen.width - 600) / 2, (Screen.height - 300) / 2, 960, 600));
+			GUILayout.BeginHorizontal();
+			GUILayout.Label("Do you want to play the tutorial?", GUILayout.Width(200));
+			GUILayout.Space (45);
+
+			if(GUILayout.Button("Yes",GUILayout.Width(150)) )
+			{
+				//-------------------------------------------
+				//	 TOGGLE isLogin false/ isTutorial true
+				//-------------------------------------------
+				isTutorial = false;
+				isMain = true;
+				
+				//load tutorial
+				PlayerPrefs.SetString("isTutorial", "true");
+				Application.LoadLevel("Fire_event_tutorial");
+			}
+
+			if(GUILayout.Button("No",GUILayout.Width(150)) )
+			{
+
+				//-------------------------------------------
+				//	 TOGGLE isLogin false/ isTutorial true
+				//-------------------------------------------
+				isTutorial = false;
+				isMain = true;
+			}
+			
+			GUILayout.EndHorizontal();
+			GUILayout.EndArea();
 
 
 		//--------------------------------------------------------------------------------------------------
@@ -595,6 +651,22 @@ public class MainMenuVik : Photon.MonoBehaviour
 				isPlaybackList = true;
 				isMain = false;
 
+			}
+			GUILayout.EndHorizontal ();
+
+			//log out
+			GUILayout.Space (45);
+			GUILayout.BeginHorizontal ();
+			//watch button
+			if (GUILayout.Button ("Log out")) {
+				
+				//----------------------------------------------
+				//	 TOGGLE isLogin true / isMain false
+				//----------------------------------------------
+				isMain = false;
+				isLogin = true;
+				PlayerPrefs.DeleteKey("playerLoginName");
+				
 			}
 			GUILayout.EndHorizontal ();
 			
