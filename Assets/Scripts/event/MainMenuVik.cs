@@ -281,7 +281,7 @@ public class MainMenuVik : Photon.MonoBehaviour
 				//	 TOGGLE isLogin false/ isTutorial true
 				//-------------------------------------------
 				isTutorial = false;
-				isMain = true;
+				//isMain = true;
 				
 				//load tutorial
 				PlayerPrefs.SetString("isTutorial", "true");
