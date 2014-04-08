@@ -38,7 +38,7 @@ public class ChatVik : Photon.MonoBehaviour
     {        
         GUI.SetNextControlName("");
 
-		GUILayout.BeginArea(new Rect(Screen.width - Screen.width/2+ChatArea_x, ChatArea_y, Screen.width/2, Screen.height/2));
+		GUILayout.BeginArea(new Rect(Screen.width - Screen.width/2+ChatArea_x+100, ChatArea_y, Screen.width/2, Screen.height/2));
 		GUILayout.BeginHorizontal(); 
 		
 		switch(PhotonNetwork.playerName)
