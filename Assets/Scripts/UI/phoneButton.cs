@@ -41,7 +41,7 @@ public class phoneButton : MonoBehaviour {
 		myGUITexture = this.gameObject.GetComponent("GUITexture") as GUITexture;
 
 		EventFSM = GameObject.Find ("EventManager-Tutorial").GetComponent<PlayMakerFSM>();
-		print (EventFSM.name);
+	//	print (EventFSM.name);
 		
 	}
 	

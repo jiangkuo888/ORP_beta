@@ -156,10 +156,10 @@ public class GameManagerVik : Photon.MonoBehaviour {
 		PhotonNetwork.CreateRoom (roomName, true, true, 10);
 		//PhotonNetwork.JoinRoom (roomName);
 		
-		Debug.Log (PhotonNetwork.countOfPlayersOnMaster);
-		Debug.Log (PhotonNetwork.countOfRooms);
-		Debug.Log (PhotonNetwork.countOfPlayersInRooms);
-		Debug.Log (PhotonNetwork.playerName);
+		//Debug.Log (PhotonNetwork.countOfPlayersOnMaster);
+		//Debug.Log (PhotonNetwork.countOfRooms);
+	//	Debug.Log (PhotonNetwork.countOfPlayersInRooms);
+		//Debug.Log (PhotonNetwork.playerName);
 		
 		PhotonNetwork.playerName = characterName;
 		//PlayerPrefs.SetString("playerName", playerList[i]);
@@ -280,9 +280,9 @@ public class GameManagerVik : Photon.MonoBehaviour {
 			// start drawing GUI elements
 			GameObject.Find ("QuestLogButton").GetComponent<GUITexture>().enabled = true;
 			GameObject.Find ("phoneButton").GetComponent<GUITexture>().enabled = true;
-			GameObject.Find ("InventoryContainer").GetComponent<GUITexture>().enabled = true;
-			GameObject.Find ("InventoryButton1").GetComponent<GUITexture>().enabled = true;
-			GameObject.Find ("InventoryButton2").GetComponent<GUITexture>().enabled = false;
+			//GameObject.Find ("InventoryContainer").GetComponent<GUITexture>().enabled = true;
+		//	GameObject.Find ("InventoryButton1").GetComponent<GUITexture>().enabled = true;
+		//	GameObject.Find ("InventoryButton2").GetComponent<GUITexture>().enabled = false;
 			
 			// start timer 
 			if(!isTutorial)
