@@ -97,7 +97,7 @@ public class pageData : MonoBehaviour {
 	void OnGUI(){
 		if (mode == "PCMode") {
 			print ("pc");
-						signArea = new Rect (.5f * w - 250f, .9f * h - 105f, 100f, 50f);
+						signArea = new Rect ( w/4 - 50f, .9f * h - 50f, 100f, 50f);
 				}
 		if (mode == "FileMode") {
 			print ("file");
