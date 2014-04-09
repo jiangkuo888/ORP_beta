@@ -2239,7 +2239,7 @@ MonoBehaviour:
       value: 1
       type: 5
     - title: Conversant
-      value: 12
+      value: 20
       type: 5
     nodeColor: Red
     dialogueEntries:
@@ -2252,7 +2252,7 @@ MonoBehaviour:
         value: 1
         type: 5
       - title: Conversant
-        value: 12
+        value: 20
         type: 5
       - title: Menu Text
         value: 
@@ -2303,7 +2303,7 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Sequence
-        value: 
+        value: Camera(Closeup)
         type: 0
       conversationID: 45
       isRoot: 0
@@ -2683,18 +2683,6 @@ MonoBehaviour:
       - originConversationID: 46
         originDialogueID: 2
         destinationConversationID: 46
-        destinationDialogueID: 9
-        isConnector: 0
-        priority: 2
-      - originConversationID: 46
-        originDialogueID: 2
-        destinationConversationID: 46
-        destinationDialogueID: 11
-        isConnector: 0
-        priority: 2
-      - originConversationID: 46
-        originDialogueID: 2
-        destinationConversationID: 46
         destinationDialogueID: 14
         isConnector: 0
         priority: 2
@@ -2940,203 +2928,6 @@ MonoBehaviour:
       outgoingLinks:
       - originConversationID: 46
         originDialogueID: 8
-        destinationConversationID: 46
-        destinationDialogueID: 2
-        isConnector: 1
-        priority: 2
-      conditionsString: 
-      userScript: 
-    - id: 9
-      fields:
-      - title: Title
-        value: New Dialogue
-        type: 0
-      - title: Actor
-        value: 34
-        type: 5
-      - title: Conversant
-        value: 35
-        type: 5
-      - title: Menu Text
-        value: Ask for any liabilities.
-        type: 0
-      - title: Dialogue Text
-        value: 'Sir, Do you have any liabilities?
-
-'
-        type: 4
-      - title: Video File
-        value: 
-        type: 0
-      - title: Sequence
-        value: 
-        type: 0
-      conversationID: 46
-      isRoot: 0
-      isGroup: 0
-      nodeColor: White
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks:
-      - originConversationID: 46
-        originDialogueID: 9
-        destinationConversationID: 46
-        destinationDialogueID: 10
-        isConnector: 0
-        priority: 2
-      conditionsString: Dialog[3].SimStatus == "WasDisplayed"
-      userScript: 
-    - id: 10
-      fields:
-      - title: Title
-        value: 
-        type: 0
-      - title: Actor
-        value: 35
-        type: 5
-      - title: Conversant
-        value: 34
-        type: 5
-      - title: Menu Text
-        value: 
-        type: 0
-      - title: Dialogue Text
-        value: Yes i do. i have a personal loan of $3000.
-        type: 4
-      - title: Video File
-        value: 
-        type: 0
-      - title: Sequence
-        value: 
-        type: 0
-      conversationID: 46
-      isRoot: 0
-      isGroup: 0
-      nodeColor: White
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks:
-      - originConversationID: 46
-        originDialogueID: 10
-        destinationConversationID: 46
-        destinationDialogueID: 2
-        isConnector: 1
-        priority: 2
-      conditionsString: 
-      userScript: 
-    - id: 11
-      fields:
-      - title: Title
-        value: 
-        type: 0
-      - title: Actor
-        value: 34
-        type: 5
-      - title: Conversant
-        value: 35
-        type: 5
-      - title: Menu Text
-        value: 'Do u have any other personal loans from a friend or relative? '
-        type: 0
-      - title: Dialogue Text
-        value: 
-        type: 4
-      - title: Video File
-        value: 
-        type: 0
-      - title: Sequence
-        value: 
-        type: 0
-      conversationID: 46
-      isRoot: 0
-      isGroup: 0
-      nodeColor: White
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks:
-      - originConversationID: 46
-        originDialogueID: 11
-        destinationConversationID: 46
-        destinationDialogueID: 12
-        isConnector: 0
-        priority: 2
-      conditionsString: Dialog[3].SimStatus == "WasDisplayed"
-      userScript: 
-    - id: 12
-      fields:
-      - title: Title
-        value: New Dialogue
-        type: 0
-      - title: Actor
-        value: 35
-        type: 5
-      - title: Conversant
-        value: 34
-        type: 5
-      - title: Menu Text
-        value: 
-        type: 0
-      - title: Dialogue Text
-        value: Oh no i do not. But why is that relevant?
-        type: 4
-      - title: Video File
-        value: 
-        type: 0
-      - title: Sequence
-        value: 
-        type: 0
-      conversationID: 46
-      isRoot: 0
-      isGroup: 0
-      nodeColor: White
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks:
-      - originConversationID: 46
-        originDialogueID: 12
-        destinationConversationID: 46
-        destinationDialogueID: 13
-        isConnector: 0
-        priority: 2
-      conditionsString: 
-      userScript: 
-    - id: 13
-      fields:
-      - title: Title
-        value: New Dialogue
-        type: 0
-      - title: Actor
-        value: 34
-        type: 5
-      - title: Conversant
-        value: 35
-        type: 5
-      - title: Menu Text
-        value: 
-        type: 0
-      - title: Dialogue Text
-        value: Oh just for information.
-        type: 4
-      - title: Video File
-        value: 
-        type: 0
-      - title: Sequence
-        value: 
-        type: 0
-      conversationID: 46
-      isRoot: 0
-      isGroup: 0
-      nodeColor: White
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks:
-      - originConversationID: 46
-        originDialogueID: 13
         destinationConversationID: 46
         destinationDialogueID: 2
         isConnector: 1
@@ -3888,10 +3679,10 @@ MonoBehaviour:
         value: START
         type: 0
       - title: Actor
-        value: 5
+        value: 1
         type: 5
       - title: Conversant
-        value: 12
+        value: 5
         type: 5
       - title: Menu Text
         value: 
@@ -4358,7 +4149,7 @@ MonoBehaviour:
       value: 1
       type: 5
     - title: Conversant
-      value: 12
+      value: 5
       type: 5
     nodeColor: Red
     dialogueEntries:
@@ -4371,7 +4162,7 @@ MonoBehaviour:
         value: 1
         type: 5
       - title: Conversant
-        value: 12
+        value: 5
         type: 5
       - title: Menu Text
         value: 
@@ -4407,10 +4198,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 1
+        value: 5
         type: 5
       - title: Conversant
-        value: 11
+        value: 1
         type: 5
       - title: Menu Text
         value: 
@@ -4422,7 +4213,7 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Sequence
-        value: 
+        value: Camera(Closeup)
         type: 0
       conversationID: 50
       isRoot: 0
@@ -4452,10 +4243,10 @@ MonoBehaviour:
         value: New Dialogue
         type: 0
       - title: Actor
-        value: 11
+        value: 1
         type: 5
       - title: Conversant
-        value: 1
+        value: 5
         type: 5
       - title: Menu Text
         value: I dont have time now.
@@ -4485,10 +4276,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 11
+        value: 1
         type: 5
       - title: Conversant
-        value: 1
+        value: 5
         type: 5
       - title: Menu Text
         value: 
@@ -4524,10 +4315,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 1
+        value: 5
         type: 5
       - title: Conversant
-        value: 11
+        value: 1
         type: 5
       - title: Menu Text
         value: 
@@ -4563,10 +4354,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 11
+        value: 1
         type: 5
       - title: Conversant
-        value: 1
+        value: 5
         type: 5
       - title: Menu Text
         value: 
@@ -4602,10 +4393,10 @@ MonoBehaviour:
         value: New Dialogue
         type: 0
       - title: Actor
-        value: 1
+        value: 5
         type: 5
       - title: Conversant
-        value: 11
+        value: 1
         type: 5
       - title: Menu Text
         value: 
@@ -4642,10 +4433,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 11
+        value: 1
         type: 5
       - title: Conversant
-        value: 1
+        value: 5
         type: 5
       - title: Menu Text
         value: 
@@ -4681,10 +4472,10 @@ MonoBehaviour:
         value: New Dialogue
         type: 0
       - title: Actor
-        value: 1
+        value: 5
         type: 5
       - title: Conversant
-        value: 11
+        value: 1
         type: 5
       - title: Menu Text
         value: 
@@ -4720,10 +4511,10 @@ MonoBehaviour:
         value: New Dialogue
         type: 0
       - title: Actor
-        value: 11
+        value: 1
         type: 5
       - title: Conversant
-        value: 1
+        value: 5
         type: 5
       - title: Menu Text
         value: 
