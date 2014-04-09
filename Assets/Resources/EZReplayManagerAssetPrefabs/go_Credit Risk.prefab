@@ -1256,6 +1256,25 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &100162
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 400162}
+  - 82: {fileID: 8200002}
+  - 114: {fileID: 11400048}
+  - 114: {fileID: 11400046}
+  - 114: {fileID: 11400044}
+  m_Layer: 0
+  m_Name: Inventory
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!4 &400000
 Transform:
   m_ObjectHideFlags: 1
@@ -2225,8 +2244,20 @@ Transform:
   m_LocalRotation: {x: .00410465896, y: .707094908, z: -.00410465896, w: .707094908}
   m_LocalPosition: {x: 0, y: 1.25772798, z: 0}
   m_LocalScale: {x: -1.24028444, y: 1.65380943, z: 1.2531414}
-  m_Children: []
+  m_Children:
+  - {fileID: 400162}
   m_Father: {fileID: 400158}
+--- !u!4 &400162
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100162}
+  m_LocalRotation: {x: 1.31107114e-07, y: 1.08041668e-07, z: 1.08000876e-07, w: 1}
+  m_LocalPosition: {x: 0, y: .492403716, z: -.0868249312}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 400160}
 --- !u!20 &2000000
 Camera:
   m_ObjectHideFlags: 1
@@ -2274,6 +2305,64 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: 311ef01a517bb7d4daa73abc6476f7ec, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+--- !u!82 &8200002
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100162}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: .75
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -2584,10 +2673,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  subId: 1
-  ownerId: 1
+  subId: 0
+  ownerId: 0
   group: 0
-  prefixBackup: 0
+  prefixBackup: -1
   observed: {fileID: 11400018}
   synchronization: 2
   onSerializeTransformOption: 3
@@ -2812,7 +2901,7 @@ MonoBehaviour:
   hdr: 0
   sepBlurSpread: 2.5
   quality: 1
-  bloomIntensity: .25
+  bloomIntensity: .200000003
   bloomThreshhold: .300000012
   bloomThreshholdColor: {r: 1, g: 1, b: 1, a: 1}
   bloomBlurIterations: 2
@@ -2865,7 +2954,7 @@ MonoBehaviour:
     m_PostInfinity: 2
   exposureAdjustment: 2
   middleGrey: .5
-  white: 1.5
+  white: 1.60000002
   adaptionSpeed: 5
   tonemapper: {fileID: 4800000, guid: 003377fc2620a44939dadde6fe3f8190, type: 3}
   validRenderTextureFormat: 1
@@ -2965,8 +3054,8 @@ MonoBehaviour:
   custom:
     m_Name: 
     m_Normal:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_Background: {fileID: 2800000, guid: 0fe180d56a536db45aca9b54c8c198f8, type: 3}
+      m_TextColor: {r: 1, g: 1, b: 1, a: 1}
     m_Hover:
       m_Background: {fileID: 0}
       m_TextColor: {r: 0, g: 0, b: 0, a: 1}
@@ -3009,19 +3098,68 @@ MonoBehaviour:
       m_Top: 0
       m_Bottom: 0
     m_Font: {fileID: 0}
-    m_FontSize: 0
+    m_FontSize: 18
     m_FontStyle: 0
-    m_Alignment: 0
-    m_WordWrap: 0
-    m_RichText: 1
+    m_Alignment: 4
+    m_WordWrap: 1
+    m_RichText: 0
     m_TextClipping: 0
     m_ImagePosition: 0
     m_ContentOffset: {x: 0, y: 0}
-    m_FixedWidth: 0
-    m_FixedHeight: 0
+    m_FixedWidth: 400
+    m_FixedHeight: 100
     m_StretchWidth: 1
     m_StretchHeight: 0
-  customSkin: {fileID: 0}
+  customSkin: {fileID: 11400000, guid: ea3601e3953a908409cf858f5e14d208, type: 2}
+--- !u!114 &11400044
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e38804f683b36e4fb80de3f6006151d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Contents: []
+  MaxContent: 12
+  isFull: 0
+--- !u!114 &11400046
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0387c67eaf2a31a49bf90d1f98bca5ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  windowSize: {x: 375, y: 162.5}
+  useCustomPosition: 0
+  customPosition: {x: 70, y: 400}
+  itemIconSize: {x: 60, y: 60}
+  invSkin: {fileID: 11400000, guid: 897dfde19fd7cb749a7cc9eca49fbd35, type: 2}
+  Offset: {x: 7, y: 12}
+  canBeDragged: 1
+  onOffButton: 105
+--- !u!114 &11400048
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f782fed1f9e534ef19a6a16f9f9bc6c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  openSound: {fileID: 8300000, guid: 8a1f4a7472fad4306905685414aef028, type: 3}
+  closeSound: {fileID: 8300000, guid: a8187177bbfc149b0a4332f4338bfec6, type: 3}
+  equipSound: {fileID: 8300000, guid: ca363ae9d4ab54facb09a398510820fe, type: 3}
+  pickUpSound: {fileID: 8300000, guid: f3daa9f21f8514686942612b5367e1e1, type: 3}
+  dropItemSound: {fileID: 8300000, guid: bda553ddb252348b2ba5e9720c70c4c9, type: 3}
 --- !u!124 &12400000
 Behaviour:
   m_ObjectHideFlags: 1

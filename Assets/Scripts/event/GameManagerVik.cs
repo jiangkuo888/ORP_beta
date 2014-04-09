@@ -104,7 +104,7 @@ public class GameManagerVik : Photon.MonoBehaviour {
 		
 	}
 	
-	
+
 	
 	void Update()
 	{

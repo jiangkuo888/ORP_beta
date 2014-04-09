@@ -26,7 +26,10 @@ public class SequencerCommandDeposit : SequencerCommand {
 		{
 			GameObject.Find ("Dialogue Manager").GetComponent<DialogueSystemController>().ShowAlert("Deposit "+ GameObject.Find ("InventoryObj").GetComponent<inventory>().inventoryObject.name +" successful");
 
-			GameObject.Find ("InventoryObj").GetComponent<inventory>().clearInventory();
+
+
+
+			depositDocuments();
 
 			DialogueLua.SetVariable("Has_Document",false);
 			}
@@ -67,7 +70,11 @@ public class SequencerCommandDeposit : SequencerCommand {
 	}
 
 
+	void depositDocuments(){
 
+
+		//GameObject.Find ("Inventory").GetComponent<InventoryNew>().RemoveItem(doc);
+	}
 	
 	public void OnDestroy() {
 		// Add your finalization code here. This is critical. If the sequence is cancelled and this
