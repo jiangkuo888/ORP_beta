@@ -7,7 +7,7 @@ public class DoorHandler : Photon.MonoBehaviour {
 	float smooth = 2.0f;
 	float DoorOpenAngle = 90.0f;
 	float DoorCloseAngle = 180.0f;
-	bool isOpen ;
+	public bool isOpen ;
 	public bool enter ;
 	bool doorState;
 	public bool clicked;
@@ -118,10 +118,21 @@ public class DoorHandler : Photon.MonoBehaviour {
 	
 	[RPC]
 	void Open(){
+
+
+
+
 		if(isTriggerA)
 		{
 			Transform child = transform.parent.transform.Find("Door");
 			isOpen = !isOpen;
+
+
+			transform.parent.Find("TriggerB").GetComponent<DoorHandler>().isOpen = isOpen;
+
+
+			Debug.LogError(isOpen);
+
 			if(isOpen){
 				if(child != null)
 				{
@@ -152,6 +163,11 @@ public class DoorHandler : Photon.MonoBehaviour {
 		else if(isTriggerB){
 			Transform child = transform.parent.transform.Find("Door");
 			isOpen = !isOpen;
+
+			transform.parent.Find("TriggerA").GetComponent<DoorHandler>().isOpen = isOpen;
+
+			Debug.LogError(isOpen);
+
 			if(isOpen){
 				if(child != null)
 				{

@@ -32,7 +32,7 @@ public class GameManagerVik : Photon.MonoBehaviour {
 	public bool isPlayBack = false;
 	public bool isTutorial = false;
 	public bool connected = false;
-	public bool startGameNow = false;
+	public bool GameStarted = false;
 	
 	//sync boolean
 	public int syncNum = 0;
@@ -104,6 +104,12 @@ public class GameManagerVik : Photon.MonoBehaviour {
 		
 	}
 	
+	[RPC]
+	void allStartGame()
+	{
+		if(!GameStarted)
+			startGame();
+	}
 
 	
 	void Update()
@@ -135,11 +141,7 @@ public class GameManagerVik : Photon.MonoBehaviour {
 				
 			}
 			
-			if (startGameNow)
-			{
-				startGame();
-				startGameNow = false;
-			}
+
 			
 		}
 		
@@ -253,7 +255,7 @@ public class GameManagerVik : Photon.MonoBehaviour {
 	{
 		//set name
 		//PhotonNetwork.playerName = characterName;
-		
+		GameStarted = true;
 		print ("Now we have: "+PhotonNetwork.playerList.Length+" players in total.");
 		
 		//		print (EventManager.FsmVariables.GetFsmInt ("playerNum").Value);
@@ -531,11 +533,7 @@ public class GameManagerVik : Photon.MonoBehaviour {
 		this.syncNum++;
 	}
 	
-	[RPC]
-	void allStartGame()
-	{
-		startGameNow = true;
-	}
+
 	
 	void OnDisconnectedFromPhoton()
 	{
