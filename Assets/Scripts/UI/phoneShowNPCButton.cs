@@ -25,7 +25,7 @@ public class phoneShowNPCButton : MonoBehaviour {
 	public string targetPlayer;
 	
 	public Vector2 scrollPosition = Vector2.zero;
-	bool ListOn;
+	public bool ListOn;
 	float w,h;
 	
 	void Awake()
@@ -62,12 +62,8 @@ public class phoneShowNPCButton : MonoBehaviour {
 						//print ("111");
 						
 						
-						GameObject.Find ("phoneSmallButton1").GetComponent<GUITexture>().enabled = false;
-						GameObject.Find ("phoneSmallButton2").GetComponent<GUITexture>().enabled = false;
-						GameObject.Find ("phoneSmallButton3").GetComponent<GUITexture>().enabled = false;
-						GameObject.Find ("phoneSmallButton4").GetComponent<GUITexture>().enabled = false;
-						GameObject.Find ("EmailIcon").GetComponent<GUITexture>().enabled = false;
-						ListOn = false;
+						GameObject.Find("phoneButton").GetComponent<phoneButton>().hide();
+
 					}
 					
 					

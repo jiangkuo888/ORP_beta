@@ -22,9 +22,9 @@ public class SequencerCommandDeposit : SequencerCommand {
 //
 //		if(PlayerPrefs.GetString("OnUsedObj") != null)
 //			onUsedObj = GameObject.Find (PlayerPrefs.GetString("OnUsedObj"));
-		if(GameObject.Find ("InventoryObj").GetComponent<inventory>().inventoryObject != null)
+		if(GameObject.Find ("Inventory").GetComponent<InventoryNew>().Contents.Length > 0)
 		{
-			GameObject.Find ("Dialogue Manager").GetComponent<DialogueSystemController>().ShowAlert("Deposit "+ GameObject.Find ("InventoryObj").GetComponent<inventory>().inventoryObject.name +" successful");
+			GameObject.Find ("Dialogue Manager").GetComponent<DialogueSystemController>().ShowAlert("Deposit successful");
 
 
 
@@ -72,8 +72,24 @@ public class SequencerCommandDeposit : SequencerCommand {
 
 	void depositDocuments(){
 
+		Transform[] inventoryList = GameObject.Find ("Inventory").GetComponent<InventoryNew>().Contents;
 
-		//GameObject.Find ("Inventory").GetComponent<InventoryNew>().RemoveItem(doc);
+
+		foreach (Transform doc in inventoryList)
+		{
+			if(doc.tag == "document")
+			{
+				// remove this doc from inventory transform list
+				GameObject.Find ("Inventory").GetComponent<InventoryNew>().RemoveItem(doc);
+				// reset its position to origin
+
+
+
+			}
+		}
+
+
+
 	}
 	
 	public void OnDestroy() {

@@ -186,11 +186,8 @@ public class DetectObjects : Photon.MonoBehaviour {
 									//GameObject.Find ("InventoryButton2").GetComponent<GUITexture>().enabled = false;
 									//GameObject.Find ("InventoryObj").GetComponent<GUITexture>().enabled = false;
 
-
+									GameObject.Find ("phoneButton").GetComponent<phoneButton>().hide();
 									GameObject.Find ("phoneButton").GetComponent<GUITexture>().enabled = false;
-									GameObject.Find ("phoneSmallButton1").GetComponent<GUITexture>().enabled = false;
-									GameObject.Find ("phoneSmallButton2").GetComponent<GUITexture>().enabled = false;
-									GameObject.Find ("phoneSmallButton3").GetComponent<GUITexture>().enabled = false;
 									GameObject.Find ("QuestLogButton").GetComponent<GUITexture>().enabled = false;
 
 
@@ -261,7 +258,7 @@ public class DetectObjects : Photon.MonoBehaviour {
 								if(hit.collider.transform.parent.parent.transform.Find ("TriggerB").GetComponent<DoorHandler>().enter)
 								{
 								hit.collider.transform.parent.parent.transform.Find ("TriggerB").GetComponent<DoorHandler>().clicked = true;
-									print ("CLICKED");
+								
 								}
 								
 								currentHitObj.renderer.material.shader = originalShader;
@@ -321,32 +318,21 @@ public class DetectObjects : Photon.MonoBehaviour {
 					Cursor.SetCursor(null, Vector2.zero, cursorMode);
 					
 					
-					if( currentHitObj !=null && currentHitObj.tag == "NPC")
+
+					
+					if(currentHitObj != null && enteredDialog == false)
 					{
-						
-						
-						
-						mouseClick = false;
-						currentHitObj = hit.collider.gameObject;
-						
-						
-						
-					}
-					else{
-						
-						if(currentHitObj != null && enteredDialog == false)
-						{
-							// set back the shader and cursor
-							if(currentHitObj.renderer)
-								currentHitObj.renderer.material.shader = originalShader;
-							
-						}
-						
-						mouseClick = false;
-						currentHitObj = hit.collider.gameObject;
+						// set back the shader and cursor
 						if(currentHitObj.renderer)
-							originalShader = currentHitObj.renderer.material.shader;
+							currentHitObj.renderer.material.shader = originalShader;
+						
 					}
+					
+					mouseClick = false;
+					currentHitObj = hit.collider.gameObject;
+					if(currentHitObj.renderer)
+						originalShader = currentHitObj.renderer.material.shader;
+					
 					//print (currentHitObj.name);
 				}
 				
