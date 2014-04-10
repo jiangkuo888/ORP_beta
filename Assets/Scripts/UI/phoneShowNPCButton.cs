@@ -160,24 +160,27 @@ public class phoneShowNPCButton : MonoBehaviour {
 	}
 	
 	
-	public void addCallToNPCList(string buttonDisplayText, string conversationName){
+	public void addCallToNPCList(string buttonDisplayText, string conversationName, string playerName){
 
-		// add the conversationName to the list
-		System.Collections.Generic.List<string> conversationList = new System.Collections.Generic.List<string>(dialogueNames);
+		if (PhotonNetwork.playerName == playerName) {
+
+						// add the conversationName to the list
+						System.Collections.Generic.List<string> conversationList = new System.Collections.Generic.List<string> (dialogueNames);
 		
-		if(!conversationList.Contains(conversationName))
-			conversationList.Add(conversationName);
+						if (!conversationList.Contains (conversationName))
+								conversationList.Add (conversationName);
 		
-		dialogueNames = conversationList.ToArray();
+						dialogueNames = conversationList.ToArray ();
 
 
-		// add the display text to the textlist
-		System.Collections.Generic.List<string> textList = new System.Collections.Generic.List<string>(dialogueDisplayText);
+						// add the display text to the textlist
+						System.Collections.Generic.List<string> textList = new System.Collections.Generic.List<string> (dialogueDisplayText);
 		
-		if(!textList.Contains(buttonDisplayText))
-			textList.Add(buttonDisplayText);
+						if (!textList.Contains (buttonDisplayText))
+								textList.Add (buttonDisplayText);
 		
-		dialogueDisplayText = textList.ToArray();
+						dialogueDisplayText = textList.ToArray ();
+				}
 
 	}
 
