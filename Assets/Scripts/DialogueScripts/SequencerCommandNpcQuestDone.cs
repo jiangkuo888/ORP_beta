@@ -30,7 +30,8 @@ public class SequencerCommandNpcQuestDone : SequencerCommand {
 
 
 
-		GameObject.Find ("Door2").GetComponent<DoorHandler>().enabled = true;
+		GameObject.Find ("Door2").transform.Find("TriggerA").GetComponent<DoorHandler>().enabled = true;
+		GameObject.Find ("Door2").transform.Find("TriggerB").GetComponent<DoorHandler>().enabled = true;
 
 	}
 	

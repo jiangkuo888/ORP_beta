@@ -131,7 +131,7 @@ public class DoorHandler : Photon.MonoBehaviour {
 			transform.parent.Find("TriggerB").GetComponent<DoorHandler>().isOpen = isOpen;
 
 
-			Debug.LogError(isOpen);
+		//	Debug.LogError(isOpen);
 
 			if(isOpen){
 				if(child != null)
@@ -166,7 +166,7 @@ public class DoorHandler : Photon.MonoBehaviour {
 
 			transform.parent.Find("TriggerA").GetComponent<DoorHandler>().isOpen = isOpen;
 
-			Debug.LogError(isOpen);
+		//	Debug.LogError(isOpen);
 
 			if(isOpen){
 				if(child != null)
@@ -195,21 +195,7 @@ public class DoorHandler : Photon.MonoBehaviour {
 		}
 	}
 	
-	void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
-	{
-		//		if (stream.isWriting)
-		//		{
-		//			//We own this player: send the others our data
-		//			// stream.SendNext((int)controllerScript._characterState);
-		//			stream.SendNext(isOpen);
-		//
-		//		}
-		//		else
-		//		{
-		//			isOpen = (bool)stream.ReceiveNext();
-		//			Open ();
-		//		}
-	}
+
 	
 	
 	

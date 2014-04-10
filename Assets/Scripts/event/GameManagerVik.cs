@@ -196,9 +196,9 @@ public class GameManagerVik : Photon.MonoBehaviour {
 		PhotonNetwork.playerName = playerName;
 		GameObject.Find ("QuestLogButton").GetComponent<GUITexture>().enabled = true;
 		GameObject.Find ("phoneButton").GetComponent<GUITexture>().enabled = true;
-		GameObject.Find ("InventoryContainer").GetComponent<GUITexture>().enabled = true;
-		GameObject.Find ("InventoryButton1").GetComponent<GUITexture>().enabled = true;
-		GameObject.Find ("InventoryButton2").GetComponent<GUITexture>().enabled = false;
+	//	GameObject.Find ("InventoryContainer").GetComponent<GUITexture>().enabled = true;
+	//	GameObject.Find ("InventoryButton1").GetComponent<GUITexture>().enabled = true;
+	//	GameObject.Find ("InventoryButton2").GetComponent<GUITexture>().enabled = false;
 
 
 		GameObject playa = null;
@@ -502,9 +502,9 @@ public class GameManagerVik : Photon.MonoBehaviour {
 			
 			GameObject.Find ("QuestLogButton").GetComponent<GUITexture>().enabled = false;
 			GameObject.Find ("phoneButton").GetComponent<GUITexture>().enabled = false;
-			GameObject.Find ("InventoryContainer").GetComponent<GUITexture>().enabled = false;
-			GameObject.Find ("InventoryButton1").GetComponent<GUITexture>().enabled = false;
-			GameObject.Find ("InventoryButton2").GetComponent<GUITexture>().enabled = false;
+		//	GameObject.Find ("InventoryContainer").GetComponent<GUITexture>().enabled = false;
+		////	GameObject.Find ("InventoryButton1").GetComponent<GUITexture>().enabled = false;
+		//	GameObject.Find ("InventoryButton2").GetComponent<GUITexture>().enabled = false;
 			GameObject.Find ("GameManager").GetComponent<ChatVik>().enabled = false;
 			
 			GameObject.Find ("EventManager").GetComponent<NetworkTime>().enabled = true;

@@ -40,7 +40,7 @@ public class DetectObjects : Photon.MonoBehaviour {
 	}
 	
 	
-	void  OnGUI (){
+	void  Update (){
 		if((gameOn && photonView.isMine) || GameObject.Find ("GameManager").GetComponent<GameManagerVik>().isTutorial)
 		{
 		Ray ray= Camera.main.ScreenPointToRay (Input.mousePosition);
@@ -247,6 +247,12 @@ public class DetectObjects : Photon.MonoBehaviour {
 							
 							if( mouseClick)
 							{
+
+								mouseClick = !mouseClick;
+
+
+							//	Debug.LogError("Clicked");
+
 								if(hit.collider.transform.parent.parent.transform.Find ("TriggerA").GetComponent<DoorHandler>().enter)
 								{
 								hit.collider.transform.parent.parent.transform.Find ("TriggerA").GetComponent<DoorHandler>().clicked = true;
@@ -260,7 +266,7 @@ public class DetectObjects : Photon.MonoBehaviour {
 								
 								currentHitObj.renderer.material.shader = originalShader;
 								Cursor.SetCursor(null, Vector2.zero, cursorMode);
-								mouseClick = !mouseClick;
+
 								
 							}
 							
@@ -498,14 +504,7 @@ public class DetectObjects : Photon.MonoBehaviour {
 	}
 	
 	
-	void Update()
-	{
-		//if(photonView.isMine)
-		//	if(this.transform.Find ("DUGManager"))
-		//		this.transform.Find ("DUGManager").gameObject.SetActive(true);
 
-
-	}
 	
 	
 	
