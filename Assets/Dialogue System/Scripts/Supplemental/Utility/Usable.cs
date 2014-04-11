@@ -39,13 +39,13 @@ namespace PixelCrushers.DialogueSystem.Examples {
 			PlayerPrefs.SetString("LocalActor",actor.name);
 			PlayerPrefs.SetString("OnUsedObj",this.transform.name);
 			
-			if(this.GetComponent<suitcaseObjList>()!= null)
-			{
-				if(this.GetComponent<suitcaseObjList>().owner ==actor.name)
-					DialogueLua.SetVariable("belongToYou",true);
-				else
-					DialogueLua.SetVariable("false",true);
-			}
+//			if(this.GetComponent<suitcaseObjList>()!= null)
+//			{
+//				if(this.GetComponent<suitcaseObjList>().owner ==actor.name)
+//					DialogueLua.SetVariable("belongToYou",true);
+//				else
+//					DialogueLua.SetVariable("false",true);
+//			}
 		}
 
 		public void OnConversationStart(){

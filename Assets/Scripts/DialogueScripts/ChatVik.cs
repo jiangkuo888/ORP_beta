@@ -205,7 +205,7 @@ public class ChatVik : Photon.MonoBehaviour
 		string dbReturn = db.connectToDb();
 		
 		if (dbReturn != "SUCCESS NO RETURN") {
-			print (dbReturn);
+//			print (dbReturn);
 		}
 
     }
