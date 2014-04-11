@@ -14,23 +14,23 @@ public class ChatVik : Photon.MonoBehaviour
 	public Texture2D playerTextureLM;
 	public Texture2D playerTextureCR;
 
-	Texture2D playerTexture;
     public static ChatVik SP;
     public List<string> messages = new List<string>();
 	public List<Color> messageColor = new List<Color>();
 
-    private int chatHeight = (int)200;
-    private Vector2 scrollPos = Vector2.zero;
-    private string chatInput = "";
-    private float lastUnfocusTime = 0;
-
-
-
 	public float ChatArea_x;
 	public float ChatArea_y;
-
+	public float chatBoxHideTime = 20f;
 
 	Color textColor;
+	Texture2D playerTexture;
+	bool textOn = false;
+
+	private int chatHeight = (int)200;
+	private Vector2 scrollPos = Vector2.zero;
+	private string chatInput = "";
+	private float lastUnfocusTime = 0;
+
 
     void Awake()
     {
@@ -78,8 +78,28 @@ public class ChatVik : Photon.MonoBehaviour
 		
 		GUI.SetNextControlName("ChatField");
 		chatInput = GUILayout.TextField(chatInput,myStyle,GUILayout.Width(300));
-		
+
+		// if the user has no action for a period of time, disable the chat box
+		if(lastUnfocusTime <Time.time - chatBoxHideTime)
+			textOn = false;
+
+
+		// if the user click the chat input bar, show the chat box.
+		if (GUI.GetNameOfFocusedControl() == "ChatField")
+		{   
+			lastUnfocusTime = Time.time;
+			
+			enableTextBox();
+		}
+
+		// if the user hit ENTER, show the chat box.
 		if (Event.current.type == EventType.Layout && Event.current.character == '\n'){
+
+
+
+			enableTextBox();
+
+			// if already focus of chat input, send the message
 			if (GUI.GetNameOfFocusedControl() == "ChatField")
 			{                
 				SendChat(PhotonTargets.All);
@@ -87,7 +107,7 @@ public class ChatVik : Photon.MonoBehaviour
 				GUI.FocusControl("");
 				GUI.UnfocusWindow();
 			}
-			else
+			else  // else focus on the chat input
 			{
 				if (lastUnfocusTime < Time.time - 0.1f)
 				{
@@ -102,16 +122,20 @@ public class ChatVik : Photon.MonoBehaviour
 		GUILayout.EndHorizontal();
 
 
+		if(textOn)
+		{
+	        //Show scroll list of chat messages
+	        scrollPos = GUILayout.BeginScrollView(scrollPos,customSkin.customStyles[3]);
 
-        //Show scroll list of chat messages
-        scrollPos = GUILayout.BeginScrollView(scrollPos);
+	        for (int i = messages.Count - 1; i >= 0; i--)
+	        {
+				GUI.contentColor = messageColor[i]; 
+	            GUILayout.Label(messages[i]);
+	        }
+	        GUILayout.EndScrollView();
 
-        for (int i = messages.Count - 1; i >= 0; i--)
-        {
-			GUI.contentColor = messageColor[i]; 
-            GUILayout.Label(messages[i]);
-        }
-        GUILayout.EndScrollView();
+
+		}
         GUI.color = Color.white;
 
         //Chat input
@@ -218,5 +242,14 @@ public class ChatVik : Photon.MonoBehaviour
     {
         this.enabled = true;
     }
+
+
+
+
+	void enableTextBox(){
+
+		textOn = true;
+
+	}
 
 }
