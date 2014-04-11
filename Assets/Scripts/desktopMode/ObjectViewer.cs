@@ -7,7 +7,7 @@ public class ObjectViewer : MonoBehaviour {
 	bool Enlarge;
 	Shader originalShader;
 
-	Vector3 originalPosition;
+	public Vector3 originalPosition;
 
 	// Use this for initialization
 	void Start () {

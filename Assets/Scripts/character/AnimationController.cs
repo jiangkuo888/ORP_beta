@@ -111,7 +111,7 @@ public class AnimationController: MonoBehaviour
 				target.CrossFade("MaleA_Idle");
 				break;
 			case "Credit Risk":
-				//target.CrossFade("Male_idle1_anim");
+				target.CrossFade("MaleD_Idle");
 				break;
 			default:
 				break;
@@ -133,7 +133,7 @@ public class AnimationController: MonoBehaviour
 				target.CrossFade("MaleA_Run");
 				break;
 			case "Credit Risk":
-				//target.CrossFade("Male_idle1_anim");
+				target.CrossFade("MaleD_Run");
 				break;
 			default:
 				break;
@@ -154,7 +154,7 @@ public class AnimationController: MonoBehaviour
 				target.CrossFade("MaleA_Computer");
 				break;
 			case "Credit Risk":
-				//target.CrossFade("Male_idle1_anim");
+				target.CrossFade("MaleD_Computer");
 				break;
 			default:
 				break;
@@ -176,7 +176,7 @@ public class AnimationController: MonoBehaviour
 				target.CrossFade("MaleA_Walk");
 				break;
 			case "Credit Risk":
-				//target.CrossFade("Male_idle1_anim");
+				target.CrossFade("MaleD_Walk");
 				break;
 			default:
 				break;

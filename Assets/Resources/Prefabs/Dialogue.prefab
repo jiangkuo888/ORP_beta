@@ -1193,14 +1193,14 @@ MonoBehaviour:
         serializedVersion: 2
         x: 164
         y: 219
-        width: 110
+        width: 100
         height: 32
       isBreakpoint: 0
       isSequence: 0
       hideUnused: 0
       transitions:
       - fsmEvent:
-          name: MOUSE OVER
+          name: FINISHED
           isSystemEvent: 1
           isGlobal: 0
         toState: disappear
@@ -1212,7 +1212,7 @@ MonoBehaviour:
         - HutongGames.PlayMaker.Actions.SetBoolValue
         customNames:
         - 
-        actionEnabled: 01
+        actionEnabled: 00
         actionIsOpen: 01
         actionStartIndex: 00000000
         actionHashCodes: 29b4727b
@@ -1228,7 +1228,7 @@ MonoBehaviour:
         fsmStringParams: []
         fsmObjectParams: []
         fsmVarParams: []
-        byteData: 00014973506175736564010000
+        byteData: 0001010000
         arrayParamSizes: 
         arrayParamTypes: []
         customTypeSizes: 
@@ -1238,8 +1238,8 @@ MonoBehaviour:
         - boolVariable
         - boolValue
         - everyFrame
-        paramDataPos: 000000000a0000000c000000
-        paramByteDataSize: 0a0000000200000001000000
+        paramDataPos: 000000000200000004000000
+        paramByteDataSize: 020000000200000001000000
     - name: disappear
       description: 
       colorIndex: 0
@@ -1260,7 +1260,7 @@ MonoBehaviour:
         customNames:
         - 
         - 
-        actionEnabled: 0101
+        actionEnabled: 0000
         actionIsOpen: 0101
         actionStartIndex: 0000000003000000
         actionHashCodes: 29b4727bc3496645
@@ -1291,7 +1291,7 @@ MonoBehaviour:
           value: CharacterMotor
         fsmObjectParams: []
         fsmVarParams: []
-        byteData: 0001497350617573656400000001000000
+        byteData: 000100000001000000
         arrayParamSizes: 
         arrayParamTypes: []
         customTypeSizes: 
@@ -1306,9 +1306,12 @@ MonoBehaviour:
         - component
         - enable
         - resetOnExit
-        paramDataPos: 000000000a0000000c0000000000000000000000000000000d0000000f000000
-        paramByteDataSize: 0a00000002000000010000000000000000000000000000000200000002000000
+        paramDataPos: 0000000002000000040000000000000000000000000000000500000007000000
+        paramByteDataSize: 0200000002000000010000000000000000000000000000000200000002000000
     events:
+    - name: FINISHED
+      isSystemEvent: 1
+      isGlobal: 0
     - name: MOUSE OVER
       isSystemEvent: 1
       isGlobal: 0
@@ -1353,8 +1356,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d33c6354b54fb847b16b36e1391868d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mMat: {fileID: 0}
-  mTex: {fileID: 0}
+  mMat: {fileID: 2100000, guid: d650d98b3c4028a4a8b7225c1a6482f8, type: 2}
+  mTex: {fileID: 2800000, guid: 30b7d500dfe64924480badf1e9a1c219, type: 3}
   mColor: {r: .0627451017, g: .125490203, b: .290196091, a: .847058833}
   mPivot: 4
   mDepth: 5
@@ -2119,14 +2122,14 @@ MonoBehaviour:
         serializedVersion: 2
         x: 164
         y: 219
-        width: 110
+        width: 100
         height: 32
       isBreakpoint: 0
       isSequence: 0
       hideUnused: 0
       transitions:
       - fsmEvent:
-          name: MOUSE OVER
+          name: FINISHED
           isSystemEvent: 1
           isGlobal: 0
         toState: disappear
@@ -2138,7 +2141,7 @@ MonoBehaviour:
         - HutongGames.PlayMaker.Actions.SetBoolValue
         customNames:
         - 
-        actionEnabled: 01
+        actionEnabled: 00
         actionIsOpen: 01
         actionStartIndex: 00000000
         actionHashCodes: 29b4727b
@@ -2154,7 +2157,7 @@ MonoBehaviour:
         fsmStringParams: []
         fsmObjectParams: []
         fsmVarParams: []
-        byteData: 00014973506175736564010000
+        byteData: 0001010000
         arrayParamSizes: 
         arrayParamTypes: []
         customTypeSizes: 
@@ -2164,8 +2167,8 @@ MonoBehaviour:
         - boolVariable
         - boolValue
         - everyFrame
-        paramDataPos: 000000000a0000000c000000
-        paramByteDataSize: 0a0000000200000001000000
+        paramDataPos: 000000000200000004000000
+        paramByteDataSize: 020000000200000001000000
     - name: disappear
       description: 
       colorIndex: 0
@@ -2186,7 +2189,7 @@ MonoBehaviour:
         customNames:
         - 
         - 
-        actionEnabled: 0101
+        actionEnabled: 0000
         actionIsOpen: 0101
         actionStartIndex: 0000000003000000
         actionHashCodes: 29b4727bc3496645
@@ -2217,7 +2220,7 @@ MonoBehaviour:
           value: CharacterMotor
         fsmObjectParams: []
         fsmVarParams: []
-        byteData: 0001497350617573656400000001000000
+        byteData: 000100000001000000
         arrayParamSizes: 
         arrayParamTypes: []
         customTypeSizes: 
@@ -2232,9 +2235,12 @@ MonoBehaviour:
         - component
         - enable
         - resetOnExit
-        paramDataPos: 000000000a0000000c0000000000000000000000000000000d0000000f000000
-        paramByteDataSize: 0a00000002000000010000000000000000000000000000000200000002000000
+        paramDataPos: 0000000002000000040000000000000000000000000000000500000007000000
+        paramByteDataSize: 0200000002000000010000000000000000000000000000000200000002000000
     events:
+    - name: FINISHED
+      isSystemEvent: 1
+      isGlobal: 0
     - name: MOUSE OVER
       isSystemEvent: 1
       isGlobal: 0
@@ -2410,7 +2416,7 @@ MonoBehaviour:
         - 
         - 
         - 
-        actionEnabled: 0101010100
+        actionEnabled: 0100000100
         actionIsOpen: 0101010101
         actionStartIndex: 0000000003000000080000000f0000000f000000
         actionHashCodes: 4753a3ffc34966450228a42100000000e1834f5e
@@ -2878,14 +2884,14 @@ MonoBehaviour:
         serializedVersion: 2
         x: 164
         y: 219
-        width: 110
+        width: 100
         height: 32
       isBreakpoint: 0
       isSequence: 0
       hideUnused: 0
       transitions:
       - fsmEvent:
-          name: MOUSE OVER
+          name: FINISHED
           isSystemEvent: 1
           isGlobal: 0
         toState: disappear
@@ -2897,7 +2903,7 @@ MonoBehaviour:
         - HutongGames.PlayMaker.Actions.SetBoolValue
         customNames:
         - 
-        actionEnabled: 01
+        actionEnabled: 00
         actionIsOpen: 01
         actionStartIndex: 00000000
         actionHashCodes: 29b4727b
@@ -2913,7 +2919,7 @@ MonoBehaviour:
         fsmStringParams: []
         fsmObjectParams: []
         fsmVarParams: []
-        byteData: 00014973506175736564010000
+        byteData: 0001010000
         arrayParamSizes: 
         arrayParamTypes: []
         customTypeSizes: 
@@ -2923,8 +2929,8 @@ MonoBehaviour:
         - boolVariable
         - boolValue
         - everyFrame
-        paramDataPos: 000000000a0000000c000000
-        paramByteDataSize: 0a0000000200000001000000
+        paramDataPos: 000000000200000004000000
+        paramByteDataSize: 020000000200000001000000
     - name: disappear
       description: 
       colorIndex: 0
@@ -2945,7 +2951,7 @@ MonoBehaviour:
         customNames:
         - 
         - 
-        actionEnabled: 0101
+        actionEnabled: 0000
         actionIsOpen: 0101
         actionStartIndex: 0000000003000000
         actionHashCodes: 29b4727bc3496645
@@ -2976,7 +2982,7 @@ MonoBehaviour:
           value: CharacterMotor
         fsmObjectParams: []
         fsmVarParams: []
-        byteData: 0001497350617573656400000001000000
+        byteData: 000100000001000000
         arrayParamSizes: 
         arrayParamTypes: []
         customTypeSizes: 
@@ -2991,9 +2997,12 @@ MonoBehaviour:
         - component
         - enable
         - resetOnExit
-        paramDataPos: 000000000a0000000c0000000000000000000000000000000d0000000f000000
-        paramByteDataSize: 0a00000002000000010000000000000000000000000000000200000002000000
+        paramDataPos: 0000000002000000040000000000000000000000000000000500000007000000
+        paramByteDataSize: 0200000002000000010000000000000000000000000000000200000002000000
     events:
+    - name: FINISHED
+      isSystemEvent: 1
+      isGlobal: 0
     - name: MOUSE OVER
       isSystemEvent: 1
       isGlobal: 0

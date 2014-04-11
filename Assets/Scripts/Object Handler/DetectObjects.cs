@@ -10,6 +10,8 @@ public class DetectObjects : Photon.MonoBehaviour {
 	public Vector2 hotSpot = new Vector2(100,0);
 
 	private PlayMakerFSM getState;
+	// tutorial
+	PlayMakerFSM EventFSM;
 
 	PhotonView hitObjPhotonView;
 	
@@ -23,7 +25,7 @@ public class DetectObjects : Photon.MonoBehaviour {
 	public bool mouseClick;
 	public bool enteredDialog;
 	
-	Transform dugManager;
+	//Transform dugManager;
 	Shader originalShader;
 	
 	void Start()
@@ -32,18 +34,19 @@ public class DetectObjects : Photon.MonoBehaviour {
 		mouseClick = false;
 		currentHitObj = null;
 		enteredDialog = false;
+
+		EventFSM = GameObject.Find ("EventManager-Tutorial").GetComponent<PlayMakerFSM>();
 		
 	}
 	
 	
-	void  OnGUI (){
-		if(gameOn && photonView.isMine)
+	void  Update (){
+		if((gameOn && photonView.isMine) || GameObject.Find ("GameManager").GetComponent<GameManagerVik>().isTutorial)
 		{
 		Ray ray= Camera.main.ScreenPointToRay (Input.mousePosition);
 		RaycastHit hit;
 		
-		if(!GameObject.Find ("Inventory").GetComponent<inventory>().mouseOnGUIButton)
-		{
+		
 			if (Physics.Raycast (ray, out hit, 100)) {
 				// display word hint
 				displayHint(hit.collider.name);
@@ -71,7 +74,7 @@ public class DetectObjects : Photon.MonoBehaviour {
 						
 
 
-						dugManager = transform.Find("DUGManager");
+						//dugManager = transform.Find("DUGManager");
 						
 						hitObjPhotonView = PhotonView.Get(hit.collider.gameObject);
 						
@@ -85,9 +88,9 @@ public class DetectObjects : Photon.MonoBehaviour {
 							{
 								currentHitObj.renderer.material.shader = originalShader;
 								Cursor.SetCursor(null, Vector2.zero, cursorMode);
-								dugManager.GetComponent<DUGView>().visible = true;
+								//dugManager.GetComponent<DUGView>().visible = true;
 								//							print(hit.collider.name);
-								dugManager.GetComponent<DialogueController>().setActiveDialogue(hit.collider.name);
+								//dugManager.GetComponent<DialogueController>().setActiveDialogue(hit.collider.name);
 								disableCameraAndMotor();
 								moveCameraToObject(hit.collider.gameObject);
 								mouseClick = !mouseClick;
@@ -105,7 +108,7 @@ public class DetectObjects : Photon.MonoBehaviour {
 						// change mouse cursor to talk
 						//Cursor.SetCursor(cursorTextureTalk, hotSpot, cursorMode);
 						
-						dugManager = transform.Find("DUGManager");
+						//dugManager = transform.Find("DUGManager");
 						
 						hitObjPhotonView = PhotonView.Get(hit.collider.gameObject);
 						
@@ -134,9 +137,9 @@ public class DetectObjects : Photon.MonoBehaviour {
 								Cursor.SetCursor(null, Vector2.zero, cursorMode);
 								
 								
-								dugManager.GetComponent<DUGView>().visible = true;
+								//dugManager.GetComponent<DUGView>().visible = true;
 								print(hit.collider.name);
-								dugManager.GetComponent<DialogueController>().setActiveDialogue(hit.collider.name);
+								//dugManager.GetComponent<DialogueController>().setActiveDialogue(hit.collider.name);
 								disableCameraAndMotor();
 								moveCameraToObject(hit.collider.gameObject);
 								mouseClick = !mouseClick;
@@ -148,7 +151,7 @@ public class DetectObjects : Photon.MonoBehaviour {
 					}
 					else if (hit.collider.gameObject.tag == "desk")
 					{
-						if (hit.collider.gameObject.name.Contains(PhotonNetwork.playerName))
+						if (hit.collider.gameObject.name.Contains(PhotonNetwork.playerName)||hit.collider.gameObject.name.Contains("Common"))
 						{
 
 
@@ -169,15 +172,22 @@ public class DetectObjects : Photon.MonoBehaviour {
 							//hit.transform.renderer.material.color = Color.green;
 							
 							if (Input.GetKeyUp (KeyCode.Mouse0)) {
+
+								if(EventFSM.enabled)
+								EventFSM.FsmVariables.GetFsmBool("InDeskMode").Value = true;
+
+
 								mouseClick = true;
 								enteredDialog = true;
 								
 		                        // disable quest log and phone and inventoty
-									GameObject.Find ("Inventory").GetComponent<GUITexture>().enabled = false;
+									//GameObject.Find ("InventoryContainer").GetComponent<GUITexture>().enabled = false;
+									//GameObject.Find ("InventoryButton1").GetComponent<GUITexture>().enabled = false;
+									//GameObject.Find ("InventoryButton2").GetComponent<GUITexture>().enabled = false;
+									//GameObject.Find ("InventoryObj").GetComponent<GUITexture>().enabled = false;
+
+									GameObject.Find ("phoneButton").GetComponent<phoneButton>().hide();
 									GameObject.Find ("phoneButton").GetComponent<GUITexture>().enabled = false;
-									GameObject.Find ("phoneSmallButton1").GetComponent<GUITexture>().enabled = false;
-									GameObject.Find ("phoneSmallButton2").GetComponent<GUITexture>().enabled = false;
-									GameObject.Find ("phoneSmallButton3").GetComponent<GUITexture>().enabled = false;
 									GameObject.Find ("QuestLogButton").GetComponent<GUITexture>().enabled = false;
 
 
@@ -234,12 +244,26 @@ public class DetectObjects : Photon.MonoBehaviour {
 							
 							if( mouseClick)
 							{
+
+								mouseClick = !mouseClick;
+
+
+							//	Debug.LogError("Clicked");
+
+								if(hit.collider.transform.parent.parent.transform.Find ("TriggerA").GetComponent<DoorHandler>().enter)
+								{
+								hit.collider.transform.parent.parent.transform.Find ("TriggerA").GetComponent<DoorHandler>().clicked = true;
+								}
+
+								if(hit.collider.transform.parent.parent.transform.Find ("TriggerB").GetComponent<DoorHandler>().enter)
+								{
+								hit.collider.transform.parent.parent.transform.Find ("TriggerB").GetComponent<DoorHandler>().clicked = true;
 								
-								hit.collider.transform.parent.parent.parent.GetComponent<DoorHandler>().clicked = true;
+								}
 								
 								currentHitObj.renderer.material.shader = originalShader;
 								Cursor.SetCursor(null, Vector2.zero, cursorMode);
-								mouseClick = !mouseClick;
+
 								
 							}
 							
@@ -294,38 +318,27 @@ public class DetectObjects : Photon.MonoBehaviour {
 					Cursor.SetCursor(null, Vector2.zero, cursorMode);
 					
 					
-					if( currentHitObj !=null && currentHitObj.tag == "NPC")
+
+					
+					if(currentHitObj != null && enteredDialog == false)
 					{
-						
-						
-						
-						mouseClick = false;
-						currentHitObj = hit.collider.gameObject;
-						
-						
-						
-					}
-					else{
-						
-						if(currentHitObj != null && enteredDialog == false)
-						{
-							// set back the shader and cursor
-							if(currentHitObj.renderer)
-								currentHitObj.renderer.material.shader = originalShader;
-							
-						}
-						
-						mouseClick = false;
-						currentHitObj = hit.collider.gameObject;
+						// set back the shader and cursor
 						if(currentHitObj.renderer)
-							originalShader = currentHitObj.renderer.material.shader;
+							currentHitObj.renderer.material.shader = originalShader;
+						
 					}
+					
+					mouseClick = false;
+					currentHitObj = hit.collider.gameObject;
+					if(currentHitObj.renderer)
+						originalShader = currentHitObj.renderer.material.shader;
+					
 					//print (currentHitObj.name);
 				}
 				
 				
 			}  
-		}
+		
 	}
 
 	}
@@ -387,7 +400,9 @@ public class DetectObjects : Photon.MonoBehaviour {
 		Camera.main.transform.LookAt(desk.transform );
 		Camera.main.transform.localEulerAngles = new Vector3(Camera.main.transform.localEulerAngles.x-37f,Camera.main.transform.localEulerAngles.y,Camera.main.transform.localEulerAngles.z);
 		
-		
+		//update the camera state for playback
+		PlaybackCamera script = Camera.main.GetComponent<PlaybackCamera>();
+		script.isMainCameraChild = false;
 	}
 	
 	public void moveCameraToObject(GameObject obj){
@@ -419,6 +434,7 @@ public class DetectObjects : Photon.MonoBehaviour {
 			objects_camera_view_position = new Vector3(0f,0f,-cameraOffset);
 			camera_view_rotation = new Vector3(0f,0f,0f);
 		}
+
 		else if (obj.transform.rotation.eulerAngles.y <=315 && obj.transform.rotation.eulerAngles.y > 225)
 		{
 			objects_camera_view_position = new Vector3(-cameraOffset,0f,0f);
@@ -436,6 +452,10 @@ public class DetectObjects : Photon.MonoBehaviour {
 		else
 			Camera.main.transform.localPosition = new Vector3(objXmid,objYmid,objZmid) + objects_camera_view_position;
 		Camera.main.transform.localEulerAngles = camera_view_rotation;
+
+		//update the camera state for playback
+		PlaybackCamera script = Camera.main.GetComponent<PlaybackCamera>();
+		script.isMainCameraChild = false;
 		
 	}
 	
@@ -449,6 +469,11 @@ public class DetectObjects : Photon.MonoBehaviour {
 			Camera.main.transform.parent = this.transform;
 			Camera.main.transform.localPosition = this.GetComponent<ThirdPersonNetworkVik>().cameraRelativePosition;
 			Camera.main.transform.localEulerAngles = new Vector3(0.6651921f, 90, 0);
+
+
+			//update the camera state for playback
+			PlaybackCamera script = Camera.main.GetComponent<PlaybackCamera>();
+			script.isMainCameraChild = true;
 		}
 	}
 	
@@ -465,13 +490,7 @@ public class DetectObjects : Photon.MonoBehaviour {
 	}
 	
 	
-	void Update()
-	{
-		if(photonView.isMine)
-			if(this.transform.Find ("DUGManager"))
-				this.transform.Find ("DUGManager").gameObject.SetActive(true);
 
-	}
 	
 	
 	

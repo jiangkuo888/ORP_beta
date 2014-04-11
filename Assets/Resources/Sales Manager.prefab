@@ -244,6 +244,8 @@ GameObject:
   - 114: {fileID: 11400016}
   - 114: {fileID: 11400014}
   - 114: {fileID: 11400012}
+  - 114: {fileID: 11400018}
+  - 114: {fileID: 11400022}
   m_Layer: 2
   m_Name: Sales Manager
   m_TagString: SM
@@ -886,8 +888,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100032}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -12.7763424, y: 3.6891005, z: 57.8560944}
+  m_LocalRotation: {x: 0, y: .0112686018, z: 0, w: .999936521}
+  m_LocalPosition: {x: -85.1073456, y: 6.78289413, z: 140.551727}
   m_LocalScale: {x: .600000024, y: .600000024, z: -.600000024}
   m_Children:
   - {fileID: 400092}
@@ -1284,11 +1286,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   axes: 1
-  sensitivityX: 5
-  sensitivityY: 0
+  sensitivityX: 1.79999995
+  sensitivityY: 1
   minimumX: -360
   maximumX: 360
-  minimumY: 0
+  minimumY: -10
   maximumY: 0
 --- !u!114 &11400002
 MonoBehaviour:
@@ -1305,8 +1307,9 @@ MonoBehaviour:
   smooth: 2
   arrowPrefab: {fileID: 100000, guid: 73fece1052b063041bce306fcc184c31, type: 2}
   targetPosition: {x: 0, y: 0, z: 0}
-  speed: 10
+  speed: 20
   heightOffset: .899999976
+  OnGUI: 0
 --- !u!114 &11400004
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1319,6 +1322,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraRelativePosition: {x: 0, y: 1.25772798, z: 0}
+  cloneCameraRotation: {x: 0, y: 0, z: 0}
 --- !u!114 &11400006
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1365,7 +1369,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movement:
-    maxForwardSpeed: 10
+    maxForwardSpeed: 20
     maxSidewaysSpeed: 10
     maxBackwardsSpeed: 10
     slopeSpeedMultiplier:
@@ -1388,7 +1392,7 @@ MonoBehaviour:
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
-    maxGroundAcceleration: 30
+    maxGroundAcceleration: 20
     maxAirAcceleration: 20
     gravity: 9.81000042
     maxFallSpeed: 20
@@ -1518,6 +1522,27 @@ MonoBehaviour:
   useButton: Fire1
   defaultUseMessage: Click to interact
   broadcastToChildren: 1
+--- !u!114 &11400018
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100032}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1341398357, guid: b5a7519e94754fb4a8ea0c272031db78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  once: 1
+  trigger: 16
+  condition:
+    luaConditions: []
+    questConditions: []
+    acceptedTags: []
+    acceptedGameObjects: []
+  questName: Workdesk Mode
+  questState: 2
+  alertMessage: 'Try clicking on your desk to enter workdesk mode. '
 --- !u!114 &11400020
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1537,6 +1562,17 @@ MonoBehaviour:
   currentHitObj: {fileID: 0}
   mouseClick: 0
   enteredDialog: 0
+--- !u!114 &11400022
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3b9018c883248d4fae50640634821d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!137 &13700000
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

@@ -259,6 +259,7 @@ GameObject:
   - 114: {fileID: 11400018}
   - 114: {fileID: 11400016}
   - 114: {fileID: 11400014}
+  - 114: {fileID: 11400020}
   m_Layer: 0
   m_Name: LPU Manager
   m_TagString: LM
@@ -1284,11 +1285,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   axes: 1
-  sensitivityX: 5
-  sensitivityY: 0
+  sensitivityX: 1
+  sensitivityY: 1
   minimumX: -360
   maximumX: 360
-  minimumY: 0
+  minimumY: -10
   maximumY: 0
 --- !u!114 &11400002
 MonoBehaviour:
@@ -1307,6 +1308,7 @@ MonoBehaviour:
   targetPosition: {x: 0, y: 0, z: 0}
   speed: 10
   heightOffset: .899999976
+  OnGUI: 0
 --- !u!114 &11400004
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1319,6 +1321,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraRelativePosition: {x: 0, y: 1.25772798, z: 0}
+  cloneCameraRotation: {x: 0, y: 0, z: 0}
 --- !u!114 &11400006
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1537,6 +1540,17 @@ MonoBehaviour:
   useButton: Fire1
   defaultUseMessage: (spacebar to interact)
   broadcastToChildren: 1
+--- !u!114 &11400020
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3b9018c883248d4fae50640634821d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!137 &13700000
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
