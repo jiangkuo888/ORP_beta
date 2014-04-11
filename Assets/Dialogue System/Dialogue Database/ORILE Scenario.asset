@@ -2444,7 +2444,7 @@ MonoBehaviour:
         value: 15
         type: 5
       - title: Menu Text
-        value: Security Manager
+        value: '[f]Security Manager'
         type: 0
       - title: Dialogue Text
         value: 'Yes, that''s right! I should contact the Security Manager with my
@@ -2464,7 +2464,7 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks: []
-      conditionsString: Dialog[7].SimStatus ~= "WasDisplayed"
+      conditionsString: Dialog[10].SimStatus ~= "WasDisplayed"
       userScript: 'Item["Missing_Fire_Extinguisher"].State = "active"; Variable["Alert"]
         = "New Quest: Missing Fire Extinguisher";'
     - id: 11
@@ -2479,7 +2479,7 @@ MonoBehaviour:
         value: 15
         type: 5
       - title: Menu Text
-        value: 'Technology Manager '
+        value: '[f]Technology Manager '
         type: 0
       - title: Dialogue Text
         value: 'A missing fire extinguisher has nothing to do with the Technology
@@ -2505,7 +2505,7 @@ MonoBehaviour:
         destinationDialogueID: 9
         isConnector: 1
         priority: 2
-      conditionsString: Dialog[8].SimStatus ~= "WasDisplayed"
+      conditionsString: Dialog[11].SimStatus ~= "WasDisplayed"
       userScript: 
     - id: 12
       fields:
@@ -2519,7 +2519,7 @@ MonoBehaviour:
         value: 15
         type: 5
       - title: Menu Text
-        value: Call a Friend
+        value: '[f]Call a Friend'
         type: 0
       - title: Dialogue Text
         value: 'hmmm.... that doesn''t seems to be right.. '
@@ -2544,7 +2544,7 @@ MonoBehaviour:
         destinationDialogueID: 9
         isConnector: 1
         priority: 2
-      conditionsString: Dialog[9].SimStatus ~= "WasDisplayed"
+      conditionsString: Dialog[12].SimStatus ~= "WasDisplayed"
       userScript: 
   - id: 24
     fields:
