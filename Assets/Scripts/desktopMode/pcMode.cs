@@ -9,7 +9,7 @@ public class pcMode : MonoBehaviour {
 	public float x_offset;
 	public float y_offset;
 	public string[] customerNames;
-	public Texture2D[] customerImages;
+	public Texture[] customerImages;
 	
 	public GameObject deskTop;
 
@@ -41,7 +41,30 @@ public class pcMode : MonoBehaviour {
 		InfoModeIsOn = true;
 	}
 	
-	
+	public void addCustomerInfo(string newName, Texture newTexture, string targetPlayer){
+		if(PhotonNetwork.playerName == targetPlayer)
+		{
+			// add the conversationName to the list
+			System.Collections.Generic.List<string> nameList = new System.Collections.Generic.List<string>(customerNames);
+			
+			if(!nameList.Contains(newName))
+				nameList.Add(newName);
+			
+			customerNames = nameList.ToArray();
+			
+			
+			// add the display text to the textlist
+			System.Collections.Generic.List<Texture> textureList = new System.Collections.Generic.List<Texture>(customerImages);
+			
+			if(!textureList.Contains(newTexture))
+				textureList.Add(newTexture);
+			
+			customerImages = textureList.ToArray();
+		}
+
+
+
+	}
 	
 	void OnGUI() {
 
@@ -63,7 +86,7 @@ public class pcMode : MonoBehaviour {
 				if(deskTop != null)
 				{
 					
-					currentImage = customerImages[i];
+					currentImage = customerImages[i] as Texture2D;
 
 					
 					

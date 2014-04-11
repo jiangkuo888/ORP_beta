@@ -17,6 +17,7 @@ public class ChatVik : Photon.MonoBehaviour
 	Texture2D playerTexture;
     public static ChatVik SP;
     public List<string> messages = new List<string>();
+	public List<Color> messageColor = new List<Color>();
 
     private int chatHeight = (int)200;
     private Vector2 scrollPos = Vector2.zero;
@@ -28,6 +29,9 @@ public class ChatVik : Photon.MonoBehaviour
 	public float ChatArea_x;
 	public float ChatArea_y;
 
+
+	Color textColor;
+
     void Awake()
     {
 		playerTexture = null;
@@ -38,22 +42,26 @@ public class ChatVik : Photon.MonoBehaviour
     {        
         GUI.SetNextControlName("");
 
-		GUILayout.BeginArea(new Rect(Screen.width - Screen.width/2+ChatArea_x+100, ChatArea_y, Screen.width/2, Screen.height/2));
+		GUILayout.BeginArea(new Rect(Screen.width - Screen.width/2+ChatArea_x+100, ChatArea_y, Screen.width/2, Screen.height/3));
 		GUILayout.BeginHorizontal(); 
 		
 		switch(PhotonNetwork.playerName)
 		{
 		case "Sales Manager":
 			playerTexture = playerTextureSM;
+
 			break;
 		case "LPU Manager":
 			playerTexture = playerTextureLM;
+
 			break;
 		case "LPU Officer":
 			playerTexture = playerTextureLO;
+
 			break;
 		case "Credit Risk":
 			playerTexture = playerTextureCR;
+		
 			break;
 		default:
 			break;
@@ -97,9 +105,10 @@ public class ChatVik : Photon.MonoBehaviour
 
         //Show scroll list of chat messages
         scrollPos = GUILayout.BeginScrollView(scrollPos);
-        GUI.color = Color.red;
+
         for (int i = messages.Count - 1; i >= 0; i--)
         {
+			GUI.contentColor = messageColor[i]; 
             GUILayout.Label(messages[i]);
         }
         GUILayout.EndScrollView();
@@ -113,18 +122,47 @@ public class ChatVik : Photon.MonoBehaviour
         GUILayout.EndArea();
     }
 
-    public static void AddMessage(string text)
+    public static void AddMessage(string text,Color color)
     {
+		SP.messageColor.Add(color);
         SP.messages.Add(text);
         if (SP.messages.Count > 15)
+		{
             SP.messages.RemoveAt(0);
+			SP.messageColor.RemoveAt(0);
+		}
     }
 
 
     [RPC]
     void SendChatMessage(string text, PhotonMessageInfo info)
     {
-        AddMessage("[" + info.sender + "] " + text);
+
+		switch(info.sender.ToString())
+		{
+		case "Sales Manager":
+
+			textColor = Color.yellow;
+			break;
+		case "LPU Manager":
+
+			textColor = Color.blue;
+			break;
+		case "LPU Officer":
+
+			textColor = Color.cyan;
+			break;
+		case "Credit Risk":
+
+			textColor = Color.red;
+			break;
+		default:
+			break;
+			
+		}
+
+
+		AddMessage("[" + info.sender + "] " + text,textColor);
 
 		//get roomID & playerName
 		GameObject gameManager = GameObject.Find("GameManager");  
@@ -180,8 +218,5 @@ public class ChatVik : Photon.MonoBehaviour
     {
         this.enabled = true;
     }
-	public void OnConversationStart(Transform tr){
-		print ("23123");
-		this.enabled = false;
-	}
+
 }
