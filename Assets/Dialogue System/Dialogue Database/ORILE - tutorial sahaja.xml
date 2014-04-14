@@ -2970,7 +2970,7 @@
             <OutgoingLinks>
               <Link OriginConvoID="1" DestinationConvoID="1" OriginDialogID="14" DestinationDialogID="15" IsConnector="false" />
             </OutgoingLinks>
-            <ConditionsString>Dialog[14].SimStatus ~= "WasDisplayed" and Dialog[3].SimStatus == "WasDisplayed"</ConditionsString>
+            <ConditionsString>Dialog[3].SimStatus == "WasDisplayed"</ConditionsString>
             <UserScript />
           </DialogEntry>
           <DialogEntry ID="15" IsRoot="false" IsGroup="false" NodeColor="White" DelaySimStatus="false" FalseCondtionAction="Block" ConditionPriority="Normal">
@@ -2993,7 +2993,7 @@
               </Field>
               <Field Hint="The text that is spoken by the actor." Type="Localization">
                 <Title>Dialogue Text</Title>
-                <Value>Oh yes i do. i have a car loan of $1000 and home loan premium of $1300.</Value>
+                <Value>Oh yes i do. i have a car loan of $1000 and home loan of $1300.</Value>
               </Field>
               <Field Hint="A WMV video file to be played for this dialogue." Type="Text">
                 <Title>Video File</Title>
@@ -3048,7 +3048,7 @@
             <OutgoingLinks>
               <Link OriginConvoID="1" DestinationConvoID="1" OriginDialogID="16" DestinationDialogID="17" IsConnector="false" />
             </OutgoingLinks>
-            <ConditionsString>Dialog[16].SimStatus ~= "WasDisplayed" and Dialog[3].SimStatus == "WasDisplayed"</ConditionsString>
+            <ConditionsString>Dialog[3].SimStatus == "WasDisplayed"</ConditionsString>
             <UserScript />
           </DialogEntry>
           <DialogEntry ID="17" IsRoot="false" IsGroup="false" NodeColor="White" DelaySimStatus="false" FalseCondtionAction="Block" ConditionPriority="Normal">
@@ -3071,7 +3071,7 @@
               </Field>
               <Field Hint="The text that is spoken by the actor." Type="Localization">
                 <Title>Dialogue Text</Title>
-                <Value>Yes i have a outstanding amount of $600 in pending.</Value>
+                <Value>Yes i have a outstanding amount of $700 in pending.</Value>
               </Field>
               <Field Hint="A WMV video file to be played for this dialogue." Type="Text">
                 <Title>Video File</Title>
@@ -3110,8 +3110,7 @@
               </Field>
               <Field Hint="The text that is spoken by the actor." Type="Localization">
                 <Title>Dialogue Text</Title>
-                <Value>Ok Sir, I have all the information I need. Your total liability comes to 
-$5900. I am afraid the TDSR EXCEEDS 65%.</Value>
+                <Value>Ok Sir, your total liability comes to $5900 and after computation, the TDSR exceeds 65%</Value>
               </Field>
               <Field Hint="A WMV video file to be played for this dialogue." Type="Text">
                 <Title>Video File</Title>
@@ -3150,7 +3149,7 @@ $5900. I am afraid the TDSR EXCEEDS 65%.</Value>
               </Field>
               <Field Hint="The text that is spoken by the actor." Type="Localization">
                 <Title>Dialogue Text</Title>
-                <Value>Oh I See. What do you suggest?</Value>
+                <Value>Oh i see. What do you suggest?</Value>
               </Field>
               <Field Hint="A WMV video file to be played for this dialogue." Type="Text">
                 <Title>Video File</Title>
@@ -3228,7 +3227,7 @@ $5900. I am afraid the TDSR EXCEEDS 65%.</Value>
               </Field>
               <Field Hint="The text that is spoken by the actor." Type="Localization">
                 <Title>Dialogue Text</Title>
-                <Value>Alright. I will clear my credit loan then.</Value>
+                <Value>Ok sure. I will do that.</Value>
               </Field>
               <Field Hint="A WMV video file to be played for this dialogue." Type="Text">
                 <Title>Video File</Title>
@@ -3267,7 +3266,7 @@ $5900. I am afraid the TDSR EXCEEDS 65%.</Value>
               </Field>
               <Field Hint="The text that is spoken by the actor." Type="Localization">
                 <Title>Dialogue Text</Title>
-                <Value>That's great. I can start processing your loan approval.</Value>
+                <Value>That's great. I can start processing your loan then.</Value>
               </Field>
               <Field Hint="A WMV video file to be played for this dialogue." Type="Text">
                 <Title>Video File</Title>
@@ -3306,7 +3305,7 @@ $5900. I am afraid the TDSR EXCEEDS 65%.</Value>
               </Field>
               <Field Hint="The text that is spoken by the actor." Type="Localization">
                 <Title>Dialogue Text</Title>
-                <Value>Thank you.</Value>
+                <Value>Ok thanks!</Value>
               </Field>
               <Field Hint="A WMV video file to be played for this dialogue." Type="Text">
                 <Title>Video File</Title>

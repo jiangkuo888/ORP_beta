@@ -107,6 +107,13 @@ public class SequencerCommandPick : SequencerCommand {
 				
 				if(!playersinv.GetComponent<InventoryNew>().alreadyHave(onUsedObj.transform))
 				{
+
+					if(GameObject.Find ("DropArea_"+onUsedObj.name))
+					{
+						GameObject.Find ("DropArea_"+onUsedObj.name).GetComponent<DropAreaController>().AreaActivated = true;
+						print ("111");
+					}
+
 					PhotonView photonView = onUsedObj.GetPhotonView();
 					
 					photonView.RPC("disableRenderer",PhotonTargets.AllBuffered);

@@ -2971,8 +2971,7 @@ MonoBehaviour:
         destinationDialogueID: 15
         isConnector: 0
         priority: 2
-      conditionsString: Dialog[14].SimStatus ~= "WasDisplayed" and Dialog[3].SimStatus
-        == "WasDisplayed"
+      conditionsString: Dialog[3].SimStatus == "WasDisplayed"
       userScript: 
     - id: 15
       fields:
@@ -2989,7 +2988,7 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Dialogue Text
-        value: Oh yes i do. i have a car loan of $1000 and home loan premium of $1300.
+        value: Oh yes i do. i have a car loan of $1000 and home loan of $1300.
         type: 4
       - title: Video File
         value: 
@@ -3050,8 +3049,7 @@ MonoBehaviour:
         destinationDialogueID: 17
         isConnector: 0
         priority: 2
-      conditionsString: Dialog[16].SimStatus ~= "WasDisplayed" and Dialog[3].SimStatus
-        == "WasDisplayed"
+      conditionsString: Dialog[3].SimStatus == "WasDisplayed"
       userScript: 
     - id: 17
       fields:
@@ -3068,7 +3066,7 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Dialogue Text
-        value: Yes i have a outstanding amount of $600 in pending.
+        value: Yes i have a outstanding amount of $700 in pending.
         type: 4
       - title: Video File
         value: 
@@ -3107,8 +3105,8 @@ MonoBehaviour:
         value: Update the status.
         type: 0
       - title: Dialogue Text
-        value: "Ok Sir, I have all the information I need. Your total liability comes
-          to \n$5900. I am afraid the TDSR EXCEEDS 65%."
+        value: Ok Sir, your total liability comes to $5900 and after computation,
+          the TDSR exceeds 65%
         type: 4
       - title: Video File
         value: 
@@ -3147,7 +3145,7 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Dialogue Text
-        value: Oh I See. What do you suggest?
+        value: Oh i see. What do you suggest?
         type: 4
       - title: Video File
         value: 
@@ -3225,7 +3223,7 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Dialogue Text
-        value: Alright. I will clear my credit loan then.
+        value: Ok sure. I will do that.
         type: 4
       - title: Video File
         value: 
@@ -3264,7 +3262,7 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Dialogue Text
-        value: That's great. I can start processing your loan approval.
+        value: That's great. I can start processing your loan then.
         type: 4
       - title: Video File
         value: 
@@ -3303,7 +3301,7 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Dialogue Text
-        value: Thank you.
+        value: Ok thanks!
         type: 4
       - title: Video File
         value: 

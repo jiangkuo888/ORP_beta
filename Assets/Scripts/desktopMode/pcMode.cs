@@ -41,9 +41,9 @@ public class pcMode : MonoBehaviour {
 		InfoModeIsOn = true;
 	}
 	
-	public void addCustomerInfo(string newName, Texture newTexture, string targetPlayer){
-		if(PhotonNetwork.playerName == targetPlayer)
-		{
+	public void addCustomerInfo(string newName, Texture newTexture){
+		//if(PhotonNetwork.playerName == targetPlayer)
+	//	{
 			// add the conversationName to the list
 			System.Collections.Generic.List<string> nameList = new System.Collections.Generic.List<string>(customerNames);
 			
@@ -60,7 +60,7 @@ public class pcMode : MonoBehaviour {
 				textureList.Add(newTexture);
 			
 			customerImages = textureList.ToArray();
-		}
+	//	}
 
 
 
