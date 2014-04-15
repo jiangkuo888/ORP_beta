@@ -1411,8 +1411,8 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: Dialog[7].SimStatus ~= "WasDisplayed"
-      userScript: 'Item["Missing_Fire_Extinguisher"].State = "active"; Variable["Alert"]
-        = "New Quest: Missing Fire Extinguisher";'
+      userScript: "Item[\"Missing_Fire_Extinguisher\"].State = \"active\"; \nVariable[\"Alert\"]
+        = \"New Quest: Missing Fire Extinguisher\";"
     - id: 8
       fields:
       - title: Title
@@ -1670,7 +1670,9 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
-      userScript: Item["Missing_Fire_Extinguisher"].State = "success";
+      userScript: 'Item["Missing_Fire_Extinguisher"].State = "success";
+
+        Variable["Alert"] = "Quest Completed: Missing Fire Extinguisher Replaced";'
     - id: 4
       fields:
       - title: Title

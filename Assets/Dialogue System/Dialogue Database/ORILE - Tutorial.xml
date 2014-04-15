@@ -1507,7 +1507,8 @@ Variable["Alert"] = "Email sent to Kevin successfully.";</UserScript>
             <ReviewerStatus>None</ReviewerStatus>
             <OutgoingLinks />
             <ConditionsString>Dialog[7].SimStatus ~= "WasDisplayed"</ConditionsString>
-            <UserScript>Item["Missing_Fire_Extinguisher"].State = "active"; Variable["Alert"] = "New Quest: Missing Fire Extinguisher";</UserScript>
+            <UserScript>Item["Missing_Fire_Extinguisher"].State = "active"; 
+Variable["Alert"] = "New Quest: Missing Fire Extinguisher";</UserScript>
           </DialogEntry>
           <DialogEntry ID="8" IsRoot="false" IsGroup="false" NodeColor="White" DelaySimStatus="false" FalseCondtionAction="Block" ConditionPriority="Normal">
             <Fields>
@@ -1763,7 +1764,8 @@ Variable["Alert"] = "Email sent to Kevin successfully.";</UserScript>
             <ReviewerStatus>None</ReviewerStatus>
             <OutgoingLinks />
             <ConditionsString />
-            <UserScript>Item["Missing_Fire_Extinguisher"].State = "success";</UserScript>
+            <UserScript>Item["Missing_Fire_Extinguisher"].State = "success";
+Variable["Alert"] = "Quest Completed: Missing Fire Extinguisher Replaced";</UserScript>
           </DialogEntry>
           <DialogEntry ID="4" IsRoot="false" IsGroup="false" NodeColor="White" DelaySimStatus="false" FalseCondtionAction="Block" ConditionPriority="Normal">
             <Fields>

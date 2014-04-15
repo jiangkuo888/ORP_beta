@@ -19,10 +19,16 @@ public class DropAreaController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if(AreaActivated && this.transform.Find ("GreenArrow").renderer.enabled == false)
+		if(AreaActivated)
+		{
+			if(this.transform.Find ("GreenArrow").renderer.enabled == false)
 			this.transform.Find ("GreenArrow").renderer.enabled = true;
-		else if(AreaActivated == false && this.transform.Find ("GreenArrow").renderer.enabled == true)
+		}
+		else 
+		{
+			if(this.transform.Find ("GreenArrow").renderer.enabled == true)
 			this.transform.Find ("GreenArrow").renderer.enabled = false;
+		}
 
 
 	}
