@@ -153,6 +153,13 @@ public class DeskMode : MonoBehaviour {
 					}
 					else{
 
+
+						// log the pick up action in the database
+
+						GameObject.Find ("Dialogue Manager").GetComponent<PlayerActionLog>().addToPlayerActionLog(targetDocument.GetComponent<pageData>().pick_up_doc_id,targetDocument.name + "(LO_signed_"+targetDocument.GetComponent<pageData>().LO_signed+",LM_signed_"+targetDocument.GetComponent<pageData>().LM_signed+",CR_signed_"+targetDocument.GetComponent<pageData>().CR_signed+",correct_Document_"+targetDocument.GetComponent<pageData>().correct_document+") has been picked up by "+ PhotonNetwork.playerName);
+
+
+
 						GameObject.Find ("Inventory").GetComponent<InventoryNew>().AddItem(targetDocument.transform);
 						// remove document from his table
 

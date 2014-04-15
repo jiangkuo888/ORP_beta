@@ -29,7 +29,10 @@ public class pageData : MonoBehaviour {
 	public bool correct_document;
 	
 	public string mode = "FileMode";
-	
+
+	public string pick_up_doc_id;
+	public string deposit_doc_id;
+
 	// wrong document IDs
 	public string reject_wrong_doc;
 	public string sign_wrong_doc;
@@ -75,7 +78,13 @@ public class pageData : MonoBehaviour {
 		newPage.transform.localPosition = new Vector3(-0.0002115475f,0.001669302f ,0.001225402f);
 		newPage.transform.localEulerAngles = new Vector3(90,0,0);
 		
-		
+
+
+		// define pickup ID
+		pick_up_doc_id = "20H";
+
+		// define deposit safe ID
+		deposit_doc_id = "21B";
 		
 		// define actionID
 		reject_wrong_doc = "11A";
