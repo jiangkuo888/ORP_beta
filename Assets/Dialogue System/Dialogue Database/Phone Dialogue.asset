@@ -941,7 +941,9 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
-      userScript: Item["Evacuation_Notice"].State = "active";
+      userScript: 'Item["Evacuation_Notice"].State = "active";
+
+        Variable["Alert"] = "There is a new announcement available for you.";'
   - id: 64
     fields:
     - title: Title
@@ -1158,7 +1160,7 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks: []
-      conditionsString: Item["Evacuation_Notice"].State == "active" and Dialog[2].SimStatus
+      conditionsString: Item["Evacuation_Notice"].State == "active" and Dialog[4].SimStatus
         ~= "WasDisplayed"
       userScript: 'Item["Evacuation_Notice"].State = "success";
 
