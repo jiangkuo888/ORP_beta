@@ -81,7 +81,10 @@ public class SequencerCommandDeposit : SequencerCommand {
 			{
 				// remove this doc from inventory transform list
 				GameObject.Find ("Inventory").GetComponent<InventoryNew>().RemoveItem(doc);
-				// reset its position to origin
+
+				//log deposit action in database
+				GameObject targetDocument = doc.gameObject;
+				GameObject.Find ("Dialogue Manager").GetComponent<PlayerActionLog>().addToPlayerActionLog(targetDocument.GetComponent<pageData>().deposit_doc_id,targetDocument.name + "(LO_signed_"+targetDocument.GetComponent<pageData>().LO_signed+",LM_signed_"+targetDocument.GetComponent<pageData>().LM_signed+",CR_signed_"+targetDocument.GetComponent<pageData>().CR_signed+",correct_Document_"+targetDocument.GetComponent<pageData>().correct_document+") has been deposited into safe by "+ PhotonNetwork.playerName);
 
 
 

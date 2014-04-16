@@ -6,6 +6,7 @@ public class DropAreaController : MonoBehaviour {
 	
 	public GameObject DropObj;
 	public float rotateSpeed = 2f;
+	public string dropSuccessID;
 	bool DropTaskFinished;
 
 	public bool AreaActivated;
@@ -15,6 +16,7 @@ public class DropAreaController : MonoBehaviour {
 		DropTaskFinished = false;
 		//if(DropObj == null)
 //			Debug.Log(this.name + " has no drop object, please attach one.");
+		dropSuccessID = "3A";
 	}
 	
 	// Update is called once per frame
@@ -48,6 +50,10 @@ public class DropAreaController : MonoBehaviour {
 			switch(DropObj.name)
 			{
 			case "ObstacleBox":
+
+				// log the drop success action
+				GameObject.Find ("Dialogue Manager").GetComponent<PlayerActionLog>().addToPlayerActionLog(dropSuccessID, DropObj.name + " has been dropped to the correct place by " + PhotonNetwork.playerName);
+
 
 				print(" you have finished task : Clear the obstacle box and move it to target area.");
 				break;
