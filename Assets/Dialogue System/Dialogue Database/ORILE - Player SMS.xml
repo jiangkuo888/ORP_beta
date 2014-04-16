@@ -891,7 +891,7 @@
               </Field>
               <Field Hint="Dialogue System for Unity cutscene sequence" Type="Text">
                 <Title>Sequence</Title>
-                <Value>SendConversation(SM,LO, SMMessageSent1);</Value>
+                <Value>SendConversation(SM,LO, SMMessageSent1); Log(20B, evacuation mesage sent);</Value>
               </Field>
             </Fields>
             <ReviewerNotes />
@@ -1747,7 +1747,7 @@ Item["LOtoLM1"].State = "success";</UserScript>
               </Field>
               <Field Hint="Dialogue System for Unity cutscene sequence" Type="Text">
                 <Title>Sequence</Title>
-                <Value>SendConversation(LO,LM, LOtoLM1);</Value>
+                <Value>SendConversation(LO,LM, LOtoLM1); Log(20H, evacuation mesage sent);</Value>
               </Field>
             </Fields>
             <ReviewerNotes />
@@ -1883,7 +1883,7 @@ Item["LOtoLM1"].State = "success";</UserScript>
               </Field>
               <Field Hint="Dialogue System for Unity cutscene sequence" Type="Text">
                 <Title>Sequence</Title>
-                <Value>SendConversation(LO,CR, LOtoCR1);</Value>
+                <Value>SendConversation(LO,CR, LOtoCR1); Log(20I, evacuation mesage sent);</Value>
               </Field>
             </Fields>
             <ReviewerNotes />
@@ -2178,7 +2178,7 @@ Item["LOtoLM1"].State = "success";</UserScript>
               </Field>
               <Field Hint="Dialogue System for Unity cutscene sequence" Type="Text">
                 <Title>Sequence</Title>
-                <Value>SendConversation(LM,CR, LMtoCR_Safe_unlock);</Value>
+                <Value>SendConversation(LM,CR, LMtoCR_Safe_unlock); Log(20K, message sent for safe key);</Value>
               </Field>
             </Fields>
             <ReviewerNotes />
