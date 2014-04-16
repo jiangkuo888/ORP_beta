@@ -210,7 +210,7 @@ public class DeskMode : MonoBehaviour {
 
 					this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].GetComponent<ObjectViewer>().readDocument();
 					mode = DeskModeSubMode.pageMode;
-					Camera.main.GetComponent<magnify>().enableZoom();
+					//Camera.main.GetComponent<magnify>().enableZoom();
 					
 					if(this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].GetComponent<pageData>().currentPage == 
 					   this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].GetComponent<pageData>().pageTextures.Length - 1)
@@ -359,7 +359,7 @@ public class DeskMode : MonoBehaviour {
 						EventFSM.FsmVariables.GetFsmBool("IsVerifying").Value = true;
 
 
-				Camera.main.GetComponent<magnify>().disableZoom();
+				//Camera.main.GetComponent<magnify>().disableZoom();
 
 
 				Transform thisTr = this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].transform;
@@ -396,7 +396,23 @@ public class DeskMode : MonoBehaviour {
 				this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].GetComponent<pageData>().showNextPage();
 			}
 			
-			
+
+			if(GUI.Button ( new LTRect(w/2 - 200f, .9f*h -130f, 100f,50f).rect, "Zoom In", customSkin.button))
+			{
+				if(EventFSM.enabled)
+					if(EventFSM.ActiveStateName == "Click on ZoomIn")
+						EventFSM.FsmVariables.GetFsmBool("ZoomClicked").Value = true;
+
+				Camera.main.GetComponent<magnify>().enableZoom(this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1]);
+
+			}
+
+			if(GUI.Button ( new LTRect(100f, .9f*h -130f, 100f,50f).rect, "Zoom Out", customSkin.button))
+			{
+				Camera.main.GetComponent<magnify>().disableZoom();
+			}
+
+
 			if(GUI.Button( new LTRect(100f, .9f*h - 50f, 125f, 50f ).rect, "Previous Page",customSkin.button))
 			{
 				this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].GetComponent<pageData>().showPreviousPage();
@@ -405,10 +421,12 @@ public class DeskMode : MonoBehaviour {
 
 			if(GUI.Button( new LTRect(1.0f*w - 175f, 1.0f*h - 50f, 160f, 50f ).rect, "Back to read page",customSkin.button))
 			{
+				Camera.main.GetComponent<magnify>().disableZoom();
+
 
 				Camera.main.transform.position = CameraOriginalPosition;
 
-				Camera.main.GetComponent<magnify>().enableZoom();
+				//Camera.main.GetComponent<magnify>().enableZoom();
 
 				if(GameObject.Find("PCscreen").GetComponent<pcMode>().enabled == true)
 					GameObject.Find ("PCscreen").GetComponent<pcMode>().enabled = false;
