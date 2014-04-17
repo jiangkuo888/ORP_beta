@@ -63,6 +63,8 @@ public class NetworkTime : MonoBehaviour {
 
 
 	string formatAsTime(int timeInFloat){
+
+
 		int sec,min,hrs;
 		DateTime date;
 

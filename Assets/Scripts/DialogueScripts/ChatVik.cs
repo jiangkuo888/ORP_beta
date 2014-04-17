@@ -146,8 +146,13 @@ public class ChatVik : Photon.MonoBehaviour
         GUILayout.EndArea();
     }
 
-    public static void AddMessage(string text,Color color)
+    public void AddMessage(string text,Color color)
     {
+		lastUnfocusTime = Time.time;
+		
+		enableTextBox();
+
+
 		SP.messageColor.Add(color);
         SP.messages.Add(text);
         if (SP.messages.Count > 15)

@@ -15,7 +15,6 @@ public class DeskMode : MonoBehaviour {
 	
 	public GameObject FileMode;
 	public GameObject PCMode;
-	public GameObject TelephoneMode;
 	
 	
 	public int currentDocumentIndex;
@@ -35,7 +34,6 @@ public class DeskMode : MonoBehaviour {
 	
 	Vector3 FileModeOriginalPosition;
 	Vector3 PCModeOriginalPosition;
-	Vector3 TelephoneModeOriginalPosition;
 	public Vector3 CameraOriginalPosition;
 
 	// playmaker object for tutorial
@@ -60,7 +58,7 @@ public class DeskMode : MonoBehaviour {
 		
 		FileModeOriginalPosition = FileMode.transform.position;
 		PCModeOriginalPosition = PCMode.transform.position;
-		//TelephoneModeOriginalPosition = TelephoneMode.transform.position;
+
 		
 		currentDocumentIndex=1;
 		currentPageIndex=1;
@@ -407,10 +405,7 @@ public class DeskMode : MonoBehaviour {
 
 			}
 
-			if(GUI.Button ( new LTRect(100f, .9f*h -130f, 100f,50f).rect, "Zoom Out", customSkin.button))
-			{
-				Camera.main.GetComponent<magnify>().disableZoom();
-			}
+
 
 
 			if(GUI.Button( new LTRect(100f, .9f*h - 50f, 125f, 50f ).rect, "Previous Page",customSkin.button))
