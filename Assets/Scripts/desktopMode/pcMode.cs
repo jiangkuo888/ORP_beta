@@ -70,13 +70,13 @@ public class pcMode : MonoBehaviour {
 
 		if(!InfoModeIsOn)
 		{
-		scrollPosition = GUI.BeginScrollView(new Rect(.46f * w, .2f * h, .5f * w, .6f * h), scrollPosition, new Rect(0, 0, .45f*w, 1000));
+		scrollPosition = GUI.BeginScrollView(new Rect(.46f * w, .2f * h, .52f * w, .6f * h), scrollPosition, new Rect(0, 0, .48f*w, 1000));
 		
 			GUI.DrawTexture (new Rect(0, 0, .5f*w, 1000), null);
 
 
 		for (int i = 0; i < customerNames.Length; i++) {
-			if(GUI.Button (new Rect (.06f*w, 50*i, 300, 30), customerNames[i]))
+			if(GUI.Button (new Rect (.14f*w, 50*i, 300, 30), customerNames[i],customSkin.button))
 			{
 
 					if(EventFSM.enabled)
@@ -110,9 +110,9 @@ public class pcMode : MonoBehaviour {
 			
 			//GUI.DrawTexture (new Rect(0, 0, .5f*w, 2000), currentImage, ScaleMode.ScaleToFit);	
 		
-			scrollPosition = GUI.BeginScrollView(new Rect(.46f * w, .2f * h, .5f * w, .6f * h), scrollPosition, new Rect(0, 0, .45f*w, 1000));
+			scrollPosition = GUI.BeginScrollView(new Rect(.46f * w, .2f * h, .52f * w, .6f * h), scrollPosition, new Rect(0, 0, .48f*w, 1000));
 			
-			GUI.DrawTexture (new Rect(0, 0, .5f*w, 1000), currentImage, ScaleMode.ScaleToFit);	
+			GUI.DrawTexture (new Rect(.06f*w, 0, .5f*w, 1000), currentImage, ScaleMode.ScaleToFit);	
 
 
 
@@ -120,7 +120,7 @@ public class pcMode : MonoBehaviour {
 			GUI.EndScrollView();
 
 
-			if(GUI.Button( new LTRect(w - 200f, .9f*h - 50f, 100f, 50f ).rect, "Back",customSkin.button))
+			if(GUI.Button( new LTRect(w - 120f, .9f*h - 50f, 100f, 50f ).rect, "Back",customSkin.button))
 			{
 				InfoModeIsOn = false;
 				scrollPosition = Vector2.zero;

@@ -98,7 +98,7 @@ public class GameManagerVik : Photon.MonoBehaviour {
 		
 		if (level == 1)
 		{
-			print("Woohoo");
+//			print("Woohoo");
 			photonView.RPC ("levelLoaded",PhotonTargets.AllBuffered);
 		}
 		
