@@ -1060,7 +1060,8 @@
             <ReviewerStatus>None</ReviewerStatus>
             <OutgoingLinks />
             <ConditionsString />
-            <UserScript>Item["Evacuation_Notice"].State = "active";</UserScript>
+            <UserScript>Item["Evacuation_Notice"].State = "active";
+Variable["Alert"] = "There is a new announcement available for you.";</UserScript>
           </DialogEntry>
         </DialogEntries>
       </Conversation>
@@ -1274,7 +1275,7 @@ Variable["Alert"] = "Quest Success: You have given the early warning to the cust
             <ReviewerNotes />
             <ReviewerStatus>None</ReviewerStatus>
             <OutgoingLinks />
-            <ConditionsString>Item["Evacuation_Notice"].State == "active" and Dialog[2].SimStatus ~= "WasDisplayed"</ConditionsString>
+            <ConditionsString>Item["Evacuation_Notice"].State == "active" and Dialog[4].SimStatus ~= "WasDisplayed"</ConditionsString>
             <UserScript>Item["Evacuation_Notice"].State = "success";
 Variable["Alert"] = "Quest Success: You have evacuated the Sales Floor.";</UserScript>
           </DialogEntry>
