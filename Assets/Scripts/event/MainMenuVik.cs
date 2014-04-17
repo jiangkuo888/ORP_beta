@@ -32,7 +32,7 @@ public class MainMenuVik : Photon.MonoBehaviour
 	public bool isChoose = false; //choose character page
 	public bool isTrainer = false; //player is trainer
 	public bool isLobby = false; //lobby screen
-	public bool isStartGame = false; //whether the GameEnd is starting
+	public bool gameIsReadyToLoad = false; //whether the GameEnd is starting
 	public bool isSkipLobby = false; //whether to skip lobby
 	public string sceneLinkage = "Fire_event_merged"; //scene to link to 
 	//------------------------------------------------------------------
@@ -61,7 +61,9 @@ public class MainMenuVik : Photon.MonoBehaviour
 		PlayerPrefs.DeleteKey("isPlayback");
 		PlayerPrefs.DeleteKey("filePath");
 
-		isStartGame = false;
+		PlayerPrefs.DeleteKey ("isMaster");
+
+		gameIsReadyToLoad = false;
 		Debug.Log ("main yo");
         //PhotonNetwork.logLevel = NetworkLogLevel.Full;
 
@@ -519,28 +521,28 @@ public class MainMenuVik : Photon.MonoBehaviour
 			GUILayout.BeginHorizontal ();
 			GUILayout.Label ("Join Room:", "labelText");
 			roomName = GUILayout.TextField (roomName,GUILayout.Width(Screen.width/5));
-			if (GUILayout.Button ("Join",GUILayout.Width(100))) {
-				PhotonNetwork.JoinRoom (roomName);
-
-				//-----------------------------------------
-				//	 TOGGLE isChoose true / isMain false
-				//-----------------------------------------
-				isChoose = true;
-				isMain = false;
-
-				//get from db
-				dbClass db = new dbClass();
-				db.addFunction("getSessionID");
-				db.addValues("roomName", roomName);
-				string dbReturn = db.connectToDb();
-				
-				if (dbReturn != "SUCCESS") {
-					print (dbReturn);
-				}
-				PlayerPrefs.SetInt("sessionID", db.getReturnValueInt("sessionID"));
-				PlayerPrefs.SetString("roomName", roomName);
-
-			}
+//			if (GUILayout.Button ("Join",GUILayout.Width(100))) {
+//				PhotonNetwork.JoinRoom (roomName);
+//
+//				//-----------------------------------------
+//				//	 TOGGLE isChoose true / isMain false
+//				//-----------------------------------------
+//				isChoose = true;
+//				isMain = false;
+//
+//				//get from db
+//				dbClass db = new dbClass();
+//				db.addFunction("getSessionID");
+//				db.addValues("roomName", roomName);
+//				string dbReturn = db.connectToDb();
+//				
+//				if (dbReturn != "SUCCESS") {
+//					print (dbReturn);
+//				}
+//				PlayerPrefs.SetInt("sessionID", db.getReturnValueInt("sessionID"));
+//				PlayerPrefs.SetString("roomName", roomName);
+//
+//			}
 			GUILayout.EndHorizontal ();
 			GUILayout.Space (15);
 
@@ -551,7 +553,9 @@ public class MainMenuVik : Photon.MonoBehaviour
 			GUILayout.Label ("Create Room:", "labelText");
 			roomName = GUILayout.TextField (roomName,GUILayout.Width(Screen.width/5));
 			if (GUILayout.Button ("Start",GUILayout.Width(100))) {
-				PhotonNetwork.CreateRoom (roomName, true, true, 10);
+
+
+
 
 				//-----------------------------------------
 				//	 TOGGLE isChoose true / isMain false
@@ -570,12 +574,15 @@ public class MainMenuVik : Photon.MonoBehaviour
 				}
 				PlayerPrefs.SetInt("sessionID", db.getReturnValueInt("sessionID"));
 				PlayerPrefs.SetString("roomName", roomName);
-
+				PlayerPrefs.SetString ("isMaster","true");
 				//add roomID
 				//GameObject gameManager = GameObject.Find("GameManager");  
 				//GameManagerVik vikky = gameManager.GetComponent<GameManagerVik>();
 				//vikky.sessionID = db.getReturnValueInt("sessionID");
 				//end add to db
+
+
+				Application.LoadLevel(sceneLinkage);
 			}
 			GUILayout.EndHorizontal ();
 
@@ -612,7 +619,12 @@ public class MainMenuVik : Photon.MonoBehaviour
 					GUILayout.Label (game.name + " " + game.playerCount + "/" + game.maxPlayers,GUILayout.Width(Screen.width/5+200));
 					//join button
 					if (GUILayout.Button ("Join",GUILayout.Width(100))) {
-						PhotonNetwork.JoinRoom (game.name);
+
+
+
+
+
+
 
 						//-----------------------------------------
 						//	 TOGGLE isChoose true / isMain false
@@ -631,6 +643,11 @@ public class MainMenuVik : Photon.MonoBehaviour
 						}
 						PlayerPrefs.SetInt("sessionID", db.getReturnValueInt("sessionID"));
 						PlayerPrefs.SetString("roomName", game.name);
+						PlayerPrefs.SetString ("isMaster","false");
+
+
+
+						Application.LoadLevel(sceneLinkage);
 					}
 					GUILayout.EndHorizontal ();
 				}
@@ -684,37 +701,9 @@ public class MainMenuVik : Photon.MonoBehaviour
 			if (!isTrainer)
 			{
 				// if role selection not completed, draw GUI
-				GUILayout.BeginArea(new Rect((Screen.width - 600) / 2, (Screen.height - 300) / 2, 960, 600));
-				GUILayout.BeginHorizontal();
-				GUILayout.Label("Choose a role:", GUILayout.Width(200));
-				
-				PhotonView photonView = this.gameObject.GetPhotonView();
-				
-				for(int i =0;i<playerList.Length;i++)
-				{
-					if (!selectedPlayerList.Contains(playerList[i]))
-					{
-						if(GUILayout.Button(playerList[i],GUILayout.Width(150)) )
-						{
-							PhotonNetwork.playerName = playerList[i];
-							PlayerPrefs.SetString("playerName", playerList[i]);
-							
-							// broadcast role selected
-							photonView.RPC ("setRoleUnavailable",PhotonTargets.AllBuffered,playerList[i]);
-							
-							//------------------------------------------
-							//	 TOGGLE isLobby true / isChoose false
-							//------------------------------------------
-							isLobby = true;
-							isChoose = false;
-						}
-					}
-				}
 
-				GUILayout.EndHorizontal();
-				GUILayout.EndArea();
 			}
-			else
+			else 
 			{
 				//if player trainer, do not need to go lobby or choose player; go directly to game
 				PlayerPrefs.SetString("isTrainer", "true");
@@ -726,57 +715,11 @@ public class MainMenuVik : Photon.MonoBehaviour
 		//--------------------------------------------------------------------------------------------------
 		//				IF WAITING LOBBY
 		//--------------------------------------------------------------------------------------------------
-		else if (isLobby)
-		{
-			GUILayout.BeginArea(new Rect((Screen.width - 400) / 2, (Screen.height - 300) / 2, 600, 300));
 
-			
-			GUILayout.Label("YOU HAVE CHOSEN: " + PhotonNetwork.playerName);
-			GUILayout.Space(20);
-
-
-			//wait till there are four people in the room
-			if (selectedPlayerList.Count < totalPlayers && !isSkipLobby) {
-				
-				GUILayout.Label ("PLEASE WAIT TILL THERE ARE ENOUGH PLAYERS IN THE ROOM");
-				GUILayout.Space (20);
-				
-				GUILayout.Label ("Number of players in the room now: " + selectedPlayerList.Count);
-				GUILayout.Space (20);
-				
-				int dotNum = dotInt / 100;
-				GUILayout.Label ("WAITING" + dots [dotNum]);
-				dotInt++;
-				if (dotInt >= 300)
-				{
-					dotInt = 0;
-				}
-				
-				
-			} 
-			else 
-			{
-				if(GUILayout.Button("StartGame",GUILayout.Width(100)) )
-				{	
-					photonView.RPC ("allStartGame", PhotonTargets.AllBuffered);
-				}
-			}
-
-
-			GUILayout.EndArea();
-
-
-			if (isStartGame)
-			{
-				//player not trainer
-				PlayerPrefs.SetString("isTrainer", "false");
-				Application.LoadLevel(sceneLinkage);
-				//StartGame();
-				//startGame = false;
-			}
-
-		}
     }
+
+
+
 
 	//***********************************************************************************************************************************
 	//				YIELD FUNCTIONS
@@ -834,6 +777,9 @@ public class MainMenuVik : Photon.MonoBehaviour
 		}    
 	}
 
+
+
+
 	//***********************************************************************************************************************************
 
 
@@ -841,6 +787,40 @@ public class MainMenuVik : Photon.MonoBehaviour
 	//***********************************************************************************************************************************
 	//				PHOTON NETWORK / RPC FUNCTIONS
 	//***********************************************************************************************************************************
+
+	[RPC]
+	void levelLoaded(){
+		
+
+	}
+
+
+	[RPC]
+	
+	void checkGameStatusFromMaster(){
+		
+
+		
+	}
+
+	[RPC]
+	void allStartGame()
+	{
+		gameIsReadyToLoad = true;
+		
+		Debug.LogError("slave start game");
+	}
+
+
+	[RPC]
+
+	void AlreadyStarted(){
+		gameIsReadyToLoad = true;
+
+		Debug.LogError("slave start game");
+
+	}
+
 
 	[RPC]
 	
@@ -854,9 +834,9 @@ public class MainMenuVik : Photon.MonoBehaviour
 	}
 	
 	[RPC]
-	void allStartGame()
+	void allLoadGame()
 	{
-		isStartGame = true;
+		gameIsReadyToLoad = true;
 	}
 
 	void OnDisconnectedFromPhoton()
