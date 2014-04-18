@@ -16,7 +16,7 @@ public class NetworkTime : MonoBehaviour {
 
 	PlayMakerFSM EventManager;
 
-	int startTimeInSec;
+	public int startTimeInSec;
 	int currentTimeInSec;
 
 
@@ -28,7 +28,7 @@ public class NetworkTime : MonoBehaviour {
 
 		startTimeInSec = PhotonNetwork.networkingPeer.ServerTimeInMilliSeconds/1000;
 
-		print (formatAsTime(startTimeInSec));
+		//print (formatAsTime(startTimeInSec));
 	}
 
 	

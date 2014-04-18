@@ -812,14 +812,7 @@ public class MainMenuVik : Photon.MonoBehaviour
 	}
 
 
-	[RPC]
 
-	void AlreadyStarted(){
-		gameIsReadyToLoad = true;
-
-		Debug.LogError("slave start game");
-
-	}
 
 
 	[RPC]
