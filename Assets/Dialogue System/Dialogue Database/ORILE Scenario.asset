@@ -2467,8 +2467,8 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: Dialog[10].SimStatus ~= "WasDisplayed"
-      userScript: 'Item["Missing_Fire_Extinguisher"].State = "active"; Variable["Alert"]
-        = "New Quest: Missing Fire Extinguisher";'
+      userScript: "Item[\"Expired_Fire_Ext\"].State = \"active\"; \nVariable[\"Alert\"]
+        = \"New Quest: Expired Fire Extinguisher\";"
     - id: 11
       fields:
       - title: Title

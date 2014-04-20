@@ -2563,7 +2563,8 @@ Variable["Alert"] = "Quest Completed: Missing Fire Extinguisher Replaced";</User
             <ReviewerStatus>None</ReviewerStatus>
             <OutgoingLinks />
             <ConditionsString>Dialog[10].SimStatus ~= "WasDisplayed"</ConditionsString>
-            <UserScript>Item["Missing_Fire_Extinguisher"].State = "active"; Variable["Alert"] = "New Quest: Missing Fire Extinguisher";</UserScript>
+            <UserScript>Item["Expired_Fire_Ext"].State = "active"; 
+Variable["Alert"] = "New Quest: Expired Fire Extinguisher";</UserScript>
           </DialogEntry>
           <DialogEntry ID="11" IsRoot="false" IsGroup="false" NodeColor="White" DelaySimStatus="false" FalseCondtionAction="Block" ConditionPriority="Normal">
             <Fields>

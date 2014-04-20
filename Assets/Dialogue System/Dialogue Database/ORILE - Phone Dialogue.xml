@@ -1894,7 +1894,7 @@ Variable["Alert"] = "Quest failed: You have not gotten all the necessary informa
             <OutgoingLinks>
               <Link OriginConvoID="7" DestinationConvoID="7" OriginDialogID="3" DestinationDialogID="5" IsConnector="false" />
             </OutgoingLinks>
-            <ConditionsString>Dialog[3].SimStatus ~= "WasDisplayed";</ConditionsString>
+            <ConditionsString>Dialog[3].SimStatus ~= "WasDisplayed" and Item["John_Valuation_Report"].State ~= "active";;</ConditionsString>
             <UserScript />
           </DialogEntry>
           <DialogEntry ID="4" IsRoot="false" IsGroup="false" NodeColor="White" DelaySimStatus="false" FalseCondtionAction="Block" ConditionPriority="Normal">

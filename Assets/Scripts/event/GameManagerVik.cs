@@ -387,7 +387,7 @@ public class GameManagerVik : Photon.MonoBehaviour {
 				if(GameObject.Find ("EventManager"))
 				GameObject.Find ("EventManager").GetComponent<NetworkTime>().enabled = true;
 				else
-					GameObject.Find ("EventManager-Fast Mode").GetComponent<NetworkTime>().enabled = true;
+					GameObject.Find ("EventManager-Warmup").GetComponent<NetworkTime>().enabled = true;
 				this.GetComponent<ChatVik>().enabled = true;
 			}
 			
