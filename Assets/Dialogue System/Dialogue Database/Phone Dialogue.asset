@@ -1112,7 +1112,7 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Sequence
-        value: Log(16A, Pre Flood announcement made)
+        value: Log(16A, Pre Flood announcement made);Audio(Sounds/ORILE_SFX_Anouncement_1);
         type: 0
       conversationID: 66
       isRoot: 0
@@ -1150,7 +1150,7 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Sequence
-        value: Log(20A, Evacuation started)
+        value: Log(20A, Evacuation started);Audio(Sounds/ORILE_SFX_Anouncement_2);
         type: 0
       conversationID: 66
       isRoot: 0
@@ -1793,7 +1793,7 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: Dialog[3].SimStatus ~= "WasDisplayed" and Item["John_Valuation_Report"].State
-        ~= "active";;
+        ~= "active";
       userScript: 
     - id: 4
       fields:
