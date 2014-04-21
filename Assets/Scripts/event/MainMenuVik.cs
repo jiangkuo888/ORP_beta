@@ -64,7 +64,7 @@ public class MainMenuVik : Photon.MonoBehaviour
 		PlayerPrefs.DeleteKey ("isMaster");
 
 		gameIsReadyToLoad = false;
-		Debug.Log ("main yo");
+		//Debug.Log ("main yo");
         //PhotonNetwork.logLevel = NetworkLogLevel.Full;
 
 		//-----------------------------------------------------------------------------------------------------
@@ -808,7 +808,7 @@ public class MainMenuVik : Photon.MonoBehaviour
 	{
 		gameIsReadyToLoad = true;
 		
-		Debug.LogError("slave start game");
+//		Debug.LogError("slave start game");
 	}
 
 
