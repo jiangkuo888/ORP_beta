@@ -5,6 +5,7 @@ public class NGUIpanelHandler : MonoBehaviour {
 
 
 	public GameObject GameEnd;
+	public GameObject GameEndText;
 	public GameObject Pause;
 
 
@@ -25,9 +26,21 @@ public class NGUIpanelHandler : MonoBehaviour {
 		switch(panel)
 		{
 		case "GameEndScreen":
+
+
+			// update player score
+			PlayerActionLog loggy = GameObject.Find ("Dialogue Manager").GetComponent<PlayerActionLog> ();
+			
+			int playerScore = loggy.getPlayerScore ();
+
+
+			print(playerScore);
 			NGUITools.SetActive(GameEnd, true);
+			GameEndText.GetComponent<UILabel>().text= "Game Over\n\n\n\n\n\n\nYour Score :                      "+playerScore.ToString();
+
 			break;
 		case "PauseScreen":
+			if(GameObject.Find ("GameEndScreen") == null)
 			NGUITools.SetActive(Pause, true);
 			break;
 		default:
@@ -43,8 +56,8 @@ public class NGUIpanelHandler : MonoBehaviour {
 
 		// disable user control
 
-		Camera.main.transform.parent.GetComponent<ClickMove>().gameOn = false;
-		Camera.main.transform.parent.GetComponent<DetectObjects>().gameOn = false;
+		//Camera.main.transform.parent.GetComponent<ClickMove>().gameOn = false;
+		//Camera.main.transform.parent.GetComponent<DetectObjects>().gameOn = false;
 
 
 
@@ -72,8 +85,7 @@ public class NGUIpanelHandler : MonoBehaviour {
 		GameObject.Find ("GameManager").GetComponent<ChatVik>().enabled = true;
 		
 		// enable user control
-		Camera.main.transform.parent.GetComponent<ClickMove>().gameOn = true;
-		Camera.main.transform.parent.GetComponent<DetectObjects>().gameOn = true;
+
 
 	}
 

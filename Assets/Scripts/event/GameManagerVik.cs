@@ -719,6 +719,7 @@ public class GameManagerVik : Photon.MonoBehaviour {
 
 
 
+
 			GameObject.Find ("UICamera").GetComponent<NGUIpanelHandler>().show ("GameEndScreen");
 			
 			
