@@ -213,6 +213,7 @@ public class GameManagerVik : Photon.MonoBehaviour {
 				if(selectedPlayerList.Count <syncTotal && GameStarted)
 				{
 					// pause the game and wait for others.
+					print (selectedPlayerList.Count+"<"+syncTotal);
 					pauseGame();
 					
 				}
@@ -542,9 +543,9 @@ public class GameManagerVik : Photon.MonoBehaviour {
 		GUI.skin = customSkin;
 		
 		// quit button GUI
-		if (GUILayout.Button ("Leave & Quit")) {
-			SaveAndQuit ();
-		}
+//		if (GUILayout.Button ("Leave & Quit")) {
+//			SaveAndQuit ();
+//		}
 		
 		if(!isTutorial)
 		{
@@ -713,23 +714,15 @@ public class GameManagerVik : Photon.MonoBehaviour {
 		
 		if(MainCamera.gameObject != null)
 		{
-			if(MainCamera.transform.parent != null)
-			{
-				
-				MainCamera.transform.parent.GetComponent<ClickMove>().gameOn = false;
-				MainCamera.transform.parent.GetComponent<DetectObjects>().gameOn = false;
-			}
-			
-			MainCamera.SetActive(false);
-			//GameEndScreen.SetActive(true);
+
+
+
+
+
+			GameObject.Find ("UICamera").GetComponent<NGUIpanelHandler>().show ("GameEndScreen");
 			
 			
-			GameObject.Find ("QuestLogButton").GetComponent<GUITexture>().enabled = false;
-			GameObject.Find ("phoneButton").GetComponent<GUITexture>().enabled = false;
-			//	GameObject.Find ("InventoryContainer").GetComponent<GUITexture>().enabled = false;
-			////	GameObject.Find ("InventoryButton1").GetComponent<GUITexture>().enabled = false;
-			//	GameObject.Find ("InventoryButton2").GetComponent<GUITexture>().enabled = false;
-			GameObject.Find ("GameManager").GetComponent<ChatVik>().enabled = false;
+
 			
 			GameObject.Find ("EventManager").GetComponent<NetworkTime>().enabled = true;
 			
@@ -739,7 +732,6 @@ public class GameManagerVik : Photon.MonoBehaviour {
 	}
 	
 	//***********************************************************************************************************************************
-	
 	
 	[RPC]
 	
@@ -845,8 +837,8 @@ public class GameManagerVik : Photon.MonoBehaviour {
 		
 		Time.timeScale = 0;
 		
-		GameObject.Find("PauseCamera").camera.enabled = true;
-		GameObject.Find ("PauseScreen").GetComponent<pauseScreenHandler>().show();
+
+		GameObject.Find ("UICamera").GetComponent<NGUIpanelHandler>().show("PauseScreen");
 		
 		if(GameObject.Find (PhotonNetwork.playerName))
 		{
@@ -863,8 +855,8 @@ public class GameManagerVik : Photon.MonoBehaviour {
 		Time.timeScale = 1;
 		
 		
-		GameObject.Find("PauseCamera").camera.enabled = false;
-		GameObject.Find ("PauseScreen").GetComponent<pauseScreenHandler>().hide();
+
+		GameObject.Find ("UICamera").GetComponent<NGUIpanelHandler>().hide("PauseScreen");
 		
 		
 		if(GameObject.Find (PhotonNetwork.playerName))
