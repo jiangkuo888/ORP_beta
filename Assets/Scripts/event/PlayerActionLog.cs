@@ -33,7 +33,7 @@ public class PlayerActionLog : MonoBehaviour {
 
 	}
 
-	public int getPlayerScore() {
+	public int[] getPlayerScore() {
 		
 		GameObject gameManager = GameObject.Find("GameManager");  
 		GameManagerVik vikky = gameManager.GetComponent<GameManagerVik>();
@@ -48,14 +48,16 @@ public class PlayerActionLog : MonoBehaviour {
 		string dbReturn = db.connectToDb();
 
 		int playerScore = 0;
+		int totalScore = 0;
 		if (dbReturn != "SUCCESS") {
 			print (dbReturn);
 		}
 		else {
 			playerScore = db.getReturnValueInt("playerScore");
+			totalScore = db.getReturnValueInt("totalScore");
 		}
 		
 		//end get from db
-		return playerScore;
+		return new int[2] {playerScore, totalScore};
 	}
 }
