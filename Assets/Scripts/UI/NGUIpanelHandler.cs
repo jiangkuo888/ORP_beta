@@ -31,12 +31,13 @@ public class NGUIpanelHandler : MonoBehaviour {
 			// update player score
 			PlayerActionLog loggy = GameObject.Find ("Dialogue Manager").GetComponent<PlayerActionLog> ();
 			
-			int playerScore = loggy.getPlayerScore ();
+			int[] scoreArray = loggy.getPlayerScore ();
 
 
-			print(playerScore);
+			print(scoreArray[0]);
+			print (scoreArray[1]);
 			NGUITools.SetActive(GameEnd, true);
-			GameEndText.GetComponent<UILabel>().text= "Game Over\n\n\n\n\n\n\nYour Score :                      "+playerScore.ToString();
+			GameEndText.GetComponent<UILabel>().text= "Game Over\n\n\n\n\n\n\nYour Score :                      "+scoreArray[0].ToString() + "\nTeam Score:                      "+scoreArray[1].ToString();
 
 			break;
 		case "PauseScreen":
