@@ -165,7 +165,7 @@ internal class PhotonHandler : Photon.MonoBehaviour, IPhotonPeerListener
     {
         if (level == DebugLevel.ERROR)
         {
-            Debug.LogError(message);
+//            Debug.LogError(message);
         }
         else if (level == DebugLevel.WARNING)
         {

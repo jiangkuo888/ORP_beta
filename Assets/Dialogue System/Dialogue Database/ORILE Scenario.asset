@@ -1121,7 +1121,7 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Sequence
-        value: Log(1, fire ext. stuffs);
+        value: 
         type: 0
       conversationID: 38
       isRoot: 0
@@ -2467,8 +2467,8 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: Dialog[10].SimStatus ~= "WasDisplayed"
-      userScript: 'Item["Missing_Fire_Extinguisher"].State = "active"; Variable["Alert"]
-        = "New Quest: Missing Fire Extinguisher";'
+      userScript: "Item[\"Expired_Fire_Ext\"].State = \"active\"; \nVariable[\"Alert\"]
+        = \"New Quest: Expired Fire Extinguisher\";"
     - id: 11
       fields:
       - title: Title
@@ -3432,7 +3432,7 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Sequence
-        value: Camera(Closeup); Log(8A, start Sales Pitch);
+        value: 'Camera(Closeup); '
         type: 0
       conversationID: 44
       isRoot: 0
@@ -5066,7 +5066,7 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Sequence
-        value: Log(7B, Unlock Safe);
+        value: 
         type: 0
       conversationID: 48
       isRoot: 0

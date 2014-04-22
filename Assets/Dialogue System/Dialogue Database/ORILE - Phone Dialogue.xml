@@ -1231,7 +1231,7 @@ Variable["Alert"] = "There is a new announcement available for you.";</UserScrip
               </Field>
               <Field Hint="Dialogue System for Unity cutscene sequence" Type="Text">
                 <Title>Sequence</Title>
-                <Value>Log(16A, Pre Flood announcement made)</Value>
+                <Value>Log(16A, Pre Flood announcement made);Audio(Sounds/ORILE_SFX_Anouncement_1);</Value>
               </Field>
             </Fields>
             <ReviewerNotes />
@@ -1269,7 +1269,7 @@ Variable["Alert"] = "Quest Success: You have given the early warning to the cust
               </Field>
               <Field Hint="Dialogue System for Unity cutscene sequence" Type="Text">
                 <Title>Sequence</Title>
-                <Value>Log(20A, Evacuation started)</Value>
+                <Value>Log(20A, Evacuation started);Audio(Sounds/ORILE_SFX_Anouncement_2);</Value>
               </Field>
             </Fields>
             <ReviewerNotes />
@@ -1886,7 +1886,7 @@ Variable["Alert"] = "Quest failed: You have not gotten all the necessary informa
               </Field>
               <Field Hint="Dialogue System for Unity cutscene sequence" Type="Text">
                 <Title>Sequence</Title>
-                <Value>Log(5B, Get Valuation Report) </Value>
+                <Value />
               </Field>
             </Fields>
             <ReviewerNotes />
@@ -1894,7 +1894,7 @@ Variable["Alert"] = "Quest failed: You have not gotten all the necessary informa
             <OutgoingLinks>
               <Link OriginConvoID="7" DestinationConvoID="7" OriginDialogID="3" DestinationDialogID="5" IsConnector="false" />
             </OutgoingLinks>
-            <ConditionsString>Dialog[3].SimStatus ~= "WasDisplayed";</ConditionsString>
+            <ConditionsString>Dialog[3].SimStatus ~= "WasDisplayed" and Item["John_Valuation_Report"].State ~= "active";</ConditionsString>
             <UserScript />
           </DialogEntry>
           <DialogEntry ID="4" IsRoot="false" IsGroup="false" NodeColor="White" DelaySimStatus="false" FalseCondtionAction="Block" ConditionPriority="Normal">

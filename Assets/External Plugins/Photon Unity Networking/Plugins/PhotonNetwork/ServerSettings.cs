@@ -14,7 +14,7 @@ public enum CloudServerRegion { EU, US, Asia, Japan };
 [System.Serializable]
 public class ServerSettings : ScriptableObject
 {
-    public static string DefaultCloudServerUrl = "app-eu.exitgamescloud.com";
+	public static string DefaultCloudServerUrl = "app-asia.exitgamescloud.com";
     
     // per region name and server-prefix
     // must match order in CloudServerRegion enum!
@@ -52,12 +52,12 @@ public class ServerSettings : ScriptableObject
 
     public static string FindServerAddressForRegion(int regionIndex)
     {
-        return ServerSettings.DefaultCloudServerUrl.Replace("app-eu", ServerSettings.CloudServerRegionPrefixes[regionIndex]);
+		return ServerSettings.DefaultCloudServerUrl.Replace("app-asia", ServerSettings.CloudServerRegionPrefixes[regionIndex]);
     }
 
     public static string FindServerAddressForRegion(CloudServerRegion regionIndex)
     {
-        return ServerSettings.DefaultCloudServerUrl.Replace("app-eu", ServerSettings.CloudServerRegionPrefixes[(int)regionIndex]);
+		return ServerSettings.DefaultCloudServerUrl.Replace("app-asia", ServerSettings.CloudServerRegionPrefixes[(int)regionIndex]);
     }
 
     public void UseCloud(string cloudAppid, int regionIndex)
