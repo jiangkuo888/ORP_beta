@@ -32,4 +32,30 @@ public class PlayerActionLog : MonoBehaviour {
 		//end add to db
 
 	}
+
+	public int getPlayerScore() {
+		
+		GameObject gameManager = GameObject.Find("GameManager");  
+		GameManagerVik vikky = gameManager.GetComponent<GameManagerVik>();
+		string sessionID = vikky.sessionID.ToString ();
+		string playerRole = vikky.characterName;
+		
+		//get from db
+		dbClass db = new dbClass ();
+		db.addFunction("getPlayerScore");
+		db.addValues("playerRole", playerRole);
+		db.addValues("sessionID", sessionID);
+		string dbReturn = db.connectToDb();
+
+		int playerScore = 0;
+		if (dbReturn != "SUCCESS") {
+			print (dbReturn);
+		}
+		else {
+			playerScore = db.getReturnValueInt("playerScore");
+		}
+		
+		//end get from db
+		return playerScore;
+	}
 }

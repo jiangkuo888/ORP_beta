@@ -69,7 +69,7 @@ namespace dbConnect {
 				formData["send"] = sendJSON.ToString();
 				byte[] responseBytes = webClient.UploadValues(this.url, "POST", formData);
 				string responsefromserver = Encoding.UTF8.GetString(responseBytes);
-//				Debug.Log(responsefromserver);
+				//Debug.Log(responsefromserver);
 
 				//parse the return values
 				var returnValue = JSONNode.Parse(responsefromserver);
@@ -100,14 +100,14 @@ namespace dbConnect {
 			return "you did not insert a function/parameter/value";
 		}
 
-		//return a value based on the paramter (string)
+		//return a value based on the parameter (string)
 		public string getReturnValue(string parameter)
 		{
 			var returnArray = JSONNode.Parse(this.jsonReturn);
 			return returnArray[parameter];
 		}
 
-		//return a value based on the paramter (int)
+		//return a value based on the parameter (int)
 		public int getReturnValueInt(string parameter)
 		{
 			var returnArray = JSONNode.Parse(this.jsonReturn);
