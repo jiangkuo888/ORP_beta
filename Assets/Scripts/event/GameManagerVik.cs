@@ -45,7 +45,11 @@ public class GameManagerVik : Photon.MonoBehaviour {
 	
 	string[] dots = new string[] {".", "..", "..."};
 	int dotInt = 0;
-	
+
+	public bool gamePaused = false;
+
+
+
 	//***********************************************************************************************************************************
 	//		 start the game either using values from login screen or with predefined values
 	//***********************************************************************************************************************************
@@ -54,7 +58,8 @@ public class GameManagerVik : Photon.MonoBehaviour {
 		selectedPlayerList.Clear();
 		roleSelected = false;
 		
-		
+		gamePaused = false;
+
 		this.isPlayBack = false;
 		//get player name
 		string tempName = PlayerPrefs.GetString ("playerName");
@@ -210,16 +215,17 @@ public class GameManagerVik : Photon.MonoBehaviour {
 				//				print (selectedPlayerList.Count);
 				
 				// player number check after game started
-				if(selectedPlayerList.Count <syncTotal && GameStarted)
+				if(selectedPlayerList.Count <syncTotal && GameStarted )
 				{
 					// pause the game and wait for others.
-					print (selectedPlayerList.Count+"<"+syncTotal);
+					if(!gamePaused)
 					pauseGame();
+
 					
 				}
 				else
 				{
-					
+					if(gamePaused)
 					unPauseGame();
 				}
 			}
@@ -695,13 +701,14 @@ public class GameManagerVik : Photon.MonoBehaviour {
 			Debug.Log("WWW Error: "+ www.error);
 		}   
 		//PlayerPrefs.DeleteAll();
-		
-		yield return new WaitForSeconds (1);
-		GameStarted = false;
-		Application.LoadLevel("login scene");
+
 
 		photonView.RPC ("setRoleAvailable",PhotonTargets.AllBuffered,PhotonNetwork.playerName);
+
 		PhotonNetwork.LeaveRoom();
+
+
+		Application.LoadLevel("login scene");
 	}
 	
 	//***********************************************************************************************************************************
@@ -710,25 +717,16 @@ public class GameManagerVik : Photon.MonoBehaviour {
 	//				END GAME
 	//***********************************************************************************************************************************
 	public void EndGame(){
-		GameObject MainCamera = Camera.main.gameObject;
-		
-		if(MainCamera.gameObject != null)
-		{
 
-
-
-
-
-
-			GameObject.Find ("UICamera").GetComponent<NGUIpanelHandler>().show ("GameEndScreen");
+		GameStarted = false;
 			
+		GameObject.Find ("UICamera").GetComponent<NGUIpanelHandler>().show ("GameEndScreen");
 			
 
 			
-			GameObject.Find ("EventManager").GetComponent<NetworkTime>().enabled = true;
 			
 			
-		}
+
 		
 	}
 	
@@ -835,7 +833,8 @@ public class GameManagerVik : Photon.MonoBehaviour {
 	
 	
 	void pauseGame(){
-		
+
+		gamePaused = true;
 		Time.timeScale = 0;
 		
 
@@ -853,6 +852,8 @@ public class GameManagerVik : Photon.MonoBehaviour {
 	}
 	
 	void unPauseGame(){
+
+		gamePaused = false;
 		Time.timeScale = 1;
 		
 		

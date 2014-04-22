@@ -55,6 +55,7 @@ public class GameEnd : Photon.MonoBehaviour {
 
 	[RPC]
 	public void endGameRPC(){
+		if(GameObject.Find ("GameManager"))
 		GameObject.Find ("GameManager").GetComponent<GameManagerVik>().EndGame();
 
 	}
