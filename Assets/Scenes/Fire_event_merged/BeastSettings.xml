@@ -7,10 +7,10 @@
     <diagnose>false</diagnose>
     <clamp>false</clamp>
     <samplingMode>Adaptive</samplingMode>
-    <filter>Box</filter>
+    <filter>Gauss</filter>
     <filterSize>
-      <x>1</x>
-      <y>1</y>
+      <x>2.2</x>
+      <y>2.2</y>
     </filterSize>
   </AASettings>
   <RenderSettings>
@@ -18,14 +18,14 @@
     <giTransparencyDepth>2</giTransparencyDepth>
     <ignoreLightLinks>false</ignoreLightLinks>
     <maxRayDepth>6</maxRayDepth>
-    <maxShadowRays>4</maxShadowRays>
+    <maxShadowRays>10000</maxShadowRays>
     <minShadowRays>0</minShadowRays>
     <reflectionDepth>2</reflectionDepth>
     <reflectionThreshold>0.001</reflectionThreshold>
     <shadowDepth>2</shadowDepth>
     <shadowsIgnoreLightLinks>false</shadowsIgnoreLightLinks>
     <transparencyDepth>50</transparencyDepth>
-    <tsIntersectionNormalization>false</tsIntersectionNormalization>
+    <tsIntersectionNormalization>true</tsIntersectionNormalization>
     <tsIntersectionOrthogonalization>true</tsIntersectionOrthogonalization>
     <tsOddUVFlipping>true</tsOddUVFlipping>
     <tsVertexNormalization>true</tsVertexNormalization>
@@ -55,9 +55,9 @@
     <iblTurnDome>0</iblTurnDome>
   </EnvironmentSettings>
   <FrameSettings>
-    <autoThreads>false</autoThreads>
+    <autoThreads>true</autoThreads>
     <autoThreadsSubtract>0</autoThreadsSubtract>
-    <renderThreads>4</renderThreads>
+    <renderThreads>2</renderThreads>
     <dither>true</dither>
     <inputGamma>1</inputGamma>
     <outputCorrection>
@@ -94,17 +94,17 @@
     <secondarySaturation>1</secondarySaturation>
     <specularScale>1</specularScale>
     <fgAOContrast>1</fgAOContrast>
-    <fgAOInfluence>0.5</fgAOInfluence>
+    <fgAOInfluence>0.7</fgAOInfluence>
     <fgAOMaxDistance>0.3</fgAOMaxDistance>
     <fgAOScale>2</fgAOScale>
     <fgAOVisualize>false</fgAOVisualize>
     <fgAttenuationStart>0</fgAttenuationStart>
     <fgAttenuationStop>0</fgAttenuationStop>
     <fgCacheDirectLight>false</fgCacheDirectLight>
-    <fgCheckVisibility>false</fgCheckVisibility>
+    <fgCheckVisibility>true</fgCheckVisibility>
     <fgCheckVisibilityDepth>1</fgCheckVisibilityDepth>
     <fgClampRadiance>false</fgClampRadiance>
-    <fgContrastThreshold>0.1</fgContrastThreshold>
+    <fgContrastThreshold>0.05</fgContrastThreshold>
     <fgDepth>1</fgDepth>
     <fgEstimatePoints>15</fgEstimatePoints>
     <fgExploitFrameCoherence>false</fgExploitFrameCoherence>
@@ -116,7 +116,7 @@
     <fgMaxRayLength>0</fgMaxRayLength>
     <fgNormalThreshold>0.2</fgNormalThreshold>
     <fgPreview>true</fgPreview>
-    <fgRays>200</fgRays>
+    <fgRays>1000</fgRays>
     <fgUseCache>Irradiance</fgUseCache>
     <ptAccuracy>1</ptAccuracy>
     <ptCacheDirectLight>false</ptCacheDirectLight>
