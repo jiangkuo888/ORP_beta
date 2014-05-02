@@ -406,7 +406,7 @@ public class DeskMode : MonoBehaviour {
 					if(EventFSM.ActiveStateName == "Click on ZoomIn")
 						EventFSM.FsmVariables.GetFsmBool("ZoomClicked").Value = true;
 				
-				Camera.main.GetComponent<magnify>().enableZoom(this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1]);
+				Camera.main.GetComponent<magnify>().enableZoom(this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].GetComponent<DocumentHandler>().currentPage);
 				
 			}
 			

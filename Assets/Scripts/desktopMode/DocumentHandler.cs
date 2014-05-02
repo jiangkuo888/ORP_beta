@@ -19,6 +19,7 @@ public class DocumentHandler : MonoBehaviour {
 	
 	//GameObject newPage;
 	public int currentPageIndex;
+	public GameObject currentPage;
 	
 	//public bool lastPage;
 	float w,h;
@@ -115,7 +116,7 @@ public class DocumentHandler : MonoBehaviour {
 			}
 			
 		}
-
+		currentPage = pages[0];
 		pages[0].SetActive(true);
 
 
@@ -341,6 +342,7 @@ public class DocumentHandler : MonoBehaviour {
 			currentPageIndex++;
 
 			// set next page active
+			currentPage = pages[currentPageIndex];
 			pages[currentPageIndex].SetActive(true);
 			
 			if(currentPageIndex == pages.Length - 1)
@@ -368,6 +370,7 @@ public class DocumentHandler : MonoBehaviour {
 			currentPageIndex--;
 			
 			// set next page active
+			currentPage = pages[currentPageIndex];
 			pages[currentPageIndex].SetActive(true);
 
 		
