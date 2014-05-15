@@ -30,9 +30,12 @@ public class NameTag : MonoBehaviour {
 		if(GameObject.FindGameObjectWithTag(targetTag) !=null)
 		{
 			// find the nametag target in the game
+
+			//print (targetTag);
+
 			GameObject target = GameObject.FindGameObjectWithTag(targetTag);
 			
-			//print (target.name);
+		//	print (target.name);
 			if(target.GetPhotonView().isMine == true)
 			{
 				// do nothing if it is mine.
