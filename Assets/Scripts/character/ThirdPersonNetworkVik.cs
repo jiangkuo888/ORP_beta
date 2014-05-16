@@ -45,7 +45,7 @@ public class ThirdPersonNetworkVik : Photon.MonoBehaviour
 			cameraScript.enabled = true;
 			
 			gameObject.GetComponent<ClickMove>().enabled = true;
-			gameObject.GetComponent<CharacterMotor>().enabled = true;
+		//	gameObject.GetComponent<CharacterMotor>().enabled = true;
 			gameObject.GetComponent<DetectObjects>().enabled = true;			
 
 
@@ -79,7 +79,7 @@ public class ThirdPersonNetworkVik : Photon.MonoBehaviour
 			cameraScript.enabled = true;
 			
 			gameObject.GetComponent<ClickMove>().enabled = true;
-			gameObject.GetComponent<CharacterMotor>().enabled = true;
+//			gameObject.GetComponent<CharacterMotor>().enabled = true;
 //			gameObject.GetComponent<DetectObjects>().enabled = true;
 			
         }
@@ -96,7 +96,7 @@ public class ThirdPersonNetworkVik : Photon.MonoBehaviour
 				r.enabled = true;
 			playerRotationScript.enabled = false;
 			gameObject.GetComponent<ClickMove>().enabled = false;
-			gameObject.GetComponent<CharacterMotor>().enabled = false;
+		//	gameObject.GetComponent<CharacterMotor>().enabled = false;
 		//	gameObject.GetComponent<DetectObjects>().enabled = false;
 			gameObject.GetComponent<Selector>().enabled = false;
           //  controllerScript.enabled = true;
