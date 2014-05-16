@@ -328,7 +328,7 @@ public class GameManagerVik : Photon.MonoBehaviour {
 		
 		string playerName = "LPU Officer";
 		PhotonNetwork.playerName = playerName;
-		GameObject.Find ("QuestLogButton").GetComponent<GUITexture>().enabled = true;
+		//GameObject.Find ("QuestLogButton").GetComponent<GUITexture>().enabled = true;
 		GameObject.Find ("phoneButton").GetComponent<GUITexture>().enabled = true;
 		//	GameObject.Find ("InventoryContainer").GetComponent<GUITexture>().enabled = true;
 		//	GameObject.Find ("InventoryButton1").GetComponent<GUITexture>().enabled = true;
@@ -414,7 +414,7 @@ public class GameManagerVik : Photon.MonoBehaviour {
 			
 			
 			// start drawing GUI elements
-			GameObject.Find ("QuestLogButton").GetComponent<GUITexture>().enabled = true;
+//			GameObject.Find ("QuestLogButton").GetComponent<GUITexture>().enabled = true;
 			GameObject.Find ("phoneButton").GetComponent<GUITexture>().enabled = true;
 			//GameObject.Find ("InventoryContainer").GetComponent<GUITexture>().enabled = true;
 			//	GameObject.Find ("InventoryButton1").GetComponent<GUITexture>().enabled = true;
