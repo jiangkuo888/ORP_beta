@@ -33,7 +33,7 @@ MonoBehaviour:
     italic: 0
     underline: 0
   actors:
-  - id: 9
+  - id: 1
     fields:
     - title: Name
       value: Player
@@ -48,7 +48,7 @@ MonoBehaviour:
       value: True
       type: 2
     portrait: {fileID: 0}
-  - id: 20
+  - id: 5
     fields:
     - title: Name
       value: NPC
@@ -97,7 +97,7 @@ MonoBehaviour:
       value: 
       type: 0
   variables:
-  - id: 1
+  - id: 0
     fields:
     - title: Name
       value: Alert
@@ -108,7 +108,7 @@ MonoBehaviour:
     - title: Description
       value: Show alert messages during gameplay by setting this variable.
       type: 0
-  - id: 2
+  - id: 1
     fields:
     - title: Name
       value: Line
@@ -120,7 +120,7 @@ MonoBehaviour:
       value: 
       type: 0
   conversations:
-  - id: 19
+  - id: 1
     fields:
     - title: Title
       value: Sales Talk in Cubicle
@@ -129,10 +129,10 @@ MonoBehaviour:
       value: 
       type: 0
     - title: Actor
-      value: 9
+      value: 1
       type: 5
     - title: Conversant
-      value: 20
+      value: 5
       type: 5
     nodeColor: Red
     dialogueEntries:
@@ -142,10 +142,10 @@ MonoBehaviour:
         value: START
         type: 0
       - title: Actor
-        value: 9
+        value: 1
         type: 5
       - title: Conversant
-        value: 20
+        value: 5
         type: 5
       - title: Menu Text
         value: 
@@ -159,7 +159,7 @@ MonoBehaviour:
       - title: Sequence
         value: None()
         type: 0
-      conversationID: 19
+      conversationID: 1
       isRoot: 1
       isGroup: 0
       nodeColor: White
@@ -167,39 +167,39 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 19
+      - originConversationID: 1
         originDialogueID: 0
-        destinationConversationID: 19
+        destinationConversationID: 1
         destinationDialogueID: 1
         isConnector: 0
         priority: 2
-      - originConversationID: 19
+      - originConversationID: 1
         originDialogueID: 0
-        destinationConversationID: 19
+        destinationConversationID: 1
         destinationDialogueID: 2
         isConnector: 0
         priority: 2
-      - originConversationID: 19
+      - originConversationID: 1
         originDialogueID: 0
-        destinationConversationID: 19
+        destinationConversationID: 1
         destinationDialogueID: 3
         isConnector: 0
         priority: 2
-      - originConversationID: 19
+      - originConversationID: 1
         originDialogueID: 0
-        destinationConversationID: 19
+        destinationConversationID: 1
         destinationDialogueID: 4
         isConnector: 0
         priority: 2
-      - originConversationID: 19
+      - originConversationID: 1
         originDialogueID: 0
-        destinationConversationID: 19
+        destinationConversationID: 1
         destinationDialogueID: 5
         isConnector: 0
         priority: 2
-      - originConversationID: 19
+      - originConversationID: 1
         originDialogueID: 0
-        destinationConversationID: 19
+        destinationConversationID: 1
         destinationDialogueID: 6
         isConnector: 0
         priority: 2
@@ -211,10 +211,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 20
+        value: 5
         type: 5
       - title: Conversant
-        value: 9
+        value: 1
         type: 5
       - title: Menu Text
         value: 
@@ -228,7 +228,7 @@ MonoBehaviour:
       - title: Sequence
         value: SendMessage(OnUse,,Ken)@3
         type: 0
-      conversationID: 19
+      conversationID: 1
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -244,10 +244,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 20
+        value: 5
         type: 5
       - title: Conversant
-        value: 9
+        value: 1
         type: 5
       - title: Menu Text
         value: 
@@ -261,7 +261,7 @@ MonoBehaviour:
       - title: Sequence
         value: SendMessage(OnUse,,Cindy)@3
         type: 0
-      conversationID: 19
+      conversationID: 1
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -277,10 +277,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 20
+        value: 5
         type: 5
       - title: Conversant
-        value: 9
+        value: 1
         type: 5
       - title: Menu Text
         value: 
@@ -295,7 +295,7 @@ MonoBehaviour:
       - title: Sequence
         value: SendMessage(OnUse,,Ken)@3
         type: 0
-      conversationID: 19
+      conversationID: 1
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -311,10 +311,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 20
+        value: 5
         type: 5
       - title: Conversant
-        value: 9
+        value: 1
         type: 5
       - title: Menu Text
         value: 
@@ -328,7 +328,7 @@ MonoBehaviour:
       - title: Sequence
         value: SendMessage(OnUse,,Cindy)@3
         type: 0
-      conversationID: 19
+      conversationID: 1
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -344,10 +344,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 20
+        value: 5
         type: 5
       - title: Conversant
-        value: 9
+        value: 1
         type: 5
       - title: Menu Text
         value: 
@@ -361,7 +361,7 @@ MonoBehaviour:
       - title: Sequence
         value: SendMessage(OnUse,,Ken)@3
         type: 0
-      conversationID: 19
+      conversationID: 1
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -377,10 +377,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 20
+        value: 5
         type: 5
       - title: Conversant
-        value: 9
+        value: 1
         type: 5
       - title: Menu Text
         value: 
@@ -394,7 +394,7 @@ MonoBehaviour:
       - title: Sequence
         value: 
         type: 0
-      conversationID: 19
+      conversationID: 1
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -406,7 +406,7 @@ MonoBehaviour:
       userScript: 'Variable["Line"] = 7;
 
         Item["Wrong_Info_Pitch"].State = "success";'
-  - id: 20
+  - id: 2
     fields:
     - title: Title
       value: Where is the fire extinguisher?
@@ -415,10 +415,10 @@ MonoBehaviour:
       value: 
       type: 0
     - title: Actor
-      value: 20
+      value: 5
       type: 5
     - title: Conversant
-      value: 20
+      value: 5
       type: 5
     nodeColor: Red
     dialogueEntries:
@@ -428,10 +428,10 @@ MonoBehaviour:
         value: START
         type: 0
       - title: Actor
-        value: 20
+        value: 5
         type: 5
       - title: Conversant
-        value: 20
+        value: 5
         type: 5
       - title: Menu Text
         value: 
@@ -445,7 +445,7 @@ MonoBehaviour:
       - title: Sequence
         value: None()
         type: 0
-      conversationID: 20
+      conversationID: 2
       isRoot: 1
       isGroup: 0
       nodeColor: White
@@ -453,15 +453,15 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 20
+      - originConversationID: 2
         originDialogueID: 0
-        destinationConversationID: 20
+        destinationConversationID: 2
         destinationDialogueID: 1
         isConnector: 0
         priority: 2
-      - originConversationID: 20
+      - originConversationID: 2
         originDialogueID: 0
-        destinationConversationID: 20
+        destinationConversationID: 2
         destinationDialogueID: 2
         isConnector: 0
         priority: 2
@@ -473,10 +473,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 20
+        value: 5
         type: 5
       - title: Conversant
-        value: 20
+        value: 5
         type: 5
       - title: Menu Text
         value: 
@@ -490,7 +490,7 @@ MonoBehaviour:
       - title: Sequence
         value: 
         type: 0
-      conversationID: 20
+      conversationID: 2
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -506,10 +506,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 20
+        value: 5
         type: 5
       - title: Conversant
-        value: 20
+        value: 5
         type: 5
       - title: Menu Text
         value: 
@@ -523,7 +523,7 @@ MonoBehaviour:
       - title: Sequence
         value: 
         type: 0
-      conversationID: 20
+      conversationID: 2
       isRoot: 0
       isGroup: 0
       nodeColor: White

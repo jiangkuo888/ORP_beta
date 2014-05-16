@@ -26,7 +26,7 @@ public class GameManagerVik : Photon.MonoBehaviour {
 	public HashSet<string> selectedPlayerList = new HashSet<string>();
 	bool roleSelected = false;
 	public PlayMakerFSM EventManager;
-
+	
 	public int sessionID = -1;
 	public string loginName = "";
 	public bool isTrainer = false;
@@ -47,11 +47,11 @@ public class GameManagerVik : Photon.MonoBehaviour {
 	
 	string[] dots = new string[] {".", "..", "..."};
 	int dotInt = 0;
-
+	
 	public bool gamePaused = false;
-
-
-
+	
+	
+	
 	//***********************************************************************************************************************************
 	//		 start the game either using values from login screen or with predefined values
 	//***********************************************************************************************************************************
@@ -61,7 +61,7 @@ public class GameManagerVik : Photon.MonoBehaviour {
 		roleSelected = false;
 		
 		gamePaused = false;
-
+		
 		this.isPlayBack = false;
 		//get player name
 		string tempName = PlayerPrefs.GetString ("playerName");
@@ -220,18 +220,18 @@ public class GameManagerVik : Photon.MonoBehaviour {
 				if(selectedPlayerList.Count <syncTotal && GameStarted )
 				{
 					// pause the game and wait for others.
-
+					
 					if(!debugMode){
-					if(!gamePaused)
-					pauseGame();
+						if(!gamePaused)
+							pauseGame();
 					}
-
+					
 					
 				}
 				else
 				{
 					if(gamePaused)
-					unPauseGame();
+						unPauseGame();
 				}
 			}
 			
@@ -514,6 +514,7 @@ public class GameManagerVik : Photon.MonoBehaviour {
 		// if is trainer
 		else
 		{
+			//GameObject.Find ("phoneButton").GetComponent<GUITexture>().enabled = true;
 			GameObject a = PhotonNetwork.Instantiate("Admin", new Vector3(-19.0f, 3.5f, 57.0f), Quaternion.identity, 0);
 		}
 		
@@ -554,11 +555,11 @@ public class GameManagerVik : Photon.MonoBehaviour {
 		GUI.skin = customSkin;
 		
 		// quit button GUI
-//		if (GUILayout.Button ("Leave & Quit")) {
-//			SaveAndQuit ();
-//		}
+		//		if (GUILayout.Button ("Leave & Quit")) {
+		//			SaveAndQuit ();
+		//		}
 		
-		if(!isTutorial)
+		if(!isTutorial && !isTrainer)
 		{
 			if(!GameStarted)
 			{
@@ -644,9 +645,18 @@ public class GameManagerVik : Photon.MonoBehaviour {
 				
 			}
 		}
-		
-		
-		
+		/*else if(!isTutorial && isTrainer && !GameStarted)
+		{
+			GUILayout.BeginArea(new Rect((Screen.width - 600) / 2, (Screen.height - 300) / 2, 960, 600));
+			GUILayout.BeginHorizontal();
+			GUILayout.Label("Welcome Trainer.", GUILayout.Width(200));
+			if (GUILayout.Button ("Join Game",GUILayout.Width(100))) {
+				startGame();
+			}
+
+			GUILayout.EndHorizontal();
+			GUILayout.EndArea();
+		}*/
 		
 	}
 	
@@ -655,7 +665,7 @@ public class GameManagerVik : Photon.MonoBehaviour {
 	//***********************************************************************************************************************************
 	public void SaveAndQuit(){
 		
-
+		
 		if (this.sessionID != -1)
 		{
 			string currentDir = Directory.GetCurrentDirectory ();
@@ -676,20 +686,20 @@ public class GameManagerVik : Photon.MonoBehaviour {
 			
 			StartCoroutine(WaitForRequest(w));
 		}
-
-		
-	
 		
 		
-
-
-
+		
+		
+		
+		
+		
+		
 		
 		//replay footage saving
 		EZReplayManager.get.stop ();
 		
 		//create folder for game
-
+		
 		
 	}
 	
@@ -706,13 +716,13 @@ public class GameManagerVik : Photon.MonoBehaviour {
 			Debug.Log("WWW Error: "+ www.error);
 		}   
 		//PlayerPrefs.DeleteAll();
-
-
+		
+		
 		photonView.RPC ("setRoleAvailable",PhotonTargets.AllBuffered,PhotonNetwork.playerName);
-
+		
 		PhotonNetwork.LeaveRoom();
-
-
+		
+		
 		Application.LoadLevel("login scene");
 	}
 	
@@ -722,16 +732,16 @@ public class GameManagerVik : Photon.MonoBehaviour {
 	//				END GAME
 	//***********************************************************************************************************************************
 	public void EndGame(){
-
+		
 		GameStarted = false;
-			
+		
 		GameObject.Find ("UICamera").GetComponent<NGUIpanelHandler>().show ("GameEndScreen");
-			
-
-			
-			
-			
-
+		
+		
+		
+		
+		
+		
 		
 	}
 	
@@ -838,11 +848,11 @@ public class GameManagerVik : Photon.MonoBehaviour {
 	
 	
 	void pauseGame(){
-
+		
 		gamePaused = true;
 		Time.timeScale = 0;
 		
-
+		
 		GameObject.Find ("UICamera").GetComponent<NGUIpanelHandler>().show("PauseScreen");
 		
 		if(GameObject.Find (PhotonNetwork.playerName))
@@ -857,12 +867,12 @@ public class GameManagerVik : Photon.MonoBehaviour {
 	}
 	
 	void unPauseGame(){
-
+		
 		gamePaused = false;
 		Time.timeScale = 1;
 		
 		
-
+		
 		GameObject.Find ("UICamera").GetComponent<NGUIpanelHandler>().hide("PauseScreen");
 		
 		
