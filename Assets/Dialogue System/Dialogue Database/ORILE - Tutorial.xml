@@ -1066,7 +1066,7 @@
               </Field>
               <Field Hint="Dialogue System for Unity cutscene sequence" Type="Text">
                 <Title>Sequence</Title>
-                <Value />
+                <Value>Log(6C, email sent to kevin);</Value>
               </Field>
             </Fields>
             <ReviewerNotes />
@@ -1242,7 +1242,7 @@ Variable["Alert"] = "Email sent to Kevin successfully.";</UserScript>
               </Field>
               <Field Hint="Dialogue System for Unity cutscene sequence" Type="Text">
                 <Title>Sequence</Title>
-                <Value>Log(1, fire ext. stuffs);</Value>
+                <Value />
               </Field>
             </Fields>
             <ReviewerNotes />
@@ -1282,7 +1282,7 @@ Variable["Alert"] = "Email sent to Kevin successfully.";</UserScript>
               </Field>
               <Field Hint="Dialogue System for Unity cutscene sequence" Type="Text">
                 <Title>Sequence</Title>
-                <Value />
+                <Value>Log(1C, not replaced missing fire extinguisher);</Value>
               </Field>
             </Fields>
             <ReviewerNotes />
@@ -1507,7 +1507,8 @@ Variable["Alert"] = "Email sent to Kevin successfully.";</UserScript>
             <ReviewerStatus>None</ReviewerStatus>
             <OutgoingLinks />
             <ConditionsString>Dialog[7].SimStatus ~= "WasDisplayed"</ConditionsString>
-            <UserScript>Item["Missing_Fire_Extinguisher"].State = "active"; Variable["Alert"] = "New Quest: Missing Fire Extinguisher";</UserScript>
+            <UserScript>Item["Missing_Fire_Extinguisher"].State = "active"; 
+Variable["Alert"] = "New Quest: Missing Fire Extinguisher";</UserScript>
           </DialogEntry>
           <DialogEntry ID="8" IsRoot="false" IsGroup="false" NodeColor="White" DelaySimStatus="false" FalseCondtionAction="Block" ConditionPriority="Normal">
             <Fields>
@@ -1763,7 +1764,8 @@ Variable["Alert"] = "Email sent to Kevin successfully.";</UserScript>
             <ReviewerStatus>None</ReviewerStatus>
             <OutgoingLinks />
             <ConditionsString />
-            <UserScript>Item["Missing_Fire_Extinguisher"].State = "success";</UserScript>
+            <UserScript>Item["Missing_Fire_Extinguisher"].State = "success";
+Variable["Alert"] = "Quest Completed: Missing Fire Extinguisher Replaced";</UserScript>
           </DialogEntry>
           <DialogEntry ID="4" IsRoot="false" IsGroup="false" NodeColor="White" DelaySimStatus="false" FalseCondtionAction="Block" ConditionPriority="Normal">
             <Fields>
@@ -2121,7 +2123,7 @@ Variable["Alert"] = "Email sent to Kevin successfully.";</UserScript>
               </Field>
               <Field Hint="Dialogue System for Unity cutscene sequence" Type="Text">
                 <Title>Sequence</Title>
-                <Value>Pick();</Value>
+                <Value>Pick(); Log(20C, access card is grabbed);</Value>
               </Field>
             </Fields>
             <ReviewerNotes />
@@ -2414,7 +2416,7 @@ Variable["Alert"] = "Email sent to Kevin successfully.";</UserScript>
               </Field>
               <Field Hint="Dialogue System for Unity cutscene sequence" Type="Text">
                 <Title>Sequence</Title>
-                <Value />
+                <Value>Log(2C, not replaced expired fire extinguisher);</Value>
               </Field>
             </Fields>
             <ReviewerNotes />
@@ -2542,7 +2544,7 @@ Variable["Alert"] = "Email sent to Kevin successfully.";</UserScript>
               </Field>
               <Field Hint="The text that is displayed to the player in a list as a dialogue option." Type="Text">
                 <Title>Menu Text</Title>
-                <Value>Security Manager</Value>
+                <Value>[f]Security Manager</Value>
               </Field>
               <Field Hint="The text that is spoken by the actor." Type="Localization">
                 <Title>Dialogue Text</Title>
@@ -2560,8 +2562,9 @@ Variable["Alert"] = "Email sent to Kevin successfully.";</UserScript>
             <ReviewerNotes />
             <ReviewerStatus>None</ReviewerStatus>
             <OutgoingLinks />
-            <ConditionsString>Dialog[7].SimStatus ~= "WasDisplayed"</ConditionsString>
-            <UserScript>Item["Missing_Fire_Extinguisher"].State = "active"; Variable["Alert"] = "New Quest: Missing Fire Extinguisher";</UserScript>
+            <ConditionsString>Dialog[10].SimStatus ~= "WasDisplayed"</ConditionsString>
+            <UserScript>Item["Expired_Fire_Ext"].State = "active"; 
+Variable["Alert"] = "New Quest: Expired Fire Extinguisher";</UserScript>
           </DialogEntry>
           <DialogEntry ID="11" IsRoot="false" IsGroup="false" NodeColor="White" DelaySimStatus="false" FalseCondtionAction="Block" ConditionPriority="Normal">
             <Fields>
@@ -2579,7 +2582,7 @@ Variable["Alert"] = "Email sent to Kevin successfully.";</UserScript>
               </Field>
               <Field Hint="The text that is displayed to the player in a list as a dialogue option." Type="Text">
                 <Title>Menu Text</Title>
-                <Value>Technology Manager </Value>
+                <Value>[f]Technology Manager </Value>
               </Field>
               <Field Hint="The text that is spoken by the actor." Type="Localization">
                 <Title>Dialogue Text</Title>
@@ -2599,7 +2602,7 @@ Variable["Alert"] = "Email sent to Kevin successfully.";</UserScript>
             <OutgoingLinks>
               <Link OriginConvoID="7" DestinationConvoID="7" OriginDialogID="11" DestinationDialogID="9" IsConnector="true" />
             </OutgoingLinks>
-            <ConditionsString>Dialog[8].SimStatus ~= "WasDisplayed"</ConditionsString>
+            <ConditionsString>Dialog[11].SimStatus ~= "WasDisplayed"</ConditionsString>
             <UserScript />
           </DialogEntry>
           <DialogEntry ID="12" IsRoot="false" IsGroup="false" NodeColor="White" DelaySimStatus="false" FalseCondtionAction="Block" ConditionPriority="Normal">
@@ -2618,7 +2621,7 @@ Variable["Alert"] = "Email sent to Kevin successfully.";</UserScript>
               </Field>
               <Field Hint="The text that is displayed to the player in a list as a dialogue option." Type="Text">
                 <Title>Menu Text</Title>
-                <Value>Call a Friend</Value>
+                <Value>[f]Call a Friend</Value>
               </Field>
               <Field Hint="The text that is spoken by the actor." Type="Localization">
                 <Title>Dialogue Text</Title>
@@ -2638,7 +2641,7 @@ Variable["Alert"] = "Email sent to Kevin successfully.";</UserScript>
             <OutgoingLinks>
               <Link OriginConvoID="7" DestinationConvoID="7" OriginDialogID="12" DestinationDialogID="9" IsConnector="true" />
             </OutgoingLinks>
-            <ConditionsString>Dialog[9].SimStatus ~= "WasDisplayed"</ConditionsString>
+            <ConditionsString>Dialog[12].SimStatus ~= "WasDisplayed"</ConditionsString>
             <UserScript />
           </DialogEntry>
         </DialogEntries>
@@ -2924,7 +2927,7 @@ Variable["Alert"] = "Email sent to Kevin successfully.";</UserScript>
               </Field>
               <Field Hint="Dialogue System for Unity cutscene sequence" Type="Text">
                 <Title>Sequence</Title>
-                <Value>Log(5B, Did not Handle Panicked Customer well)</Value>
+                <Value>Log(20F, cleared the floor before evacuation)</Value>
               </Field>
             </Fields>
             <ReviewerNotes />
@@ -3544,7 +3547,7 @@ Variable["Alert"] = "Email sent to Kevin successfully.";</UserScript>
               </Field>
               <Field Hint="Dialogue System for Unity cutscene sequence" Type="Text">
                 <Title>Sequence</Title>
-                <Value>Camera(Closeup); Log(8A, start Sales Pitch);</Value>
+                <Value>Camera(Closeup); </Value>
               </Field>
             </Fields>
             <ReviewerNotes />
@@ -3686,7 +3689,7 @@ Variable["Alert"] = "Email sent to Kevin successfully.";</UserScript>
               </Field>
               <Field Hint="Dialogue System for Unity cutscene sequence" Type="Text">
                 <Title>Sequence</Title>
-                <Value>Log(8A, fail sales pitch);</Value>
+                <Value>Log(6B, fail sales pitch);</Value>
               </Field>
             </Fields>
             <ReviewerNotes />
@@ -3998,7 +4001,7 @@ Variable["Alert"] = "Quest Fail: Unsuccessful Sales Pitch";</UserScript>
               </Field>
               <Field Hint="Dialogue System for Unity cutscene sequence" Type="Text">
                 <Title>Sequence</Title>
-                <Value>Log(8B, success sales pitch);</Value>
+                <Value>Log(6A, success sales pitch);</Value>
               </Field>
             </Fields>
             <ReviewerNotes />
@@ -4510,7 +4513,7 @@ Variable["Alert"] = "New Quest: Send Email to Kevin.";</UserScript>
               </Field>
               <Field Hint="Dialogue System for Unity cutscene sequence" Type="Text">
                 <Title>Sequence</Title>
-                <Value>Log(9B, Correct Evacuation move);</Value>
+                <Value>Log(38A, Correct Evacuation move);</Value>
               </Field>
             </Fields>
             <ReviewerNotes />
@@ -4549,7 +4552,7 @@ Variable["Alert"] = "Quest Success: You have made the right decision to wait.";<
               </Field>
               <Field Hint="Dialogue System for Unity cutscene sequence" Type="Text">
                 <Title>Sequence</Title>
-                <Value>Log(9C, Wrong Evacuation move);</Value>
+                <Value>Log(38B, Wrong Evacuation move);</Value>
               </Field>
             </Fields>
             <ReviewerNotes />
@@ -4805,7 +4808,7 @@ Variable["Alert"] = "Quest failed: You should not have evacuated now.";</UserScr
               </Field>
               <Field Hint="Dialogue System for Unity cutscene sequence" Type="Text">
                 <Title>Sequence</Title>
-                <Value />
+                <Value>Log(6E, picked up documents from courier);</Value>
               </Field>
             </Fields>
             <ReviewerNotes />
@@ -5174,7 +5177,7 @@ Variable["Alert"] = "Quest Success: Received Documents from Kevin";</UserScript>
               </Field>
               <Field Hint="Dialogue System for Unity cutscene sequence" Type="Text">
                 <Title>Sequence</Title>
-                <Value>Log(7B, Unlock Safe);</Value>
+                <Value />
               </Field>
             </Fields>
             <ReviewerNotes />
@@ -5554,7 +5557,7 @@ Variable["Alert"] = "Quest Success: Received Documents from Kevin";</UserScript>
               </Field>
               <Field Hint="The text that is spoken by the actor." Type="Localization">
                 <Title>Dialogue Text</Title>
-                <Value>I'm just looking around. I have no require of your assistance. </Value>
+                <Value>I'm just looking around. I have no requirement of your assistance. </Value>
               </Field>
               <Field Hint="A WMV video file to be played for this dialogue." Type="Text">
                 <Title>Video File</Title>
@@ -5915,7 +5918,7 @@ Variable["Alert"] = "Quest Success: Received Documents from Kevin";</UserScript>
               </Field>
               <Field Hint="Dialogue System for Unity cutscene sequence" Type="Text">
                 <Title>Sequence</Title>
-                <Value>Pick(key);</Value>
+                <Value>Pick(key); Log(20L, safe key is grabbed);</Value>
               </Field>
             </Fields>
             <ReviewerNotes />
@@ -6165,7 +6168,7 @@ Variable["Alert"] = "Quest Success: Received Documents from Kevin";</UserScript>
               </Field>
               <Field Hint="Dialogue System for Unity cutscene sequence" Type="Text">
                 <Title>Sequence</Title>
-                <Value />
+                <Value>Log(3B, not cleared the blockage);</Value>
               </Field>
             </Fields>
             <ReviewerNotes />
@@ -6496,7 +6499,7 @@ Variable["Alert"] = "New Quest: Clear blockage at Fire Exit";</UserScript>
               </Field>
               <Field Hint="Dialogue System for Unity cutscene sequence" Type="Text">
                 <Title>Sequence</Title>
-                <Value>Pick();</Value>
+                <Value>Pick(); Log(20C, contact list is grabbed);</Value>
               </Field>
             </Fields>
             <ReviewerNotes />

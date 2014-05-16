@@ -169,7 +169,7 @@ public class phoneButton : MonoBehaviour {
 			
 			OnCalling = false;
 			
-			
+			if(GameObject.Find ("AudioManager"))
 			GameObject.Find ("AudioManager").GetComponent<AudioManager>().Stop(GameObject.Find ("AudioManager").GetComponent<AudioManager>().Audioclips[0]);
 			
 			
@@ -237,6 +237,8 @@ public class phoneButton : MonoBehaviour {
 		if(PhotonNetwork.playerName == player){
 			
 			OnCalling = true;
+
+			if(GameObject.Find ("AudioManager")&& Camera.main)
 			GameObject.Find ("AudioManager").GetComponent<AudioManager>().Play(GameObject.Find ("AudioManager").GetComponent<AudioManager>().Audioclips[0],Camera.main.transform.position,1f,1f,false);
 			
 			playerName = player;

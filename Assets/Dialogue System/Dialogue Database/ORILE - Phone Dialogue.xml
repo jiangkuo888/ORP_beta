@@ -916,7 +916,7 @@
               </Field>
               <Field Hint="Dialogue System for Unity cutscene sequence" Type="Text">
                 <Title>Sequence</Title>
-                <Value />
+                <Value>Log(6D, call answered);</Value>
               </Field>
             </Fields>
             <ReviewerNotes />
@@ -1060,7 +1060,8 @@
             <ReviewerStatus>None</ReviewerStatus>
             <OutgoingLinks />
             <ConditionsString />
-            <UserScript>Item["Evacuation_Notice"].State = "active";</UserScript>
+            <UserScript>Item["Evacuation_Notice"].State = "active";
+Variable["Alert"] = "There is a new announcement available for you.";</UserScript>
           </DialogEntry>
         </DialogEntries>
       </Conversation>
@@ -1230,7 +1231,7 @@
               </Field>
               <Field Hint="Dialogue System for Unity cutscene sequence" Type="Text">
                 <Title>Sequence</Title>
-                <Value>Log(9A, Pre Flood announcement made)</Value>
+                <Value>Log(16A, Pre Flood announcement made);Audio(Sounds/ORILE_SFX_Anouncement_1);</Value>
               </Field>
             </Fields>
             <ReviewerNotes />
@@ -1268,13 +1269,13 @@ Variable["Alert"] = "Quest Success: You have given the early warning to the cust
               </Field>
               <Field Hint="Dialogue System for Unity cutscene sequence" Type="Text">
                 <Title>Sequence</Title>
-                <Value>Log(10A, Evacuation started)</Value>
+                <Value>Log(20A, Evacuation started);Audio(Sounds/ORILE_SFX_Anouncement_2);</Value>
               </Field>
             </Fields>
             <ReviewerNotes />
             <ReviewerStatus>None</ReviewerStatus>
             <OutgoingLinks />
-            <ConditionsString>Item["Evacuation_Notice"].State == "active" and Dialog[2].SimStatus ~= "WasDisplayed"</ConditionsString>
+            <ConditionsString>Item["Evacuation_Notice"].State == "active" and Dialog[4].SimStatus ~= "WasDisplayed"</ConditionsString>
             <UserScript>Item["Evacuation_Notice"].State = "success";
 Variable["Alert"] = "Quest Success: You have evacuated the Sales Floor.";</UserScript>
           </DialogEntry>
@@ -1664,7 +1665,7 @@ Variable["Alert"] = "Quest Success: You have evacuated the Sales Floor.";</UserS
               </Field>
               <Field Hint="Dialogue System for Unity cutscene sequence" Type="Text">
                 <Title>Sequence</Title>
-                <Value>Log(9C, Loan Enquiry Success);</Value>
+                <Value>Log(17A, Loan Enquiry Success);</Value>
               </Field>
             </Fields>
             <ReviewerNotes>
@@ -1746,7 +1747,7 @@ Variable["Alert"] = "Quest Success: You have gathered all the necessary informat
               </Field>
               <Field Hint="Dialogue System for Unity cutscene sequence" Type="Text">
                 <Title>Sequence</Title>
-                <Value>Log(9C, Loan Enquiry Failed);</Value>
+                <Value>Log(17B, Loan Enquiry Failed);</Value>
               </Field>
             </Fields>
             <ReviewerNotes />
@@ -1885,7 +1886,7 @@ Variable["Alert"] = "Quest failed: You have not gotten all the necessary informa
               </Field>
               <Field Hint="Dialogue System for Unity cutscene sequence" Type="Text">
                 <Title>Sequence</Title>
-                <Value>Log(5B, Get Valuation Report) </Value>
+                <Value />
               </Field>
             </Fields>
             <ReviewerNotes />
@@ -1893,7 +1894,7 @@ Variable["Alert"] = "Quest failed: You have not gotten all the necessary informa
             <OutgoingLinks>
               <Link OriginConvoID="7" DestinationConvoID="7" OriginDialogID="3" DestinationDialogID="5" IsConnector="false" />
             </OutgoingLinks>
-            <ConditionsString>Dialog[3].SimStatus ~= "WasDisplayed";</ConditionsString>
+            <ConditionsString>Dialog[3].SimStatus ~= "WasDisplayed" and Item["John_Valuation_Report"].State ~= "active";</ConditionsString>
             <UserScript />
           </DialogEntry>
           <DialogEntry ID="4" IsRoot="false" IsGroup="false" NodeColor="White" DelaySimStatus="false" FalseCondtionAction="Block" ConditionPriority="Normal">
@@ -2000,7 +2001,7 @@ Variable["Alert"] = "Quest failed: You have not gotten all the necessary informa
               </Field>
               <Field Hint="Dialogue System for Unity cutscene sequence" Type="Text">
                 <Title>Sequence</Title>
-                <Value />
+                <Value>Log(11B, Call made to the valuer);</Value>
               </Field>
             </Fields>
             <ReviewerNotes />
@@ -2609,7 +2610,7 @@ Variable["Alert"] = "Quest success: You have evacuated to the 12th Floor.";</Use
               </Field>
               <Field Hint="Dialogue System for Unity cutscene sequence" Type="Text">
                 <Title>Sequence</Title>
-                <Value>Camera(Wide)</Value>
+                <Value>Camera(Wide); Log(40B, evacuation notification success);</Value>
               </Field>
             </Fields>
             <ReviewerNotes />
@@ -2646,7 +2647,7 @@ Variable["Alert"] = "Quest success: You have evacuated to the 12th Floor.";</Use
               </Field>
               <Field Hint="Dialogue System for Unity cutscene sequence" Type="Text">
                 <Title>Sequence</Title>
-                <Value />
+                <Value>Log(40A, evacuation notification failed);</Value>
               </Field>
             </Fields>
             <ReviewerNotes />
@@ -3004,7 +3005,7 @@ Variable["Alert"] = "Quest success: You have evacuated to the 12th Floor.";</Use
               </Field>
               <Field Hint="Dialogue System for Unity cutscene sequence" Type="Text">
                 <Title>Sequence</Title>
-                <Value>Log(9C, Loan Enquiry Success);</Value>
+                <Value>Log(17A, Loan Enquiry Success);</Value>
               </Field>
             </Fields>
             <ReviewerNotes />
@@ -3199,7 +3200,7 @@ Variable["Alert"] = "Quest Success: You have gathered all the necessary informat
               </Field>
               <Field Hint="Dialogue System for Unity cutscene sequence" Type="Text">
                 <Title>Sequence</Title>
-                <Value />
+                <Value>Log(17C, call back to check made);</Value>
               </Field>
             </Fields>
             <ReviewerNotes />
@@ -3414,7 +3415,7 @@ Variable["Alert"] = "Quest Success: You have gathered all the necessary informat
               </Field>
               <Field Hint="Dialogue System for Unity cutscene sequence" Type="Text">
                 <Title>Sequence</Title>
-                <Value>Log(15D, Notify Call Centre) </Value>
+                <Value>Log(20D, Notify Call Centre) </Value>
               </Field>
             </Fields>
             <ReviewerNotes />

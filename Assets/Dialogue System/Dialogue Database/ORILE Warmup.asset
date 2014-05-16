@@ -1,0 +1,1092 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1097633651, guid: b5a7519e94754fb4a8ea0c272031db78, type: 3}
+  m_Name: ORILE Warmup
+  m_EditorClassIdentifier: 
+  version: 1.5.1.0
+  author: SGI
+  description: Project configured for the Dialogue System for Unity.
+  globalUserScript: 
+  emphasisSettings:
+  - color: {r: 1, g: 0, b: 0, a: 1}
+    bold: 1
+    italic: 0
+    underline: 0
+  - color: {r: .266666681, g: .713725507, b: .203921571, a: 1}
+    bold: 1
+    italic: 0
+    underline: 0
+  - color: {r: .274509817, g: .533333361, b: .90196079, a: 1}
+    bold: 1
+    italic: 0
+    underline: 0
+  - color: {r: .800000012, g: .800000012, b: .800000012, a: 1}
+    bold: 1
+    italic: 0
+    underline: 0
+  actors:
+  - id: 9
+    fields:
+    - title: Name
+      value: Player
+      type: 0
+    - title: Pictures
+      value: '[]'
+      type: 3
+    - title: Description
+      value: The player character.
+      type: 0
+    - title: IsPlayer
+      value: True
+      type: 2
+    portrait: {fileID: 0}
+  - id: 33
+    fields:
+    - title: Name
+      value: Narrator
+      type: 0
+    - title: Pictures
+      value: '[]'
+      type: 3
+    - title: Description
+      value: 
+      type: 0
+    - title: IsPlayer
+      value: False
+      type: 2
+    portrait: {fileID: 0}
+  - id: 20
+    fields:
+    - title: Name
+      value: NPC
+      type: 0
+    - title: Pictures
+      value: '[]'
+      type: 3
+    - title: Description
+      value: 
+      type: 0
+    - title: IsPlayer
+      value: False
+      type: 2
+    portrait: {fileID: 0}
+  items:
+  - id: 25
+    fields:
+    - title: Name
+      value: New Item
+      type: 0
+    - title: Description
+      value: 
+      type: 0
+    - title: Success Description
+      value: 
+      type: 0
+    - title: Failure Description
+      value: 
+      type: 0
+    - title: State
+      value: unassigned
+      type: 0
+    - title: Is Item
+      value: False
+      type: 2
+  locations:
+  - id: 1
+    fields:
+    - title: Name
+      value: New Location
+      type: 0
+    - title: Pictures
+      value: '[]'
+      type: 3
+    - title: Description
+      value: 
+      type: 0
+  variables:
+  - id: 1
+    fields:
+    - title: Name
+      value: Alert
+      type: 0
+    - title: Initial Value
+      value: 
+      type: 0
+    - title: Description
+      value: Show alert messages during gameplay by setting this variable.
+      type: 0
+  conversations:
+  - id: 60
+    fields:
+    - title: Title
+      value: SM Intro
+      type: 0
+    - title: Description
+      value: 
+      type: 0
+    - title: Actor
+      value: 33
+      type: 5
+    - title: Conversant
+      value: 33
+      type: 5
+    nodeColor: Red
+    dialogueEntries:
+    - id: 0
+      fields:
+      - title: Title
+        value: START
+        type: 0
+      - title: Actor
+        value: 33
+        type: 5
+      - title: Conversant
+        value: 33
+        type: 5
+      - title: Menu Text
+        value: 
+        type: 0
+      - title: Dialogue Text
+        value: 
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: None()
+        type: 0
+      conversationID: 60
+      isRoot: 1
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 60
+        originDialogueID: 0
+        destinationConversationID: 60
+        destinationDialogueID: 1
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+    - id: 1
+      fields:
+      - title: Title
+        value: 
+        type: 0
+      - title: Actor
+        value: 33
+        type: 5
+      - title: Conversant
+        value: 33
+        type: 5
+      - title: Menu Text
+        value: 
+        type: 0
+      - title: Dialogue Text
+        value: 'This is your Office and you will find your work table here. '
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 60
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 60
+        originDialogueID: 1
+        destinationConversationID: 60
+        destinationDialogueID: 2
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+    - id: 2
+      fields:
+      - title: Title
+        value: 
+        type: 0
+      - title: Actor
+        value: 33
+        type: 5
+      - title: Conversant
+        value: 33
+        type: 5
+      - title: Menu Text
+        value: 
+        type: 0
+      - title: Dialogue Text
+        value: 'As a Sales Manager, your role is to check and verify the documents
+          then send them to your colleagues for further processing.
+
+'
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 60
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 60
+        originDialogueID: 2
+        destinationConversationID: 60
+        destinationDialogueID: 3
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+    - id: 3
+      fields:
+      - title: Title
+        value: 
+        type: 0
+      - title: Actor
+        value: 33
+        type: 5
+      - title: Conversant
+        value: 33
+        type: 5
+      - title: Menu Text
+        value: 
+        type: 0
+      - title: Dialogue Text
+        value: You will not be able to sign any of the documents but it will be of
+          great help if you check through the documents before you send them.
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 60
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 60
+        originDialogueID: 3
+        destinationConversationID: 60
+        destinationDialogueID: 4
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+    - id: 4
+      fields:
+      - title: Title
+        value: 
+        type: 0
+      - title: Actor
+        value: 33
+        type: 5
+      - title: Conversant
+        value: 33
+        type: 5
+      - title: Menu Text
+        value: 
+        type: 0
+      - title: Dialogue Text
+        value: 'Your main role will be to go around the Sales Floor and attend to
+          the customers and increase your sales. '
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 60
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 60
+        originDialogueID: 4
+        destinationConversationID: 60
+        destinationDialogueID: 5
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+    - id: 5
+      fields:
+      - title: Title
+        value: 
+        type: 0
+      - title: Actor
+        value: 33
+        type: 5
+      - title: Conversant
+        value: 33
+        type: 5
+      - title: Menu Text
+        value: 
+        type: 0
+      - title: Dialogue Text
+        value: 'Now you are free to explore the premise and get yourself familiar
+          with the place, ok? '
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 60
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: 
+  - id: 61
+    fields:
+    - title: Title
+      value: LPU Intro
+      type: 0
+    - title: Description
+      value: 
+      type: 0
+    - title: Actor
+      value: 33
+      type: 5
+    - title: Conversant
+      value: 33
+      type: 5
+    nodeColor: Red
+    dialogueEntries:
+    - id: 0
+      fields:
+      - title: Title
+        value: START
+        type: 0
+      - title: Actor
+        value: 33
+        type: 5
+      - title: Conversant
+        value: 33
+        type: 5
+      - title: Menu Text
+        value: 
+        type: 0
+      - title: Dialogue Text
+        value: 
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: None()
+        type: 0
+      conversationID: 61
+      isRoot: 1
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 61
+        originDialogueID: 0
+        destinationConversationID: 61
+        destinationDialogueID: 1
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+    - id: 1
+      fields:
+      - title: Title
+        value: 
+        type: 0
+      - title: Actor
+        value: 33
+        type: 5
+      - title: Conversant
+        value: 33
+        type: 5
+      - title: Menu Text
+        value: 
+        type: 0
+      - title: Dialogue Text
+        value: 'Hi, you work here at the Loan Processing Unit and this is your office.
+          You can find your desk here. '
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 61
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 61
+        originDialogueID: 1
+        destinationConversationID: 61
+        destinationDialogueID: 2
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+    - id: 2
+      fields:
+      - title: Title
+        value: 
+        type: 0
+      - title: Actor
+        value: 33
+        type: 5
+      - title: Conversant
+        value: 33
+        type: 5
+      - title: Menu Text
+        value: 
+        type: 0
+      - title: Dialogue Text
+        value: 'Check out the documents on your table. Your main role is to process
+          and verify those documents that come to you and sign them off before you
+          send them to your colleague. '
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 61
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 61
+        originDialogueID: 2
+        destinationConversationID: 61
+        destinationDialogueID: 3
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+    - id: 3
+      fields:
+      - title: Title
+        value: 
+        type: 0
+      - title: Actor
+        value: 33
+        type: 5
+      - title: Conversant
+        value: 33
+        type: 5
+      - title: Menu Text
+        value: 
+        type: 0
+      - title: Dialogue Text
+        value: 'Now you are free to explore the premise and get yourself familiar
+          with the place, ok? '
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 61
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: 
+  - id: 62
+    fields:
+    - title: Title
+      value: Sales 1
+      type: 0
+    - title: Description
+      value: 
+      type: 0
+    - title: Actor
+      value: 9
+      type: 5
+    - title: Conversant
+      value: 20
+      type: 5
+    nodeColor: Red
+    dialogueEntries:
+    - id: 0
+      fields:
+      - title: Title
+        value: START
+        type: 0
+      - title: Actor
+        value: 9
+        type: 5
+      - title: Conversant
+        value: 20
+        type: 5
+      - title: Menu Text
+        value: 
+        type: 0
+      - title: Dialogue Text
+        value: 
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: None()
+        type: 0
+      conversationID: 62
+      isRoot: 1
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 62
+        originDialogueID: 0
+        destinationConversationID: 62
+        destinationDialogueID: 1
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+    - id: 1
+      fields:
+      - title: Title
+        value: 
+        type: 0
+      - title: Actor
+        value: 20
+        type: 5
+      - title: Conversant
+        value: 9
+        type: 5
+      - title: Menu Text
+        value: 
+        type: 0
+      - title: Dialogue Text
+        value: 'I am looking to open up a savings account. Where do I head to? '
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: Camera(Closeup);
+        type: 0
+      conversationID: 62
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 62
+        originDialogueID: 1
+        destinationConversationID: 62
+        destinationDialogueID: 2
+        isConnector: 0
+        priority: 2
+      conditionsString: Dialog[1].SimStatus ~= "WasDisplayed"
+      userScript: 
+    - id: 2
+      fields:
+      - title: Title
+        value: 
+        type: 0
+      - title: Actor
+        value: 9
+        type: 5
+      - title: Conversant
+        value: 20
+        type: 5
+      - title: Menu Text
+        value: 
+        type: 0
+      - title: Dialogue Text
+        value: 'You can find my colleague over at the counter to aid you. Please join
+          the queue along with the rest of the customers. '
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 62
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 62
+        originDialogueID: 2
+        destinationConversationID: 62
+        destinationDialogueID: 3
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+    - id: 3
+      fields:
+      - title: Title
+        value: 
+        type: 0
+      - title: Actor
+        value: 20
+        type: 5
+      - title: Conversant
+        value: 9
+        type: 5
+      - title: Menu Text
+        value: 
+        type: 0
+      - title: Dialogue Text
+        value: 'Thank you. '
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 62
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: 
+  - id: 63
+    fields:
+    - title: Title
+      value: Sales 2
+      type: 0
+    - title: Description
+      value: 
+      type: 0
+    - title: Actor
+      value: 9
+      type: 5
+    - title: Conversant
+      value: 20
+      type: 5
+    nodeColor: Red
+    dialogueEntries:
+    - id: 0
+      fields:
+      - title: Title
+        value: START
+        type: 0
+      - title: Actor
+        value: 9
+        type: 5
+      - title: Conversant
+        value: 20
+        type: 5
+      - title: Menu Text
+        value: 
+        type: 0
+      - title: Dialogue Text
+        value: 
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: None()
+        type: 0
+      conversationID: 63
+      isRoot: 1
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 63
+        originDialogueID: 0
+        destinationConversationID: 63
+        destinationDialogueID: 1
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+    - id: 1
+      fields:
+      - title: Title
+        value: 
+        type: 0
+      - title: Actor
+        value: 20
+        type: 5
+      - title: Conversant
+        value: 9
+        type: 5
+      - title: Menu Text
+        value: 
+        type: 0
+      - title: Dialogue Text
+        value: 'I am trying to find some information on different saving accounts.
+          Where can I find them? '
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: Camera(Closeup);
+        type: 0
+      conversationID: 63
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 63
+        originDialogueID: 1
+        destinationConversationID: 63
+        destinationDialogueID: 2
+        isConnector: 0
+        priority: 2
+      conditionsString: Dialog[1].SimStatus ~= "WasDisplayed"
+      userScript: 
+    - id: 2
+      fields:
+      - title: Title
+        value: 
+        type: 0
+      - title: Actor
+        value: 9
+        type: 5
+      - title: Conversant
+        value: 20
+        type: 5
+      - title: Menu Text
+        value: 
+        type: 0
+      - title: Dialogue Text
+        value: You can take this brochure and that should be sufficient information
+          for you.
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 63
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 63
+        originDialogueID: 2
+        destinationConversationID: 63
+        destinationDialogueID: 3
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+    - id: 3
+      fields:
+      - title: Title
+        value: 
+        type: 0
+      - title: Actor
+        value: 20
+        type: 5
+      - title: Conversant
+        value: 9
+        type: 5
+      - title: Menu Text
+        value: 
+        type: 0
+      - title: Dialogue Text
+        value: 'Okie thanks. '
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 63
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: 
+  - id: 64
+    fields:
+    - title: Title
+      value: LPU Intro 2
+      type: 0
+    - title: Description
+      value: 
+      type: 0
+    - title: Actor
+      value: 33
+      type: 5
+    - title: Conversant
+      value: 33
+      type: 5
+    nodeColor: Red
+    dialogueEntries:
+    - id: 0
+      fields:
+      - title: Title
+        value: START
+        type: 0
+      - title: Actor
+        value: 33
+        type: 5
+      - title: Conversant
+        value: 33
+        type: 5
+      - title: Menu Text
+        value: 
+        type: 0
+      - title: Dialogue Text
+        value: 
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: None()
+        type: 0
+      conversationID: 64
+      isRoot: 1
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 64
+        originDialogueID: 0
+        destinationConversationID: 64
+        destinationDialogueID: 1
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+    - id: 1
+      fields:
+      - title: Title
+        value: 
+        type: 0
+      - title: Actor
+        value: 33
+        type: 5
+      - title: Conversant
+        value: 33
+        type: 5
+      - title: Menu Text
+        value: 
+        type: 0
+      - title: Dialogue Text
+        value: 'Hi, you work here at the Loan Processing Unit and this is your office.
+          You can find your desk here. '
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 64
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 64
+        originDialogueID: 1
+        destinationConversationID: 64
+        destinationDialogueID: 2
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+    - id: 2
+      fields:
+      - title: Title
+        value: 
+        type: 0
+      - title: Actor
+        value: 33
+        type: 5
+      - title: Conversant
+        value: 33
+        type: 5
+      - title: Menu Text
+        value: 
+        type: 0
+      - title: Dialogue Text
+        value: 'Check out the documents on your table. Your main role is to process
+          and verify those documents that come to you and sign them off before you
+          send them to your colleague. '
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 64
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 64
+        originDialogueID: 2
+        destinationConversationID: 64
+        destinationDialogueID: 3
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+    - id: 3
+      fields:
+      - title: Title
+        value: 
+        type: 0
+      - title: Actor
+        value: 33
+        type: 5
+      - title: Conversant
+        value: 33
+        type: 5
+      - title: Menu Text
+        value: 
+        type: 0
+      - title: Dialogue Text
+        value: Your additional role will also be to have the control of the firesafe,
+          which is located in the Loan Manager's Office. You hold one of the two keys
+          required to unlock the safe for depositing documents when required.
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 64
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 64
+        originDialogueID: 3
+        destinationConversationID: 64
+        destinationDialogueID: 4
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+    - id: 4
+      fields:
+      - title: Title
+        value: 
+        type: 0
+      - title: Actor
+        value: 33
+        type: 5
+      - title: Conversant
+        value: 33
+        type: 5
+      - title: Menu Text
+        value: 
+        type: 0
+      - title: Dialogue Text
+        value: 'Now you are free to explore the premise and get yourself familiar
+          with the place, ok? '
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 64
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: 

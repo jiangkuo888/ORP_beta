@@ -33,7 +33,7 @@ MonoBehaviour:
     italic: 0
     underline: 0
   actors:
-  - id: 1
+  - id: 9
     fields:
     - title: Name
       value: Player
@@ -48,7 +48,7 @@ MonoBehaviour:
       value: True
       type: 2
     portrait: {fileID: 0}
-  - id: 6
+  - id: 21
     fields:
     - title: Name
       value: Recipient
@@ -63,7 +63,7 @@ MonoBehaviour:
       value: False
       type: 2
     portrait: {fileID: 0}
-  - id: 7
+  - id: 1
     fields:
     - title: Name
       value: Sales Manager
@@ -78,7 +78,7 @@ MonoBehaviour:
       value: True
       type: 2
     portrait: {fileID: 0}
-  - id: 8
+  - id: 22
     fields:
     - title: Name
       value: Loan Officer
@@ -93,7 +93,7 @@ MonoBehaviour:
       value: True
       type: 2
     portrait: {fileID: 0}
-  - id: 9
+  - id: 23
     fields:
     - title: Name
       value: Loan Manager
@@ -108,7 +108,7 @@ MonoBehaviour:
       value: True
       type: 2
     portrait: {fileID: 0}
-  - id: 10
+  - id: 5
     fields:
     - title: Name
       value: Credit Risk
@@ -369,7 +369,7 @@ MonoBehaviour:
       value: Show alert messages during gameplay by setting this variable.
       type: 0
   conversations:
-  - id: 3
+  - id: 21
     fields:
     - title: Title
       value: SM Inbox
@@ -378,10 +378,10 @@ MonoBehaviour:
       value: 
       type: 0
     - title: Actor
-      value: 6
+      value: 21
       type: 5
     - title: Conversant
-      value: 1
+      value: 9
       type: 5
     nodeColor: Red
     dialogueEntries:
@@ -391,10 +391,10 @@ MonoBehaviour:
         value: START
         type: 0
       - title: Actor
-        value: 6
+        value: 21
         type: 5
       - title: Conversant
-        value: 1
+        value: 9
         type: 5
       - title: Menu Text
         value: 
@@ -408,7 +408,7 @@ MonoBehaviour:
       - title: Sequence
         value: None()
         type: 0
-      conversationID: 3
+      conversationID: 21
       isRoot: 1
       isGroup: 0
       nodeColor: White
@@ -416,21 +416,21 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 3
+      - originConversationID: 21
         originDialogueID: 0
-        destinationConversationID: 3
+        destinationConversationID: 21
         destinationDialogueID: 1
         isConnector: 0
         priority: 2
-      - originConversationID: 3
+      - originConversationID: 21
         originDialogueID: 0
-        destinationConversationID: 3
+        destinationConversationID: 21
         destinationDialogueID: 2
         isConnector: 0
         priority: 2
-      - originConversationID: 3
+      - originConversationID: 21
         originDialogueID: 0
-        destinationConversationID: 3
+        destinationConversationID: 21
         destinationDialogueID: 3
         isConnector: 0
         priority: 2
@@ -442,10 +442,10 @@ MonoBehaviour:
         value: LOtoSM1
         type: 0
       - title: Actor
-        value: 8
+        value: 22
         type: 5
       - title: Conversant
-        value: 6
+        value: 21
         type: 5
       - title: Menu Text
         value: Message from Loan Officer
@@ -460,7 +460,7 @@ MonoBehaviour:
       - title: Sequence
         value: DidRead();
         type: 0
-      conversationID: 3
+      conversationID: 21
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -477,10 +477,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 1
+        value: 9
         type: 5
       - title: Conversant
-        value: 6
+        value: 21
         type: 5
       - title: Menu Text
         value: No message in Inbox
@@ -494,7 +494,7 @@ MonoBehaviour:
       - title: Sequence
         value: 
         type: 0
-      conversationID: 3
+      conversationID: 21
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -510,10 +510,10 @@ MonoBehaviour:
         value: LOtoSM1
         type: 0
       - title: Actor
-        value: 8
+        value: 22
         type: 5
       - title: Conversant
-        value: 6
+        value: 21
         type: 5
       - title: Menu Text
         value: Message from Loan Officer
@@ -528,7 +528,7 @@ MonoBehaviour:
       - title: Sequence
         value: DidRead();
         type: 0
-      conversationID: 3
+      conversationID: 21
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -539,7 +539,7 @@ MonoBehaviour:
       conditionsString: Item["LOtoSM2"].State == "active" and Dialog[2].SimStatus
         ~= "WasDisplayed"
       userScript: 
-  - id: 4
+  - id: 22
     fields:
     - title: Title
       value: LO to SM
@@ -548,10 +548,10 @@ MonoBehaviour:
       value: 
       type: 0
     - title: Actor
-      value: 6
+      value: 21
       type: 5
     - title: Conversant
-      value: 1
+      value: 9
       type: 5
     nodeColor: Red
     dialogueEntries:
@@ -561,10 +561,10 @@ MonoBehaviour:
         value: START
         type: 0
       - title: Actor
-        value: 6
+        value: 21
         type: 5
       - title: Conversant
-        value: 1
+        value: 9
         type: 5
       - title: Menu Text
         value: 
@@ -578,7 +578,7 @@ MonoBehaviour:
       - title: Sequence
         value: None()
         type: 0
-      conversationID: 4
+      conversationID: 22
       isRoot: 1
       isGroup: 0
       nodeColor: White
@@ -586,21 +586,21 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 4
+      - originConversationID: 22
         originDialogueID: 0
-        destinationConversationID: 4
+        destinationConversationID: 22
         destinationDialogueID: 1
         isConnector: 0
         priority: 2
-      - originConversationID: 4
+      - originConversationID: 22
         originDialogueID: 0
-        destinationConversationID: 4
+        destinationConversationID: 22
         destinationDialogueID: 2
         isConnector: 0
         priority: 2
-      - originConversationID: 4
+      - originConversationID: 22
         originDialogueID: 0
-        destinationConversationID: 4
+        destinationConversationID: 22
         destinationDialogueID: 3
         isConnector: 0
         priority: 2
@@ -612,10 +612,10 @@ MonoBehaviour:
         value: LOtoSM1
         type: 0
       - title: Actor
-        value: 1
+        value: 9
         type: 5
       - title: Conversant
-        value: 6
+        value: 21
         type: 5
       - title: Menu Text
         value: '[f]Send Confirmation of Evacuation to Sales Manager'
@@ -630,7 +630,7 @@ MonoBehaviour:
       - title: Sequence
         value: SendConversation(LO,SM, LOtoSM1);
         type: 0
-      conversationID: 4
+      conversationID: 22
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -647,10 +647,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 1
+        value: 9
         type: 5
       - title: Conversant
-        value: 6
+        value: 21
         type: 5
       - title: Menu Text
         value: Nothing to send
@@ -664,7 +664,7 @@ MonoBehaviour:
       - title: Sequence
         value: 
         type: 0
-      conversationID: 4
+      conversationID: 22
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -680,10 +680,10 @@ MonoBehaviour:
         value: LOtoSM2
         type: 0
       - title: Actor
-        value: 1
+        value: 9
         type: 5
       - title: Conversant
-        value: 6
+        value: 21
         type: 5
       - title: Menu Text
         value: '[f]Notify Sales Manager that we are ready to receive the evacuatees. '
@@ -698,7 +698,7 @@ MonoBehaviour:
       - title: Sequence
         value: SendConversation(LO,SM, LOtoSM2);
         type: 0
-      conversationID: 4
+      conversationID: 22
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -709,7 +709,7 @@ MonoBehaviour:
       conditionsString: Dialog[1].SimStatus ~= "WasDisplayed" and Item["LOtoSM2"].State
         == "success"
       userScript: 
-  - id: 5
+  - id: 23
     fields:
     - title: Title
       value: SM to LO
@@ -718,10 +718,10 @@ MonoBehaviour:
       value: 
       type: 0
     - title: Actor
-      value: 6
+      value: 21
       type: 5
     - title: Conversant
-      value: 1
+      value: 9
       type: 5
     nodeColor: Red
     dialogueEntries:
@@ -731,24 +731,24 @@ MonoBehaviour:
         value: START
         type: 0
       - title: Actor
-        value: 6
+        value: 21
         type: 5
       - title: Conversant
-        value: 1
+        value: 9
         type: 5
       - title: Menu Text
         value: 
         type: 0
       - title: Dialogue Text
         value: 
-        type: 4
+        type: 0
       - title: Video File
         value: 
         type: 0
       - title: Sequence
         value: None()
         type: 0
-      conversationID: 5
+      conversationID: 23
       isRoot: 1
       isGroup: 0
       nodeColor: White
@@ -756,15 +756,15 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 5
+      - originConversationID: 23
         originDialogueID: 0
-        destinationConversationID: 5
+        destinationConversationID: 23
         destinationDialogueID: 1
         isConnector: 0
         priority: 2
-      - originConversationID: 5
+      - originConversationID: 23
         originDialogueID: 0
-        destinationConversationID: 5
+        destinationConversationID: 23
         destinationDialogueID: 3
         isConnector: 0
         priority: 2
@@ -776,10 +776,10 @@ MonoBehaviour:
         value: SMMessageSent1
         type: 0
       - title: Actor
-        value: 1
+        value: 9
         type: 5
       - title: Conversant
-        value: 6
+        value: 21
         type: 5
       - title: Menu Text
         value: Notify Loan Officer Evacuation to LPU floor.
@@ -788,14 +788,15 @@ MonoBehaviour:
         value: "Sending message to Loan Officer...  \n[ We are evacuating the Sales
           Floor to the LPU Floor in a while. Please kindly prepare to receive the
           evacuatees. ]"
-        type: 4
+        type: 0
       - title: Video File
         value: 
         type: 0
       - title: Sequence
-        value: SendConversation(SM,LO, SMMessageSent1);
+        value: SendConversation(SM,LO, SMMessageSent1); Log(20B, evacuation mesage
+          sent);
         type: 0
-      conversationID: 5
+      conversationID: 23
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -812,10 +813,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 1
+        value: 9
         type: 5
       - title: Conversant
-        value: 6
+        value: 21
         type: 5
       - title: Menu Text
         value: Nothing to send
@@ -829,7 +830,7 @@ MonoBehaviour:
       - title: Sequence
         value: 
         type: 0
-      conversationID: 5
+      conversationID: 23
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -839,7 +840,7 @@ MonoBehaviour:
       outgoingLinks: []
       conditionsString: 
       userScript: 
-  - id: 6
+  - id: 24
     fields:
     - title: Title
       value: LO Inbox
@@ -848,10 +849,10 @@ MonoBehaviour:
       value: 
       type: 0
     - title: Actor
-      value: 6
+      value: 21
       type: 5
     - title: Conversant
-      value: 1
+      value: 9
       type: 5
     nodeColor: Red
     dialogueEntries:
@@ -861,10 +862,10 @@ MonoBehaviour:
         value: START
         type: 0
       - title: Actor
-        value: 6
+        value: 21
         type: 5
       - title: Conversant
-        value: 1
+        value: 9
         type: 5
       - title: Menu Text
         value: 
@@ -878,7 +879,7 @@ MonoBehaviour:
       - title: Sequence
         value: None()
         type: 0
-      conversationID: 6
+      conversationID: 24
       isRoot: 1
       isGroup: 0
       nodeColor: White
@@ -886,15 +887,15 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 6
+      - originConversationID: 24
         originDialogueID: 0
-        destinationConversationID: 6
+        destinationConversationID: 24
         destinationDialogueID: 1
         isConnector: 0
         priority: 2
-      - originConversationID: 6
+      - originConversationID: 24
         originDialogueID: 0
-        destinationConversationID: 6
+        destinationConversationID: 24
         destinationDialogueID: 3
         isConnector: 0
         priority: 2
@@ -906,10 +907,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 7
+        value: 1
         type: 5
       - title: Conversant
-        value: 6
+        value: 21
         type: 5
       - title: Menu Text
         value: Message from Sales Manager
@@ -924,7 +925,7 @@ MonoBehaviour:
       - title: Sequence
         value: Log(6B, SM inform LO of evacuation);DidRead();
         type: 0
-      conversationID: 6
+      conversationID: 24
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -945,10 +946,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 7
+        value: 1
         type: 5
       - title: Conversant
-        value: 6
+        value: 21
         type: 5
       - title: Menu Text
         value: No message inbox
@@ -962,7 +963,7 @@ MonoBehaviour:
       - title: Sequence
         value: 
         type: 0
-      conversationID: 6
+      conversationID: 24
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -972,7 +973,7 @@ MonoBehaviour:
       outgoingLinks: []
       conditionsString: 
       userScript: 
-  - id: 7
+  - id: 25
     fields:
     - title: Title
       value: CR Inbox
@@ -981,10 +982,10 @@ MonoBehaviour:
       value: 
       type: 0
     - title: Actor
-      value: 6
+      value: 21
       type: 5
     - title: Conversant
-      value: 1
+      value: 9
       type: 5
     nodeColor: Red
     dialogueEntries:
@@ -994,10 +995,10 @@ MonoBehaviour:
         value: START
         type: 0
       - title: Actor
-        value: 6
+        value: 21
         type: 5
       - title: Conversant
-        value: 1
+        value: 9
         type: 5
       - title: Menu Text
         value: 
@@ -1011,7 +1012,7 @@ MonoBehaviour:
       - title: Sequence
         value: None()
         type: 0
-      conversationID: 7
+      conversationID: 25
       isRoot: 1
       isGroup: 0
       nodeColor: White
@@ -1019,21 +1020,21 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 7
+      - originConversationID: 25
         originDialogueID: 0
-        destinationConversationID: 7
+        destinationConversationID: 25
         destinationDialogueID: 1
         isConnector: 0
         priority: 2
-      - originConversationID: 7
+      - originConversationID: 25
         originDialogueID: 0
-        destinationConversationID: 7
+        destinationConversationID: 25
         destinationDialogueID: 3
         isConnector: 0
         priority: 2
-      - originConversationID: 7
+      - originConversationID: 25
         originDialogueID: 0
-        destinationConversationID: 7
+        destinationConversationID: 25
         destinationDialogueID: 2
         isConnector: 0
         priority: 2
@@ -1045,10 +1046,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 9
+        value: 23
         type: 5
       - title: Conversant
-        value: 6
+        value: 21
         type: 5
       - title: Menu Text
         value: Message from Loan Manager
@@ -1063,7 +1064,7 @@ MonoBehaviour:
       - title: Sequence
         value: Log(6A, Inform Credit Risk to unlock Safe);DidRead();
         type: 0
-      conversationID: 7
+      conversationID: 25
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -1080,10 +1081,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 10
+        value: 5
         type: 5
       - title: Conversant
-        value: 6
+        value: 21
         type: 5
       - title: Menu Text
         value: No message inbox
@@ -1097,7 +1098,7 @@ MonoBehaviour:
       - title: Sequence
         value: 
         type: 0
-      conversationID: 7
+      conversationID: 25
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -1113,10 +1114,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 8
+        value: 22
         type: 5
       - title: Conversant
-        value: 6
+        value: 21
         type: 5
       - title: Menu Text
         value: Message from Loan Officer
@@ -1131,7 +1132,7 @@ MonoBehaviour:
       - title: Sequence
         value: DidRead();
         type: 0
-      conversationID: 7
+      conversationID: 25
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -1142,7 +1143,7 @@ MonoBehaviour:
       conditionsString: Item["LOtoCR1"].State == "active" and Dialog[3].SimStatus
         ~= "WasDisplayed"
       userScript: Item["CRtoLM_Safe_unlock"].State = "success"
-  - id: 8
+  - id: 26
     fields:
     - title: Title
       value: LM Inbox
@@ -1151,10 +1152,10 @@ MonoBehaviour:
       value: 
       type: 0
     - title: Actor
-      value: 6
+      value: 21
       type: 5
     - title: Conversant
-      value: 1
+      value: 9
       type: 5
     nodeColor: Red
     dialogueEntries:
@@ -1164,10 +1165,10 @@ MonoBehaviour:
         value: START
         type: 0
       - title: Actor
-        value: 6
+        value: 21
         type: 5
       - title: Conversant
-        value: 1
+        value: 9
         type: 5
       - title: Menu Text
         value: 
@@ -1181,7 +1182,7 @@ MonoBehaviour:
       - title: Sequence
         value: None()
         type: 0
-      conversationID: 8
+      conversationID: 26
       isRoot: 1
       isGroup: 0
       nodeColor: White
@@ -1189,21 +1190,21 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 8
+      - originConversationID: 26
         originDialogueID: 0
-        destinationConversationID: 8
+        destinationConversationID: 26
         destinationDialogueID: 1
         isConnector: 0
         priority: 2
-      - originConversationID: 8
+      - originConversationID: 26
         originDialogueID: 0
-        destinationConversationID: 8
+        destinationConversationID: 26
         destinationDialogueID: 3
         isConnector: 0
         priority: 2
-      - originConversationID: 8
+      - originConversationID: 26
         originDialogueID: 0
-        destinationConversationID: 8
+        destinationConversationID: 26
         destinationDialogueID: 2
         isConnector: 0
         priority: 2
@@ -1215,10 +1216,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 9
+        value: 23
         type: 5
       - title: Conversant
-        value: 6
+        value: 21
         type: 5
       - title: Menu Text
         value: No message inbox
@@ -1232,7 +1233,7 @@ MonoBehaviour:
       - title: Sequence
         value: 
         type: 0
-      conversationID: 8
+      conversationID: 26
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -1248,10 +1249,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 8
+        value: 22
         type: 5
       - title: Conversant
-        value: 6
+        value: 21
         type: 5
       - title: Menu Text
         value: Message from Loan Officer
@@ -1266,7 +1267,7 @@ MonoBehaviour:
       - title: Sequence
         value: DidRead();
         type: 0
-      conversationID: 8
+      conversationID: 26
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -1283,10 +1284,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 10
+        value: 5
         type: 5
       - title: Conversant
-        value: 6
+        value: 21
         type: 5
       - title: Menu Text
         value: Message from Credit Risk
@@ -1301,7 +1302,7 @@ MonoBehaviour:
       - title: Sequence
         value: Log(6A, Inform Credit Risk to unlock Safe);DidRead();
         type: 0
-      conversationID: 8
+      conversationID: 26
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -1312,7 +1313,7 @@ MonoBehaviour:
       conditionsString: Item["CRtoLM_Safe_unlock"].State == "active" and Dialog[1].SimStatus
         ~= "WasDisplayed"
       userScript: 
-  - id: 9
+  - id: 27
     fields:
     - title: Title
       value: SM to LM
@@ -1321,10 +1322,10 @@ MonoBehaviour:
       value: 
       type: 0
     - title: Actor
-      value: 6
+      value: 21
       type: 5
     - title: Conversant
-      value: 1
+      value: 9
       type: 5
     nodeColor: Red
     dialogueEntries:
@@ -1334,10 +1335,10 @@ MonoBehaviour:
         value: START
         type: 0
       - title: Actor
-        value: 6
+        value: 21
         type: 5
       - title: Conversant
-        value: 1
+        value: 9
         type: 5
       - title: Menu Text
         value: 
@@ -1351,7 +1352,7 @@ MonoBehaviour:
       - title: Sequence
         value: None()
         type: 0
-      conversationID: 9
+      conversationID: 27
       isRoot: 1
       isGroup: 0
       nodeColor: White
@@ -1359,9 +1360,9 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 9
+      - originConversationID: 27
         originDialogueID: 0
-        destinationConversationID: 9
+        destinationConversationID: 27
         destinationDialogueID: 2
         isConnector: 0
         priority: 2
@@ -1373,10 +1374,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 1
+        value: 9
         type: 5
       - title: Conversant
-        value: 6
+        value: 21
         type: 5
       - title: Menu Text
         value: Nothing to send
@@ -1390,7 +1391,7 @@ MonoBehaviour:
       - title: Sequence
         value: 
         type: 0
-      conversationID: 9
+      conversationID: 27
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -1400,7 +1401,7 @@ MonoBehaviour:
       outgoingLinks: []
       conditionsString: 
       userScript: 
-  - id: 10
+  - id: 28
     fields:
     - title: Title
       value: SM to CR
@@ -1409,10 +1410,10 @@ MonoBehaviour:
       value: 
       type: 0
     - title: Actor
-      value: 6
+      value: 21
       type: 5
     - title: Conversant
-      value: 1
+      value: 9
       type: 5
     nodeColor: Red
     dialogueEntries:
@@ -1422,10 +1423,10 @@ MonoBehaviour:
         value: START
         type: 0
       - title: Actor
-        value: 6
+        value: 21
         type: 5
       - title: Conversant
-        value: 1
+        value: 9
         type: 5
       - title: Menu Text
         value: 
@@ -1439,7 +1440,7 @@ MonoBehaviour:
       - title: Sequence
         value: None()
         type: 0
-      conversationID: 10
+      conversationID: 28
       isRoot: 1
       isGroup: 0
       nodeColor: White
@@ -1447,9 +1448,9 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 10
+      - originConversationID: 28
         originDialogueID: 0
-        destinationConversationID: 10
+        destinationConversationID: 28
         destinationDialogueID: 2
         isConnector: 0
         priority: 2
@@ -1461,10 +1462,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 1
+        value: 9
         type: 5
       - title: Conversant
-        value: 6
+        value: 21
         type: 5
       - title: Menu Text
         value: Nothing to send
@@ -1478,7 +1479,7 @@ MonoBehaviour:
       - title: Sequence
         value: 
         type: 0
-      conversationID: 10
+      conversationID: 28
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -1488,7 +1489,7 @@ MonoBehaviour:
       outgoingLinks: []
       conditionsString: 
       userScript: 
-  - id: 11
+  - id: 29
     fields:
     - title: Title
       value: LO to LM
@@ -1497,10 +1498,10 @@ MonoBehaviour:
       value: 
       type: 0
     - title: Actor
-      value: 6
+      value: 21
       type: 5
     - title: Conversant
-      value: 1
+      value: 9
       type: 5
     nodeColor: Red
     dialogueEntries:
@@ -1510,10 +1511,10 @@ MonoBehaviour:
         value: START
         type: 0
       - title: Actor
-        value: 6
+        value: 21
         type: 5
       - title: Conversant
-        value: 1
+        value: 9
         type: 5
       - title: Menu Text
         value: 
@@ -1527,7 +1528,7 @@ MonoBehaviour:
       - title: Sequence
         value: None()
         type: 0
-      conversationID: 11
+      conversationID: 29
       isRoot: 1
       isGroup: 0
       nodeColor: White
@@ -1535,15 +1536,15 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 11
+      - originConversationID: 29
         originDialogueID: 0
-        destinationConversationID: 11
+        destinationConversationID: 29
         destinationDialogueID: 3
         isConnector: 0
         priority: 2
-      - originConversationID: 11
+      - originConversationID: 29
         originDialogueID: 0
-        destinationConversationID: 11
+        destinationConversationID: 29
         destinationDialogueID: 2
         isConnector: 0
         priority: 2
@@ -1555,10 +1556,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 1
+        value: 9
         type: 5
       - title: Conversant
-        value: 6
+        value: 21
         type: 5
       - title: Menu Text
         value: Nothing to send
@@ -1572,7 +1573,7 @@ MonoBehaviour:
       - title: Sequence
         value: 
         type: 0
-      conversationID: 11
+      conversationID: 29
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -1588,10 +1589,10 @@ MonoBehaviour:
         value: Keep your stuffs
         type: 0
       - title: Actor
-        value: 1
+        value: 9
         type: 5
       - title: Conversant
-        value: 6
+        value: 21
         type: 5
       - title: Menu Text
         value: Evacuation Notice
@@ -1604,9 +1605,9 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Sequence
-        value: SendConversation(LO,LM, LOtoLM1);
+        value: SendConversation(LO,LM, LOtoLM1); Log(20H, evacuation mesage sent);
         type: 0
-      conversationID: 11
+      conversationID: 29
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -1617,7 +1618,7 @@ MonoBehaviour:
       conditionsString: Item["LOtoLM1"].State == "success" and Dialog[3].SimStatus
         ~= "WasDisplayed"
       userScript: 
-  - id: 12
+  - id: 30
     fields:
     - title: Title
       value: LO to CR
@@ -1626,10 +1627,10 @@ MonoBehaviour:
       value: 
       type: 0
     - title: Actor
-      value: 6
+      value: 21
       type: 5
     - title: Conversant
-      value: 1
+      value: 9
       type: 5
     nodeColor: Red
     dialogueEntries:
@@ -1639,10 +1640,10 @@ MonoBehaviour:
         value: START
         type: 0
       - title: Actor
-        value: 6
+        value: 21
         type: 5
       - title: Conversant
-        value: 1
+        value: 9
         type: 5
       - title: Menu Text
         value: 
@@ -1656,7 +1657,7 @@ MonoBehaviour:
       - title: Sequence
         value: None()
         type: 0
-      conversationID: 12
+      conversationID: 30
       isRoot: 1
       isGroup: 0
       nodeColor: White
@@ -1664,15 +1665,15 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 12
+      - originConversationID: 30
         originDialogueID: 0
-        destinationConversationID: 12
+        destinationConversationID: 30
         destinationDialogueID: 1
         isConnector: 0
         priority: 2
-      - originConversationID: 12
+      - originConversationID: 30
         originDialogueID: 0
-        destinationConversationID: 12
+        destinationConversationID: 30
         destinationDialogueID: 2
         isConnector: 0
         priority: 2
@@ -1684,10 +1685,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 1
+        value: 9
         type: 5
       - title: Conversant
-        value: 6
+        value: 21
         type: 5
       - title: Menu Text
         value: Nothing to send
@@ -1701,7 +1702,7 @@ MonoBehaviour:
       - title: Sequence
         value: 
         type: 0
-      conversationID: 12
+      conversationID: 30
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -1717,10 +1718,10 @@ MonoBehaviour:
         value: Keep your stuffs
         type: 0
       - title: Actor
-        value: 1
+        value: 9
         type: 5
       - title: Conversant
-        value: 6
+        value: 21
         type: 5
       - title: Menu Text
         value: Evacuation Notice
@@ -1733,9 +1734,9 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Sequence
-        value: SendConversation(LO,CR, LOtoCR1);
+        value: SendConversation(LO,CR, LOtoCR1); Log(20I, evacuation mesage sent);
         type: 0
-      conversationID: 12
+      conversationID: 30
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -1746,7 +1747,7 @@ MonoBehaviour:
       conditionsString: Item["LOtoCR1"].State == "success" and Dialog[3].SimStatus
         ~= "WasDisplayed"
       userScript: 
-  - id: 13
+  - id: 31
     fields:
     - title: Title
       value: LM to SM
@@ -1755,10 +1756,10 @@ MonoBehaviour:
       value: 
       type: 0
     - title: Actor
-      value: 6
+      value: 21
       type: 5
     - title: Conversant
-      value: 1
+      value: 9
       type: 5
     nodeColor: Red
     dialogueEntries:
@@ -1768,10 +1769,10 @@ MonoBehaviour:
         value: START
         type: 0
       - title: Actor
-        value: 6
+        value: 21
         type: 5
       - title: Conversant
-        value: 1
+        value: 9
         type: 5
       - title: Menu Text
         value: 
@@ -1785,7 +1786,7 @@ MonoBehaviour:
       - title: Sequence
         value: None()
         type: 0
-      conversationID: 13
+      conversationID: 31
       isRoot: 1
       isGroup: 0
       nodeColor: White
@@ -1793,9 +1794,9 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 13
+      - originConversationID: 31
         originDialogueID: 0
-        destinationConversationID: 13
+        destinationConversationID: 31
         destinationDialogueID: 2
         isConnector: 0
         priority: 2
@@ -1807,10 +1808,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 1
+        value: 9
         type: 5
       - title: Conversant
-        value: 6
+        value: 21
         type: 5
       - title: Menu Text
         value: Nothing to send
@@ -1824,7 +1825,7 @@ MonoBehaviour:
       - title: Sequence
         value: 
         type: 0
-      conversationID: 13
+      conversationID: 31
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -1834,7 +1835,7 @@ MonoBehaviour:
       outgoingLinks: []
       conditionsString: 
       userScript: 
-  - id: 14
+  - id: 32
     fields:
     - title: Title
       value: LM to LO
@@ -1843,10 +1844,10 @@ MonoBehaviour:
       value: 
       type: 0
     - title: Actor
-      value: 6
+      value: 21
       type: 5
     - title: Conversant
-      value: 1
+      value: 9
       type: 5
     nodeColor: Red
     dialogueEntries:
@@ -1856,10 +1857,10 @@ MonoBehaviour:
         value: START
         type: 0
       - title: Actor
-        value: 6
+        value: 21
         type: 5
       - title: Conversant
-        value: 1
+        value: 9
         type: 5
       - title: Menu Text
         value: 
@@ -1873,7 +1874,7 @@ MonoBehaviour:
       - title: Sequence
         value: None()
         type: 0
-      conversationID: 14
+      conversationID: 32
       isRoot: 1
       isGroup: 0
       nodeColor: White
@@ -1881,9 +1882,9 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 14
+      - originConversationID: 32
         originDialogueID: 0
-        destinationConversationID: 14
+        destinationConversationID: 32
         destinationDialogueID: 2
         isConnector: 0
         priority: 2
@@ -1895,10 +1896,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 1
+        value: 9
         type: 5
       - title: Conversant
-        value: 6
+        value: 21
         type: 5
       - title: Menu Text
         value: Nothing to send
@@ -1912,7 +1913,7 @@ MonoBehaviour:
       - title: Sequence
         value: 
         type: 0
-      conversationID: 14
+      conversationID: 32
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -1922,7 +1923,7 @@ MonoBehaviour:
       outgoingLinks: []
       conditionsString: 
       userScript: 
-  - id: 15
+  - id: 33
     fields:
     - title: Title
       value: LM to CR
@@ -1931,10 +1932,10 @@ MonoBehaviour:
       value: 
       type: 0
     - title: Actor
-      value: 6
+      value: 21
       type: 5
     - title: Conversant
-      value: 1
+      value: 9
       type: 5
     nodeColor: Red
     dialogueEntries:
@@ -1944,10 +1945,10 @@ MonoBehaviour:
         value: START
         type: 0
       - title: Actor
-        value: 6
+        value: 21
         type: 5
       - title: Conversant
-        value: 1
+        value: 9
         type: 5
       - title: Menu Text
         value: 
@@ -1961,7 +1962,7 @@ MonoBehaviour:
       - title: Sequence
         value: None()
         type: 0
-      conversationID: 15
+      conversationID: 33
       isRoot: 1
       isGroup: 0
       nodeColor: White
@@ -1969,15 +1970,15 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 15
+      - originConversationID: 33
         originDialogueID: 0
-        destinationConversationID: 15
+        destinationConversationID: 33
         destinationDialogueID: 1
         isConnector: 0
         priority: 2
-      - originConversationID: 15
+      - originConversationID: 33
         originDialogueID: 0
-        destinationConversationID: 15
+        destinationConversationID: 33
         destinationDialogueID: 2
         isConnector: 0
         priority: 2
@@ -1989,10 +1990,10 @@ MonoBehaviour:
         value: Unlock Safe
         type: 0
       - title: Actor
-        value: 1
+        value: 9
         type: 5
       - title: Conversant
-        value: 6
+        value: 21
         type: 5
       - title: Menu Text
         value: Message to Credit Risk - Help unlock the safe
@@ -2006,9 +2007,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Sequence
-        value: SendConversation(LM,CR, LMtoCR_Safe_unlock);
+        value: SendConversation(LM,CR, LMtoCR_Safe_unlock); Log(20K, message sent
+          for safe key);
         type: 0
-      conversationID: 15
+      conversationID: 33
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -2025,10 +2027,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 1
+        value: 9
         type: 5
       - title: Conversant
-        value: 6
+        value: 21
         type: 5
       - title: Menu Text
         value: Nothing to send
@@ -2042,7 +2044,7 @@ MonoBehaviour:
       - title: Sequence
         value: 
         type: 0
-      conversationID: 15
+      conversationID: 33
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -2052,7 +2054,7 @@ MonoBehaviour:
       outgoingLinks: []
       conditionsString: 
       userScript: 
-  - id: 16
+  - id: 34
     fields:
     - title: Title
       value: CR to SM
@@ -2061,10 +2063,10 @@ MonoBehaviour:
       value: 
       type: 0
     - title: Actor
-      value: 6
+      value: 21
       type: 5
     - title: Conversant
-      value: 1
+      value: 9
       type: 5
     nodeColor: Red
     dialogueEntries:
@@ -2074,10 +2076,10 @@ MonoBehaviour:
         value: START
         type: 0
       - title: Actor
-        value: 6
+        value: 21
         type: 5
       - title: Conversant
-        value: 1
+        value: 9
         type: 5
       - title: Menu Text
         value: 
@@ -2091,7 +2093,7 @@ MonoBehaviour:
       - title: Sequence
         value: None()
         type: 0
-      conversationID: 16
+      conversationID: 34
       isRoot: 1
       isGroup: 0
       nodeColor: White
@@ -2099,9 +2101,9 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 16
+      - originConversationID: 34
         originDialogueID: 0
-        destinationConversationID: 16
+        destinationConversationID: 34
         destinationDialogueID: 2
         isConnector: 0
         priority: 2
@@ -2113,10 +2115,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 1
+        value: 9
         type: 5
       - title: Conversant
-        value: 6
+        value: 21
         type: 5
       - title: Menu Text
         value: Nothing to send
@@ -2130,7 +2132,7 @@ MonoBehaviour:
       - title: Sequence
         value: 
         type: 0
-      conversationID: 16
+      conversationID: 34
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -2140,7 +2142,7 @@ MonoBehaviour:
       outgoingLinks: []
       conditionsString: 
       userScript: 
-  - id: 17
+  - id: 35
     fields:
     - title: Title
       value: CR to LO
@@ -2149,10 +2151,10 @@ MonoBehaviour:
       value: 
       type: 0
     - title: Actor
-      value: 6
+      value: 21
       type: 5
     - title: Conversant
-      value: 1
+      value: 9
       type: 5
     nodeColor: Red
     dialogueEntries:
@@ -2162,10 +2164,10 @@ MonoBehaviour:
         value: START
         type: 0
       - title: Actor
-        value: 6
+        value: 21
         type: 5
       - title: Conversant
-        value: 1
+        value: 9
         type: 5
       - title: Menu Text
         value: 
@@ -2179,7 +2181,7 @@ MonoBehaviour:
       - title: Sequence
         value: None()
         type: 0
-      conversationID: 17
+      conversationID: 35
       isRoot: 1
       isGroup: 0
       nodeColor: White
@@ -2187,9 +2189,9 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 17
+      - originConversationID: 35
         originDialogueID: 0
-        destinationConversationID: 17
+        destinationConversationID: 35
         destinationDialogueID: 2
         isConnector: 0
         priority: 2
@@ -2201,10 +2203,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 1
+        value: 9
         type: 5
       - title: Conversant
-        value: 6
+        value: 21
         type: 5
       - title: Menu Text
         value: Nothing to send
@@ -2218,7 +2220,7 @@ MonoBehaviour:
       - title: Sequence
         value: 
         type: 0
-      conversationID: 17
+      conversationID: 35
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -2228,7 +2230,7 @@ MonoBehaviour:
       outgoingLinks: []
       conditionsString: 
       userScript: 
-  - id: 18
+  - id: 36
     fields:
     - title: Title
       value: CR to LM
@@ -2237,10 +2239,10 @@ MonoBehaviour:
       value: 
       type: 0
     - title: Actor
-      value: 6
+      value: 21
       type: 5
     - title: Conversant
-      value: 1
+      value: 9
       type: 5
     nodeColor: Red
     dialogueEntries:
@@ -2250,10 +2252,10 @@ MonoBehaviour:
         value: START
         type: 0
       - title: Actor
-        value: 6
+        value: 21
         type: 5
       - title: Conversant
-        value: 1
+        value: 9
         type: 5
       - title: Menu Text
         value: 
@@ -2267,7 +2269,7 @@ MonoBehaviour:
       - title: Sequence
         value: None()
         type: 0
-      conversationID: 18
+      conversationID: 36
       isRoot: 1
       isGroup: 0
       nodeColor: White
@@ -2275,15 +2277,15 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 18
+      - originConversationID: 36
         originDialogueID: 0
-        destinationConversationID: 18
+        destinationConversationID: 36
         destinationDialogueID: 1
         isConnector: 0
         priority: 2
-      - originConversationID: 18
+      - originConversationID: 36
         originDialogueID: 0
-        destinationConversationID: 18
+        destinationConversationID: 36
         destinationDialogueID: 2
         isConnector: 0
         priority: 2
@@ -2295,10 +2297,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 1
+        value: 9
         type: 5
       - title: Conversant
-        value: 6
+        value: 21
         type: 5
       - title: Menu Text
         value: Nothing to send
@@ -2312,7 +2314,7 @@ MonoBehaviour:
       - title: Sequence
         value: 
         type: 0
-      conversationID: 18
+      conversationID: 36
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -2328,10 +2330,10 @@ MonoBehaviour:
         value: Unlock Safe
         type: 0
       - title: Actor
-        value: 1
+        value: 9
         type: 5
       - title: Conversant
-        value: 6
+        value: 21
         type: 5
       - title: Menu Text
         value: Message to Loan Manager - Need to deposit documents in Safe
@@ -2347,7 +2349,7 @@ MonoBehaviour:
       - title: Sequence
         value: SendConversation(CR,LM, CRtoLM_Safe_unlock);
         type: 0
-      conversationID: 18
+      conversationID: 36
       isRoot: 0
       isGroup: 0
       nodeColor: White
