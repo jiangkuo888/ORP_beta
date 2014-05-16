@@ -5,7 +5,8 @@ public class ClickMove : MonoBehaviour
 {
 	
 	public bool gameOn;
-	private CharacterMotor motor;
+	//private CharacterMotor motor;
+	private NavMeshAgent navAgent;
 	public float smooth; // Determines how quickly object moves towards position
 	private Camera myCamera;
 	public GameObject arrowPrefab;
@@ -36,7 +37,8 @@ public class ClickMove : MonoBehaviour
 		
 		myCamera = GameObject.FindGameObjectWithTag ("MainCamera").transform.GetComponent<Camera> ();
 		
-		motor = GetComponent<CharacterMotor> ();
+		//motor = GetComponent<CharacterMotor> ();
+		navAgent = GetComponent<NavMeshAgent>();
 		
 		transform.GetComponent<AnimationController> ().state = AnimationController.CharacterState.idle;
 		targetPosition = transform.position;
@@ -46,7 +48,7 @@ public class ClickMove : MonoBehaviour
 	void arrowAnimation ()
 	{
 		
-
+		
 		
 	}
 	
@@ -67,17 +69,17 @@ public class ClickMove : MonoBehaviour
 	// Update is called once per frame
 	
 	void FixedUpdate(){
-		Vector3 dir = targetPosition - transform.position;
+		navAgent.destination = targetPosition;
 		
-		float dist = dir.magnitude - 1;
+		float dist = (targetPosition - transform.position).magnitude;
 		
-		float move = speed * Time.deltaTime;
 		
-		if (dist > move) {
+		
+		if (dist > 1) {
 			
 			arrow.transform.Rotate(0,15,0);
 			arrow.renderer.enabled = true;
-			motor.inputMoveDirection = dir.normalized * move;
+			//motor.inputMoveDirection = dir.normalized * move;
 			transform.GetComponent<AnimationController> ().state = AnimationController.CharacterState.run;
 			
 			
@@ -86,7 +88,7 @@ public class ClickMove : MonoBehaviour
 			//transform.position = targetPosition;
 			
 			arrow.renderer.enabled = false;
-			motor.inputMoveDirection = Vector3.zero;
+			//motor.inputMoveDirection = Vector3.zero;
 			transform.GetComponent<AnimationController> ().state = AnimationController.CharacterState.idle;
 			
 			
@@ -104,113 +106,113 @@ public class ClickMove : MonoBehaviour
 	{
 		if(gameOn)
 		{
-			if (!motor.grounded)
-				targetPosition = transform.position;
-			else {
+			//if (!motor.grounded)
+			//	targetPosition = transform.position;
+			//	else {
+			
+			RaycastHit hit;
+			
+			Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
+			
+			if (Physics.Raycast (ray, out hit, 1000)) {
 				
-				RaycastHit hit;
+				// change shader 
+				//				if(hit.collider.gameObject != currentHitObj)
+				//				{
+				//					if(currentHitObj !=null) currentHitObj.transform.renderer.material.shader = originalShader;
+				//					currentHitObj = hit.collider.gameObject;
+				//					if(currentHitObj.tag == "interactive")
+				//					{
+				//						currentHitObj.transform.renderer.material.shader = highlightShader;
+				//						
+				//					}
+				//				}
 				
-				Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
+				//print (hit.collider.tag);
 				
-				if (Physics.Raycast (ray, out hit, 1000)) {
-					
-					// change shader 
-					//				if(hit.collider.gameObject != currentHitObj)
-					//				{
-					//					if(currentHitObj !=null) currentHitObj.transform.renderer.material.shader = originalShader;
-					//					currentHitObj = hit.collider.gameObject;
-					//					if(currentHitObj.tag == "interactive")
-					//					{
-					//						currentHitObj.transform.renderer.material.shader = highlightShader;
-					//						
-					//					}
-					//				}
-					
-					//print (hit.collider.tag);
-					
-					if (Input.GetKeyUp (KeyCode.Mouse0)) {
-						if(OnGUI)
+				if (Input.GetKeyUp (KeyCode.Mouse0)) {
+					if(OnGUI)
+					{
+					}
+					else{
+						
+						
+						
+						if(hit.collider.gameObject.tag == "ground")
 						{
+							
+							arrowAnimation ();
+							
+							
+							smooth = 1;
+							
+							
+							
+							
+							Vector3 targetPoint = hit.point;
+							
+							
+							
+							// move the arrow to the click point and spin it, disable it after 2s
+							arrow.transform.position = targetPoint;
+							
+							
+							
+							targetPosition = targetPoint;
+							
+							//print (hit.collider.gameObject.name);
+							
 						}
-						else{
+						
+						
+						else
+						{
+							smooth = 1;
+							
+							
+							//print (hit.collider.gameObject.name);
+							
+							Vector3 targetPoint = new Vector3(hit.point.x,transform.position.y-heightOffset,hit.point.z);
 							
 							
 							
-							if(hit.collider.gameObject.tag == "ground")
+							// move the arrow to the click point and spin it, disable it after 2s
+							arrow.transform.position = targetPoint;
+							
+							arrowAnimation ();
+							
+							targetPosition = targetPoint;
+							
+							//						if (hit.collider.gameObject.tag == "npcTrigger") {
+							//							
+							//							
+							//							//hit.transform.renderer.material.color = Color.green;
+							//							
+							//							if (Input.GetKeyUp (KeyCode.Mouse0)) {
+							//								if (hit.collider.transform.parent.gameObject.GetComponent<TriggerHandler> ().enteredObj == null) {
+							//									targetPosition = hit.collider.transform.parent.gameObject.transform.position;
+							//									arrow.transform.position = targetPosition;
+							//								}
+							//								
+							//							}
+							//						}
+							
+							//						print (hit.collider.name);
+							
+							if(hit.collider.gameObject.tag =="desk")
 							{
-
-								arrowAnimation ();
-
-
-								smooth = 1;
 								
-								
-								
-								
-								Vector3 targetPoint = hit.point;
-								
-								
-								
-								// move the arrow to the click point and spin it, disable it after 2s
+								targetPoint = new Vector3(hit.collider.transform.position.x+0.8f,hit.collider.transform.position.y,hit.collider.transform.position.z);
 								arrow.transform.position = targetPoint;
-
-
-								
-								targetPosition = targetPoint;
-								
-								//print (hit.collider.gameObject.name);
-								
-							}
-							
-							
-							else
-							{
-								smooth = 1;
-								
-								
-								//print (hit.collider.gameObject.name);
-								
-								Vector3 targetPoint = new Vector3(hit.point.x,transform.position.y-heightOffset,hit.point.z);
-								
-								
-								
-								// move the arrow to the click point and spin it, disable it after 2s
-								arrow.transform.position = targetPoint;
-								
 								arrowAnimation ();
 								
-								targetPosition = targetPoint;
-								
-								//						if (hit.collider.gameObject.tag == "npcTrigger") {
-								//							
-								//							
-								//							//hit.transform.renderer.material.color = Color.green;
-								//							
-								//							if (Input.GetKeyUp (KeyCode.Mouse0)) {
-								//								if (hit.collider.transform.parent.gameObject.GetComponent<TriggerHandler> ().enteredObj == null) {
-								//									targetPosition = hit.collider.transform.parent.gameObject.transform.position;
-								//									arrow.transform.position = targetPosition;
-								//								}
-								//								
-								//							}
-								//						}
-								
-								//						print (hit.collider.name);
-								
-								if(hit.collider.gameObject.tag =="desk")
-								{
-									
-									targetPoint = new Vector3(hit.collider.transform.position.x+0.8f,hit.collider.transform.position.y,hit.collider.transform.position.z);
-									arrow.transform.position = targetPoint;
-									arrowAnimation ();
-									
-									targetPosition = arrow.transform.position;
-								}
+								targetPosition = arrow.transform.position;
 							}
 						}
 					}
-					
 				}
+				
+				//}
 				
 			}
 		}
