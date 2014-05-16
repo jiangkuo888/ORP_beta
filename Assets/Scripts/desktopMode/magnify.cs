@@ -64,11 +64,11 @@ public class magnify : MonoBehaviour
 	}
 
 
-	public void enableZoom(GameObject targetDocument){
+	public void enableZoom(GameObject targetPage){
 
-		if(targetDocument !=null && targetDocument.transform.Find ("page_content") != null && targetDocument.transform.Find ("page_content").renderer.material.mainTexture)
+		if(targetPage !=null && targetPage.renderer.material.mainTexture)
 		{
-			targetTexture = targetDocument.transform.Find ("page_content").renderer.material.mainTexture as Texture2D;
+			targetTexture = targetPage.renderer.material.mainTexture as Texture2D;
 			targetTexture.filterMode = FilterMode.Trilinear;
 		}
 

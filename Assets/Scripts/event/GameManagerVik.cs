@@ -26,6 +26,7 @@ public class GameManagerVik : Photon.MonoBehaviour {
 	public HashSet<string> selectedPlayerList = new HashSet<string>();
 	bool roleSelected = false;
 	public PlayMakerFSM EventManager;
+
 	public int sessionID = -1;
 	public string loginName = "";
 	public bool isTrainer = false;
@@ -42,6 +43,7 @@ public class GameManagerVik : Photon.MonoBehaviour {
 	public string characterName = "";
 	public string roomName = "Room";
 	public bool noLogin = false;
+	public bool debugMode = false;
 	
 	string[] dots = new string[] {".", "..", "..."};
 	int dotInt = 0;
@@ -218,8 +220,11 @@ public class GameManagerVik : Photon.MonoBehaviour {
 				if(selectedPlayerList.Count <syncTotal && GameStarted )
 				{
 					// pause the game and wait for others.
+
+					if(!debugMode){
 					if(!gamePaused)
 					pauseGame();
+					}
 
 					
 				}

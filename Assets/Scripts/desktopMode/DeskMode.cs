@@ -92,7 +92,7 @@ public class DeskMode : MonoBehaviour {
 			
 			if(this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents.Length>0){
 				
-				this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].GetComponent<pageData>().mode = "FileMode";
+				this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].GetComponent<DocumentHandler>().mode = "FileMode";
 				
 				GUI.Label(new Rect(w/2 - 100f, .4f*h - 100f, 200f, 30f ), this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].gameObject.name);
 			}
@@ -154,7 +154,7 @@ public class DeskMode : MonoBehaviour {
 						
 						// log the pick up action in the database
 						
-						GameObject.Find ("Dialogue Manager").GetComponent<PlayerActionLog>().addToPlayerActionLog(targetDocument.GetComponent<pageData>().pick_up_doc_id,targetDocument.name + "(LO_signed_"+targetDocument.GetComponent<pageData>().LO_signed+",LM_signed_"+targetDocument.GetComponent<pageData>().LM_signed+",CR_signed_"+targetDocument.GetComponent<pageData>().CR_signed+",correct_Document_"+targetDocument.GetComponent<pageData>().correct_document+") has been picked up by "+ PhotonNetwork.playerName);
+						GameObject.Find ("Dialogue Manager").GetComponent<PlayerActionLog>().addToPlayerActionLog(targetDocument.GetComponent<DocumentHandler>().pick_up_doc_id,targetDocument.name + "(LO_signed_"+targetDocument.GetComponent<DocumentHandler>().LO_signed+",LM_signed_"+targetDocument.GetComponent<DocumentHandler>().LM_signed+",CR_signed_"+targetDocument.GetComponent<DocumentHandler>().CR_signed+",correct_Document_"+targetDocument.GetComponent<DocumentHandler>().correct_document+") has been picked up by "+ PhotonNetwork.playerName);
 						
 						
 						
@@ -210,9 +210,14 @@ public class DeskMode : MonoBehaviour {
 					mode = DeskModeSubMode.pageMode;
 					//Camera.main.GetComponent<magnify>().enableZoom();
 					
-					if(this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].GetComponent<pageData>().currentPage == 
-					   this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].GetComponent<pageData>().pageTextures.Length - 1)
-						this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].GetComponent<pageData>().lastPage = true;
+					if(this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].GetComponent<DocumentHandler>().currentPageIndex == 
+					   this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].GetComponent<DocumentHandler>().pages.Length - 1)
+					{
+						int lastIndex = this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].GetComponent<DocumentHandler>().currentPageIndex;
+
+						this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].GetComponent<DocumentHandler>().pages[lastIndex].GetComponent<pageHandler>().isLastPage = true;
+
+					}
 				}
 				
 			}
@@ -323,13 +328,13 @@ public class DeskMode : MonoBehaviour {
 			
 			if(GUI.Button( new LTRect(w - 200f, .9f*h - 50f, 100f, 50f ).rect, "Next Page",customSkin.button))
 			{
-				this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].GetComponent<pageData>().showNextPage();
+				this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].GetComponent<DocumentHandler>().showNextPage();
 			}
 			
 			
 			if(GUI.Button( new LTRect(100f, .9f*h - 50f, 125f, 50f ).rect, "Previous Page",customSkin.button))
 			{
-				this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].GetComponent<pageData>().showPreviousPage();
+				this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].GetComponent<DocumentHandler>().showPreviousPage();
 			}
 			
 			
@@ -340,7 +345,7 @@ public class DeskMode : MonoBehaviour {
 			{
 				Camera.main.GetComponent<magnify>().disableZoom();
 				mode = DeskModeSubMode.FileMode;
-				this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].GetComponent<pageData>().lastPage = false;
+			//	this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].GetComponent<DocumentHandler>().lastPage = false;
 				this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].GetComponent<ObjectViewer>().playCloseFileAnim();
 				this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].GetComponent<ObjectViewer>().resetDocumentPosition();
 				
@@ -384,14 +389,14 @@ public class DeskMode : MonoBehaviour {
 		case DeskModeSubMode.PCMode:
 		{
 			
-			this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].GetComponent<pageData>().mode = "PCMode";
+			this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].GetComponent<DocumentHandler>().mode = "PCMode";
 			GameObject.Find("PCscreen").GetComponent<pcMode>().deskTop = this.gameObject;
 			
 			
 			
 			if(GUI.Button( new LTRect(w/2 - 200f, .9f*h - 50f, 100f, 50f ).rect, "Next Page",customSkin.button))
 			{
-				this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].GetComponent<pageData>().showNextPage();
+				this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].GetComponent<DocumentHandler>().showNextPage();
 			}
 			
 			
@@ -401,7 +406,7 @@ public class DeskMode : MonoBehaviour {
 					if(EventFSM.ActiveStateName == "Click on ZoomIn")
 						EventFSM.FsmVariables.GetFsmBool("ZoomClicked").Value = true;
 				
-				Camera.main.GetComponent<magnify>().enableZoom(this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1]);
+				Camera.main.GetComponent<magnify>().enableZoom(this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].GetComponent<DocumentHandler>().currentPage);
 				
 			}
 			
@@ -410,7 +415,7 @@ public class DeskMode : MonoBehaviour {
 			
 			if(GUI.Button( new LTRect(100f, .9f*h - 50f, 125f, 50f ).rect, "Previous Page",customSkin.button))
 			{
-				this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].GetComponent<pageData>().showPreviousPage();
+				this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].GetComponent<DocumentHandler>().showPreviousPage();
 			}
 			
 			
@@ -434,9 +439,14 @@ public class DeskMode : MonoBehaviour {
 						mode = DeskModeSubMode.pageMode;
 						
 						
-						if(this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].GetComponent<pageData>().currentPage == 
-						   this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].GetComponent<pageData>().pageTextures.Length - 1)
-							this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].GetComponent<pageData>().lastPage = true;
+						if(this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].GetComponent<DocumentHandler>().currentPageIndex == 
+						   this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].GetComponent<DocumentHandler>().pages.Length - 1)
+						{
+							int lastIndex = this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].GetComponent<DocumentHandler>().currentPageIndex;
+							
+							this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].GetComponent<DocumentHandler>().pages[lastIndex].GetComponent<pageHandler>().isLastPage = true;
+							
+						}
 						
 						LeanTween.move(PCMode,PCModeOriginalPosition,.6f).setEase(LeanTweenType.easeOutQuint);
 					}
@@ -570,13 +580,13 @@ public class DeskMode : MonoBehaviour {
 		
 		// log player action
 		
-		if(document.GetComponent<pageData>().correct_document)
+		if(document.GetComponent<DocumentHandler>().correct_document)
 		{
-			GameObject.Find ("Dialogue Manager").GetComponent<PlayerActionLog>().addToPlayerActionLog(document.GetComponent<pageData>().reject_correct_doc,"rejected correct document "+document.name);
+			GameObject.Find ("Dialogue Manager").GetComponent<PlayerActionLog>().addToPlayerActionLog(document.GetComponent<DocumentHandler>().reject_correct_doc,"rejected correct document "+document.name);
 		}
 		else
 		{
-			GameObject.Find ("Dialogue Manager").GetComponent<PlayerActionLog>().addToPlayerActionLog(document.GetComponent<pageData>().reject_wrong_doc,"rejected wrong document "+document.name);
+			GameObject.Find ("Dialogue Manager").GetComponent<PlayerActionLog>().addToPlayerActionLog(document.GetComponent<DocumentHandler>().reject_wrong_doc,"rejected wrong document "+document.name);
 			
 		}
 		
@@ -677,15 +687,15 @@ public class DeskMode : MonoBehaviour {
 			switch(PhotonNetwork.playerName)
 			{
 			case "LPU Manager":
-				if(document.GetComponent<pageData>().LM_signed)
+				if(document.GetComponent<DocumentHandler>().LM_signed)
 					signed= true;
 				break;
 			case "LPU Officer":
-				if(document.GetComponent<pageData>().LO_signed)
+				if(document.GetComponent<DocumentHandler>().LO_signed)
 					signed= true;
 				break;
 			case "Credit Risk":
-				if(document.GetComponent<pageData>().CR_signed)
+				if(document.GetComponent<DocumentHandler>().CR_signed)
 					signed= true;
 				break;
 			default:
@@ -693,7 +703,7 @@ public class DeskMode : MonoBehaviour {
 				
 			}
 			
-			if(document.GetComponent<pageData>().correct_document)  // for correct document
+			if(document.GetComponent<DocumentHandler>().correct_document)  // for correct document
 			{
 				
 				if(sender =="Sales Manager"){
@@ -702,9 +712,9 @@ public class DeskMode : MonoBehaviour {
 				else
 				{
 					if(signed)
-						GameObject.Find ("Dialogue Manager").GetComponent<PlayerActionLog>().addToPlayerActionLog(document.GetComponent<pageData>().send_sign_correct_doc,"sent correct document "+document.name+" with signature");
+						GameObject.Find ("Dialogue Manager").GetComponent<PlayerActionLog>().addToPlayerActionLog(document.GetComponent<DocumentHandler>().send_sign_correct_doc,"sent correct document "+document.name+" with signature");
 					else
-						GameObject.Find ("Dialogue Manager").GetComponent<PlayerActionLog>().addToPlayerActionLog(document.GetComponent<pageData>().send_unsign_correct_doc,"sent correct document "+document.name+" without signature");
+						GameObject.Find ("Dialogue Manager").GetComponent<PlayerActionLog>().addToPlayerActionLog(document.GetComponent<DocumentHandler>().send_unsign_correct_doc,"sent correct document "+document.name+" without signature");
 					
 				}
 				
@@ -718,9 +728,9 @@ public class DeskMode : MonoBehaviour {
 				else
 				{
 					if(signed)
-						GameObject.Find ("Dialogue Manager").GetComponent<PlayerActionLog>().addToPlayerActionLog(document.GetComponent<pageData>().send_sign_wrong_doc,"sent wrong document "+document.name+" with signature");
+						GameObject.Find ("Dialogue Manager").GetComponent<PlayerActionLog>().addToPlayerActionLog(document.GetComponent<DocumentHandler>().send_sign_wrong_doc,"sent wrong document "+document.name+" with signature");
 					else
-						GameObject.Find ("Dialogue Manager").GetComponent<PlayerActionLog>().addToPlayerActionLog(document.GetComponent<pageData>().send_unsign_wrong_doc,"sent wrong document "+document.name+" without signature");
+						GameObject.Find ("Dialogue Manager").GetComponent<PlayerActionLog>().addToPlayerActionLog(document.GetComponent<DocumentHandler>().send_unsign_wrong_doc,"sent wrong document "+document.name+" without signature");
 				}
 			}
 			

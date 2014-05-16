@@ -84,7 +84,7 @@ public class SequencerCommandDeposit : SequencerCommand {
 
 				//log deposit action in database
 				GameObject targetDocument = doc.gameObject;
-				GameObject.Find ("Dialogue Manager").GetComponent<PlayerActionLog>().addToPlayerActionLog(targetDocument.GetComponent<pageData>().deposit_doc_id,targetDocument.name + "(LO_signed_"+targetDocument.GetComponent<pageData>().LO_signed+",LM_signed_"+targetDocument.GetComponent<pageData>().LM_signed+",CR_signed_"+targetDocument.GetComponent<pageData>().CR_signed+",correct_Document_"+targetDocument.GetComponent<pageData>().correct_document+") has been deposited into safe by "+ PhotonNetwork.playerName);
+				GameObject.Find ("Dialogue Manager").GetComponent<PlayerActionLog>().addToPlayerActionLog(targetDocument.GetComponent<DocumentHandler>().deposit_doc_id,targetDocument.name + "(LO_signed_"+targetDocument.GetComponent<DocumentHandler>().LO_signed+",LM_signed_"+targetDocument.GetComponent<DocumentHandler>().LM_signed+",CR_signed_"+targetDocument.GetComponent<DocumentHandler>().CR_signed+",correct_Document_"+targetDocument.GetComponent<DocumentHandler>().correct_document+") has been deposited into safe by "+ PhotonNetwork.playerName);
 
 
 
