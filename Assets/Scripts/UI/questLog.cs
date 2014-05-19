@@ -14,7 +14,7 @@ public class questLog : MonoBehaviour {
 	void Awake()
 	{
 		myGUITexture = this.gameObject.GetComponent("GUITexture") as GUITexture;
-	
+		QuestLogWindow.GetComponent<UnityQuestLogWindow>().Open();
 
 	}
 	
