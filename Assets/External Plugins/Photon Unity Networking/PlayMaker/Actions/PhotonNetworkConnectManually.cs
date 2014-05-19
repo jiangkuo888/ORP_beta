@@ -24,7 +24,7 @@ namespace HutongGames.PlayMaker.Actions
 		
 		public override void Reset()
 		{
-			serverAddress  = "app-eu.exitgamescloud.com";
+			serverAddress  = "app-asia.exitgamescloud.com";
 			port = 5055;
 			applicationID = "YOUR APP ID";
 			clientGameVersion = "1.0";

@@ -26,6 +26,7 @@ public class GameManagerVik : Photon.MonoBehaviour {
 	public HashSet<string> selectedPlayerList = new HashSet<string>();
 	bool roleSelected = false;
 	public PlayMakerFSM EventManager;
+	
 	public int sessionID = -1;
 	public string loginName = "";
 	public bool isTrainer = false;
@@ -42,6 +43,12 @@ public class GameManagerVik : Photon.MonoBehaviour {
 	public string characterName = "";
 	public string roomName = "Room";
 	public bool noLogin = false;
+	public bool debugMode = false;
+	
+	string[] dots = new string[] {".", "..", "..."};
+	int dotInt = 0;
+	
+	public bool gamePaused = false;
 	
 	
 	
@@ -50,6 +57,11 @@ public class GameManagerVik : Photon.MonoBehaviour {
 	//***********************************************************************************************************************************
 	void Start()
 	{
+		selectedPlayerList.Clear();
+		roleSelected = false;
+		
+		gamePaused = false;
+		
 		this.isPlayBack = false;
 		//get player name
 		string tempName = PlayerPrefs.GetString ("playerName");
@@ -89,17 +101,95 @@ public class GameManagerVik : Photon.MonoBehaviour {
 		
 		
 		if(isTutorial)
+		{
+			//unPauseGame();
 			startTutorial();
+		}
+		
 	}
 	
 	void OnLevelWasLoaded(int level) {
+		
+		if(PlayerPrefs.GetString("roomName") !=null)
+		{
+			//			print (PlayerPrefs.GetString("roomName"));
+			
+			// if master create room
+			if(PlayerPrefs.GetString("isMaster") == "true")
+			{
+				
+				PhotonNetwork.CreateRoom (PlayerPrefs.GetString("roomName"), true, true, 10);
+			}
+			else if(PlayerPrefs.GetString("isMaster") == "false")
+			{
+				PhotonNetwork.JoinRoom(PlayerPrefs.GetString("roomName"));
+			}
+		}
 		
 		
 		
 		if (level == 1)
 		{
-			print("Woohoo");
-			photonView.RPC ("levelLoaded",PhotonTargets.AllBuffered);
+			//			print("Woohoo");
+			photonView.RPC ("levelLoaded",PhotonTargets.OthersBuffered);
+		}
+		
+	}
+	
+	void OnJoinedRoom(){
+		
+		//print ("I'm here");
+		
+		
+		
+		
+	}
+	
+	
+	
+	
+	[RPC]
+	
+	void tellOthersImLeaving(string leftPlayerName){
+		
+		print (leftPlayerName +" has left.");
+		
+	}
+	
+	[RPC] 
+	
+	void updateTimeFromMaster(int masterTime){
+		
+		// if the client did not start the game, update time and start the game.
+		
+		
+		//Debug.LogError("Updated time " + masterTime +", now start the game");
+		print (masterTime);
+		
+		GameObject.Find("EventManager").GetComponent<NetworkTime>().startTimeInSec = masterTime;
+		
+		
+		
+		
+	}
+	
+	[RPC]
+	
+	void checkGameStatusFromMaster(){
+		
+		if(GameStarted && PhotonNetwork.isMasterClient)
+		{
+			
+			//Debug.LogError("Master received RPC from disconnect client, start time now is " +GameObject.Find("EventManager").GetComponent<NetworkTime>().startTimeInSec+ ", client start game.");
+			
+			photonView.RPC ("updateTimeFromMaster",PhotonTargets.OthersBuffered,GameObject.Find("EventManager").GetComponent<NetworkTime>().startTimeInSec);
+			
+		}
+		else
+		{
+			
+			//Debug.LogError("not start yet");
+			
 		}
 		
 	}
@@ -107,16 +197,45 @@ public class GameManagerVik : Photon.MonoBehaviour {
 	[RPC]
 	void allStartGame()
 	{
+		
+		
+		
 		if(!GameStarted)
 			startGame();
 	}
-
+	
+	
 	
 	void Update()
 	{
 		if(!isTutorial)
-		
+			
 		{
+			if(GameStarted && PhotonNetwork.connected)
+			{
+				
+				//				print (selectedPlayerList.Count);
+				
+				// player number check after game started
+				if(selectedPlayerList.Count <syncTotal && GameStarted )
+				{
+					// pause the game and wait for others.
+					
+					if(!debugMode){
+						if(!gamePaused)
+							pauseGame();
+					}
+					
+					
+				}
+				else
+				{
+					if(gamePaused)
+						unPauseGame();
+				}
+			}
+			
+			
 			if (PlayerPrefs.GetString ("isPlayback") == "true" && !this.isPlayBack)
 			{
 				EZReplayManager.get.loadFromFile(PlayerPrefs.GetString ("filePath"));
@@ -128,22 +247,37 @@ public class GameManagerVik : Photon.MonoBehaviour {
 			{
 				if (PhotonNetwork.connected)
 				{
+					
+					
 					StartCoroutine(WaitForConnect());
 					connected = true;
 				}
 				
 			}
 			
-			if (!noLogin && !connected && !this.isPlayBack && this.syncNum >= this.syncTotal)
+			if (!noLogin && !connected && !this.isPlayBack && selectedPlayerList.Count >= this.syncTotal)
 			{
-				photonView.RPC ("allStartGame",PhotonTargets.AllBuffered);
+				
+				//	print (selectedPlayerList.Count);
+				
+				print ("All "+selectedPlayerList.Count +" players are in the game, start the game now.");
+				
+				
+				// dont buffer this RPC call.
+				photonView.RPC ("allStartGame",PhotonTargets.All);
 				connected = true;
 				
 			}
 			
-
+			
 			
 		}
+		else{ // tutorial updates
+			
+			
+			
+		}
+		
 		
 	}
 	
@@ -160,7 +294,7 @@ public class GameManagerVik : Photon.MonoBehaviour {
 		
 		//Debug.Log (PhotonNetwork.countOfPlayersOnMaster);
 		//Debug.Log (PhotonNetwork.countOfRooms);
-	//	Debug.Log (PhotonNetwork.countOfPlayersInRooms);
+		//	Debug.Log (PhotonNetwork.countOfPlayersInRooms);
 		//Debug.Log (PhotonNetwork.playerName);
 		
 		PhotonNetwork.playerName = characterName;
@@ -183,27 +317,27 @@ public class GameManagerVik : Photon.MonoBehaviour {
 		yield return new WaitForSeconds(1);
 		startGame();
 	}
-
-
+	
+	
 	// start tutorial game
 	void startTutorial(){
 		print ("Now we are in tutorial mode.");
-
+		
 		EventManager.FsmVariables.GetFsmInt("playerNum").Value = 1;
 		Camera.main.farClipPlane = 1000; //Main menu set this to 0.4 for a nicer BG    
-
+		
 		string playerName = "LPU Officer";
 		PhotonNetwork.playerName = playerName;
-		GameObject.Find ("QuestLogButton").GetComponent<GUITexture>().enabled = true;
+		//GameObject.Find ("QuestLogButton").GetComponent<GUITexture>().enabled = true;
 		GameObject.Find ("phoneButton").GetComponent<GUITexture>().enabled = true;
-	//	GameObject.Find ("InventoryContainer").GetComponent<GUITexture>().enabled = true;
-	//	GameObject.Find ("InventoryButton1").GetComponent<GUITexture>().enabled = true;
-	//	GameObject.Find ("InventoryButton2").GetComponent<GUITexture>().enabled = false;
-
-
+		//	GameObject.Find ("InventoryContainer").GetComponent<GUITexture>().enabled = true;
+		//	GameObject.Find ("InventoryButton1").GetComponent<GUITexture>().enabled = true;
+		//	GameObject.Find ("InventoryButton2").GetComponent<GUITexture>().enabled = false;
+		
+		
 		GameObject playa = null;
-
-
+		
+		
 		for(int i = 0 ; i < playerPrefabList.Length; i++)
 		{
 			
@@ -212,20 +346,20 @@ public class GameManagerVik : Photon.MonoBehaviour {
 				switch(playerName)
 				{
 				case "Sales Manager":
-
+					
 					break;
 				case "LPU Officer":
 					spawnPosition = randomSpawnPosition(LOSpawnPositionList);
 					playa = Instantiate(playerPrefabList[i], spawnPosition, Quaternion.identity) as GameObject;
 					playa.name = "LPU Officer";
-
+					
 					//playa.GetComponent<CharacterController>().detectCollisions = false;
 					break;
 				case "LPU Manager":
-
+					
 					break;
 				case "Credit Risk":
-
+					
 					break;
 				default:
 					break;
@@ -244,12 +378,12 @@ public class GameManagerVik : Photon.MonoBehaviour {
 		{
 			CameraChange (playa);
 		}
-
-
-
+		
+		
+		
 	}
-
-
+	
+	
 	//start the game
 	void startGame()
 	{
@@ -280,19 +414,19 @@ public class GameManagerVik : Photon.MonoBehaviour {
 			
 			
 			// start drawing GUI elements
-			GameObject.Find ("QuestLogButton").GetComponent<GUITexture>().enabled = true;
+//			GameObject.Find ("QuestLogButton").GetComponent<GUITexture>().enabled = true;
 			GameObject.Find ("phoneButton").GetComponent<GUITexture>().enabled = true;
 			//GameObject.Find ("InventoryContainer").GetComponent<GUITexture>().enabled = true;
-		//	GameObject.Find ("InventoryButton1").GetComponent<GUITexture>().enabled = true;
-		//	GameObject.Find ("InventoryButton2").GetComponent<GUITexture>().enabled = false;
+			//	GameObject.Find ("InventoryButton1").GetComponent<GUITexture>().enabled = true;
+			//	GameObject.Find ("InventoryButton2").GetComponent<GUITexture>().enabled = false;
 			
 			// start timer 
 			if(!isTutorial)
 			{
 				if(GameObject.Find ("EventManager"))
-				GameObject.Find ("EventManager").GetComponent<NetworkTime>().enabled = true;
+					GameObject.Find ("EventManager").GetComponent<NetworkTime>().enabled = true;
 				else
-					GameObject.Find ("EventManager-Fast Mode").GetComponent<NetworkTime>().enabled = true;
+					GameObject.Find ("EventManager-Warmup").GetComponent<NetworkTime>().enabled = true;
 				this.GetComponent<ChatVik>().enabled = true;
 			}
 			
@@ -380,14 +514,15 @@ public class GameManagerVik : Photon.MonoBehaviour {
 		// if is trainer
 		else
 		{
+			//GameObject.Find ("phoneButton").GetComponent<GUITexture>().enabled = true;
 			GameObject a = PhotonNetwork.Instantiate("Admin", new Vector3(-19.0f, 3.5f, 57.0f), Quaternion.identity, 0);
 		}
 		
 		
-//		Debug.Log (PhotonNetwork.countOfPlayersOnMaster);
-//		Debug.Log (PhotonNetwork.countOfRooms);
-//		Debug.Log (PhotonNetwork.countOfPlayersInRooms);
-//		Debug.Log (PhotonNetwork.playerName);
+		//		Debug.Log (PhotonNetwork.countOfPlayersOnMaster);
+		//		Debug.Log (PhotonNetwork.countOfRooms);
+		//		Debug.Log (PhotonNetwork.countOfPlayersInRooms);
+		//		Debug.Log (PhotonNetwork.playerName);
 		
 	}
 	
@@ -420,9 +555,108 @@ public class GameManagerVik : Photon.MonoBehaviour {
 		GUI.skin = customSkin;
 		
 		// quit button GUI
-		if (GUILayout.Button ("Leave & Quit")) {
-			SaveAndQuit ();
+		//		if (GUILayout.Button ("Leave & Quit")) {
+		//			SaveAndQuit ();
+		//		}
+		
+		if(!isTutorial && !isTrainer)
+		{
+			if(!GameStarted)
+			{
+				if(Camera.main)
+					Camera.main.GetComponent<MouseCamera>().enabled = false;
+				
+				if(!roleSelected)
+				{
+					GUILayout.BeginArea(new Rect((Screen.width - 600) / 2, (Screen.height - 300) / 2, 960, 600));
+					GUILayout.BeginHorizontal();
+					GUILayout.Label("Choose a role:", GUILayout.Width(200));
+					
+					PhotonView photonView = this.gameObject.GetPhotonView();
+					
+					for(int i =0;i<playerList.Length;i++)
+					{
+						if (!selectedPlayerList.Contains(playerList[i]))
+						{
+							if(GUILayout.Button(playerList[i],GUILayout.Width(150)) )
+							{
+								
+								
+								
+								photonView.RPC ("checkGameStatusFromMaster", PhotonTargets.OthersBuffered);
+								
+								PhotonNetwork.playerName = playerList[i];
+								PlayerPrefs.SetString("playerName", playerList[i]);
+								roleSelected = true;
+								// broadcast role selected
+								photonView.RPC ("setRoleUnavailable",PhotonTargets.AllBuffered,playerList[i]);
+								
+								
+							}
+						}
+					}
+					
+					GUILayout.EndHorizontal();
+					GUILayout.EndArea();
+				}
+				else 
+				{
+					GUILayout.BeginArea(new Rect((Screen.width - 400) / 2, (Screen.height - 300) / 2, 600, 300));
+					
+					
+					GUILayout.Label("YOU HAVE CHOSEN: " + PhotonNetwork.playerName);
+					GUILayout.Space(20);
+					
+					
+					//wait till there are four people in the room
+					if (selectedPlayerList.Count < syncTotal ) {
+						
+						GUILayout.Label ("PLEASE WAIT TILL THERE ARE ENOUGH PLAYERS IN THE ROOM");
+						GUILayout.Space (20);
+						
+						GUILayout.Label ("Number of players in the room now: " + selectedPlayerList.Count);
+						GUILayout.Space (20);
+						
+						int dotNum = dotInt / 100;
+						GUILayout.Label ("WAITING" + dots [dotNum]);
+						dotInt++;
+						if (dotInt >= 300)
+						{
+							dotInt = 0;
+						}
+						
+						
+					} 
+					else if(PhotonNetwork.isMasterClient)
+					{
+						print (selectedPlayerList.Count);
+						photonView.RPC ("allStartGame", PhotonTargets.AllBuffered);
+						
+					}
+					
+					
+					GUILayout.EndArea();
+					
+					
+					
+					
+				}
+				
+				
+			}
 		}
+		/*else if(!isTutorial && isTrainer && !GameStarted)
+		{
+			GUILayout.BeginArea(new Rect((Screen.width - 600) / 2, (Screen.height - 300) / 2, 960, 600));
+			GUILayout.BeginHorizontal();
+			GUILayout.Label("Welcome Trainer.", GUILayout.Width(200));
+			if (GUILayout.Button ("Join Game",GUILayout.Width(100))) {
+				startGame();
+			}
+
+			GUILayout.EndHorizontal();
+			GUILayout.EndArea();
+		}*/
 		
 	}
 	
@@ -430,11 +664,120 @@ public class GameManagerVik : Photon.MonoBehaviour {
 	//				QUIT AND SAVE REPLAY FILE
 	//***********************************************************************************************************************************
 	public void SaveAndQuit(){
-		PhotonView photonView = this.gameObject.GetPhotonView();
 		
 		
-		photonView.RPC ("setRoleAvailable",PhotonTargets.AllBuffered,PlayerPrefs.GetString("playerName"));
+		if (this.sessionID != -1)
+		{
+			string currentDir = Directory.GetCurrentDirectory ();
+			//Debug.Log (currentDir);
+			Directory.CreateDirectory (currentDir + "\\playback");
+			string filePath = "playback/" + sessionID.ToString();
+			EZReplayManager.get.saveToFile(filePath);
+			
+			//upload files
+			WWWForm sendForm = new WWWForm();
+			string fileDir = currentDir + "\\playback\\" + sessionID.ToString();
+			//Debug.Log(fileDir);
+			byte[] something = File.ReadAllBytes(fileDir);
+			//Debug.Log(something.Length);
+			sendForm.AddBinaryData("capture", something, sessionID.ToString());
+			sendForm.AddField("load", "UP");
+			WWW w = new WWW("http://www.sgi-singapore.com/projects/ORILE/loadFiles.php", sendForm);
+			
+			StartCoroutine(WaitForRequest(w));
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		//replay footage saving
+		EZReplayManager.get.stop ();
+		
+		//create folder for game
+		
+		
+	}
+	
+	//yield the saving of binary files
+	IEnumerator WaitForRequest(WWW www)
+	{
+		yield return www;
+		
+		// check for errors
+		if (www.error == null)
+		{
+			Debug.Log("WWW Ok!: " + www.data);
+		} else {
+			Debug.Log("WWW Error: "+ www.error);
+		}   
+		//PlayerPrefs.DeleteAll();
+		
+		
+		photonView.RPC ("setRoleAvailable",PhotonTargets.AllBuffered,PhotonNetwork.playerName);
+		
 		PhotonNetwork.LeaveRoom();
+		
+		
+		Application.LoadLevel("login scene");
+	}
+	
+	//***********************************************************************************************************************************
+	
+	//***********************************************************************************************************************************
+	//				END GAME
+	//***********************************************************************************************************************************
+	public void EndGame(){
+		
+		GameStarted = false;
+		
+		GameObject.Find ("UICamera").GetComponent<NGUIpanelHandler>().show ("GameEndScreen");
+		
+		
+		
+		
+		
+		
+		
+	}
+	
+	//***********************************************************************************************************************************
+	
+	[RPC]
+	
+	void setRoleUnavailable(string role){
+		selectedPlayerList.Add(role);
+		
+		
+		//		print (selectedPlayerList.Count);
+	}
+	
+	[RPC]
+	void setRoleAvailable(string role){
+		selectedPlayerList.Remove(role);
+		
+		//		print (selectedPlayerList.Count);
+	}
+	
+	[RPC]
+	void levelLoaded(){
+		
+		this.syncNum++;
+	}
+	
+	
+	
+	void OnDisconnectedFromPhoton()
+	{
+		Debug.LogWarning("OnDisconnectedFromPhoton");
+		
+		GameStarted = false;
+		
+		
 		
 		//replay footage saving
 		EZReplayManager.get.stop ();
@@ -461,92 +804,18 @@ public class GameManagerVik : Photon.MonoBehaviour {
 			StartCoroutine(WaitForRequest(w));
 		}
 		
-	}
-	
-	//yield the saving of binary files
-	IEnumerator WaitForRequest(WWW www)
-	{
-		yield return www;
 		
-		// check for errors
-		if (www.error == null)
-		{
-			Debug.Log("WWW Ok!: " + www.data);
-		} else {
-			Debug.Log("WWW Error: "+ www.error);
-		}   
-		//PlayerPrefs.DeleteAll();
-		
-		yield return new WaitForSeconds (1);
-		
-		Application.LoadLevel("login scene");
-	}
-	
-	//***********************************************************************************************************************************
-	
-	//***********************************************************************************************************************************
-	//				END GAME
-	//***********************************************************************************************************************************
-	public void EndGame(){
-		GameObject MainCamera = Camera.main.gameObject;
-		
-		if(MainCamera.gameObject != null)
-		{
-			if(MainCamera.transform.parent != null)
-			{
-				
-				MainCamera.transform.parent.GetComponent<ClickMove>().gameOn = false;
-				MainCamera.transform.parent.GetComponent<DetectObjects>().gameOn = false;
-			}
-			
-			MainCamera.SetActive(false);
-			//GameEndScreen.SetActive(true);
-			
-			
-			GameObject.Find ("QuestLogButton").GetComponent<GUITexture>().enabled = false;
-			GameObject.Find ("phoneButton").GetComponent<GUITexture>().enabled = false;
-		//	GameObject.Find ("InventoryContainer").GetComponent<GUITexture>().enabled = false;
-		////	GameObject.Find ("InventoryButton1").GetComponent<GUITexture>().enabled = false;
-		//	GameObject.Find ("InventoryButton2").GetComponent<GUITexture>().enabled = false;
-			GameObject.Find ("GameManager").GetComponent<ChatVik>().enabled = false;
-			
-			GameObject.Find ("EventManager").GetComponent<NetworkTime>().enabled = true;
-			
-			
-		}
-		
-	}
-	
-	//***********************************************************************************************************************************
-	
-	[RPC]
-	
-	void setRoleUnavailable(string role){
-		selectedPlayerList.Add(role);
-	}
-	
-	[RPC]
-	void setRoleAvailable(string role){
-		selectedPlayerList.Remove(role);
-	}
-	
-	[RPC]
-	void levelLoaded(){
-		
-		this.syncNum++;
-	}
-	
-
-	
-	void OnDisconnectedFromPhoton()
-	{
-		Debug.LogWarning("OnDisconnectedFromPhoton");
 	} 
 	
 	IEnumerator OnLeftRoom()
 	{
-		//Easy way to reset the level: Otherwise we'd manually reset the camera
 		
+		
+		
+		
+		//photonView.RPC ("setRoleAvailable",PhotonTargets.AllBuffered,PhotonNetwork.playerName);
+		//Easy way to reset the level: Otherwise we'd manually reset the camera
+		//	photonView.RPC ("tellOthersImLeaving",PhotonTargets.OthersBuffered,PhotonNetwork.playerName);
 		//Wait untill Photon is properly disconnected (empty room, and connected back to main server)
 		while(PhotonNetwork.room!=null || PhotonNetwork.connected==false)
 			yield return 0;
@@ -564,8 +833,58 @@ public class GameManagerVik : Photon.MonoBehaviour {
 	}
 	
 	void OnPhotonPlayerDisconnected(){
-		print ("Now we have: "+PhotonNetwork.playerList.Length+" players in total.");
+		print ("One player left, now we have: "+PhotonNetwork.playerList.Length+" players left.");
+		
+		selectedPlayerList.Clear();
+		
+		for( int i = 0; i< PhotonNetwork.playerList.Length; i++)
+		{
+			selectedPlayerList.Add(PhotonNetwork.playerList[i].name);
+			print (PhotonNetwork.playerList[i].name);
+		}
 		//EventManager.FsmVariables.GetFsmInt("playerNum").Value = PhotonNetwork.playerList.Length;
+		
+	}
+	
+	
+	void pauseGame(){
+		
+		gamePaused = true;
+		Time.timeScale = 0;
+		
+		
+		GameObject.Find ("UICamera").GetComponent<NGUIpanelHandler>().show("PauseScreen");
+		
+		if(GameObject.Find (PhotonNetwork.playerName))
+		{
+			GameObject.Find (PhotonNetwork.playerName).GetComponent<MouseCamera>().enabled = false;
+			GameObject.Find (PhotonNetwork.playerName).GetComponent<DetectObjects>().enabled = false;
+			
+			if(Camera.main)
+				Camera.main.GetComponent<MouseCamera>().enabled = false;
+		}
+		
+	}
+	
+	void unPauseGame(){
+		
+		gamePaused = false;
+		Time.timeScale = 1;
+		
+		
+		
+		GameObject.Find ("UICamera").GetComponent<NGUIpanelHandler>().hide("PauseScreen");
+		
+		
+		if(GameObject.Find (PhotonNetwork.playerName))
+		{
+			GameObject.Find (PhotonNetwork.playerName).GetComponent<MouseCamera>().enabled = true;
+			GameObject.Find (PhotonNetwork.playerName).GetComponent<DetectObjects>().enabled = true;
+			if(Camera.main)
+				Camera.main.GetComponent<MouseCamera>().enabled = true;
+		}
+		
+		photonView.RPC ("allStartGame",PhotonTargets.All);
 		
 	}
 	

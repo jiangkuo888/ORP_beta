@@ -11,12 +11,14 @@ public class AdminMovement : Photon.MonoBehaviour
 	float rotationY = 0F;
 	float originalY = 0F;
 	public GUIStyle custom;
-
+	
+	public bool isEventPopOut;
+	
 	void Awake()
 	{
-	
+		isEventPopOut = false;
 	}
-
+	
 	void Start()
 	{
 		
@@ -37,41 +39,44 @@ public class AdminMovement : Photon.MonoBehaviour
 			
 			//playerRotationScript.enabled = false;
 			cameraScript.enabled = false;
-
+			
 			//if admin switch on AdminCamera script
 			//AdminCamera admincamera = GameObject.Find ("Main Camera").GetComponent<AdminCamera>();
 			//admincamera.enabled = true;
-
+			
 		}
 		else
 		{           
 			
 			//if(playerRotationScript == null)
 			//	playerRotationScript = transform.GetComponent<MouseCamera>();
-
+			
 			//playerRotationScript.enabled = false;
 			
 		}
 		
 	}
-
+	
 	void Update()
 	{
 		AdminCamera addy = this.gameObject.GetComponent<AdminCamera> ();
 		int currFollow = addy.currPlayerFollow;
-
+		
 		if (Input.GetKey("w") && currFollow == -1)
 		{
 			//move forward
-			//Debug.Log (transform.forward);
 			Vector3 move = addy.transform.forward;
 			move.x = 0.0f;
-
+			//Debug.Log ("move");
+			//Debug.Log (move);
+			
 			//special case x
 			if (transform.right.x < 0)
 			{
 				move.z = -move.z;
 			}
+			//	Debug.Log ("move");
+			//	Debug.Log (move);
 			/*if (transform.right.x < 0.1f && transform.right.x > 0.0f)
 			{
 				move.x = 1.0f - move.x;
@@ -88,19 +93,37 @@ public class AdminMovement : Photon.MonoBehaviour
 			{
 				move.x = 1.0f + move.y;
 			}*/
-			move.Normalize();
+			
+			if (move.y < 0.1 || move.z < 0.1)
+			{
+				move.z = 1;
+			}
+			else
+			{
+				move.Normalize();
+			}
+			
+			//Debug.Log ("forward");
+			//Debug.Log (addy.transform.forward);
+			//Debug.Log ("move");
+			//Debug.Log (move);
 			transform.Translate(move * 0.2f);
-
+			
+		}
+		
+		if (Input.GetKeyUp ("left ctrl"))
+		{
+			isEventPopOut = !isEventPopOut;
 		}
 	}
-
+	
 	void OnGUI()
 	{
 		//get admin follow
 		AdminCamera addy = this.gameObject.GetComponent<AdminCamera>();
-
-		GUILayout.BeginArea (new Rect (0, Screen.height*.275f, Screen.width/2, Screen.height*.5f));
-
+		
+		GUILayout.BeginArea (new Rect (0, Screen.height*.256f, Screen.width/2, Screen.height*.5f));
+		
 		if (addy.currPlayerFollow == -1)
 		{
 			GUILayout.BeginHorizontal();
@@ -113,12 +136,24 @@ public class AdminMovement : Photon.MonoBehaviour
 			GUILayout.BeginHorizontal();
 			GUILayout.Label ("You are currently following: " + name, custom);
 			GUILayout.EndHorizontal(); 
-
+			
 		}
-
-		GUILayout.EndArea();
+		
+		GUILayout.	EndArea();
+		
+		
+		if (isEventPopOut)
+		{
+			GUILayout.BeginArea (new Rect (0, Screen.height*.75f, Screen.width, Screen.height*.25f));
+			if (GUILayout.Button ("EventOne", GUILayout.Width (100))) {
+			}
+			if (GUILayout.Button ("EventTwo", GUILayout.Width (100))) {
+			}
+			GUILayout.EndArea();
+		}
+		
 	}
-
+	
 	
 	public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
 	{

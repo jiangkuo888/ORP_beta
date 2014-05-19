@@ -191,7 +191,7 @@ public class DetectObjects : Photon.MonoBehaviour {
 									GameObject.Find ("QuestLogButton").GetComponent<GUITexture>().enabled = false;
 
 
-
+							
 
 
 								if(enteredDialog && mouseClick)

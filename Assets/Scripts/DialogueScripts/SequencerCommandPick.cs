@@ -107,12 +107,25 @@ public class SequencerCommandPick : SequencerCommand {
 				
 				if(!playersinv.GetComponent<InventoryNew>().alreadyHave(onUsedObj.transform))
 				{
+
+					if(GameObject.Find ("DropArea_"+onUsedObj.name))
+					{
+						GameObject.Find ("DropArea_"+onUsedObj.name).GetComponent<DropAreaController>().AreaActivated = true;
+						print ("111");
+					}
+
 					PhotonView photonView = onUsedObj.GetPhotonView();
 					
 					photonView.RPC("disableRenderer",PhotonTargets.AllBuffered);
 					photonView.RPC("disableCollider",PhotonTargets.AllBuffered);
 					photonView.RPC("disableRigidbody",PhotonTargets.AllBuffered);
-					
+
+
+					if(onUsedObj.name == "ObstacleBox")
+					{
+						PhotonView photonView2 = GameObject.Find("EmergencyExit").GetPhotonView();
+						photonView2.RPC ("notBlockingAnymore",PhotonTargets.AllBuffered);
+					}
 					
 					moveToPlayerPosition(onUsedObj.name);
 					disableRender(onUsedObj.name);
