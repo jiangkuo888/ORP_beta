@@ -126,9 +126,7 @@ public class AdminCamera : Photon.MonoBehaviour {
 	{
 		if (stream.isWriting)
 		{
-			
 			//do nothing
-			
 		}
 		else
 		{

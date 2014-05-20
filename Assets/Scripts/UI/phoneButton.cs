@@ -352,5 +352,13 @@ public class phoneButton : MonoBehaviour {
 		
 	}
 	
-	
+	[RPC]
+	public void OnCallRPC(string player, string conversation){
+
+		if (PhotonNetwork.playerName == player)
+		{
+			OnCall(player, conversation);
+		}
+
+	}
 }
