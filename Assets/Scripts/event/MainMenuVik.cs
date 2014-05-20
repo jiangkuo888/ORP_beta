@@ -104,6 +104,15 @@ public class MainMenuVik : Photon.MonoBehaviour
 			isMain = true;
 			isLogin = false;
 		}
+
+		//if come back do not go to login menu
+		if (PlayerPrefs.GetString("isTrainer") == "true")
+		{
+			//---------------------------------------
+			//	 TOGGLE isTrainer
+			//--------------------------------------
+			isTrainer = true;
+		}
 		
 	}
 	
