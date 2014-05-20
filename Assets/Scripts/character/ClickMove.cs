@@ -69,6 +69,7 @@ public class ClickMove : MonoBehaviour
 	// Update is called once per frame
 	
 	void FixedUpdate(){
+
 		navAgent.destination = targetPosition;
 		
 		float dist = (targetPosition - transform.position).magnitude;
