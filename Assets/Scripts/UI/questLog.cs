@@ -14,7 +14,7 @@ public class questLog : MonoBehaviour {
 	void Awake()
 	{
 		myGUITexture = this.gameObject.GetComponent("GUITexture") as GUITexture;
-		QuestLogWindow.GetComponent<UnityQuestLogWindow>().Open();
+//		QuestLogWindow.GetComponent<UnityQuestLogWindow>().Open();
 
 	}
 	
@@ -71,23 +71,6 @@ public class questLog : MonoBehaviour {
 
 	}
 
-	void OnMouseUpAsButton (){
-		// call the questlog
-		if(QuestLogWindow)
-		QuestLogWindow.GetComponent<UnityQuestLogWindow>().Open();
-		else
-		{
-			QuestLogWindow = GameObject.Find ("Sci-fi Unity Quest Log Window");
-		    QuestLogWindow.GetComponent<UnityQuestLogWindow>().Open();
-		}
-
-
-	}
-
-	void OnMouseExit(){
-		GameObject.Find(PhotonNetwork.playerName).GetComponent<DetectObjects>().enabled = true;
-		GameObject.Find(PhotonNetwork.playerName).GetComponent<ClickMove>().enabled = true;	
-	}
 
 
 

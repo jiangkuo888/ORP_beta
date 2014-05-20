@@ -188,7 +188,7 @@ public class DetectObjects : Photon.MonoBehaviour {
 
 									GameObject.Find ("phoneButton").GetComponent<phoneButton>().hide();
 									GameObject.Find ("phoneButton").GetComponent<GUITexture>().enabled = false;
-									GameObject.Find ("QuestLogButton").GetComponent<GUITexture>().enabled = false;
+//									GameObject.Find ("QuestLogButton").GetComponent<GUITexture>().enabled = false;
 
 
 							
@@ -203,7 +203,7 @@ public class DetectObjects : Photon.MonoBehaviour {
 									//dugManager.GetComponent<DialogueController>().setActiveDialogue(hit.collider.name);
 									
 									
-									this.GetComponent<CharacterMotor>().inputMoveDirection = Vector3.zero;
+//									this.GetComponent<CharacterMotor>().inputMoveDirection = Vector3.zero;
 									disableCameraAndMotor();
 									moveCameraToDesk(hit.collider.gameObject);
 									// player sit animation
@@ -376,7 +376,7 @@ public class DetectObjects : Photon.MonoBehaviour {
 		if(this != null){
 			this.GetComponent<MouseCamera>().enabled =false;
 			Camera.main.GetComponent<MouseCamera>().enabled = false;
-			this.GetComponent<CharacterMotor>().inputMoveDirection = Vector3.zero;	
+//			this.GetComponent<CharacterMotor>().inputMoveDirection = Vector3.zero;	
 			this.GetComponent<ClickMove>().enabled = false;
 			this.GetComponent<DetectObjects>().enabled = false;
 		}
