@@ -521,7 +521,7 @@ public class DeskMode : MonoBehaviour {
 				
 				
 				GameObject.Find ("phoneButton").GetComponent<GUITexture>().enabled = true;
-				GameObject.Find ("QuestLogButton").GetComponent<GUITexture>().enabled = true;
+//				GameObject.Find ("QuestLogButton").GetComponent<GUITexture>().enabled = true;
 				
 				StartCoroutine(WaitAndQuit(0.3f));
 				

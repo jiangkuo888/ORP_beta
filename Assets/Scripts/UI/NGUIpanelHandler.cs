@@ -51,7 +51,7 @@ public class NGUIpanelHandler : MonoBehaviour {
 
 
 		// disable UI elements
-		GameObject.Find ("QuestLogButton").GetComponent<GUITexture>().enabled = false;
+//		GameObject.Find ("QuestLogButton").GetComponent<GUITexture>().enabled = false;
 		GameObject.Find ("phoneButton").GetComponent<GUITexture>().enabled = false;
 		GameObject.Find ("GameManager").GetComponent<ChatVik>().enabled = false;
 
@@ -81,7 +81,7 @@ public class NGUIpanelHandler : MonoBehaviour {
 
 
 		// enable UI elements
-		GameObject.Find ("QuestLogButton").GetComponent<GUITexture>().enabled = true;
+//		GameObject.Find ("QuestLogButton").GetComponent<GUITexture>().enabled = true;
 		GameObject.Find ("phoneButton").GetComponent<GUITexture>().enabled = true;
 		GameObject.Find ("GameManager").GetComponent<ChatVik>().enabled = true;
 		

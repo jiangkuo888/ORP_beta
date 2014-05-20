@@ -11,6 +11,12 @@ public class questLogDisplay : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
+		gameObject.GetComponent<UnityQuestLogWindow>().Open();
+	}
+
+
+	public void updateQuestLog(){
+
+		gameObject.GetComponent<UnityQuestLogWindow>().Open();
 	}
 }
