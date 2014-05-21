@@ -5,7 +5,7 @@ using PixelCrushers.DialogueSystem;
 using PixelCrushers.DialogueSystem.ChatMapper;
 using HutongGames.PlayMaker;
 
-public class phoneButton : MonoBehaviour {
+public class phoneButton : Photon.MonoBehaviour {
 	
 	public float x_offset;
 	public float y_offset;
@@ -352,13 +352,21 @@ public class phoneButton : MonoBehaviour {
 		
 	}
 	
-	[RPC]
 	public void OnCallRPC(string player, string conversation){
+		Debug.Log ("in");
+		photonView.RPC("callOnCall", PhotonTargets.AllBuffered, player, conversation);
 
+	}
+
+	[RPC]
+	void callOnCall(string player, string conversation)
+	{
+		Debug.Log ("rpc yo");
+		Debug.Log (PhotonNetwork.playerName);
 		if (PhotonNetwork.playerName == player)
 		{
 			OnCall(player, conversation);
 		}
-
 	}
+
 }

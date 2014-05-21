@@ -182,7 +182,7 @@ public class AdminMovement : Photon.MonoBehaviour
 
 				
 				phoneButton buttony = GameObject.Find("phoneButton").GetComponent<phoneButton>();
-				buttony.OnCall("Credit Risk", "Delivery");
+				buttony.OnCallRPC("Credit Risk", "Delivery");
 			}
 			
 			
