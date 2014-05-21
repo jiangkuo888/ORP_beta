@@ -180,7 +180,7 @@ public class DeskMode : MonoBehaviour {
 					
 					
 					GameObject.Find ("phoneButton").GetComponent<GUITexture>().enabled = true;
-					GameObject.Find ("QuestLogButton").GetComponent<GUITexture>().enabled = true;
+					GameObject.Find ("Sci-fi Unity Quest Log Window").GetComponent<questLogDisplay>().open();
 					
 					StartCoroutine(WaitAndQuit(0.3f));
 				}
@@ -521,7 +521,9 @@ public class DeskMode : MonoBehaviour {
 				
 				
 				GameObject.Find ("phoneButton").GetComponent<GUITexture>().enabled = true;
-//				GameObject.Find ("QuestLogButton").GetComponent<GUITexture>().enabled = true;
+
+				GameObject.Find ("Sci-fi Unity Quest Log Window").GetComponent<questLogDisplay>().open();
+
 				
 				StartCoroutine(WaitAndQuit(0.3f));
 				
