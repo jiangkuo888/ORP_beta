@@ -297,6 +297,10 @@ public class GameManagerVik : Photon.MonoBehaviour {
 		//Debug.Log (PhotonNetwork.playerName);
 		
 		PhotonNetwork.playerName = characterName;
+		if (isTrainer)
+		{
+			PhotonNetwork.playerName = "admin";
+		}
 		//PlayerPrefs.SetString("playerName", playerList[i]);
 		
 		// broadcast role selected

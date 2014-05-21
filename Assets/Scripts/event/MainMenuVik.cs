@@ -228,6 +228,10 @@ public class MainMenuVik : Photon.MonoBehaviour
 							isTrainer = true;
 							PlayerPrefs.SetString("isTrainer", "true");
 						}
+						else
+						{
+							isTrainer = false;
+						}
 						
 						
 					}
