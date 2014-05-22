@@ -52,14 +52,14 @@ namespace PixelCrushers.DialogueSystem.Examples {
 
 			GameObject.Find ("phoneButton").GetComponent<phoneButton>().hide();
 			GameObject.Find ("phoneButton").GetComponent<GUITexture>().enabled = false;
-			GameObject.Find ("QuestLogButton").GetComponent<GUITexture>().enabled = false;
+	//		GameObject.Find ("QuestLogButton").GetComponent<GUITexture>().enabled = false;
 		}
 
 		public void OnConversationEnd(){
 
 
 			GameObject.Find ("phoneButton").GetComponent<GUITexture>().enabled = true;
-			GameObject.Find ("QuestLogButton").GetComponent<GUITexture>().enabled = true;
+//			GameObject.Find ("QuestLogButton").GetComponent<GUITexture>().enabled = true;
 
 			GameObject.Find("Dialogue Manager").GetComponent<NPCsync>().addUsable(this.gameObject);
 

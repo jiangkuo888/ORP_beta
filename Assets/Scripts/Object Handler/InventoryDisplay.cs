@@ -70,7 +70,27 @@ public class InventoryDisplay : MonoBehaviour {
 		UpdatedList = associatedInventory.GetComponent<InventoryNew>().Contents;
 		//Debug.Log("Inventory Updated");
 	}
-	
+
+	public void toggle(){
+
+
+			if (displayInventory)
+			{
+				displayInventory = false;
+				
+			//	gameObject.SendMessage ("ChangedState", false, SendMessageOptions.DontRequireReceiver);
+			//	gameObject.SendMessage("PauseGame", false, SendMessageOptions.DontRequireReceiver); //StopPauseGame/EnableMouse/ShowMouse
+			}
+			else
+			{
+				displayInventory = true;
+				
+			//	gameObject.SendMessage ("ChangedState", true, SendMessageOptions.DontRequireReceiver);
+			//	gameObject.SendMessage("PauseGame", true, SendMessageOptions.DontRequireReceiver); //PauseGame/DisableMouse/HideMouse
+			}
+
+	}
+
 	void  Update (){
 //		if(Input.GetKeyDown(KeyCode.Escape)) //Pressed escape
 //		{
@@ -88,15 +108,15 @@ public class InventoryDisplay : MonoBehaviour {
 			{
 				displayInventory = false;
 				
-				gameObject.SendMessage ("ChangedState", false, SendMessageOptions.DontRequireReceiver);
-				gameObject.SendMessage("PauseGame", false, SendMessageOptions.DontRequireReceiver); //StopPauseGame/EnableMouse/ShowMouse
+			//	gameObject.SendMessage ("ChangedState", false, SendMessageOptions.DontRequireReceiver);
+			//	gameObject.SendMessage("PauseGame", false, SendMessageOptions.DontRequireReceiver); //StopPauseGame/EnableMouse/ShowMouse
 			}
 			else
 			{
 				displayInventory = true;
 				
-				gameObject.SendMessage ("ChangedState", true, SendMessageOptions.DontRequireReceiver);
-				gameObject.SendMessage("PauseGame", true, SendMessageOptions.DontRequireReceiver); //PauseGame/DisableMouse/HideMouse
+			//	gameObject.SendMessage ("ChangedState", true, SendMessageOptions.DontRequireReceiver);
+			//	gameObject.SendMessage("PauseGame", true, SendMessageOptions.DontRequireReceiver); //PauseGame/DisableMouse/HideMouse
 			}
 		}
 		
