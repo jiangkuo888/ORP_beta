@@ -7,7 +7,7 @@ public class questLog : MonoBehaviour {
 
 	public float x_offset;
 	public float y_offset;
-	public GameObject QuestLogWindow;
+	public GameObject Inventory;
 
 	private GUITexture myGUITexture;
 	
@@ -61,14 +61,18 @@ public class questLog : MonoBehaviour {
 
 
 		GameObject.Find(PhotonNetwork.playerName).GetComponent<DetectObjects>().enabled = false;
-		GameObject.Find(PhotonNetwork.playerName).GetComponent<ClickMove>().enabled = false;	
+		GameObject.Find(PhotonNetwork.playerName).GetComponent<ClickMove>().OnGUI = true;	
 
 
 	}
+	void OnMouseExit(){
+		GameObject.Find(PhotonNetwork.playerName).GetComponent<DetectObjects>().enabled = true;
+		GameObject.Find(PhotonNetwork.playerName).GetComponent<ClickMove>().OnGUI = false;	
 
+	}
 	void OnMouseDown(){
 
-
+		Inventory.GetComponent<InventoryDisplay>().toggle();
 	}
 
 

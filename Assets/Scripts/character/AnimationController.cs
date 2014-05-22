@@ -171,6 +171,7 @@ public class AnimationController: MonoBehaviour
 				break;
 			case "LPU Officer":
 				target.CrossFade("MaleB_Walk");
+
 				break;
 			case "LPU Manager":
 				target.CrossFade("MaleA_Walk");

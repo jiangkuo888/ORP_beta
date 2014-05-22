@@ -132,6 +132,8 @@ public class SequencerCommandPick : SequencerCommand {
 					disableCollider(onUsedObj.name);
 					disableRigidbody(onUsedObj.name);
 					enableInventory(onUsedObj);
+
+					print ("222");
 				}
 			}
 			else{

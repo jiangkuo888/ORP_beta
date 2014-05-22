@@ -44,12 +44,17 @@ public class AudioManager : MonoBehaviour
 		
 		//Create the source
 		AudioSource source = go.AddComponent<AudioSource>();
+		if(source.isPlaying == false){
 		source.clip = clip;
 		source.volume = volume;
 		source.pitch = pitch;
+
 		source.Play ();
 		Destroy (go, clip.length);
 		return source;
+		}
+		else
+			return null;
 	}
 	
 	public AudioSource Play(AudioClip clip, Vector3 point)
@@ -87,10 +92,12 @@ public class AudioManager : MonoBehaviour
 			source = go.GetComponent<AudioSource>();
 		}
 
+
+
 		go.transform.position = point;
 		
 		//Create the source
-
+		if(source.isPlaying == false){
 		source.clip = clip;
 		source.volume = volume;
 		source.pitch = pitch;
@@ -109,6 +116,10 @@ public class AudioManager : MonoBehaviour
 
 
 		}
+
+		}
+		else
+			return null;
 
 	}
 

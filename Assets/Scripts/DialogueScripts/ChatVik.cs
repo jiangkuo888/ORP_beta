@@ -189,6 +189,8 @@ public class ChatVik : Photon.MonoBehaviour
 			SP.messages.RemoveAt(0);
 			SP.messageColor.RemoveAt(0);
 		}
+
+		GameObject.Find ("AudioManager").GetComponent<AudioManager>().Play(GameObject.Find ("AudioManager").GetComponent<AudioManager>().Audioclips[14],GameObject.Find (PhotonNetwork.playerName).transform.position,1f,1f,true);
 	}
 	
 	
