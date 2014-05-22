@@ -376,7 +376,7 @@ public class GameManagerVik : Photon.MonoBehaviour {
 		}
 		
 		
-		EZReplayManager.get.record();
+		//EZReplayManager.get.record();
 		if (playa != null)
 		{
 			CameraChange (playa);
@@ -659,6 +659,8 @@ public class GameManagerVik : Photon.MonoBehaviour {
 
 			GUILayout.EndHorizontal();
 			GUILayout.EndArea();
+
+			PhotonNetwork.playerName = "admin";
 		}
 		
 	}
