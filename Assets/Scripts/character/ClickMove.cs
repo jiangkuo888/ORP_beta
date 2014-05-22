@@ -92,7 +92,8 @@ public class ClickMove : MonoBehaviour
 			//motor.inputMoveDirection = Vector3.zero;
 			transform.GetComponent<AnimationController> ().state = AnimationController.CharacterState.idle;
 			
-			
+			GameObject.Find("SFX Player Footstep").GetComponent<AudioManager>().Stop(GameObject.Find("SFX Player Footstep").GetComponent<AudioManager>().Audioclips[0]);
+
 		}
 		
 		
@@ -137,7 +138,8 @@ public class ClickMove : MonoBehaviour
 					}
 					else{
 						
-						
+						GameObject.Find("SFX Player Footstep").GetComponent<AudioManager>().Play(GameObject.Find("SFX Player Footstep").GetComponent<AudioManager>().Audioclips[0],gameObject.transform.position,1f,1f,false);
+
 						
 						if(hit.collider.gameObject.tag == "ground")
 						{
@@ -160,7 +162,9 @@ public class ClickMove : MonoBehaviour
 							
 							
 							targetPosition = targetPoint;
-							
+
+
+
 							//print (hit.collider.gameObject.name);
 							
 						}
