@@ -193,6 +193,7 @@ public class DetectObjects : Photon.MonoBehaviour {
 									
 
 
+								GameObject.Find("SFX Player Footstep").GetComponent<AudioManager>().Stop(GameObject.Find("SFX Player Footstep").GetComponent<AudioManager>().Audioclips[0]);
 
 							
 
