@@ -356,6 +356,7 @@ public class phoneButton : Photon.MonoBehaviour {
 	
 	public void OnCallRPC(string player, string conversation){
 		Debug.Log ("in");
+		Debug.Log (conversation);
 		PhotonView photonView = this.gameObject.GetPhotonView();
 		photonView.RPC ("callOnCall", PhotonTargets.OthersBuffered, player, conversation);
 	}
