@@ -188,8 +188,12 @@ public class DetectObjects : Photon.MonoBehaviour {
 
 									GameObject.Find ("phoneButton").GetComponent<phoneButton>().hide();
 									GameObject.Find ("phoneButton").GetComponent<GUITexture>().enabled = false;
-//									GameObject.Find ("QuestLogButton").GetComponent<GUITexture>().enabled = false;
 
+									GameObject.Find ("Sci-fi Unity Quest Log Window").GetComponent<questLogDisplay>().close();
+									
+
+
+								GameObject.Find("SFX Player Footstep").GetComponent<AudioManager>().Stop(GameObject.Find("SFX Player Footstep").GetComponent<AudioManager>().Audioclips[0]);
 
 							
 

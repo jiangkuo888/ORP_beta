@@ -29,13 +29,15 @@ public class InventoryDisplay : MonoBehaviour {
 	private Rect windowRect= new Rect(200,200,108,130); //Keeping track of the Inventory window.
 	public GUISkin invSkin; //This is where you can add a custom GUI skin or use the one included (InventorySkin) under the Resources folder.
 	public Vector2 Offset = new Vector2 (7, 12); //This will leave so many pixels between the edge of the window (x = horizontal and y = vertical).
-	public bool canBeDragged= true; //Can the Inventory window be dragged?
+	public bool canBeDragged= false; //Can the Inventory window be dragged?
 	
 	public KeyCode onOffButton = KeyCode.I; //The button that turns the Inventory window on and off.
 	
 	//Keeping track of components.
 	private GameObject associatedInventory;
 	private bool cSheetFound= false;
+
+	public GameObject questWindow;
 	//private Character cSheet;
 	
 	//@script AddComponentMenu ("Inventory/Inventory Display")
@@ -70,7 +72,32 @@ public class InventoryDisplay : MonoBehaviour {
 		UpdatedList = associatedInventory.GetComponent<InventoryNew>().Contents;
 		//Debug.Log("Inventory Updated");
 	}
-	
+
+	public void toggle(){
+
+
+			if (displayInventory)
+			{
+
+				questWindow.GetComponent<questLogDisplay>().open();
+				
+				displayInventory = false;
+				
+				gameObject.SendMessage ("ChangedState", false, SendMessageOptions.DontRequireReceiver);
+			//	gameObject.SendMessage("PauseGame", false, SendMessageOptions.DontRequireReceiver); //StopPauseGame/EnableMouse/ShowMouse
+			}
+			else
+			{
+				questWindow.GetComponent<questLogDisplay>().close();
+
+				displayInventory = true;
+				
+				gameObject.SendMessage ("ChangedState", true, SendMessageOptions.DontRequireReceiver);
+			//	gameObject.SendMessage("PauseGame", true, SendMessageOptions.DontRequireReceiver); //PauseGame/DisableMouse/HideMouse
+			}
+
+	}
+
 	void  Update (){
 //		if(Input.GetKeyDown(KeyCode.Escape)) //Pressed escape
 //		{
@@ -89,14 +116,14 @@ public class InventoryDisplay : MonoBehaviour {
 				displayInventory = false;
 				
 				gameObject.SendMessage ("ChangedState", false, SendMessageOptions.DontRequireReceiver);
-				gameObject.SendMessage("PauseGame", false, SendMessageOptions.DontRequireReceiver); //StopPauseGame/EnableMouse/ShowMouse
+			//	gameObject.SendMessage("PauseGame", false, SendMessageOptions.DontRequireReceiver); //StopPauseGame/EnableMouse/ShowMouse
 			}
 			else
 			{
 				displayInventory = true;
 				
 				gameObject.SendMessage ("ChangedState", true, SendMessageOptions.DontRequireReceiver);
-				gameObject.SendMessage("PauseGame", true, SendMessageOptions.DontRequireReceiver); //PauseGame/DisableMouse/HideMouse
+			//	gameObject.SendMessage("PauseGame", true, SendMessageOptions.DontRequireReceiver); //PauseGame/DisableMouse/HideMouse
 			}
 		}
 		

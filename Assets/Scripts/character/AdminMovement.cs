@@ -13,10 +13,14 @@ public class AdminMovement : Photon.MonoBehaviour
 	public GUIStyle custom;
 	
 	public bool isEventPopOut;
+	public bool isEventDesc;
+	public int eventNum;
 	
 	void Awake()
 	{
 		isEventPopOut = false;
+		isEventDesc = false;
+		eventNum = 1;
 	}
 	
 	void Start()
@@ -30,7 +34,7 @@ public class AdminMovement : Photon.MonoBehaviour
 			Camera.main.transform.localPosition = cameraRelativePosition;
 			Camera.main.transform.localEulerAngles = transform.localEulerAngles;//new Vector3(0, 90, 0);
 			Camera.main.farClipPlane = 100.0f;
-			
+
 			if(cameraScript == null)
 				cameraScript = GameObject.Find ("Main Camera").GetComponent<MouseCamera>();
 			if(playerRotationScript == null)
@@ -145,13 +149,55 @@ public class AdminMovement : Photon.MonoBehaviour
 		if (isEventPopOut)
 		{
 			GUILayout.BeginArea (new Rect (0, Screen.height*.75f, Screen.width, Screen.height*.25f));
-			if (GUILayout.Button ("EventOne", GUILayout.Width (100))) {
+			if (GUILayout.Button ("Fraud", GUILayout.Width (100))) {
+				isEventPopOut = false;
+				isEventDesc = true;
+				eventNum = 1;
+
 			}
 			if (GUILayout.Button ("EventTwo", GUILayout.Width (100))) {
 			}
 			GUILayout.EndArea();
 		}
-		
+
+
+		//event description
+		string eventDesc = "";
+		if (isEventDesc)
+		{
+			switch (eventNum) 
+			{
+				case 1:
+					eventDesc = "Credit risk gets a call from his peer is ABS Bank regarding\n a fraudulent loan sydicate that they have identified.";
+					break;
+			}
+
+			GUILayout.BeginArea (new Rect (Screen.width*0.25f, Screen.height*.5f, Screen.width/2, Screen.height/2));
+			
+			GUILayout.Box (eventDesc);
+			
+			GUILayout.BeginHorizontal();
+			
+			if (GUILayout.Button ("Activate", GUILayout.Width (80))) {
+
+				
+				phoneButton buttony = GameObject.Find("phoneButton").GetComponent<phoneButton>();
+				buttony.OnCallRPC("Credit Risk", "Peer phone call");
+			}
+			
+			
+			if (GUILayout.Button ("Cancel", GUILayout.Width (80))) {
+				
+				isEventPopOut = true;
+				isEventDesc = false;
+				
+			}
+			GUILayout.EndHorizontal();
+			
+			GUILayout.EndArea();
+
+		}
+	
 	}
 	
 	

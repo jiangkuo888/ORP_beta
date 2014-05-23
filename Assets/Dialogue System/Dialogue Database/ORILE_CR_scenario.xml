@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ChatMapperProject xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Title="Games" Version="1.5.1.0" Author="" EmphasisColor1="#E7955B" EmphasisStyle1="b--" EmphasisColor1Label="" EmphasisColor2="#44B634" EmphasisStyle2="b--" EmphasisColor2Label="" EmphasisColor3="#4688E6" EmphasisStyle3="b--" EmphasisColor3Label="" EmphasisColor4="#CCCCCC" EmphasisStyle4="b--" EmphasisColor4Label="">
+<ChatMapperProject xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Title="ORILE_CR_scenario" Version="1.5.1.0" Author="" EmphasisColor1="#E7955B" EmphasisStyle1="b--" EmphasisColor1Label="" EmphasisColor2="#44B634" EmphasisStyle2="b--" EmphasisColor2Label="" EmphasisColor3="#4688E6" EmphasisStyle3="b--" EmphasisColor3Label="" EmphasisColor4="#CCCCCC" EmphasisStyle4="b--" EmphasisColor4Label="">
   <Description>Project configured for game development.</Description>
   <Assets>
     <Actors>
@@ -3550,10 +3550,7 @@
             <ReviewerNotes />
             <ReviewerStatus>None</ReviewerStatus>
             <OutgoingLinks>
-              <Link OriginConvoID="6" DestinationConvoID="6" OriginDialogID="0" DestinationDialogID="1" IsConnector="false" />
-              <Link OriginConvoID="6" DestinationConvoID="6" OriginDialogID="0" DestinationDialogID="2" IsConnector="false" />
-              <Link OriginConvoID="6" DestinationConvoID="6" OriginDialogID="0" DestinationDialogID="3" IsConnector="false" />
-              <Link OriginConvoID="6" DestinationConvoID="6" OriginDialogID="0" DestinationDialogID="4" IsConnector="false" />
+              <Link OriginConvoID="6" DestinationConvoID="6" OriginDialogID="0" DestinationDialogID="5" IsConnector="false" />
             </OutgoingLinks>
             <ConditionsString />
             <UserScript />
@@ -3615,7 +3612,9 @@
             </Fields>
             <ReviewerNotes />
             <ReviewerStatus>None</ReviewerStatus>
-            <OutgoingLinks />
+            <OutgoingLinks>
+              <Link OriginConvoID="6" DestinationConvoID="6" OriginDialogID="1" DestinationDialogID="6" IsConnector="false" />
+            </OutgoingLinks>
             <ConditionsString>Dialog[1].SimStatus ~= "WasDisplayed"</ConditionsString>
             <UserScript />
           </DialogEntry>
@@ -3677,7 +3676,7 @@
             <ReviewerNotes />
             <ReviewerStatus>None</ReviewerStatus>
             <OutgoingLinks />
-            <ConditionsString>Dialog[2].SimStatus ~= "WasDisplayed"</ConditionsString>
+            <ConditionsString>Dialog[1].SimStatus == "WasDisplayed" and Dialog[2].SimStatus ~= "WasDisplayed"</ConditionsString>
             <UserScript />
           </DialogEntry>
           <DialogEntry ID="3" IsRoot="false" IsGroup="false" NodeColor="White" DelaySimStatus="false" FalseCondtionAction="Block" ConditionPriority="Normal">
@@ -3800,6 +3799,103 @@
             <ReviewerStatus>None</ReviewerStatus>
             <OutgoingLinks />
             <ConditionsString>Dialog[4].SimStatus ~= "WasDisplayed"</ConditionsString>
+            <UserScript />
+          </DialogEntry>
+          <DialogEntry ID="5" IsRoot="false" IsGroup="true" NodeColor="White" DelaySimStatus="false" FalseCondtionAction="Block" ConditionPriority="Normal">
+            <Fields>
+              <Field Hint="The title of this dialogue." Type="Text">
+                <Title>Title</Title>
+                <Value>Decision</Value>
+              </Field>
+              <Field Hint="A collection of image files that represent this dialogue." Type="Files">
+                <Title>Pictures</Title>
+                <Value>[]</Value>
+              </Field>
+              <Field Hint="A short description of what happens in this dialogue." Type="Text">
+                <Title>Description</Title>
+                <Value />
+              </Field>
+              <Field Hint="The actor who is talking." Type="Actor">
+                <Title>Actor</Title>
+                <Value>1</Value>
+              </Field>
+              <Field Hint="The actor who is listening." Type="Actor">
+                <Title>Conversant</Title>
+                <Value>1</Value>
+              </Field>
+            </Fields>
+            <ReviewerNotes />
+            <ReviewerStatus>None</ReviewerStatus>
+            <OutgoingLinks>
+              <Link OriginConvoID="6" DestinationConvoID="6" OriginDialogID="5" DestinationDialogID="1" IsConnector="false" />
+              <Link OriginConvoID="6" DestinationConvoID="6" OriginDialogID="5" DestinationDialogID="2" IsConnector="false" />
+              <Link OriginConvoID="6" DestinationConvoID="6" OriginDialogID="5" DestinationDialogID="3" IsConnector="false" />
+              <Link OriginConvoID="6" DestinationConvoID="6" OriginDialogID="5" DestinationDialogID="4" IsConnector="false" />
+            </OutgoingLinks>
+            <ConditionsString />
+            <UserScript />
+          </DialogEntry>
+          <DialogEntry ID="6" IsRoot="false" IsGroup="false" NodeColor="White" DelaySimStatus="false" FalseCondtionAction="Block" ConditionPriority="Normal">
+            <Fields>
+              <Field Hint="The title of this dialogue." Type="Text">
+                <Title>Title</Title>
+                <Value>New Dialogue</Value>
+              </Field>
+              <Field Hint="A collection of image files that represent this dialogue." Type="Files">
+                <Title>Pictures</Title>
+                <Value>[]</Value>
+              </Field>
+              <Field Hint="A short description of what happens in this dialogue." Type="Text">
+                <Title>Description</Title>
+                <Value />
+              </Field>
+              <Field Hint="The actor who is talking." Type="Actor">
+                <Title>Actor</Title>
+                <Value>1</Value>
+              </Field>
+              <Field Hint="The actor who is listening." Type="Actor">
+                <Title>Conversant</Title>
+                <Value>1</Value>
+              </Field>
+              <Field Hint="The text that is displayd to the player in a list as a dialogue option." Type="Text">
+                <Title>Menu Text</Title>
+                <Value />
+              </Field>
+              <Field Hint="The text that is spoken by the actor." Type="Localization">
+                <Title>Dialogue Text</Title>
+                <Value>Now what should I do?</Value>
+              </Field>
+              <Field Hint="A description of what is going on during this dialogue." Type="Text">
+                <Title>Parenthetical</Title>
+                <Value />
+              </Field>
+              <Field Hint="A collection of audio files that should be played during this dialogue." Type="Files">
+                <Title>Audio Files</Title>
+                <Value>[]</Value>
+              </Field>
+              <Field Hint="A WMV video file to be played for this dialogue." Type="Text">
+                <Title>Video File</Title>
+                <Value />
+              </Field>
+              <Field Hint="Associated files for lip sync" Type="Files">
+                <Title>Lipsync Files</Title>
+                <Value>[]</Value>
+              </Field>
+              <Field Hint="Associated animation files" Type="Files">
+                <Title>Animation Files</Title>
+                <Value>[]</Value>
+              </Field>
+              <Field Hint="How does this line of dialogue make the actors feel?" Type="Text">
+                <Title>Mood</Title>
+                <Value />
+              </Field>
+            </Fields>
+            <ReviewerNotes />
+            <ReviewerStatus>None</ReviewerStatus>
+            <OutgoingLinks>
+              <Link OriginConvoID="6" DestinationConvoID="6" OriginDialogID="6" DestinationDialogID="5" IsConnector="true" />
+            </OutgoingLinks>
+            <ConditionsString />
             <UserScript />
           </DialogEntry>
         </DialogEntries>

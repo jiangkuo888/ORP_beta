@@ -105,7 +105,6 @@ public class GameManagerVik : Photon.MonoBehaviour {
 			//unPauseGame();
 			startTutorial();
 		}
-		
 	}
 	
 	void OnLevelWasLoaded(int level) {
@@ -298,6 +297,10 @@ public class GameManagerVik : Photon.MonoBehaviour {
 		//Debug.Log (PhotonNetwork.playerName);
 		
 		PhotonNetwork.playerName = characterName;
+		if (isTrainer)
+		{
+			PhotonNetwork.playerName = "admin";
+		}
 		//PlayerPrefs.SetString("playerName", playerList[i]);
 		
 		// broadcast role selected
@@ -373,7 +376,7 @@ public class GameManagerVik : Photon.MonoBehaviour {
 		}
 		
 		
-		EZReplayManager.get.record();
+		//EZReplayManager.get.record();
 		if (playa != null)
 		{
 			CameraChange (playa);
@@ -645,7 +648,7 @@ public class GameManagerVik : Photon.MonoBehaviour {
 				
 			}
 		}
-		/*else if(!isTutorial && isTrainer && !GameStarted)
+		else if(!isTutorial && isTrainer && !GameStarted)
 		{
 			GUILayout.BeginArea(new Rect((Screen.width - 600) / 2, (Screen.height - 300) / 2, 960, 600));
 			GUILayout.BeginHorizontal();
@@ -656,7 +659,9 @@ public class GameManagerVik : Photon.MonoBehaviour {
 
 			GUILayout.EndHorizontal();
 			GUILayout.EndArea();
-		}*/
+
+			PhotonNetwork.playerName = "admin";
+		}
 		
 	}
 	
