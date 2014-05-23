@@ -6,6 +6,9 @@ public class DetectObjects : Photon.MonoBehaviour {
 	public bool gameOn;
 	public Texture2D cursorTextureInteract;
 	public Texture2D cursorTextureTalk;
+	public Texture2D cursorWalk;
+	public Texture2D cursorTable;
+
 	CursorMode cursorMode = CursorMode.Auto;
 	public Vector2 hotSpot = new Vector2(100,0);
 
@@ -107,7 +110,8 @@ public class DetectObjects : Photon.MonoBehaviour {
 						
 						// change mouse cursor to talk
 						//Cursor.SetCursor(cursorTextureTalk, hotSpot, cursorMode);
-						
+						Cursor.SetCursor(cursorTextureTalk, hotSpot, cursorMode);	
+
 						//dugManager = transform.Find("DUGManager");
 						
 						hitObjPhotonView = PhotonView.Get(hit.collider.gameObject);
@@ -117,7 +121,8 @@ public class DetectObjects : Photon.MonoBehaviour {
 						if (Input.GetKeyUp (KeyCode.Mouse0)) {
 							mouseClick = true;
 							enteredDialog = true;
-							
+
+
 								//if(getState == null)
 								getState = hit.collider.gameObject.GetComponent<PlayMakerFSM>();
 
@@ -133,7 +138,8 @@ public class DetectObjects : Photon.MonoBehaviour {
 							{
 								//currentHitObj.renderer.material.shader = originalShader;
 								
-								
+
+
 								Cursor.SetCursor(null, Vector2.zero, cursorMode);
 								
 								
@@ -161,7 +167,7 @@ public class DetectObjects : Photon.MonoBehaviour {
 							if(hit.collider.gameObject.renderer.material.shader != null && enteredDialog == false)
 							{
 								// set the cursor and shader 
-								Cursor.SetCursor(cursorTextureInteract, hotSpot, cursorMode);	
+								Cursor.SetCursor(cursorTable, hotSpot, cursorMode);	
 								hit.collider.gameObject.renderer.material.shader = Shader.Find("Toon/Basic");
 							}
 							
@@ -316,6 +322,13 @@ public class DetectObjects : Photon.MonoBehaviour {
 					
 					
 				}
+
+				else if( hit.collider.gameObject.tag == "ground")
+				{
+					
+					Cursor.SetCursor(cursorWalk, Vector2.zero, cursorMode);
+				}
+
 				else // if the hitted obj is a new obj
 				{
 					
