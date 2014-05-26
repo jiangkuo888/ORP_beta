@@ -16,7 +16,7 @@ public class PlaybackDialogue : MonoBehaviour {
 
 
 	// Use this for initialization
-	void Start () {
+	/*void Start () {
 	
 		DialogueSystemController gameDSC = GameObject.Find("Dialogue Manager").GetComponent<DialogueSystemController>();
 
@@ -87,6 +87,6 @@ public class PlaybackDialogue : MonoBehaviour {
 			}
 
 		}
-	}
+	}*/
 
 }

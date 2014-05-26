@@ -16,6 +16,8 @@ public class ClickMove : MonoBehaviour
 	private Vector3 groundPosition;
 	public float speed = 0.01f;
 	public float heightOffset = 1.0f;
+
+	public float moveCursorOffset = .05f;
 	
 	public bool OnGUI = false;
 	
@@ -33,7 +35,9 @@ public class ClickMove : MonoBehaviour
 		
 		groundPosition = transform.position - new Vector3 (0, heightOffset, 0);
 		
-		arrow = Instantiate (arrowPrefab, transform.position, Quaternion.identity) as GameObject;
+		arrow = Instantiate (arrowPrefab, transform.position, Quaternion.Euler(90,0,0)) as GameObject;
+
+
 		
 		myCamera = GameObject.FindGameObjectWithTag ("MainCamera").transform.GetComponent<Camera> ();
 		
@@ -78,7 +82,7 @@ public class ClickMove : MonoBehaviour
 		
 		if (dist > 1) {
 			
-			arrow.transform.Rotate(0,15,0);
+			arrow.transform.Rotate(0,0,10);
 			arrow.renderer.enabled = true;
 			//motor.inputMoveDirection = dir.normalized * move;
 			transform.GetComponent<AnimationController> ().state = AnimationController.CharacterState.run;
@@ -157,8 +161,8 @@ public class ClickMove : MonoBehaviour
 							
 							
 							// move the arrow to the click point and spin it, disable it after 2s
-							arrow.transform.position = targetPoint;
-							
+							arrow.transform.position = new Vector3(targetPoint.x,targetPoint.y + moveCursorOffset,targetPoint.z);
+						
 							
 							
 							targetPosition = targetPoint;
@@ -182,7 +186,7 @@ public class ClickMove : MonoBehaviour
 							
 							
 							// move the arrow to the click point and spin it, disable it after 2s
-							arrow.transform.position = targetPoint;
+							arrow.transform.position = new Vector3(targetPoint.x,targetPoint.y + moveCursorOffset,targetPoint.z);
 							
 							arrowAnimation ();
 							
@@ -208,7 +212,9 @@ public class ClickMove : MonoBehaviour
 							{
 								
 								targetPoint = new Vector3(hit.collider.transform.position.x+0.8f,hit.collider.transform.position.y,hit.collider.transform.position.z);
-								arrow.transform.position = targetPoint;
+
+								arrow.transform.position = new Vector3(targetPoint.x,targetPoint.y + moveCursorOffset,targetPoint.z);
+
 								arrowAnimation ();
 								
 								targetPosition = arrow.transform.position;

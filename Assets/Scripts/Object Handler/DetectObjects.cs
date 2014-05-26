@@ -50,7 +50,7 @@ public class DetectObjects : Photon.MonoBehaviour {
 		RaycastHit hit;
 		
 		
-			if (Physics.Raycast (ray, out hit, 100)) {
+			if (Physics.Raycast (ray, out hit, 10)) {
 				// display word hint
 				displayHint(hit.collider.name);
 				
