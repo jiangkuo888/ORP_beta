@@ -22,26 +22,26 @@ public class SequencerCommandDepositSuitcase : SequencerCommand {
 //
 //		if(PlayerPrefs.GetString("OnUsedObj") != null)
 //			onUsedObj = GameObject.Find (PlayerPrefs.GetString("OnUsedObj"));
-		if(GameObject.Find ("InventoryObj").GetComponent<inventory>().inventoryObject != null)
-		{
-			GameObject.Find ("Dialogue Manager").GetComponent<DialogueSystemController>().ShowAlert("Deposit "+ GameObject.Find ("InventoryObj").GetComponent<inventory>().inventoryObject.name +" successful");
-
-
-
-			// add obj to suicaselist
-			if(PlayerPrefs.GetString("OnUsedObj") != null)
-			{
-				onUsedObj = GameObject.Find (PlayerPrefs.GetString("OnUsedObj"));
-				onUsedObj.GetComponent<suitcaseObjList>().addObj(GameObject.Find ("InventoryObj").GetComponent<inventory>().inventoryObject);
-			}
-
-
-
-			DialogueLua.SetVariable("InventoryHasObject",false);
-
-
-			GameObject.Find ("InventoryObj").GetComponent<inventory>().clearInventory();
-			}
+//		if(GameObject.Find ("InventoryObj").GetComponent<inventory>().inventoryObject != null)
+//		{
+//			GameObject.Find ("Dialogue Manager").GetComponent<DialogueSystemController>().ShowAlert("Deposit "+ GameObject.Find ("InventoryObj").GetComponent<inventory>().inventoryObject.name +" successful");
+//
+//
+//
+//			// add obj to suicaselist
+//			if(PlayerPrefs.GetString("OnUsedObj") != null)
+//			{
+//				onUsedObj = GameObject.Find (PlayerPrefs.GetString("OnUsedObj"));
+//				onUsedObj.GetComponent<suitcaseObjList>().addObj(GameObject.Find ("InventoryObj").GetComponent<inventory>().inventoryObject);
+//			}
+//
+//
+//
+//			DialogueLua.SetVariable("InventoryHasObject",false);
+//
+//
+//			GameObject.Find ("InventoryObj").GetComponent<inventory>().clearInventory();
+//			}
 
 
 
@@ -91,7 +91,7 @@ public class SequencerCommandDepositSuitcase : SequencerCommand {
 		
 		GameObject obj  = GameObject.Find (objName);
 		
-		GameObject.Find ("InventoryObj").GetComponent<inventory>().inventoryObjectOriginalScale = obj.transform.lossyScale;
+//		GameObject.Find ("InventoryObj").GetComponent<inventory>().inventoryObjectOriginalScale = obj.transform.lossyScale;
 		
 		obj.transform.position = actor.transform.position;
 		obj.transform.parent = actor.transform;
@@ -152,11 +152,11 @@ public class SequencerCommandDepositSuitcase : SequencerCommand {
 	}
 	void enableInventory(GameObject obj){
 		
-		GameObject.Find ("InventoryObj").GetComponent<GUITexture>().enabled = true;
+	//	GameObject.Find ("InventoryObj").GetComponent<GUITexture>().enabled = true;
 
 
 
-		GameObject.Find ("InventoryObj").GetComponent<inventory>().updateInventoryObject(obj);
+	//	GameObject.Find ("InventoryObj").GetComponent<inventory>().updateInventoryObject(obj);
 		
 	}
 	

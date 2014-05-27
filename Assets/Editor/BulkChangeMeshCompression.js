@@ -45,7 +45,7 @@ class BulkChangeMeshCompression extends ScriptableWizard {
     function DirSearch(dir : String)
 
     {
-
+		print(dir);
         var fs = System.IO.Directory.GetFiles(dir, fileNames);
 
         for (var f in fs) {

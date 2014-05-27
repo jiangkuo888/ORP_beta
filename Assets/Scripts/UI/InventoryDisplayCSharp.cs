@@ -4,7 +4,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class InventoryDisplay : MonoBehaviour {
+public class InventoryDisplayCSharp : MonoBehaviour {
 	//Displaying the Inventory.
 	
 	//Variables for dragging:
@@ -200,6 +200,7 @@ public class InventoryDisplay : MonoBehaviour {
 					}
 					else if (Event.current.button == 1) //If it was a right click.
 					{
+						print ("right clicked");
 						associatedInventory.GetComponent<InventoryNew>().DropItem(i);
 					}
 				}
@@ -210,6 +211,7 @@ public class InventoryDisplay : MonoBehaviour {
 				{
 					if (Event.current.button == 1) //If it was a right click we want to drop the item.
 					{
+						print ("right clicked");
 						associatedInventory.GetComponent<InventoryNew>().DropItem(i);
 					}
 				}

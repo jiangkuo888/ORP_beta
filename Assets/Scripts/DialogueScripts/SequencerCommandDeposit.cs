@@ -105,7 +105,7 @@ public class SequencerCommandDeposit : SequencerCommand {
 		
 		GameObject obj  = GameObject.Find (objName);
 		
-		GameObject.Find ("InventoryObj").GetComponent<inventory>().inventoryObjectOriginalScale = obj.transform.lossyScale;
+//		GameObject.Find ("InventoryObj").GetComponent<inventory>().inventoryObjectOriginalScale = obj.transform.lossyScale;
 		
 		obj.transform.position = actor.transform.position;
 		obj.transform.parent = actor.transform;
@@ -170,7 +170,7 @@ public class SequencerCommandDeposit : SequencerCommand {
 
 
 
-		GameObject.Find ("InventoryObj").GetComponent<inventory>().updateInventoryObject(obj);
+//		GameObject.Find ("InventoryObj").GetComponent<inventory>().updateInventoryObject(obj);
 		
 	}
 	

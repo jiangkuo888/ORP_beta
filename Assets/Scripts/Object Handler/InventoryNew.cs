@@ -12,7 +12,7 @@ public class InventoryNew : MonoBehaviour {
 	
 	bool DebugMode= false; //If this is turned on the Inventory script will output the base of what it's doing to the Console window.
 	public bool isFull = false;
-	//private Component playersInvDisplay; //Keep track of the InventoryDisplay script.
+	//private Component playersInvDisplay; //Keep track of the InventoryDisplayCSharp script.
 
 	public static Transform itemHolderObject; //The object the unactive items are going to be parented to. In most cases this is going to be the Inventory object itself.
 	
@@ -23,7 +23,7 @@ public class InventoryNew : MonoBehaviour {
 		itemHolderObject = gameObject.transform;
 		
 
-		if (this.GetComponent<InventoryDisplay>() == null)
+		if (this.GetComponent<InventoryDisplayCSharp>() == null)
 		{
 			Debug.LogError("No Inventory Display script was found on " + transform.name + " but an Inventory script was.");
 			Debug.LogError("Unless a Inventory Display script is added the Inventory won't show. Add it to the same gameobject as the Inventory for maximum performance");
@@ -56,10 +56,10 @@ public class InventoryNew : MonoBehaviour {
 			Debug.Log(Item.name+" has been added to inventroy");
 		}
 
-		//Tell the InventoryDisplay to update the list.
-		if (this.GetComponent<InventoryDisplay>() != null)
+		//Tell the InventoryDisplayCSharp to update the list.
+		if (this.GetComponent<InventoryDisplayCSharp>() != null)
 		{
-			this.GetComponent<InventoryDisplay>().UpdateInventoryList();
+			this.GetComponent<InventoryDisplayCSharp>().UpdateInventoryList();
 		}
 	}
 	
@@ -87,9 +87,9 @@ public class InventoryNew : MonoBehaviour {
 				{
 					Debug.Log(Item.name+" has been removed from inventroy");
 				}
-				if (this.GetComponent<InventoryDisplay>() != null)
+				if (this.GetComponent<InventoryDisplayCSharp>() != null)
 				{
-					this.GetComponent<InventoryDisplay>().UpdateInventoryList();
+					this.GetComponent<InventoryDisplayCSharp>().UpdateInventoryList();
 				}
 				return;
 			}
@@ -99,7 +99,7 @@ public class InventoryNew : MonoBehaviour {
 	//Dropping an Item from the Inventory
 	public void  DropItem (Transform item){
 
-			
+		print ("droping");
 		GameObject inventoryObject = item.gameObject;
 
 		

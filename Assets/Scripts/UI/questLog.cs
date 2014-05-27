@@ -72,7 +72,7 @@ public class questLog : MonoBehaviour {
 	}
 	void OnMouseDown(){
 
-		Inventory.GetComponent<InventoryDisplay>().toggle();
+		Inventory.GetComponent<InventoryDisplayCSharp>().toggle();
 	}
 
 
