@@ -15,7 +15,7 @@ public class InventoryDisplayCSharp : MonoBehaviour {
 	//Variables for the window:
 	public Vector2 windowSize = new Vector2(375, 162.5f); //The size of the Inventory window.
 	public bool useCustomPosition= false; //Do we want to use the customPosition variable to define where on the screen the Inventory window will appear?
-	public Vector2 customPosition = new Vector2 (70, 400); // The custom position of the Inventory window.
+	public Vector2 customPositionFromRightBottom = new Vector2 (70, 400); // The custom position of the Inventory window.
 	public Vector2 itemIconSize = new Vector2(60.0f, 60.0f); //The size of the item icons.
 	
 	//Variables for updating the inventory
@@ -51,7 +51,7 @@ public class InventoryDisplayCSharp : MonoBehaviour {
 		}
 		else
 		{
-			windowRect = new Rect(customPosition.x, customPosition.y, windowSize.x, windowSize.y);
+			windowRect = new Rect(Screen.width - windowSize.x - customPositionFromRightBottom.x, Screen.height - windowSize.y - customPositionFromRightBottom.y, windowSize.x, windowSize.y);
 		}
 		associatedInventory = GameObject.Find ("Inventory").gameObject;//keepin track of the inventory script
 //		if (GetComponent<Character>() != null)
@@ -97,6 +97,36 @@ public class InventoryDisplayCSharp : MonoBehaviour {
 			}
 
 	}
+
+	public void Open(){
+		if (!displayInventory)
+		{
+			
+			questWindow.GetComponent<questLogDisplay>().open();
+			
+			displayInventory = true;
+			
+			gameObject.SendMessage ("ChangedState", true, SendMessageOptions.DontRequireReceiver);
+			//	gameObject.SendMessage("PauseGame", false, SendMessageOptions.DontRequireReceiver); //StopPauseGame/EnableMouse/ShowMouse
+		}
+
+	}
+
+	public void Close(){
+		if (displayInventory)
+		{
+			
+			questWindow.GetComponent<questLogDisplay>().close();
+			
+			displayInventory = false;
+			
+			gameObject.SendMessage ("ChangedState", false, SendMessageOptions.DontRequireReceiver);
+			//	gameObject.SendMessage("PauseGame", false, SendMessageOptions.DontRequireReceiver); //StopPauseGame/EnableMouse/ShowMouse
+		}
+
+	}
+
+
 
 	void  Update (){
 //		if(Input.GetKeyDown(KeyCode.Escape)) //Pressed escape
@@ -213,6 +243,7 @@ public class InventoryDisplayCSharp : MonoBehaviour {
 					{
 						print ("right clicked");
 						associatedInventory.GetComponent<InventoryNew>().DropItem(i);
+						Close ();
 					}
 				}
 			}

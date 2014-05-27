@@ -28,6 +28,8 @@ public class phoneButton : Photon.MonoBehaviour {
 	int count = 0;
 	PlayMakerFSM EventFSM;
 	
+	Rect OriginalSize;
+	
 	
 	void Awake()
 	{
@@ -84,7 +86,7 @@ public class phoneButton : Photon.MonoBehaviour {
 		float xPosition = screenWidth / 2 * x_offset - scaledWidth;
 		float yPosition = screenHeight / 2 * y_offset - scaledHeight;
 		
-		myGUITexture.pixelInset = 
+		OriginalSize = myGUITexture.pixelInset = 
 			new Rect(xPosition, yPosition, 
 			         scaledWidth, scaledHeight);
 	}
@@ -105,9 +107,12 @@ public class phoneButton : Photon.MonoBehaviour {
 	
 	void OnMouseEnter(){
 		
-		
+		if(GameObject.Find(PhotonNetwork.playerName))
+		{
 		GameObject.Find(PhotonNetwork.playerName).GetComponent<DetectObjects>().enabled = false;
 		GameObject.Find(PhotonNetwork.playerName).GetComponent<ClickMove>().OnGUI = true;
+		}
+		Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
 		
 		myGUITexture.texture = hover;
 		
@@ -172,10 +177,15 @@ public class phoneButton : Photon.MonoBehaviour {
 			OnCalling = false;
 			
 			if(GameObject.Find ("AudioManager"))
+			{
 			GameObject.Find ("AudioManager").GetComponent<AudioManager>().Stop(GameObject.Find ("AudioManager").GetComponent<AudioManager>().Audioclips[0]);
+			GameObject.Find ("AudioManager").GetComponent<AudioManager>().Play(GameObject.Find ("AudioManager").GetComponent<AudioManager>().Audioclips[6]);
+
+			}
 			
 			
 			myGUITexture.texture = normal;
+			myGUITexture.pixelInset = OriginalSize;
 		}
 		else
 		{
@@ -194,7 +204,7 @@ public class phoneButton : Photon.MonoBehaviour {
 			myGUITexture.texture = down;
 			
 			
-			
+			GameObject.Find ("AudioManager").GetComponent<AudioManager>().Play(GameObject.Find ("AudioManager").GetComponent<AudioManager>().Audioclips[10]);
 			
 			
 			
@@ -224,10 +234,12 @@ public class phoneButton : Photon.MonoBehaviour {
 	}
 	
 	void OnMouseExit(){
+		if(GameObject.Find(PhotonNetwork.playerName))
+		{
 		GameObject.Find(PhotonNetwork.playerName).GetComponent<DetectObjects>().enabled = true;
 		
 		GameObject.Find(PhotonNetwork.playerName).GetComponent<ClickMove>().OnGUI = false;
-		
+		}
 		
 		myGUITexture.texture = normal;
 	}

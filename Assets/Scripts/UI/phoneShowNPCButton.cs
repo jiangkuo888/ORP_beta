@@ -121,9 +121,13 @@ public class phoneShowNPCButton : MonoBehaviour {
 	
 	void OnMouseEnter(){
 		
-		
+		if(GameObject.Find(PhotonNetwork.playerName))
+		{
 		GameObject.Find(PhotonNetwork.playerName).GetComponent<DetectObjects>().enabled = false;
 		GameObject.Find(PhotonNetwork.playerName).GetComponent<ClickMove>().OnGUI = true;
+		}
+		Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
+
 		myGUITexture.texture = hover;
 		
 	}
@@ -132,6 +136,8 @@ public class phoneShowNPCButton : MonoBehaviour {
 	
 	void OnMouseDown(){
 		myGUITexture.texture = down;
+		GameObject.Find ("AudioManager").GetComponent<AudioManager>().Play(GameObject.Find ("AudioManager").GetComponent<AudioManager>().Audioclips[10]);
+
 		if(ListOn)
 		{
 			ListOn = false;
@@ -152,9 +158,11 @@ public class phoneShowNPCButton : MonoBehaviour {
 	}
 	
 	void OnMouseExit(){
+		if(GameObject.Find(PhotonNetwork.playerName))
+		{
 		GameObject.Find(PhotonNetwork.playerName).GetComponent<DetectObjects>().enabled = true;
 		GameObject.Find(PhotonNetwork.playerName).GetComponent<ClickMove>().OnGUI = false;
-		
+		}
 		
 		myGUITexture.texture = normal;
 	}

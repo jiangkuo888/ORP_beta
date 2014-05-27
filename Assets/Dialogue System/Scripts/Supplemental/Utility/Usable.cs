@@ -52,6 +52,7 @@ namespace PixelCrushers.DialogueSystem.Examples {
 
 			GameObject.Find ("phoneButton").GetComponent<phoneButton>().hide();
 			GameObject.Find ("phoneButton").GetComponent<GUITexture>().enabled = false;
+			GameObject.Find("SFX Player Footstep").GetComponent<AudioManager>().Stop(GameObject.Find("SFX Player Footstep").GetComponent<AudioManager>().Audioclips[0]);
 	//		GameObject.Find ("QuestLogButton").GetComponent<GUITexture>().enabled = false;
 		}
 

@@ -44,6 +44,8 @@ public class DetectObjects : Photon.MonoBehaviour {
 	
 	
 	void  Update (){
+
+
 		if((gameOn && photonView.isMine) || GameObject.Find ("GameManager").GetComponent<GameManagerVik>().isTutorial)
 		{
 		Ray ray= Camera.main.ScreenPointToRay (Input.mousePosition);
@@ -196,7 +198,7 @@ public class DetectObjects : Photon.MonoBehaviour {
 									GameObject.Find ("phoneButton").GetComponent<GUITexture>().enabled = false;
 
 									GameObject.Find ("Sci-fi Unity Quest Log Window").GetComponent<questLogDisplay>().close();
-									
+									GameObject.Find ("InventoryButton").GetComponent<GUITexture>().enabled = false;
 
 
 								GameObject.Find("SFX Player Footstep").GetComponent<AudioManager>().Stop(GameObject.Find("SFX Player Footstep").GetComponent<AudioManager>().Audioclips[0]);

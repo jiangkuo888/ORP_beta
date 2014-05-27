@@ -87,7 +87,8 @@ public class ClickMove : MonoBehaviour
 			//motor.inputMoveDirection = dir.normalized * move;
 			transform.GetComponent<AnimationController> ().state = AnimationController.CharacterState.run;
 			
-			
+
+
 		} else {
 			
 			//transform.position = targetPosition;
@@ -139,6 +140,7 @@ public class ClickMove : MonoBehaviour
 				if (Input.GetKeyUp (KeyCode.Mouse0)) {
 					if(OnGUI)
 					{
+
 					}
 					else{
 						

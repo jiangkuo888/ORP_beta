@@ -11,6 +11,7 @@ GameObject:
   - 65: {fileID: 6500000}
   - 114: {fileID: 11400002}
   - 114: {fileID: 11400004}
+  - 114: {fileID: 11400014}
   m_Layer: 2
   m_Name: TriggerB
   m_TagString: Untagged
@@ -29,6 +30,7 @@ GameObject:
   - 65: {fileID: 6500002}
   - 114: {fileID: 11400006}
   - 114: {fileID: 11400012}
+  - 114: {fileID: 11400016}
   m_Layer: 2
   m_Name: TriggerA
   m_TagString: Untagged
@@ -169,9 +171,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100016}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -19.8677216, y: 5.88008213, z: 46.3871117}
-  m_LocalScale: {x: 108.423119, y: 108.423058, z: 108.423119}
+  m_LocalRotation: {x: 0, y: .707106829, z: 0, w: -.707106829}
+  m_LocalPosition: {x: -18.6975155, y: 2.78801346, z: 45.1898193}
+  m_LocalScale: {x: 108.423088, y: 108.423058, z: 108.423088}
   m_Children:
   - {fileID: 400008}
   - {fileID: 400002}
@@ -411,6 +413,34 @@ MonoBehaviour:
   onSerializeTransformOption: 3
   onSerializeRigidBodyOption: 2
   instantiationId: 0
+--- !u!114 &11400014
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 927f3766d799da84bb93f8a77aa39c67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Audioclips:
+  - {fileID: 8300000, guid: 2fab85a29c007424697f245a113b9dc8, type: 3}
+  - {fileID: 8300000, guid: 14587d14580154d4b80629d5c8485b08, type: 3}
+--- !u!114 &11400016
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 927f3766d799da84bb93f8a77aa39c67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Audioclips:
+  - {fileID: 8300000, guid: 2fab85a29c007424697f245a113b9dc8, type: 3}
+  - {fileID: 8300000, guid: 14587d14580154d4b80629d5c8485b08, type: 3}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

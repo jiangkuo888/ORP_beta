@@ -62,7 +62,8 @@ public class DoorHandler : Photon.MonoBehaviour {
 				if(child != null)
 				{
 					child.animation.Play("DoorOpenA");
-					
+
+					GetComponent<AudioManager>().Play(GetComponent<AudioManager>().Audioclips[0]);
 					
 					transform.parent.Find("TriggerB").GetComponent<DoorHandler>().currentOpenedDirection = "A";
 					currentOpenedDirection = "A";
@@ -77,6 +78,8 @@ public class DoorHandler : Photon.MonoBehaviour {
 						child.animation.Play("DoorCloseA");
 					else
 						child.animation.Play("DoorCloseB");
+
+					GetComponent<AudioManager>().Play(GetComponent<AudioManager>().Audioclips[1]);
 				}
 				else
 					Debug.Log("did not get child");
@@ -92,7 +95,8 @@ public class DoorHandler : Photon.MonoBehaviour {
 				if(child != null)
 				{
 					child.animation.Play("DoorOpenB");
-					
+					GetComponent<AudioManager>().Play(GetComponent<AudioManager>().Audioclips[0]);
+
 					transform.parent.Find("TriggerA").GetComponent<DoorHandler>().currentOpenedDirection = "B";
 					currentOpenedDirection = "B";
 				}
@@ -106,6 +110,9 @@ public class DoorHandler : Photon.MonoBehaviour {
 						child.animation.Play("DoorCloseB");
 					else
 						child.animation.Play("DoorCloseA");
+
+
+					GetComponent<AudioManager>().Play(GetComponent<AudioManager>().Audioclips[1]);
 				}
 				else
 					Debug.Log("did not get child");
@@ -138,7 +145,8 @@ public class DoorHandler : Photon.MonoBehaviour {
 				{
 					child.animation.Play("DoorOpenA");
 					
-					
+					GetComponent<AudioManager>().Play(GetComponent<AudioManager>().Audioclips[0]);
+
 					transform.parent.Find("TriggerB").GetComponent<DoorHandler>().currentOpenedDirection = "A";
 					currentOpenedDirection = "A";
 				}
@@ -152,6 +160,9 @@ public class DoorHandler : Photon.MonoBehaviour {
 						child.animation.Play("DoorCloseA");
 					else
 						child.animation.Play("DoorCloseB");
+
+
+					GetComponent<AudioManager>().Play(GetComponent<AudioManager>().Audioclips[1]);
 				}
 				else
 					Debug.Log("did not get child");
@@ -172,7 +183,11 @@ public class DoorHandler : Photon.MonoBehaviour {
 				if(child != null)
 				{
 					child.animation.Play("DoorOpenB");
-					
+
+
+					GetComponent<AudioManager>().Play(GetComponent<AudioManager>().Audioclips[0]);
+
+
 					transform.parent.Find("TriggerA").GetComponent<DoorHandler>().currentOpenedDirection = "B";
 					currentOpenedDirection = "B";
 				}
@@ -186,6 +201,9 @@ public class DoorHandler : Photon.MonoBehaviour {
 						child.animation.Play("DoorCloseB");
 					else
 						child.animation.Play("DoorCloseA");
+
+
+					GetComponent<AudioManager>().Play(GetComponent<AudioManager>().Audioclips[1]);
 				}
 				else
 					Debug.Log("did not get child");
