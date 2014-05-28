@@ -898,7 +898,7 @@
             <ReviewerStatus>None</ReviewerStatus>
             <OutgoingLinks />
             <ConditionsString>Dialog[1].SimStatus ~= "WasDisplayed" and Item["SMMessageSent1"].State == "success"</ConditionsString>
-            <UserScript>Item["Notified_Arrival"].State = "success"</UserScript>
+            <UserScript>Item["Notified_Arrival"].State = "success";</UserScript>
           </DialogEntry>
           <DialogEntry ID="3" IsRoot="false" IsGroup="false" NodeColor="White" DelaySimStatus="false" FalseCondtionAction="Block" ConditionPriority="Normal">
             <Fields>
@@ -1875,7 +1875,7 @@ Item["LOtoLM1"].State = "success";</UserScript>
               </Field>
               <Field Hint="The text that is spoken by the actor." Type="Localization">
                 <Title>Dialogue Text</Title>
-                <Value>Sending message to Loan Manager... [There is an evacuation of the Sales Floor to our floor. Kindly keep all sensitive documents secured.] </Value>
+                <Value>Sending message to Credit Risk... [There is an evacuation of the Sales Floor to our floor. Kindly keep all sensitive documents secured.] </Value>
               </Field>
               <Field Hint="A WMV video file to be played for this dialogue." Type="Text">
                 <Title>Video File</Title>
@@ -1889,7 +1889,7 @@ Item["LOtoLM1"].State = "success";</UserScript>
             <ReviewerNotes />
             <ReviewerStatus>None</ReviewerStatus>
             <OutgoingLinks />
-            <ConditionsString>Item["LOtoCR1"].State == "success" and Dialog[3].SimStatus ~= "WasDisplayed"</ConditionsString>
+            <ConditionsString>Item["LOtoCR1"].State == "success" and Dialog[1].SimStatus ~= "WasDisplayed"</ConditionsString>
             <UserScript />
           </DialogEntry>
         </DialogEntries>
