@@ -1310,6 +1310,7 @@ MonoBehaviour:
   targetPosition: {x: 0, y: 0, z: 0}
   speed: 10
   heightOffset: .899999976
+  moveCursorOffset: .0500000007
   OnGUI: 0
 --- !u!114 &11400004
 MonoBehaviour:
@@ -1339,8 +1340,8 @@ MonoBehaviour:
   ownerId: 0
   group: 0
   prefixBackup: -1
-  observed: {fileID: 0}
-  synchronization: 0
+  observed: {fileID: 11400004}
+  synchronization: 2
   onSerializeTransformOption: 3
   onSerializeRigidBodyOption: 2
   instantiationId: -1
@@ -1370,10 +1371,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameOn: 0
-  cursorTextureInteract: {fileID: 2800000, guid: ce8bc546e2bf7a44ea834e51dd196ee1,
+  cursorTextureInteract: {fileID: 2800000, guid: ee37cb901191fda4e99081e432a9300e,
     type: 3}
-  cursorTextureTalk: {fileID: 2800000, guid: ce8bc546e2bf7a44ea834e51dd196ee1, type: 3}
-  hotSpot: {x: 100, y: 0}
+  cursorTextureTalk: {fileID: 2800000, guid: 9014012b15e679f4294f033eb490643a, type: 3}
+  cursorWalk: {fileID: 2800000, guid: 7f930999e590ec34bbe2150597f3914e, type: 3}
+  cursorTable: {fileID: 2800000, guid: a390e5b792af01442add644c0c5aeb76, type: 3}
+  hotSpot: {x: 20, y: 30}
   currentHitObj: {fileID: 0}
   mouseClick: 0
   enteredDialog: 0

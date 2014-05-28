@@ -180,6 +180,8 @@ public class DeskMode : MonoBehaviour {
 					
 					
 					GameObject.Find ("phoneButton").GetComponent<GUITexture>().enabled = true;
+					GameObject.Find ("InventoryButton").GetComponent<GUITexture>().enabled = true;
+
 					GameObject.Find ("Sci-fi Unity Quest Log Window").GetComponent<questLogDisplay>().open();
 					
 					StartCoroutine(WaitAndQuit(0.3f));
@@ -198,7 +200,16 @@ public class DeskMode : MonoBehaviour {
 				if(EventFSM.enabled)
 					if(EventFSM.ActiveStateName == "ShowInstructions")
 						EventFSM.FsmVariables.GetFsmBool("IsReading").Value = true;
-				
+
+				if(this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].name == "Risk Report" )
+				{
+
+					if(FsmVariables.GlobalVariables.GetFsmInt("TimeSinceCreate").Value <= 540)
+					{
+						GameObject.Find ("phoneButton").GetComponent<phoneButton>().OnCall("Credit Risk","Risk report");
+					}
+				}
+
 				
 				
 				if(this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents.Length>0)
@@ -325,7 +336,8 @@ public class DeskMode : MonoBehaviour {
 		}
 		case DeskModeSubMode.pageMode:
 		{
-			
+			this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].GetComponent<DocumentHandler>().mode = "PageMode";
+
 			if(GUI.Button( new LTRect(w - 200f, .9f*h - 50f, 100f, 50f ).rect, "Next Page",customSkin.button))
 			{
 				this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].GetComponent<DocumentHandler>().showNextPage();
@@ -501,6 +513,12 @@ public class DeskMode : MonoBehaviour {
 			
 		case DeskModeSubMode.None:
 		{
+
+			if(this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents.Length>0){
+				
+				this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].GetComponent<DocumentHandler>().mode = "NoneMode";
+			}
+
 			if(GUI.Button( new LTRect(1.0f*w - 165f, 1.0f*h - 50f, 150f, 50f ).rect, "Quit DeskMode",customSkin.button))
 			{
 				
@@ -521,6 +539,7 @@ public class DeskMode : MonoBehaviour {
 				
 				
 				GameObject.Find ("phoneButton").GetComponent<GUITexture>().enabled = true;
+				GameObject.Find ("InventoryButton").GetComponent<GUITexture>().enabled = true;
 
 				GameObject.Find ("Sci-fi Unity Quest Log Window").GetComponent<questLogDisplay>().open();
 

@@ -39,14 +39,14 @@ public class questLog : MonoBehaviour {
 		if (textureAspectRatio <= screenAspectRatio)
 		{
 			// The scaled size is based on the height
-			scaledHeight = screenHeight/18;
+			scaledHeight = screenHeight/10;
 			scaledWidth = (scaledHeight * textureAspectRatio);
 		}
 		else
 		{
 
 			// The scaled size is based on the width
-			scaledWidth = screenWidth/18;
+			scaledWidth = screenWidth/10;
 			scaledHeight = (scaledWidth / textureAspectRatio);
 		}
 		float xPosition = screenWidth / 2 * x_offset - scaledWidth;
@@ -59,20 +59,27 @@ public class questLog : MonoBehaviour {
 
 	void OnMouseOver(){
 
-
+		if(GameObject.Find(PhotonNetwork.playerName))
+		{
 		GameObject.Find(PhotonNetwork.playerName).GetComponent<DetectObjects>().enabled = false;
 		GameObject.Find(PhotonNetwork.playerName).GetComponent<ClickMove>().OnGUI = true;	
+		}
+		Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
 
 
 	}
 	void OnMouseExit(){
+		if(GameObject.Find(PhotonNetwork.playerName))
+		{
 		GameObject.Find(PhotonNetwork.playerName).GetComponent<DetectObjects>().enabled = true;
 		GameObject.Find(PhotonNetwork.playerName).GetComponent<ClickMove>().OnGUI = false;	
-
+		}
 	}
 	void OnMouseDown(){
 
-		Inventory.GetComponent<InventoryDisplay>().toggle();
+		Inventory.GetComponent<InventoryDisplayCSharp>().toggle();
+
+
 	}
 
 

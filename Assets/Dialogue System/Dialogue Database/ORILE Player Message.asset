@@ -453,7 +453,7 @@ MonoBehaviour:
       - title: Dialogue Text
         value: "I have received your message. Please give me some time to prepare.
           \n"
-        type: 4
+        type: 0
       - title: Video File
         value: 
         type: 0
@@ -623,7 +623,7 @@ MonoBehaviour:
       - title: Dialogue Text
         value: Sending Message to Sales Manager ... [ I have received your message.
           Please give me some time to prepare. I will message you when I'm ready.]
-        type: 4
+        type: 0
       - title: Video File
         value: 
         type: 0
@@ -741,7 +741,7 @@ MonoBehaviour:
         type: 0
       - title: Dialogue Text
         value: 
-        type: 0
+        type: 4
       - title: Video File
         value: 
         type: 0
@@ -788,7 +788,7 @@ MonoBehaviour:
         value: "Sending message to Loan Officer...  \n[ We are evacuating the Sales
           Floor to the LPU Floor in a while. Please kindly prepare to receive the
           evacuatees. ]"
-        type: 0
+        type: 4
       - title: Video File
         value: 
         type: 0
@@ -806,7 +806,7 @@ MonoBehaviour:
       outgoingLinks: []
       conditionsString: Dialog[1].SimStatus ~= "WasDisplayed" and Item["SMMessageSent1"].State
         == "success"
-      userScript: Item["Notified_Arrival"].State = "success"
+      userScript: Item["Notified_Arrival"].State = "success";
     - id: 3
       fields:
       - title: Title
@@ -1727,8 +1727,8 @@ MonoBehaviour:
         value: Evacuation Notice
         type: 0
       - title: Dialogue Text
-        value: 'Sending message to Loan Manager... [There is an evacuation of the
-          Sales Floor to our floor. Kindly keep all sensitive documents secured.] '
+        value: 'Sending message to Credit Risk... [There is an evacuation of the Sales
+          Floor to our floor. Kindly keep all sensitive documents secured.] '
         type: 4
       - title: Video File
         value: 
@@ -1744,7 +1744,7 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks: []
-      conditionsString: Item["LOtoCR1"].State == "success" and Dialog[3].SimStatus
+      conditionsString: Item["LOtoCR1"].State == "success" and Dialog[1].SimStatus
         ~= "WasDisplayed"
       userScript: 
   - id: 31

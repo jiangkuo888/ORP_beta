@@ -231,6 +231,8 @@ public class SequencerCommandPick : SequencerCommand {
 		
 		// add this obj into the inventory list
 		GameObject.Find ("Inventory").GetComponent<InventoryNew>().AddItem(obj.transform);
+
+		GameObject.Find ("Inventory").GetComponent<InventoryDisplayCSharp>().Open ();
 		
 		
 		

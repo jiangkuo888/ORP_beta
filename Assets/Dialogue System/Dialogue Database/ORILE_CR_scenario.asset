@@ -33,7 +33,7 @@ MonoBehaviour:
     italic: 0
     underline: 0
   actors:
-  - id: 1
+  - id: 5
     fields:
     - title: Name
       value: Credit Risk
@@ -84,7 +84,7 @@ MonoBehaviour:
       value: '[]'
       type: 3
     portrait: {fileID: 0}
-  - id: 2
+  - id: 36
     fields:
     - title: Name
       value: LPU1
@@ -135,7 +135,7 @@ MonoBehaviour:
       value: '[]'
       type: 3
     portrait: {fileID: 0}
-  - id: 3
+  - id: 33
     fields:
     - title: Name
       value: Felicia
@@ -186,7 +186,7 @@ MonoBehaviour:
       value: '[]'
       type: 3
     portrait: {fileID: 0}
-  - id: 4
+  - id: 37
     fields:
     - title: Name
       value: Peer
@@ -238,7 +238,7 @@ MonoBehaviour:
       type: 3
     portrait: {fileID: 0}
   items:
-  - id: 1
+  - id: 26
     fields:
     - title: Name
       value: 
@@ -274,7 +274,7 @@ MonoBehaviour:
       value: '[]'
       type: 3
   locations:
-  - id: 1
+  - id: 2
     fields:
     - title: Name
       value: 
@@ -314,7 +314,7 @@ MonoBehaviour:
       type: 3
   variables: []
   conversations:
-  - id: 1
+  - id: 73
     fields:
     - title: Title
       value: Risk Report
@@ -326,10 +326,10 @@ MonoBehaviour:
       value: 
       type: 0
     - title: Actor
-      value: 1
+      value: 5
       type: 5
     - title: Conversant
-      value: 2
+      value: 36
       type: 5
     - title: Act
       value: 
@@ -363,10 +363,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 1
+        value: 5
         type: 5
       - title: Conversant
-        value: 2
+        value: 36
         type: 5
       - title: Menu Text
         value: 
@@ -389,7 +389,7 @@ MonoBehaviour:
       - title: Sequence
         value: None()
         type: 0
-      conversationID: 1
+      conversationID: 73
       isRoot: 1
       isGroup: 0
       nodeColor: White
@@ -397,9 +397,9 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 1
+      - originConversationID: 73
         originDialogueID: 0
-        destinationConversationID: 1
+        destinationConversationID: 73
         destinationDialogueID: 1
         isConnector: 0
         priority: 2
@@ -417,10 +417,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 2
+        value: 36
         type: 5
       - title: Conversant
-        value: 1
+        value: 5
         type: 5
       - title: Menu Text
         value: 
@@ -446,7 +446,7 @@ MonoBehaviour:
       - title: Mood
         value: 
         type: 0
-      conversationID: 1
+      conversationID: 73
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -454,15 +454,15 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 1
+      - originConversationID: 73
         originDialogueID: 1
-        destinationConversationID: 1
+        destinationConversationID: 73
         destinationDialogueID: 2
         isConnector: 0
         priority: 2
-      - originConversationID: 1
+      - originConversationID: 73
         originDialogueID: 1
-        destinationConversationID: 1
+        destinationConversationID: 73
         destinationDialogueID: 3
         isConnector: 0
         priority: 2
@@ -480,10 +480,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 1
+        value: 5
         type: 5
       - title: Conversant
-        value: 2
+        value: 36
         type: 5
       - title: Menu Text
         value: Talk about Risk report.
@@ -512,7 +512,7 @@ MonoBehaviour:
       - title: Mood
         value: 
         type: 0
-      conversationID: 1
+      conversationID: 73
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -520,13 +520,13 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 1
+      - originConversationID: 73
         originDialogueID: 2
-        destinationConversationID: 1
+        destinationConversationID: 73
         destinationDialogueID: 4
         isConnector: 0
         priority: 2
-      conditionsString: Dialog[2].SimStatus ~= "WasDisplayed"
+      conditionsString: 
       userScript: 
     - id: 3
       fields:
@@ -540,10 +540,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 1
+        value: 5
         type: 5
       - title: Conversant
-        value: 2
+        value: 36
         type: 5
       - title: Menu Text
         value: Nothing
@@ -569,7 +569,7 @@ MonoBehaviour:
       - title: Mood
         value: 
         type: 0
-      conversationID: 1
+      conversationID: 73
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -577,7 +577,7 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks: []
-      conditionsString: Dialog[3].SimStatus ~= "WasDisplayed"
+      conditionsString: 
       userScript: 
     - id: 4
       fields:
@@ -591,10 +591,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 2
+        value: 36
         type: 5
       - title: Conversant
-        value: 1
+        value: 5
         type: 5
       - title: Menu Text
         value: 
@@ -620,7 +620,7 @@ MonoBehaviour:
       - title: Mood
         value: 
         type: 0
-      conversationID: 1
+      conversationID: 73
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -628,21 +628,21 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 1
+      - originConversationID: 73
         originDialogueID: 4
-        destinationConversationID: 1
+        destinationConversationID: 73
         destinationDialogueID: 5
         isConnector: 0
         priority: 2
-      - originConversationID: 1
+      - originConversationID: 73
         originDialogueID: 4
-        destinationConversationID: 1
+        destinationConversationID: 73
         destinationDialogueID: 8
         isConnector: 0
         priority: 2
-      - originConversationID: 1
+      - originConversationID: 73
         originDialogueID: 4
-        destinationConversationID: 1
+        destinationConversationID: 73
         destinationDialogueID: 17
         isConnector: 0
         priority: 2
@@ -660,10 +660,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 1
+        value: 5
         type: 5
       - title: Conversant
-        value: 2
+        value: 36
         type: 5
       - title: Menu Text
         value: Not happy with the report.
@@ -690,7 +690,7 @@ MonoBehaviour:
       - title: Mood
         value: 
         type: 0
-      conversationID: 1
+      conversationID: 73
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -698,13 +698,13 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 1
+      - originConversationID: 73
         originDialogueID: 5
-        destinationConversationID: 1
+        destinationConversationID: 73
         destinationDialogueID: 6
         isConnector: 0
         priority: 2
-      conditionsString: Dialog[5].SimStatus ~= "WasDisplayed"
+      conditionsString: 
       userScript: 
     - id: 6
       fields:
@@ -718,10 +718,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 2
+        value: 36
         type: 5
       - title: Conversant
-        value: 1
+        value: 5
         type: 5
       - title: Menu Text
         value: 
@@ -748,7 +748,7 @@ MonoBehaviour:
       - title: Mood
         value: 
         type: 0
-      conversationID: 1
+      conversationID: 73
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -756,9 +756,9 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 1
+      - originConversationID: 73
         originDialogueID: 6
-        destinationConversationID: 1
+        destinationConversationID: 73
         destinationDialogueID: 7
         isConnector: 0
         priority: 2
@@ -776,10 +776,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 1
+        value: 5
         type: 5
       - title: Conversant
-        value: 2
+        value: 36
         type: 5
       - title: Menu Text
         value: 
@@ -807,7 +807,7 @@ MonoBehaviour:
       - title: Mood
         value: 
         type: 0
-      conversationID: 1
+      conversationID: 73
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -815,9 +815,9 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 1
+      - originConversationID: 73
         originDialogueID: 7
-        destinationConversationID: 1
+        destinationConversationID: 73
         destinationDialogueID: 9
         isConnector: 0
         priority: 2
@@ -835,10 +835,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 2
+        value: 36
         type: 5
       - title: Conversant
-        value: 1
+        value: 5
         type: 5
       - title: Menu Text
         value: 
@@ -864,7 +864,7 @@ MonoBehaviour:
       - title: Mood
         value: 
         type: 0
-      conversationID: 1
+      conversationID: 73
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -872,9 +872,9 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 1
+      - originConversationID: 73
         originDialogueID: 9
-        destinationConversationID: 1
+        destinationConversationID: 73
         destinationDialogueID: 10
         isConnector: 0
         priority: 2
@@ -892,10 +892,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 1
+        value: 5
         type: 5
       - title: Conversant
-        value: 2
+        value: 36
         type: 5
       - title: Menu Text
         value: 
@@ -921,7 +921,7 @@ MonoBehaviour:
       - title: Mood
         value: 
         type: 0
-      conversationID: 1
+      conversationID: 73
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -929,9 +929,9 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 1
+      - originConversationID: 73
         originDialogueID: 10
-        destinationConversationID: 1
+        destinationConversationID: 73
         destinationDialogueID: 11
         isConnector: 0
         priority: 2
@@ -949,10 +949,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 2
+        value: 36
         type: 5
       - title: Conversant
-        value: 1
+        value: 5
         type: 5
       - title: Menu Text
         value: 
@@ -978,7 +978,7 @@ MonoBehaviour:
       - title: Mood
         value: 
         type: 0
-      conversationID: 1
+      conversationID: 73
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -986,9 +986,9 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 1
+      - originConversationID: 73
         originDialogueID: 11
-        destinationConversationID: 1
+        destinationConversationID: 73
         destinationDialogueID: 12
         isConnector: 0
         priority: 2
@@ -1006,10 +1006,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 1
+        value: 5
         type: 5
       - title: Conversant
-        value: 2
+        value: 36
         type: 5
       - title: Menu Text
         value: 
@@ -1035,7 +1035,7 @@ MonoBehaviour:
       - title: Mood
         value: 
         type: 0
-      conversationID: 1
+      conversationID: 73
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -1043,9 +1043,9 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 1
+      - originConversationID: 73
         originDialogueID: 12
-        destinationConversationID: 1
+        destinationConversationID: 73
         destinationDialogueID: 13
         isConnector: 0
         priority: 2
@@ -1063,10 +1063,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 2
+        value: 36
         type: 5
       - title: Conversant
-        value: 1
+        value: 5
         type: 5
       - title: Menu Text
         value: 
@@ -1092,7 +1092,7 @@ MonoBehaviour:
       - title: Mood
         value: 
         type: 0
-      conversationID: 1
+      conversationID: 73
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -1100,9 +1100,9 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 1
+      - originConversationID: 73
         originDialogueID: 13
-        destinationConversationID: 1
+        destinationConversationID: 73
         destinationDialogueID: 14
         isConnector: 0
         priority: 2
@@ -1120,10 +1120,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 1
+        value: 5
         type: 5
       - title: Conversant
-        value: 2
+        value: 36
         type: 5
       - title: Menu Text
         value: 
@@ -1151,7 +1151,7 @@ MonoBehaviour:
       - title: Mood
         value: 
         type: 0
-      conversationID: 1
+      conversationID: 73
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -1159,9 +1159,9 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 1
+      - originConversationID: 73
         originDialogueID: 14
-        destinationConversationID: 1
+        destinationConversationID: 73
         destinationDialogueID: 15
         isConnector: 0
         priority: 2
@@ -1179,10 +1179,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 2
+        value: 36
         type: 5
       - title: Conversant
-        value: 1
+        value: 5
         type: 5
       - title: Menu Text
         value: 
@@ -1208,7 +1208,7 @@ MonoBehaviour:
       - title: Mood
         value: 
         type: 0
-      conversationID: 1
+      conversationID: 73
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -1230,10 +1230,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 1
+        value: 5
         type: 5
       - title: Conversant
-        value: 2
+        value: 36
         type: 5
       - title: Menu Text
         value: Happy with the report.
@@ -1260,7 +1260,7 @@ MonoBehaviour:
       - title: Mood
         value: 
         type: 0
-      conversationID: 1
+      conversationID: 73
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -1268,13 +1268,13 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 1
+      - originConversationID: 73
         originDialogueID: 8
-        destinationConversationID: 1
+        destinationConversationID: 73
         destinationDialogueID: 16
         isConnector: 0
         priority: 2
-      conditionsString: Dialog[8].SimStatus ~= "WasDisplayed"
+      conditionsString: 
       userScript: 
     - id: 16
       fields:
@@ -1288,10 +1288,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 2
+        value: 36
         type: 5
       - title: Conversant
-        value: 1
+        value: 5
         type: 5
       - title: Menu Text
         value: 
@@ -1317,7 +1317,7 @@ MonoBehaviour:
       - title: Mood
         value: 
         type: 0
-      conversationID: 1
+      conversationID: 73
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -1339,10 +1339,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 1
+        value: 5
         type: 5
       - title: Conversant
-        value: 2
+        value: 36
         type: 5
       - title: Menu Text
         value: Monitor report.
@@ -1368,7 +1368,7 @@ MonoBehaviour:
       - title: Mood
         value: 
         type: 0
-      conversationID: 1
+      conversationID: 73
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -1376,9 +1376,9 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 1
+      - originConversationID: 73
         originDialogueID: 17
-        destinationConversationID: 1
+        destinationConversationID: 73
         destinationDialogueID: 18
         isConnector: 0
         priority: 2
@@ -1396,10 +1396,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 2
+        value: 36
         type: 5
       - title: Conversant
-        value: 1
+        value: 5
         type: 5
       - title: Menu Text
         value: 
@@ -1425,7 +1425,7 @@ MonoBehaviour:
       - title: Mood
         value: 
         type: 0
-      conversationID: 1
+      conversationID: 73
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -1435,7 +1435,7 @@ MonoBehaviour:
       outgoingLinks: []
       conditionsString: 
       userScript: 
-  - id: 2
+  - id: 74
     fields:
     - title: Title
       value: Decision Regarding leave
@@ -1447,10 +1447,10 @@ MonoBehaviour:
       value: 
       type: 0
     - title: Actor
-      value: 1
+      value: 5
       type: 5
     - title: Conversant
-      value: 1
+      value: 5
       type: 5
     - title: Act
       value: 
@@ -1484,10 +1484,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 1
+        value: 5
         type: 5
       - title: Conversant
-        value: 1
+        value: 5
         type: 5
       - title: Menu Text
         value: 
@@ -1516,7 +1516,7 @@ MonoBehaviour:
       - title: Sequence
         value: None()
         type: 0
-      conversationID: 2
+      conversationID: 74
       isRoot: 1
       isGroup: 0
       nodeColor: White
@@ -1524,9 +1524,9 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 2
+      - originConversationID: 74
         originDialogueID: 0
-        destinationConversationID: 2
+        destinationConversationID: 74
         destinationDialogueID: 5
         isConnector: 0
         priority: 2
@@ -1544,10 +1544,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 1
+        value: 5
         type: 5
       - title: Conversant
-        value: 1
+        value: 5
         type: 5
       - title: Menu Text
         value: 
@@ -1574,7 +1574,7 @@ MonoBehaviour:
       - title: Mood
         value: 
         type: 0
-      conversationID: 2
+      conversationID: 74
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -1582,21 +1582,21 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 2
+      - originConversationID: 74
         originDialogueID: 5
-        destinationConversationID: 2
+        destinationConversationID: 74
         destinationDialogueID: 7
         isConnector: 0
         priority: 2
-      - originConversationID: 2
+      - originConversationID: 74
         originDialogueID: 5
-        destinationConversationID: 2
+        destinationConversationID: 74
         destinationDialogueID: 6
         isConnector: 0
         priority: 2
-      - originConversationID: 2
+      - originConversationID: 74
         originDialogueID: 5
-        destinationConversationID: 2
+        destinationConversationID: 74
         destinationDialogueID: 1
         isConnector: 0
         priority: 2
@@ -1614,10 +1614,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 1
+        value: 5
         type: 5
       - title: Conversant
-        value: 1
+        value: 5
         type: 5
       - title: Menu Text
         value: Call Felicia regarding leave
@@ -1643,7 +1643,7 @@ MonoBehaviour:
       - title: Mood
         value: 
         type: 0
-      conversationID: 2
+      conversationID: 74
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -1665,10 +1665,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 1
+        value: 5
         type: 5
       - title: Conversant
-        value: 1
+        value: 5
         type: 5
       - title: Menu Text
         value: Block leave is not mandatory so it is not important.
@@ -1694,7 +1694,7 @@ MonoBehaviour:
       - title: Mood
         value: 
         type: 0
-      conversationID: 2
+      conversationID: 74
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -1716,10 +1716,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 1
+        value: 5
         type: 5
       - title: Conversant
-        value: 1
+        value: 5
         type: 5
       - title: Menu Text
         value: I will get back to it later.
@@ -1745,7 +1745,7 @@ MonoBehaviour:
       - title: Mood
         value: 
         type: 0
-      conversationID: 2
+      conversationID: 74
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -1755,7 +1755,7 @@ MonoBehaviour:
       outgoingLinks: []
       conditionsString: Dialog[7].SimStatus ~= "WasDisplayed"
       userScript: 
-  - id: 3
+  - id: 75
     fields:
     - title: Title
       value: Call to Felicia
@@ -1767,10 +1767,10 @@ MonoBehaviour:
       value: 
       type: 0
     - title: Actor
-      value: 1
+      value: 5
       type: 5
     - title: Conversant
-      value: 3
+      value: 33
       type: 5
     - title: Act
       value: 
@@ -1804,10 +1804,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 1
+        value: 5
         type: 5
       - title: Conversant
-        value: 3
+        value: 33
         type: 5
       - title: Menu Text
         value: 
@@ -1836,7 +1836,7 @@ MonoBehaviour:
       - title: Sequence
         value: None()
         type: 0
-      conversationID: 3
+      conversationID: 75
       isRoot: 1
       isGroup: 0
       nodeColor: White
@@ -1844,9 +1844,9 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 3
+      - originConversationID: 75
         originDialogueID: 0
-        destinationConversationID: 3
+        destinationConversationID: 75
         destinationDialogueID: 1
         isConnector: 0
         priority: 2
@@ -1864,10 +1864,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 3
+        value: 33
         type: 5
       - title: Conversant
-        value: 1
+        value: 5
         type: 5
       - title: Menu Text
         value: 
@@ -1893,7 +1893,7 @@ MonoBehaviour:
       - title: Mood
         value: 
         type: 0
-      conversationID: 3
+      conversationID: 75
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -1901,9 +1901,9 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 3
+      - originConversationID: 75
         originDialogueID: 1
-        destinationConversationID: 3
+        destinationConversationID: 75
         destinationDialogueID: 2
         isConnector: 0
         priority: 2
@@ -1921,10 +1921,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 1
+        value: 5
         type: 5
       - title: Conversant
-        value: 3
+        value: 33
         type: 5
       - title: Menu Text
         value: 
@@ -1951,7 +1951,7 @@ MonoBehaviour:
       - title: Mood
         value: 
         type: 0
-      conversationID: 3
+      conversationID: 75
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -1959,9 +1959,9 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 3
+      - originConversationID: 75
         originDialogueID: 2
-        destinationConversationID: 3
+        destinationConversationID: 75
         destinationDialogueID: 3
         isConnector: 0
         priority: 2
@@ -1979,10 +1979,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 3
+        value: 33
         type: 5
       - title: Conversant
-        value: 1
+        value: 5
         type: 5
       - title: Menu Text
         value: 
@@ -2008,7 +2008,7 @@ MonoBehaviour:
       - title: Mood
         value: 
         type: 0
-      conversationID: 3
+      conversationID: 75
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -2018,7 +2018,7 @@ MonoBehaviour:
       outgoingLinks: []
       conditionsString: 
       userScript: 
-  - id: 4
+  - id: 76
     fields:
     - title: Title
       value: Block leave talk
@@ -2030,10 +2030,10 @@ MonoBehaviour:
       value: 
       type: 0
     - title: Actor
-      value: 1
+      value: 5
       type: 5
     - title: Conversant
-      value: 3
+      value: 33
       type: 5
     - title: Act
       value: 
@@ -2067,10 +2067,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 1
+        value: 5
         type: 5
       - title: Conversant
-        value: 3
+        value: 33
         type: 5
       - title: Menu Text
         value: 
@@ -2099,7 +2099,7 @@ MonoBehaviour:
       - title: Sequence
         value: None()
         type: 0
-      conversationID: 4
+      conversationID: 76
       isRoot: 1
       isGroup: 0
       nodeColor: White
@@ -2107,9 +2107,9 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 4
+      - originConversationID: 76
         originDialogueID: 0
-        destinationConversationID: 4
+        destinationConversationID: 76
         destinationDialogueID: 1
         isConnector: 0
         priority: 2
@@ -2127,10 +2127,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 1
+        value: 5
         type: 5
       - title: Conversant
-        value: 3
+        value: 33
         type: 5
       - title: Menu Text
         value: 
@@ -2156,7 +2156,7 @@ MonoBehaviour:
       - title: Mood
         value: 
         type: 0
-      conversationID: 4
+      conversationID: 76
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -2164,9 +2164,9 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 4
+      - originConversationID: 76
         originDialogueID: 1
-        destinationConversationID: 4
+        destinationConversationID: 76
         destinationDialogueID: 2
         isConnector: 0
         priority: 2
@@ -2184,10 +2184,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 3
+        value: 33
         type: 5
       - title: Conversant
-        value: 1
+        value: 5
         type: 5
       - title: Menu Text
         value: 
@@ -2213,7 +2213,7 @@ MonoBehaviour:
       - title: Mood
         value: 
         type: 0
-      conversationID: 4
+      conversationID: 76
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -2221,9 +2221,9 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 4
+      - originConversationID: 76
         originDialogueID: 2
-        destinationConversationID: 4
+        destinationConversationID: 76
         destinationDialogueID: 3
         isConnector: 0
         priority: 2
@@ -2241,10 +2241,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 1
+        value: 5
         type: 5
       - title: Conversant
-        value: 3
+        value: 33
         type: 5
       - title: Menu Text
         value: 
@@ -2271,7 +2271,7 @@ MonoBehaviour:
       - title: Mood
         value: 
         type: 0
-      conversationID: 4
+      conversationID: 76
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -2279,9 +2279,9 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 4
+      - originConversationID: 76
         originDialogueID: 3
-        destinationConversationID: 4
+        destinationConversationID: 76
         destinationDialogueID: 4
         isConnector: 0
         priority: 2
@@ -2299,10 +2299,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 3
+        value: 33
         type: 5
       - title: Conversant
-        value: 1
+        value: 5
         type: 5
       - title: Menu Text
         value: 
@@ -2328,7 +2328,7 @@ MonoBehaviour:
       - title: Mood
         value: 
         type: 0
-      conversationID: 4
+      conversationID: 76
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -2336,9 +2336,9 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 4
+      - originConversationID: 76
         originDialogueID: 4
-        destinationConversationID: 4
+        destinationConversationID: 76
         destinationDialogueID: 5
         isConnector: 0
         priority: 2
@@ -2356,10 +2356,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 1
+        value: 5
         type: 5
       - title: Conversant
-        value: 3
+        value: 33
         type: 5
       - title: Menu Text
         value: 
@@ -2386,7 +2386,7 @@ MonoBehaviour:
       - title: Mood
         value: 
         type: 0
-      conversationID: 4
+      conversationID: 76
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -2394,9 +2394,9 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 4
+      - originConversationID: 76
         originDialogueID: 5
-        destinationConversationID: 4
+        destinationConversationID: 76
         destinationDialogueID: 6
         isConnector: 0
         priority: 2
@@ -2414,10 +2414,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 3
+        value: 33
         type: 5
       - title: Conversant
-        value: 1
+        value: 5
         type: 5
       - title: Menu Text
         value: 
@@ -2443,7 +2443,7 @@ MonoBehaviour:
       - title: Mood
         value: 
         type: 0
-      conversationID: 4
+      conversationID: 76
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -2451,9 +2451,9 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 4
+      - originConversationID: 76
         originDialogueID: 6
-        destinationConversationID: 4
+        destinationConversationID: 76
         destinationDialogueID: 7
         isConnector: 0
         priority: 2
@@ -2471,10 +2471,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 1
+        value: 5
         type: 5
       - title: Conversant
-        value: 3
+        value: 33
         type: 5
       - title: Menu Text
         value: 
@@ -2501,7 +2501,7 @@ MonoBehaviour:
       - title: Mood
         value: 
         type: 0
-      conversationID: 4
+      conversationID: 76
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -2509,9 +2509,9 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 4
+      - originConversationID: 76
         originDialogueID: 7
-        destinationConversationID: 4
+        destinationConversationID: 76
         destinationDialogueID: 8
         isConnector: 0
         priority: 2
@@ -2529,10 +2529,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 3
+        value: 33
         type: 5
       - title: Conversant
-        value: 1
+        value: 5
         type: 5
       - title: Menu Text
         value: 
@@ -2558,7 +2558,7 @@ MonoBehaviour:
       - title: Mood
         value: 
         type: 0
-      conversationID: 4
+      conversationID: 76
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -2568,7 +2568,7 @@ MonoBehaviour:
       outgoingLinks: []
       conditionsString: 
       userScript: 
-  - id: 5
+  - id: 77
     fields:
     - title: Title
       value: ' fraudulent loan sydicate'
@@ -2580,10 +2580,10 @@ MonoBehaviour:
       value: 
       type: 0
     - title: Actor
-      value: 1
+      value: 5
       type: 5
     - title: Conversant
-      value: 4
+      value: 37
       type: 5
     - title: Act
       value: 
@@ -2617,10 +2617,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 1
+        value: 5
         type: 5
       - title: Conversant
-        value: 4
+        value: 37
         type: 5
       - title: Menu Text
         value: 
@@ -2649,7 +2649,7 @@ MonoBehaviour:
       - title: Sequence
         value: None()
         type: 0
-      conversationID: 5
+      conversationID: 77
       isRoot: 1
       isGroup: 0
       nodeColor: White
@@ -2657,9 +2657,9 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 5
+      - originConversationID: 77
         originDialogueID: 0
-        destinationConversationID: 5
+        destinationConversationID: 77
         destinationDialogueID: 1
         isConnector: 0
         priority: 2
@@ -2677,10 +2677,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 4
+        value: 37
         type: 5
       - title: Conversant
-        value: 1
+        value: 5
         type: 5
       - title: Menu Text
         value: 
@@ -2706,7 +2706,7 @@ MonoBehaviour:
       - title: Mood
         value: 
         type: 0
-      conversationID: 5
+      conversationID: 77
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -2714,9 +2714,9 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 5
+      - originConversationID: 77
         originDialogueID: 1
-        destinationConversationID: 5
+        destinationConversationID: 77
         destinationDialogueID: 2
         isConnector: 0
         priority: 2
@@ -2734,10 +2734,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 1
+        value: 5
         type: 5
       - title: Conversant
-        value: 4
+        value: 37
         type: 5
       - title: Menu Text
         value: 
@@ -2763,7 +2763,7 @@ MonoBehaviour:
       - title: Mood
         value: 
         type: 0
-      conversationID: 5
+      conversationID: 77
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -2771,9 +2771,9 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 5
+      - originConversationID: 77
         originDialogueID: 2
-        destinationConversationID: 5
+        destinationConversationID: 77
         destinationDialogueID: 3
         isConnector: 0
         priority: 2
@@ -2791,10 +2791,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 4
+        value: 37
         type: 5
       - title: Conversant
-        value: 1
+        value: 5
         type: 5
       - title: Menu Text
         value: 
@@ -2821,7 +2821,7 @@ MonoBehaviour:
       - title: Mood
         value: 
         type: 0
-      conversationID: 5
+      conversationID: 77
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -2829,9 +2829,9 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 5
+      - originConversationID: 77
         originDialogueID: 3
-        destinationConversationID: 5
+        destinationConversationID: 77
         destinationDialogueID: 4
         isConnector: 0
         priority: 2
@@ -2849,10 +2849,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 1
+        value: 5
         type: 5
       - title: Conversant
-        value: 4
+        value: 37
         type: 5
       - title: Menu Text
         value: 
@@ -2878,7 +2878,7 @@ MonoBehaviour:
       - title: Mood
         value: 
         type: 0
-      conversationID: 5
+      conversationID: 77
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -2886,9 +2886,9 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 5
+      - originConversationID: 77
         originDialogueID: 4
-        destinationConversationID: 5
+        destinationConversationID: 77
         destinationDialogueID: 5
         isConnector: 0
         priority: 2
@@ -2906,10 +2906,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 4
+        value: 37
         type: 5
       - title: Conversant
-        value: 1
+        value: 5
         type: 5
       - title: Menu Text
         value: 
@@ -2935,7 +2935,7 @@ MonoBehaviour:
       - title: Mood
         value: 
         type: 0
-      conversationID: 5
+      conversationID: 77
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -2943,9 +2943,9 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 5
+      - originConversationID: 77
         originDialogueID: 5
-        destinationConversationID: 5
+        destinationConversationID: 77
         destinationDialogueID: 6
         isConnector: 0
         priority: 2
@@ -2963,10 +2963,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 1
+        value: 5
         type: 5
       - title: Conversant
-        value: 4
+        value: 37
         type: 5
       - title: Menu Text
         value: 
@@ -2992,7 +2992,7 @@ MonoBehaviour:
       - title: Mood
         value: 
         type: 0
-      conversationID: 5
+      conversationID: 77
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -3000,9 +3000,9 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 5
+      - originConversationID: 77
         originDialogueID: 6
-        destinationConversationID: 5
+        destinationConversationID: 77
         destinationDialogueID: 7
         isConnector: 0
         priority: 2
@@ -3020,10 +3020,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 4
+        value: 37
         type: 5
       - title: Conversant
-        value: 1
+        value: 5
         type: 5
       - title: Menu Text
         value: 
@@ -3049,7 +3049,7 @@ MonoBehaviour:
       - title: Mood
         value: 
         type: 0
-      conversationID: 5
+      conversationID: 77
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -3059,7 +3059,7 @@ MonoBehaviour:
       outgoingLinks: []
       conditionsString: 
       userScript: 
-  - id: 6
+  - id: 78
     fields:
     - title: Title
       value: Exposure
@@ -3071,10 +3071,10 @@ MonoBehaviour:
       value: 
       type: 0
     - title: Actor
-      value: 1
+      value: 5
       type: 5
     - title: Conversant
-      value: 1
+      value: 5
       type: 5
     - title: Act
       value: 
@@ -3108,10 +3108,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 1
+        value: 5
         type: 5
       - title: Conversant
-        value: 1
+        value: 5
         type: 5
       - title: Menu Text
         value: 
@@ -3140,7 +3140,7 @@ MonoBehaviour:
       - title: Sequence
         value: None()
         type: 0
-      conversationID: 6
+      conversationID: 78
       isRoot: 1
       isGroup: 0
       nodeColor: White
@@ -3148,9 +3148,9 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 6
+      - originConversationID: 78
         originDialogueID: 0
-        destinationConversationID: 6
+        destinationConversationID: 78
         destinationDialogueID: 5
         isConnector: 0
         priority: 2
@@ -3168,17 +3168,17 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 1
+        value: 5
         type: 5
       - title: Conversant
-        value: 1
+        value: 5
         type: 5
       - title: Menu Text
         value: Make a note of all the details.
         type: 0
       - title: Dialogue Text
         value: 
-        type: 0
+        type: 4
       - title: Parenthetical
         value: 
         type: 0
@@ -3197,10 +3197,7 @@ MonoBehaviour:
       - title: Mood
         value: 
         type: 0
-      - title: Sequence
-        value: 
-        type: 0
-      conversationID: 6
+      conversationID: 78
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -3208,9 +3205,9 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 6
+      - originConversationID: 78
         originDialogueID: 1
-        destinationConversationID: 6
+        destinationConversationID: 78
         destinationDialogueID: 6
         isConnector: 0
         priority: 2
@@ -3228,10 +3225,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 4
+        value: 37
         type: 5
       - title: Conversant
-        value: 1
+        value: 5
         type: 5
       - title: Menu Text
         value: Call LPU1 to review our exposure to Chong Hin Group.
@@ -3257,7 +3254,7 @@ MonoBehaviour:
       - title: Mood
         value: 
         type: 0
-      conversationID: 6
+      conversationID: 78
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -3280,10 +3277,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 4
+        value: 37
         type: 5
       - title: Conversant
-        value: 1
+        value: 5
         type: 5
       - title: Menu Text
         value: Put the issue on hold and get back to it later.
@@ -3309,7 +3306,7 @@ MonoBehaviour:
       - title: Mood
         value: 
         type: 0
-      conversationID: 6
+      conversationID: 78
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -3331,10 +3328,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 4
+        value: 37
         type: 5
       - title: Conversant
-        value: 1
+        value: 5
         type: 5
       - title: Menu Text
         value: We are not exposed. So, nothing to worry about.
@@ -3360,7 +3357,7 @@ MonoBehaviour:
       - title: Mood
         value: 
         type: 0
-      conversationID: 6
+      conversationID: 78
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -3382,15 +3379,15 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 1
+        value: 5
         type: 5
       - title: Conversant
-        value: 1
+        value: 5
         type: 5
       - title: Sequence
         value: None()
         type: 0
-      conversationID: 6
+      conversationID: 78
       isRoot: 0
       isGroup: 1
       nodeColor: White
@@ -3398,27 +3395,27 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 6
+      - originConversationID: 78
         originDialogueID: 5
-        destinationConversationID: 6
+        destinationConversationID: 78
         destinationDialogueID: 1
         isConnector: 0
         priority: 2
-      - originConversationID: 6
+      - originConversationID: 78
         originDialogueID: 5
-        destinationConversationID: 6
+        destinationConversationID: 78
         destinationDialogueID: 2
         isConnector: 0
         priority: 2
-      - originConversationID: 6
+      - originConversationID: 78
         originDialogueID: 5
-        destinationConversationID: 6
+        destinationConversationID: 78
         destinationDialogueID: 3
         isConnector: 0
         priority: 2
-      - originConversationID: 6
+      - originConversationID: 78
         originDialogueID: 5
-        destinationConversationID: 6
+        destinationConversationID: 78
         destinationDialogueID: 4
         isConnector: 0
         priority: 2
@@ -3436,17 +3433,17 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 1
+        value: 5
         type: 5
       - title: Conversant
-        value: 1
+        value: 5
         type: 5
       - title: Menu Text
         value: 
         type: 0
       - title: Dialogue Text
         value: Now what should I do?
-        type: 0
+        type: 4
       - title: Parenthetical
         value: 
         type: 0
@@ -3465,10 +3462,7 @@ MonoBehaviour:
       - title: Mood
         value: 
         type: 0
-      - title: Sequence
-        value: 
-        type: 0
-      conversationID: 6
+      conversationID: 78
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -3476,15 +3470,15 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 6
+      - originConversationID: 78
         originDialogueID: 6
-        destinationConversationID: 6
+        destinationConversationID: 78
         destinationDialogueID: 5
         isConnector: 1
         priority: 2
       conditionsString: 
       userScript: 
-  - id: 7
+  - id: 79
     fields:
     - title: Title
       value: exposure phone call
@@ -3496,10 +3490,10 @@ MonoBehaviour:
       value: 
       type: 0
     - title: Actor
-      value: 1
+      value: 5
       type: 5
     - title: Conversant
-      value: 2
+      value: 36
       type: 5
     - title: Act
       value: 
@@ -3533,10 +3527,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 1
+        value: 5
         type: 5
       - title: Conversant
-        value: 2
+        value: 36
         type: 5
       - title: Menu Text
         value: 
@@ -3565,7 +3559,7 @@ MonoBehaviour:
       - title: Sequence
         value: None()
         type: 0
-      conversationID: 7
+      conversationID: 79
       isRoot: 1
       isGroup: 0
       nodeColor: White
@@ -3573,9 +3567,9 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 7
+      - originConversationID: 79
         originDialogueID: 0
-        destinationConversationID: 7
+        destinationConversationID: 79
         destinationDialogueID: 1
         isConnector: 0
         priority: 2
@@ -3593,10 +3587,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 2
+        value: 36
         type: 5
       - title: Conversant
-        value: 1
+        value: 5
         type: 5
       - title: Menu Text
         value: 
@@ -3622,7 +3616,7 @@ MonoBehaviour:
       - title: Mood
         value: 
         type: 0
-      conversationID: 7
+      conversationID: 79
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -3630,9 +3624,9 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 7
+      - originConversationID: 79
         originDialogueID: 1
-        destinationConversationID: 7
+        destinationConversationID: 79
         destinationDialogueID: 2
         isConnector: 0
         priority: 2
@@ -3650,10 +3644,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 1
+        value: 5
         type: 5
       - title: Conversant
-        value: 2
+        value: 36
         type: 5
       - title: Menu Text
         value: 
@@ -3680,7 +3674,7 @@ MonoBehaviour:
       - title: Mood
         value: 
         type: 0
-      conversationID: 7
+      conversationID: 79
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -3688,9 +3682,9 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 7
+      - originConversationID: 79
         originDialogueID: 2
-        destinationConversationID: 7
+        destinationConversationID: 79
         destinationDialogueID: 3
         isConnector: 0
         priority: 2
@@ -3708,10 +3702,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 2
+        value: 36
         type: 5
       - title: Conversant
-        value: 1
+        value: 5
         type: 5
       - title: Menu Text
         value: 
@@ -3737,7 +3731,7 @@ MonoBehaviour:
       - title: Mood
         value: 
         type: 0
-      conversationID: 7
+      conversationID: 79
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -3745,9 +3739,9 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 7
+      - originConversationID: 79
         originDialogueID: 3
-        destinationConversationID: 7
+        destinationConversationID: 79
         destinationDialogueID: 4
         isConnector: 0
         priority: 2
@@ -3765,17 +3759,17 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 1
+        value: 5
         type: 5
       - title: Conversant
-        value: 2
+        value: 36
         type: 5
       - title: Menu Text
         value: 
         type: 0
       - title: Dialogue Text
         value: No that's it for now. Report back to me once its done.
-        type: 0
+        type: 4
       - title: Parenthetical
         value: 
         type: 0
@@ -3794,10 +3788,7 @@ MonoBehaviour:
       - title: Mood
         value: 
         type: 0
-      - title: Sequence
-        value: 
-        type: 0
-      conversationID: 7
+      conversationID: 79
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -3805,9 +3796,9 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 7
+      - originConversationID: 79
         originDialogueID: 4
-        destinationConversationID: 7
+        destinationConversationID: 79
         destinationDialogueID: 5
         isConnector: 0
         priority: 2
@@ -3825,17 +3816,17 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 2
+        value: 36
         type: 5
       - title: Conversant
-        value: 1
+        value: 5
         type: 5
       - title: Menu Text
         value: 
         type: 0
       - title: Dialogue Text
         value: Alright I will do so.
-        type: 0
+        type: 4
       - title: Parenthetical
         value: 
         type: 0
@@ -3854,10 +3845,7 @@ MonoBehaviour:
       - title: Mood
         value: 
         type: 0
-      - title: Sequence
-        value: 
-        type: 0
-      conversationID: 7
+      conversationID: 79
       isRoot: 0
       isGroup: 0
       nodeColor: White

@@ -16,6 +16,12 @@ public class AudioManager : MonoBehaviour
 {
 	public AudioClip[] Audioclips;
 
+
+	public AudioSource Play(AudioClip clip){
+
+		return Play(clip, GameObject.Find (PhotonNetwork.playerName).transform, .7f, 1f);
+	}
+
 	public AudioSource Play(AudioClip clip, Transform emitter)
 	{
 		return Play(clip, emitter, 1f, 1f);
