@@ -29,7 +29,7 @@ public class DocumentHandler : MonoBehaviour {
 	
 	public bool correct_document;
 	
-	public string mode = "FileMode";
+	public string mode;
 
 	public string pick_up_doc_id;
 	public string deposit_doc_id;
@@ -46,7 +46,7 @@ public class DocumentHandler : MonoBehaviour {
 	public string send_unsign_correct_doc;
 	public string send_sign_correct_doc;
 	
-	public Rect signArea = new Rect(50f, 50f, 100f, 50f );
+	Rect signArea;
 	
 	// Use this for initialization
 	void Start () {
@@ -101,7 +101,7 @@ public class DocumentHandler : MonoBehaviour {
 	}
 	void Update(){
 
-		
+	
 	}
 
 	
@@ -132,19 +132,16 @@ public class DocumentHandler : MonoBehaviour {
 		
 		
 	}
-	
+
+
 	void OnGUI(){
-		if (mode == "PCMode") {
-			//print ("pc");
-						signArea = new Rect ( w/4 - 50f, .9f * h - 50f, 100f, 50f);
-				}
-		if (mode == "FileMode") {
-			//print ("file");
-						signArea = new Rect (.5f * w - 50f, .9f * h - 105f, 100f, 50f);
-				}
 
 
-		if(pages[currentPageIndex].GetComponent<pageHandler>().isLastPage)
+
+
+
+
+		if(pages[currentPageIndex].GetComponent<pageHandler>().isLastPage && mode != "FileMode" && mode != "NoneMode")
 		{
 			if(LO_signed)
 				LO_signature.SetActive(true); 
@@ -157,10 +154,10 @@ public class DocumentHandler : MonoBehaviour {
 			{
 			case "LPU Officer":
 				
-				if(!LO_signed)
+				if(!LO_signed )
 					
 				{
-					if(GUI.Button( signArea, "Sign", customSkin.button))
+					if(GUI.Button( mode == "PCMode"? new Rect ( w/4 - 50f, .9f * h - 50f, 100f, 50f):new Rect (.5f * w - 50f, .9f * h - 105f, 100f, 50f), "Sign", customSkin.button))
 					{
 						PhotonView photonView = this.gameObject.GetPhotonView();
 						photonView.RPC ("signDoc",PhotonTargets.AllBuffered,"LO");
@@ -201,7 +198,7 @@ public class DocumentHandler : MonoBehaviour {
 				if(!LM_signed)
 					
 				{
-					if(GUI.Button( signArea, "Sign", customSkin.button))
+					if(GUI.Button( mode == "PCMode"? new Rect ( w/4 - 50f, .9f * h - 50f, 100f, 50f):new Rect (.5f * w - 50f, .9f * h - 105f, 100f, 50f), "Sign", customSkin.button))
 					{
 						PhotonView photonView = this.gameObject.GetPhotonView();
 						photonView.RPC ("signDoc",PhotonTargets.AllBuffered,"LM");
@@ -238,7 +235,7 @@ public class DocumentHandler : MonoBehaviour {
 				if(!CR_signed)
 					
 				{
-					if(GUI.Button( new LTRect(.5f*w - 50f, .9f*h - 105f, 100f, 50f ).rect, "Sign", customSkin.button))
+					if(GUI.Button( mode == "PCMode"? new Rect ( w/4 - 50f, .9f * h - 50f, 100f, 50f):new Rect (.5f * w - 50f, .9f * h - 105f, 100f, 50f), "Sign", customSkin.button))
 					{
 						
 						
