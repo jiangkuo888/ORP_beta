@@ -39,7 +39,8 @@ public class NPCsync: MonoBehaviour {
 	 
 	public void sendMessageRPC(string senderName,string receiverName,string messageName)
 	{
-
+		print ("send conversation");
+		
 		Debug.Log ("Sending RPC...");
 		PhotonView photonView = this.gameObject.GetPhotonView();
 		photonView.RPC ("SendMessage",PhotonTargets.OthersBuffered,senderName,receiverName,messageName);
@@ -84,7 +85,9 @@ public class NPCsync: MonoBehaviour {
 		
 		if(PhotonNetwork.playerName == receiver)
 		{
-			
+
+			print (gameObject.name);
+
 			print ("RPC received "+sender+receiver+message);
 			// show inbox red dot
 			GameObject.Find ("RedDot").GetComponent<GUIresponsive>().addRedDot();

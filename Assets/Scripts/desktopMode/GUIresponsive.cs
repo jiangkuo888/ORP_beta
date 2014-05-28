@@ -71,7 +71,7 @@ public class GUIresponsive : MonoBehaviour {
 		// Position the billboard in the center, 
 		// but respect the picture aspect ratio
 
-		
+		unreadNumber = 0;
 		
 		//		print(textureAspectRatio);
 		if (textureAspectRatio <= screenAspectRatio)
@@ -116,6 +116,8 @@ public class GUIresponsive : MonoBehaviour {
 	public void addRedDot(){
 
 		// updateRedDot position
+
+		print ("Received 1 message, red dot +1");
 
 		updateRedDot();
 		unreadNumber += 1;

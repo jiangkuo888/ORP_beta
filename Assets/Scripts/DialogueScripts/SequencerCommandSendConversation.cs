@@ -69,7 +69,6 @@ public class SequencerCommandSendConversation : SequencerCommand {
 	
 
 
-
 		GameObject.Find ("Dialogue Manager").GetComponent<NPCsync>().sendMessageRPC(senderName,receiverName,messageName);
 	}
 	
