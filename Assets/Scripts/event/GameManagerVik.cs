@@ -539,7 +539,7 @@ public class GameManagerVik : Photon.MonoBehaviour {
 	public void CameraChange(GameObject ch)
 	{
 		Camera.main.transform.parent = ch.transform;
-		Camera.main.transform.localPosition =  new Vector3(0,1.257728f, 0);
+		Camera.main.transform.localPosition =  new Vector3(0,1.607728f, 0);
 		Camera.main.transform.localEulerAngles = new Vector3(0.6651921f, 90, 0);
 		
 		//update the camera state for playback
