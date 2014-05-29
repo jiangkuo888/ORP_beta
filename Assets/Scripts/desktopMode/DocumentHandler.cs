@@ -12,6 +12,7 @@ public class DocumentHandler : MonoBehaviour {
 	public GameObject LO_signature;
 	public GameObject LM_signature;
 	public GameObject CR_signature;
+	public GameObject TT_signature;
 	PlayMakerFSM EventFSM;
 	
 	//Kris test access of enum from DeskMode.cs
@@ -24,7 +25,7 @@ public class DocumentHandler : MonoBehaviour {
 	//public bool lastPage;
 	float w,h;
 	
-	public bool LO_signed,LM_signed,CR_signed;
+	public bool LO_signed,LM_signed,CR_signed,TT_signed;
 	
 	
 	public bool correct_document;
@@ -120,6 +121,7 @@ public class DocumentHandler : MonoBehaviour {
 		pages[0].SetActive(true);
 
 
+
 	}
 	void addToList(Transform tr){
 		
@@ -149,6 +151,34 @@ public class DocumentHandler : MonoBehaviour {
 				LM_signature.SetActive(true);
 			if(CR_signed)
 				CR_signature.SetActive(true);
+			if(TT_signed)
+				TT_signature.SetActive(true);
+
+
+			if(GameObject.Find ("GameManager").GetComponent<GameManagerVik>().isTutorial)
+			{
+				if(!TT_signed)
+					
+				{
+					if(GUI.Button( mode == "PCMode"? new Rect ( w/4 - 50f, .9f * h - 50f, 100f, 50f):new Rect (.5f * w - 50f, .9f * h - 105f, 100f, 50f), "Sign", customSkin.button))
+					{
+						if(EventFSM.enabled)
+							if(EventFSM.ActiveStateName == "Sign")
+								EventFSM.FsmVariables.GetFsmBool("signed").Value = true;
+						
+						print ("tt signed");
+						TT_signed = true;
+						
+						
+					}
+				}
+
+
+				return;
+			}
+
+
+
 			
 			switch(PhotonNetwork.playerName)
 			{
@@ -162,9 +192,7 @@ public class DocumentHandler : MonoBehaviour {
 						PhotonView photonView = this.gameObject.GetPhotonView();
 						photonView.RPC ("signDoc",PhotonTargets.AllBuffered,"LO");
 						
-						if(EventFSM.enabled)
-							if(EventFSM.ActiveStateName == "Sign")
-								EventFSM.FsmVariables.GetFsmBool("signed").Value = true;
+				
 						// log the user action in database
 						if(correct_document)
 						{
@@ -203,9 +231,7 @@ public class DocumentHandler : MonoBehaviour {
 						PhotonView photonView = this.gameObject.GetPhotonView();
 						photonView.RPC ("signDoc",PhotonTargets.AllBuffered,"LM");
 						
-						if(EventFSM.enabled)
-							if(EventFSM.ActiveStateName == "Sign")
-								EventFSM.FsmVariables.GetFsmBool("signed").Value = true;
+
 						// log the user action in database
 						if(correct_document)
 						{
@@ -244,9 +270,7 @@ public class DocumentHandler : MonoBehaviour {
 						photonView.RPC ("signDoc",PhotonTargets.AllBuffered,"CR");
 						
 						
-						if(EventFSM.enabled)
-							if(EventFSM.ActiveStateName == "Sign")
-								EventFSM.FsmVariables.GetFsmBool("signed").Value = true;
+
 						// log the user action in database
 						if(correct_document)
 						{
@@ -270,9 +294,13 @@ public class DocumentHandler : MonoBehaviour {
 				// accept the document
 				
 				break;
-				
-				
+			case "Sales Manager":
+				break;
+
 			default:
+
+
+
 				break;
 				
 				
@@ -290,6 +318,9 @@ public class DocumentHandler : MonoBehaviour {
 			
 
 				CR_signature.SetActive(false);
+
+
+				TT_signature.SetActive(false);
 			
 		}
 		
@@ -316,6 +347,7 @@ public class DocumentHandler : MonoBehaviour {
 			CR_signed = true;
 			
 			break;
+		
 		default:
 			break;
 			
@@ -344,6 +376,7 @@ public class DocumentHandler : MonoBehaviour {
 			
 			if(currentPageIndex == pages.Length - 1)
 			{
+
 				pages[currentPageIndex].GetComponent<pageHandler>().isLastPage = true;
 			}
 			else{

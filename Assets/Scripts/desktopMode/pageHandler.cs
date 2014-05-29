@@ -3,7 +3,7 @@ using System.Collections;
 
 public class pageHandler : MonoBehaviour {
 
-	public bool isLastPage;
+	public bool isLastPage= false;
 	public GameObject [] circles;
 
 
@@ -15,7 +15,7 @@ public class pageHandler : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		collectChildren();
-		isLastPage = false;
+
 	}
 	
 	// Update is called once per frame
@@ -24,6 +24,8 @@ public class pageHandler : MonoBehaviour {
 	}
 
 	void collectChildren(){
+
+	    
 
 		foreach( Transform child in transform)
 		{
