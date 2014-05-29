@@ -408,6 +408,36 @@ MonoBehaviour:
       value: False
       type: 2
     portrait: {fileID: 0}
+  - id: 35
+    fields:
+    - title: Name
+      value: customer
+      type: 0
+    - title: Pictures
+      value: '[]'
+      type: 3
+    - title: Description
+      value: 
+      type: 0
+    - title: IsPlayer
+      value: False
+      type: 2
+    portrait: {fileID: 0}
+  - id: 36
+    fields:
+    - title: Name
+      value: Legal Manager
+      type: 0
+    - title: Pictures
+      value: '[]'
+      type: 3
+    - title: Description
+      value: 
+      type: 0
+    - title: IsPlayer
+      value: False
+      type: 2
+    portrait: {fileID: 0}
   items:
   - id: 13
     fields:
@@ -6062,7 +6092,7 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks: []
-      conditionsString: 
+      conditionsString: Item["Fire_Escape_Blockage"].State ~= "Success";
       userScript: 
     - id: 2
       fields:
@@ -6101,7 +6131,7 @@ MonoBehaviour:
         destinationDialogueID: 3
         isConnector: 0
         priority: 2
-      conditionsString: 
+      conditionsString: Item["Fire_Escape_Blockage"].State ~= "Success";
       userScript: 
     - id: 3
       fields:
@@ -6428,10 +6458,10 @@ MonoBehaviour:
       value: 
       type: 0
     - title: Actor
-      value: 4
+      value: 5
       type: 5
     - title: Conversant
-      value: 6
+      value: 35
       type: 5
     nodeColor: Red
     dialogueEntries:
@@ -6441,10 +6471,10 @@ MonoBehaviour:
         value: START
         type: 0
       - title: Actor
-        value: 4
+        value: 5
         type: 5
       - title: Conversant
-        value: 6
+        value: 35
         type: 5
       - title: Menu Text
         value: 
@@ -6480,16 +6510,16 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 6
+        value: 35
         type: 5
       - title: Conversant
-        value: 4
+        value: 5
         type: 5
       - title: Menu Text
         value: 
         type: 0
       - title: Dialogue Text
-        value: Hi, my name is Frank Williams. I am calling regarding my loan extension.
+        value: Hi, my name is Tan. I am calling regarding my loan extension.
         type: 4
       - title: Video File
         value: 
@@ -6519,7 +6549,7 @@ MonoBehaviour:
         value: information
         type: 0
       - title: Actor
-        value: 6
+        value: 5
         type: 5
       - title: Conversant
         value: 1
@@ -6573,10 +6603,10 @@ MonoBehaviour:
         value: New Dialogue
         type: 0
       - title: Actor
-        value: 4
+        value: 5
         type: 5
       - title: Conversant
-        value: 6
+        value: 35
         type: 5
       - title: Menu Text
         value: '[f]Ask for refernce no.'
@@ -6604,7 +6634,7 @@ MonoBehaviour:
         destinationDialogueID: 4
         isConnector: 0
         priority: 2
-      conditionsString: Dialog[2].SimStatus ~= "WasDisplayed"
+      conditionsString: Dialog[3].SimStatus ~= "WasDisplayed"
       userScript: 
     - id: 4
       fields:
@@ -6612,10 +6642,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 6
+        value: 35
         type: 5
       - title: Conversant
-        value: 4
+        value: 5
         type: 5
       - title: Menu Text
         value: 
@@ -6651,10 +6681,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 4
+        value: 5
         type: 5
       - title: Conversant
-        value: 6
+        value: 35
         type: 5
       - title: Menu Text
         value: '[f]Check the document.'
@@ -6682,7 +6712,7 @@ MonoBehaviour:
         destinationDialogueID: 6
         isConnector: 0
         priority: 2
-      conditionsString: Dialog[2].SimStatus == "WasDisplayed" and Dialog[5].SimStatus
+      conditionsString: Dialog[3].SimStatus == "WasDisplayed" and Dialog[5].SimStatus
         ~= "WasDisplayed"
       userScript: 
     - id: 6
@@ -6691,10 +6721,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 6
+        value: 35
         type: 5
       - title: Conversant
-        value: 4
+        value: 5
         type: 5
       - title: Menu Text
         value: 
@@ -6730,10 +6760,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 4
+        value: 5
         type: 5
       - title: Conversant
-        value: 6
+        value: 35
         type: 5
       - title: Menu Text
         value: '[f]Notify the Customer.'
@@ -6771,10 +6801,10 @@ MonoBehaviour:
         value: New Dialogue
         type: 0
       - title: Actor
-        value: 6
+        value: 35
         type: 5
       - title: Conversant
-        value: 4
+        value: 5
         type: 5
       - title: Menu Text
         value: 
@@ -6812,10 +6842,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 4
+        value: 5
         type: 5
       - title: Conversant
-        value: 6
+        value: 35
         type: 5
       - title: Menu Text
         value: 
@@ -6852,10 +6882,10 @@ MonoBehaviour:
         value: New Dialogue
         type: 0
       - title: Actor
-        value: 6
+        value: 35
         type: 5
       - title: Conversant
-        value: 4
+        value: 5
         type: 5
       - title: Menu Text
         value: 
@@ -6888,19 +6918,20 @@ MonoBehaviour:
     - id: 11
       fields:
       - title: Title
-        value: 
+        value: New Dialogue
         type: 0
       - title: Actor
-        value: 4
+        value: 5
         type: 5
       - title: Conversant
-        value: 4
+        value: 5
         type: 5
       - title: Menu Text
-        value: Report to Credit Risk Manger.
+        value: ' No action is required.'
         type: 0
       - title: Dialogue Text
-        value: 
+        value: 'Outstanding is only 3 months ,Recovery team will follow-up  with Mr.
+          Tan.  '
         type: 4
       - title: Video File
         value: 
@@ -6916,21 +6947,103 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks: []
-      conditionsString: Dialog[10].SimStatus == "WasDisplayed"
+      conditionsString: Dialog[10].SimStatus == "WasDisplayed" and Dialog[11].SimStatus
+        ~= "WasDisplayed"
       userScript: 
     - id: 12
       fields:
       - title: Title
+        value: 
+        type: 0
+      - title: Actor
+        value: 5
+        type: 5
+      - title: Conversant
+        value: 5
+        type: 5
+      - title: Menu Text
+        value: Arrange a meeting with Legal Manager, Head of collections and LPU Manager.
+        type: 0
+      - title: Dialogue Text
+        value: 
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 55
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 55
+        originDialogueID: 12
+        destinationConversationID: 55
+        destinationDialogueID: 13
+        isConnector: 0
+        priority: 2
+      - originConversationID: 55
+        originDialogueID: 12
+        destinationConversationID: 55
+        destinationDialogueID: 14
+        isConnector: 0
+        priority: 2
+      conditionsString: Dialog[10].SimStatus == "WasDisplayed"
+      userScript: 
+    - id: 13
+      fields:
+      - title: Title
+        value: 
+        type: 0
+      - title: Actor
+        value: 5
+        type: 5
+      - title: Conversant
+        value: 5
+        type: 5
+      - title: Menu Text
+        value: Inform Legal and LPU Manager  to send all the documents for review.
+        type: 0
+      - title: Dialogue Text
+        value: 'A message has been sent to Legal manager and LPU Manager to send all
+          the documents.
+
+'
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 55
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: 
+    - id: 14
+      fields:
+      - title: Title
         value: New Dialogue
         type: 0
       - title: Actor
-        value: 4
+        value: 5
         type: 5
       - title: Conversant
-        value: 4
+        value: 5
         type: 5
       - title: Menu Text
-        value: Proceed with loan Extension.
+        value: Nothing to send
         type: 0
       - title: Dialogue Text
         value: 
@@ -6949,215 +7062,9 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks: []
-      conditionsString: Dialog[10].SimStatus == "WasDisplayed"
+      conditionsString: 
       userScript: 
   - id: 56
-    fields:
-    - title: Title
-      value: Decision regarding block leave
-      type: 0
-    - title: Description
-      value: 
-      type: 0
-    - title: Actor
-      value: 5
-      type: 5
-    - title: Conversant
-      value: 5
-      type: 5
-    nodeColor: Red
-    dialogueEntries:
-    - id: 0
-      fields:
-      - title: Title
-        value: START
-        type: 0
-      - title: Actor
-        value: 5
-        type: 5
-      - title: Conversant
-        value: 5
-        type: 5
-      - title: Menu Text
-        value: 
-        type: 0
-      - title: Dialogue Text
-        value: 
-        type: 4
-      - title: Video File
-        value: 
-        type: 0
-      - title: Sequence
-        value: None()
-        type: 0
-      conversationID: 56
-      isRoot: 1
-      isGroup: 0
-      nodeColor: White
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks:
-      - originConversationID: 56
-        originDialogueID: 0
-        destinationConversationID: 56
-        destinationDialogueID: 1
-        isConnector: 0
-        priority: 2
-      conditionsString: 
-      userScript: 
-    - id: 1
-      fields:
-      - title: Title
-        value: 
-        type: 0
-      - title: Actor
-        value: 5
-        type: 5
-      - title: Conversant
-        value: 5
-        type: 5
-      - title: Menu Text
-        value: 
-        type: 0
-      - title: Dialogue Text
-        value: Felicia has two months block leave not taken and there are two months
-          left in the year. What should i do?
-        type: 4
-      - title: Video File
-        value: 
-        type: 0
-      - title: Sequence
-        value: 
-        type: 0
-      conversationID: 56
-      isRoot: 0
-      isGroup: 0
-      nodeColor: White
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks:
-      - originConversationID: 56
-        originDialogueID: 1
-        destinationConversationID: 56
-        destinationDialogueID: 2
-        isConnector: 0
-        priority: 2
-      - originConversationID: 56
-        originDialogueID: 1
-        destinationConversationID: 56
-        destinationDialogueID: 3
-        isConnector: 0
-        priority: 2
-      - originConversationID: 56
-        originDialogueID: 1
-        destinationConversationID: 56
-        destinationDialogueID: 4
-        isConnector: 0
-        priority: 2
-      conditionsString: 
-      userScript: 
-    - id: 2
-      fields:
-      - title: Title
-        value: New Dialogue
-        type: 0
-      - title: Actor
-        value: 5
-        type: 5
-      - title: Conversant
-        value: 5
-        type: 5
-      - title: Menu Text
-        value: I will get back to it later.
-        type: 0
-      - title: Dialogue Text
-        value: 
-        type: 0
-      - title: Video File
-        value: 
-        type: 0
-      - title: Sequence
-        value: 
-        type: 0
-      conversationID: 56
-      isRoot: 0
-      isGroup: 0
-      nodeColor: White
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks: []
-      conditionsString: Dialog[2].SimStatus ~= "WasDisplayed"
-      userScript: 
-    - id: 3
-      fields:
-      - title: Title
-        value: New Dialogue
-        type: 0
-      - title: Actor
-        value: 5
-        type: 5
-      - title: Conversant
-        value: 5
-        type: 5
-      - title: Menu Text
-        value: Block leave is not mandatory so it is not important.
-        type: 0
-      - title: Dialogue Text
-        value: 
-        type: 4
-      - title: Video File
-        value: 
-        type: 0
-      - title: Sequence
-        value: 
-        type: 0
-      conversationID: 56
-      isRoot: 0
-      isGroup: 0
-      nodeColor: White
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks: []
-      conditionsString: Dialog[3].SimStatus ~= "WasDisplayed"
-      userScript: 
-    - id: 4
-      fields:
-      - title: Title
-        value: 
-        type: 0
-      - title: Actor
-        value: 5
-        type: 5
-      - title: Conversant
-        value: 5
-        type: 5
-      - title: Menu Text
-        value: Call Felicia regarding leave
-        type: 0
-      - title: Dialogue Text
-        value: 
-        type: 0
-      - title: Video File
-        value: 
-        type: 0
-      - title: Sequence
-        value: BLeave();
-        type: 0
-      conversationID: 56
-      isRoot: 0
-      isGroup: 0
-      nodeColor: White
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks: []
-      conditionsString: Dialog[4].SimStatus ~= "WasDisplayed"
-      userScript: 
-  - id: 57
     fields:
     - title: Title
       value: Risk report
@@ -7196,7 +7103,7 @@ MonoBehaviour:
       - title: Sequence
         value: None()
         type: 0
-      conversationID: 57
+      conversationID: 56
       isRoot: 1
       isGroup: 0
       nodeColor: White
@@ -7204,9 +7111,9 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 57
+      - originConversationID: 56
         originDialogueID: 0
-        destinationConversationID: 57
+        destinationConversationID: 56
         destinationDialogueID: 1
         isConnector: 0
         priority: 2
@@ -7235,7 +7142,7 @@ MonoBehaviour:
       - title: Sequence
         value: 
         type: 0
-      conversationID: 57
+      conversationID: 56
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -7243,15 +7150,15 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 57
+      - originConversationID: 56
         originDialogueID: 1
-        destinationConversationID: 57
+        destinationConversationID: 56
         destinationDialogueID: 2
         isConnector: 0
         priority: 2
-      - originConversationID: 57
+      - originConversationID: 56
         originDialogueID: 1
-        destinationConversationID: 57
+        destinationConversationID: 56
         destinationDialogueID: 18
         isConnector: 0
         priority: 2
@@ -7283,7 +7190,7 @@ MonoBehaviour:
       - title: Sequence
         value: 
         type: 0
-      conversationID: 57
+      conversationID: 56
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -7291,9 +7198,9 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 57
+      - originConversationID: 56
         originDialogueID: 2
-        destinationConversationID: 57
+        destinationConversationID: 56
         destinationDialogueID: 3
         isConnector: 0
         priority: 2
@@ -7322,7 +7229,7 @@ MonoBehaviour:
       - title: Sequence
         value: 
         type: 0
-      conversationID: 57
+      conversationID: 56
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -7330,21 +7237,21 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 57
+      - originConversationID: 56
         originDialogueID: 3
-        destinationConversationID: 57
+        destinationConversationID: 56
         destinationDialogueID: 4
         isConnector: 0
         priority: 2
-      - originConversationID: 57
+      - originConversationID: 56
         originDialogueID: 3
-        destinationConversationID: 57
+        destinationConversationID: 56
         destinationDialogueID: 14
         isConnector: 0
         priority: 2
-      - originConversationID: 57
+      - originConversationID: 56
         originDialogueID: 3
-        destinationConversationID: 57
+        destinationConversationID: 56
         destinationDialogueID: 16
         isConnector: 0
         priority: 2
@@ -7374,7 +7281,7 @@ MonoBehaviour:
       - title: Sequence
         value: 
         type: 0
-      conversationID: 57
+      conversationID: 56
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -7382,9 +7289,9 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 57
+      - originConversationID: 56
         originDialogueID: 4
-        destinationConversationID: 57
+        destinationConversationID: 56
         destinationDialogueID: 5
         isConnector: 0
         priority: 2
@@ -7407,6 +7314,745 @@ MonoBehaviour:
       - title: Dialogue Text
         value: Oh I see. Then i will make some changes or perhaps would you like to
           guide me?
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 56
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 56
+        originDialogueID: 5
+        destinationConversationID: 56
+        destinationDialogueID: 6
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+    - id: 6
+      fields:
+      - title: Title
+        value: New Dialogue
+        type: 0
+      - title: Actor
+        value: 5
+        type: 5
+      - title: Conversant
+        value: 3
+        type: 5
+      - title: Menu Text
+        value: 
+        type: 0
+      - title: Dialogue Text
+        value: 'Yes, definitely. I can give you a general format for writing this
+          Risk report more accurately. So Let me start with vital points. What is
+          the ''Event'' relating to the risk? '
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 56
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 56
+        originDialogueID: 6
+        destinationConversationID: 56
+        destinationDialogueID: 7
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+    - id: 7
+      fields:
+      - title: Title
+        value: 
+        type: 0
+      - title: Actor
+        value: 3
+        type: 5
+      - title: Conversant
+        value: 5
+        type: 5
+      - title: Menu Text
+        value: 
+        type: 0
+      - title: Dialogue Text
+        value: It is External Fraud.
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 56
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 56
+        originDialogueID: 7
+        destinationConversationID: 56
+        destinationDialogueID: 8
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+    - id: 8
+      fields:
+      - title: Title
+        value: 
+        type: 0
+      - title: Actor
+        value: 5
+        type: 5
+      - title: Conversant
+        value: 3
+        type: 5
+      - title: Menu Text
+        value: 
+        type: 0
+      - title: Dialogue Text
+        value: Yes, what is the cause?
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 56
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 56
+        originDialogueID: 8
+        destinationConversationID: 56
+        destinationDialogueID: 9
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+    - id: 9
+      fields:
+      - title: Title
+        value: 
+        type: 0
+      - title: Actor
+        value: 3
+        type: 5
+      - title: Conversant
+        value: 5
+        type: 5
+      - title: Menu Text
+        value: 
+        type: 0
+      - title: Dialogue Text
+        value: Hmm.. failure to verify property in question?
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 56
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 56
+        originDialogueID: 9
+        destinationConversationID: 56
+        destinationDialogueID: 10
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+    - id: 10
+      fields:
+      - title: Title
+        value: New Dialogue
+        type: 0
+      - title: Actor
+        value: 5
+        type: 5
+      - title: Conversant
+        value: 3
+        type: 5
+      - title: Menu Text
+        value: 
+        type: 0
+      - title: Dialogue Text
+        value: Correct and What is the impact?
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 56
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 56
+        originDialogueID: 10
+        destinationConversationID: 56
+        destinationDialogueID: 11
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+    - id: 11
+      fields:
+      - title: Title
+        value: New Dialogue
+        type: 0
+      - title: Actor
+        value: 3
+        type: 5
+      - title: Conversant
+        value: 5
+        type: 5
+      - title: Menu Text
+        value: 
+        type: 0
+      - title: Dialogue Text
+        value: ' A Potential Financial Loss and Reputational Impact.'
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 56
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 56
+        originDialogueID: 11
+        destinationConversationID: 56
+        destinationDialogueID: 12
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+    - id: 12
+      fields:
+      - title: Title
+        value: New Dialogue
+        type: 0
+      - title: Actor
+        value: 5
+        type: 5
+      - title: Conversant
+        value: 3
+        type: 5
+      - title: Menu Text
+        value: 
+        type: 0
+      - title: Dialogue Text
+        value: 'Exactly. Therefore the risk statement could read like - Potential
+          for Financial and Reputational loss arising from External Loan Fraud, caused
+          due to failure to verify the underlying property. '
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 56
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 56
+        originDialogueID: 12
+        destinationConversationID: 56
+        destinationDialogueID: 13
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+    - id: 13
+      fields:
+      - title: Title
+        value: New Dialogue
+        type: 0
+      - title: Actor
+        value: 3
+        type: 5
+      - title: Conversant
+        value: 5
+        type: 5
+      - title: Menu Text
+        value: 
+        type: 0
+      - title: Dialogue Text
+        value: Oh ok , got it. Thank you for the help.
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: CRdidGuideLPU();
+        type: 0
+      conversationID: 56
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: 
+    - id: 14
+      fields:
+      - title: Title
+        value: 
+        type: 0
+      - title: Actor
+        value: 5
+        type: 5
+      - title: Conversant
+        value: 3
+        type: 5
+      - title: Menu Text
+        value: Happy with the report.
+        type: 0
+      - title: Dialogue Text
+        value: I am quite content with your Risk report. But please review the way
+          the risk is stated though.
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 56
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 56
+        originDialogueID: 14
+        destinationConversationID: 56
+        destinationDialogueID: 15
+        isConnector: 0
+        priority: 2
+      conditionsString: Dialog[8].SimStatus ~= "WasDisplayed"
+      userScript: 
+    - id: 15
+      fields:
+      - title: Title
+        value: New Dialogue
+        type: 0
+      - title: Actor
+        value: 3
+        type: 5
+      - title: Conversant
+        value: 5
+        type: 5
+      - title: Menu Text
+        value: 
+        type: 0
+      - title: Dialogue Text
+        value: Thank you sir. I shall review it.
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 56
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: 
+    - id: 16
+      fields:
+      - title: Title
+        value: 
+        type: 0
+      - title: Actor
+        value: 5
+        type: 5
+      - title: Conversant
+        value: 3
+        type: 5
+      - title: Menu Text
+        value: Monitor report.
+        type: 0
+      - title: Dialogue Text
+        value: Can you monitor the risk and not to report it as yet for this month.
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 56
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 56
+        originDialogueID: 16
+        destinationConversationID: 56
+        destinationDialogueID: 17
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+    - id: 17
+      fields:
+      - title: Title
+        value: 
+        type: 0
+      - title: Actor
+        value: 3
+        type: 5
+      - title: Conversant
+        value: 5
+        type: 5
+      - title: Menu Text
+        value: 
+        type: 0
+      - title: Dialogue Text
+        value: Alright, I shall proceed to do that.
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 56
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: 
+    - id: 18
+      fields:
+      - title: Title
+        value: 
+        type: 0
+      - title: Actor
+        value: 5
+        type: 5
+      - title: Conversant
+        value: 3
+        type: 5
+      - title: Menu Text
+        value: Nothing
+        type: 0
+      - title: Dialogue Text
+        value: 'Nothing, sorry. '
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 56
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: Dialog[3].SimStatus ~= "WasDisplayed"
+      userScript: 
+  - id: 57
+    fields:
+    - title: Title
+      value: Exposure
+      type: 0
+    - title: Description
+      value: 
+      type: 0
+    - title: Actor
+      value: 5
+      type: 5
+    - title: Conversant
+      value: 34
+      type: 5
+    nodeColor: Red
+    dialogueEntries:
+    - id: 0
+      fields:
+      - title: Title
+        value: START
+        type: 0
+      - title: Actor
+        value: 5
+        type: 5
+      - title: Conversant
+        value: 34
+        type: 5
+      - title: Menu Text
+        value: 
+        type: 0
+      - title: Dialogue Text
+        value: 
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: None()
+        type: 0
+      conversationID: 57
+      isRoot: 1
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 57
+        originDialogueID: 0
+        destinationConversationID: 57
+        destinationDialogueID: 1
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+    - id: 1
+      fields:
+      - title: Title
+        value: New Dialogue
+        type: 0
+      - title: Actor
+        value: 34
+        type: 5
+      - title: Conversant
+        value: 5
+        type: 5
+      - title: Menu Text
+        value: 
+        type: 0
+      - title: Dialogue Text
+        value: Hey there! how are u?
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 57
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 57
+        originDialogueID: 1
+        destinationConversationID: 57
+        destinationDialogueID: 2
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+    - id: 2
+      fields:
+      - title: Title
+        value: New Dialogue
+        type: 0
+      - title: Actor
+        value: 5
+        type: 5
+      - title: Conversant
+        value: 34
+        type: 5
+      - title: Menu Text
+        value: 
+        type: 0
+      - title: Dialogue Text
+        value: Hi Perry, I m good. So what's up?
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 57
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 57
+        originDialogueID: 2
+        destinationConversationID: 57
+        destinationDialogueID: 3
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+    - id: 3
+      fields:
+      - title: Title
+        value: New Dialogue
+        type: 0
+      - title: Actor
+        value: 34
+        type: 5
+      - title: Conversant
+        value: 5
+        type: 5
+      - title: Menu Text
+        value: 
+        type: 0
+      - title: Dialogue Text
+        value: I have some news for you.  we have identified a fraudulent loan syndicate
+          that at our bank.
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 57
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 57
+        originDialogueID: 3
+        destinationConversationID: 57
+        destinationDialogueID: 4
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+    - id: 4
+      fields:
+      - title: Title
+        value: New Dialogue
+        type: 0
+      - title: Actor
+        value: 5
+        type: 5
+      - title: Conversant
+        value: 34
+        type: 5
+      - title: Menu Text
+        value: 
+        type: 0
+      - title: Dialogue Text
+        value: Oh, really. Good Job.
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 57
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 57
+        originDialogueID: 4
+        destinationConversationID: 57
+        destinationDialogueID: 5
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+    - id: 5
+      fields:
+      - title: Title
+        value: 
+        type: 0
+      - title: Actor
+        value: 34
+        type: 5
+      - title: Conversant
+        value: 5
+        type: 5
+      - title: Menu Text
+        value: 
+        type: 0
+      - title: Dialogue Text
+        value: Yes, best way to prevent exposure.
         type: 4
       - title: Video File
         value: 
@@ -7439,15 +8085,13 @@ MonoBehaviour:
         value: 5
         type: 5
       - title: Conversant
-        value: 3
+        value: 34
         type: 5
       - title: Menu Text
         value: 
         type: 0
       - title: Dialogue Text
-        value: 'Yes, definitely. I can give you a general format for writing this
-          Risk report more accurately. So Let me start with vital points. What is
-          the ''Event'' relating to the risk? '
+        value: I will keep in mind. Thank you.
         type: 4
       - title: Video File
         value: 
@@ -7474,10 +8118,10 @@ MonoBehaviour:
     - id: 7
       fields:
       - title: Title
-        value: 
+        value: New Dialogue
         type: 0
       - title: Actor
-        value: 3
+        value: 34
         type: 5
       - title: Conversant
         value: 5
@@ -7486,7 +8130,7 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Dialogue Text
-        value: It is External Fraud.
+        value: Bye.
         type: 4
       - title: Video File
         value: 
@@ -7513,29 +8157,20 @@ MonoBehaviour:
     - id: 8
       fields:
       - title: Title
-        value: 
+        value: New Group
         type: 0
       - title: Actor
         value: 5
         type: 5
       - title: Conversant
-        value: 3
+        value: 1
         type: 5
-      - title: Menu Text
-        value: 
-        type: 0
-      - title: Dialogue Text
-        value: Yes, what is the cause?
-        type: 4
-      - title: Video File
-        value: 
-        type: 0
       - title: Sequence
-        value: 
+        value: None()
         type: 0
       conversationID: 57
       isRoot: 0
-      isGroup: 0
+      isGroup: 1
       nodeColor: White
       delaySimStatus: 0
       falseConditionAction: Block
@@ -7547,6 +8182,24 @@ MonoBehaviour:
         destinationDialogueID: 9
         isConnector: 0
         priority: 2
+      - originConversationID: 57
+        originDialogueID: 8
+        destinationConversationID: 57
+        destinationDialogueID: 10
+        isConnector: 0
+        priority: 2
+      - originConversationID: 57
+        originDialogueID: 8
+        destinationConversationID: 57
+        destinationDialogueID: 16
+        isConnector: 0
+        priority: 2
+      - originConversationID: 57
+        originDialogueID: 8
+        destinationConversationID: 57
+        destinationDialogueID: 17
+        isConnector: 0
+        priority: 2
       conditionsString: 
       userScript: 
     - id: 9
@@ -7555,16 +8208,18 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 3
+        value: 5
         type: 5
       - title: Conversant
         value: 5
         type: 5
       - title: Menu Text
-        value: 
+        value: Make a note of all the details.
         type: 0
       - title: Dialogue Text
-        value: Hmm.. failure to verify property in question?
+        value: 'All details have been noted down.
+
+'
         type: 4
       - title: Video File
         value: 
@@ -7583,15 +8238,15 @@ MonoBehaviour:
       - originConversationID: 57
         originDialogueID: 9
         destinationConversationID: 57
-        destinationDialogueID: 10
-        isConnector: 0
+        destinationDialogueID: 8
+        isConnector: 1
         priority: 2
-      conditionsString: 
+      conditionsString: Dialog[9].SimStatus ~= "WasDisplayed"
       userScript: 
     - id: 10
       fields:
       - title: Title
-        value: New Dialogue
+        value: 
         type: 0
       - title: Actor
         value: 5
@@ -7600,10 +8255,12 @@ MonoBehaviour:
         value: 3
         type: 5
       - title: Menu Text
-        value: 
+        value: Call LPU1 to review our exposure to Chong Hin Group.
         type: 0
       - title: Dialogue Text
-        value: Correct and What is the impact?
+        value: 'Calling LPU Officer....
+
+'
         type: 4
       - title: Video File
         value: 
@@ -7625,7 +8282,7 @@ MonoBehaviour:
         destinationDialogueID: 11
         isConnector: 0
         priority: 2
-      conditionsString: 
+      conditionsString: Dialog[9].SimStatus == "WasDisplayed"
       userScript: 
     - id: 11
       fields:
@@ -7642,7 +8299,7 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Dialogue Text
-        value: ' A Potential Financial Loss and Reputational Impact.'
+        value: Hi, this is the Loan Officer. What can I do for you?
         type: 4
       - title: Video File
         value: 
@@ -7681,9 +8338,8 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Dialogue Text
-        value: 'Exactly. Therefore the risk statement could read like - Potential
-          for Financial and Reputational loss arising from External Loan Fraud, caused
-          due to failure to verify the underlying property. '
+        value: This is your Credit Risk Manager. Could you please review our exposure
+          to Chong Hin Group as soon as possible?
         type: 4
       - title: Video File
         value: 
@@ -7722,13 +8378,13 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Dialogue Text
-        value: Oh ok , got it. Thank you for the help.
+        value: Yes sure definitely. Anything else?
         type: 4
       - title: Video File
         value: 
         type: 0
       - title: Sequence
-        value: CRdidGuideLPU();
+        value: 
         type: 0
       conversationID: 57
       isRoot: 0
@@ -7737,13 +8393,19 @@ MonoBehaviour:
       delaySimStatus: 0
       falseConditionAction: Block
       conditionPriority: 2
-      outgoingLinks: []
+      outgoingLinks:
+      - originConversationID: 57
+        originDialogueID: 13
+        destinationConversationID: 57
+        destinationDialogueID: 14
+        isConnector: 0
+        priority: 2
       conditionsString: 
       userScript: 
     - id: 14
       fields:
       - title: Title
-        value: 
+        value: New Dialogue
         type: 0
       - title: Actor
         value: 5
@@ -7752,11 +8414,10 @@ MonoBehaviour:
         value: 3
         type: 5
       - title: Menu Text
-        value: Happy with the report.
+        value: 
         type: 0
       - title: Dialogue Text
-        value: I am quite content with your Risk report. But please review the way
-          the risk is stated though.
+        value: No that's it for now. Report back to me once its done.
         type: 4
       - title: Video File
         value: 
@@ -7778,7 +8439,7 @@ MonoBehaviour:
         destinationDialogueID: 15
         isConnector: 0
         priority: 2
-      conditionsString: Dialog[8].SimStatus ~= "WasDisplayed"
+      conditionsString: 
       userScript: 
     - id: 15
       fields:
@@ -7795,7 +8456,7 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Dialogue Text
-        value: Thank you sir. I shall review it.
+        value: Alright I will do so.
         type: 4
       - title: Video File
         value: 
@@ -7816,19 +8477,19 @@ MonoBehaviour:
     - id: 16
       fields:
       - title: Title
-        value: 
+        value: New Dialogue
         type: 0
       - title: Actor
         value: 5
         type: 5
       - title: Conversant
-        value: 3
+        value: 5
         type: 5
       - title: Menu Text
-        value: Monitor report.
+        value: Put the issue on hold and get back to it later.
         type: 0
       - title: Dialogue Text
-        value: Can you monitor the risk and not to report it as yet for this month.
+        value: 
         type: 4
       - title: Video File
         value: 
@@ -7843,31 +8504,25 @@ MonoBehaviour:
       delaySimStatus: 0
       falseConditionAction: Block
       conditionPriority: 2
-      outgoingLinks:
-      - originConversationID: 57
-        originDialogueID: 16
-        destinationConversationID: 57
-        destinationDialogueID: 17
-        isConnector: 0
-        priority: 2
+      outgoingLinks: []
       conditionsString: 
       userScript: 
     - id: 17
       fields:
       - title: Title
-        value: 
+        value: New Dialogue
         type: 0
       - title: Actor
-        value: 3
+        value: 5
         type: 5
       - title: Conversant
         value: 5
         type: 5
       - title: Menu Text
-        value: 
+        value: We are not exposed. So, nothing to worry about.
         type: 0
       - title: Dialogue Text
-        value: Alright, I shall proceed to do that.
+        value: 
         type: 4
       - title: Video File
         value: 
@@ -7885,43 +8540,10 @@ MonoBehaviour:
       outgoingLinks: []
       conditionsString: 
       userScript: 
-    - id: 18
-      fields:
-      - title: Title
-        value: 
-        type: 0
-      - title: Actor
-        value: 5
-        type: 5
-      - title: Conversant
-        value: 3
-        type: 5
-      - title: Menu Text
-        value: Nothing
-        type: 0
-      - title: Dialogue Text
-        value: 'Nothing, sorry. '
-        type: 4
-      - title: Video File
-        value: 
-        type: 0
-      - title: Sequence
-        value: 
-        type: 0
-      conversationID: 57
-      isRoot: 0
-      isGroup: 0
-      nodeColor: White
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks: []
-      conditionsString: Dialog[3].SimStatus ~= "WasDisplayed"
-      userScript: 
   - id: 58
     fields:
     - title: Title
-      value: Call to Felicia
+      value: Missing document
       type: 0
     - title: Description
       value: 
@@ -7930,7 +8552,7 @@ MonoBehaviour:
       value: 5
       type: 5
     - title: Conversant
-      value: 33
+      value: 36
       type: 5
     nodeColor: Red
     dialogueEntries:
@@ -7943,7 +8565,7 @@ MonoBehaviour:
         value: 5
         type: 5
       - title: Conversant
-        value: 33
+        value: 36
         type: 5
       - title: Menu Text
         value: 
@@ -7979,95 +8601,17 @@ MonoBehaviour:
         value: New Dialogue
         type: 0
       - title: Actor
-        value: 33
+        value: 36
         type: 5
       - title: Conversant
         value: 5
         type: 5
       - title: Menu Text
-        value: 
+        value: '[f]Message from Legal Manger'
         type: 0
       - title: Dialogue Text
-        value: Hi, this is Felicia. What can I do for you?
-        type: 4
-      - title: Video File
-        value: 
-        type: 0
-      - title: Sequence
-        value: 
-        type: 0
-      conversationID: 58
-      isRoot: 0
-      isGroup: 0
-      nodeColor: White
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks:
-      - originConversationID: 58
-        originDialogueID: 1
-        destinationConversationID: 58
-        destinationDialogueID: 2
-        isConnector: 0
-        priority: 2
-      conditionsString: 
-      userScript: 
-    - id: 2
-      fields:
-      - title: Title
-        value: 
-        type: 0
-      - title: Actor
-        value: 5
-        type: 5
-      - title: Conversant
-        value: 33
-        type: 5
-      - title: Menu Text
-        value: 
-        type: 0
-      - title: Dialogue Text
-        value: Hi Felicia this is the Credit Risk Manager. I want to talk about your
-          block leave, so could you come in to my cabin for a moment please.
-        type: 4
-      - title: Video File
-        value: 
-        type: 0
-      - title: Sequence
-        value: 
-        type: 0
-      conversationID: 58
-      isRoot: 0
-      isGroup: 0
-      nodeColor: White
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks:
-      - originConversationID: 58
-        originDialogueID: 2
-        destinationConversationID: 58
-        destinationDialogueID: 3
-        isConnector: 0
-        priority: 2
-      conditionsString: 
-      userScript: 
-    - id: 3
-      fields:
-      - title: Title
-        value: New Dialogue
-        type: 0
-      - title: Actor
-        value: 33
-        type: 5
-      - title: Conversant
-        value: 5
-        type: 5
-      - title: Menu Text
-        value: 
-        type: 0
-      - title: Dialogue Text
-        value: Yes manager. I am coming.
+        value: Hi, I have sent all the documents of Mr. Tan. Please review and let
+          me know if you need any other information
         type: 4
       - title: Video File
         value: 
@@ -8088,16 +8632,16 @@ MonoBehaviour:
   - id: 59
     fields:
     - title: Title
-      value: Block leave talk
+      value: Leave Plan
       type: 0
     - title: Description
       value: 
       type: 0
     - title: Actor
-      value: 33
+      value: 5
       type: 5
     - title: Conversant
-      value: 5
+      value: 33
       type: 5
     nodeColor: Red
     dialogueEntries:
@@ -8107,10 +8651,10 @@ MonoBehaviour:
         value: START
         type: 0
       - title: Actor
-        value: 33
+        value: 5
         type: 5
       - title: Conversant
-        value: 5
+        value: 33
         type: 5
       - title: Menu Text
         value: 
@@ -8141,6 +8685,204 @@ MonoBehaviour:
       conditionsString: 
       userScript: 
     - id: 1
+      fields:
+      - title: Title
+        value: 
+        type: 0
+      - title: Actor
+        value: 5
+        type: 5
+      - title: Conversant
+        value: 5
+        type: 5
+      - title: Menu Text
+        value: 
+        type: 0
+      - title: Dialogue Text
+        value: Felicia has two months block leave not taken and there are two months
+          left in the year. What should i do?
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 59
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 59
+        originDialogueID: 1
+        destinationConversationID: 59
+        destinationDialogueID: 2
+        isConnector: 0
+        priority: 2
+      - originConversationID: 59
+        originDialogueID: 1
+        destinationConversationID: 59
+        destinationDialogueID: 3
+        isConnector: 0
+        priority: 2
+      - originConversationID: 59
+        originDialogueID: 1
+        destinationConversationID: 59
+        destinationDialogueID: 4
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+    - id: 2
+      fields:
+      - title: Title
+        value: New Dialogue
+        type: 0
+      - title: Actor
+        value: 5
+        type: 5
+      - title: Conversant
+        value: 5
+        type: 5
+      - title: Menu Text
+        value: I will get back to it later.
+        type: 0
+      - title: Dialogue Text
+        value: 
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 59
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: Dialog[2].SimStatus ~= "WasDisplayed"
+      userScript: 
+    - id: 3
+      fields:
+      - title: Title
+        value: New Dialogue
+        type: 0
+      - title: Actor
+        value: 5
+        type: 5
+      - title: Conversant
+        value: 5
+        type: 5
+      - title: Menu Text
+        value: Block leave is not mandatory so it is not important.
+        type: 0
+      - title: Dialogue Text
+        value: 
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 59
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: Dialog[3].SimStatus ~= "WasDisplayed"
+      userScript: 
+    - id: 4
+      fields:
+      - title: Title
+        value: 
+        type: 0
+      - title: Actor
+        value: 5
+        type: 5
+      - title: Conversant
+        value: 5
+        type: 5
+      - title: Menu Text
+        value: Call Felicia regarding leave
+        type: 0
+      - title: Dialogue Text
+        value: 'Calling Felicia......
+
+'
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 59
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 59
+        originDialogueID: 4
+        destinationConversationID: 59
+        destinationDialogueID: 5
+        isConnector: 0
+        priority: 2
+      conditionsString: Dialog[4].SimStatus ~= "WasDisplayed"
+      userScript: 
+    - id: 5
+      fields:
+      - title: Title
+        value: 
+        type: 0
+      - title: Actor
+        value: 33
+        type: 5
+      - title: Conversant
+        value: 5
+        type: 5
+      - title: Menu Text
+        value: 
+        type: 0
+      - title: Dialogue Text
+        value: Hi this is Felicia. How can i help you?
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 59
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 59
+        originDialogueID: 5
+        destinationConversationID: 59
+        destinationDialogueID: 6
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+    - id: 6
       fields:
       - title: Title
         value: New Dialogue
@@ -8172,14 +8914,14 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks:
       - originConversationID: 59
-        originDialogueID: 1
+        originDialogueID: 6
         destinationConversationID: 59
-        destinationDialogueID: 2
+        destinationDialogueID: 7
         isConnector: 0
         priority: 2
       conditionsString: 
       userScript: 
-    - id: 2
+    - id: 7
       fields:
       - title: Title
         value: New Dialogue
@@ -8194,7 +8936,7 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Dialogue Text
-        value: No, sir. You said you wanted to talk about my block leave?
+        value: No, sir. Please go ahead.
         type: 4
       - title: Video File
         value: 
@@ -8211,14 +8953,14 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks:
       - originConversationID: 59
-        originDialogueID: 2
+        originDialogueID: 7
         destinationConversationID: 59
-        destinationDialogueID: 3
+        destinationDialogueID: 8
         isConnector: 0
         priority: 2
       conditionsString: 
       userScript: 
-    - id: 3
+    - id: 8
       fields:
       - title: Title
         value: New Dialogue
@@ -8233,8 +8975,8 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Dialogue Text
-        value: Ah, yes. I noticed that you have not taken your block leave yet and
-          i must remind you that there are only two months left in the year.
+        value: I noticed that you have not taken your block leave yet and i must remind
+          you that there are only two months left in the year.
         type: 4
       - title: Video File
         value: 
@@ -8251,14 +8993,14 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks:
       - originConversationID: 59
-        originDialogueID: 3
+        originDialogueID: 8
         destinationConversationID: 59
-        destinationDialogueID: 4
+        destinationDialogueID: 9
         isConnector: 0
         priority: 2
       conditionsString: 
       userScript: 
-    - id: 4
+    - id: 9
       fields:
       - title: Title
         value: New Dialogue
@@ -8290,14 +9032,14 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks:
       - originConversationID: 59
-        originDialogueID: 4
+        originDialogueID: 9
         destinationConversationID: 59
-        destinationDialogueID: 5
+        destinationDialogueID: 10
         isConnector: 0
         priority: 2
       conditionsString: 
       userScript: 
-    - id: 5
+    - id: 10
       fields:
       - title: Title
         value: New Dialogue
@@ -8330,14 +9072,14 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks:
       - originConversationID: 59
-        originDialogueID: 5
+        originDialogueID: 10
         destinationConversationID: 59
-        destinationDialogueID: 6
+        destinationDialogueID: 11
         isConnector: 0
         priority: 2
       conditionsString: 
       userScript: 
-    - id: 6
+    - id: 11
       fields:
       - title: Title
         value: New Dialogue
@@ -8369,14 +9111,14 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks:
       - originConversationID: 59
-        originDialogueID: 6
+        originDialogueID: 11
         destinationConversationID: 59
-        destinationDialogueID: 7
+        destinationDialogueID: 12
         isConnector: 0
         priority: 2
       conditionsString: 
       userScript: 
-    - id: 7
+    - id: 12
       fields:
       - title: Title
         value: 
@@ -8409,14 +9151,14 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks:
       - originConversationID: 59
-        originDialogueID: 7
+        originDialogueID: 12
         destinationConversationID: 59
-        destinationDialogueID: 8
+        destinationDialogueID: 13
         isConnector: 0
         priority: 2
       conditionsString: 
       userScript: 
-    - id: 8
+    - id: 13
       fields:
       - title: Title
         value: New Dialogue
@@ -8440,779 +9182,6 @@ MonoBehaviour:
         value: 
         type: 0
       conversationID: 59
-      isRoot: 0
-      isGroup: 0
-      nodeColor: White
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks: []
-      conditionsString: 
-      userScript: 
-  - id: 60
-    fields:
-    - title: Title
-      value: Exposure phone call
-      type: 0
-    - title: Description
-      value: 
-      type: 0
-    - title: Actor
-      value: 5
-      type: 5
-    - title: Conversant
-      value: 3
-      type: 5
-    nodeColor: Red
-    dialogueEntries:
-    - id: 0
-      fields:
-      - title: Title
-        value: START
-        type: 0
-      - title: Actor
-        value: 5
-        type: 5
-      - title: Conversant
-        value: 3
-        type: 5
-      - title: Menu Text
-        value: 
-        type: 0
-      - title: Dialogue Text
-        value: 
-        type: 4
-      - title: Video File
-        value: 
-        type: 0
-      - title: Sequence
-        value: None()
-        type: 0
-      conversationID: 60
-      isRoot: 1
-      isGroup: 0
-      nodeColor: White
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks:
-      - originConversationID: 60
-        originDialogueID: 0
-        destinationConversationID: 60
-        destinationDialogueID: 1
-        isConnector: 0
-        priority: 2
-      conditionsString: 
-      userScript: 
-    - id: 1
-      fields:
-      - title: Title
-        value: New Dialogue
-        type: 0
-      - title: Actor
-        value: 3
-        type: 5
-      - title: Conversant
-        value: 5
-        type: 5
-      - title: Menu Text
-        value: 
-        type: 0
-      - title: Dialogue Text
-        value: Hi, this is the Loan Officer. What can I do for you?
-        type: 4
-      - title: Video File
-        value: 
-        type: 0
-      - title: Sequence
-        value: 
-        type: 0
-      conversationID: 60
-      isRoot: 0
-      isGroup: 0
-      nodeColor: White
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks:
-      - originConversationID: 60
-        originDialogueID: 1
-        destinationConversationID: 60
-        destinationDialogueID: 2
-        isConnector: 0
-        priority: 2
-      conditionsString: 
-      userScript: 
-    - id: 2
-      fields:
-      - title: Title
-        value: New Dialogue
-        type: 0
-      - title: Actor
-        value: 5
-        type: 5
-      - title: Conversant
-        value: 3
-        type: 5
-      - title: Menu Text
-        value: 
-        type: 0
-      - title: Dialogue Text
-        value: This is your Credit Risk Manager. Could you please review our exposure
-          to Chong Hin Group as soon as possible?
-        type: 4
-      - title: Video File
-        value: 
-        type: 0
-      - title: Sequence
-        value: 
-        type: 0
-      conversationID: 60
-      isRoot: 0
-      isGroup: 0
-      nodeColor: White
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks:
-      - originConversationID: 60
-        originDialogueID: 2
-        destinationConversationID: 60
-        destinationDialogueID: 3
-        isConnector: 0
-        priority: 2
-      conditionsString: 
-      userScript: 
-    - id: 3
-      fields:
-      - title: Title
-        value: New Dialogue
-        type: 0
-      - title: Actor
-        value: 3
-        type: 5
-      - title: Conversant
-        value: 5
-        type: 5
-      - title: Menu Text
-        value: 
-        type: 0
-      - title: Dialogue Text
-        value: Yes sure definitely. Anything else?
-        type: 4
-      - title: Video File
-        value: 
-        type: 0
-      - title: Sequence
-        value: 
-        type: 0
-      conversationID: 60
-      isRoot: 0
-      isGroup: 0
-      nodeColor: White
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks:
-      - originConversationID: 60
-        originDialogueID: 3
-        destinationConversationID: 60
-        destinationDialogueID: 4
-        isConnector: 0
-        priority: 2
-      conditionsString: 
-      userScript: 
-    - id: 4
-      fields:
-      - title: Title
-        value: New Dialogue
-        type: 0
-      - title: Actor
-        value: 5
-        type: 5
-      - title: Conversant
-        value: 3
-        type: 5
-      - title: Menu Text
-        value: 
-        type: 0
-      - title: Dialogue Text
-        value: No that's it for now. Report back to me once its done.
-        type: 4
-      - title: Video File
-        value: 
-        type: 0
-      - title: Sequence
-        value: 
-        type: 0
-      conversationID: 60
-      isRoot: 0
-      isGroup: 0
-      nodeColor: White
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks:
-      - originConversationID: 60
-        originDialogueID: 4
-        destinationConversationID: 60
-        destinationDialogueID: 5
-        isConnector: 0
-        priority: 2
-      conditionsString: 
-      userScript: 
-    - id: 5
-      fields:
-      - title: Title
-        value: New Dialogue
-        type: 0
-      - title: Actor
-        value: 3
-        type: 5
-      - title: Conversant
-        value: 5
-        type: 5
-      - title: Menu Text
-        value: 
-        type: 0
-      - title: Dialogue Text
-        value: Alright I will do so.
-        type: 0
-      - title: Video File
-        value: 
-        type: 0
-      - title: Sequence
-        value: 
-        type: 0
-      conversationID: 60
-      isRoot: 0
-      isGroup: 0
-      nodeColor: White
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks: []
-      conditionsString: 
-      userScript: 
-  - id: 61
-    fields:
-    - title: Title
-      value: Exposure decision
-      type: 0
-    - title: Description
-      value: 
-      type: 0
-    - title: Actor
-      value: 5
-      type: 5
-    - title: Conversant
-      value: 5
-      type: 5
-    nodeColor: Red
-    dialogueEntries:
-    - id: 0
-      fields:
-      - title: Title
-        value: START
-        type: 0
-      - title: Actor
-        value: 5
-        type: 5
-      - title: Conversant
-        value: 5
-        type: 5
-      - title: Menu Text
-        value: 
-        type: 0
-      - title: Dialogue Text
-        value: 
-        type: 4
-      - title: Video File
-        value: 
-        type: 0
-      - title: Sequence
-        value: None()
-        type: 0
-      conversationID: 61
-      isRoot: 1
-      isGroup: 0
-      nodeColor: White
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks:
-      - originConversationID: 61
-        originDialogueID: 0
-        destinationConversationID: 61
-        destinationDialogueID: 1
-        isConnector: 0
-        priority: 2
-      - originConversationID: 61
-        originDialogueID: 0
-        destinationConversationID: 61
-        destinationDialogueID: 2
-        isConnector: 0
-        priority: 2
-      - originConversationID: 61
-        originDialogueID: 0
-        destinationConversationID: 61
-        destinationDialogueID: 3
-        isConnector: 0
-        priority: 2
-      - originConversationID: 61
-        originDialogueID: 0
-        destinationConversationID: 61
-        destinationDialogueID: 4
-        isConnector: 0
-        priority: 2
-      conditionsString: 
-      userScript: 
-    - id: 1
-      fields:
-      - title: Title
-        value: 
-        type: 0
-      - title: Actor
-        value: 5
-        type: 5
-      - title: Conversant
-        value: 5
-        type: 5
-      - title: Menu Text
-        value: Make a note of all the details.
-        type: 0
-      - title: Dialogue Text
-        value: 
-        type: 4
-      - title: Video File
-        value: 
-        type: 0
-      - title: Sequence
-        value: 
-        type: 0
-      conversationID: 61
-      isRoot: 0
-      isGroup: 0
-      nodeColor: White
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks: []
-      conditionsString: Dialog[1].SimStatus ~= "WasDisplayed"
-      userScript: 
-    - id: 2
-      fields:
-      - title: Title
-        value: 
-        type: 0
-      - title: Actor
-        value: 5
-        type: 5
-      - title: Conversant
-        value: 5
-        type: 5
-      - title: Menu Text
-        value: Call LPU1 to review our exposure to Chong Hin Group.
-        type: 0
-      - title: Dialogue Text
-        value: 
-        type: 0
-      - title: Video File
-        value: 
-        type: 0
-      - title: Sequence
-        value: 
-        type: 0
-      conversationID: 61
-      isRoot: 0
-      isGroup: 0
-      nodeColor: White
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks: []
-      conditionsString: Dialog[2].SimStatus ~= "WasDisplayed"
-      userScript: 
-    - id: 3
-      fields:
-      - title: Title
-        value: New Dialogue
-        type: 0
-      - title: Actor
-        value: 5
-        type: 5
-      - title: Conversant
-        value: 5
-        type: 5
-      - title: Menu Text
-        value: Put the issue on hold and get back to it later.
-        type: 0
-      - title: Dialogue Text
-        value: 
-        type: 4
-      - title: Video File
-        value: 
-        type: 0
-      - title: Sequence
-        value: 
-        type: 0
-      conversationID: 61
-      isRoot: 0
-      isGroup: 0
-      nodeColor: White
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks: []
-      conditionsString: Dialog[3].SimStatus ~= "WasDisplayed"
-      userScript: 
-    - id: 4
-      fields:
-      - title: Title
-        value: New Dialogue
-        type: 0
-      - title: Actor
-        value: 5
-        type: 5
-      - title: Conversant
-        value: 5
-        type: 5
-      - title: Menu Text
-        value: We are not exposed. So, nothing to worry about.
-        type: 0
-      - title: Dialogue Text
-        value: 
-        type: 4
-      - title: Video File
-        value: 
-        type: 0
-      - title: Sequence
-        value: 
-        type: 0
-      conversationID: 61
-      isRoot: 0
-      isGroup: 0
-      nodeColor: White
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks: []
-      conditionsString: Dialog[4].SimStatus ~= "WasDisplayed"
-      userScript: 
-  - id: 62
-    fields:
-    - title: Title
-      value: Peer phone call
-      type: 0
-    - title: Description
-      value: 
-      type: 0
-    - title: Actor
-      value: 5
-      type: 5
-    - title: Conversant
-      value: 34
-      type: 5
-    nodeColor: Red
-    dialogueEntries:
-    - id: 0
-      fields:
-      - title: Title
-        value: START
-        type: 0
-      - title: Actor
-        value: 5
-        type: 5
-      - title: Conversant
-        value: 34
-        type: 5
-      - title: Menu Text
-        value: 
-        type: 0
-      - title: Dialogue Text
-        value: 
-        type: 4
-      - title: Video File
-        value: 
-        type: 0
-      - title: Sequence
-        value: None()
-        type: 0
-      conversationID: 62
-      isRoot: 1
-      isGroup: 0
-      nodeColor: White
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks:
-      - originConversationID: 62
-        originDialogueID: 0
-        destinationConversationID: 62
-        destinationDialogueID: 1
-        isConnector: 0
-        priority: 2
-      conditionsString: 
-      userScript: 
-    - id: 1
-      fields:
-      - title: Title
-        value: New Dialogue
-        type: 0
-      - title: Actor
-        value: 34
-        type: 5
-      - title: Conversant
-        value: 5
-        type: 5
-      - title: Menu Text
-        value: 
-        type: 0
-      - title: Dialogue Text
-        value: Hey there! how are u?
-        type: 4
-      - title: Video File
-        value: 
-        type: 0
-      - title: Sequence
-        value: 
-        type: 0
-      conversationID: 62
-      isRoot: 0
-      isGroup: 0
-      nodeColor: White
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks:
-      - originConversationID: 62
-        originDialogueID: 1
-        destinationConversationID: 62
-        destinationDialogueID: 2
-        isConnector: 0
-        priority: 2
-      conditionsString: 
-      userScript: 
-    - id: 2
-      fields:
-      - title: Title
-        value: New Dialogue
-        type: 0
-      - title: Actor
-        value: 5
-        type: 5
-      - title: Conversant
-        value: 34
-        type: 5
-      - title: Menu Text
-        value: 
-        type: 0
-      - title: Dialogue Text
-        value: Hi Perry, I m good. So what's up?
-        type: 4
-      - title: Video File
-        value: 
-        type: 0
-      - title: Sequence
-        value: 
-        type: 0
-      conversationID: 62
-      isRoot: 0
-      isGroup: 0
-      nodeColor: White
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks:
-      - originConversationID: 62
-        originDialogueID: 2
-        destinationConversationID: 62
-        destinationDialogueID: 3
-        isConnector: 0
-        priority: 2
-      conditionsString: 
-      userScript: 
-    - id: 3
-      fields:
-      - title: Title
-        value: New Dialogue
-        type: 0
-      - title: Actor
-        value: 34
-        type: 5
-      - title: Conversant
-        value: 5
-        type: 5
-      - title: Menu Text
-        value: 
-        type: 0
-      - title: Dialogue Text
-        value: I have some news for you.  we have identified a fraudulent loan syndicate
-          that at our bank.
-        type: 4
-      - title: Video File
-        value: 
-        type: 0
-      - title: Sequence
-        value: 
-        type: 0
-      conversationID: 62
-      isRoot: 0
-      isGroup: 0
-      nodeColor: White
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks:
-      - originConversationID: 62
-        originDialogueID: 3
-        destinationConversationID: 62
-        destinationDialogueID: 4
-        isConnector: 0
-        priority: 2
-      conditionsString: 
-      userScript: 
-    - id: 4
-      fields:
-      - title: Title
-        value: New Dialogue
-        type: 0
-      - title: Actor
-        value: 5
-        type: 5
-      - title: Conversant
-        value: 34
-        type: 5
-      - title: Menu Text
-        value: 
-        type: 0
-      - title: Dialogue Text
-        value: Oh, really. Good Job.
-        type: 4
-      - title: Video File
-        value: 
-        type: 0
-      - title: Sequence
-        value: 
-        type: 0
-      conversationID: 62
-      isRoot: 0
-      isGroup: 0
-      nodeColor: White
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks:
-      - originConversationID: 62
-        originDialogueID: 4
-        destinationConversationID: 62
-        destinationDialogueID: 5
-        isConnector: 0
-        priority: 2
-      conditionsString: 
-      userScript: 
-    - id: 5
-      fields:
-      - title: Title
-        value: 
-        type: 0
-      - title: Actor
-        value: 34
-        type: 5
-      - title: Conversant
-        value: 5
-        type: 5
-      - title: Menu Text
-        value: 
-        type: 0
-      - title: Dialogue Text
-        value: Yes, best way to prevent exposure.
-        type: 4
-      - title: Video File
-        value: 
-        type: 0
-      - title: Sequence
-        value: 
-        type: 0
-      conversationID: 62
-      isRoot: 0
-      isGroup: 0
-      nodeColor: White
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks:
-      - originConversationID: 62
-        originDialogueID: 5
-        destinationConversationID: 62
-        destinationDialogueID: 6
-        isConnector: 0
-        priority: 2
-      conditionsString: 
-      userScript: 
-    - id: 6
-      fields:
-      - title: Title
-        value: New Dialogue
-        type: 0
-      - title: Actor
-        value: 5
-        type: 5
-      - title: Conversant
-        value: 34
-        type: 5
-      - title: Menu Text
-        value: 
-        type: 0
-      - title: Dialogue Text
-        value: I will keep in mind. Thank you.
-        type: 4
-      - title: Video File
-        value: 
-        type: 0
-      - title: Sequence
-        value: 
-        type: 0
-      conversationID: 62
-      isRoot: 0
-      isGroup: 0
-      nodeColor: White
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks:
-      - originConversationID: 62
-        originDialogueID: 6
-        destinationConversationID: 62
-        destinationDialogueID: 7
-        isConnector: 0
-        priority: 2
-      conditionsString: 
-      userScript: 
-    - id: 7
-      fields:
-      - title: Title
-        value: New Dialogue
-        type: 0
-      - title: Actor
-        value: 34
-        type: 5
-      - title: Conversant
-        value: 5
-        type: 5
-      - title: Menu Text
-        value: 
-        type: 0
-      - title: Dialogue Text
-        value: Bye.
-        type: 0
-      - title: Video File
-        value: 
-        type: 0
-      - title: Sequence
-        value: Fraud();
-        type: 0
-      conversationID: 62
       isRoot: 0
       isGroup: 0
       nodeColor: White
