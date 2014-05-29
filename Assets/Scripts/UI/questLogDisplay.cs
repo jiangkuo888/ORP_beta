@@ -13,7 +13,7 @@ public class questLogDisplay : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if(isOpen)
+		if(isOpen && GameObject.Find ("GameManager").GetComponent<GameManagerVik>().isTutorial == false)
 		gameObject.GetComponent<UnityQuestLogWindow>().Open();
 	}
 
