@@ -39,6 +39,11 @@ public class SequencerCommandPick : SequencerCommand {
 			{
 				
 				onUsedObj.animation.Play("Keybox_Open");
+
+
+				GameObject.Find ("AudioManager").GetComponent<AudioManager>().Play(GameObject.Find ("AudioManager").GetComponent<AudioManager>().Audioclips[16]);
+
+				Stop ();
 				//				print(onUsedObj.name + " animation");
 			}
 			
@@ -49,8 +54,10 @@ public class SequencerCommandPick : SequencerCommand {
 		{
 			if(onUsedObj.GetComponent<Animation>())
 				onUsedObj.animation.Play("Keybox_Close");
-			
-			
+				
+				GameObject.Find ("AudioManager").GetComponent<AudioManager>().Play(GameObject.Find ("AudioManager").GetComponent<AudioManager>().Audioclips[16]);
+				
+			Stop ();
 			
 		}
 		else if(GetParameter(0)=="key")
@@ -85,8 +92,9 @@ public class SequencerCommandPick : SequencerCommand {
 					disableRigidbody(Child.name);
 					enableInventory(Child);
 				}
-				
-				
+
+				GameObject.Find ("AudioManager").GetComponent<AudioManager>().Play(GameObject.Find ("AudioManager").GetComponent<AudioManager>().Audioclips[15]);
+				Stop ();
 				
 			}
 			
