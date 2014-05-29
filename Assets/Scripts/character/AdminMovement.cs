@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using PixelCrushers.DialogueSystem.Examples;
+using PixelCrushers.DialogueSystem;
 
 public class AdminMovement : Photon.MonoBehaviour
 {
@@ -124,80 +125,109 @@ public class AdminMovement : Photon.MonoBehaviour
 	void OnGUI()
 	{
 		//get admin follow
-		AdminCamera addy = this.gameObject.GetComponent<AdminCamera>();
-		
-		GUILayout.BeginArea (new Rect (0, Screen.height*.256f, Screen.width/2, Screen.height*.5f));
-		
-		if (addy.currPlayerFollow == -1)
+		if (photonView.isMine)
 		{
-			GUILayout.BeginHorizontal();
-			GUILayout.Label ("Hello! Welcome to trainer mode.", custom);
-			GUILayout.EndHorizontal();
-		}
-		else
-		{
-			string name =  addy.playerNameList[addy.currPlayerFollow];
-			GUILayout.BeginHorizontal();
-			GUILayout.Label ("You are currently following: " + name, custom);
-			GUILayout.EndHorizontal(); 
+			AdminCamera addy = this.gameObject.GetComponent<AdminCamera>();
 			
-		}
-		
-		GUILayout.	EndArea();
-		
-		
-		if (isEventPopOut)
-		{
-			GUILayout.BeginArea (new Rect (0, Screen.height*.75f, Screen.width, Screen.height*.25f));
-			if (GUILayout.Button ("Fraud", GUILayout.Width (100))) {
-				isEventPopOut = false;
-				isEventDesc = true;
-				eventNum = 1;
-
-			}
-			if (GUILayout.Button ("EventTwo", GUILayout.Width (100))) {
-			}
-			GUILayout.EndArea();
-		}
-
-
-		//event description
-		string eventDesc = "";
-		if (isEventDesc)
-		{
-			switch (eventNum) 
+			GUILayout.BeginArea (new Rect (0, Screen.height*.256f, Screen.width/2, Screen.height*.5f));
+			
+			if (addy.currPlayerFollow == -1)
 			{
-				case 1:
-					eventDesc = "Credit risk gets a call from his peer is ABS Bank regarding\n a fraudulent loan sydicate that they have identified.";
-					break;
+				GUILayout.BeginHorizontal();
+				GUILayout.Label ("Hello! Welcome to trainer mode.", custom);
+				GUILayout.EndHorizontal();
 			}
-
-			GUILayout.BeginArea (new Rect (Screen.width*0.25f, Screen.height*.5f, Screen.width/2, Screen.height/2));
-			
-			GUILayout.Box (eventDesc);
-			
-			GUILayout.BeginHorizontal();
-			
-			if (GUILayout.Button ("Activate", GUILayout.Width (80))) {
-
-				
-				phoneButton buttony = GameObject.Find("phoneButton").GetComponent<phoneButton>();
-				buttony.OnCallRPC("Credit Risk", "Peer phone call");
-			}
-			
-			
-			if (GUILayout.Button ("Cancel", GUILayout.Width (80))) {
-				
-				isEventPopOut = true;
-				isEventDesc = false;
+			else
+			{
+				string name =  addy.playerNameList[addy.currPlayerFollow];
+				GUILayout.BeginHorizontal();
+				GUILayout.Label ("You are currently following: " + name, custom);
+				GUILayout.EndHorizontal(); 
 				
 			}
-			GUILayout.EndHorizontal();
 			
-			GUILayout.EndArea();
+			GUILayout.	EndArea();
+			
+			
+			if (isEventPopOut)
+			{
+				GUILayout.BeginArea (new Rect (0, Screen.height*.75f, Screen.width, Screen.height*.25f));
+				if (GUILayout.Button ("Fraud", GUILayout.Width (100))) {
+					isEventPopOut = false;
+					isEventDesc = true;
+					eventNum = 1;
 
+				}
+				if (GUILayout.Button ("Leave", GUILayout.Width (100))) {
+					isEventPopOut = false;
+					isEventDesc = true;
+					eventNum = 2;
+				}
+				GUILayout.EndArea();
+			}
+
+
+			//event description
+			string eventDesc = "";
+			if (isEventDesc)
+			{
+				switch (eventNum) 
+				{
+					case 1:
+						eventDesc = "Credit risk gets a call from his peer is ABS Bank regarding\n a fraudulent loan sydicate that they have identified.";
+						break;
+
+					case 2:
+					eventDesc = "Credit Risk finds one of his staff has not taken her\n block leave and there are two months left in the year.";
+						break;
+				}
+
+				GUILayout.BeginArea (new Rect (Screen.width*0.25f, Screen.height*.5f, Screen.width/2, Screen.height/2));
+				
+				GUILayout.Box (eventDesc);
+				
+				GUILayout.BeginHorizontal();
+				
+				if (GUILayout.Button ("Activate", GUILayout.Width (80))) {
+
+					if (eventNum == 1)
+					{
+						phoneButton buttony = GameObject.Find("phoneButton").GetComponent<phoneButton>();
+						buttony.OnCallRPC("Credit Risk", "Peer phone call");
+						isEventDesc = false;
+					}
+					else if (eventNum == 2)
+					{
+						PhotonView photonViewTwo = this.gameObject.GetPhotonView();
+						photonViewTwo.RPC ("sendAlert", PhotonTargets.OthersBuffered);
+					}
+				}
+				
+				
+				if (GUILayout.Button ("Cancel", GUILayout.Width (80))) {
+					
+					isEventPopOut = true;
+					isEventDesc = false;
+					
+				}
+				GUILayout.EndHorizontal();
+				
+				GUILayout.EndArea();
+
+			}
 		}
 	
+	}
+
+	[RPC]
+	public void sendAlert()
+	{
+
+		if (PhotonNetwork.playerName == "Credit Risk")
+		{
+			GameObject.Find("Dialogue Manager").GetComponent<DialogueSystemController>().ShowAlert("You have a new file on your table");
+		}
+
 	}
 	
 	
