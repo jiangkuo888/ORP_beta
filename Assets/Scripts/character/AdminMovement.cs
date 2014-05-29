@@ -193,13 +193,14 @@ public class AdminMovement : Photon.MonoBehaviour
 					if (eventNum == 1)
 					{
 						phoneButton buttony = GameObject.Find("phoneButton").GetComponent<phoneButton>();
-						buttony.OnCallRPC("Credit Risk", "Peer phone call");
+						buttony.OnCallRPC("Credit Risk", "Exposure");
 						isEventDesc = false;
 					}
 					else if (eventNum == 2)
 					{
 						PhotonView photonViewTwo = this.gameObject.GetPhotonView();
 						photonViewTwo.RPC ("sendAlert", PhotonTargets.OthersBuffered);
+						isEventDesc = false;
 					}
 				}
 				

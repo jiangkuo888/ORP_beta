@@ -16,7 +16,6 @@ namespace PixelCrushers.DialogueSystem.Examples {
 				GameObject.Find (PhotonNetwork.playerName).GetComponent<Selector>().enabled = false;
 
 
-
 			}
 
 		}
