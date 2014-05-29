@@ -205,7 +205,7 @@ public class DeskMode : MonoBehaviour {
 					if(EventFSM.ActiveStateName == "ShowInstructions")
 						EventFSM.FsmVariables.GetFsmBool("IsReading").Value = true;
 
-				if(this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].name == "Risk Report" )
+				if(this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents.Length >0 &&this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].name == "Risk Report" )
 				{
 
 					if(FsmVariables.GlobalVariables.GetFsmInt("TimeSinceCreate").Value <= 540)
