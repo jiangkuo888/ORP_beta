@@ -122,7 +122,9 @@ public class DeskMode : MonoBehaviour {
 						photonView.RPC ("sendDocument",PhotonTargets.AllBuffered,"LPU Manager","Credit Risk",this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].name);
 					if(PhotonNetwork.playerName == "Credit Risk")
 						photonView.RPC ("sendDocument",PhotonTargets.AllBuffered,"Credit Risk","LPU Manager",this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].name);
-					
+
+					// play sound effect
+					GameObject.Find ("AudioManager").GetComponent<AudioManager>().Play(GameObject.Find ("AudioManager").GetComponent<AudioManager>().Audioclips[3]);
 					
 				}            
 				
@@ -133,7 +135,8 @@ public class DeskMode : MonoBehaviour {
 				if(this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents.Length>0)
 				{
 					rejectDocument();
-					
+					// play sound effect
+					GameObject.Find ("AudioManager").GetComponent<AudioManager>().Play(GameObject.Find ("AudioManager").GetComponent<AudioManager>().Audioclips[4]);
 				}
 				// reject the document
 			}
@@ -151,7 +154,8 @@ public class DeskMode : MonoBehaviour {
 					}
 					else{
 						
-						
+						// play sound effect
+						GameObject.Find ("AudioManager").GetComponent<AudioManager>().Play(GameObject.Find ("AudioManager").GetComponent<AudioManager>().Audioclips[5]);
 						// log the pick up action in the database
 						
 						GameObject.Find ("Dialogue Manager").GetComponent<PlayerActionLog>().addToPlayerActionLog(targetDocument.GetComponent<DocumentHandler>().pick_up_doc_id,targetDocument.name + "(LO_signed_"+targetDocument.GetComponent<DocumentHandler>().LO_signed+",LM_signed_"+targetDocument.GetComponent<DocumentHandler>().LM_signed+",CR_signed_"+targetDocument.GetComponent<DocumentHandler>().CR_signed+",correct_Document_"+targetDocument.GetComponent<DocumentHandler>().correct_document+") has been picked up by "+ PhotonNetwork.playerName);
@@ -276,6 +280,8 @@ public class DeskMode : MonoBehaviour {
 					//Camera.main.gameObject.transform.position = new Vector3(midX,midY+cameraOffset,midZ);
 					
 					LeanTween.move(highlight.gameObject,new Vector3(midX,midY+lightOffset,midZ),.6f).setEase(LeanTweenType.easeOutQuint);
+
+					GameObject.Find ("AudioManager").GetComponent<AudioManager>().Play(GameObject.Find ("AudioManager").GetComponent<AudioManager>().Audioclips[8]);
 					
 				}
 				else{
@@ -317,6 +323,8 @@ public class DeskMode : MonoBehaviour {
 					
 					LeanTween.move(Camera.main.gameObject,new Vector3(midX,midY+cameraOffset,midZ),.6f).setEase(LeanTweenType.easeOutQuint);
 					LeanTween.move(highlight.gameObject,new Vector3(midX,midY+lightOffset,midZ),.6f).setEase(LeanTweenType.easeOutQuint);
+
+					GameObject.Find ("AudioManager").GetComponent<AudioManager>().Play(GameObject.Find ("AudioManager").GetComponent<AudioManager>().Audioclips[8]);
 					
 				}
 				else{
@@ -341,12 +349,14 @@ public class DeskMode : MonoBehaviour {
 			if(GUI.Button( new LTRect(w - 200f, .9f*h - 50f, 100f, 50f ).rect, "Next Page",customSkin.button))
 			{
 				this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].GetComponent<DocumentHandler>().showNextPage();
+				GameObject.Find ("AudioManager").GetComponent<AudioManager>().Play(GameObject.Find ("AudioManager").GetComponent<AudioManager>().Audioclips[7]);
 			}
 			
 			
 			if(GUI.Button( new LTRect(100f, .9f*h - 50f, 125f, 50f ).rect, "Previous Page",customSkin.button))
 			{
 				this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].GetComponent<DocumentHandler>().showPreviousPage();
+				GameObject.Find ("AudioManager").GetComponent<AudioManager>().Play(GameObject.Find ("AudioManager").GetComponent<AudioManager>().Audioclips[7]);
 			}
 			
 			
@@ -409,6 +419,8 @@ public class DeskMode : MonoBehaviour {
 			if(GUI.Button( new LTRect(w/2 - 200f, .9f*h - 50f, 100f, 50f ).rect, "Next Page",customSkin.button))
 			{
 				this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].GetComponent<DocumentHandler>().showNextPage();
+				// play sound effect
+				GameObject.Find ("AudioManager").GetComponent<AudioManager>().Play(GameObject.Find ("AudioManager").GetComponent<AudioManager>().Audioclips[7]);
 			}
 			
 			
@@ -428,6 +440,8 @@ public class DeskMode : MonoBehaviour {
 			if(GUI.Button( new LTRect(100f, .9f*h - 50f, 125f, 50f ).rect, "Previous Page",customSkin.button))
 			{
 				this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].GetComponent<DocumentHandler>().showPreviousPage();
+				// play sound effect
+				GameObject.Find ("AudioManager").GetComponent<AudioManager>().Play(GameObject.Find ("AudioManager").GetComponent<AudioManager>().Audioclips[7]);
 			}
 			
 			

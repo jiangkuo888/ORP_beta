@@ -7,7 +7,7 @@ public class ThirdPersonNetworkVik : Photon.MonoBehaviour
     MouseCamera cameraScript;
 	MouseCamera playerRotationScript;
 
-	public Vector3 cameraRelativePosition = new Vector3(0,1.257728f, 0);
+	public Vector3 cameraRelativePosition = new Vector3(0,1.607728f, 0);
 	public Vector3 cloneCameraRotation = new Vector3(0,0, 0);
 
     void Awake()

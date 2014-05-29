@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
+using PixelCrushers.DialogueSystem;
+using PixelCrushers.DialogueSystem.ChatMapper;
 
 public class DropAreaController : MonoBehaviour {
 	
@@ -56,6 +58,9 @@ public class DropAreaController : MonoBehaviour {
 
 
 				print(" you have finished task : Clear the obstacle box and move it to target area.");
+
+				DialogueLua.SetItemField("Fire_Escape_Blockage","State","Success");
+
 				break;
 			case "SignStand":
 				
