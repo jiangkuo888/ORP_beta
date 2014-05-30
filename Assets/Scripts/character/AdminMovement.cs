@@ -195,12 +195,14 @@ public class AdminMovement : Photon.MonoBehaviour
 						phoneButton buttony = GameObject.Find("phoneButton").GetComponent<phoneButton>();
 						buttony.OnCallRPC("Credit Risk", "Exposure");
 						isEventDesc = false;
+						GameObject.Find("Dialogue Manager").GetComponent<PlayerActionLog>().addToPlayerActionLog("45A", "Admin activates");
 					}
 					else if (eventNum == 2)
 					{
 						PhotonView photonViewTwo = this.gameObject.GetPhotonView();
 						photonViewTwo.RPC ("sendAlert", PhotonTargets.OthersBuffered);
 						isEventDesc = false;
+						GameObject.Find("Dialogue Manager").GetComponent<PlayerActionLog>().addToPlayerActionLog("43A", "Admin activates");
 					}
 				}
 				

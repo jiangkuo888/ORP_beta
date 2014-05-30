@@ -830,7 +830,8 @@ public class DeskMode : MonoBehaviour {
 			if(child.gameObject.GetComponent<DeskObjectHandler>() !=null)
 				Destroy(child.gameObject.GetComponent<DeskObjectHandler>());
 	}
-	void moveCameraToDesk(){
+
+	public void moveCameraToDesk(){
 		
 		Vector3 newPosition = this.transform.position - this.transform.forward*1.3f + new Vector3 (0,1.5f,0);
 		
