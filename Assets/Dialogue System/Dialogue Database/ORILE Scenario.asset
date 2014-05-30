@@ -685,6 +685,26 @@ MonoBehaviour:
     - title: Is Item
       value: False
       type: 2
+  - id: 25
+    fields:
+    - title: Name
+      value: Missing Documents
+      type: 0
+    - title: Description
+      value: 
+      type: 0
+    - title: Success Description
+      value: 
+      type: 0
+    - title: Failure Description
+      value: 
+      type: 0
+    - title: State
+      value: unassigned
+      type: 0
+    - title: Is Item
+      value: False
+      type: 2
   locations:
   - id: 1
     fields:
@@ -7019,7 +7039,7 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Sequence
-        value: DidInformLegal();
+        value: DidInformLPUM();
         type: 0
       conversationID: 55
       isRoot: 0
@@ -8543,7 +8563,7 @@ MonoBehaviour:
   - id: 58
     fields:
     - title: Title
-      value: Missing document
+      value: Found Missing document
       type: 0
     - title: Description
       value: 
@@ -8552,7 +8572,7 @@ MonoBehaviour:
       value: 5
       type: 5
     - title: Conversant
-      value: 36
+      value: 4
       type: 5
     nodeColor: Red
     dialogueEntries:
@@ -8565,7 +8585,7 @@ MonoBehaviour:
         value: 5
         type: 5
       - title: Conversant
-        value: 36
+        value: 4
         type: 5
       - title: Menu Text
         value: 
@@ -8593,6 +8613,12 @@ MonoBehaviour:
         destinationDialogueID: 1
         isConnector: 0
         priority: 2
+      - originConversationID: 58
+        originDialogueID: 0
+        destinationConversationID: 58
+        destinationDialogueID: 3
+        isConnector: 0
+        priority: 2
       conditionsString: 
       userScript: 
     - id: 1
@@ -8601,17 +8627,89 @@ MonoBehaviour:
         value: New Dialogue
         type: 0
       - title: Actor
-        value: 36
+        value: 4
         type: 5
       - title: Conversant
         value: 5
         type: 5
       - title: Menu Text
-        value: '[f]Message from Legal Manger'
+        value: Send the document to Credit Risk
         type: 0
       - title: Dialogue Text
-        value: Hi, I have sent all the documents of Mr. Tan. Please review and let
-          me know if you need any other information
+        value: Hi, I have located the document of Mr. Tan. Please review and let me
+          know if you need any other information.
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 58
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 58
+        originDialogueID: 1
+        destinationConversationID: 58
+        destinationDialogueID: 2
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+    - id: 2
+      fields:
+      - title: Title
+        value: New Dialogue
+        type: 0
+      - title: Actor
+        value: 5
+        type: 5
+      - title: Conversant
+        value: 4
+        type: 5
+      - title: Menu Text
+        value: 
+        type: 0
+      - title: Dialogue Text
+        value: Document sent to Credit Risk.
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: DidInformCR();
+        type: 0
+      conversationID: 58
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: Item["Missing_Documents"].State = "success";
+    - id: 3
+      fields:
+      - title: Title
+        value: New Dialogue
+        type: 0
+      - title: Actor
+        value: 4
+        type: 5
+      - title: Conversant
+        value: 5
+        type: 5
+      - title: Menu Text
+        value: Send it later.
+        type: 0
+      - title: Dialogue Text
+        value: 
         type: 4
       - title: Video File
         value: 
@@ -9182,6 +9280,304 @@ MonoBehaviour:
         value: 
         type: 0
       conversationID: 59
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: 
+  - id: 60
+    fields:
+    - title: Title
+      value: Quest for missing document
+      type: 0
+    - title: Description
+      value: 
+      type: 0
+    - title: Actor
+      value: 4
+      type: 5
+    - title: Conversant
+      value: 5
+      type: 5
+    nodeColor: Red
+    dialogueEntries:
+    - id: 0
+      fields:
+      - title: Title
+        value: START
+        type: 0
+      - title: Actor
+        value: 4
+        type: 5
+      - title: Conversant
+        value: 5
+        type: 5
+      - title: Menu Text
+        value: 
+        type: 0
+      - title: Dialogue Text
+        value: 
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: None()
+        type: 0
+      conversationID: 60
+      isRoot: 1
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 60
+        originDialogueID: 0
+        destinationConversationID: 60
+        destinationDialogueID: 1
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+    - id: 1
+      fields:
+      - title: Title
+        value: New Dialogue
+        type: 0
+      - title: Actor
+        value: 5
+        type: 5
+      - title: Conversant
+        value: 4
+        type: 5
+      - title: Menu Text
+        value: '[f]Message from Credit risk'
+        type: 0
+      - title: Dialogue Text
+        value: Hi, i just got a call from a customer named Mr. Tan. He has taken a
+          housing loan of $10 million and has defaulted. Now he has requested extension
+          of loan tenure to lower his monthly installment. So I need his ORIGINAL
+          TITLE DEED document to further pursue this issue. Could you kindly locate
+          the document and send it to me.
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 60
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 60
+        originDialogueID: 1
+        destinationConversationID: 60
+        destinationDialogueID: 2
+        isConnector: 0
+        priority: 2
+      - originConversationID: 60
+        originDialogueID: 1
+        destinationConversationID: 60
+        destinationDialogueID: 3
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+    - id: 2
+      fields:
+      - title: Title
+        value: New Dialogue
+        type: 0
+      - title: Actor
+        value: 4
+        type: 5
+      - title: Conversant
+        value: 5
+        type: 5
+      - title: Menu Text
+        value: Find Mr.tan's document
+        type: 0
+      - title: Dialogue Text
+        value: 'Quest: Find missing document!'
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: AddQuest();
+        type: 0
+      conversationID: 60
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: Item["Missing_Documents"].State = "active";
+    - id: 3
+      fields:
+      - title: Title
+        value: New Dialogue
+        type: 0
+      - title: Actor
+        value: 4
+        type: 5
+      - title: Conversant
+        value: 5
+        type: 5
+      - title: Menu Text
+        value: Dont bother about it now.
+        type: 0
+      - title: Dialogue Text
+        value: 
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 60
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: 
+  - id: 61
+    fields:
+    - title: Title
+      value: Confirmation of Missing Documents
+      type: 0
+    - title: Description
+      value: 
+      type: 0
+    - title: Actor
+      value: 5
+      type: 5
+    - title: Conversant
+      value: 4
+      type: 5
+    nodeColor: Red
+    dialogueEntries:
+    - id: 0
+      fields:
+      - title: Title
+        value: START
+        type: 0
+      - title: Actor
+        value: 5
+        type: 5
+      - title: Conversant
+        value: 4
+        type: 5
+      - title: Menu Text
+        value: 
+        type: 0
+      - title: Dialogue Text
+        value: 
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: None()
+        type: 0
+      conversationID: 61
+      isRoot: 1
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 61
+        originDialogueID: 0
+        destinationConversationID: 61
+        destinationDialogueID: 1
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+    - id: 1
+      fields:
+      - title: Title
+        value: New Dialogue
+        type: 0
+      - title: Actor
+        value: 4
+        type: 5
+      - title: Conversant
+        value: 5
+        type: 5
+      - title: Menu Text
+        value: 
+        type: 0
+      - title: Dialogue Text
+        value: 'Hi, this is the LPU Manager calling. I want to inform you that I have
+          found the document of Mr. Tan! and have sent the document to you. '
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 61
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 61
+        originDialogueID: 1
+        destinationConversationID: 61
+        destinationDialogueID: 2
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+    - id: 2
+      fields:
+      - title: Title
+        value: New Dialogue
+        type: 0
+      - title: Actor
+        value: 5
+        type: 5
+      - title: Conversant
+        value: 4
+        type: 5
+      - title: Menu Text
+        value: 
+        type: 0
+      - title: Dialogue Text
+        value: Oh that's great. i will check and review it. Thank you.
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 61
       isRoot: 0
       isGroup: 0
       nodeColor: White

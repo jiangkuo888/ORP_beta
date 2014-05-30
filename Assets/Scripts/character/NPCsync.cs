@@ -69,6 +69,32 @@ public class NPCsync: MonoBehaviour {
 
 
 
+	public void startConversation(string conversationName, string playerName){
+
+		
+		PhotonView photonView = this.gameObject.GetPhotonView ();
+		photonView.RPC ("startConversationRPC",PhotonTargets.OthersBuffered,conversationName,playerName);
+
+	}
+
+
+
+
+	
+	[RPC]
+	void startConversationRPC(string conversationName,string playerName){
+		if(PhotonNetwork.playerName == playerName)
+		{
+			GameObject.Find("phoneButton").GetComponent<phoneButton>().OnCall(playerName,conversationName);
+			// put the missing docunment on LPU's table
+		}
+		
+	}
+
+
+
+
+
 	[RPC]
 	void syncNPCstate(string myEvent){
 
