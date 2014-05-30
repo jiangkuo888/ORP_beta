@@ -211,7 +211,9 @@ public class DeskMode : MonoBehaviour {
 					if(FsmVariables.GlobalVariables.GetFsmInt("TimeSinceCreate").Value <= 540)
 					{
 						GameObject.Find ("phoneButton").GetComponent<phoneButton>().OnCall("Credit Risk","Risk report");
+						GameObject.Find("Dialogue Manager").GetComponent<PlayerActionLog>().addToPlayerActionLog("42A", "compare document");
 					}
+
 				}
 
 				
@@ -824,13 +826,12 @@ public class DeskMode : MonoBehaviour {
 			child.gameObject.GetComponent<DeskObjectHandler>().tableName = this.name;
 		}
 	}
-	
+
 	void disableChildren(){
 		foreach(Transform child in transform)
 			if(child.gameObject.GetComponent<DeskObjectHandler>() !=null)
 				Destroy(child.gameObject.GetComponent<DeskObjectHandler>());
 	}
-
 	public void moveCameraToDesk(){
 		
 		Vector3 newPosition = this.transform.position - this.transform.forward*1.3f + new Vector3 (0,1.5f,0);

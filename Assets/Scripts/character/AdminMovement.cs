@@ -229,7 +229,13 @@ public class AdminMovement : Photon.MonoBehaviour
 		if (PhotonNetwork.playerName == "Credit Risk")
 		{
 			GameObject.Find("Dialogue Manager").GetComponent<DialogueSystemController>().ShowAlert("You have a new file on your table");
-			GameObject.Find ("LeaveSheet").GetComponent<MeshRenderer>().enabled = true;
+			Renderer[] rs = GameObject.Find ("Leave Balance").GetComponentsInChildren<Renderer>();
+			
+			foreach(Renderer r in rs)
+				r.enabled = true;
+
+			GameObject.Find ("Leave Balance").GetComponent<BoxCollider>().enabled = true;
+
 		}
 
 	}
