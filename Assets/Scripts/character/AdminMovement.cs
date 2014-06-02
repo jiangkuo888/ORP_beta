@@ -112,7 +112,7 @@ public class AdminMovement : Photon.MonoBehaviour
 			//Debug.Log (addy.transform.forward);
 			//Debug.Log ("move");
 			//Debug.Log (move);
-			transform.Translate(move * 0.2f);
+			transform.Translate(move * 0.1f);
 			
 		}
 		

@@ -34,6 +34,7 @@ public class GameManagerVik : Photon.MonoBehaviour {
 	public bool isTutorial = false;
 	public bool connected = false;
 	public bool GameStarted = false;
+	public bool hasTrainer = false;
 	
 	//sync boolean
 	public int syncNum = 0;
@@ -216,7 +217,7 @@ public class GameManagerVik : Photon.MonoBehaviour {
 				//				print (selectedPlayerList.Count);
 				
 				// player number check after game started
-				if(selectedPlayerList.Count <syncTotal && GameStarted )
+				if(((!hasTrainer && selectedPlayerList.Count <syncTotal) || (hasTrainer  && PhotonNetwork.playerList.Length<syncTotal+1)) && GameStarted )
 				{
 					// pause the game and wait for others.
 					
@@ -517,6 +518,8 @@ public class GameManagerVik : Photon.MonoBehaviour {
 		// if is trainer
 		else
 		{
+			EventManager.FsmVariables.GetFsmInt("playerNum").Value = PhotonNetwork.playerList.Length;
+
 			//GameObject.Find ("phoneButton").GetComponent<GUITexture>().enabled = true;
 			GameObject a = PhotonNetwork.Instantiate("Admin", new Vector3(-19.0f, 3.5f, 57.0f), Quaternion.identity, 0);
 
@@ -526,6 +529,8 @@ public class GameManagerVik : Photon.MonoBehaviour {
 
 			//disable pc mode
 			GameObject.Find ("PCMode").SetActive(false);
+
+			photonView.RPC ("trainerJoinedGame",PhotonTargets.All);
 
 		}
 		
@@ -760,30 +765,6 @@ public class GameManagerVik : Photon.MonoBehaviour {
 	
 	//***********************************************************************************************************************************
 	
-	[RPC]
-	
-	void setRoleUnavailable(string role){
-		selectedPlayerList.Add(role);
-		
-		
-		//		print (selectedPlayerList.Count);
-	}
-	
-	[RPC]
-	void setRoleAvailable(string role){
-		selectedPlayerList.Remove(role);
-		
-		//		print (selectedPlayerList.Count);
-	}
-	
-	[RPC]
-	void levelLoaded(){
-		
-		this.syncNum++;
-	}
-	
-	
-	
 	void OnDisconnectedFromPhoton()
 	{
 		Debug.LogWarning("OnDisconnectedFromPhoton");
@@ -849,14 +830,27 @@ public class GameManagerVik : Photon.MonoBehaviour {
 		print ("One player left, now we have: "+PhotonNetwork.playerList.Length+" players left.");
 		
 		selectedPlayerList.Clear();
-		
+
+		bool isAdminLeft = true;
 		for( int i = 0; i< PhotonNetwork.playerList.Length; i++)
 		{
-			selectedPlayerList.Add(PhotonNetwork.playerList[i].name);
+			if (PhotonNetwork.playerList[i].name == "admin")
+			{
+				isAdminLeft = false;
+			}
+			else
+			{
+				selectedPlayerList.Add(PhotonNetwork.playerList[i].name);
+			}
+
 			print (PhotonNetwork.playerList[i].name);
 		}
 		//EventManager.FsmVariables.GetFsmInt("playerNum").Value = PhotonNetwork.playerList.Length;
-		
+
+		if (isAdminLeft)
+		{
+			photonView.RPC ("trainerLeftGame",PhotonTargets.All);
+		}
 	}
 	
 	
@@ -901,5 +895,41 @@ public class GameManagerVik : Photon.MonoBehaviour {
 		
 	}
 	
+	[RPC]
 	
+	void setRoleUnavailable(string role){
+		selectedPlayerList.Add(role);
+		
+		
+		//		print (selectedPlayerList.Count);
+	}
+	
+	[RPC]
+	void setRoleAvailable(string role){
+		selectedPlayerList.Remove(role);
+		
+		//		print (selectedPlayerList.Count);
+	}
+	
+	[RPC]
+	void levelLoaded(){
+		
+		this.syncNum++;
+	}
+	
+	//inform everyone trainer has joined
+	[RPC]
+	void trainerJoinedGame(){
+		
+		this.hasTrainer = true;
+		Debug.Log ("trainer JOINED");
+	}
+	
+	//inform everyone trainer has left
+	[RPC]
+	void trainerLeftGame(){
+		
+		this.hasTrainer = false;
+		Debug.Log ("trainer LEFT");
+	}
 }
