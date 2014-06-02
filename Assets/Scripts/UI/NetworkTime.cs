@@ -55,9 +55,13 @@ public class NetworkTime : MonoBehaviour {
 
 
 
+
+
 		GUILayout.BeginArea(new Rect(Screen.width/6+30, 0, 200,60));
 		GUILayout.Label(formatAsTime(PhotonNetwork.networkingPeer.ServerTimeInMilliSeconds/1000),customSkin.customStyles[2]);
 
+		//debug
+		GUILayout.Label((currentTimeInSec - startTimeInSec).ToString(),customSkin.customStyles[2]);
 		GUILayout.EndArea();
 	}
 
