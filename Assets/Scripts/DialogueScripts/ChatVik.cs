@@ -190,7 +190,15 @@ public class ChatVik : Photon.MonoBehaviour
 			SP.messageColor.RemoveAt(0);
 		}
 
-		GameObject.Find ("AudioManager").GetComponent<AudioManager>().Play(GameObject.Find ("AudioManager").GetComponent<AudioManager>().Audioclips[14],GameObject.Find (PhotonNetwork.playerName).transform.position,1f,1f,true);
+		if (PhotonNetwork.playerName == "admin")
+		{
+			GameObject.Find ("AudioManager").GetComponent<AudioManager>().Play(GameObject.Find ("AudioManager").GetComponent<AudioManager>().Audioclips[14],GameObject.Find ("Main Camera").transform.position,1f,1f,true);
+		}
+		else
+		{
+			GameObject.Find ("AudioManager").GetComponent<AudioManager>().Play(GameObject.Find ("AudioManager").GetComponent<AudioManager>().Audioclips[14],GameObject.Find (PhotonNetwork.playerName).transform.position,1f,1f,true);
+		}
+
 	}
 	
 	
