@@ -29,6 +29,9 @@ public class pcMode : MonoBehaviour {
 	
 	
 	void Start(){
+
+
+
 		InfoModeIsOn = false;
 		w = Screen.width;
 		h = Screen.height;

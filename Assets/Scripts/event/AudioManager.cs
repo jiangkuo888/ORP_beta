@@ -19,7 +19,15 @@ public class AudioManager : MonoBehaviour
 
 	public AudioSource Play(AudioClip clip){
 
-		return Play(clip, GameObject.Find (PhotonNetwork.playerName).transform, .7f, 1f);
+		if (PhotonNetwork.playerName == "admin")
+		{
+			return Play(clip, GameObject.Find ("Main Camera").transform, .7f, 1f);
+		}
+		else
+		{
+			return Play(clip, GameObject.Find (PhotonNetwork.playerName).transform, .7f, 1f);
+		}
+
 	}
 
 	public AudioSource Play(AudioClip clip, Transform emitter)

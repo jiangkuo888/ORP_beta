@@ -519,6 +519,14 @@ public class GameManagerVik : Photon.MonoBehaviour {
 		{
 			//GameObject.Find ("phoneButton").GetComponent<GUITexture>().enabled = true;
 			GameObject a = PhotonNetwork.Instantiate("Admin", new Vector3(-19.0f, 3.5f, 57.0f), Quaternion.identity, 0);
+
+			//disable bag and quest gui
+			GameObject.Find("InventoryButton").GetComponent<GUITexture>().enabled = false;
+			GameObject.Find ("Sci-fi Unity Quest Log Window").SetActive(false);
+
+			//disable pc mode
+			GameObject.Find ("PCMode").SetActive(false);
+
 		}
 		
 		
