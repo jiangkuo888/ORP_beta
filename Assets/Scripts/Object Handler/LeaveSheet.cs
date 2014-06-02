@@ -57,17 +57,21 @@ namespace PixelCrushers.DialogueSystem.Examples {
 		}
 		
 		public void OnConversationEnd(){
-			
-			GameObject.Find (PhotonNetwork.playerName).GetComponent<ClickMove>().enabled = true;
-			GameObject.Find (PhotonNetwork.playerName).GetComponent<MouseCamera>().enabled = true;
-			GameObject.Find (PhotonNetwork.playerName).GetComponent<DetectObjects>().enabled = true;
-			GameObject.Find (PhotonNetwork.playerName).GetComponent<Selector>().enabled = true;
 
-			//move back to original places
-			GameObject.Find("Credit Risk").GetComponent<DetectObjects>().moveCameraToPlayer();
+			//disable click of desktop
+			if (GameObject.Find (PhotonNetwork.playerName))
+			{
+				GameObject.Find (PhotonNetwork.playerName).GetComponent<ClickMove>().enabled = true;
+				GameObject.Find (PhotonNetwork.playerName).GetComponent<MouseCamera>().enabled = true;
+				GameObject.Find (PhotonNetwork.playerName).GetComponent<DetectObjects>().enabled = true;
+				GameObject.Find (PhotonNetwork.playerName).GetComponent<Selector>().enabled = true;
 
-			this.gameObject.transform.position = sheetsOriginalPosition;
-			this.gameObject.transform.rotation = sheetsOriginalRotation;
+				//move back to original places
+				GameObject.Find("Credit Risk").GetComponent<DetectObjects>().moveCameraToPlayer();
+
+				this.gameObject.transform.position = sheetsOriginalPosition;
+				this.gameObject.transform.rotation = sheetsOriginalRotation;
+			}
 		}
 	}
 
