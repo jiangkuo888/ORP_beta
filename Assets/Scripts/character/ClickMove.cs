@@ -16,7 +16,7 @@ public class ClickMove : MonoBehaviour
 	private Vector3 groundPosition;
 	public float speed = 0.01f;
 	public float heightOffset = 1.0f;
-
+	
 	public float moveCursorOffset = .05f;
 	
 	public bool OnGUI = false;
@@ -36,14 +36,14 @@ public class ClickMove : MonoBehaviour
 		groundPosition = transform.position - new Vector3 (0, heightOffset, 0);
 		
 		arrow = Instantiate (arrowPrefab, transform.position, Quaternion.Euler(90,0,0)) as GameObject;
-
-
+		
+		
 		
 		myCamera = GameObject.FindGameObjectWithTag ("MainCamera").transform.GetComponent<Camera> ();
 		
 		//motor = GetComponent<CharacterMotor> ();
-		navAgent = GetComponent<NavMeshAgent>();
-		
+	
+		navAgent = this.GetComponent<NavMeshAgent>();
 		transform.GetComponent<AnimationController> ().state = AnimationController.CharacterState.idle;
 		targetPosition = transform.position;
 		
@@ -73,40 +73,57 @@ public class ClickMove : MonoBehaviour
 	// Update is called once per frame
 	
 	void FixedUpdate(){
-
-		navAgent.destination = targetPosition;
-		
-		float dist = (targetPosition - transform.position).magnitude;
-		
-		
-		
-		if (dist > 1) {
+		if(navAgent.enabled)
+		{
+			navAgent.destination = targetPosition;
 			
-			arrow.transform.Rotate(0,0,10);
-			arrow.renderer.enabled = true;
-			//motor.inputMoveDirection = dir.normalized * move;
-			transform.GetComponent<AnimationController> ().state = AnimationController.CharacterState.run;
+			float dist = (targetPosition - transform.position).magnitude;
 			
-
-
-		} else {
 			
-			//transform.position = targetPosition;
 			
-			arrow.renderer.enabled = false;
-			//motor.inputMoveDirection = Vector3.zero;
-			transform.GetComponent<AnimationController> ().state = AnimationController.CharacterState.idle;
-			
-			GameObject.Find("SFX Player Footstep").GetComponent<AudioManager>().Stop(GameObject.Find("SFX Player Footstep").GetComponent<AudioManager>().Audioclips[0]);
-
+			if (dist > 1) {
+				
+				arrow.transform.Rotate(0,0,10);
+				arrow.renderer.enabled = true;
+				//motor.inputMoveDirection = dir.normalized * move;
+				transform.GetComponent<AnimationController> ().state = AnimationController.CharacterState.run;
+				
+				
+				
+			} else {
+				
+				//transform.position = targetPosition;
+				
+				arrow.renderer.enabled = false;
+				//motor.inputMoveDirection = Vector3.zero;
+				transform.GetComponent<AnimationController> ().state = AnimationController.CharacterState.idle;
+				
+				GameObject.Find("SFX Player Footstep").GetComponent<AudioManager>().Stop(GameObject.Find("SFX Player Footstep").GetComponent<AudioManager>().Audioclips[0]);
+				
+			}
 		}
-		
 		
 	}
 	
 	
 	
-	
+	public void SetPosition(Vector3 newPosition){
+
+		navAgent.enabled = false;
+
+
+		this.transform.position  = newPosition;
+
+
+		targetPosition = newPosition;
+		
+		
+	}
+
+	public void ResetNavAgent(){
+
+		navAgent.enabled = true;
+	}
 	
 	
 	void Update ()
@@ -140,12 +157,12 @@ public class ClickMove : MonoBehaviour
 				if (Input.GetKeyUp (KeyCode.Mouse0)) {
 					if(OnGUI)
 					{
-
+						
 					}
 					else{
 						
 						GameObject.Find("SFX Player Footstep").GetComponent<AudioManager>().Play(GameObject.Find("SFX Player Footstep").GetComponent<AudioManager>().Audioclips[0],gameObject.transform.position,1f,1f,false);
-
+						
 						
 						if(hit.collider.gameObject.tag == "ground")
 						{
@@ -164,13 +181,13 @@ public class ClickMove : MonoBehaviour
 							
 							// move the arrow to the click point and spin it, disable it after 2s
 							arrow.transform.position = new Vector3(targetPoint.x,targetPoint.y + moveCursorOffset,targetPoint.z);
-						
+							
 							
 							
 							targetPosition = targetPoint;
-
-
-
+							
+							
+							
 							//print (hit.collider.gameObject.name);
 							
 						}
@@ -214,9 +231,9 @@ public class ClickMove : MonoBehaviour
 							{
 								
 								targetPoint = new Vector3(hit.collider.transform.position.x+0.8f,hit.collider.transform.position.y,hit.collider.transform.position.z);
-
+								
 								arrow.transform.position = new Vector3(targetPoint.x,targetPoint.y + moveCursorOffset,targetPoint.z);
-
+								
 								arrowAnimation ();
 								
 								targetPosition = arrow.transform.position;
