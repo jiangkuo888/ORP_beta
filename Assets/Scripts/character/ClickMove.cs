@@ -105,18 +105,29 @@ public class ClickMove : MonoBehaviour
 		
 	}
 	
-	
+	[RPC]
+
+	void setSMPosition(Vector3 newPosition){
+
+		this.transform.position = newPosition;
+
+
+	}
+
+
+
 	
 	public void SetPosition(Vector3 newPosition){
 
 		navAgent.enabled = false;
 
 
-		this.transform.position  = newPosition;
+		PhotonView SMView = this.gameObject.GetPhotonView();
+		SMView.RPC ("setSMPosition",PhotonTargets.AllBuffered,newPosition);
+
 
 
 		targetPosition = newPosition;
-		
 		
 	}
 
