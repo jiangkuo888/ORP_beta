@@ -172,7 +172,9 @@ public class GameManagerVik : Photon.MonoBehaviour {
 		
 		
 	}
-	
+
+
+
 	[RPC]
 	
 	void checkGameStatusFromMaster(){
@@ -213,7 +215,7 @@ public class GameManagerVik : Photon.MonoBehaviour {
 		{
 			if(GameStarted && PhotonNetwork.connected)
 			{
-				
+
 				//				print (selectedPlayerList.Count);
 				
 				// player number check after game started

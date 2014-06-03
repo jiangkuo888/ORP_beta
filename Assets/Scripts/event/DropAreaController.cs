@@ -55,8 +55,8 @@ public class DropAreaController : MonoBehaviour {
 
 				// log the drop success action
 				GameObject.Find ("Dialogue Manager").GetComponent<PlayerActionLog>().addToPlayerActionLog(dropSuccessID, DropObj.name + " has been dropped to the correct place by " + PhotonNetwork.playerName);
-
-
+				if(co.GetComponent<Rigidbody>())
+				Destroy(co.GetComponent<Rigidbody>());
 				print(" you have finished task : Clear the obstacle box and move it to target area.");
 
 				DialogueLua.SetItemField("Fire_Escape_Blockage","State","Success");
