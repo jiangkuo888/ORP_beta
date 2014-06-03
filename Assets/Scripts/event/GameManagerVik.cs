@@ -519,6 +519,7 @@ public class GameManagerVik : Photon.MonoBehaviour {
 		else
 		{
 			EventManager.FsmVariables.GetFsmInt("playerNum").Value = PhotonNetwork.playerList.Length;
+			GameObject.Find ("EventManager").GetComponent<NetworkTime>().enabled = true;
 
 			//GameObject.Find ("phoneButton").GetComponent<GUITexture>().enabled = true;
 			GameObject a = PhotonNetwork.Instantiate("Admin", new Vector3(-19.0f, 3.5f, 57.0f), Quaternion.identity, 0);
@@ -531,6 +532,8 @@ public class GameManagerVik : Photon.MonoBehaviour {
 			GameObject.Find ("PCMode").SetActive(false);
 
 			photonView.RPC ("trainerJoinedGame",PhotonTargets.All);
+
+			photonView.RPC ("checkGameStatusFromMaster", PhotonTargets.OthersBuffered);
 
 		}
 		
