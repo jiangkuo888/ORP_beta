@@ -4,29 +4,31 @@ using PixelCrushers.DialogueSystem.UnityGUI;
 
 public class questLogDisplay : MonoBehaviour {
 
+
+	public GameObject questLogBig;
 	public bool isOpen;
 	// Use this for initialization
 	void Start () {
 		isOpen = true;
-		gameObject.GetComponent<UnityQuestLogWindow>().Open();
+		gameObject.GetComponent<UnityGUIQuestLogWindow>().Open();
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		if(isOpen && GameObject.Find ("GameManager").GetComponent<GameManagerVik>().isTutorial == false)
-		gameObject.GetComponent<UnityQuestLogWindow>().Open();
+			gameObject.GetComponent<UnityGUIQuestLogWindow>().Open();
 	}
 
 
 	public void close(){
 
-		gameObject.GetComponent<UnityQuestLogWindow>().Close();
+		gameObject.GetComponent<UnityGUIQuestLogWindow>().Close();
 		isOpen = false;
 	}
 
 	public void open(){
 
-		gameObject.GetComponent<UnityQuestLogWindow>().Open();
+		gameObject.GetComponent<UnityGUIQuestLogWindow>().Open();
 		isOpen = true;
 	}
 }

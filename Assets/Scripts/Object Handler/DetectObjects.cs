@@ -197,7 +197,7 @@ public class DetectObjects : Photon.MonoBehaviour {
 									GameObject.Find ("phoneButton").GetComponent<phoneButton>().hide();
 									GameObject.Find ("phoneButton").GetComponent<GUITexture>().enabled = false;
 
-									GameObject.Find ("Sci-fi Unity Quest Log Window").GetComponent<questLogDisplay>().close();
+									GameObject.Find ("QuestLogSmall").GetComponent<questLogDisplay>().close();
 									GameObject.Find ("InventoryButton").GetComponent<GUITexture>().enabled = false;
 
 
