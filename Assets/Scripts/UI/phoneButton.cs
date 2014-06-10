@@ -106,12 +106,15 @@ public class phoneButton : Photon.MonoBehaviour {
 	}
 	
 	void OnMouseEnter(){
-		
+
+
+
 		if(GameObject.Find(PhotonNetwork.playerName))
 		{
-		GameObject.Find(PhotonNetwork.playerName).GetComponent<DetectObjects>().enabled = false;
-		GameObject.Find(PhotonNetwork.playerName).GetComponent<ClickMove>().OnGUI = true;
+			GameObject.Find(PhotonNetwork.playerName).GetComponent<DetectObjects>().enabled = false;
+			GameObject.Find(PhotonNetwork.playerName).GetComponent<ClickMove>().OnGUI = true;	
 		}
+
 		Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
 		
 		myGUITexture.texture = hover;
@@ -310,7 +313,7 @@ public class phoneButton : Photon.MonoBehaviour {
 			GameObject.Find("phoneSmallButton2").GetComponent<phoneShowPlayerButton>().targetPlayer = "LPU Manager";
 			GameObject.Find("phoneSmallButton3").GetComponent<phoneShowPlayerButton>().targetPlayer = "Credit Risk";
 			
-			print (EventFSM.name);
+//			print (EventFSM.name);
 			if(EventFSM.enabled != true)
 				
 			{

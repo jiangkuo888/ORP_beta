@@ -148,7 +148,7 @@ public class phoneShowPlayerButton : MonoBehaviour {
 	void startConversation(){
 		if(conversation !=null)
 		{
-			print (conversation);
+//			print (conversation);
 		GameObject.Find("Dialogue Manager").GetComponent<DialogueSystemController>().StartConversation(conversation,GameObject.Find (PhotonNetwork.playerName).transform);
 		}
 	}

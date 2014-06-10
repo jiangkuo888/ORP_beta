@@ -75,34 +75,22 @@ public class DeskObjectHandler : MonoBehaviour {
 			GameObject.Find (tableName).GetComponent<DeskMode>().mode = DeskMode.DeskModeSubMode.FileMode;
 			GameObject.Find (tableName).GetComponent<DeskMode>().currentDocumentIndex = 1;
 
+			this.GetComponent<documentData>().arrangeDocuments();
 
 			foreach (Transform tr in GameObject.Find ("FileMode").transform)
 			{
-			if(tr.gameObject.GetComponent<ObjectViewer>() == null)
-				tr.gameObject.AddComponent<ObjectViewer>();
+			if(tr.gameObject.GetComponent<ObjectViewer>() == null && tr.GetComponent<DocumentHandler>())
+				{
+
+					tr.gameObject.AddComponent<ObjectViewer>();
+					tr.gameObject.GetComponent<ObjectViewer>().UpdateNewPosition();
+					return;
+				}
 			}
 
 			break;
 		}
-		case "Monitor":
-		{
-			GameObject target = GameObject.Find ("PCMode");
-			float objXmid = (target.collider.bounds.max.x + target.collider.bounds.min.x)/2;
-			float objYmid = (target.collider.bounds.max.y + target.collider.bounds.min.y)/2;
-			float objZmid = (target.collider.bounds.max.z + target.collider.bounds.min.z)/2;
-			
-			
-			
-			Camera.main.transform.position = new Vector3(objXmid,objYmid+0.57f,objZmid);
-			Camera.main.transform.localEulerAngles = new Vector3(90,0,0);
-
-			GameObject.Find (tableName).GetComponent<DeskMode>().mode = DeskMode.DeskModeSubMode.PCMode;
-			GameObject.Find (tableName).GetComponent<DeskMode>().sending = false;
-			GameObject.Find (tableName).GetComponent<DeskMode>().checking = false;
-
-			
-			break;
-		}
+		
 		
 		default:
 			break;

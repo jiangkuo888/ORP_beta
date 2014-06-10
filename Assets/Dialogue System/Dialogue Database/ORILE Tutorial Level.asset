@@ -78,7 +78,63 @@ MonoBehaviour:
       value: False
       type: 2
     portrait: {fileID: 0}
-  items: []
+  - id: 37
+    fields:
+    - title: Name
+      value: Box
+      type: 0
+    - title: Pictures
+      value: '[]'
+      type: 3
+    - title: Description
+      value: 
+      type: 0
+    - title: IsPlayer
+      value: False
+      type: 2
+    portrait: {fileID: 0}
+  items:
+  - id: 26
+    fields:
+    - title: Name
+      value: Find and retrieve key
+      type: 0
+    - title: Description
+      value: Find and retrieve the key from the keybox on the wall in this room.
+      type: 0
+    - title: Success Description
+      value: 
+      type: 0
+    - title: Failure Description
+      value: 
+      type: 0
+    - title: State
+      value: unassigned
+      type: 0
+    - title: Is Item
+      value: False
+      type: 2
+  - id: 27
+    fields:
+    - title: Name
+      value: Tutorial Blockage
+      type: 0
+    - title: Description
+      value: Move the box away from the door. [Left Click] to pick up the box and
+        [Right Click] on inventory to put it down.
+      type: 0
+    - title: Success Description
+      value: 
+      type: 0
+    - title: Failure Description
+      value: 
+      type: 0
+    - title: State
+      value: unassigned
+      type: 0
+    - title: Is Item
+      value: False
+      type: 2
   locations:
   - id: 1
     fields:
@@ -137,7 +193,7 @@ MonoBehaviour:
       value: 
       type: 0
   conversations:
-  - id: 63
+  - id: 62
     fields:
     - title: Title
       value: Keybox
@@ -159,10 +215,10 @@ MonoBehaviour:
         value: START
         type: 0
       - title: Actor
-        value: 31
+        value: 9
         type: 5
       - title: Conversant
-        value: 9
+        value: 31
         type: 5
       - title: Menu Text
         value: 
@@ -176,7 +232,7 @@ MonoBehaviour:
       - title: Sequence
         value: None()
         type: 0
-      conversationID: 63
+      conversationID: 62
       isRoot: 1
       isGroup: 0
       nodeColor: White
@@ -184,9 +240,9 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 63
+      - originConversationID: 62
         originDialogueID: 0
-        destinationConversationID: 63
+        destinationConversationID: 62
         destinationDialogueID: 6
         isConnector: 0
         priority: 2
@@ -215,7 +271,7 @@ MonoBehaviour:
       - title: Sequence
         value: Camera(Closeup Wall);
         type: 0
-      conversationID: 63
+      conversationID: 62
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -223,21 +279,21 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 63
+      - originConversationID: 62
         originDialogueID: 6
-        destinationConversationID: 63
+        destinationConversationID: 62
         destinationDialogueID: 1
         isConnector: 0
         priority: 2
-      - originConversationID: 63
+      - originConversationID: 62
         originDialogueID: 6
-        destinationConversationID: 63
+        destinationConversationID: 62
         destinationDialogueID: 4
         isConnector: 0
         priority: 2
-      - originConversationID: 63
+      - originConversationID: 62
         originDialogueID: 6
-        destinationConversationID: 63
+        destinationConversationID: 62
         destinationDialogueID: 5
         isConnector: 0
         priority: 2
@@ -266,7 +322,7 @@ MonoBehaviour:
       - title: Sequence
         value: Pick(open);
         type: 0
-      conversationID: 63
+      conversationID: 62
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -274,15 +330,15 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 63
+      - originConversationID: 62
         originDialogueID: 1
-        destinationConversationID: 63
+        destinationConversationID: 62
         destinationDialogueID: 2
         isConnector: 0
         priority: 2
-      - originConversationID: 63
+      - originConversationID: 62
         originDialogueID: 1
-        destinationConversationID: 63
+        destinationConversationID: 62
         destinationDialogueID: 3
         isConnector: 0
         priority: 2
@@ -311,7 +367,7 @@ MonoBehaviour:
       - title: Sequence
         value: Pick(key);
         type: 0
-      conversationID: 63
+      conversationID: 62
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -322,7 +378,9 @@ MonoBehaviour:
       conditionsString: Variable["HasKey"] == true;
       userScript: 'Variable["HasKey"] = false;
 
-        Variable["Tutorial_key_get"] = true;'
+        Variable["Tutorial_key_get"] = true;
+
+        Item["Find_and_retrieve_key"].State = "success";'
     - id: 3
       fields:
       - title: Title
@@ -346,7 +404,7 @@ MonoBehaviour:
       - title: Sequence
         value: Pick(close);
         type: 0
-      conversationID: 63
+      conversationID: 62
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -379,7 +437,7 @@ MonoBehaviour:
       - title: Sequence
         value: Pick(close);
         type: 0
-      conversationID: 63
+      conversationID: 62
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -412,7 +470,7 @@ MonoBehaviour:
       - title: Sequence
         value: Pick(key);
         type: 0
-      conversationID: 63
+      conversationID: 62
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -426,8 +484,10 @@ MonoBehaviour:
 
         Variable["Tutorial_key_get"] = true;
 
+        Item["Find_and_retrieve_key"].State = "success";
+
 '
-  - id: 64
+  - id: 63
     fields:
     - title: Title
       value: Tutorial NPC
@@ -466,7 +526,7 @@ MonoBehaviour:
       - title: Sequence
         value: None()
         type: 0
-      conversationID: 64
+      conversationID: 63
       isRoot: 1
       isGroup: 0
       nodeColor: White
@@ -474,15 +534,15 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 64
+      - originConversationID: 63
         originDialogueID: 0
-        destinationConversationID: 64
+        destinationConversationID: 63
         destinationDialogueID: 1
         isConnector: 0
         priority: 2
-      - originConversationID: 64
+      - originConversationID: 63
         originDialogueID: 0
-        destinationConversationID: 64
+        destinationConversationID: 63
         destinationDialogueID: 4
         isConnector: 0
         priority: 2
@@ -514,7 +574,7 @@ MonoBehaviour:
       - title: Sequence
         value: Camera(Closeup);
         type: 0
-      conversationID: 64
+      conversationID: 63
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -522,9 +582,9 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 64
+      - originConversationID: 63
         originDialogueID: 1
-        destinationConversationID: 64
+        destinationConversationID: 63
         destinationDialogueID: 2
         isConnector: 0
         priority: 2
@@ -553,7 +613,7 @@ MonoBehaviour:
       - title: Sequence
         value: NpcQuestDone();Camera(Closeup);
         type: 0
-      conversationID: 64
+      conversationID: 63
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -587,7 +647,7 @@ MonoBehaviour:
       - title: Sequence
         value: 
         type: 0
-      conversationID: 64
+      conversationID: 63
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -595,14 +655,16 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 64
+      - originConversationID: 63
         originDialogueID: 2
-        destinationConversationID: 64
+        destinationConversationID: 63
         destinationDialogueID: 3
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: 'Item["Find_and_retrieve_key"].State = "active";
+
+        Variable["Alert"] = "New Quest: Find the key";'
     - id: 3
       fields:
       - title: Title
@@ -624,7 +686,95 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Sequence
+        value: AddQuest();
+        type: 0
+      conversationID: 63
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: 
+  - id: 64
+    fields:
+    - title: Title
+      value: MessageToSend
+      type: 0
+    - title: Description
+      value: 
+      type: 0
+    - title: Actor
+      value: 20
+      type: 5
+    - title: Conversant
+      value: 9
+      type: 5
+    nodeColor: Red
+    dialogueEntries:
+    - id: 0
+      fields:
+      - title: Title
+        value: START
+        type: 0
+      - title: Actor
+        value: 20
+        type: 5
+      - title: Conversant
+        value: 9
+        type: 5
+      - title: Menu Text
         value: 
+        type: 0
+      - title: Dialogue Text
+        value: 
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: None()
+        type: 0
+      conversationID: 64
+      isRoot: 1
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 64
+        originDialogueID: 0
+        destinationConversationID: 64
+        destinationDialogueID: 1
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+    - id: 1
+      fields:
+      - title: Title
+        value: 1
+        type: 0
+      - title: Actor
+        value: 9
+        type: 5
+      - title: Conversant
+        value: 20
+        type: 5
+      - title: Menu Text
+        value: This is a text message. Click me to send.
+        type: 0
+      - title: Dialogue Text
+        value: 
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: TutorialMessage(send);
         type: 0
       conversationID: 64
       isRoot: 0
@@ -639,7 +789,7 @@ MonoBehaviour:
   - id: 65
     fields:
     - title: Title
-      value: MessageToSend
+      value: MessageInbox
       type: 0
     - title: Description
       value: 
@@ -703,16 +853,16 @@ MonoBehaviour:
         value: 20
         type: 5
       - title: Menu Text
-        value: This is a text message. Click me to send.
+        value: 
         type: 0
       - title: Dialogue Text
-        value: 
+        value: This is a message from another player.
         type: 4
       - title: Video File
         value: 
         type: 0
       - title: Sequence
-        value: TutorialMessage(send);
+        value: TutorialMessage(read);
         type: 0
       conversationID: 65
       isRoot: 0
@@ -725,94 +875,6 @@ MonoBehaviour:
       conditionsString: 
       userScript: 
   - id: 66
-    fields:
-    - title: Title
-      value: MessageInbox
-      type: 0
-    - title: Description
-      value: 
-      type: 0
-    - title: Actor
-      value: 20
-      type: 5
-    - title: Conversant
-      value: 9
-      type: 5
-    nodeColor: Red
-    dialogueEntries:
-    - id: 0
-      fields:
-      - title: Title
-        value: START
-        type: 0
-      - title: Actor
-        value: 20
-        type: 5
-      - title: Conversant
-        value: 9
-        type: 5
-      - title: Menu Text
-        value: 
-        type: 0
-      - title: Dialogue Text
-        value: 
-        type: 4
-      - title: Video File
-        value: 
-        type: 0
-      - title: Sequence
-        value: None()
-        type: 0
-      conversationID: 66
-      isRoot: 1
-      isGroup: 0
-      nodeColor: White
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks:
-      - originConversationID: 66
-        originDialogueID: 0
-        destinationConversationID: 66
-        destinationDialogueID: 1
-        isConnector: 0
-        priority: 2
-      conditionsString: 
-      userScript: 
-    - id: 1
-      fields:
-      - title: Title
-        value: 1
-        type: 0
-      - title: Actor
-        value: 9
-        type: 5
-      - title: Conversant
-        value: 20
-        type: 5
-      - title: Menu Text
-        value: 
-        type: 0
-      - title: Dialogue Text
-        value: This is a message from another player.
-        type: 4
-      - title: Video File
-        value: 
-        type: 0
-      - title: Sequence
-        value: TutorialMessage(read);
-        type: 0
-      conversationID: 66
-      isRoot: 0
-      isGroup: 0
-      nodeColor: White
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks: []
-      conditionsString: 
-      userScript: 
-  - id: 67
     fields:
     - title: Title
       value: Fake call to NPC
@@ -851,7 +913,7 @@ MonoBehaviour:
       - title: Sequence
         value: None()
         type: 0
-      conversationID: 67
+      conversationID: 66
       isRoot: 1
       isGroup: 0
       nodeColor: White
@@ -859,15 +921,15 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 67
+      - originConversationID: 66
         originDialogueID: 0
-        destinationConversationID: 67
+        destinationConversationID: 66
         destinationDialogueID: 1
         isConnector: 0
         priority: 2
-      - originConversationID: 67
+      - originConversationID: 66
         originDialogueID: 0
-        destinationConversationID: 67
+        destinationConversationID: 66
         destinationDialogueID: 2
         isConnector: 0
         priority: 2
@@ -896,7 +958,7 @@ MonoBehaviour:
       - title: Sequence
         value: TutorialMessage(NPC);
         type: 0
-      conversationID: 67
+      conversationID: 66
       isRoot: 0
       isGroup: 0
       nodeColor: White
@@ -929,6 +991,220 @@ MonoBehaviour:
       - title: Sequence
         value: TutorialMessage(NPC);
         type: 0
+      conversationID: 66
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: 
+  - id: 67
+    fields:
+    - title: Title
+      value: Tutorial Box
+      type: 0
+    - title: Description
+      value: 
+      type: 0
+    - title: Actor
+      value: 9
+      type: 5
+    - title: Conversant
+      value: 37
+      type: 5
+    nodeColor: Red
+    dialogueEntries:
+    - id: 0
+      fields:
+      - title: Title
+        value: START
+        type: 0
+      - title: Actor
+        value: 9
+        type: 5
+      - title: Conversant
+        value: 31
+        type: 5
+      - title: Menu Text
+        value: 
+        type: 0
+      - title: Dialogue Text
+        value: 
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: None()
+        type: 0
+      conversationID: 67
+      isRoot: 1
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 67
+        originDialogueID: 0
+        destinationConversationID: 67
+        destinationDialogueID: 1
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+    - id: 1
+      fields:
+      - title: Title
+        value: 
+        type: 0
+      - title: Actor
+        value: 37
+        type: 5
+      - title: Conversant
+        value: 9
+        type: 5
+      - title: Menu Text
+        value: 
+        type: 0
+      - title: Dialogue Text
+        value: 
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: Camera(Closeup Ground);
+        type: 0
+      conversationID: 67
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 67
+        originDialogueID: 1
+        destinationConversationID: 67
+        destinationDialogueID: 2
+        isConnector: 0
+        priority: 2
+      - originConversationID: 67
+        originDialogueID: 1
+        destinationConversationID: 67
+        destinationDialogueID: 3
+        isConnector: 0
+        priority: 2
+      - originConversationID: 67
+        originDialogueID: 1
+        destinationConversationID: 67
+        destinationDialogueID: 5
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+    - id: 2
+      fields:
+      - title: Title
+        value: 
+        type: 0
+      - title: Actor
+        value: 9
+        type: 5
+      - title: Conversant
+        value: 37
+        type: 5
+      - title: Menu Text
+        value: Pick up
+        type: 0
+      - title: Dialogue Text
+        value: 
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: Pick();
+        type: 0
+      conversationID: 67
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: Item["Tutorial_Blockage"].State == "active";
+      userScript: 
+    - id: 3
+      fields:
+      - title: Title
+        value: 
+        type: 0
+      - title: Actor
+        value: 9
+        type: 5
+      - title: Conversant
+        value: 37
+        type: 5
+      - title: Menu Text
+        value: Check
+        type: 0
+      - title: Dialogue Text
+        value: Checking item...
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 67
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 67
+        originDialogueID: 3
+        destinationConversationID: 67
+        destinationDialogueID: 4
+        isConnector: 0
+        priority: 2
+      conditionsString: Item["Tutorial_Blockage"].State ~= "Success";
+      userScript: 
+    - id: 4
+      fields:
+      - title: Title
+        value: Active Blockage Quest
+        type: 0
+      - title: Actor
+        value: 37
+        type: 5
+      - title: Conversant
+        value: 9
+        type: 5
+      - title: Menu Text
+        value: 
+        type: 0
+      - title: Dialogue Text
+        value: 'A bunch of boxes filled with heavy archival documents in front of
+          the stairwell.
+
+'
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: AddQuest();
+        type: 0
       conversationID: 67
       isRoot: 0
       isGroup: 0
@@ -938,4 +1214,39 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
+      userScript: 'Item["Tutorial_Blockage"].State = "active";
+
+        Variable["Alert"] = "New Quest: Clear blockage at the door";'
+    - id: 5
+      fields:
+      - title: Title
+        value: 
+        type: 0
+      - title: Actor
+        value: 9
+        type: 5
+      - title: Conversant
+        value: 37
+        type: 5
+      - title: Menu Text
+        value: Leave
+        type: 0
+      - title: Dialogue Text
+        value: 
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: Log(3B, not cleared the blockage);
+        type: 0
+      conversationID: 67
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: Item["Tutorial_Blockage"].State ~= "Success";
       userScript: 

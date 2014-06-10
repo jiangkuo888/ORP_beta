@@ -122,19 +122,23 @@ public class SequencerCommandPick : SequencerCommand {
 						print ("111");
 					}
 
+					if(onUsedObj.GetComponent<PhotonView>() != null)
+					{
+
 					PhotonView photonView = onUsedObj.GetPhotonView();
-					
+
+
 					photonView.RPC("disableRenderer",PhotonTargets.AllBuffered);
 					photonView.RPC("disableCollider",PhotonTargets.AllBuffered);
 					photonView.RPC("disableRigidbody",PhotonTargets.AllBuffered);
-
-
+					
 					if(onUsedObj.name == "ObstacleBox")
 					{
 						PhotonView photonView2 = GameObject.Find("EmergencyExit").GetPhotonView();
 						photonView2.RPC ("notBlockingAnymore",PhotonTargets.AllBuffered);
 					}
-					
+					}
+
 					moveToPlayerPosition(onUsedObj.name);
 					disableRender(onUsedObj.name);
 					disableCollider(onUsedObj.name);
@@ -142,7 +146,14 @@ public class SequencerCommandPick : SequencerCommand {
 					enableInventory(onUsedObj);
 
 					print ("222");
+
+
+				
+
 				}
+
+
+
 			}
 			else{
 

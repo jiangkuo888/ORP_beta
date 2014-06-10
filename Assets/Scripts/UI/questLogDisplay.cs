@@ -7,6 +7,7 @@ public class questLogDisplay : MonoBehaviour {
 
 	public GameObject questLogBig;
 	public bool isOpen;
+	private int count=0;
 	// Use this for initialization
 	void Start () {
 		isOpen = true;
@@ -17,8 +18,14 @@ public class questLogDisplay : MonoBehaviour {
 	void Update () {
 		if(isOpen && GameObject.Find ("GameManager").GetComponent<GameManagerVik>().isTutorial == false)
 			gameObject.GetComponent<UnityGUIQuestLogWindow>().Open();
-	}
 
+		if(Input.GetKey(KeyCode.A))
+		{
+
+			open();
+		}
+
+	}
 
 	public void close(){
 

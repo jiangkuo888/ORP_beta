@@ -18,7 +18,10 @@ public class ObjectViewer : MonoBehaviour {
 		originalPosition = this.transform.position;
 
 	}
-	
+	public void UpdateNewPosition(){
+
+		originalPosition = this.transform.position;
+	}
 	// Update is called once per frame
 	void Update () {
 	

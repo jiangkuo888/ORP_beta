@@ -126,9 +126,7 @@ namespace PixelCrushers.DialogueSystem.UnityGUI {
 		public override void OpenWindow(Action openedWindowHandler) {
 			if (guiRoot != null) {
 				guiRoot.gameObject.SetActive(true);
-				if ((abandonQuestPopup != null) && (abandonQuestPopup.panel != null)) {
-					abandonQuestPopup.panel.gameObject.SetActive(false);
-				}
+
 				guiRoot.ManualRefresh();
 			}
 			openedWindowHandler();
@@ -271,22 +269,7 @@ namespace PixelCrushers.DialogueSystem.UnityGUI {
 
 			if ((scrollView != null)) {
 				
-				if(scrollView.rect.Contains(Event.current.mousePosition ))
-				{
-					if(GameObject.Find(PhotonNetwork.playerName))
-					{
-						GameObject.Find(PhotonNetwork.playerName).GetComponent<DetectObjects>().enabled = false;
-						GameObject.Find(PhotonNetwork.playerName).GetComponent<ClickMove>().OnGUI = true;	
-					}
-				}
-				else
-				{
-					if(GameObject.Find(PhotonNetwork.playerName))
-					{
-						GameObject.Find(PhotonNetwork.playerName).GetComponent<DetectObjects>().enabled = true;
-						GameObject.Find(PhotonNetwork.playerName).GetComponent<ClickMove>().OnGUI = false;	
-					}
-				}
+
 
 
 				float contentY = padding;

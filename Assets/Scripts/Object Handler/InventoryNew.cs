@@ -141,7 +141,10 @@ public class InventoryNew : MonoBehaviour {
 			
 			enableCollider (inventoryObject);
 			enableRender (inventoryObject);
-			
+
+
+			if(inventoryObject.GetComponent<PhotonView>())
+			{
 			PhotonView photonView = inventoryObject.GetPhotonView();
 			
 			photonView.RPC ("enableRenderer",PhotonTargets.AllBuffered);
@@ -149,7 +152,7 @@ public class InventoryNew : MonoBehaviour {
 			photonView.RPC ("enableRigidbody",PhotonTargets.AllBuffered);
 			photonView.RPC ("updateAllInfo",PhotonTargets.AllBuffered,throwPos);
 			
-			
+			}
 			
 		
 			
