@@ -10,7 +10,7 @@ public class DropAreaController : MonoBehaviour {
 	public float rotateSpeed = 2f;
 	public string dropSuccessID;
 	bool DropTaskFinished;
-
+	PlayMakerFSM EventFSM;
 	public bool AreaActivated;
 	// Use this for initialization
 	void Start () {
@@ -74,7 +74,9 @@ public class DropAreaController : MonoBehaviour {
 				
 				DialogueLua.SetItemField("Tutorial_Blockage","State","Success");
 
-
+				EventFSM = GameObject.Find ("EventManager-Tutorial").GetComponent<PlayMakerFSM>();
+				
+				EventFSM.FsmVariables.GetFsmBool("BoxQuestDone").Value = true;
 
 				GameObject.Find ("Door2").transform.Find("TriggerA").GetComponent<DoorHandler>().enabled = true;
 				GameObject.Find ("Door2").transform.Find("TriggerB").GetComponent<DoorHandler>().enabled = true;

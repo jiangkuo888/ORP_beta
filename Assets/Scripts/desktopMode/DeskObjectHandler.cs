@@ -84,7 +84,7 @@ public class DeskObjectHandler : MonoBehaviour {
 
 					tr.gameObject.AddComponent<ObjectViewer>();
 					tr.gameObject.GetComponent<ObjectViewer>().UpdateNewPosition();
-					return;
+
 				}
 			}
 
