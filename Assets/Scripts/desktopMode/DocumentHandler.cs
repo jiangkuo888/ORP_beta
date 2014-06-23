@@ -168,7 +168,7 @@ public class DocumentHandler : MonoBehaviour {
 						
 						print ("tt signed");
 						TT_signed = true;
-						
+						GameObject.Find ("AudioManager").GetComponent<AudioManager>().Play(GameObject.Find ("AudioManager").GetComponent<AudioManager>().Audioclips[17]);
 						
 					}
 				}
@@ -191,7 +191,7 @@ public class DocumentHandler : MonoBehaviour {
 					{
 						PhotonView photonView = this.gameObject.GetPhotonView();
 						photonView.RPC ("signDoc",PhotonTargets.AllBuffered,"LO");
-						
+						GameObject.Find ("AudioManager").GetComponent<AudioManager>().Play(GameObject.Find ("AudioManager").GetComponent<AudioManager>().Audioclips[17]);
 				
 						// log the user action in database
 						if(correct_document)
@@ -231,7 +231,7 @@ public class DocumentHandler : MonoBehaviour {
 						PhotonView photonView = this.gameObject.GetPhotonView();
 						photonView.RPC ("signDoc",PhotonTargets.AllBuffered,"LM");
 						
-
+						GameObject.Find ("AudioManager").GetComponent<AudioManager>().Play(GameObject.Find ("AudioManager").GetComponent<AudioManager>().Audioclips[17]);
 						// log the user action in database
 						if(correct_document)
 						{
@@ -268,7 +268,7 @@ public class DocumentHandler : MonoBehaviour {
 						
 						PhotonView photonView = this.gameObject.GetPhotonView();
 						photonView.RPC ("signDoc",PhotonTargets.AllBuffered,"CR");
-						
+						GameObject.Find ("AudioManager").GetComponent<AudioManager>().Play(GameObject.Find ("AudioManager").GetComponent<AudioManager>().Audioclips[17]);
 						
 
 						// log the user action in database

@@ -147,4 +147,12 @@ public class AudioManager : MonoBehaviour
 		}
 
 	}
+
+	public void PlayRandom(){
+
+
+
+
+
+	}
 }
