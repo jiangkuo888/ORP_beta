@@ -168,7 +168,7 @@ public class ClickMove : MonoBehaviour
 				if (Input.GetKeyUp (KeyCode.Mouse0)) {
 					if(OnGUI)
 					{
-						
+//						print ("nothing");
 					}
 					else{
 						

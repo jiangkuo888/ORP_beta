@@ -28,7 +28,7 @@ public class SequencerCommandAddQuest : SequencerCommand {
 
 		}
 
-
+		GameObject.Find ("QuestLogSmall").GetComponent<questLogDisplay>().open();
 
 	}
 	

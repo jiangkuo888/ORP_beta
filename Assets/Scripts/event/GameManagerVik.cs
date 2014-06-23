@@ -528,7 +528,7 @@ public class GameManagerVik : Photon.MonoBehaviour {
 
 			//disable bag and quest gui
 			GameObject.Find("InventoryButton").GetComponent<GUITexture>().enabled = false;
-			GameObject.Find ("Sci-fi Unity Quest Log Window").SetActive(false);
+			GameObject.Find ("QuestLogSmall").SetActive(false);
 
 			//disable pc mode
 			GameObject.Find ("PCMode").SetActive(false);

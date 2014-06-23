@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 using System;
 using System.Collections.Generic;
 
@@ -92,6 +93,8 @@ namespace PixelCrushers.DialogueSystem.UnityGUI {
 
 		public int padding = 2;
 
+		public string lastTooltip = " ";
+
 		private GUIStyle questHeadingStyle = null;
 		private GUIStyle questBodyStyle = null;
 		private GUIStyle questEntryActiveStyle = null;
@@ -126,9 +129,7 @@ namespace PixelCrushers.DialogueSystem.UnityGUI {
 		public override void OpenWindow(Action openedWindowHandler) {
 			if (guiRoot != null) {
 				guiRoot.gameObject.SetActive(true);
-				if ((abandonQuestPopup != null) && (abandonQuestPopup.panel != null)) {
-					abandonQuestPopup.panel.gameObject.SetActive(false);
-				}
+
 				guiRoot.ManualRefresh();
 			}
 			openedWindowHandler();
@@ -271,47 +272,29 @@ namespace PixelCrushers.DialogueSystem.UnityGUI {
 
 			if ((scrollView != null)) {
 				
-				if(scrollView.rect.Contains(Event.current.mousePosition ))
-				{
-					if(GameObject.Find(PhotonNetwork.playerName))
-					{
-						GameObject.Find(PhotonNetwork.playerName).GetComponent<DetectObjects>().enabled = false;
-						GameObject.Find(PhotonNetwork.playerName).GetComponent<ClickMove>().OnGUI = true;	
-					}
-				}
-				else
-				{
-					if(GameObject.Find(PhotonNetwork.playerName))
-					{
-						GameObject.Find(PhotonNetwork.playerName).GetComponent<DetectObjects>().enabled = true;
-						GameObject.Find(PhotonNetwork.playerName).GetComponent<ClickMove>().OnGUI = false;	
-					}
-				}
+
 
 
 				float contentY = padding;
 				foreach (var questInfo in Quests) {
 					float headingHeight = QuestHeadingHeight(questInfo);
+
+
 					if (GUI.Button(new Rect(padding, contentY, scrollView.contentWidth - (2 * padding), headingHeight), questInfo.Heading.text, questHeadingStyle)) {
 						Rect newrect = new Rect(padding, contentY, scrollView.contentWidth - (2 * padding), headingHeight);
-						if(newrect.Contains(Event.current.mousePosition ))
-						{
+
 							if(GameObject.Find(PhotonNetwork.playerName))
 							{
 								GameObject.Find(PhotonNetwork.playerName).GetComponent<DetectObjects>().enabled = false;
 								GameObject.Find(PhotonNetwork.playerName).GetComponent<ClickMove>().OnGUI = true;	
 							}
-						}
-						else
-						{
-							if(GameObject.Find(PhotonNetwork.playerName))
-							{
-								GameObject.Find(PhotonNetwork.playerName).GetComponent<DetectObjects>().enabled = true;
-								GameObject.Find(PhotonNetwork.playerName).GetComponent<ClickMove>().OnGUI = false;	
-							}
-						}
+
 						ClickQuest(questInfo.Title);
+
+						StartCoroutine(WaitMouseOut(0.3f));
 					}
+
+
 
 
 					contentY += headingHeight;
@@ -395,6 +378,23 @@ namespace PixelCrushers.DialogueSystem.UnityGUI {
 			}
 			return currentY;
 		}
+
+		IEnumerator WaitMouseOut(float sec){
+			
+			
+			Debug.Log("Quit lost focus");
+			
+			yield return new WaitForSeconds (sec);
+			
+			if(GameObject.Find(PhotonNetwork.playerName))
+			{
+				GameObject.Find(PhotonNetwork.playerName).GetComponent<DetectObjects>().enabled = true;
+				GameObject.Find(PhotonNetwork.playerName).GetComponent<ClickMove>().OnGUI = false;	
+			}
+			
+		}
+	
+
 
 	}
 

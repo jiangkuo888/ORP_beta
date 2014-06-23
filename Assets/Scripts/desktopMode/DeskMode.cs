@@ -164,8 +164,21 @@ public class DeskMode : MonoBehaviour {
 						
 						GameObject.Find ("Inventory").GetComponent<InventoryNew>().AddItem(targetDocument.transform);
 						// remove document from his table
+						if(currentDocumentIndex == this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents.Length)
+						{
+							currentDocumentIndex --;
+							
+						}
+
+
+
 						
 						this.transform.Find ("DocumentHolder").GetComponent<documentData>().removeDocument(targetDocument);
+
+//						print (this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents.Length);
+
+
+						print (currentDocumentIndex);
 						// move the document out of the table
 						targetDocument.transform.parent = GameObject.Find ("AllDocuments").transform;
 						targetDocument.transform.localPosition = new Vector3(0,0,0);
@@ -186,7 +199,7 @@ public class DeskMode : MonoBehaviour {
 					GameObject.Find ("phoneButton").GetComponent<GUITexture>().enabled = true;
 					GameObject.Find ("InventoryButton").GetComponent<GUITexture>().enabled = true;
 
-					GameObject.Find ("Sci-fi Unity Quest Log Window").GetComponent<questLogDisplay>().open();
+					GameObject.Find ("QuestLogSmall").GetComponent<questLogDisplay>().open();
 					
 					StartCoroutine(WaitAndQuit(0.3f));
 				}
@@ -265,7 +278,7 @@ public class DeskMode : MonoBehaviour {
 					// add viewer for next obj
 					currentDocumentIndex++;
 					
-					//print (currentDocumentIndex);
+					print (currentDocumentIndex);
 					
 					
 					Transform nextTr = this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].transform;
@@ -312,7 +325,7 @@ public class DeskMode : MonoBehaviour {
 					currentDocumentIndex--;
 					
 					
-					//					print (currentDocumentIndex);
+										print (currentDocumentIndex);
 					
 					Transform nextTr = this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].transform;
 					if(nextTr.gameObject.GetComponent<ObjectViewer>() ==null)
@@ -372,7 +385,7 @@ public class DeskMode : MonoBehaviour {
 			//	this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].GetComponent<DocumentHandler>().lastPage = false;
 				this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].GetComponent<ObjectViewer>().playCloseFileAnim();
 				this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].GetComponent<ObjectViewer>().resetDocumentPosition();
-				
+				this.transform.Find ("DocumentHolder").GetComponent<documentData>().arrangeDocuments();
 			}
 			
 			
@@ -700,7 +713,7 @@ public class DeskMode : MonoBehaviour {
 			
 			GameObject.Find (receiver+" Table").gameObject.transform.Find ("DocumentHolder").GetComponent<documentData>().addDocument(document);
 			
-			
+
 			
 			// notify the receiver 
 			GameObject.Find("Dialogue Manager").GetComponent<DialogueSystemController>().ShowAlert("You have new document from "+sender+".");
@@ -859,9 +872,11 @@ public class DeskMode : MonoBehaviour {
 	IEnumerator WaitAndQuit(float sec){
 		
 		
-		
+	//	print ("exit");
 		
 		disableChildren();
+
+
 		GameObject.Find(deskOwner).GetComponent<DetectObjects>().moveCameraToPlayer();
 		
 		
