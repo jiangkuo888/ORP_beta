@@ -98,10 +98,10 @@ public class ClickMove : MonoBehaviour
 				//motor.inputMoveDirection = Vector3.zero;
 				transform.GetComponent<AnimationController> ().state = AnimationController.CharacterState.idle;
 				
-				if(inWater)
-					GameObject.Find("SFX Player Footstep").GetComponent<AudioManager>().Stop(GameObject.Find("SFX Player Footstep").GetComponent<AudioManager>().Audioclips[1]);
-				else
-					GameObject.Find("SFX Player Footstep").GetComponent<AudioManager>().Stop(GameObject.Find("SFX Player Footstep").GetComponent<AudioManager>().Audioclips[0]);
+
+				GameObject.Find("SFX Player Footstep").GetComponent<AudioManager>().StopFootsteps();
+
+					
 				
 			}
 		}
@@ -176,9 +176,9 @@ public class ClickMove : MonoBehaviour
 					else{
 						
 						if(inWater)
-							GameObject.Find("SFX Player Footstep").GetComponent<AudioManager>().Play(GameObject.Find("SFX Player Footstep").GetComponent<AudioManager>().Audioclips[1],gameObject.transform.position,1f,1f,false);
+							GameObject.Find("SFX Player Footstep").GetComponent<AudioManager>().PlayRandomWaterSteps();
 						else
-							GameObject.Find("SFX Player Footstep").GetComponent<AudioManager>().Play(GameObject.Find("SFX Player Footstep").GetComponent<AudioManager>().Audioclips[0],gameObject.transform.position,1f,1f,false);
+							GameObject.Find("SFX Player Footstep").GetComponent<AudioManager>().PlayFootsteps(GameObject.Find("SFX Player Footstep").GetComponent<AudioManager>().Audioclips[0],1.0f);
 						
 						
 						if(hit.collider.gameObject.tag == "ground")

@@ -16,6 +16,8 @@ public class AudioManager : MonoBehaviour
 {
 	public AudioClip[] Audioclips;
 
+	public AudioClip[] WaterSteps;
+
 
 	public AudioSource Play(AudioClip clip){
 
@@ -148,11 +150,59 @@ public class AudioManager : MonoBehaviour
 
 	}
 
-	public void PlayRandom(){
+	public AudioSource PlayFootsteps(AudioClip clip,float volume){
+
+		if(GameObject.Find("Audio: Footsteps"))
+			return null;
 
 
 
+		Transform emitter = GameObject.Find (PhotonNetwork.playerName).transform;
+		
+	
+		float pitch = 1.0f;
 
+		GameObject go = new GameObject ("Audio: Footsteps");
+		go.transform.position = emitter.position;
+		go.transform.parent = emitter;
+		
+		//Create the source
+		AudioSource source = go.AddComponent<AudioSource>();
+		if(source.isPlaying == false){
+			source.clip = clip;
+			source.volume = volume;
+			source.pitch = pitch;
+			source.loop = true;
+			source.Play ();
+			return source;
+		}
+		else
+			return null;
+
+
+	}
+
+
+	public void PlayRandomWaterSteps(){
+
+
+
+		AudioClip currentClip = WaterSteps[Random.Range(0,WaterSteps.Length-1)];
+
+
+		PlayFootsteps(currentClip,0.6f);
+
+	}
+
+
+	public void StopFootsteps(){
+
+		if(GameObject.Find ("Audio: Footsteps"))
+		{
+			GameObject.Find ("Audio: Footsteps").GetComponent<AudioSource>().Stop();
+			Destroy (GameObject.Find ("Audio: Footsteps").gameObject);
+			
+		}
 
 	}
 }

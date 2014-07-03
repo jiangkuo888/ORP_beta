@@ -233,7 +233,8 @@ public class DeskMode : MonoBehaviour {
 				
 				if(this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents.Length>0)
 				{
-					
+					GameObject.Find ("AudioManager").GetComponent<AudioManager>().Play(GameObject.Find ("AudioManager").GetComponent<AudioManager>().Audioclips[18]);
+
 					CameraOriginalPosition = Camera.main.gameObject.transform.position;
 					
 					this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].GetComponent<ObjectViewer>().readDocument();
@@ -384,6 +385,8 @@ public class DeskMode : MonoBehaviour {
 				mode = DeskModeSubMode.FileMode;
 			//	this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].GetComponent<DocumentHandler>().lastPage = false;
 				this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].GetComponent<ObjectViewer>().playCloseFileAnim();
+				GameObject.Find ("AudioManager").GetComponent<AudioManager>().Play(GameObject.Find ("AudioManager").GetComponent<AudioManager>().Audioclips[19]);
+
 				this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].GetComponent<ObjectViewer>().resetDocumentPosition();
 				this.transform.Find ("DocumentHolder").GetComponent<documentData>().arrangeDocuments();
 			}
