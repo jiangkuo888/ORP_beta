@@ -109,6 +109,12 @@ public class phoneShowPlayerButton : MonoBehaviour {
 		GameObject.Find(PhotonNetwork.playerName).GetComponent<DetectObjects>().enabled = false;
 		GameObject.Find(PhotonNetwork.playerName).GetComponent<ClickMove>().OnGUI = true;
 		}
+		else
+			if(GameObject.Find(GameObject.Find ("GameManager").GetComponent<GameManagerVik>().characterName))
+		{
+			GameObject.Find(GameObject.Find ("GameManager").GetComponent<GameManagerVik>().characterName).GetComponent<DetectObjects>().enabled = false;
+			GameObject.Find(GameObject.Find ("GameManager").GetComponent<GameManagerVik>().characterName).GetComponent<ClickMove>().OnGUI = true;	
+		}
 
 		Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
 
@@ -140,6 +146,12 @@ public class phoneShowPlayerButton : MonoBehaviour {
 		GameObject.Find(PhotonNetwork.playerName).GetComponent<DetectObjects>().enabled = true;
 		GameObject.Find(PhotonNetwork.playerName).GetComponent<ClickMove>().OnGUI = false;
 		}
+		else
+			if(GameObject.Find(GameObject.Find ("GameManager").GetComponent<GameManagerVik>().characterName))
+		{
+			GameObject.Find(GameObject.Find ("GameManager").GetComponent<GameManagerVik>().characterName).GetComponent<DetectObjects>().enabled = true;
+			GameObject.Find(GameObject.Find ("GameManager").GetComponent<GameManagerVik>().characterName).GetComponent<ClickMove>().OnGUI = false;	
+		}
 		
 		myGUITexture.texture = normal;
 	}
@@ -149,7 +161,10 @@ public class phoneShowPlayerButton : MonoBehaviour {
 		if(conversation !=null)
 		{
 //			print (conversation);
+			if(GameObject.Find (PhotonNetwork.playerName))
 		GameObject.Find("Dialogue Manager").GetComponent<DialogueSystemController>().StartConversation(conversation,GameObject.Find (PhotonNetwork.playerName).transform);
+			else
+				GameObject.Find("Dialogue Manager").GetComponent<DialogueSystemController>().StartConversation(conversation,GameObject.Find(GameObject.Find ("GameManager").GetComponent<GameManagerVik>().characterName).transform);
 		}
 	}
 

@@ -37,12 +37,15 @@ public class DeskMode : MonoBehaviour {
 	public Vector3 CameraOriginalPosition;
 	
 	// playmaker object for tutorial
-	PlayMakerFSM EventFSM;
+	PlayMakerFSM EventFSM,SingleEventFSM;
 	
 	// Use this for initialization
 	void Start () {
 		
 		EventFSM = GameObject.Find ("EventManager-Tutorial").GetComponent<PlayMakerFSM>();
+
+		if(GameObject.Find ("EventManager-Single"))
+		SingleEventFSM = GameObject.Find ("EventManager-Single").GetComponent<PlayMakerFSM>();
 		
 		w = Screen.width;
 		h = Screen.height;
@@ -103,10 +106,132 @@ public class DeskMode : MonoBehaviour {
 				if(EventFSM.enabled)
 					if(EventFSM.ActiveStateName == "Send")
 						EventFSM.FsmVariables.GetFsmBool("sent").Value = true;
+
+				// single player mode
+				if(GameObject.Find ("EventManager-Single"))
+				if(SingleEventFSM.enabled)
+				{
+					if(SingleEventFSM.ActiveStateName == "SendToLO")
+					{
+
+
+						SingleEventFSM.FsmVariables.GetFsmBool("sent").Value = true;
+
+
+						DialogueLua.SetItemField("Send_Document_to_LO","State","Success");
+
+						GameObject.Find ("AudioManager").GetComponent<AudioManager>().Play(GameObject.Find ("AudioManager").GetComponent<AudioManager>().Audioclips[3]);
+
+						GameObject document = this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1];
+						
+						//log player action
+						
+						
+
+						
+						
+						
+						this.transform.Find ("DocumentHolder").GetComponent<documentData>().removeDocument(document);
+						// move the document out of the table
+						
+						//update new original position
+						this.transform.Find ("DocumentHolder").GetComponent<documentData>().updateNewPosition();
+						
+						document.transform.parent = GameObject.Find ("AllDocuments").transform;
+						document.transform.localPosition = new Vector3(0,0,0);
+						// move the first document position to next document
+						
+						
+						if(this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents.Length >0)
+						{
+							if(currentDocumentIndex>1)
+								currentDocumentIndex = currentDocumentIndex -1;
+							else 
+								currentDocumentIndex = 1;
+							
+							
+							// put the first document in the list in the first
+							GameObject.Find ("documentHidden").transform.position = this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[0].transform.position;
+							//this.transform.Find ("DocumentHolder").GetComponent<documentData>().arrangeDocuments();
+							
+							Transform nextTr = this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].transform;
+							if(nextTr.gameObject.GetComponent<ObjectViewer>() ==null)
+								nextTr.gameObject.AddComponent<ObjectViewer>();
+							
+							// calculate the next obj mid point
+							float midX = (nextTr.renderer.bounds.max.x + nextTr.renderer.bounds.min.x)/2;
+							float midY = (nextTr.renderer.bounds.max.y + nextTr.renderer.bounds.min.y)/2;
+							float midZ = (nextTr.renderer.bounds.max.z + nextTr.renderer.bounds.min.z)/2;
+							
+							LeanTween.move(Camera.main.gameObject,new Vector3(midX,midY+cameraOffset,midZ),.6f).setEase(LeanTweenType.easeOutQuint);
+							
+							//Camera.main.gameObject.transform.position = new Vector3(midX,midY+cameraOffset,midZ);
+							
+							LeanTween.move(highlight.gameObject,new Vector3(midX,midY+lightOffset,midZ),.6f).setEase(LeanTweenType.easeOutQuint);
+						}
 				
-				
-				
-				
+					}
+					else if(SingleEventFSM.ActiveStateName == "SendToCR")
+					{
+						SingleEventFSM.FsmVariables.GetFsmBool("CRsent").Value = true;
+
+						DialogueLua.SetItemField("Send_Document_to_CR","State","Success");
+						GameObject.Find ("AudioManager").GetComponent<AudioManager>().Play(GameObject.Find ("AudioManager").GetComponent<AudioManager>().Audioclips[3]);
+						
+						GameObject document = this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1];
+						
+						//log player action
+						
+						
+						
+						
+						
+						
+						this.transform.Find ("DocumentHolder").GetComponent<documentData>().removeDocument(document);
+						// move the document out of the table
+						
+						//update new original position
+						this.transform.Find ("DocumentHolder").GetComponent<documentData>().updateNewPosition();
+						
+						document.transform.parent = GameObject.Find ("AllDocuments").transform;
+						document.transform.localPosition = new Vector3(0,0,0);
+						// move the first document position to next document
+						
+						
+						if(this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents.Length >0)
+						{
+							if(currentDocumentIndex>1)
+								currentDocumentIndex = currentDocumentIndex -1;
+							else 
+								currentDocumentIndex = 1;
+							
+							
+							// put the first document in the list in the first
+							GameObject.Find ("documentHidden").transform.position = this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[0].transform.position;
+							//this.transform.Find ("DocumentHolder").GetComponent<documentData>().arrangeDocuments();
+							
+							Transform nextTr = this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].transform;
+							if(nextTr.gameObject.GetComponent<ObjectViewer>() ==null)
+								nextTr.gameObject.AddComponent<ObjectViewer>();
+							
+							// calculate the next obj mid point
+							float midX = (nextTr.renderer.bounds.max.x + nextTr.renderer.bounds.min.x)/2;
+							float midY = (nextTr.renderer.bounds.max.y + nextTr.renderer.bounds.min.y)/2;
+							float midZ = (nextTr.renderer.bounds.max.z + nextTr.renderer.bounds.min.z)/2;
+							
+							LeanTween.move(Camera.main.gameObject,new Vector3(midX,midY+cameraOffset,midZ),.6f).setEase(LeanTweenType.easeOutQuint);
+							
+							//Camera.main.gameObject.transform.position = new Vector3(midX,midY+cameraOffset,midZ);
+							
+							LeanTween.move(highlight.gameObject,new Vector3(midX,midY+lightOffset,midZ),.6f).setEase(LeanTweenType.easeOutQuint);
+						}
+					}
+
+				}
+
+
+
+
 				if(this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents.Length>0)
 				{
 					// RPC call to display email

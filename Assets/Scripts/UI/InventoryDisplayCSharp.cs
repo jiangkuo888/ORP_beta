@@ -241,7 +241,7 @@ public class InventoryDisplayCSharp : MonoBehaviour {
 				{
 					if (Event.current.button == 1) //If it was a right click we want to drop the item.
 					{
-						print ("right clicked");
+//						print ("right clicked");
 						associatedInventory.GetComponent<InventoryNew>().DropItem(i);
 						Close ();
 					}

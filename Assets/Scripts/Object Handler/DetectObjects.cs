@@ -46,7 +46,7 @@ public class DetectObjects : Photon.MonoBehaviour {
 	void  Update (){
 
 
-		if((gameOn && photonView.isMine) || GameObject.Find ("GameManager").GetComponent<GameManagerVik>().isTutorial)
+		if((gameOn && photonView.isMine) || GameObject.Find ("GameManager").GetComponent<GameManagerVik>().isTutorial || GameObject.Find ("GameManager").GetComponent<GameManagerVik>().singlePlayer)
 		{
 		Ray ray= Camera.main.ScreenPointToRay (Input.mousePosition);
 		RaycastHit hit;

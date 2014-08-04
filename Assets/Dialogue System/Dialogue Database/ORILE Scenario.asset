@@ -445,8 +445,7 @@ MonoBehaviour:
       value: Missing Fire Extinguisher
       type: 0
     - title: Description
-      value: The fire extinguisher is missing. Call security Manager from phone regarding
-        this issue.
+      value: 'The fire extinguisher seems to be missing. How can I get it replaced? '
       type: 0
     - title: Success Description
       value: You have succeeded in identifying the missing fire extinguisher.
@@ -466,8 +465,9 @@ MonoBehaviour:
       value: Fire Escape Blockage
       type: 0
     - title: Description
-      value: 'Fire escape exit is blocked. Pick up (left click) the box and placed
-        it (right click) at an area with a green arrow. '
+      value: 'Some boxes are obstructing the path towards the fire escape route. Maybe
+        I should move the boxes to somewhere more appropriate. Pick up the object
+        and placed it in an aread with a green arrow. '
       type: 0
     - title: Success Description
       value: 
@@ -487,7 +487,7 @@ MonoBehaviour:
       value: Get to Work!
       type: 0
     - title: Description
-      value: Inform employee to return to work
+      value: 
       type: 0
     - title: Success Description
       value: My Manager is a nice person.
@@ -507,8 +507,8 @@ MonoBehaviour:
       value: Expired Fire Ext
       type: 0
     - title: Description
-      value: Fire extinguisher has expired. Call the security manager from phone regarding
-        this issue.
+      value: 'You have found a fire extinguisher that is expired. What should you
+        do? '
       type: 0
     - title: Success Description
       value: 'The expired fire extinguisher has been replaced. '
@@ -528,7 +528,7 @@ MonoBehaviour:
       value: Potential Sales
       type: 0
     - title: Description
-      value: Recommend the appropriate deal to customer according to the needs
+      value: Potential Sales Clinched
       type: 0
     - title: Success Description
       value: You have successfully clinched a new sales!
@@ -549,7 +549,7 @@ MonoBehaviour:
       value: Delivery from Courier
       type: 0
     - title: Description
-      value: 'There is a package for you to collect at the front desk. '
+      value: 'There is a package for you on the front desk. '
       type: 0
     - title: Success Description
       value: You have collected the package.
@@ -569,11 +569,11 @@ MonoBehaviour:
       value: Workdesk Mode
       type: 0
     - title: Description
-      value: Click on your desk to access Desktop Mode. Click on the document tray
-        to access the features.
+      value: 'Click on your desk to access Workdesk Mode. Try out some of the feature
+        on your desk. '
       type: 0
     - title: Success Description
-      value: You have completed familiarizing with Desktop Mode
+      value: You have completed familiarizing with Workdesk Mode
       type: 0
     - title: Failure Description
       value: 
@@ -590,7 +590,7 @@ MonoBehaviour:
       value: Escort Trapped Customer
       type: 0
     - title: Description
-      value: Inform trapped customers to move up to the higher level of this building
+      value: 
       type: 0
     - title: Success Description
       value: 
@@ -630,10 +630,10 @@ MonoBehaviour:
       value: Evacuate Now
       type: 0
     - title: Description
-      value: Calm the customers at the Conference room.
+      value: Calm the people held at the Conference room.
       type: 0
     - title: Success Description
-      value: 'Wait for further instructions before you decide to evacuate. '
+      value: 'You should wait for further instructions before you decide to evacuate. '
       type: 0
     - title: Failure Description
       value: 'You should wait for further instructions before you decide to evacuate. '
@@ -671,7 +671,7 @@ MonoBehaviour:
       value: Grab List
       type: 0
     - title: Description
-      value: Take the Grab List with you (Contact sheet, ID card and unprocessed documents)
+      value: 'Time to grab the grab list before the evacuation starts. '
       type: 0
     - title: Success Description
       value: 
@@ -691,7 +691,7 @@ MonoBehaviour:
       value: Missing Documents
       type: 0
     - title: Description
-      value: Find and send the missing documents to Credit Risk officer.
+      value: 
       type: 0
     - title: Success Description
       value: 
@@ -1353,7 +1353,7 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Sequence
-        value: Camera(Closeup Wall);
+        value: Camera(Closeup Wall);SinglePlayer(FireExtDone);
         type: 0
       conversationID: 38
       isRoot: 0
@@ -4035,7 +4035,7 @@ MonoBehaviour:
         type: 0
       - title: Dialogue Text
         value: 
-        type: 0
+        type: 4
       - title: Video File
         value: 
         type: 0
@@ -4086,7 +4086,7 @@ MonoBehaviour:
         type: 0
       - title: Dialogue Text
         value: 'What''s happening? Give me an answer now! '
-        type: 0
+        type: 4
       - title: Video File
         value: 
         type: 0
@@ -4118,10 +4118,10 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Dialogue Text
-        value: 'Please tell us what is going on!
+        value: 'This is not a test.
 
 '
-        type: 0
+        type: 4
       - title: Video File
         value: 
         type: 0
@@ -4153,8 +4153,8 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Dialogue Text
-        value: This is such a bad day for me...
-        type: 0
+        value: Test 3
+        type: 4
       - title: Video File
         value: 
         type: 0
@@ -6135,7 +6135,7 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Sequence
-        value: 
+        value: SinglePlayer(BoxBlockageDone);
         type: 0
       conversationID: 53
       isRoot: 0
@@ -6177,7 +6177,7 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Sequence
-        value: 
+        value: AddQuest();
         type: 0
       conversationID: 53
       isRoot: 0

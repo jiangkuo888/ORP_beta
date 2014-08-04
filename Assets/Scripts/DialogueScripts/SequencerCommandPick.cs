@@ -119,7 +119,7 @@ public class SequencerCommandPick : SequencerCommand {
 					if(GameObject.Find ("DropArea_"+onUsedObj.name))
 					{
 						GameObject.Find ("DropArea_"+onUsedObj.name).GetComponent<DropAreaController>().AreaActivated = true;
-						print ("111");
+//						print ("111");
 					}
 
 					if(onUsedObj.GetComponent<PhotonView>() != null)
@@ -145,7 +145,7 @@ public class SequencerCommandPick : SequencerCommand {
 					disableRigidbody(onUsedObj.name);
 					enableInventory(onUsedObj);
 
-					print ("222");
+//					print ("222");
 
 
 				

@@ -37,7 +37,7 @@ public class DoorHandler : Photon.MonoBehaviour {
 					EventFSM.FsmVariables.GetFsmBool("Opened_door").Value = true;
 				
 				
-				if(GameObject.Find ("GameManager").GetComponent<GameManagerVik>().isTutorial)
+				if(GameObject.Find ("GameManager").GetComponent<GameManagerVik>().isTutorial || GameObject.Find ("GameManager").GetComponent<GameManagerVik>().singlePlayer)
 					open ();
 				else{
 					PhotonView photonView = PhotonView.Get (this);
@@ -225,7 +225,7 @@ public class DoorHandler : Photon.MonoBehaviour {
 		
 		
 		//Debug.Log("name: " + other.gameObject.transform.name);
-		if(Co.gameObject.tag == "SM" || Co.gameObject.tag == "LM" || Co.gameObject.tag == "LO" || Co.gameObject.tag == "CR" && (Co.GetComponent<PhotonView>().isMine ||GameObject.Find ("GameManager").GetComponent<GameManagerVik>().isTutorial))
+		if((Co.gameObject.tag == "SM" || Co.gameObject.tag == "LM" || Co.gameObject.tag == "LO" || Co.gameObject.tag == "CR") && (Co.GetComponent<PhotonView>().isMine ||GameObject.Find ("GameManager").GetComponent<GameManagerVik>().isTutorial||GameObject.Find ("GameManager").GetComponent<GameManagerVik>().singlePlayer))
 			enter = true;
 	}
 	

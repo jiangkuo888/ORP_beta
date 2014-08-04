@@ -50,6 +50,9 @@ public class GameManagerVik : Photon.MonoBehaviour {
 	int dotInt = 0;
 	
 	public bool gamePaused = false;
+
+	public bool singlePlayer = true;
+	public PlayMakerFSM SingleEventManager;
 	
 	
 	
@@ -65,6 +68,21 @@ public class GameManagerVik : Photon.MonoBehaviour {
 		
 		this.isPlayBack = false;
 		//get player name
+
+		if(singlePlayer)
+		{
+
+
+			characterName = "Sales Manager";
+			return;
+
+
+
+		}
+
+
+
+
 		string tempName = PlayerPrefs.GetString ("playerName");
 		if (tempName != "" && !noLogin) 
 		{
@@ -210,7 +228,15 @@ public class GameManagerVik : Photon.MonoBehaviour {
 	
 	void Update()
 	{
-		if(!isTutorial)
+
+
+		if(singlePlayer)
+		{
+			if(!GameStarted)
+			startSinglePlayerMode();
+
+		}
+		else if(!isTutorial)
 			
 		{
 			if(GameStarted && PhotonNetwork.connected)
@@ -388,8 +414,190 @@ public class GameManagerVik : Photon.MonoBehaviour {
 		
 		
 	}
+	public void startAsCR(){
+
+		GameObject.Find ("phoneButton").GetComponent<GUITexture>().enabled = true;
+		
+		
+		
+		characterName = "Credit Risk";
+		
+		
+		// instantiate prefab based on the name
+		GameObject playa = null;
+		for(int i = 0 ; i < playerPrefabList.Length; i++)
+		{
+			
+			if(characterName == playerPrefabList[i].name)
+			{
+				switch(characterName)
+				{
+				case "Credit Risk":
+					spawnPosition = randomSpawnPosition(CRSpawnPositionList);
+					playa = Instantiate(playerPrefabList[i], spawnPosition, Quaternion.identity) as GameObject;
+					playa.name = characterName;
+					
+					
+					break;
+					
+				default:
+					break;
+					
+				}
+				GameObject.Find ("phoneButton").GetComponent<phoneButton>().playerName = characterName;
+				GameObject.Find ("phoneButton").GetComponent<phoneButton>().loadSmallButtonCharacter();
+				
+				
+			}
+			
+		}
+		
+		
+		//	EZReplayManager.get.record();
+		if (playa != null)
+		{
+			CameraChange (playa);
+			GameObject.Find("SFX Player Footstep").GetComponent<AudioManager>().currentPlayer = playa;
+			GameObject.Find("AudioManager").GetComponent<AudioManager>().currentPlayer = playa;
+		}
+		
+		if(GameObject.Find("LPU Officer"))
+			Destroy(GameObject.Find("LPU Officer"));
+		if(GameObject.Find("Sales Manager"))
+			Destroy(GameObject.Find("Sales Manager"));
+
+
+
+
+	}
+	public void startAsLO(){
+
+
+
+
+
+		GameObject.Find ("phoneButton").GetComponent<GUITexture>().enabled = true;
+		
+		
+
+		characterName = "LPU Officer";
+		
+		
+		// instantiate prefab based on the name
+		GameObject playa = null;
+		for(int i = 0 ; i < playerPrefabList.Length; i++)
+		{
+			
+			if(characterName == playerPrefabList[i].name)
+			{
+				switch(characterName)
+				{
+				case "LPU Officer":
+					spawnPosition = randomSpawnPosition(LOSpawnPositionList);
+					playa = Instantiate(playerPrefabList[i], spawnPosition, Quaternion.identity) as GameObject;
+					playa.name = characterName;
+					
+					
+					break;
+					
+				default:
+					break;
+					
+				}
+				GameObject.Find ("phoneButton").GetComponent<phoneButton>().playerName = characterName;
+				GameObject.Find ("phoneButton").GetComponent<phoneButton>().loadSmallButtonCharacter();
+				
+				
+			}
+			
+		}
+		
+		
+		//	EZReplayManager.get.record();
+		if (playa != null)
+		{
+			CameraChange (playa);
+			GameObject.Find("SFX Player Footstep").GetComponent<AudioManager>().currentPlayer = playa;
+			GameObject.Find("AudioManager").GetComponent<AudioManager>().currentPlayer = playa;
+		}
+
+		if(GameObject.Find("Sales Manager"))
+			Destroy(GameObject.Find("Sales Manager"));
+
+
+	}
+
+
+	void startSinglePlayerMode()
+	{
+
+
+		GameStarted = true;
 	
-	
+
+
+			Camera.main.farClipPlane = 1000; //Main menu set this to 0.4 for a nicer BG    
+			
+			//prepare instantiation data for the viking: Randomly diable the axe and/or shield
+			bool[] enabledRenderers = new bool[2];
+			enabledRenderers[0] = Random.Range(0,2)==0;//Axe
+			enabledRenderers[1] = Random.Range(0, 2) == 0; ;//Shield
+			
+			object[] objs = new object[1]; // Put our bool data in an object array, to send
+			objs[0] = enabledRenderers;
+			
+			
+
+			
+			
+			GameObject.Find ("phoneButton").GetComponent<GUITexture>().enabled = true;
+			
+			
+			string playerName = "Sales Manager";
+			characterName = playerName;
+			
+			
+			// instantiate prefab based on the name
+			GameObject playa = null;
+			for(int i = 0 ; i < playerPrefabList.Length; i++)
+			{
+				
+				if(playerName == playerPrefabList[i].name)
+				{
+					switch(playerName)
+					{
+					case "Sales Manager":
+					spawnPosition = randomSpawnPosition(SMSpawnPositionList);
+					playa = Instantiate(playerPrefabList[i], spawnPosition, Quaternion.identity) as GameObject;
+					playa.name = playerName;
+
+
+					break;
+
+					default:
+						break;
+						
+					}
+					GameObject.Find ("phoneButton").GetComponent<phoneButton>().playerName = playerName;
+					GameObject.Find ("phoneButton").GetComponent<phoneButton>().loadSmallButtonCharacter();
+					
+					
+				}
+				
+			}
+			
+			
+		//	EZReplayManager.get.record();
+			if (playa != null)
+			{
+				CameraChange (playa);
+				GameObject.Find("SFX Player Footstep").GetComponent<AudioManager>().currentPlayer = playa;
+				GameObject.Find("AudioManager").GetComponent<AudioManager>().currentPlayer = playa;
+			}
+
+
+
+	}
 	//start the game
 	void startGame()
 	{
@@ -580,7 +788,7 @@ public class GameManagerVik : Photon.MonoBehaviour {
 		//			SaveAndQuit ();
 		//		}
 		
-		if(!isTutorial && !isTrainer)
+		if(!isTutorial && !isTrainer && !singlePlayer)
 		{
 			if(!GameStarted)
 			{

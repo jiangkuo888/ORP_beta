@@ -23,7 +23,7 @@ public class ThirdPersonNetworkVik : Photon.MonoBehaviour
         //TODO: Bugfix to allow .isMine and .owner from AWAKE!
 
 
-		if(GameObject.Find ("GameManager").GetComponent<GameManagerVik>().isTutorial)
+		if(GameObject.Find ("GameManager").GetComponent<GameManagerVik>().isTutorial ||GameObject.Find ("GameManager").GetComponent<GameManagerVik>().singlePlayer)
 		{
 
 			Renderer[] rs =  this.transform.GetComponentsInChildren<Renderer>();
@@ -191,7 +191,7 @@ public class ThirdPersonNetworkVik : Photon.MonoBehaviour
 
 
 
-		if (!photonView.isMine && !GameObject.Find ("GameManager").GetComponent<GameManagerVik>().isTutorial)
+		if (!photonView.isMine && !GameObject.Find ("GameManager").GetComponent<GameManagerVik>().isTutorial && !GameObject.Find ("GameManager").GetComponent<GameManagerVik>().singlePlayer)
         {
             //Update remote player (smooth this, this looks good, at the cost of some accuracy)
             transform.position = Vector3.Lerp(transform.position, correctPlayerPos, Time.deltaTime * 5);

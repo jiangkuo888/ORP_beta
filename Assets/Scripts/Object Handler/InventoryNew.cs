@@ -99,7 +99,7 @@ public class InventoryNew : MonoBehaviour {
 	//Dropping an Item from the Inventory
 	public void  DropItem (Transform item){
 
-		print ("droping");
+//		print ("droping");
 		GameObject inventoryObject = item.gameObject;
 
 		
@@ -113,10 +113,13 @@ public class InventoryNew : MonoBehaviour {
 			// Transforms a forward position relative to your player into the world space  
 			
 			RemoveItem(item.transform);
-			
-			
-			Transform player = GameObject.Find (PhotonNetwork.playerName).transform;
-			
+
+			Transform player;
+			if(GameObject.Find (PhotonNetwork.playerName))
+			player = GameObject.Find (PhotonNetwork.playerName).transform;
+			else
+			player = GameObject.Find (GameObject.Find ("GameManager").GetComponent<GameManagerVik>().characterName).transform;
+
 			
 			Vector3 throwPos = player.position +Camera.main.transform.forward;
 			

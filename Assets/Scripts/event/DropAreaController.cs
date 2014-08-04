@@ -57,9 +57,25 @@ public class DropAreaController : MonoBehaviour {
 				GameObject.Find ("Dialogue Manager").GetComponent<PlayerActionLog>().addToPlayerActionLog(dropSuccessID, DropObj.name + " has been dropped to the correct place by " + PhotonNetwork.playerName);
 				if(co.GetComponent<Rigidbody>())
 				Destroy(co.GetComponent<Rigidbody>());
-				print(" you have finished task : Clear the obstacle box and move it to target area.");
+
+
+				GameObject.Find("Dialogue Manager").GetComponent<DialogueSystemController>().ShowAlert("Quest Completed: Clear the obstacle box and move it to target area.");
+
+
+				GameObject.Find ("Inventory").GetComponent<InventoryDisplayCSharp>().toggle();
+				GameObject.Find ("Inventory").GetComponent<InventoryDisplayCSharp>().toggle();
+
 
 				DialogueLua.SetItemField("Fire_Escape_Blockage","State","Success");
+				DialogueLua.SetItemField("Send_Document_to_CR","State","Active");
+
+				EventFSM = GameObject.Find ("EventManager-Single").GetComponent<PlayMakerFSM>();
+
+				if(EventFSM.enabled)
+					if(EventFSM.ActiveStateName == "Check Box Blockage")
+						EventFSM.FsmVariables.GetFsmBool("BoxBlockageDone").Value = true;
+
+
 
 				break;
 			case "SignStand":

@@ -18,7 +18,7 @@ public class AudioManager : MonoBehaviour
 
 	public AudioClip[] WaterSteps;
 
-
+	public GameObject currentPlayer;
 	public AudioSource Play(AudioClip clip){
 
 		if (PhotonNetwork.playerName == "admin")
@@ -27,7 +27,12 @@ public class AudioManager : MonoBehaviour
 		}
 		else
 		{
+
+
+			if(GameObject.Find (PhotonNetwork.playerName))
 			return Play(clip, GameObject.Find (PhotonNetwork.playerName).transform, .7f, 1f);
+			else
+				return Play(clip, GameObject.Find("AudioManager").GetComponent<AudioManager>().currentPlayer.transform, .7f, 1f);
 		}
 
 	}
@@ -155,9 +160,11 @@ public class AudioManager : MonoBehaviour
 		if(GameObject.Find("Audio: Footsteps"))
 			return null;
 
-
-
-		Transform emitter = GameObject.Find (PhotonNetwork.playerName).transform;
+		Transform emitter;
+		if(GameObject.Find (PhotonNetwork.playerName)!=null)
+		emitter = GameObject.Find (PhotonNetwork.playerName).transform;
+		else
+		emitter = currentPlayer.transform;
 		
 	
 		float pitch = 1.0f;

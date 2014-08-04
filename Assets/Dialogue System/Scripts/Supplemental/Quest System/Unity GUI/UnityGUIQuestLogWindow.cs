@@ -288,6 +288,12 @@ namespace PixelCrushers.DialogueSystem.UnityGUI {
 								GameObject.Find(PhotonNetwork.playerName).GetComponent<DetectObjects>().enabled = false;
 								GameObject.Find(PhotonNetwork.playerName).GetComponent<ClickMove>().OnGUI = true;	
 							}
+						else
+							if(GameObject.Find(GameObject.Find ("GameManager").GetComponent<GameManagerVik>().characterName))
+						{
+							GameObject.Find(GameObject.Find ("GameManager").GetComponent<GameManagerVik>().characterName).GetComponent<DetectObjects>().enabled = false;
+							GameObject.Find(GameObject.Find ("GameManager").GetComponent<GameManagerVik>().characterName).GetComponent<ClickMove>().OnGUI = true;	
+						}
 
 						ClickQuest(questInfo.Title);
 
@@ -390,6 +396,12 @@ namespace PixelCrushers.DialogueSystem.UnityGUI {
 			{
 				GameObject.Find(PhotonNetwork.playerName).GetComponent<DetectObjects>().enabled = true;
 				GameObject.Find(PhotonNetwork.playerName).GetComponent<ClickMove>().OnGUI = false;	
+			}
+			else
+				if(GameObject.Find(GameObject.Find ("GameManager").GetComponent<GameManagerVik>().characterName))
+			{
+				GameObject.Find(GameObject.Find ("GameManager").GetComponent<GameManagerVik>().characterName).GetComponent<DetectObjects>().enabled = true;
+				GameObject.Find(GameObject.Find ("GameManager").GetComponent<GameManagerVik>().characterName).GetComponent<ClickMove>().OnGUI = false;	
 			}
 			
 		}
