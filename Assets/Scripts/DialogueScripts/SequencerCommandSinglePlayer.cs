@@ -59,6 +59,21 @@ public class SequencerCommandSinglePlayer : SequencerCommand {
 
 			
 			break;
+
+		case "FeliciaCalled":
+			if(EventFSM.enabled)
+				if(EventFSM.ActiveStateName == "leave quest done")
+					EventFSM.FsmVariables.GetFsmBool("FeliciaCalled").Value = true;
+			
+			break;
+
+		case "FraudCalled":
+			if(EventFSM.enabled)
+				if(EventFSM.ActiveStateName == "Fraud call")
+					EventFSM.FsmVariables.GetFsmBool("FraudCalled").Value = true;
+			
+			break;
+
 		default:
 			break;
 

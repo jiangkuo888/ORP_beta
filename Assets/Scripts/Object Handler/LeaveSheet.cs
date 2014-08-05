@@ -46,7 +46,27 @@ namespace PixelCrushers.DialogueSystem.Examples {
 				sheetsOriginalRotation = this.gameObject.transform.rotation;
 
 				Vector3 newPosition = Camera.main.transform.position +  Camera.main.transform.forward*0.2f /*+ new Vector3 (0,1.5f,0)*/;
-				newPosition.x += x;
+				newPosition.x += x;	
+				newPosition.y += y;
+				newPosition.z += z;
+				this.gameObject.transform.position = newPosition;
+				this.gameObject.transform.localEulerAngles = new Vector3(90.0f,180.0f,0);
+
+			}
+			else if (GameObject.Find ("Credit Risk"))
+			{
+				GameObject.Find ("Credit Risk").GetComponent<ClickMove>().enabled = false;
+				GameObject.Find ("Credit Risk").GetComponent<MouseCamera>().enabled = false;
+				GameObject.Find ("Credit Risk").GetComponent<DetectObjects>().enabled = false;
+				GameObject.Find ("Credit Risk").GetComponent<Selector>().enabled = false;
+				
+				//move camera to desk and sheets in front of him
+				GameObject.Find("Credit Risk Table").GetComponent<DeskMode>().moveCameraToDesk();
+				sheetsOriginalPosition = this.gameObject.transform.position;
+				sheetsOriginalRotation = this.gameObject.transform.rotation;
+				
+				Vector3 newPosition = Camera.main.transform.position +  Camera.main.transform.forward*0.2f /*+ new Vector3 (0,1.5f,0)*/;
+				newPosition.x += x;	
 				newPosition.y += y;
 				newPosition.z += z;
 				this.gameObject.transform.position = newPosition;
@@ -71,6 +91,20 @@ namespace PixelCrushers.DialogueSystem.Examples {
 
 				this.gameObject.transform.position = sheetsOriginalPosition;
 				this.gameObject.transform.rotation = sheetsOriginalRotation;
+			}
+			else if (GameObject.Find ("Credit Risk"))
+			{
+				GameObject.Find ("Credit Risk").GetComponent<ClickMove>().enabled = true;
+				GameObject.Find ("Credit Risk").GetComponent<MouseCamera>().enabled = true;
+				GameObject.Find ("Credit Risk").GetComponent<DetectObjects>().enabled = true;
+				GameObject.Find ("Credit Risk").GetComponent<Selector>().enabled = true;
+				
+				//move back to original places
+				GameObject.Find("Credit Risk").GetComponent<DetectObjects>().moveCameraToPlayer();
+				
+				this.gameObject.transform.position = sheetsOriginalPosition;
+				this.gameObject.transform.rotation = sheetsOriginalRotation;
+				
 			}
 		}
 	}

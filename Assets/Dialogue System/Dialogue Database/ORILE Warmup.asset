@@ -33,7 +33,7 @@ MonoBehaviour:
     italic: 0
     underline: 0
   actors:
-  - id: 9
+  - id: 12
     fields:
     - title: Name
       value: Player
@@ -48,10 +48,10 @@ MonoBehaviour:
       value: True
       type: 2
     portrait: {fileID: 0}
-  - id: 38
+  - id: 41
     fields:
     - title: Name
-      value: Narrator
+      value: Kevin
       type: 0
     - title: Pictures
       value: '[]'
@@ -63,7 +63,7 @@ MonoBehaviour:
       value: False
       type: 2
     portrait: {fileID: 0}
-  - id: 20
+  - id: 23
     fields:
     - title: Name
       value: NPC
@@ -79,7 +79,7 @@ MonoBehaviour:
       type: 2
     portrait: {fileID: 0}
   items:
-  - id: 28
+  - id: 29
     fields:
     - title: Name
       value: New Item
@@ -99,7 +99,7 @@ MonoBehaviour:
     - title: Is Item
       value: False
       type: 2
-  - id: 29
+  - id: 30
     fields:
     - title: Name
       value: Make Announcement
@@ -119,7 +119,7 @@ MonoBehaviour:
     - title: Is Item
       value: False
       type: 2
-  - id: 30
+  - id: 31
     fields:
     - title: Name
       value: Send Document to LO
@@ -139,7 +139,7 @@ MonoBehaviour:
     - title: Is Item
       value: False
       type: 2
-  - id: 31
+  - id: 32
     fields:
     - title: Name
       value: Talk to Kevin
@@ -159,7 +159,7 @@ MonoBehaviour:
     - title: Is Item
       value: False
       type: 2
-  - id: 32
+  - id: 33
     fields:
     - title: Name
       value: Send Document to CR
@@ -179,8 +179,48 @@ MonoBehaviour:
     - title: Is Item
       value: False
       type: 2
+  - id: 34
+    fields:
+    - title: Name
+      value: Check Kevin's application
+      type: 0
+    - title: Description
+      value: 
+      type: 0
+    - title: Success Description
+      value: 
+      type: 0
+    - title: Failure Description
+      value: 
+      type: 0
+    - title: State
+      value: unassigned
+      type: 0
+    - title: Is Item
+      value: False
+      type: 2
+  - id: 35
+    fields:
+    - title: Name
+      value: Leave Scenario
+      type: 0
+    - title: Description
+      value: 
+      type: 0
+    - title: Success Description
+      value: 
+      type: 0
+    - title: Failure Description
+      value: 
+      type: 0
+    - title: State
+      value: unassigned
+      type: 0
+    - title: Is Item
+      value: False
+      type: 2
   locations:
-  - id: 1
+  - id: 2
     fields:
     - title: Name
       value: New Location
@@ -213,10 +253,10 @@ MonoBehaviour:
       value: 
       type: 0
     - title: Actor
-      value: 38
+      value: 9
       type: 5
     - title: Conversant
-      value: 38
+      value: 20
       type: 5
     nodeColor: Red
     dialogueEntries:
@@ -265,16 +305,16 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 38
+        value: 20
         type: 5
       - title: Conversant
-        value: 38
+        value: 9
         type: 5
       - title: Menu Text
         value: 
         type: 0
       - title: Dialogue Text
-        value: 'This is your Office and you will find your work table here. '
+        value: Hi, is this the Sales Manager?
         type: 4
       - title: Video File
         value: 
@@ -304,17 +344,16 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 38
+        value: 9
         type: 5
       - title: Conversant
-        value: 38
+        value: 20
         type: 5
       - title: Menu Text
         value: 
         type: 0
       - title: Dialogue Text
-        value: 'As a Sales Manager, your role is to check and verify the documents
-          then send them to your colleagues for further processing.
+        value: 'Yes, Sales Manager here. Who is it speaking?
 
 '
         type: 4
@@ -346,17 +385,17 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 38
+        value: 20
         type: 5
       - title: Conversant
-        value: 38
+        value: 9
         type: 5
       - title: Menu Text
         value: 
         type: 0
       - title: Dialogue Text
-        value: You will not be able to sign any of the documents but it will be of
-          great help if you check through the documents before you send them.
+        value: This is the receptionist speaking. A lady has just informed me that
+          her child is missing. Can you kindly make an announcement about it?
         type: 4
       - title: Video File
         value: 
@@ -386,17 +425,17 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 38
+        value: 9
         type: 5
       - title: Conversant
-        value: 38
+        value: 20
         type: 5
       - title: Menu Text
         value: 
         type: 0
       - title: Dialogue Text
-        value: 'Your main role will be to go around the Sales Floor and attend to
-          the customers and increase your sales. '
+        value: Alright, I'll make an announcement now. May I know how to address the
+          child?
         type: 4
       - title: Video File
         value: 
@@ -426,17 +465,16 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 38
+        value: 20
         type: 5
       - title: Conversant
-        value: 38
+        value: 9
         type: 5
       - title: Menu Text
         value: 
         type: 0
       - title: Dialogue Text
-        value: 'Now you are free to explore the premise and get yourself familiar
-          with the place, ok? '
+        value: It's Tan Xi Ming. Thank you for your help.
         type: 4
       - title: Video File
         value: 
@@ -465,10 +503,10 @@ MonoBehaviour:
       value: 
       type: 0
     - title: Actor
-      value: 38
+      value: 9
       type: 5
     - title: Conversant
-      value: 38
+      value: 9
       type: 5
     nodeColor: Red
     dialogueEntries:
@@ -517,17 +555,16 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 38
+        value: 9
         type: 5
       - title: Conversant
-        value: 38
+        value: 9
         type: 5
       - title: Menu Text
         value: 
         type: 0
       - title: Dialogue Text
-        value: 'Hi, you work here at the Loan Processing Unit and this is your office.
-          You can find your desk here. '
+        value: Attention everyone. This is a customer announcement.
         type: 4
       - title: Video File
         value: 
@@ -557,18 +594,17 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 38
+        value: 9
         type: 5
       - title: Conversant
-        value: 38
+        value: 9
         type: 5
       - title: Menu Text
         value: 
         type: 0
       - title: Dialogue Text
-        value: 'Check out the documents on your table. Your main role is to process
-          and verify those documents that come to you and sign them off before you
-          send them to your colleague. '
+        value: 'Customer service would like to ask a Tan Xi Ming, I repeat, Tan Xi
+          Ming to come to receptionist desk. '
         type: 4
       - title: Video File
         value: 
@@ -598,17 +634,16 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 38
+        value: 9
         type: 5
       - title: Conversant
-        value: 38
+        value: 9
         type: 5
       - title: Menu Text
         value: 
         type: 0
       - title: Dialogue Text
-        value: 'Now you are free to explore the premise and get yourself familiar
-          with the place, ok? '
+        value: Tan Xi Ming, your mother is waiting for you. Thank you.
         type: 4
       - title: Video File
         value: 
@@ -642,7 +677,7 @@ MonoBehaviour:
       value: 9
       type: 5
     - title: Conversant
-      value: 20
+      value: 38
       type: 5
     nodeColor: Red
     dialogueEntries:
@@ -691,7 +726,7 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 11
+        value: 38
         type: 5
       - title: Conversant
         value: 9
@@ -763,7 +798,7 @@ MonoBehaviour:
         value: 9
         type: 5
       - title: Conversant
-        value: 11
+        value: 38
         type: 5
       - title: Menu Text
         value: Enquire for more information
@@ -799,7 +834,7 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 11
+        value: 38
         type: 5
       - title: Conversant
         value: 9
@@ -847,7 +882,7 @@ MonoBehaviour:
         value: 9
         type: 5
       - title: Conversant
-        value: 11
+        value: 38
         type: 5
       - title: Menu Text
         value: '[f]Unsecured Loan Pitch'
@@ -885,7 +920,7 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 11
+        value: 38
         type: 5
       - title: Conversant
         value: 9
@@ -929,7 +964,7 @@ MonoBehaviour:
         value: 9
         type: 5
       - title: Conversant
-        value: 11
+        value: 38
         type: 5
       - title: Menu Text
         value: 
@@ -966,7 +1001,7 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 11
+        value: 38
         type: 5
       - title: Conversant
         value: 9
@@ -1010,7 +1045,7 @@ MonoBehaviour:
         value: 9
         type: 5
       - title: Conversant
-        value: 11
+        value: 38
         type: 5
       - title: Menu Text
         value: 
@@ -1046,7 +1081,7 @@ MonoBehaviour:
         value: 9
         type: 5
       - title: Conversant
-        value: 11
+        value: 38
         type: 5
       - title: Menu Text
         value: '[f]Secured Loan Pitch'
@@ -1083,7 +1118,7 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Actor
-        value: 11
+        value: 38
         type: 5
       - title: Conversant
         value: 9

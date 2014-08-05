@@ -43,9 +43,9 @@ public class DeskMode : MonoBehaviour {
 	void Start () {
 		
 		EventFSM = GameObject.Find ("EventManager-Tutorial").GetComponent<PlayMakerFSM>();
-
+		
 		if(GameObject.Find ("EventManager-Single"))
-		SingleEventFSM = GameObject.Find ("EventManager-Single").GetComponent<PlayMakerFSM>();
+			SingleEventFSM = GameObject.Find ("EventManager-Single").GetComponent<PlayMakerFSM>();
 		
 		w = Screen.width;
 		h = Screen.height;
@@ -106,28 +106,29 @@ public class DeskMode : MonoBehaviour {
 				if(EventFSM.enabled)
 					if(EventFSM.ActiveStateName == "Send")
 						EventFSM.FsmVariables.GetFsmBool("sent").Value = true;
-
+				
 				// single player mode
 				if(GameObject.Find ("EventManager-Single"))
-				if(SingleEventFSM.enabled)
+					if(SingleEventFSM.enabled)
 				{
 					if(SingleEventFSM.ActiveStateName == "SendToLO")
 					{
-
-
+						
+						
 						SingleEventFSM.FsmVariables.GetFsmBool("sent").Value = true;
-
-
+						
+						
 						DialogueLua.SetItemField("Send_Document_to_LO","State","Success");
-
+						
 						GameObject.Find ("AudioManager").GetComponent<AudioManager>().Play(GameObject.Find ("AudioManager").GetComponent<AudioManager>().Audioclips[3]);
-
+						
 						GameObject document = this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1];
 						
 						//log player action
 						
+						GameObject.Find("Dialogue Manager").GetComponent<DialogueSystemController>().ShowAlert("The loan application has been sent to LPU Officer.");
 						
-
+						
 						
 						
 						
@@ -169,12 +170,12 @@ public class DeskMode : MonoBehaviour {
 							
 							LeanTween.move(highlight.gameObject,new Vector3(midX,midY+lightOffset,midZ),.6f).setEase(LeanTweenType.easeOutQuint);
 						}
-				
+						
 					}
 					else if(SingleEventFSM.ActiveStateName == "SendToCR")
 					{
 						SingleEventFSM.FsmVariables.GetFsmBool("CRsent").Value = true;
-
+						
 						DialogueLua.SetItemField("Send_Document_to_CR","State","Success");
 						GameObject.Find ("AudioManager").GetComponent<AudioManager>().Play(GameObject.Find ("AudioManager").GetComponent<AudioManager>().Audioclips[3]);
 						
@@ -182,7 +183,7 @@ public class DeskMode : MonoBehaviour {
 						
 						//log player action
 						
-						
+						GameObject.Find("Dialogue Manager").GetComponent<DialogueSystemController>().ShowAlert("The loan application has been sent to Credit Risk.");
 						
 						
 						
@@ -226,12 +227,12 @@ public class DeskMode : MonoBehaviour {
 							LeanTween.move(highlight.gameObject,new Vector3(midX,midY+lightOffset,midZ),.6f).setEase(LeanTweenType.easeOutQuint);
 						}
 					}
-
+					
 				}
-
-
-
-
+				
+				
+				
+				
 				if(this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents.Length>0)
 				{
 					// RPC call to display email
@@ -247,7 +248,7 @@ public class DeskMode : MonoBehaviour {
 						photonView.RPC ("sendDocument",PhotonTargets.AllBuffered,"LPU Manager","Credit Risk",this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].name);
 					if(PhotonNetwork.playerName == "Credit Risk")
 						photonView.RPC ("sendDocument",PhotonTargets.AllBuffered,"Credit Risk","LPU Manager",this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].name);
-
+					
 					// play sound effect
 					GameObject.Find ("AudioManager").GetComponent<AudioManager>().Play(GameObject.Find ("AudioManager").GetComponent<AudioManager>().Audioclips[3]);
 					
@@ -262,6 +263,19 @@ public class DeskMode : MonoBehaviour {
 					rejectDocument();
 					// play sound effect
 					GameObject.Find ("AudioManager").GetComponent<AudioManager>().Play(GameObject.Find ("AudioManager").GetComponent<AudioManager>().Audioclips[4]);
+					
+					if(GameObject.Find ("EventManager-Single"))
+						if(SingleEventFSM.enabled)
+					{
+						if(SingleEventFSM.ActiveStateName == "Reject the loan")
+						{
+
+
+							SingleEventFSM.FsmVariables.GetFsmBool("LoanRejected").Value = true;
+
+						}
+					}
+					
 				}
 				// reject the document
 			}
@@ -294,15 +308,15 @@ public class DeskMode : MonoBehaviour {
 							currentDocumentIndex --;
 							
 						}
-
-
-
+						
+						
+						
 						
 						this.transform.Find ("DocumentHolder").GetComponent<documentData>().removeDocument(targetDocument);
-
-//						print (this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents.Length);
-
-
+						
+						//						print (this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents.Length);
+						
+						
 						print (currentDocumentIndex);
 						// move the document out of the table
 						targetDocument.transform.parent = GameObject.Find ("AllDocuments").transform;
@@ -323,7 +337,7 @@ public class DeskMode : MonoBehaviour {
 					
 					GameObject.Find ("phoneButton").GetComponent<GUITexture>().enabled = true;
 					GameObject.Find ("InventoryButton").GetComponent<GUITexture>().enabled = true;
-
+					
 					GameObject.Find ("QuestLogSmall").GetComponent<questLogDisplay>().open();
 					
 					StartCoroutine(WaitAndQuit(0.3f));
@@ -342,24 +356,24 @@ public class DeskMode : MonoBehaviour {
 				if(EventFSM.enabled)
 					if(EventFSM.ActiveStateName == "ShowInstructions")
 						EventFSM.FsmVariables.GetFsmBool("IsReading").Value = true;
-
+				
 				if(this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents.Length >0 &&this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].name == "Risk Report" )
 				{
-
+					
 					if(FsmVariables.GlobalVariables.GetFsmInt("TimeSinceCreate").Value <= 540)
 					{
 						GameObject.Find ("phoneButton").GetComponent<phoneButton>().OnCall("Credit Risk","Risk report");
 						GameObject.Find("Dialogue Manager").GetComponent<PlayerActionLog>().addToPlayerActionLog("42A", "compare document");
 					}
-
+					
 				}
-
+				
 				
 				
 				if(this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents.Length>0)
 				{
 					GameObject.Find ("AudioManager").GetComponent<AudioManager>().Play(GameObject.Find ("AudioManager").GetComponent<AudioManager>().Audioclips[18]);
-
+					
 					CameraOriginalPosition = Camera.main.gameObject.transform.position;
 					
 					this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].GetComponent<ObjectViewer>().readDocument();
@@ -370,9 +384,9 @@ public class DeskMode : MonoBehaviour {
 					   this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].GetComponent<DocumentHandler>().pages.Length - 1)
 					{
 						int lastIndex = this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].GetComponent<DocumentHandler>().currentPageIndex;
-
+						
 						this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].GetComponent<DocumentHandler>().pages[lastIndex].GetComponent<pageHandler>().isLastPage = true;
-
+						
 					}
 				}
 				
@@ -421,7 +435,7 @@ public class DeskMode : MonoBehaviour {
 					//Camera.main.gameObject.transform.position = new Vector3(midX,midY+cameraOffset,midZ);
 					
 					LeanTween.move(highlight.gameObject,new Vector3(midX,midY+lightOffset,midZ),.6f).setEase(LeanTweenType.easeOutQuint);
-
+					
 					GameObject.Find ("AudioManager").GetComponent<AudioManager>().Play(GameObject.Find ("AudioManager").GetComponent<AudioManager>().Audioclips[8]);
 					
 				}
@@ -451,7 +465,7 @@ public class DeskMode : MonoBehaviour {
 					currentDocumentIndex--;
 					
 					
-										print (currentDocumentIndex);
+					print (currentDocumentIndex);
 					
 					Transform nextTr = this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].transform;
 					if(nextTr.gameObject.GetComponent<ObjectViewer>() ==null)
@@ -464,7 +478,7 @@ public class DeskMode : MonoBehaviour {
 					
 					LeanTween.move(Camera.main.gameObject,new Vector3(midX,midY+cameraOffset,midZ),.6f).setEase(LeanTweenType.easeOutQuint);
 					LeanTween.move(highlight.gameObject,new Vector3(midX,midY+lightOffset,midZ),.6f).setEase(LeanTweenType.easeOutQuint);
-
+					
 					GameObject.Find ("AudioManager").GetComponent<AudioManager>().Play(GameObject.Find ("AudioManager").GetComponent<AudioManager>().Audioclips[8]);
 					
 				}
@@ -486,7 +500,7 @@ public class DeskMode : MonoBehaviour {
 		case DeskModeSubMode.pageMode:
 		{
 			this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].GetComponent<DocumentHandler>().mode = "PageMode";
-
+			
 			if(GUI.Button( new LTRect(w - 200f, .9f*h - 50f, 100f, 50f ).rect, "Next Page",customSkin.button))
 			{
 				this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].GetComponent<DocumentHandler>().showNextPage();
@@ -508,10 +522,10 @@ public class DeskMode : MonoBehaviour {
 			{
 				Camera.main.GetComponent<magnify>().disableZoom();
 				mode = DeskModeSubMode.FileMode;
-			//	this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].GetComponent<DocumentHandler>().lastPage = false;
+				//	this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].GetComponent<DocumentHandler>().lastPage = false;
 				this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].GetComponent<ObjectViewer>().playCloseFileAnim();
 				GameObject.Find ("AudioManager").GetComponent<AudioManager>().Play(GameObject.Find ("AudioManager").GetComponent<AudioManager>().Audioclips[19]);
-
+				
 				this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].GetComponent<ObjectViewer>().resetDocumentPosition();
 				this.transform.Find ("DocumentHolder").GetComponent<documentData>().arrangeDocuments();
 			}
@@ -670,12 +684,12 @@ public class DeskMode : MonoBehaviour {
 			
 		case DeskModeSubMode.None:
 		{
-
+			
 			if(this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents.Length>0){
 				
 				this.transform.Find ("DocumentHolder").GetComponent<documentData>().documents[currentDocumentIndex-1].GetComponent<DocumentHandler>().mode = "NoneMode";
 			}
-
+			
 			if(GUI.Button( new LTRect(1.0f*w - 165f, 1.0f*h - 50f, 150f, 50f ).rect, "Quit DeskMode",customSkin.button))
 			{
 				
@@ -683,7 +697,7 @@ public class DeskMode : MonoBehaviour {
 					if(EventFSM.ActiveStateName == "Quit deskmode")
 						EventFSM.FsmVariables.GetFsmBool("isQuit").Value = true;
 				
-				
+
 				
 				//if(GameObject.Find ("InventoryObj").GetComponent<inventory>().inventoryObject !=null)
 				//	GameObject.Find ("InventoryObj").GetComponent<GUITexture>().enabled = true;
@@ -697,11 +711,22 @@ public class DeskMode : MonoBehaviour {
 				
 				GameObject.Find ("phoneButton").GetComponent<GUITexture>().enabled = true;
 				GameObject.Find ("InventoryButton").GetComponent<GUITexture>().enabled = true;
-
+				
 				GameObject.Find ("QuestLogSmall").GetComponent<questLogDisplay>().open();
-
+				
 				
 				StartCoroutine(WaitAndQuit(0.3f));
+
+
+				if(SingleEventFSM)
+				{
+					if(SingleEventFSM.ActiveStateName == "waitforquitdesk")
+						SingleEventFSM.FsmVariables.GetFsmBool("SMquitDesk").Value = true;
+
+					if(SingleEventFSM.ActiveStateName == "waitforquitdesk2")
+						SingleEventFSM.FsmVariables.GetFsmBool("LOquitDesk").Value = true;
+
+				}
 				
 			}
 			break;
@@ -841,7 +866,7 @@ public class DeskMode : MonoBehaviour {
 			
 			GameObject.Find (receiver+" Table").gameObject.transform.Find ("DocumentHolder").GetComponent<documentData>().addDocument(document);
 			
-
+			
 			
 			// notify the receiver 
 			GameObject.Find("Dialogue Manager").GetComponent<DialogueSystemController>().ShowAlert("You have new document from "+sender+".");
@@ -885,7 +910,7 @@ public class DeskMode : MonoBehaviour {
 			{
 				
 				if(sender =="Sales Manager"){
-
+					
 				}
 				else
 				{
@@ -900,8 +925,8 @@ public class DeskMode : MonoBehaviour {
 			else              // for wrong document
 			{
 				if(sender =="Sales Manager"){
-
-
+					
+					
 				}
 				else
 				{
@@ -967,7 +992,7 @@ public class DeskMode : MonoBehaviour {
 			child.gameObject.GetComponent<DeskObjectHandler>().tableName = this.name;
 		}
 	}
-
+	
 	void disableChildren(){
 		foreach(Transform child in transform)
 			if(child.gameObject.GetComponent<DeskObjectHandler>() !=null)
@@ -1000,11 +1025,11 @@ public class DeskMode : MonoBehaviour {
 	IEnumerator WaitAndQuit(float sec){
 		
 		
-	//	print ("exit");
+		//	print ("exit");
 		
 		disableChildren();
-
-
+		
+		
 		GameObject.Find(deskOwner).GetComponent<DetectObjects>().moveCameraToPlayer();
 		
 		
